@@ -1,14 +1,14 @@
 
-Output from the program FRONTIER (Version 4.1)
+Output from the program FRONTIER (Version 4.1c)
 
 
-instruction file = eg1.ins     
+instruction file = EG1.INS     
 data file =        eg1.dta     
 
 
-Error Components Frontier (see B&C 1992)
-The model is a production function
-The dependent variable is logged
+ Error Components Frontier (see B&C 1992)
+ The model is a production function
+ The dependent variable is logged
 
 
 the ols estimates are :
@@ -29,16 +29,17 @@ the estimates after the grid search were :
   beta 2         0.53330637E+00
   sigma-squared  0.22067413E+00
   gamma          0.80000000E+00
-  mu is restricted to be zero
-  eta is restricted to be zero
-
-
- iteration =     0  func evals =     19  llf = -0.17034854E+02
+   mu is restricted to be zero
+   eta is restricted to be zero
+ 
+ 
+ iteration =     0  func evals =     20  llf = -0.17034854E+02
      0.58014216E+00 0.28049246E+00 0.53330637E+00 0.22067413E+00 0.80000000E+00
  gradient step
- iteration =     5  func evals =     41  llf = -0.17027230E+02
+ iteration =     5  func evals =     42  llf = -0.17027230E+02
      0.56160697E+00 0.28108701E+00 0.53647803E+00 0.21694170E+00 0.79718731E+00
- iteration =     7  func evals =     63  llf = -0.17027229E+02
+ pt better than entering pt cannot be found
+ iteration =     7  func evals =     69  llf = -0.17027229E+02
      0.56161963E+00 0.28110205E+00 0.53647981E+00 0.21700046E+00 0.79720730E+00
 
 
@@ -51,14 +52,14 @@ the final mle estimates are :
   beta 2         0.53647981E+00  0.45251553E-01  0.11855501E+02
   sigma-squared  0.21700046E+00  0.63909106E-01  0.33954545E+01
   gamma          0.79720730E+00  0.13642399E+00  0.58436004E+01
-  mu is restricted to be zero
-  eta is restricted to be zero
+   mu is restricted to be zero
+   eta is restricted to be zero
 
 log likelihood function =  -0.17027229E+02
 
 LR test of the one-sided error =   0.28392402E+01
 with number of restrictions = 1
-[note that this statistic has a mixed chi-square distribution]
+ [note that this statistic has a mixed chi-square distribution]
 
 number of iterations =      7
 
