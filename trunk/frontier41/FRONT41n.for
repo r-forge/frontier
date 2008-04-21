@@ -883,7 +883,7 @@ c	read(5,61) chop
 	else if ((chop.eq.'f').or.(chop.eq.'F')) then  
 	write(6,*) ' enter instruction file name :  '  
 c	read(5,60) kinf
-	kinf='front41.ins'
+	kinf='f41-ins.txt'
   60    format(a12)   
 	open(unit=50,file=kinf,status='old')   
 	read(50,*) im
