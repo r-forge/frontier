@@ -2,8 +2,8 @@
 Output from the program FRONTIER (Version 4.1c)
 
 
-instruction file = eg1.ins     
-data file =        eg1.dta     
+instruction file = eg1-ins.txt 
+data file =        eg1-dta.txt 
 
 
  Error Components Frontier (see B&C 1992)

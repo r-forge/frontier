@@ -1,6 +1,6 @@
 1               1=ERROR COMPONENTS MODEL, 2=TE EFFECTS MODEL
-eg1.dta         DATA FILE NAME
-eg1.out         OUTPUT FILE NAME
+eg1-dta.txt         DATA FILE NAME
+eg1-out.txt         OUTPUT FILE NAME
 1               1=PRODUCTION FUNCTION, 2=COST FUNCTION
 y               LOGGED DEPENDENT VARIABLE (Y/N)
 60              NUMBER OF CROSS-SECTIONS
