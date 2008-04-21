@@ -1,0 +1,26 @@
+1               1=ERROR COMPONENTS MODEL, 2=TE EFFECTS MODEL
+eg.dta        DATA FILE NAME
+eg.out        OUTPUT FILE NAME
+1               1=PRODUCTION FUNCTION, 2=COST FUNCTION
+y               LOGGED DEPENDENT VARIABLE (Y/N)
+15              NUMBER OF CROSS-SECTIONS
+5               NUMBER OF TIME PERIODS
+68              NUMBER OF OBSERVATIONS IN TOTAL
+2               NUMBER OF REGRESSOR VARIABLES (Xs) 
+y               MU (Y/N) [OR DELTA0 (Y/N) IF USING TE EFFECTS MODEL]
+y               ETA (Y/N) [OR NUMBER OF TE EFFECTS REGRESSORS (Zs)]
+y               STARTING VALUES (Y/N)
+.2                IF YES THEN     BETA0              
+.4                                BETA1 TO
+.5                                BETAK            
+.3                                SIGMA SQUARED
+.7                                GAMMA
+.0                                MU              [OR DELTA0
+.0                                ETA                 DELTA1 TO
+                                                      DELTAP]
+
+                                NOTE: IF YOU ARE SUPPLYING STARTING VALUES
+                                AND YOU HAVE RESTRICTED MU [OR DELTA0] TO BE
+                                ZERO THEN YOU SHOULD NOT SUPPLY A STARTING
+                                VALUE FOR THIS PARAMETER.
+
