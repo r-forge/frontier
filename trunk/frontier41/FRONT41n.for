@@ -25,7 +25,7 @@ c       last update = 4/March/1997
 	character*12 koutf,kdatf,kinf  
 	common/eight/koutf,kdatf,kinf  
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il   
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	open(unit=70,file='front41.000',status='old')  
 	read(70,*) 
@@ -52,7 +52,7 @@ c       contains the main loop of this iterative program.
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
 	common/eight/koutf,kdatf,kinf        
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
 	dimension ob(:),gb(:),obse(:),x(:),y(:),s(:)   
@@ -133,7 +133,7 @@ c       contains the main loop of this iterative program.
    60   s(i)=s(i)-h(i,j)*gy(j) 
 	goto 40
    70   continue  
-	write(70,301) iter,nfunct,-fy   
+	write(70,301) iter,nfunct,-fy
 	nc=1   
   303   write(70,302) (y(i),i=nc,min(n,nc+4))   
 	nc=nc+5
@@ -152,7 +152,7 @@ c       the program is halted when the proportional change in the log-
 c       likelihood and in each of the parameters is no greater than   
 c       a specified tolerance.
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	dimension x(n),y(n)
@@ -229,7 +229,7 @@ c       calculates the direction matrix (p).
 c       unidimensional search (coggin) to determine optimal step length
 c       determines the step length (t) using a unidimensional search. 
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il        
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	dimension x(n),y(n),s(n),gx(n),delx(n)
@@ -373,7 +373,7 @@ c       determines the step length (t) using a unidimensional search.
 	subroutine check(b,xx)
 c       checks if params are out of bounds & adjusts if required. 
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	dimension b(n),xx(nn,nt,nr)
@@ -396,7 +396,7 @@ c       checks if params are out of bounds & adjusts if required.
 c       calculates the negative of the log-likelihood function of the
 c       error components model.
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	data pi/3.1415926/ 
 	dimension b(n),yy(nn,nt),xx(nn,nt,nr)
@@ -461,7 +461,7 @@ c       error components model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the error components model.
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr) 
 	call check(b,xx)  
@@ -588,7 +588,7 @@ c       of the log-likelihood function of the error components model.
 c       calculates the negative of the log-likelihood function of the
 c       TE effects model.
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension b(n),yy(nn,nt),xx(nn,nt,nr)
 	data pi/3.1415926/ 
@@ -629,7 +629,7 @@ c       TE effects model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the TE effects model.   
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
 	call check(b,xx)  
@@ -750,7 +750,7 @@ c       also reads data from a file.
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
 	common/eight/koutf,kdatf,kinf  
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst,chmu,cheta,chl
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
@@ -899,7 +899,7 @@ c       efficiency.
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
 	common/eight/koutf,kdatf,kinf  
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn)
@@ -965,7 +965,7 @@ c       efficiency.
 	do 83 i=1,nz
 	write(70,82) i-nmu,sv(nb+i)
    83   continue   
-	endif  
+	endif
 	write (70,203) sv(n1)  
 	write (70,204) sv(n2)  
 	if (im.eq.1) then
@@ -982,55 +982,55 @@ c       efficiency.
 	endif
 	end if 
 	if(igrid.eq.1) then
-	write (70,405) 
+	write (70,405)
   405   format(/,'the estimates after the grid search were :',/)   
-	do 133 i=1,nb  
+	do 133 i=1,nb
 	write (70,202) i-1,gb(i)   
   133   continue   
-	if ((nz.ne.0).and.(im.eq.2)) then   
+	if ((nz.ne.0).and.(im.eq.2)) then
 	do 84 i=1,nz
 	write(70,82) i-nmu,gb(nb+i)
    84   continue   
 	endif
-	write (70,203) gb(n1)  
+	write (70,203) gb(n1)
 	write (70,204) gb(n2)  
 	if (im.eq.1) then
 	if (nmu.eq.1) then  
 	write (70,205) gb(n3)
 	else  
-	write (70,*) '  mu is restricted to be zero'  
+	write (70,*) '  mu is restricted to be zero'
 	end if
 	if (neta.eq.1) then 
 	write (70,206) gb(n4)
 	else  
-	write (70,*) '  eta is restricted to be zero' 
+	write (70,*) '  eta is restricted to be zero'
 	end if
 	endif
-	end if 
+	end if
 	
 	else
 	
 	write(6,151) koutf
  151    format(' sending output to: ',a12)
-	write (70,406) 
+	write (70,406)
   406   format(//,'the final mle estimates are :',/)   
-	write (70,404) 
+	write (70,404)
   302   format('  beta',i2,7x,3e16.8)
    81   format('  delta',i2,6x,3e16.8)
   303   format('  sigma-squared',3e16.8)   
   304   format('  gamma',8x,3e16.8)   
  305    format('  mu           ',3e16.8)
  306    format('  eta          ',3e16.8)
-	do 134 i=1,nb  
+	do 134 i=1,nb
 	write (70,302) i-1,y(i),h(i,i)**0.5,y(i)/h(i,i)**0.5   
   134   continue   
-	if ((nz.ne.0).and.(im.eq.2)) then  
+	if ((nz.ne.0).and.(im.eq.2)) then
 	do 199 i=nb+1,nb+nz   
 	write (70,81) i-nmu-nb,y(i),h(i,i)**0.5,y(i)/h(i,i)**0.5   
   199   continue   
 	endif
-	write (70,303) y(n1),h(n1,n1)**0.5,y(n1)/h(n1,n1)**0.5 
-	write (70,304) y(n2),h(n2,n2)**0.5,y(n2)/h(n2,n2)**0.5 
+	write (70,303) y(n1),h(n1,n1)**0.5,y(n1)/h(n1,n1)**0.5
+	write (70,304) y(n2),h(n2,n2)**0.5,y(n2)/h(n2,n2)**0.5
 	if (im.eq.1) then
 	if (nmu.eq.1) then  
 	write (70,305) y(n3),h(n3,n3)**0.5,y(n3)/h(n3,n3)**0.5  
@@ -1043,9 +1043,9 @@ c       efficiency.
 	write (70,*) '  eta is restricted to be zero' 
 	end if
 	endif
-	write (70,501) -fx 
-  501   format(/,'log likelihood function = ',e16.8)   
-	if((fx-fxols).gt.0) then   
+	write (70,501) -fx
+  501	format(/,'log likelihood function = ',e16.8)
+	if((fx-fxols).gt.0) then
 	write(70,422)  
   422   format(/,'the likelihood value is less than that obtained',   
      +  /,'using ols! - try again using different starting values')  
@@ -1236,7 +1236,7 @@ c       efficiency.
 	subroutine grid(x,y,yy,xx,ob,gb)
 c       does a grid search across gamma
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
@@ -1342,7 +1342,7 @@ c       finds the inverse of a given matrix.
 	subroutine ols(ob,obse,yy,xx)
 c       calculates the ols estimates and their standard errors.       
 	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension ob(n),obse(n),yy(nn,nt),xx(nn,nt,nr)
 	dimension xpx(:,:),xpy(:),mx(:)
