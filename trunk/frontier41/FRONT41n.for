@@ -762,7 +762,7 @@ c       also reads data from a file.
 	kinf='terminal'
 	write(6,*)
 	write(6,*)
-	write(6,*) 'FRONTIER - Version 4.1b'   
+	write(6,*) 'FRONTIER - Version 4.1n'   
 	write(6,*) '***********************'
 	write(6,*)
 	write(6,*) 'by'
