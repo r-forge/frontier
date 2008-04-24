@@ -752,7 +752,7 @@ c       also reads data from a file.
 	common/eight/koutf,kdatf,kinf  
 	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	character chop,chst,chmu,cheta,chl
+	character chst,chmu,cheta,chl
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
 	allocatable :: yy,xx,mm,sv,xxd
 	nmu=0
@@ -781,108 +781,7 @@ c       also reads data from a file.
 	write(6,*) 'appreciated - but is in no way obligatory.]'
 	write(6,*)
 	write(6,*)
-	write(6,*)'Do you wish to type instructions at the terminal (t)'   
-	write(6,*) 'or use an instruction file (f) ?  '  
-c	read(5,61) chop
-	chop='f'
   61    format(a) 
-	if ((chop.eq.'t').or.(chop.eq.'T')) then   
-	write(6,*) ' enter 1 if you wish to estimate the error '
-	write(6,*) 'components model, or 2 for the TE effects model : '
-	read(5,*) im
-	if ((im.ne.1).and.(im.ne.2)) then
-	write(6,*) ' incorrect option, must be 1 or 2 - bye!'
-	stop
-	endif
-	write(6,*) ' enter the name of your data file :  ' 
-	read(5,60) kdatf   
-	write(6,*) ' enter a name for an output file :  '  
-	read(5,60) koutf   
-	write(6,*) ' are you estimating a production or cost function?'
-	write(6,*) ' enter a 1 for production or a 2 for cost :  '
-	read(5,*) ipc
-	write(6,*) ' is the dependent variable logged? (y or n) '
-	read(5,61) chl
-	if ((chl.eq.'y').or.(chl.eq.'Y')) il=1
-	write(6,*) ' how many cross-sections in the data ?  '
-	read(5,*) nn   
-	write(6,*) ' how many time-periods in the data ?  '
-	read(5,*) nt   
-	write(6,*) ' how many observations in total in the data ?  '
-	read(5,*) nob
-	if ((nn*nt).lt.nob) then   
-	write(6,*) ' the above number is larger than the product of the'  
-	write(6,*) '   previous two answers - program abort!'   
-	stop  
-	end if
-	write(6,*)' how many regressors (Xs) are there ? '
-	read(5,*) nb   
-	if (im.eq.1) then
-	write(6,*) ' does the model include mu ? (y or n)  '    
-	read(5,61) chmu 
-	if ((chmu.eq.'y').or.(chmu.eq.'Y')) nmu=1
-	if (nt.gt.1) then
-	write(6,*) ' does the model include eta ? (y or n)  '   
-	read(5,61) cheta
-	if ((cheta.eq.'y').or.(cheta.eq.'Y')) neta=1
-	endif
-	nb=nb+1
-	nr=nb
-	n=nr+2+nmu+neta
-	else
-	write(6,*)' does the model include delta0 ? (y or n)  '
-	read(5,61) chmu
-	if ((chmu.eq.'y').or.(chmu.eq.'Y')) nmu=1
-	write(6,*)' how many eff.-term regressors (Zs) are there ? ' 
-	read(5,*) nz   
-	nz=nz+nmu
-	nb=nb+1
-	nr=nb+nz
-	n=nr+2
-	endif
-	allocate(sv(n))
-	write(6,*) ' if you do not wish the computer to select'
-	write(6,*) '   starting values using a grid search you must'   
-	write(6,*) '   supply them now'
-	write(6,*) ' do you wish to supply starting values ? (y or n)  '   
-	read(5,61) chst
-	if ((chst.eq.'y').or.(chst.eq.'Y')) then   
-	igrid=0
-  62    format(' enter starting value for b',i2,' :  ')   
-	do 138 i=1,nb
-	write(6,62) i-1
-	read(5,*) sv(i)
-  138   continue  
-	write(6,*) ' enter starting value for sigma squared :  '   
-	read(5,*) sv(nr+1) 
-	write(6,*) ' enter starting value for gamma :  '   
-	read(5,*) sv(nr+2) 
-	if ((im.eq.2).and.(nz.gt.0)) then  
-   63   format(' enter starting value for delta',i2,' : ') 
-	do 139 i=1,nz
-	write(6,63) i-nmu  
-	read(5,*) sv(nb+i)   
-  139   continue  
-	endif
-	if (im.eq.1) then
-	if (nmu.eq.1) then 
-	write(6,*) ' enter starting value for mu :  ' 
-	read(5,*) sv(nb+3)    
-	if (neta.eq.1) then    
-	write(6,*) ' enter starting value for eta :  '
-	read(5,*) sv(nb+4)    
-	end if
-	else  
-	if (neta.eq.1) then    
-	write(6,*) ' enter starting value for eta :  '
-	read(5,*) sv(nb+3)    
-	end if
-	end if
-	endif
-	end if 
-	else if ((chop.eq.'f').or.(chop.eq.'F')) then  
-	write(6,*) ' enter instruction file name :  '  
-c	read(5,60) kinf
 	kinf='f41-ins.txt'
   60    format(a12)   
 	open(unit=50,file=kinf,status='old')   
@@ -939,10 +838,6 @@ c	read(5,60) kinf
 	endif
 	endif
 	end if 
-	else   
-	write(6,*) ' incorrect option - must be t or f - bye!' 
-	stop   
-	endif  
 	allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
 	open(unit=40,file=kdatf,status='old')  
 	do 135 i=1,nn
