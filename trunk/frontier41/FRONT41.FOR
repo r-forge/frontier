@@ -1,6 +1,7 @@
  
 	program exec   
-c       FRONTIER version 4.1b by Tim Coelli.   
+c       FRONTIER version 4.1d by Tim Coelli.   
+c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
 c       estimate two forms of the stochastic frontier production function.
 c       The first is the error components model described in Battese and
@@ -20,7 +21,10 @@ c       contacted via email at tcoelli@metz.une.edu.au .
 c       See: Coelli (1996), CEPA Working Papers 96/07, University of New 
 c       England, Armidale, NSW 2351, Australia. for details on the use
 c       of this program.  
-c       last update = 4/March/1997
+c       last update = 25/April/2008
+c       Since version 4.1d, the user might specify the name of the
+c       instruction file by an (optional) argument at the command line.
+c       Hence, this programme can be run automatically (non-interactively) now.
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
 	common/eight/narg,koutf,kdatf,kinf  
@@ -763,7 +767,7 @@ c       also reads data from a file.
 	kinf='terminal'
 	write(6,*)
 	write(6,*)
-	write(6,*) 'FRONTIER - Version 4.1b'   
+	write(6,*) 'FRONTIER - Version 4.1d'   
 	write(6,*) '***********************'
 	write(6,*)
 	write(6,*) 'by'
@@ -1033,7 +1037,7 @@ c       efficiency.
 	if((nmu.eq.0).and.(neta.eq.1)) n4=nr+3
 	if (ncall.eq.1) then
 	write (70,401) 
-  401   format(/,'Output from the program FRONTIER (Version 4.1)',//)  
+  401   format(/,'Output from the program FRONTIER (Version 4.1d)',//)  
 	write (70,601) kinf,kdatf  
   601   format('instruction file = ',a12,/,'data file = ',7x,a12,//)  
 	if (im.eq.1) then
