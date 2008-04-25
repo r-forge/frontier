@@ -1359,7 +1359,9 @@ c       does a grid search across gamma
 	fx=bignum  
 	y6b=gridno 
 	y6t=1.0-gridno 
-	do 137 y6=y6b,y6t,gridno   
+	nloop=ceiling((y6t-y6b+gridno)/gridno)
+	do 137 j=1,nloop
+	y6=y6b+(j-1)*gridno
 	y(n2)=y6   
 	y(n1)=var/(1.-2.*y(n2)/pi) 
 	c=(y(n2)*y(n1)*2/pi)**0.5  
@@ -1377,7 +1379,9 @@ c       does a grid search across gamma
 	bb1=x(n2)-gridno/2.0   
 	bb2=x(n2)+gridno/2.0   
 	bb3=gridno/10.0 
-	do 140 y6=bb1,bb2,bb3  
+	nloop=ceiling((bb2-bb1+bb3)/bb3)
+	do 140 j=1,nloop
+	y6=bb1+(j-1)*bb3
 	y(n2)=y6   
 	y(n1)=var/(1.-2.*y(n2)/pi) 
 	c=(y(n2)*y(n1)*2/pi)**0.5  
