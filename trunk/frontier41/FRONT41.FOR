@@ -23,10 +23,11 @@ c       of this program.
 c       last update = 4/March/1997
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
-	common/eight/koutf,kdatf,kinf  
+	common/eight/narg,koutf,kdatf,kinf  
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	narg = iargc ( )
 	open(unit=70,file='front41.000',status='old')  
 	read(70,*) 
 	read(70,*) 
@@ -51,7 +52,7 @@ c       last update = 4/March/1997
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
-	common/eight/koutf,kdatf,kinf        
+	common/eight/narg,koutf,kdatf,kinf        
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
@@ -749,7 +750,7 @@ c       accepts instructions from the terminal or from a file and
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
-	common/eight/koutf,kdatf,kinf  
+	common/eight/narg,koutf,kdatf,kinf  
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chop,chst,chmu,cheta,chl
@@ -780,11 +781,18 @@ c       also reads data from a file.
 	write(6,*) 'associated with development would be'
 	write(6,*) 'appreciated - but is in no way obligatory.]'
 	write(6,*)
+	if (narg.eq.0) then
 	write(6,*)
 	write(6,*)'Do you wish to type instructions at the terminal (t)'   
 	write(6,*) 'or use an instruction file (f) ?  '  
 	read(5,61) chop
   61    format(a) 
+	else if (narg.eq.1) then
+	chop = 'f'
+	else
+	write(6,*) 'Please provide one command line argument at most.'
+	stop
+	endif
 	if ((chop.eq.'t').or.(chop.eq.'T')) then   
 	write(6,*) ' enter 1 if you wish to estimate the error '
 	write(6,*) 'components model, or 2 for the TE effects model : '
@@ -880,9 +888,15 @@ c       also reads data from a file.
 	endif
 	end if 
 	else if ((chop.eq.'f').or.(chop.eq.'F')) then  
+	if (narg.eq.0) then
 	write(6,*) ' enter instruction file name :  '  
 	read(5,60) kinf
   60    format(a12)   
+	else if (narg.eq.1) then
+	call getarg ( 1, kinf )
+	write(6,64) kinf
+  64    format(' using instruction file: ',a12)
+	endif
 	open(unit=50,file=kinf,status='old')   
 	read(50,*) im
 	read(50,60) kdatf  
@@ -1001,7 +1015,7 @@ c       as well as presenting many results including estimates of technical
 c       efficiency.   
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kinf  
-	common/eight/koutf,kdatf,kinf  
+	common/eight/narg,koutf,kdatf,kinf  
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
