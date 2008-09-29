@@ -1,5 +1,5 @@
  
-	program exec   
+	subroutine front41( kins )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -26,12 +26,13 @@ c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf,kinf  
+	character*12 koutf,kdatf,kinf,kins  
 	common/eight/narg,koutf,kdatf,kinf  
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	narg = iargc ( )
+	kinf=kins
 	open(unit=70,file='front41.000',status='old')  
 	read(70,*) 
 	read(70,*) 
@@ -49,7 +50,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info 
-	stop   
 	end
  
 	subroutine mini(yy,xx,mm,sv)
@@ -764,7 +764,6 @@ c       also reads data from a file.
 	neta=0    
 	igrid=1
 	nz=0
-	kinf='terminal'
 	write(6,*)
 	write(6,*)
 	write(6,*) 'FRONTIER - Version 4.1d'   
@@ -785,19 +784,8 @@ c       also reads data from a file.
 	write(6,*) 'associated with development would be'
 	write(6,*) 'appreciated - but is in no way obligatory.]'
 	write(6,*)
-	if (narg.eq.0) then
-	write(6,*)
-	write(6,*) 'No instruction file specified.'
-	write(6,*) 'Please specify the instruction file after'
-	write(6,*) 'the command for calling FRONTIER 4.1'
-	stop
-	else if (narg.ne.1) then
-	write(6,*) 'Please provide one command line argument at most.'
-	stop
-	endif
   60    format(a12)   
   61    format(a) 
-	call getarg ( 1, kinf )
 	write(6,64) kinf
   64    format(' using instruction file: ',a12)
 	open(unit=50,file=kinf,status='old')   
