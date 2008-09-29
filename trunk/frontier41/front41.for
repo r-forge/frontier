@@ -955,6 +955,7 @@ c       also reads data from a file.
 	endif
 	endif
 	end if 
+	close(50)
 	else   
 	write(6,*) ' incorrect option - must be t or f - bye!' 
 	stop   
@@ -1009,6 +1010,7 @@ c       also reads data from a file.
   149   continue   
 	call mini(yy,xx,mm,sv)
 	deallocate(yy,xx,mm,sv,xxd)
+	close(40)
 	return 
 	end
 
