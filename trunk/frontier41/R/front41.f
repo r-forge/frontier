@@ -842,6 +842,7 @@ c       also reads data from a file.
 	endif
 	endif
 	end if 
+	close(50)
 	allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
 	open(unit=40,file=kdatf,status='old')  
 	do 135 i=1,nn
@@ -892,6 +893,7 @@ c       also reads data from a file.
   149   continue   
 	call mini(yy,xx,mm,sv)
 	deallocate(yy,xx,mm,sv,xxd)
+	close(40)
 	return 
 	end
 
