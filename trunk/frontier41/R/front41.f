@@ -1,5 +1,7 @@
  
-	subroutine front41( kins )
+	subroutine front41( kins,
+     $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
+     $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -33,20 +35,16 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 	narg = iargc ( )
 	kinf=kins
-	open(unit=70,file='front41.000',status='old')  
-	read(70,*) 
-	read(70,*) 
-	read(70,*) iprint  
-	read(70,*) indic   
-	read(70,*) tol 
-	read(70,*) tol2
-	read(70,*) bignum  
-	read(70,*) step1   
-	read(70,*) igrid2  
-	read(70,*) gridno  
-	read(70,*) maxit   
-	read(70,*) ite 
-	close(70)  
+	iprint=iprintArg
+	indic=indicArg
+	tol=tolArg
+	tol2=tol2Arg
+	bignum=bignumArg
+	step1=step1Arg
+	igrid2=igrid2Arg
+	gridno=gridnoArg
+	maxit=maxitArg
+	ite=iteArg
 	nfunct=0   
 	ndrv=0 
 	call info 
