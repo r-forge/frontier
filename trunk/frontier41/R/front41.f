@@ -33,7 +33,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
-	narg = iargc ( )
 	kinf=kins
 	iprint=iprintArg
 	indic=indicArg
