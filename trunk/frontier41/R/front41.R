@@ -12,19 +12,26 @@ frontierEst <- function( insFile,
       gridno = 0.1,
       maxit = 100,
       ite = 1 ) {
+   intStart <- c( 
+      iprint = as.integer( iprint ),
+      indic = as.integer( indic ),
+      igrid2 = as.integer( igrid2 ),
+      maxit = as.integer( maxit ),
+      ite = as.integer( ite ) )
+   doubleStart <- c(
+      tol = as.double( tol ),
+      tol2 = as.double( tol2 ),
+      bignum = as.double( bignum ),
+      step1 = as.double( step1 ),
+      gridno = as.double( gridno ) )
    returnObj <- .Fortran( "front41", kins = as.character( insFile ),
-      iprintArg = as.integer( iprint ),
-      indicArg = as.integer( indic ),
-      tolArg = as.double( tol ),
-      tol2Arg = as.double( tol2 ),
-      bignumArg = as.double( bignum ),
-      step1Arg = as.double( step1 ),
-      igrid2Arg = as.integer( igrid2 ),
-      gridnoArg = as.double( gridno ),
-      maxitArg = as.integer( maxit ),
-      iteArg = as.integer( ite ) )
-   names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
+      intStart = intStart, doubleStart = doubleStart )
+   returnObj$arg <- c(
+      as.list( returnObj$intStart ),
+      as.list( returnObj$doubleStart ) )
+   returnObj$intStart <- NULL
+   returnObj$doubleStart <- NULL
    return( returnObj )
 }
 
-frontierEst( "eg1-ins.txt" )
+a <- frontierEst( "eg1-ins.txt" )

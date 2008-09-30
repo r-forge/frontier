@@ -1,7 +1,7 @@
  
-	subroutine front41( kins,
-     $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
-     $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg )
+	subroutine front41( kins, intStart, doubleStart )
+	dimension intStart(5)
+	dimension doubleStart(5)
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -27,23 +27,27 @@ c       last update = 25/April/2008
 c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
-	implicit double precision (a-h,o-z)
+	integer narg,n,nfunct,ndrv,iter,indic,iprint,igrid,maxit
+	integer nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
+	integer igrid2,ite, intStart
+	double precision fx,fy,fxols
+	double precision tol,tol2,bignum,step1,gridno, doubleStart
 	character*12 koutf,kdatf,kinf,kins  
 	common/eight/narg,koutf,kdatf,kinf  
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
-	kinf=kins
-	iprint=iprintArg
-	indic=indicArg
-	tol=tolArg
-	tol2=tol2Arg
-	bignum=bignumArg
-	step1=step1Arg
-	igrid2=igrid2Arg
-	gridno=gridnoArg
-	maxit=maxitArg
-	ite=iteArg
+	kinf = kins
+	iprint = intStart(1)
+	indic  = intStart(2)
+	tol    = doubleStart(1)
+	tol2   = doubleStart(2)
+	bignum = doubleStart(3)
+	step1  = doubleStart(4)
+	igrid2 = intStart(3)
+	gridno = doubleStart(5)
+	maxit  = intStart(4)
+	ite    = intStart(5)
 	nfunct=0   
 	ndrv=0 
 	call info 
