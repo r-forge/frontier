@@ -1,6 +1,6 @@
  
-	subroutine front41( kins, intStart, doubleStart )
-	dimension intStart(5)
+	subroutine front41( kdatfArg, koutfArg, intStart, doubleStart )
+	dimension intStart(14)
 	dimension doubleStart(5)
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
@@ -32,12 +32,13 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	integer igrid2,ite, intStart
 	double precision fx,fy,fxols
 	double precision tol,tol2,bignum,step1,gridno, doubleStart
-	character*12 koutf,kdatf,kinf,kins  
-	common/eight/narg,koutf,kdatf,kinf  
+	character*12 koutf,kdatf,kdatfArg,koutfArg
+	common/eight/narg,koutf,kdatf 
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
-	kinf = kins
+	kdatf  = kdatfArg
+	koutf  = koutfArg
 	iprint = intStart(1)
 	indic  = intStart(2)
 	tol    = doubleStart(1)
@@ -48,6 +49,15 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	gridno = doubleStart(5)
 	maxit  = intStart(4)
 	ite    = intStart(5)
+	im     = intStart(6)
+	ipc    = intStart(7)
+	il     = intStart(8)
+	nn     = intStart(9)
+	nt     = intStart(10)
+	nob    = intStart(11)
+	nb     = intStart(12)
+	nmu    = intStart(13)
+	neta   = intStart(14)
 	nfunct=0   
 	ndrv=0 
 	call info 
@@ -56,8 +66,8 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	subroutine mini(yy,xx,mm,sv)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf,kinf  
-	common/eight/narg,koutf,kdatf,kinf        
+	character*12 koutf,kdatf
+	common/eight/narg,koutf,kdatf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
@@ -754,15 +764,13 @@ c       evaluates the n(0,1) distribution function.
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf,kinf  
-	common/eight/narg,koutf,kdatf,kinf  
+	character*12 koutf,kdatf
+	common/eight/narg,koutf,kdatf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	character chop,chst,chmu,cheta,chl
+	character chst
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
 	allocatable :: yy,xx,mm,sv,xxd
-	nmu=0
-	neta=0    
 	igrid=1
 	nz=0
 	write(6,*)
@@ -787,43 +795,25 @@ c       also reads data from a file.
 	write(6,*)
   60    format(a12)   
   61    format(a) 
-	write(6,64) kinf
-  64    format(' using instruction file: ',a12)
-	open(unit=50,file=kinf,status='old')   
-	read(50,*) im
-	read(50,60) kdatf  
-	read(50,60) koutf  
-	read(50,*) ipc
-	read(50,61) chl
-	if ((chl.eq.'y').or.(chl.eq.'Y')) il=1
-	read(50,*) nn  
-	read(50,*) nt  
-	read(50,*) nob  
 	if ((nn*nt).lt.nob) then   
 	write(6,*) ' the total number of obsns exceeds the product of'    
 	write(6,*) ' the number of firms by the number of years - bye!'   
 	stop  
 	end if
-	read(50,*) nb  
 	if (im.eq.1) then
-	read(50,61) chmu
-	read(50,61) cheta    
-	if ((chmu.eq.'y').or.(chmu.eq.'Y')) nmu=1
-	if ((cheta.eq.'y').or.(cheta.eq.'Y')) neta=1
 	nb=nb+1
 	nr=nb
 	n=nr+2+nmu+neta
 	else
-	read(50,61) chmu
-	if ((chmu.eq.'y').or.(chmu.eq.'Y')) nmu=1
-	read(50,*) nz  
+	nz=neta
+	neta=0
 	nz=nz+nmu
 	nb=nb+1
 	nr=nb+nz   
 	n=nr+2
 	endif
 	allocate (sv(n))
-	read(50,61) chst   
+	chst='n'
 	if ((chst.eq.'y').or.(chst.eq.'Y')) then   
 	igrid=0
 	if (im.eq.1) then
@@ -843,7 +833,6 @@ c       also reads data from a file.
 	endif
 	endif
 	end if 
-	close(50)
 	allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
 	open(unit=40,file=kdatf,status='old')  
 	do 135 i=1,nn
@@ -904,8 +893,8 @@ c       presents estimates, covariance matrix, standard errors and t-ratios,
 c       as well as presenting many results including estimates of technical  
 c       efficiency.   
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf,kinf  
-	common/eight/narg,koutf,kdatf,kinf  
+	character*12 koutf,kdatf
+	common/eight/narg,koutf,kdatf 
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
@@ -924,8 +913,8 @@ c       efficiency.
 	if (ncall.eq.1) then
 	write (70,401) 
   401   format(/,'Output from the program FRONTIER (Version 4.1d)',//)  
-	write (70,601) kinf,kdatf  
-  601   format('instruction file = ',a12,/,'data file = ',7x,a12,//)  
+	write (70,601) kdatf  
+  601   format('data file = ',7x,a12,//)  
 	if (im.eq.1) then
 	write(70,*) 'Error Components Frontier (see B&C 1992)'
 	else
