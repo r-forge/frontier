@@ -57,14 +57,14 @@ frontierEst <- function( koutf,
       }
    }
 
+   nParamTotal <- nb + 3 + nmu + neta
    if( is.null( startVal ) ) {
       startVal <- 0
    } else {
-      nStartVal <- nb + 3 + nmu + neta
-      if( nStartVal != length( startVal ) ) {
+      if( nParamTotal != length( startVal ) ) {
          stop( "wrong number of starting values (you provided ",
             length( startVal ), " starting values but the model has ",
-            nStartVal, " parameters)" )
+            nParamTotal, " parameters)" )
       }
    }
    returnObj <- .Fortran( "front41", 
@@ -92,8 +92,13 @@ frontierEst <- function( koutf,
       startVal = as.double( startVal ),
       nRowData = as.integer( nrow( dataTable ) ),
       nColData = as.integer( ncol( dataTable ) ),
-      dataTable = as.double( dataTable ) )
+      dataTable = as.double( dataTable ),
+      nParamTotal = as.integer( nParamTotal ),
+      olsParam = as.double( rep( 0, nParamTotal ) ),
+      olsStdEr = as.double( rep( 0, nParamTotal ) ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
+   returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
+   returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    return( returnObj )
 }
 
