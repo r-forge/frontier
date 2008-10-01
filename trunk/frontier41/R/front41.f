@@ -39,39 +39,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 
-	write(6,*) koutfArg
-	write(6,*) 
-	write(6,*) imArg
-	write(6,*) ipcArg
-	write(6,*) ilArg
-	write(6,*) 
-	write(6,*) nnArg
-	write(6,*) ntArg
-	write(6,*) nobArg
-	write(6,*) nbArg
-	write(6,*) nmuArg
-	write(6,*) netaArg
-	write(6,*) 
-	write(6,*) iprintArg
-	write(6,*) indicArg
-	write(6,*) tolArg
-	write(6,*) tol2Arg
-	write(6,*) bignumArg
-	write(6,*) step1Arg
-	write(6,*) igrid2Arg
-	write(6,*) gridnoArg
-	write(6,*) maxitArg
-	write(6,*) iteArg
-	write(6,*) 
-	write(6,*) nStartVal
-	write(6,*) 
-	write(6,*) startVal
-	write(6,*) 
-	write(6,*) nRowData
-	write(6,*) 
-	write(6,*) nColData
-	write(6,*) 
-	write(6,*) dataTable
 	koutf=koutfArg
 	im=imArg
 	ipc=ipcArg
