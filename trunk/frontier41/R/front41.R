@@ -20,7 +20,18 @@ frontierEst <- function( kdatf, koutf,
       igrid2 = 1,
       gridno = 0.1,
       maxit = 100,
-      ite = 1 ) {
+      ite = 1,
+      startVal = NULL ) {
+   if( is.null( startVal ) ) {
+      startVal <- 0
+   } else {
+      nStartVal <- nb + 3 + nmu + neta
+      if( nStartVal != length( startVal ) ) {
+         stop( "wrong number of starting values (you provided ",
+            length( startVal ), " starting values but the model has ",
+            nStartVal, " parameters)" )
+      }
+   }
    returnObj <- .Fortran( "front41", 
       kdatfArg = as.character( kdatf ),
       koutfArg = as.character( koutf ),
@@ -42,9 +53,13 @@ frontierEst <- function( kdatf, koutf,
       igrid2Arg = as.integer( igrid2 ),
       gridnoArg = as.double( gridno ),
       maxitArg = as.integer( maxit ),
-      iteArg = as.integer( ite ) )
+      iteArg = as.integer( ite ),
+      nStartVal = as.integer( length( startVal ) ),
+      startVal = as.double( startVal ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
    return( returnObj )
 }
 
 a <- frontierEst( "eg1-dta.txt", "eg1-out.txt", nn = 60, nt = 1, nob = 60, nb = 2 )
+
+a <- frontierEst( "eg1-dta.txt", "eg1-out.txt", nn = 60, nt = 1, nob = 60, nb = 2, startVal = c(0.3,0.4,0.5,0.6,0.7) )

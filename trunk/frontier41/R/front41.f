@@ -3,7 +3,8 @@
      $  imArg, ipcArg, ilArg,
      $  nnArg, ntArg, nobArg, nbArg, nmuArg, netaArg,
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
-     $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg )
+     $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg,
+     $   nStartVal, startVal )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -31,6 +32,7 @@ c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 	implicit double precision (a-h,o-z)
 	character*12 koutf,kdatf,kdatfArg,koutfArg
+	dimension startVal(nStartVal)
 	common/eight/narg,koutf,kdatf 
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
@@ -60,7 +62,10 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	write(6,*) gridnoArg
 	write(6,*) maxitArg
 	write(6,*) iteArg
-
+	write(6,*) 
+	write(6,*) nStartVal
+	write(6,*) 
+	write(6,*) startVal
 	kdatf=kdatfArg
 	koutf=koutfArg
 	im=imArg
@@ -84,7 +89,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	ite=iteArg
 	nfunct=0   
 	ndrv=0 
-	call info 
+	call info( nStartVal, startVal )
 	end
  
 	subroutine mini(yy,xx,mm,sv)
@@ -784,7 +789,7 @@ c       evaluates the n(0,1) distribution function.
 	return 
 	end
  
-	subroutine info
+	subroutine info( nStartVal, startVal )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -794,6 +799,7 @@ c       also reads data from a file.
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
+	dimension startVal(nStartVal)
 	allocatable :: yy,xx,mm,sv,xxd
 	igrid=1
 	nz=0
@@ -837,26 +843,15 @@ c       also reads data from a file.
 	n=nr+2
 	endif
 	allocate (sv(n))
-	chst='n'
-	if ((chst.eq.'y').or.(chst.eq.'Y')) then   
+	if (nStartVal.eq.n) then
 	igrid=0
-	if (im.eq.1) then
 	do 148 i=1,n
-	read(50,*) sv(i)   
+	sv(i)=startVal(i)
   148   continue  
-	else
-	do 152 i=1,nb
-	read(50,*) sv(i)
-  152   continue
-	read(50,*) sv(n-1)
-	read(50,*) sv(n)
-	if (nz.gt.0) then
-	do 153 i=1,nz
-	read(50,*) sv(nb+i)
-  153   continue
+	else if (nStartVal.gt.1) then
+	write(6,*) 'wrong number of starting values'
+	stop
 	endif
-	endif
-	end if 
 	allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
 	open(unit=40,file=kdatf,status='old')  
 	do 135 i=1,nn
