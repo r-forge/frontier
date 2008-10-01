@@ -1,10 +1,10 @@
  
-	subroutine front41( kdatfArg, koutfArg,
+	subroutine front41( koutfArg,
      $  imArg, ipcArg, ilArg,
      $  nnArg, ntArg, nobArg, nbArg, nmuArg, netaArg,
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg,
-     $   nStartVal, startVal )
+     $  nStartVal, startVal, nRowData, nColData, dataTable )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -31,14 +31,14 @@ c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf,kdatfArg,koutfArg
+	character*12 koutf,koutfArg
 	dimension startVal(nStartVal)
-	common/eight/narg,koutf,kdatf 
+	dimension dataTable(nRowData,nColData)
+	common/eight/narg,koutf
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 
-	write(6,*) kdatfArg
 	write(6,*) koutfArg
 	write(6,*) 
 	write(6,*) imArg
@@ -66,7 +66,12 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	write(6,*) nStartVal
 	write(6,*) 
 	write(6,*) startVal
-	kdatf=kdatfArg
+	write(6,*) 
+	write(6,*) nRowData
+	write(6,*) 
+	write(6,*) nColData
+	write(6,*) 
+	write(6,*) dataTable
 	koutf=koutfArg
 	im=imArg
 	ipc=ipcArg
@@ -89,14 +94,14 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	ite=iteArg
 	nfunct=0   
 	ndrv=0 
-	call info( nStartVal, startVal )
+	call info( nStartVal, startVal, nRowData, nColData, dataTable )
 	end
  
 	subroutine mini(yy,xx,mm,sv)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf
-	common/eight/narg,koutf,kdatf
+	character*12 koutf
+	common/eight/narg,koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
@@ -789,17 +794,19 @@ c       evaluates the n(0,1) distribution function.
 	return 
 	end
  
-	subroutine info( nStartVal, startVal )
+	subroutine info( nStartVal, startVal,
+     $  nRowData, nColData, dataTable )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf
-	common/eight/narg,koutf,kdatf
+	character*12 koutf
+	common/eight/narg,koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
 	dimension startVal(nStartVal)
+	dimension dataTable(nRowData,nColData)
 	allocatable :: yy,xx,mm,sv,xxd
 	igrid=1
 	nz=0
@@ -853,7 +860,6 @@ c       also reads data from a file.
 	stop
 	endif
 	allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
-	open(unit=40,file=kdatf,status='old')  
 	do 135 i=1,nn
 	mm(i)=0
 	do 135 l=1,nt
@@ -862,7 +868,10 @@ c       also reads data from a file.
 	do 134 k=1,nob  
 	ndat=nr
 	if(im.eq.2) ndat=nr-nmu
-	read(40,*) fii,ftt,yyd,(xxd(j),j=2,ndat)  
+	fii=dataTable(k,1)
+	ftt=dataTable(k,2)
+	yyd=dataTable(k,3)
+	xxd(2:)=dataTable(k,4:)
 	i=int(fii)   
 	l=int(ftt)   
 	mm(i)=mm(i)+1
@@ -902,7 +911,6 @@ c       also reads data from a file.
   149   continue   
 	call mini(yy,xx,mm,sv)
 	deallocate(yy,xx,mm,sv,xxd)
-	close(40)
 	return 
 	end
 
@@ -912,8 +920,8 @@ c       presents estimates, covariance matrix, standard errors and t-ratios,
 c       as well as presenting many results including estimates of technical  
 c       efficiency.   
 	implicit double precision (a-h,o-z)
-	character*12 koutf,kdatf
-	common/eight/narg,koutf,kdatf 
+	character*12 koutf
+	common/eight/narg,koutf 
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
@@ -932,8 +940,6 @@ c       efficiency.
 	if (ncall.eq.1) then
 	write (70,401) 
   401   format(/,'Output from the program FRONTIER (Version 4.1d)',//)  
-	write (70,601) kdatf  
-  601   format('data file = ',7x,a12,//)  
 	if (im.eq.1) then
 	write(70,*) 'Error Components Frontier (see B&C 1992)'
 	else

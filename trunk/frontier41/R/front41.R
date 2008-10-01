@@ -1,14 +1,12 @@
 system( "R CMD SHLIB front41.f" )
 dyn.load( "./front41.so" )
 
-frontierEst <- function( kdatf, koutf,
-      im = 1,
+frontierEst <- function( koutf,
+      data, crossSectionName, timePeriodName = NULL,
+      yName, xNames = NULL, zNames = NULL,
+      im = ifelse( is.null( zNames ), 1, 2 ), 
       ipc = 1,
       il = TRUE,
-      nn,
-      nt,
-      nob,
-      nb,
       nmu = FALSE,
       neta = FALSE,
       iprint = 5,
@@ -22,6 +20,43 @@ frontierEst <- function( kdatf, koutf,
       maxit = 100,
       ite = 1,
       startVal = NULL ) {
+
+   nn <- length( unique( data[[ crossSectionName ]] ) )
+   nt <- ifelse( is.null( timePeriodName ), 1,
+      length( unique( data[[ timePeriodName ]] ) ) )
+   nob <- nrow( data )
+   nb <- length( xNames )
+   nZvars <- length( zNames )
+   if( im == 2 ) {
+      neta <- nZvars
+   }
+
+   dataTable <- matrix( data[[ crossSectionName ]], ncol = 1 )
+
+   # time period identifier
+   if( is.null( timePeriodName ) ) {
+      dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
+   } else {
+      dataTable <- cbind( dataTable, data[[ timePeriodName ]] )
+   }
+
+   # endogenous variable
+   dataTable <- cbind( dataTable, data[[ yName ]] )
+
+   # exogenous variables
+   if( nb > 0 ) {
+      for( i in 1:nb ) {
+         dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
+      }
+   }
+
+   # variables explaining the efficiency level
+   if( nZvars > 0 ) {
+      for( i in 1:nZvars ) {
+         dataTable <- cbind( dataTable, data[[ zNames[ i ] ]] )
+      }
+   }
+
    if( is.null( startVal ) ) {
       startVal <- 0
    } else {
@@ -33,7 +68,6 @@ frontierEst <- function( kdatf, koutf,
       }
    }
    returnObj <- .Fortran( "front41", 
-      kdatfArg = as.character( kdatf ),
       koutfArg = as.character( koutf ),
       imArg = as.integer( im ),
       ipcArg = as.integer( ipc ),
@@ -55,11 +89,19 @@ frontierEst <- function( kdatf, koutf,
       maxitArg = as.integer( maxit ),
       iteArg = as.integer( ite ),
       nStartVal = as.integer( length( startVal ) ),
-      startVal = as.double( startVal ) )
+      startVal = as.double( startVal ),
+      nRowData = as.integer( nrow( dataTable ) ),
+      nColData = as.integer( ncol( dataTable ) ),
+      dataTable = as.double( dataTable ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
    return( returnObj )
 }
 
-a <- frontierEst( "eg1-dta.txt", "eg1-out.txt", nn = 60, nt = 1, nob = 60, nb = 2 )
+   library( micEcon )
+   data( Coelli )
+   Coelli$logOutput  <- log( Coelli$output )
+   Coelli$logCapital <- log( Coelli$capital )
+   Coelli$logLabour  <- log( Coelli$labour )
 
-a <- frontierEst( "eg1-dta.txt", "eg1-out.txt", nn = 60, nt = 1, nob = 60, nb = 2, startVal = c(0.3,0.4,0.5,0.6,0.7) )
+   a <- frontierEst( "eg1-out.txt", Coelli, "firm", "time", "logOutput",
+      c( "logCapital", "logLabour" ) )
