@@ -34,7 +34,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	character*12 koutf,koutfArg
 	dimension startVal(nStartVal)
 	dimension dataTable(nRowData,nColData)
-	common/eight/narg,koutf
+	common/eight/koutf
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
@@ -101,7 +101,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	character*12 koutf
-	common/eight/narg,koutf
+	common/eight/koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
@@ -800,7 +800,7 @@ c       accepts instructions from the terminal or from a file and
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
 	character*12 koutf
-	common/eight/narg,koutf
+	common/eight/koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst
@@ -921,7 +921,7 @@ c       as well as presenting many results including estimates of technical
 c       efficiency.   
 	implicit double precision (a-h,o-z)
 	character*12 koutf
-	common/eight/narg,koutf 
+	common/eight/koutf 
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
