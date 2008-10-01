@@ -95,7 +95,8 @@ frontierEst <- function( koutf,
       dataTable = as.double( dataTable ),
       nParamTotal = as.integer( nParamTotal ),
       olsParam = as.double( rep( 0, nParamTotal ) ),
-      olsStdEr = as.double( rep( 0, nParamTotal ) ) )
+      olsStdEr = as.double( rep( 0, nParamTotal ) ),
+      olsLogl = as.double( 0 ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
