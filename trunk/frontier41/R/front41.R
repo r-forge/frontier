@@ -99,6 +99,13 @@ frontierEst <- function( koutf,
       olsLogl = as.double( 0 ),
       gridParam = as.double( rep( 0, nParamTotal ) ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
+   returnObj$nStartVal <- NULL
+   returnObj$nRowData <- NULL
+   returnObj$nColData <- NULL
+   returnObj$nParamTotal <- NULL
+   if( length( startVal ) == 1 ){
+      returnObj$startVal <- NULL
+   }
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){
