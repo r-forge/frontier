@@ -1,7 +1,16 @@
 system( "R CMD SHLIB front41.f" )
 dyn.load( "./front41.so" )
 
-frontierEst <- function( insFile, 
+frontierEst <- function( kdatf, koutf,
+      im = 1,
+      ipc = 1,
+      il = TRUE,
+      nn,
+      nt,
+      nob,
+      nb,
+      nmu = FALSE,
+      neta = FALSE,
       iprint = 5,
       indic = 1,
       tol = 0.00001,
@@ -12,7 +21,18 @@ frontierEst <- function( insFile,
       gridno = 0.1,
       maxit = 100,
       ite = 1 ) {
-   returnObj <- .Fortran( "front41", kins = as.character( insFile ),
+   returnObj <- .Fortran( "front41", 
+      kdatfArg = as.character( kdatf ),
+      koutfArg = as.character( koutf ),
+      imArg = as.integer( im ),
+      ipcArg = as.integer( ipc ),
+      ilArg = as.integer( il ),
+      nnArg = as.integer( nn ),
+      ntArg = as.integer( nt ),
+      nobArg = as.integer( nob ),
+      nbArg = as.integer( nb ),
+      nmuArg = as.integer( nmu ),
+      netaArg = as.integer( neta ),
       iprintArg = as.integer( iprint ),
       indicArg = as.integer( indic ),
       tolArg = as.double( tol ),
@@ -27,4 +47,4 @@ frontierEst <- function( insFile,
    return( returnObj )
 }
 
-frontierEst( "eg1-ins.txt" )
+a <- frontierEst( "eg1-dta.txt", "eg1-out.txt", nn = 60, nt = 1, nob = 60, nb = 2 )
