@@ -5,7 +5,7 @@
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, olsLogl )
+     $  nParamTotal, ob, obse, olsLogl, gb )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -37,6 +37,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
 	dimension obse(nParamTotal)
+	dimension gb(nParamTotal)
 	common/eight/koutf
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
@@ -65,11 +66,11 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse )
+     $  nParamTotal, ob, obse, gb )
 	olsLogl = -fxols
 	end
  
-	subroutine mini(yy,xx,mm,sv,ob,obse)
+	subroutine mini(yy,xx,mm,sv,ob,obse,gb)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	character*12 koutf
@@ -77,10 +78,10 @@ c       contains the main loop of this iterative program.
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
-	dimension ob(n),gb(:),obse(n),x(:),y(:),s(:)   
+	dimension ob(n),gb(n),obse(n),x(:),y(:),s(:)   
 	dimension h(:,:),delx(:),delg(:),gx(:),gy(:)
-	allocatable :: gb,x,y,s,h,delx,delg,gx,gy
-	allocate(gb(n),x(n),y(n),s(n))
+	allocatable :: x,y,s,h,delx,delg,gx,gy
+	allocate(x(n),y(n),s(n))
 	allocate(h(n,n),delx(n),delg(n),gx(n),gy(n))
 	open(unit=70,file=koutf,status='unknown')
 	do 98 i=1,n   
@@ -163,7 +164,7 @@ c       contains the main loop of this iterative program.
   301   format(' iteration = ',i5,'  func evals =',i7,'  llf =',e16.8) 
   302   format(4x,5e15.8)  
 	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2)
-	deallocate(gb,x,y,s,h,delx,delg,gx,gy)
+	deallocate(x,y,s,h,delx,delg,gx,gy)
 	close(70)
 	return 
 	end
@@ -768,7 +769,7 @@ c       evaluates the n(0,1) distribution function.
  
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, obse )
+     $  nParamTotal, ob, obse, gb )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -782,6 +783,7 @@ c       also reads data from a file.
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
 	dimension obse(nParamTotal)
+	dimension gb(nParamTotal)
 	allocatable :: yy,xx,mm,sv,xxd
 	igrid=1
 	nz=0
@@ -889,7 +891,7 @@ c       also reads data from a file.
 	stop  
 	end if
   149   continue   
-	call mini(yy,xx,mm,sv,ob,obse)
+	call mini(yy,xx,mm,sv,ob,obse,gb)
 	deallocate(yy,xx,mm,sv,xxd)
 	return 
 	end
