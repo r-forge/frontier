@@ -18,7 +18,6 @@ frontierEst <- function(
       igrid2 = 1,
       gridno = 0.1,
       maxit = 100,
-      ite = 1,
       startVal = NULL ) {
 
    nn <- length( unique( data[[ crossSectionName ]] ) )
@@ -86,7 +85,6 @@ frontierEst <- function(
       igrid2 = as.integer( igrid2 ),
       gridno = as.double( gridno ),
       maxit = as.integer( maxit ),
-      ite = as.integer( ite ),
       nStartVal = as.integer( length( startVal ) ),
       startVal = as.double( startVal ),
       nRowData = as.integer( nrow( dataTable ) ),

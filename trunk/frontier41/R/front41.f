@@ -3,7 +3,7 @@
      $  imArg, ipcArg, ilArg,
      $  nnArg, ntArg, nobArg, nbArg, nmuArg, netaArg,
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
-     $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg,
+     $  step1Arg, igrid2Arg, gridnoArg, maxitArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
      $  nParamTotal, ob, obse, olsLogl, gb, y, h, fmleLogl,
      $  chi, idf, nIter, ate )
@@ -43,7 +43,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	dimension ate(nnArg,ntArg)
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 
 	im=imArg
 	ipc=ipcArg
@@ -63,7 +63,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	igrid2=igrid2Arg
 	gridno=gridnoArg
 	maxit=maxitArg
-	ite=iteArg
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
@@ -173,7 +172,7 @@ c       a specified tolerance.
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension x(n),y(n)
 	xtol=tol   
 	ftol=tol   
@@ -197,7 +196,7 @@ c       a specified tolerance.
 c       calculates the direction matrix (p).  
 	implicit double precision (a-h,o-z)
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension h(n,n),delx(n),delg(n),gx(n)
 	dimension hdg(:),dgh(:),hgx(:)  
 	allocatable :: hdg,dgh,hgx
@@ -250,7 +249,7 @@ c       determines the step length (t) using a unidimensional search.
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension x(n),y(n),s(n),gx(n),delx(n)
 	dimension yy(nn,nt),xx(nn,nt,nr)
 	iexit=0
@@ -394,7 +393,7 @@ c       checks if params are out of bounds & adjusts if required.
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension b(n),xx(nn,nt,nr)
 	n1=nr+1
 	n2=nr+2
@@ -704,7 +703,7 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
 	double precision function den(a)   
 c       evaluates the n(0,1) density function.
 	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	data rrt2pi/ 0.3989422804/ 
 	den=rrt2pi*dexp(-0.5*a**2) 
 	if (den.lt.1.0/bignum) den=1.0/bignum  
@@ -714,7 +713,7 @@ c       evaluates the n(0,1) density function.
 	double precision function dis(x)   
 c       evaluates the n(0,1) distribution function.   
 	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension a(5),connor(17)  
 	data connor
      +  /8.0327350124d-17, 1.4483264644d-15, 2.4668270103d-14,  
@@ -878,7 +877,7 @@ c       efficiency.
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn)
 	dimension h(n,n),y(n),sv(n),ob(n),obse(n),gb(n),ate(nn,nt)
 	dimension mt(:)
@@ -1012,7 +1011,7 @@ c       does a grid search across gamma
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
 	data pi/3.1415926/ 
 	n1=nr+1
@@ -1080,7 +1079,7 @@ c       does a grid search across gamma
 	subroutine invert(xx,n)
 c       finds the inverse of a given matrix.  
 	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
+	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension xx(n,n)   
 	dimension ipiv(:)
 	allocatable :: ipiv
