@@ -116,8 +116,12 @@ frontierEst <- function( koutf,
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){
-      returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 +
-         nmu + ifelse( im == 1, neta, 0 ) ) ]
+      if( im == 1 ) {
+         returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
+      } else {
+         returnObj$gridParam <- returnObj$gridParam[
+            c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
+      }
    } else {
       returnObj$gridParam <- NULL
    }
