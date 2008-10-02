@@ -1,7 +1,7 @@
 system( "R CMD SHLIB front41.f" )
 dyn.load( "./front41.so" )
 
-frontierEst <- function( koutf,
+frontierEst <- function(
       data, crossSectionName, timePeriodName = NULL,
       yName, xNames = NULL, zNames = NULL,
       im = ifelse( is.null( zNames ), 1, 2 ), 
@@ -68,7 +68,6 @@ frontierEst <- function( koutf,
       }
    }
    returnObj <- .Fortran( "front41", 
-      koutfArg = as.character( koutf ),
       imArg = as.integer( im ),
       ipcArg = as.integer( ipc ),
       ilArg = as.integer( il ),
@@ -138,16 +137,16 @@ Coelli$logOutput  <- log( Coelli$output )
 Coelli$logCapital <- log( Coelli$capital )
 Coelli$logLabour  <- log( Coelli$labour )
 
-a1 <- frontierEst( "eg1-out.txt", Coelli, "firm", "time", "logOutput",
+a1 <- frontierEst( Coelli, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ) )
 
-a2 <- frontierEst( "eg1-out2.txt", Coelli, "firm", "time", "logOutput",
+a2 <- frontierEst( Coelli, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), nmu = TRUE )
 
-a3 <- frontierEst( "eg1-out3.txt", Coelli, "firm", "time", "logOutput",
+a3 <- frontierEst( Coelli, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), neta = TRUE )
 
-a4 <- frontierEst( "eg1-out4.txt", Coelli, "firm", "time", "logOutput",
+a4 <- frontierEst( Coelli, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), nmu = TRUE, neta = TRUE )
 
 
@@ -157,31 +156,31 @@ riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
 riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
-b1 <- frontierEst( "rice_1.out", riceProdPhil,
+b1 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 
-b2 <- frontierEst( "rice_2.out", riceProdPhil,
+b2 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    nmu = TRUE )
 
-b3 <- frontierEst( "rice_3.out", riceProdPhil,
+b3 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    neta = TRUE )
 
-b4 <- frontierEst( "rice_4.out", riceProdPhil,
+b4 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    nmu = TRUE, neta = TRUE )
 
-b5 <- frontierEst( "rice_5.out", riceProdPhil,
+b5 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 
-b6 <- frontierEst( "rice_6.out", riceProdPhil,
+b6 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), nmu = TRUE )

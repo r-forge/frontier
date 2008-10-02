@@ -1,5 +1,5 @@
  
-	subroutine front41( koutfArg,
+	subroutine front41(
      $  imArg, ipcArg, ilArg,
      $  nnArg, ntArg, nobArg, nbArg, nmuArg, netaArg,
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
@@ -33,7 +33,6 @@ c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 	implicit double precision (a-h,o-z)
-	character*12 koutf,koutfArg
 	dimension startVal(nStartVal)
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
@@ -42,12 +41,10 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	dimension y(nParamTotal)
 	dimension h(nParamTotal,nParamTotal)
 	dimension ate(nnArg,ntArg)
-	common/eight/koutf
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
 
-	koutf=koutfArg
 	im=imArg
 	ipc=ipcArg
 	il=ilArg
@@ -79,8 +76,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	subroutine mini(yy,xx,mm,sv,ob,obse,gb,y,h,chi,idf,ate)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
-	character*12 koutf
-	common/eight/koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n),ate(nn,nt)
@@ -89,7 +84,6 @@ c       contains the main loop of this iterative program.
 	allocatable :: x,s,delx,delg,gx,gy
 	allocate(x(n),s(n))
 	allocate(delx(n),delg(n),gx(n),gy(n))
-	open(unit=70,file=koutf,status='unknown')
 	do 98 i=1,n   
 	gx(i)=0.0  
 	gy(i)=0.0  
@@ -170,7 +164,6 @@ c       contains the main loop of this iterative program.
   302   format(4x,5e15.8)  
 	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2,chi,idf,ate)
 	deallocate(x,s,delx,delg,gx,gy)
-	close(70)
 	return 
 	end
  
@@ -778,8 +771,6 @@ c       evaluates the n(0,1) distribution function.
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
-	character*12 koutf
-	common/eight/koutf
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst
@@ -909,8 +900,6 @@ c       presents estimates, covariance matrix, standard errors and t-ratios,
 c       as well as presenting many results including estimates of technical  
 c       efficiency.   
 	implicit double precision (a-h,o-z)
-	character*12 koutf
-	common/eight/koutf 
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/five/tol,tol2,bignum,step1,gridno,igrid2,ite
@@ -920,189 +909,29 @@ c       efficiency.
 	allocatable :: mt
 	data pi/3.1415926/ 
 	allocate(mt(nt))
-	open (unit=70,file=koutf,status='unknown') 
 	n1=nr+1
 	n2=nr+2
 	n3=nr+3
 	n4=nr+4
 	if((nmu.eq.0).and.(neta.eq.1)) n4=nr+3
 	if (ncall.eq.1) then
-	write (70,401) 
-  401   format(/,'Output from the program FRONTIER (Version 4.1d)',//)  
-	if (im.eq.1) then
-	write(70,*) 'Error Components Frontier (see B&C 1992)'
-	else
-	write(70,*) 'Tech. Eff. Effects Frontier (see B&C 1993)'
-	endif
-	if (ipc.eq.1) then
-	write(70,*) 'The model is a production function'
-	else
-	write(70,*) 'The model is a cost function'
-	endif
-	if (il.eq.1) then
-	write(70,*) 'The dependent variable is logged'
-	else
-	write(70,*) 'The dependent variable is not logged'
-	endif
 	fnob=dfloat(nob) 
 	fnb=dfloat(nb) 
 	os2=ob(nb+1)*(fnob-fnb)/fnob
 	fxols=fnob/2.0*(dlog(2.0*pi)+dlog(os2)+1.0)  
-	if(igrid.eq.1) then
-	write (70,403) 
-  403   format(//'the ols estimates are :',/)
-	write (70,404) 
-  404   format(17x,'coefficient     standard-error    t-ratio',/)
-	do 132 i=1,nb  
-	write (70,302) i-1,ob(i),obse(i),ob(i)/obse(i) 
-  132   continue   
-	write (70,203) ob(nb+1)
-	write(70,501) -fxols   
-	endif  
-	if(igrid.eq.0) then
-	write (70,402) 
-  402   format(//'the starting values supplied were : ',/) 
-  202   format('  beta',i2,7x,e16.8) 
-   82   format('  delta',i2,6x,e16.8) 
-  203   format('  sigma-squared',e16.8)
-  204   format('  gamma',8x,e16.8)
- 205    format('  mu           ',e16.8) 
- 206    format('  eta          ',e16.8) 
-	do 131 i=1,nb  
-	write (70,202) i-1,sv(i)   
-  131   continue   
-	if ((nz.ne.0).and.(im.eq.2)) then   
-	do 83 i=1,nz
-	write(70,82) i-nmu,sv(nb+i)
-   83   continue   
-	endif
-	write (70,203) sv(n1)  
-	write (70,204) sv(n2)  
-	if (im.eq.1) then
-	if (nmu.eq.1) then  
-	write (70,205) sv(n3)
-	else  
-	write (70,*) '  mu is restricted to be zero'  
-	end if
-	if (neta.eq.1) then 
-	write (70,206) sv(n4)
-	else  
-	write (70,*) '  eta is restricted to be zero' 
-	end if
-	endif
-	end if 
-	if(igrid.eq.1) then
-	write (70,405)
-  405   format(/,'the estimates after the grid search were :',/)   
-	do 133 i=1,nb
-	write (70,202) i-1,gb(i)   
-  133   continue   
-	if ((nz.ne.0).and.(im.eq.2)) then
-	do 84 i=1,nz
-	write(70,82) i-nmu,gb(nb+i)
-   84   continue   
-	endif
-	write (70,203) gb(n1)
-	write (70,204) gb(n2)  
-	if (im.eq.1) then
-	if (nmu.eq.1) then  
-	write (70,205) gb(n3)
-	else  
-	write (70,*) '  mu is restricted to be zero'
-	end if
-	if (neta.eq.1) then 
-	write (70,206) gb(n4)
-	else  
-	write (70,*) '  eta is restricted to be zero'
-	end if
-	endif
-	end if
 	
 	else
 	
-	write(6,151) koutf
- 151    format(' sending output to: ',a12)
-	write (70,406)
-  406   format(//,'the final mle estimates are :',/)   
-	write (70,404)
-  302   format('  beta',i2,7x,3e16.8)
-   81   format('  delta',i2,6x,3e16.8)
-  303   format('  sigma-squared',3e16.8)   
-  304   format('  gamma',8x,3e16.8)   
- 305    format('  mu           ',3e16.8)
- 306    format('  eta          ',3e16.8)
-	do 134 i=1,nb
-	write (70,302) i-1,y(i),h(i,i)**0.5,y(i)/h(i,i)**0.5   
-  134   continue   
-	if ((nz.ne.0).and.(im.eq.2)) then
-	do 199 i=nb+1,nb+nz   
-	write (70,81) i-nmu-nb,y(i),h(i,i)**0.5,y(i)/h(i,i)**0.5   
-  199   continue   
-	endif
-	write (70,303) y(n1),h(n1,n1)**0.5,y(n1)/h(n1,n1)**0.5
-	write (70,304) y(n2),h(n2,n2)**0.5,y(n2)/h(n2,n2)**0.5
-	if (im.eq.1) then
-	if (nmu.eq.1) then  
-	write (70,305) y(n3),h(n3,n3)**0.5,y(n3)/h(n3,n3)**0.5  
-	else  
-	write (70,*) '  mu is restricted to be zero'  
-	end if
-	if (neta.eq.1) then 
-	write (70,306) y(n4),h(n4,n4)**0.5,y(n4)/h(n4,n4)**0.5  
-	else  
-	write (70,*) '  eta is restricted to be zero' 
-	end if
-	endif
-	write (70,501) -fx
-  501	format(/,'log likelihood function = ',e16.8)
 	if((fx-fxols).gt.0) then
 	write(6,422)  
   422   format(/,'the likelihood value is less than that obtained',   
      +  /,'using ols! - try again using different starting values')  
 	else   
 	chi=2.0*dabs(fx-fxols) 
-	write(70,5011) chi 
- 5011   format(/,'LR test of the one-sided error = ',e16.8)  
 	if (im.eq.1) idf=nmu+neta+1
 	if (im.eq.2) idf=nz+1   
-	write(70,5012) idf 
- 5012   format('with number of restrictions = ',i1)   
-	write(70,*) '[note that this statistic has a mixed chi-square'
-     +  ,' distribution]'
 	end if 
-	write (70,502) iter
- 502    format(/,'number of iterations = ', i6)
-	write(70,420) maxit
- 420    format(/,'(maximum number of iterations set at :',i6,')')  
-	write(70,513) nn   
- 513    format(/,'number of cross-sections = ',i6)   
-	write(70,514) nt  
- 514    format(/,'number of time periods = ',i6)   
-	write(70,515) nob   
- 515    format(/,'total number of observations = ',i6)   
-	write(70,516) nn*nt-nob    
- 516    format(/,'thus there are: ',i6,'  obsns not in the panel')    
-	
-	write (70,58)  
-  58    format(//,'covariance matrix :',/) 
-  52    format(5e16.8)   
-	do 135 i=1,n   
-	nc=1   
-  314   write(70,52) (h(i,j),j=nc,min(n,nc+4))   
-	nc=nc+5
-	if(nc.le.n) goto 314   
-  135   continue   
  
-	if((ite.eq.1).and.(ipc.eq.1)) write(70,503) 
-  503   format(///,'technical efficiency estimates :',/)   
-	if((ite.eq.1).and.(ipc.eq.2)) write(70,504) 
-  504   format(///,'cost efficiency estimates :',/)   
-   67   format(//,1x,'mean efficiency = ',e16.8,////) 
-   68   format(/,'     firm  year             eff.-est.',/)   
-   69   format(2x,2i6,9x,e16.8) 
-  167   format(//,1x,'mean eff. in year' ,i4,' =',e16.8,//)  
-  168   format(/,'     firm             eff.-est.',/)   
-  169   format(2x,i6,9x,e16.8) 
 	sc=1.
 	if(ipc.eq.2) sc=-1.
 
@@ -1117,8 +946,6 @@ c       efficiency.
 	else
 	if (neta.eq.1) e=y(nb+3)
 	endif
- 524    format(//,'efficiency estimates for year ',i6,' :') 
- 505    format(2x,i6,4x,'no observation in this period')    
 	fnt=dfloat(nt)  
 	ntt=nt
 	if (neta.eq.0) ntt=1
@@ -1127,10 +954,6 @@ c       efficiency.
 	ncount=0
 	t=dfloat(l)
 	eta=dexp(-e*(t-fnt))  
-	if (ite.eq.1) then                              
-	if (neta.eq.1) write(70,524) l
-	write(70,168)    
-	endif
 	do 136 i=1,nn   
 	if ((xx(i,l,1).ne.0.0).or.(neta.eq.0)) then  
 	epr=0.0    
@@ -1163,22 +986,12 @@ c       efficiency.
 	te=te+tei
 	ncount=ncount+1
 	endif
-	if (ite.eq.1) then
-	if ((xx(i,l,1).ne.0.).or.(neta.eq.0)) then
-	write(70,169) i,tei   
-	else  
-	write(70,505) i 
-	endif
-	endif
 	ate(i,l) = tei
  136    continue    
-	if (neta.eq.1) write(70,167) l,te/dfloat(ncount)
-	if (neta.eq.0) write(70,67) te/dfloat(ncount)
  138    continue    
 
 	else
 	
-	if(ite.eq.1) write(70,68)  
 	s2=y(nr+1) 
 	g=y(nr+2)  
 	te=0.  
@@ -1205,39 +1018,12 @@ c       efficiency.
 	endif
 	if ((ipc.eq.1).and.(tei.gt.1.0)) tei=1.0
 	if ((ipc.eq.2).and.(tei.lt.1.0)) tei=1.0
-	if (ite.eq.1) write(70,69) i,l,tei  
 	te=te+tei  
 	endif
 	ate(i,l) = tei
   10    continue
-	te=te/dfloat(nob)
-	write(70,67) te
 	endif
 	
-	if ((nt.gt.1).and.(nt.le.100)) then
-	write(70,441)   
- 441    format(///,'summary of panel of observations:',/,  
-     +  '(1 = observed, 0 = not observed)',/)    
-	do 449 l=1,nt   
-	mt(l)=l    
- 449    continue    
-	write(70,442) (mt(l),l=1,nt)   
- 442    format('  t:',100i4)  
-	write(70,*) '  n'    
- 443    format(102i4)    
-	do 450 i=1,nn   
-	write(70,443) i,(int(xx(i,l,1)),l=1,nt),mm(i)  
- 450    continue    
-	do 451 l=1,nt   
-	mt(l)=0    
-	do 451 i=1,nn   
-	mt(l)=mt(l)+int(xx(i,l,1))
- 451    continue    
-	write(70,444) (mt(l),l=1,nt),nob
-444    format(/,4x,101i4)    
-	write(70,445)   
- 445    format(////)
-	endif
 	endif
 	deallocate(mt)
 	return 
