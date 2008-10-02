@@ -100,7 +100,9 @@ frontierEst <- function( koutf,
       gridParam = as.double( rep( 0, nParamTotal ) ),
       mleParam = as.double( rep( 0, nParamTotal ) ),
       mleCov = as.double( matrix( 0, nParamTotal, nParamTotal ) ),
-      mleLogl = as.double( 0 ) )
+      mleLogl = as.double( 0 ),
+      lrTestVal = as.double( 0 ),
+      lrTestDf = as.integer( 0 ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
