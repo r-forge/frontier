@@ -113,10 +113,10 @@ c       contains the main loop of this iterative program.
 	if (im.eq.1) call der1(x,gx,yy,xx) 
 	if (im.eq.2) call der2(x,gx,yy,xx) 
 	write(70,*)
-	write(70,*)
-	write(70,301) iter,nfunct,-fy   
+	if (iprint.ne.0) write(6,*)
+	if (iprint.ne.0) write(6,301) iter,nfunct,-fy   
 	nc=1   
-  305   write(70,302) (y(i),i=nc,min(n,nc+4))   
+  305 if (iprint.ne.0) write(6,302) (y(i),i=nc,min(n,nc+4))   
 	nc=nc+5
 	if(nc.le.n) goto 305   
 	if (maxit.eq.0) goto 70
@@ -124,7 +124,7 @@ c       contains the main loop of this iterative program.
 	do 10 j=1,n
    10   h(i,j)=0.0 
    20   h(i,i)=1.0 
-	if(iprint.ne.0) write(70,2100)  
+	if(iprint.ne.0) write(6,2100)  
  2100   format(' gradient step')  
 	do 30 i=1,n
    30   s(i)=-gx(i)
@@ -142,9 +142,9 @@ c       contains the main loop of this iterative program.
 	if (iprint.ne.0) then 
 	printcon=float(iter)/float(iprint)-float(iter/iprint)
 	if (printcon.eq.0.0) then   
-	write(70,301) iter,nfunct,-fy   
+	write(6,301) iter,nfunct,-fy   
 	nc=1   
-  304   write(70,302) (y(i),i=nc,min(n,nc+4))   
+  304   write(6,302) (y(i),i=nc,min(n,nc+4))   
 	nc=nc+5
 	if(nc.le.n) goto 304   
 	endif
@@ -162,9 +162,9 @@ c       contains the main loop of this iterative program.
    60   s(i)=s(i)-h(i,j)*gy(j) 
 	goto 40
    70   continue  
-	write(70,301) iter,nfunct,-fy
+	if (iprint.ne.0) write(6,301) iter,nfunct,-fy
 	nc=1   
-  303   write(70,302) (y(i),i=nc,min(n,nc+4))   
+  303 if (iprint.ne.0)  write(6,302) (y(i),i=nc,min(n,nc+4))   
 	nc=nc+5
 	if(nc.le.n) goto 303   
   301   format(' iteration = ',i5,'  func evals =',i7,'  llf =',e16.8) 
