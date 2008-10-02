@@ -90,7 +90,6 @@ c       contains the main loop of this iterative program.
   98    continue   
 	call ols(ob,obse,yy,xx)  
 	if (igrid.eq.1) then   
-	write(6,*) 'doing grid search...'
 	call grid(x,y,yy,xx,ob,gb)  
 	else   
 	do 131 i=1,n   
@@ -102,7 +101,6 @@ c       contains the main loop of this iterative program.
 	fy=fx  
 	end if 
 	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,chi,idf,ate)
-	write(6,*) 'DFP iterative process underway - please wait...'
 	iter=0 
 	if (im.eq.1) call der1(x,gx,yy,xx) 
 	if (im.eq.2) call der2(x,gx,yy,xx) 
@@ -785,28 +783,6 @@ c       also reads data from a file.
 	allocatable :: yy,xx,mm,sv,xxd
 	igrid=1
 	nz=0
-	write(6,*)
-	write(6,*)
-	write(6,*) 'FRONTIER - Version 4.1d'   
-	write(6,*) '***********************'
-	write(6,*)
-	write(6,*) 'by'
-	write(6,*) 'Tim Coelli'
-	write(6,*) 'Centre for Efficiency and Productivity Analysis'
-	write(6,*) 'University of New England'
-	write(6,*) 'Armidale, NSW, 2351'
-	write(6,*) 'Australia.'
-	write(6,*) 'Email: tcoelli@metz.une.edu.au'
-	write(6,*) 'Web: http://www.une.edu.au/econometrics/cepa.htm'
-	write(6,*)
-	write(6,*) '[This software is not a commercial product.'
-	write(6,*) 'If you find it useful, a contribution of'
-	write(6,*) 'A$200 to help cover some of the costs'
-	write(6,*) 'associated with development would be'
-	write(6,*) 'appreciated - but is in no way obligatory.]'
-	write(6,*)
-  60    format(a12)   
-  61    format(a) 
 	if ((nn*nt).lt.nob) then   
 	write(6,*) ' the total number of obsns exceeds the product of'    
 	write(6,*) ' the number of firms by the number of years - bye!'   
