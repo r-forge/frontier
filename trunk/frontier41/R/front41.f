@@ -6,7 +6,7 @@
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, iteArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
      $  nParamTotal, ob, obse, olsLogl, gb, y, h, fmleLogl,
-     $  chi, idf )
+     $  chi, idf, nIter )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -72,6 +72,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
      $  nParamTotal, ob, obse, gb, y, h, chi, idf )
 	olsLogl = -fxols
 	fmleLogl = -fx
+	nIter = iter
 	end
  
 	subroutine mini(yy,xx,mm,sv,ob,obse,gb,y,h,chi,idf)
