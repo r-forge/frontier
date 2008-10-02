@@ -104,7 +104,8 @@ frontierEst <- function( koutf,
       mleLogl = as.double( 0 ),
       lrTestVal = as.double( 0 ),
       lrTestDf = as.integer( 0 ),
-      nIter = as.integer( 0 ) )
+      nIter = as.integer( 0 ),
+      effic = matrix( as.double( 0 ), nn, nt ) )
    names( returnObj ) <- sub( "Arg$", "", names( returnObj ) )
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
@@ -124,6 +125,9 @@ frontierEst <- function( koutf,
       }
    } else {
       returnObj$gridParam <- NULL
+   }
+   if( im == 1 && neta == FALSE ) {
+      returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    return( returnObj )
 }
