@@ -122,5 +122,6 @@ frontier <- function(
    if( modelType == 1 && eta == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
+   class( returnObj ) <- "frontier"
    return( returnObj )
 }

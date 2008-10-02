@@ -51,15 +51,65 @@ frontier( data, crossSectionName, timePeriodName = NULL,
       indic = 2 says do not scale step length in unidimensional search;
       indic = 1 says scale (to length of last step) only if last step was smaller;
       indic = any other number says scale (to length of last step).}
-   \item{tol}{numeric. Convergence tolerance (proportiona).}
-   \item{tol2}{tolerance used in uni-dimensional search procedure.}
-   \item{bignum}{numeric. Used to set bounds on den \& dist.}
+   \item{tol}{numeric. Convergence tolerance (proportional).}
+   \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
+   \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{step1}{numeric. Size of 1st step in search procedure.}
    \item{igrid2}{numeric. 1 = double accuracy, 0 = single accuracy.}
    \item{gridno}{numeric. Steps taken in single accuracy grid search on gamma.}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{startVal}{numeric vector. Optional starting values for the ML 
       estimation.}
+}
+
+\value{
+   \code{frontier} returns a list of class \code{frontier}
+   containing following elements:
+   \item{modelType}{model type (see above).}
+   \item{functionType}{function type (see above).}
+   \item{logDepVar}{logical. Is the dependent variable logged?}
+   \item{nn}{number of cross-sections.}
+   \item{nt}{number of time periods.}
+   \item{nob}{number of observations in total.}
+   \item{nb}{number of regressor variables (Xs).}
+   \item{mu}{logical. Indicates if a 'mu'/'delta0' is included
+      in the estimation (see above).}
+   \item{eta}{In case of an error component model: logical,
+      indicates if an 'eta' is included in the estimation.
+      In case of an efficiency effects model: numeric,
+      the number of efficiency effects regressors (Zs).}
+   \item{iprint}{numeric. Printing of information
+      on the iterations (see above).}
+   \item{indic}{numeric. Scaling of unidimensional search procedure
+      (see above).}
+   \item{tol}{numeric. Convergence tolerance.}
+   \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
+   \item{bignum}{numeric. Used to set bounds on densities and distributions.}
+   \item{step1}{numeric. Size of 1st step in search procedure.}
+   \item{igrid2}{numeric. 1 = double accuracy, 0 = single accuracy.}
+   \item{gridno}{numeric. Steps taken in single accuracy grid search
+      on gamma.}
+   \item{maxit}{numeric. Maximum number of iterations permitted.}
+   \item{startVal}{numeric vector. Starting values for the ML
+      estimation (if specified by user).}
+   \item{dataTable}{matrix. Data matrix sent to Frontier 4.1.}
+   \item{olsParam}{numeric vector. OLS estimates.}
+   \item{olsStdEr}{numeric vector. Standard errors of OLS estimates.}
+   \item{olsLogl}{numeric. Log likelihood value of OLS estimation.}
+   \item{gridParam}{numeric vector. Parameters obtained from the grid search
+      (if no starting values were specified).}
+   \item{mleParam}{numeric vector. Parameters obtained from ML estimation.}
+   \item{mleCov}{matrix. Covariance matrix of the parameters obtained
+      from the OLS estimation.}
+   \item{mleLogl}{numeric. Log likelihood value of the ML estimation.}
+   \item{lrTestVal}{LR test of the one-sided error
+      (this statistic has a mixed chi-square distribution
+      with \code{lrTestDf} degrees of freedom.}
+   \item{lrTestDf}{numeric. Degrees of freedom of the LR test.}
+   \item{nIter}{numeric. Number of iterations of the ML estimation.}
+   \item{effic}{matrix. Efficiency estimates:
+      each row corresponds to a cross-section;
+      each column corresponds to a time period.}
 }
 
 \references{
