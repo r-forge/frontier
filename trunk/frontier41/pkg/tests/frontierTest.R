@@ -1,4 +1,5 @@
 library( frontier )
+options( digits = 5 )
 
 data( front41Data )
 front41Data$logOutput  <- log( front41Data$output )
