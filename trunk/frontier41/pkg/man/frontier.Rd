@@ -83,13 +83,12 @@ frontier( data, crossSectionName, timePeriodName = NULL,
 
 \examples{
    # example included in FRONTIER 4.1
-   library( "micEcon" )
-   data( Coelli )
-   Coelli$logOutput  <- log( Coelli$output )
-   Coelli$logCapital <- log( Coelli$capital )
-   Coelli$logLabour  <- log( Coelli$labour )
+   data( front41Data )
+   front41Data$logOutput  <- log( front41Data$output )
+   front41Data$logCapital <- log( front41Data$capital )
+   front41Data$logLabour  <- log( front41Data$labour )
 
-   sfa <- frontier( Coelli, "firm", "time", "logOutput",
+   sfa <- frontier( front41Data, "firm", "time", "logOutput",
       c( "logCapital", "logLabour" ) )
 
    # rice producers in the Phillipines
