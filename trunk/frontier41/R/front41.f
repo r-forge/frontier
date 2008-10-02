@@ -112,7 +112,6 @@ c       contains the main loop of this iterative program.
 	iter=0 
 	if (im.eq.1) call der1(x,gx,yy,xx) 
 	if (im.eq.2) call der2(x,gx,yy,xx) 
-	write(70,*)
 	if (iprint.ne.0) write(6,*)
 	if (iprint.ne.0) write(6,301) iter,nfunct,-fy   
 	nc=1   
@@ -131,7 +130,7 @@ c       contains the main loop of this iterative program.
    40   call search(x,y,s,gx,delx,yy,xx)
 	iter=iter+1   
 	if (iter.ge.maxit) then
-	write(70,*) 'maximum number of iterations reached'  
+	write(6,*) 'maximum number of iterations reached'  
 	goto 70
 	endif  
    7    if(fy.gt.fx) goto 5 
@@ -296,7 +295,7 @@ c       determines the step length (t) using a unidimensional search.
    3    do 4 i=1,n  
    4    y(i)=x(i)+da*s(i)   
 	fy=fa  
-	if(iprint.ne.0) write(70,2100)  
+	if(iprint.ne.0) write(6,2100)  
  2100   format(' search failed. fn val indep of search direction')
 	goto 326   
    5    fc=fb   
@@ -336,7 +335,7 @@ c       determines the step length (t) using a unidimensional search.
    14   y(i)=x(i)+db*s(i)  
 	fy=fb  
 	if(iexit.eq.1) goto 32 
-	if(iprint.ne.0) write(70,2500)  
+	if(iprint.ne.0) write(6,2500)  
  2500   format(' search failed. loc of min limited by rounding')  
 	goto 325   
    15   if(f-fb) 16,13,17  
@@ -380,13 +379,13 @@ c       determines the step length (t) using a unidimensional search.
 	if(y(i).ne.x(i)) goto 325  
    99   continue   
 	goto 33
-  325   if(ntol.ne.0.and.iprint.eq.1) write(70,3000) ntol  
+  325   if(ntol.ne.0.and.iprint.eq.1) write(6,3000) ntol  
  3000   format(1x,'tolerance reduced',i1,'time(s)')   
   326   if(fy.lt.fx) return   
 	do 101 i=1,n   
 	if(s(i).ne.-gx(i)) return  
   101   continue  
-	write(70,5000)  
+	write(6,5000)  
  5000   format(' search failed on gradient step, termination')
 	return 
    33   if(ntol.eq.5) goto 34  
@@ -394,7 +393,7 @@ c       determines the step length (t) using a unidimensional search.
 	ntol=ntol+1
 	ftol=ftol/10.  
 	goto 12
-  34    if(iprint.ne.0) write(70,2000)   
+  34    if(iprint.ne.0) write(6,2000)   
  2000   format(' pt better than entering pt cannot be found') 
 	return 
 	end
@@ -1057,7 +1056,7 @@ c       efficiency.
 	write (70,501) -fx
   501	format(/,'log likelihood function = ',e16.8)
 	if((fx-fxols).gt.0) then
-	write(70,422)  
+	write(6,422)  
   422   format(/,'the likelihood value is less than that obtained',   
      +  /,'using ols! - try again using different starting values')  
 	else   
