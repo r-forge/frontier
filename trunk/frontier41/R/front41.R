@@ -4,11 +4,11 @@ dyn.load( "./front41.so" )
 frontierEst <- function(
       data, crossSectionName, timePeriodName = NULL,
       yName, xNames = NULL, zNames = NULL,
-      im = ifelse( is.null( zNames ), 1, 2 ), 
-      ipc = 1,
-      il = TRUE,
-      nmu = FALSE,
-      neta = FALSE,
+      modelType = ifelse( is.null( zNames ), 1, 2 ), 
+      functionType = 1,
+      logDepVar = TRUE,
+      mu = FALSE,
+      eta = FALSE,
       iprint = 0,
       indic = 1,
       tol = 0.00001,
@@ -27,8 +27,8 @@ frontierEst <- function(
    nob <- nrow( data )
    nb <- length( xNames )
    nZvars <- length( zNames )
-   if( im == 2 ) {
-      neta <- nZvars
+   if( modelType == 2 ) {
+      eta <- nZvars
    }
 
    dataTable <- matrix( data[[ crossSectionName ]], ncol = 1 )
@@ -57,7 +57,7 @@ frontierEst <- function(
       }
    }
 
-   nParamTotal <- nb + 3 + nmu + neta
+   nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
       startVal <- 0
    } else {
@@ -68,15 +68,15 @@ frontierEst <- function(
       }
    }
    returnObj <- .Fortran( "front41", 
-      imArg = as.integer( im ),
-      ipcArg = as.integer( ipc ),
-      ilArg = as.integer( il ),
+      modelType = as.integer( modelType ),
+      functionType = as.integer( functionType ),
+      logDepVar = as.integer( logDepVar ),
       nnArg = as.integer( nn ),
       ntArg = as.integer( nt ),
       nobArg = as.integer( nob ),
       nbArg = as.integer( nb ),
-      nmuArg = as.integer( nmu ),
-      netaArg = as.integer( neta ),
+      mu = as.integer( mu ),
+      eta = as.integer( eta ),
       iprintArg = as.integer( iprint ),
       indicArg = as.integer( indic ),
       tolArg = as.double( tol ),
@@ -116,7 +116,7 @@ frontierEst <- function(
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){
-      if( im == 1 ) {
+      if( modelType == 1 ) {
          returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
       } else {
          returnObj$gridParam <- returnObj$gridParam[
@@ -125,7 +125,7 @@ frontierEst <- function(
    } else {
       returnObj$gridParam <- NULL
    }
-   if( im == 1 && neta == FALSE ) {
+   if( modelType == 1 && eta == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    return( returnObj )
@@ -141,13 +141,13 @@ a1 <- frontierEst( Coelli, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ) )
 
 a2 <- frontierEst( Coelli, "firm", "time", "logOutput",
-   c( "logCapital", "logLabour" ), nmu = TRUE )
+   c( "logCapital", "logLabour" ), mu = TRUE )
 
 a3 <- frontierEst( Coelli, "firm", "time", "logOutput",
-   c( "logCapital", "logLabour" ), neta = TRUE )
+   c( "logCapital", "logLabour" ), eta = TRUE )
 
 a4 <- frontierEst( Coelli, "firm", "time", "logOutput",
-   c( "logCapital", "logLabour" ), nmu = TRUE, neta = TRUE )
+   c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
 
 
 data( riceProdPhil )
@@ -163,17 +163,17 @@ b1 <- frontierEst( riceProdPhil,
 b2 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   nmu = TRUE )
+   mu = TRUE )
 
 b3 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   neta = TRUE )
+   eta = TRUE )
 
 b4 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   nmu = TRUE, neta = TRUE )
+   mu = TRUE, eta = TRUE )
 
 b5 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
@@ -183,4 +183,4 @@ b5 <- frontierEst( riceProdPhil,
 b6 <- frontierEst( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), nmu = TRUE )
+   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
