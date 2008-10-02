@@ -880,10 +880,7 @@ c       efficiency.
 	common/five/tol,tol2,bignum,step1,gridno,igrid2
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn)
 	dimension h(n,n),y(n),sv(n),ob(n),obse(n),gb(n),ate(nn,nt)
-	dimension mt(:)
-	allocatable :: mt
 	data pi/3.1415926/ 
-	allocate(mt(nt))
 	n1=nr+1
 	n2=nr+2
 	n3=nr+3
@@ -1000,7 +997,6 @@ c       efficiency.
 	endif
 	
 	endif
-	deallocate(mt)
 	return 
 	end
  
