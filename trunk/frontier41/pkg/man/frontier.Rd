@@ -1,5 +1,6 @@
 \name{frontier}
 \alias{frontier}
+\alias{print.frontier}
 \title{Stochastic Frontier Analysis}
 
 \description{ Maximum Likelihood Estimation of
@@ -21,6 +22,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 100,
    startVal = NULL )
+\method{print}{frontier}( x, ... )
 }
 
 \arguments{
@@ -60,6 +62,9 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{startVal}{numeric vector. Optional starting values for the ML 
       estimation.}
+   \item{x}{an object of class \code{frontier} 
+      (returned by the function \code{frontier}.}
+   \item{...}{currently unused.}
 }
 
 \value{

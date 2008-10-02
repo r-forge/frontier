@@ -1,2 +1,3 @@
 export( "frontier" )
+S3method( "print", "frontier" )
 useDynLib(frontier)

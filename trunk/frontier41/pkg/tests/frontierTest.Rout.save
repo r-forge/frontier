@@ -25,6 +25,16 @@ Type 'q()' to quit R.
 > 
 > a1 <- frontier( front41Data, "firm", "time", "logOutput",
 +    c( "logCapital", "logLabour" ) )
+> print( a1 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.56162  0.28110  0.53648  0.21700  0.79721 
 > print.default( a1 )
 $modelType
 [1] 1
@@ -250,6 +260,16 @@ attr(,"class")
 > 
 > a2 <- frontier( front41Data, "firm", "time", "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE )
+> print( a2 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
+ 0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057 
 > print.default( a2 )
 $modelType
 [1] 1
@@ -476,6 +496,16 @@ attr(,"class")
 > 
 > a3 <- frontier( front41Data, "firm", "time", "logOutput",
 +    c( "logCapital", "logLabour" ), eta = TRUE )
+> print( a3 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
+ 0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
 > print.default( a3 )
 $modelType
 [1] 1
@@ -702,6 +732,16 @@ attr(,"class")
 > 
 > a4 <- frontier( front41Data, "firm", "time", "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
+> print( a4 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
+ 0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
 > print.default( a4 )
 $modelType
 [1] 1
@@ -945,6 +985,16 @@ attr(,"class")
 > b1 <- frontier( riceProdPhil,
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
+> print( b1 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-0.83217  0.45390  0.28892  0.22754  0.15538  0.46431 
 > print.default( b1 )
 $modelType
 [1] 1
@@ -1440,6 +1490,16 @@ attr(,"class")
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE )
+> print( b2 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
+-0.82887  0.45457  0.28732  0.22512  0.20340  0.59049 -0.27349 
 > print.default( b2 )
 $modelType
 [1] 1
@@ -1944,6 +2004,16 @@ attr(,"class")
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    eta = TRUE )
+> print( b3 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
+-0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
 > print.default( b3 )
 $modelType
 [1] 1
@@ -2448,6 +2518,16 @@ attr(,"class")
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, eta = TRUE )
+> print( b4 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+-0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
 > print.default( b4 )
 $modelType
 [1] 1
@@ -2954,6 +3034,16 @@ attr(,"class")
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
+> print( b5 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3  delta_1  delta_2 sigma-sq    gamma 
+-1.00858  0.38410  0.31899  0.26035 -0.05807 -1.40562  0.59747  0.94493 
 > print.default( b5 )
 $modelType
 [1] 2
@@ -3460,6 +3550,18 @@ attr(,"class")
 +    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
+> print( b6 )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
+The model is a production function
+The dependent variable is logged
+
+Final maximum likelihood estimates
+   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
+-1.051758  0.379767  0.321028  0.263797 -2.746409 -0.028611 -3.635487  1.666569 
+    gamma 
+ 0.978799 
 > print.default( b6 )
 $modelType
 [1] 2
