@@ -122,6 +122,33 @@ frontier <- function(
    if( modelType == 1 && eta == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
+   paramNames <- paste( "beta", c( 0:nb ), sep = "_" )
+   if( modelType == 2 ) {
+      if( mu ){
+         paramNames <- c( paramNames, "delta_0" )
+      }
+      if( nZvars > 0 ) {
+         paramNames <- c( paramNames, 
+            paste( "delta", c( 1:nZvars ), sep = "_" ) )
+      }
+   }
+   paramNames <- c( paramNames, "sigma-sq", "gamma" )
+   if( modelType == 1 ) {
+      if( mu ){
+         paramNames <- c( paramNames, "mu" )
+      }
+      if( eta ){
+         paramNames <- c( paramNames, "eta" )
+      }
+   }
+   names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+      "sigma-sq" )
+   names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
+   names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
+      "sigma-sq", "gamma" )
+   names( returnObj$mleParam ) <- paramNames
+   rownames( returnObj$mleCov ) <- paramNames
+   colnames( returnObj$mleCov ) <- paramNames
    class( returnObj ) <- "frontier"
    return( returnObj )
 }
