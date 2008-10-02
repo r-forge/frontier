@@ -144,11 +144,17 @@ frontier <- function(
    names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
       "sigma-sq" )
    names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
-   names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
-      "sigma-sq", "gamma" )
+   if( !is.null( returnObj$gridParam ) ) {
+      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
+         "sigma-sq", "gamma" )
+   }
    names( returnObj$mleParam ) <- paramNames
    rownames( returnObj$mleCov ) <- paramNames
    colnames( returnObj$mleCov ) <- paramNames
+   if( !is.null( returnObj$startVal ) ) {
+      names( returnObj$startVal ) <- paramNames
+   }
+
    class( returnObj ) <- "frontier"
    return( returnObj )
 }
