@@ -63,7 +63,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    \item{startVal}{numeric vector. Optional starting values for the ML 
       estimation.}
    \item{x}{an object of class \code{frontier} 
-      (returned by the function \code{frontier}.}
+      (returned by the function \code{frontier}).}
    \item{...}{currently unused.}
 }
 
@@ -145,6 +145,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
 
    sfa <- frontier( front41Data, "firm", "time", "logOutput",
       c( "logCapital", "logLabour" ) )
+   sfa
 
    # rice producers in the Phillipines
    data( riceProdPhil )
@@ -156,11 +157,13 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    rice <- frontier( riceProdPhil,
       crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
+   rice
 
    rice2 <- frontier( riceProdPhil,
       crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
       zNames = c( "EDYRS", "BANRAT" ) )
+   rice
 }
 
 \keyword{models}
