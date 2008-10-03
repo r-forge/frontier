@@ -9,27 +9,32 @@ front41Data$logLabour  <- log( front41Data$labour )
 a1 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ) )
 print( a1 )
+print( summary( a1 ) )
 print.default( a1 )
 
 a2 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE )
 print( a2 )
+print( summary( a2 ) )
 print.default( a2 )
 
 a3 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), eta = TRUE )
 print( a3 )
+print( summary( a3 ) )
 print.default( a3 )
 
 a4 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
 print( a4 )
+print( summary( a4 ) )
 print.default( a4 )
 
 a5 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 print( a5 )
+print( summary( a5 ) )
 print.default( a5 )
 
 
@@ -43,6 +48,7 @@ b1 <- frontier( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 print( b1 )
+print( summary( b1 ) )
 print.default( b1 )
 
 b2 <- frontier( riceProdPhil,
@@ -50,6 +56,7 @@ b2 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE )
 print( b2 )
+print( summary( b2 ) )
 print.default( b2 )
 
 b3 <- frontier( riceProdPhil,
@@ -57,6 +64,7 @@ b3 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    eta = TRUE )
 print( b3 )
+print( summary( b3 ) )
 print.default( b3 )
 
 b4 <- frontier( riceProdPhil,
@@ -64,6 +72,7 @@ b4 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE, eta = TRUE )
 print( b4 )
+print( summary( b4 ) )
 print.default( b4 )
 
 b5 <- frontier( riceProdPhil,
@@ -71,6 +80,7 @@ b5 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 print( b5 )
+print( summary( b5 ) )
 print.default( b5 )
 
 b6 <- frontier( riceProdPhil,
@@ -78,6 +88,7 @@ b6 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
 print( b6 )
+print( summary( b6 ) )
 print.default( b6 )
 
 b7 <- frontier( riceProdPhil,
@@ -86,6 +97,7 @@ b7 <- frontier( riceProdPhil,
    mu = TRUE, eta = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 print( b7 )
+print( summary( b7 ) )
 print.default( b7 )
 
 b8 <- frontier( riceProdPhil,
@@ -94,4 +106,5 @@ b8 <- frontier( riceProdPhil,
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 print( b8 )
+print( summary( b8 ) )
 print.default( b8 )
