@@ -26,9 +26,9 @@ returned by \code{\link{frontier}}.
    that is identical to an object returned by \code{\link{frontier}}
    with two exceptions:
    \item{olsParam}{matrix of OLS estimates, their standard errors,
-      tvalues, and P values.}
+      t values, and P values.}
    \item{mleParam}{matrix of ML estimates, their standard errors,
-      tvalues, and P values.}
+      t values, and P values.}
 }
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
