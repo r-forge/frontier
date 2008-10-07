@@ -34,19 +34,19 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    \item{xNames}{a vector of strings containing the names of the X variables
       (exogenous variables of the production or cost function).}
    \item{zNames}{a vector of strings containing the names of the Z variables
-      (variables explaining the efficiency level).
-      If it is null, an 'Error Components Frontier' is estimated;
-      otherwise a 'Technical Efficiency Effects Frontier' is estimated.}
-   \item{modelType}{model type: either 1 for an 'error component model' 
-      or 2 for an 'efficiency effects model'.}
+      (variables explaining the efficiency level).}
+   \item{modelType}{model type: either 1 for an 'Error Components Frontier'
+      or 2 for an 'Efficiency Effects Frontier'.}
    \item{functionType}{function type: either 1 for 'production function' or
       2 for 'cost function'.}
    \item{logDepVar}{logical. Is the dependent variable logged.}
-   \item{mu}{logical. Should a 'mu' (in case of an 'Error Components Frontier')
-      or a delta0 (in case of a 'Technical Efficiency Effects Frontier')
+   \item{mu}{logical. Should a 'mu' (in case of an 'Error Components Frontier',
+      i.e. modelType = 1)
+      or a delta0 (in case of an 'Efficiency Effects Frontier',
+      i.e. modelType = 2)
       be included in the estimation.}
    \item{eta}{logical. Should an 'eta' be included in the estimation
-      (only in case of an 'Error Components Frontier').}
+      (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
    \item{iprint}{numeric. Print info every \code{iprint} iterations;
       if this argument is 0, do not print.}
    \item{indic}{numeric. Use in unidimensional search procedure:
