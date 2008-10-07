@@ -1,6 +1,6 @@
 frontier <- function(
       data, crossSectionName, timePeriodName = NULL,
-      yName, xNames = NULL, zNames = NULL,
+      yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       functionType = 1,
       logDepVar = TRUE,
@@ -16,6 +16,10 @@ frontier <- function(
       gridno = 0.1,
       maxit = 100,
       startVal = NULL ) {
+
+   if( qxNames == "all" && !is.null( qxNames ) ) {
+      qxNames <- xNames
+   }
 
    if( !modelType %in% c( 1, 2 ) ) {
       stop( "argument 'modelType' must be either 1 or 2" )
@@ -97,7 +101,9 @@ frontier <- function(
    nt <- ifelse( is.null( timePeriodName ), 1,
       length( unique( data[[ timePeriodName ]] ) ) )
    nob <- nrow( data )
-   nb <- length( xNames )
+   nXvars <- length( xNames )
+   nTLvars <- length( qxNames )
+   nb <- nXvars + nTLvars * ( nTLvars + 1 ) / 2
    nZvars <- length( zNames )
    if( modelType == 2 ) {
       eta <- nZvars
@@ -116,9 +122,20 @@ frontier <- function(
    dataTable <- cbind( dataTable, data[[ yName ]] )
 
    # exogenous variables
-   if( nb > 0 ) {
-      for( i in 1:nb ) {
+   if( nXvars > 0 ) {
+      for( i in 1:nXvars ) {
          dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
+      }
+   }
+
+   # exogenous variables: quadratic and interaction terms
+   if( nTLvars > 0 ) {
+      for( i in 1:nTLvars ) {
+         for( j in i:nTLvars ) {
+            dataTable <- cbind( dataTable,
+               ifelse( i == j, 1 , 2 ) * ifelse( quadHalf, 0.5, 1 ) *
+               data[[ qxNames[ i ] ]] * data[[ qxNames[ j ] ]] )
+         }
       }
    }
 
