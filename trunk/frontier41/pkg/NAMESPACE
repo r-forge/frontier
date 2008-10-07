@@ -1,4 +1,5 @@
 export( "frontier" )
+S3method( "coef", "frontier" )
 S3method( "print", "frontier" )
 S3method( "summary", "frontier" )
 S3method( "print", "summary.frontier" )
