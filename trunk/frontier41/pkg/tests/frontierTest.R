@@ -9,24 +9,40 @@ front41Data$logLabour  <- log( front41Data$labour )
 a1 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ) )
 print( a1 )
+coef( a1, which = "start" )
+coef( a1, which = "ols" )
+coef( a1, which = "grid" )
+coef( a1 )
 print( summary( a1 ) )
 print.default( a1 )
 
 a2 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE )
 print( a2 )
+coef( a2, which = "start" )
+coef( a2, which = "ols" )
+coef( a2, which = "grid" )
+coef( a2 )
 print( summary( a2 ) )
 print.default( a2 )
 
 a3 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), eta = TRUE )
 print( a3 )
+coef( a3, which = "start" )
+coef( a3, which = "ols" )
+coef( a3, which = "grid" )
+coef( a3 )
 print( summary( a3 ) )
 print.default( a3 )
 
 a4 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
 print( a4 )
+coef( a4, which = "start" )
+coef( a4, which = "ols" )
+coef( a4, which = "grid" )
+coef( a4 )
 print( summary( a4 ) )
 print.default( a4 )
 
@@ -34,6 +50,10 @@ a5 <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 print( a5 )
+coef( a5, which = "start" )
+coef( a5, which = "ols" )
+coef( a5, which = "grid" )
+coef( a5 )
 print( summary( a5 ) )
 print.default( a5 )
 
@@ -48,6 +68,10 @@ b1 <- frontier( riceProdPhil,
    crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 print( b1 )
+coef( b1, which = "start" )
+coef( b1, which = "ols" )
+coef( b1, which = "grid" )
+coef( b1 )
 print( summary( b1 ) )
 print.default( b1 )
 
@@ -56,6 +80,10 @@ b2 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE )
 print( b2 )
+coef( b2, which = "start" )
+coef( b2, which = "ols" )
+coef( b2, which = "grid" )
+coef( b2 )
 print( summary( b2 ) )
 print.default( b2 )
 
@@ -64,6 +92,10 @@ b3 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    eta = TRUE )
 print( b3 )
+coef( b3, which = "start" )
+coef( b3, which = "ols" )
+coef( b3, which = "grid" )
+coef( b3 )
 print( summary( b3 ) )
 print.default( b3 )
 
@@ -72,6 +104,10 @@ b4 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE, eta = TRUE )
 print( b4 )
+coef( b4, which = "start" )
+coef( b4, which = "ols" )
+coef( b4, which = "grid" )
+coef( b4 )
 print( summary( b4 ) )
 print.default( b4 )
 
@@ -80,6 +116,10 @@ b5 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 print( b5 )
+coef( b5, which = "start" )
+coef( b5, which = "ols" )
+coef( b5, which = "grid" )
+coef( b5 )
 print( summary( b5 ) )
 print.default( b5 )
 
@@ -88,6 +128,10 @@ b6 <- frontier( riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
 print( b6 )
+coef( b6, which = "start" )
+coef( b6, which = "ols" )
+coef( b6, which = "grid" )
+coef( b6 )
 print( summary( b6 ) )
 print.default( b6 )
 
@@ -97,6 +141,10 @@ b7 <- frontier( riceProdPhil,
    mu = TRUE, eta = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 print( b7 )
+coef( b7, which = "start" )
+coef( b7, which = "ols" )
+coef( b7, which = "grid" )
+coef( b7 )
 print( summary( b7 ) )
 print.default( b7 )
 
@@ -106,6 +154,10 @@ b8 <- frontier( riceProdPhil,
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 print( b8 )
+coef( b8, which = "start" )
+coef( b8, which = "ols" )
+coef( b8, which = "grid" )
+coef( b8 )
 print( summary( b8 ) )
 print.default( b8 )
 
@@ -113,6 +165,10 @@ print.default( b8 )
 translog <- frontier( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), qxNames = "all" )
 print( translog )
+coef( translog, which = "start" )
+coef( translog, which = "ols" )
+coef( translog, which = "grid" )
+coef( translog )
 print( summary( translog ) )
 print.default( translog )
 

@@ -35,6 +35,17 @@ The dependent variable is logged
 Final maximum likelihood estimates
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.56162  0.28110  0.53648  0.21700  0.79721 
+> coef( a1, which = "start" )
+NULL
+> coef( a1, which = "ols" )
+  beta_0   beta_1   beta_2 sigma-sq 
+ 0.24490  0.28049  0.53331  0.11398 
+> coef( a1, which = "grid" )
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.58014  0.28049  0.53331  0.22067  0.80000 
+> coef( a1 )
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.56162  0.28110  0.53648  0.21700  0.79721 
 > print( summary( a1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -388,6 +399,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
+ 0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057 
+> coef( a2, which = "start" )
+NULL
+> coef( a2, which = "ols" )
+  beta_0   beta_1   beta_2 sigma-sq 
+ 0.24490  0.28049  0.53331  0.11398 
+> coef( a2, which = "grid" )
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.58014  0.28049  0.53331  0.22067  0.80000 
+> coef( a2 )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057 
 > print( summary( a2 ) )
@@ -748,6 +770,17 @@ The dependent variable is logged
 Final maximum likelihood estimates
   beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
  0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
+> coef( a3, which = "start" )
+NULL
+> coef( a3, which = "ols" )
+  beta_0   beta_1   beta_2 sigma-sq 
+ 0.24490  0.28049  0.53331  0.11398 
+> coef( a3, which = "grid" )
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.58014  0.28049  0.53331  0.22067  0.80000 
+> coef( a3 )
+  beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
+ 0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
 > print( summary( a3 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1104,6 +1137,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
+ 0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
+> coef( a4, which = "start" )
+NULL
+> coef( a4, which = "ols" )
+  beta_0   beta_1   beta_2 sigma-sq 
+ 0.24490  0.28049  0.53331  0.11398 
+> coef( a4, which = "grid" )
+  beta_0   beta_1   beta_2 sigma-sq    gamma 
+ 0.58014  0.28049  0.53331  0.22067  0.80000 
+> coef( a4 )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
 > print( summary( a4 ) )
@@ -1484,6 +1528,17 @@ The dependent variable is logged
 Final maximum likelihood estimates
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
  0.47778  0.28386  0.53993  0.54856  0.90832 -1.41176 
+> coef( a5, which = "start" )
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
+     0.5      0.3      0.5      0.5      0.9     -1.0 
+> coef( a5, which = "ols" )
+  beta_0   beta_1   beta_2 sigma-sq 
+ 0.24490  0.28049  0.53331  0.11398 
+> coef( a5, which = "grid" )
+NULL
+> coef( a5 )
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
+ 0.47778  0.28386  0.53993  0.54856  0.90832 -1.41176 
 > print( summary( a5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1839,6 +1894,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-0.83217  0.45390  0.28892  0.22754  0.15538  0.46431 
+> coef( b1, which = "start" )
+NULL
+> coef( b1, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b1, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+> coef( b1 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431 
 > print( summary( b1 ) )
@@ -2451,6 +2517,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
+-0.82887  0.45457  0.28732  0.22512  0.20339  0.59048 -0.27344 
+> coef( b2, which = "start" )
+NULL
+> coef( b2, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b2, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+> coef( b2 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
 -0.82887  0.45457  0.28732  0.22512  0.20339  0.59048 -0.27344 
 > print( summary( b2 ) )
@@ -3082,6 +3159,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
+-0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
+> coef( b3, which = "start" )
+NULL
+> coef( b3, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b3, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+> coef( b3 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
 -0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
 > print( summary( b3 ) )
@@ -3716,6 +3804,17 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+-0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
+> coef( b4, which = "start" )
+NULL
+> coef( b4, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b4, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+> coef( b4 )
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
 -0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
 > print( summary( b4 ) )
@@ -4357,6 +4456,17 @@ The dependent variable is logged
 Final maximum likelihood estimates
   beta_0   beta_1   beta_2   beta_3  delta_1  delta_2 sigma-sq    gamma 
 -1.00858  0.38410  0.31899  0.26035 -0.05807 -1.40562  0.59747  0.94493 
+> coef( b5, which = "start" )
+NULL
+> coef( b5, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b5, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+> coef( b5 )
+  beta_0   beta_1   beta_2   beta_3  delta_1  delta_2 sigma-sq    gamma 
+-1.00858  0.38410  0.31899  0.26035 -0.05807 -1.40562  0.59747  0.94493 
 > print( summary( b5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4994,6 +5104,19 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
+-1.051758  0.379767  0.321028  0.263797 -2.746409 -0.028611 -3.635487  1.666569 
+    gamma 
+ 0.978799 
+> coef( b6, which = "start" )
+NULL
+> coef( b6, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b6, which = "grid" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
+-1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+> coef( b6 )
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051758  0.379767  0.321028  0.263797 -2.746409 -0.028611 -3.635487  1.666569 
     gamma 
@@ -5645,6 +5768,17 @@ The dependent variable is logged
 Final maximum likelihood estimates
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
 -0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
+> coef( b7, which = "start" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu      eta 
+    -1.0      0.3      0.3      0.3      0.2      0.5     -0.3      0.1 
+> coef( b7, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b7, which = "grid" )
+NULL
+> coef( b7 )
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+-0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
 > print( summary( b7 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6274,6 +6408,21 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
+-1.051762  0.379766  0.321027  0.263799 -2.746556 -0.028622 -3.635536  1.666625 
+    gamma 
+ 0.978799 
+> coef( b8, which = "start" )
+  beta_0   beta_1   beta_2   beta_3  delta_0  delta_1  delta_2 sigma-sq 
+    -1.0      0.3      0.3      0.3     -3.0     -0.1     -4.0      2.0 
+   gamma 
+     0.8 
+> coef( b8, which = "ols" )
+  beta_0   beta_1   beta_2   beta_3 sigma-sq 
+-1.66964  0.32976  0.38375  0.28292  0.10902 
+> coef( b8, which = "grid" )
+NULL
+> coef( b8 )
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051762  0.379766  0.321027  0.263799 -2.746556 -0.028622 -3.635536  1.666625 
     gamma 
@@ -6915,6 +7064,21 @@ The model is a production function
 The dependent variable is logged
 
 Final maximum likelihood estimates
+    beta_0     beta_1     beta_2     beta_3     beta_4     beta_5   sigma-sq 
+ 0.8092797  0.3918691  0.3639215 -0.1832404  0.0050751  0.0576873  0.1893914 
+     gamma 
+ 0.7623239 
+> coef( translog, which = "start" )
+NULL
+> coef( translog, which = "ols" )
+    beta_0     beta_1     beta_2     beta_3     beta_4     beta_5   sigma-sq 
+ 0.5562561  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1103671 
+> coef( translog, which = "grid" )
+    beta_0     beta_1     beta_2     beta_3     beta_4     beta_5   sigma-sq 
+ 0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1924378 
+     gamma 
+ 0.7600000 
+> coef( translog )
     beta_0     beta_1     beta_2     beta_3     beta_4     beta_5   sigma-sq 
  0.8092797  0.3918691  0.3639215 -0.1832404  0.0050751  0.0576873  0.1893914 
      gamma 
