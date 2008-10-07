@@ -108,3 +108,11 @@ b8 <- frontier( riceProdPhil,
 print( b8 )
 print( summary( b8 ) )
 print.default( b8 )
+
+# translog
+translog <- frontier( front41Data, "firm", "time", "logOutput",
+   c( "logCapital", "logLabour" ), qxNames = "all" )
+print( translog )
+print( summary( translog ) )
+print.default( translog )
+
