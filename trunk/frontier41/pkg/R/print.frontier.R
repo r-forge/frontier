@@ -17,6 +17,6 @@ print.frontier <- function( x, ... ) {
       cat( "The dependent variable is not logged\n" )
    }
    cat( "\nFinal maximum likelihood estimates\n" )
-   print( x$mleParam )
+   print( coef( x ) )
    invisible( x )
 }
