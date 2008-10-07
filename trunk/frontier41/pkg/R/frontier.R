@@ -17,6 +17,82 @@ frontier <- function(
       maxit = 100,
       startVal = NULL ) {
 
+   if( !modelType %in% c( 1, 2 ) ) {
+      stop( "argument 'modelType' must be either 1 or 2" )
+   }
+   if( !functionType %in% c( 1, 2 ) ) {
+      stop( "argument 'functionType' must be either 1 or 2" )
+   }
+   if( !is.logical( logDepVar ) ) {
+      stop( "argument 'logDepVar' must be logical" )
+   }
+   if( !is.logical( mu ) ) {
+      stop( "argument 'mu' must be logical" )
+   }
+   if( !is.logical( eta ) ) {
+      stop( "argument 'eta' must be logical" )
+   }
+   # iprint
+   if( !is.numeric( iprint ) ) {
+      stop( "argument 'iprint' must be numeric" )
+   } else if( iprint != round( iprint ) ) {
+      stop( "argument 'iprint' must be an iteger" )
+   } else if( iprint < 0 ) {
+      stop( "argument 'iprint' must be non-negative" )
+   }
+   iprint <- as.integer( iprint )
+   # indic
+   if( !is.numeric( indic ) ) {
+      stop( "argument 'indic' must be numeric" )
+   } else if( indic != round( indic ) ) {
+      stop( "argument 'indic' must be an integer" )
+   }
+   indic <- as.integer( indic )
+   # tol
+   if( !is.numeric( tol ) ) {
+      stop( "argument 'tol' must be numeric" )
+   } else if( tol < 0 ) {
+      stop( "argument 'tol' must be non-negative" )
+   }
+   # tol2
+   if( !is.numeric( tol2 ) ) {
+      stop( "argument 'tol2' must be numeric" )
+   } else if( tol2 < 0 ) {
+      stop( "argument 'tol2' must be non-negative" )
+   }
+   # bignum
+   if( !is.numeric( bignum ) ) {
+      stop( "argument 'bignum' must be numeric" )
+   } else if( bignum <= 0 ) {
+      stop( "argument 'bignum' must be positive" )
+   }
+   # step1
+   if( !is.numeric( step1 ) ) {
+      stop( "argument 'step1' must be numeric" )
+   } else if( step1 <= 0 ) {
+      stop( "argument 'step1' must be positive" )
+   }
+   # igrid2
+   if( ! igrid2 %in% c( 1, 2 ) ) {
+      stop( "argument 'igrid2' must be either '1' or '2'" )
+   }
+   # gridno
+   if( !is.numeric( gridno ) ) {
+      stop( "argument 'gridno' must be numeric" )
+   } else if( gridno <= 0 ) {
+      stop( "argument 'gridno' must be positive" )
+   }
+   # maxit
+   if( !is.numeric( maxit ) ) {
+      stop( "argument 'maxit' must be numeric" )
+   } else if( maxit != round( maxit ) ) {
+      stop( "argument 'maxit' must be an integer" )
+   } else if( maxit <= 0 ) {
+      stop( "argument 'maxit' must be positive" )
+   }
+   maxit <- as.integer( maxit )
+
+
    nn <- length( unique( data[[ crossSectionName ]] ) )
    nt <- ifelse( is.null( timePeriodName ), 1,
       length( unique( data[[ timePeriodName ]] ) ) )
