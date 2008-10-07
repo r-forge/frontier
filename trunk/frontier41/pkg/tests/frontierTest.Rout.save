@@ -46,6 +46,19 @@ NULL
 > coef( a1 )
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.56162  0.28110  0.53648  0.21700  0.79721 
+> coef( summary( a1 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.24490   0.213603  1.1465 2.5646e-01
+beta_1    0.28049   0.048067  5.8355 2.8107e-07
+beta_2    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq  0.11398         NA      NA         NA
+> coef( summary( a1 ) )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.56162   0.202617  2.7718 7.5919e-03
+beta_1    0.28110   0.047643  5.9001 2.3313e-07
+beta_2    0.53648   0.045252 11.8555 8.8874e-17
+sigma-sq  0.21700   0.063909  3.3955 1.2783e-03
+gamma     0.79721   0.136424  5.8436 2.8748e-07
 > print( summary( a1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -412,6 +425,20 @@ NULL
 > coef( a2 )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057 
+> coef( summary( a2 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.24490   0.213603  1.1465 2.5646e-01
+beta_1    0.28049   0.048067  5.8355 2.8107e-07
+beta_2    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq  0.11398         NA      NA         NA
+> coef( summary( a2 ) )
+         Estimate Std. Error  t value   Pr(>|t|)
+beta_0    0.47635   0.214189  2.22395 3.0355e-02
+beta_1    0.28260   0.047858  5.90491 2.4216e-07
+beta_2    0.54040   0.045710 11.82233 1.3175e-16
+sigma-sq  0.54773   0.626862  0.87377 3.8611e-01
+gamma     0.90815   0.117564  7.72479 2.7470e-10
+mu       -1.41057   2.610092 -0.54043 5.9112e-01
 > print( summary( a2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -781,6 +808,20 @@ NULL
 > coef( a3 )
   beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
  0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
+> coef( summary( a3 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.24490   0.213603  1.1465 2.5646e-01
+beta_1    0.28049   0.048067  5.8355 2.8107e-07
+beta_2    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq  0.11398         NA      NA         NA
+> coef( summary( a3 ) )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.56162   0.202617  2.7718 7.6319e-03
+beta_1    0.28110   0.047643  5.9001 2.4646e-07
+beta_2    0.53648   0.045252 11.8555 1.1804e-16
+sigma-sq  0.21700   0.063909  3.3955 1.2914e-03
+gamma     0.79721   0.136424  5.8436 3.0346e-07
+eta       0.00000   1.000000  0.0000 1.0000e+00
 > print( summary( a3 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1150,6 +1191,21 @@ NULL
 > coef( a4 )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
+> coef( summary( a4 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.24490   0.213603  1.1465 2.5646e-01
+beta_1    0.28049   0.048067  5.8355 2.8107e-07
+beta_2    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq  0.11398         NA      NA         NA
+> coef( summary( a4 ) )
+         Estimate Std. Error  t value   Pr(>|t|)
+beta_0    0.47635   0.214189  2.22395 3.0436e-02
+beta_1    0.28260   0.047858  5.90491 2.5643e-07
+beta_2    0.54040   0.045710 11.82233 1.7560e-16
+sigma-sq  0.54773   0.626862  0.87377 3.8619e-01
+gamma     0.90815   0.117564  7.72479 3.0843e-10
+mu       -1.41057   2.610092 -0.54043 5.9117e-01
+eta       0.00000   1.000000  0.00000 1.0000e+00
 > print( summary( a4 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1539,6 +1595,20 @@ NULL
 > coef( a5 )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
  0.47778  0.28386  0.53993  0.54856  0.90832 -1.41176 
+> coef( summary( a5 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0    0.24490   0.213603  1.1465 2.5646e-01
+beta_1    0.28049   0.048067  5.8355 2.8107e-07
+beta_2    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq  0.11398         NA      NA         NA
+> coef( summary( a5 ) )
+         Estimate Std. Error  t value   Pr(>|t|)
+beta_0    0.47778   0.216299  2.20889 3.1446e-02
+beta_1    0.28386   0.039925  7.10993 2.7312e-09
+beta_2    0.53993   0.045735 11.80572 1.3922e-16
+sigma-sq  0.54856   0.869801  0.63067 5.3091e-01
+gamma     0.90832   0.143473  6.33095 5.0027e-08
+mu       -1.41176   3.785392 -0.37295 7.1065e-01
 > print( summary( a5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1907,6 +1977,21 @@ NULL
 > coef( b1 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431 
+> coef( summary( b1 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b1 ) )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -0.83217   0.275249 -3.0233 2.6912e-03
+beta_1    0.45390   0.063801  7.1143 6.7628e-12
+beta_2    0.28892   0.063639  4.5400 7.8329e-06
+beta_3    0.22754   0.040859  5.5690 5.2315e-08
+sigma-sq  0.15538   0.024202  6.4201 4.6130e-10
+gamma     0.46431   0.088023  5.2749 2.3774e-07
 > print( summary( b1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2530,6 +2615,22 @@ NULL
 > coef( b2 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
 -0.82887  0.45457  0.28732  0.22512  0.20339  0.59048 -0.27344 
+> coef( summary( b2 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b2 ) )
+         Estimate Std. Error  t value   Pr(>|t|)
+beta_0   -0.82887   0.278876 -2.97219 3.1696e-03
+beta_1    0.45457   0.063999  7.10273 7.3086e-12
+beta_2    0.28732   0.062673  4.58440 6.4247e-06
+beta_3    0.22512   0.040642  5.53916 6.1304e-08
+sigma-sq  0.20339   0.174714  1.16416 2.4518e-01
+gamma     0.59048   0.354385  1.66621 9.6600e-02
+mu       -0.27344   0.962990 -0.28395 7.7662e-01
 > print( summary( b2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3172,6 +3273,22 @@ NULL
 > coef( b3 )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
 -0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
+> coef( summary( b3 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b3 ) )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -0.75392   0.278409 -2.7080 7.1153e-03
+beta_1    0.47492   0.065422  7.2593 2.7066e-12
+beta_2    0.30010   0.063940  4.6934 3.9142e-06
+beta_3    0.19946   0.042633  4.6786 4.1882e-06
+sigma-sq  0.12996   0.021767  5.9703 6.0056e-09
+gamma     0.36963   0.107268  3.4459 6.4112e-04
+eta       0.05891   0.031049  1.8973 5.8641e-02
 > print( summary( b3 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3817,6 +3934,23 @@ NULL
 > coef( b4 )
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
 -0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
+> coef( summary( b4 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b4 ) )
+          Estimate Std. Error  t value   Pr(>|t|)
+beta_0   -0.750149   0.278981 -2.68889 7.5264e-03
+beta_1    0.476165   0.065110  7.31319 1.9268e-12
+beta_2    0.298471   0.063149  4.72649 3.3648e-06
+beta_3    0.196116   0.043821  4.47534 1.0459e-05
+sigma-sq  0.172164   0.148676  1.15798 2.4770e-01
+gamma     0.523681   0.412289  1.27018 2.0490e-01
+mu       -0.317339   1.050464 -0.30209 7.6277e-01
+eta       0.064724   0.035668  1.81462 7.0474e-02
 > print( summary( b4 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4467,6 +4601,23 @@ NULL
 > coef( b5 )
   beta_0   beta_1   beta_2   beta_3  delta_1  delta_2 sigma-sq    gamma 
 -1.00858  0.38410  0.31899  0.26035 -0.05807 -1.40562  0.59747  0.94493 
+> coef( summary( b5 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b5 ) )
+         Estimate Std. Error  t value    Pr(>|t|)
+beta_0   -1.00858   0.245995 -4.10002  5.1859e-05
+beta_1    0.38410   0.059289  6.47841  3.2975e-10
+beta_2    0.31899   0.060588  5.26484  2.5087e-07
+beta_3    0.26035   0.034284  7.59402  3.0994e-13
+delta_1  -0.05807   0.086934 -0.66798  5.0461e-01
+delta_2  -1.40562   0.903955 -1.55497  1.2089e-01
+sigma-sq  0.59747   0.307543  1.94271  5.2886e-02
+gamma     0.94493   0.028728 32.89231 4.4168e-107
 > print( summary( b5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5121,6 +5272,24 @@ NULL
 -1.051758  0.379767  0.321028  0.263797 -2.746409 -0.028611 -3.635487  1.666569 
     gamma 
  0.978799 
+> coef( summary( b6 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b6 ) )
+          Estimate Std. Error  t value   Pr(>|t|)
+beta_0   -1.051758   0.247734 -4.24551 2.8279e-05
+beta_1    0.379767   0.058969  6.44015 4.1430e-10
+beta_2    0.321028   0.060018  5.34887 1.6429e-07
+beta_3    0.263797   0.034152  7.72417 1.3168e-13
+delta_0  -2.746409   8.142700 -0.33728 7.3611e-01
+delta_1  -0.028611   0.219556 -0.13031 8.9640e-01
+delta_2  -3.635487   7.714880 -0.47123 6.3778e-01
+sigma-sq  1.666569   3.537063  0.47117 6.3782e-01
+gamma     0.978799   0.043255 22.62856 1.8521e-69
 > print( summary( b6 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5779,6 +5948,23 @@ NULL
 > coef( b7 )
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
 -0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
+> coef( summary( b7 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b7 ) )
+          Estimate Std. Error  t value   Pr(>|t|)
+beta_0   -0.750149   0.281474 -2.66507 8.0688e-03
+beta_1    0.476163   0.064761  7.35268 1.4945e-12
+beta_2    0.298471   0.064115  4.65525 4.6652e-06
+beta_3    0.196117   0.042668  4.59632 6.0947e-06
+sigma-sq  0.172149   0.151257  1.13812 2.5588e-01
+gamma     0.523640   0.421968  1.24095 2.1549e-01
+mu       -0.317230   1.066801 -0.29737 7.6637e-01
+eta       0.064722   0.035394  1.82863 6.8342e-02
 > print( summary( b7 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6427,6 +6613,24 @@ NULL
 -1.051762  0.379766  0.321027  0.263799 -2.746556 -0.028622 -3.635536  1.666625 
     gamma 
  0.978799 
+> coef( summary( b8 ), which = "ols" )
+         Estimate Std. Error t value   Pr(>|t|)
+beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
+beta_1    0.32976   0.062397  5.2850 2.2559e-07
+beta_2    0.38375   0.065811  5.8310 1.2846e-08
+beta_3    0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq  0.10902         NA      NA         NA
+> coef( summary( b8 ) )
+          Estimate Std. Error  t value   Pr(>|t|)
+beta_0   -1.051762   0.239095 -4.39893 1.4636e-05
+beta_1    0.379766   0.056506  6.72082 7.7876e-11
+beta_2    0.321027   0.059015  5.43973 1.0315e-07
+beta_3    0.263799   0.033774  7.81063 7.3864e-14
+delta_0  -2.746556   7.930274 -0.34634 7.2931e-01
+delta_1  -0.028622   0.140371 -0.20390 8.3856e-01
+delta_2  -3.635536   7.742897 -0.46953 6.3900e-01
+sigma-sq  1.666625   3.549669  0.46952 6.3901e-01
+gamma     0.978799   0.043686 22.40539 1.3728e-68
 > print( summary( b8 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7083,6 +7287,25 @@ NULL
  0.8092797  0.3918691  0.3639215 -0.1832404  0.0050751  0.0576873  0.1893914 
      gamma 
  0.7623239 
+> coef( summary( translog ), which = "ols" )
+           Estimate Std. Error  t value Pr(>|t|)
+beta_0    0.5562561   0.363379  1.53079 0.131770
+beta_1    0.3785431   0.193844  1.95283 0.056130
+beta_2    0.3477993   0.212146  1.63944 0.107045
+beta_3   -0.1859180   0.090341 -2.05795 0.044528
+beta_4    0.0084811   0.045231  0.18751 0.851980
+beta_5    0.0601000   0.069849  0.86043 0.393430
+sigma-sq  0.1103671         NA       NA       NA
+> coef( summary( translog ) )
+           Estimate Std. Error  t value   Pr(>|t|)
+beta_0    0.8092797   0.335576  2.41161 1.9448e-02
+beta_1    0.3918691   0.178784  2.19186 3.2891e-02
+beta_2    0.3639215   0.183915  1.97875 5.3152e-02
+beta_3   -0.1832404   0.083814 -2.18627 3.3320e-02
+beta_4    0.0050751   0.042601  0.11913 9.0563e-01
+beta_5    0.0576873   0.059584  0.96817 3.3744e-01
+sigma-sq  0.1893914   0.056896  3.32873 1.6084e-03
+gamma     0.7623239   0.152589  4.99592 6.9864e-06
 > print( summary( translog ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
