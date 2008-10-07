@@ -17,19 +17,19 @@ print.summary.frontier <- function( x, ... ) {
       cat( "The dependent variable is not logged\n" )
    }
 
-   if( is.null( x$startVal ) ) {
+   if( is.null( coef.frontier( x, which = "start" ) ) ) {
       cat( "\nOLS estimates\n" )
-      printCoefmat( x$olsParam )
+      printCoefmat( coef( x, which = "ols" ) )
       cat( "log likelihood value:", x$olsLogl, "\n" )
       cat( "\nestimates after the grid search\n" )
-      print( as.matrix( x$gridParam, ncol = 1 ) )
+      print( as.matrix( coef.frontier( x, which = "grid" ), ncol = 1 ) )
    } else {
       cat( "\nstarting values provided by the user\n" )
-      print( as.matrix( x$startVal, ncol = 1 ) )
+      print( as.matrix( coef.frontier( x, which = "start" ), ncol = 1 ) )
    }
 
    cat( "\nfinal maximum likelihood estimates\n" )
-   printCoefmat( x$mleParam )
+   printCoefmat( coef( x ) )
    cat( "log likelihood value:", x$mleLogl, "\n" )
 
    cat( "\nLR test of the one-sided error =", x$lrTestVal, "\n" )
@@ -46,7 +46,7 @@ print.summary.frontier <- function( x, ... ) {
       "observations not in the panel\n" )
 
    cat( "\ncovariance matrix of MLE parameters\n" )
-   print( x$mleCov )
+   print( vcov.frontier( x ) )
 
    cat( "\nefficiency estimates\n" )
    print( x$effic )
