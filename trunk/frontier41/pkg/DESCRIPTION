@@ -14,5 +14,5 @@ Description: Maximum Likelihood Estimation of
    (Battese and Coelli, 1992)
    and a model specification in which the firm effects are directly 
    influenced by a number of variables (Battese and Coelli, 1995).
-License: unknown
+License: GPL (>= 2)
 URL: http://www.uq.edu.au/economics/cepa/, http://www.uni-kiel.de/agrarpol/ahenningsen/frontier/
