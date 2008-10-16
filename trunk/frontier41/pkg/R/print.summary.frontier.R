@@ -1,4 +1,4 @@
-print.summary.frontier <- function( x, effic = TRUE, ... ) {
+print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
 
    cat( "Stochastic Frontier Analysis with FRONTIER 4.1\n\n" )
    if( x$modelType == 1 ) {

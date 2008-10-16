@@ -9,8 +9,8 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{summary}{frontier}( object, ... )
-\method{print}{summary.frontier}( x, effic = TRUE, ... )
+\method{summary}{frontier}( object, effic = TRUE, ... )
+\method{print}{summary.frontier}( x, effic = x$printEffic, ... )
 }
 
 \arguments{
@@ -25,11 +25,12 @@ returned by \code{\link{frontier}}.
 \value{
    \code{summary.frontier} returns a list of class \code{summaryfrontier}
    that is identical to an object returned by \code{\link{frontier}}
-   with two exceptions:
+   with three exceptions:
    \item{olsParam}{matrix of OLS estimates, their standard errors,
       t values, and P values.}
    \item{mleParam}{matrix of ML estimates, their standard errors,
       t values, and P values.}
+   \item{printEffic}{argument \code{effic}.}
 }
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}

@@ -1,4 +1,4 @@
-summary.frontier <- function( object, ... ) {
+summary.frontier <- function( object, effic = TRUE, ... ) {
 
    olsParam <- matrix( NA, length( object$olsParam ) , 4 )
    rownames( olsParam ) <- names( object$olsParam )
@@ -20,6 +20,8 @@ summary.frontier <- function( object, ... ) {
    df <- object$nob - length( object$mleParam )
    mleParam[ , 4 ] <- 2 * pt( abs( mleParam[ , 3 ] ), df, lower.tail = FALSE )
    object$mleParam <- mleParam
+
+   object$printEffic <- effic
 
    class( object ) <- "summary.frontier"
    return( object )
