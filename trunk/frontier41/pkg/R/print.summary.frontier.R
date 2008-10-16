@@ -45,9 +45,6 @@ print.summary.frontier <- function( x, ... ) {
    cat( "thus there are", x$nn * x$nt - x$nob,
       "observations not in the panel\n" )
 
-   cat( "\ncovariance matrix of MLE parameters\n" )
-   print( vcov.frontier( x ) )
-
    cat( "\nefficiency estimates\n" )
    print( x$effic )
 
