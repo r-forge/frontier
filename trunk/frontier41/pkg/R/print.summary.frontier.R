@@ -1,4 +1,4 @@
-print.summary.frontier <- function( x, ... ) {
+print.summary.frontier <- function( x, effic = TRUE, ... ) {
 
    cat( "Stochastic Frontier Analysis with FRONTIER 4.1\n\n" )
    if( x$modelType == 1 ) {
@@ -45,8 +45,10 @@ print.summary.frontier <- function( x, ... ) {
    cat( "thus there are", x$nn * x$nt - x$nob,
       "observations not in the panel\n" )
 
-   cat( "\nefficiency estimates\n" )
-   print( x$effic )
+   if( effic ){
+      cat( "\nefficiency estimates\n" )
+      print( x$effic )
+   }
 
    if( ncol( x$effic ) > 1 ) {
       cat( "\nmean efficiency of each year\n" )

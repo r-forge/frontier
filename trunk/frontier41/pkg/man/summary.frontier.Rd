@@ -10,7 +10,7 @@ returned by \code{\link{frontier}}.
 
 \usage{
 \method{summary}{frontier}( object, ... )
-\method{print}{summary.frontier}( x, ... )
+\method{print}{summary.frontier}( x, effic = TRUE, ... )
 }
 
 \arguments{
@@ -18,6 +18,7 @@ returned by \code{\link{frontier}}.
       (returned by the function \code{\link{frontier}}).}
    \item{x}{an object of class \code{summary.frontier} 
       (returned by the function \code{summary.frontier}).}
+   \item{effic}{logical. Print the individual efficiency estimates?}
    \item{...}{currently unused.}
 }
 
