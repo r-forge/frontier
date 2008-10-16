@@ -1,4 +1,4 @@
-summary.frontier <- function( object, effic = TRUE, ... ) {
+summary.frontier <- function( object, effic = FALSE, ... ) {
 
    olsParam <- matrix( NA, length( object$olsParam ) , 4 )
    rownames( olsParam ) <- names( object$olsParam )

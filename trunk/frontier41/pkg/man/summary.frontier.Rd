@@ -9,7 +9,7 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{summary}{frontier}( object, effic = TRUE, ... )
+\method{summary}{frontier}( object, effic = FALSE, ... )
 \method{print}{summary.frontier}( x, effic = x$printEffic, ... )
 }
 
