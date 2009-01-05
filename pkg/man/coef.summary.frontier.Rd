@@ -9,7 +9,7 @@ for objects of class \code{frontier}.
 }
 
 \usage{
-\method{coef}{summary.frontier}( object, which = "mle", ... )
+\method{coef}{summary.frontier}( object, which = "mle", \dots )
 }
 
 \arguments{
@@ -19,7 +19,7 @@ for objects of class \code{frontier}.
    \item{which}{character string. Which coefficients should be returned?
       ('ols' for coefficients estimated by OLS
       or 'mle' for coefficients estimated by Maximum Likelihood).}
-   \item{...}{currently unused.}
+   \item{\dots}{currently unused.}
 }
 
 \value{

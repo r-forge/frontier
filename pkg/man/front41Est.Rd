@@ -10,13 +10,13 @@
 
 \usage{
    front41Est( command = ifelse( .Platform$OS.type == "windows",
-      "front41.exe", "front41.bin" ), ... )
+      "front41.exe", "front41.bin" ), \dots )
 }
 
 \arguments{
    \item{command}{command to call the modified version of FRONTIER 4.1
       (see details).}
-   \item{...}{arguments passed to \code{\link{front41WriteInput}}.}
+   \item{\dots}{arguments passed to \code{\link{front41WriteInput}}.}
 }
 
 \details{

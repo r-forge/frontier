@@ -22,7 +22,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 100,
    startVal = NULL )
-\method{print}{frontier}( x, ... )
+\method{print}{frontier}( x, \dots )
 }
 
 \arguments{
@@ -70,7 +70,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
       estimation.}
    \item{x}{an object of class \code{frontier} 
       (returned by the function \code{frontier}).}
-   \item{...}{currently unused.}
+   \item{\dots}{currently unused.}
 }
 
 \value{

@@ -8,13 +8,13 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{vcov}{frontier}( object, ... )
+\method{vcov}{frontier}( object, \dots )
 }
 
 \arguments{
    \item{object}{an object of class \code{frontier}
       (returned by the function \code{\link{frontier}}).}
-   \item{...}{currently unused.}
+   \item{\dots}{currently unused.}
 }
 
 \value{

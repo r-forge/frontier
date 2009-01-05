@@ -11,11 +11,11 @@
 }
 
 \usage{
-   \method{coef}{front41Output}( object, which = "MLE", ... )
+   \method{coef}{front41Output}( object, which = "MLE", \dots )
 
-   \method{coef}{summary.front41Output}( object, which = "MLE", ... )
+   \method{coef}{summary.front41Output}( object, which = "MLE", \dots )
 
-   \method{vcov}{front41Output}( object, ... )
+   \method{vcov}{front41Output}( object, \dots )
 }
 
 \arguments{
@@ -27,7 +27,7 @@
     be returned: either 'OLS' (from OLS estimation),
     'GRID' (from grid search), or
     'MLE' (from maximum likelihood estimation).}
-  \item{...}{currently ignored.}
+  \item{\dots}{currently ignored.}
 }
 
 \value{

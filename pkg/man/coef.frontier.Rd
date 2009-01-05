@@ -8,7 +8,7 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{coef}{frontier}( object, which = "mle", ... )
+\method{coef}{frontier}( object, which = "mle", \dots )
 }
 
 \arguments{
@@ -19,7 +19,7 @@ returned by \code{\link{frontier}}.
       'ols' for coefficients estimated by OLS,
       'grid' for coefficients obtained by the grid search,
       or 'mle' for coefficients estimated by Maximum Likelihood).}
-   \item{...}{currently unused.}
+   \item{\dots}{currently unused.}
 }
 
 \value{

@@ -11,7 +11,7 @@
 \usage{
    front41ReadOutput( file = "front41.out" )
 
-   \method{print}{front41Output}( x, efficiencies = FALSE, ... )
+   \method{print}{front41Output}( x, efficiencies = FALSE, \dots )
 }
 
 \arguments{
@@ -20,7 +20,7 @@
       (returned by \code{front41ReadOutput}.}
    \item{efficiencies}{logical. Print all efficiency estimates?
       (If \code{FALSE}, only the mean efficiency is printed.)}
-   \item{...}{currently ignored.}
+   \item{\dots}{currently ignored.}
 }
 
 \value{
