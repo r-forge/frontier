@@ -166,16 +166,18 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
    riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
+   # Error Components Frontier (Battese & Coelli 1992)
    rice <- frontier( riceProdPhil,
       crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
    rice
 
+   # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
    rice2 <- frontier( riceProdPhil,
       crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
       zNames = c( "EDYRS", "BANRAT" ) )
-   rice
+   rice2
 }
 
 \keyword{models}
