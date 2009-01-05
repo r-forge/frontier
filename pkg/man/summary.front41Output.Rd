@@ -46,7 +46,7 @@
 
 \examples{
    # read the output file that is provided with Frontier 4.1
-   outFile <- system.file( "front41/EG1.OUT", package = "micEcon" )
+   outFile <- system.file( "front41/EG1.OUT", package = "frontier" )
    sfa <- front41ReadOutput( outFile )
    summary( sfa )
 }
