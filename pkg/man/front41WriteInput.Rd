@@ -13,8 +13,8 @@
    yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
    modelType = ifelse( is.null( zNames ), 1, 2 ), functionType = 1,
    logDepVar = TRUE, mu = FALSE, eta = FALSE,
-   insFile = "front41.ins", dtaFile = sub( "\\.ins$", ".dta", insFile ),
-   outFile = sub( "\\.ins$", ".out", insFile ), startUpFile = "front41.000",
+   insFile = "front41.ins", dtaFile = sub( "\\\\.ins$", ".dta", insFile ),
+   outFile = sub( "\\\\.ins$", ".out", insFile ), startUpFile = "front41.000",
    iprint = 5, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 100, ite = 1 )
 }
