@@ -57,13 +57,13 @@
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
 \examples{
-   data( Coelli )
-   Coelli$logOutput  <- log( Coelli$output )
-   Coelli$logCapital <- log( Coelli$capital )
-   Coelli$logLabour  <- log( Coelli$labour )
+   data( front41Data )
+   front41Data$logOutput  <- log( front41Data$output )
+   front41Data$logCapital <- log( front41Data$capital )
+   front41Data$logLabour  <- log( front41Data$labour )
 
    \dontrun{
-   front41Est( data = Coelli, crossSectionName = "firm",
+   front41Est( data = front41Data, crossSectionName = "firm",
       timePeriodName = "time", yName = "logOutput",
       xNames = c( "logCapital", "logLabour" ) )
    }

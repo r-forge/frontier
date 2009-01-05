@@ -95,12 +95,12 @@
    print( sfa, efficiencies = TRUE )
 
    # perform an SFA and read the output
-   data( Coelli )
-   Coelli$logOutput  <- log( Coelli$output )
-   Coelli$logCapital <- log( Coelli$capital )
-   Coelli$logLabour  <- log( Coelli$labour )
+   data( front41Data )
+   front41Data$logOutput  <- log( front41Data$output )
+   front41Data$logCapital <- log( front41Data$capital )
+   front41Data$logLabour  <- log( front41Data$labour )
 
-   front41WriteInput( Coelli, "firm", "time", "logOutput",
+   front41WriteInput( front41Data, "firm", "time", "logOutput",
       c( "logCapital", "logLabour" ), insFile = "coelli.ins" )
 
    \dontrun{

@@ -3,15 +3,15 @@ library( frontier )
 ## *****************************
 ## Testing front41WriteInput
 
-data( Coelli )
-Coelli$logOutput  <- log( Coelli$output )
-Coelli$logCapital <- log( Coelli$capital )
-Coelli$logLabour  <- log( Coelli$labour )
+data( front41Data )
+front41Data$logOutput  <- log( front41Data$output )
+front41Data$logCapital <- log( front41Data$capital )
+front41Data$logLabour  <- log( front41Data$labour )
 
 insFile <- file()
 dtaFile  <- file()
 
-front41Ins <- front41WriteInput( Coelli, "firm", "time", "logOutput",
+front41Ins <- front41WriteInput( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), insFile = insFile, dtaFile = dtaFile  )
 
 print( front41Ins )
@@ -21,9 +21,9 @@ print( readLines( dtaFile ) )
 
 # irregular firm (cross section) identifier
 set.seed( 20061705 )
-Coelli$firm <- sample( c( 1:( nrow( Coelli ) + 20 ) ) )[ 1:nrow( Coelli ) ]
+front41Data$firm <- sample( c( 1:( nrow( front41Data ) + 20 ) ) )[ 1:nrow( front41Data ) ]
 
-front41Ins <- front41WriteInput( Coelli, "firm", "time", "logOutput",
+front41Ins <- front41WriteInput( front41Data, "firm", "time", "logOutput",
    c( "logCapital", "logLabour" ), insFile = insFile, dtaFile = dtaFile  )
 
 print( front41Ins )
