@@ -1,4 +1,4 @@
-library( micEcon )
+library( frontier )
 
 ## *****************************
 ## Testing front41WriteInput
