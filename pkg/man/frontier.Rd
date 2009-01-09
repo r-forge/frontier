@@ -73,6 +73,19 @@ frontier( data, crossSectionName, timePeriodName = NULL,
    \item{\dots}{currently unused.}
 }
 
+\details{The \code{frontier} function uses the Fortran source code of
+   Tim Coelli's software FRONTIER 4.1
+   (\url{http://www.uq.edu.au/economics/cepa/frontier.htm})
+   and hence, provides the same features as FRONTIER 4.1.
+   A comprehensive documentation of FRONTIER 4.1 is available
+   in the file \code{Front41.pdf}
+   that is included in the archive \code{FRONT41-xp1.zip},
+   which is available at
+   \url{http://www.uq.edu.au/economics/cepa/frontier.htm}.
+   It is recommended to read this documentation, 
+   because the \code{frontier} function is based on the FRONTIER 4.1 software.
+}
+
 \value{
    \code{frontier} returns a list of class \code{frontier}
    containing following elements:
