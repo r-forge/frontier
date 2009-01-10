@@ -61,7 +61,7 @@
 \details{
    A modified version of Tim Coelli's FRONTIER 4.1
    that can be used non-interactively is available on
-   \url{http://www.uni-kiel.de/agrarpol/ahenningsen/frontier/}.
+   \url{http://frontier.r-forge.r-project.org/front41.html}.
    It can be called from within R using the \code{system} command
    (see example).
    This version is is available as (FORTRAN) source code

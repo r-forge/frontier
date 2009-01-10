@@ -23,7 +23,7 @@
    Using the command \code{front41Est} requires the installation
    of a modified version of Tim Coelli's FRONTIER 4.1.
    It is available on
-   \url{http://www.uni-kiel.de/agrarpol/ahenningsen/frontier/}.
+   \url{http://frontier.r-forge.r-project.org/front41.html}.
    as (FORTRAN) source code
    and (executable) binaries for GNU/Linux and MS-Windows.
 }
