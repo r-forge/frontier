@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Frontier 4.1 (Software for Stochastic Fronttier Analysis)</title>
+</head>
+
+<body>
+
+<h1>FRONTIER Version 4.1</h1>
+
+<p>The computer program
+<a href="http://www.uq.edu.au/economics/cepa/frontier.htm">
+FRONTIER Version 4.1</a>
+was written by
+<a href="http://www.uq.edu.au/economics/cepa/coelli.htm">
+Tim Coelli</a>
+who is professor at the
+<a href="http://www.uq.edu.au/economics/cepa/index.htm">
+Centre for Efficiency and Productivity Analysis (CEPA)</a>.</p>
+
+<h3>Modified version</h3>
+<p><a href="http://www.arne-henningsen.name">Arne Henningsen</a>
+has slightly modified this computer program:</p>
+<ul>
+<li>The user can specify the instruction file by an (optional)
+    argument at the command line now.
+    If the user adds the name of the instruction file after the command
+    to run FRONTIER 4.1, the program does not interact with the user,
+    but uses the instruction file specified in the call.
+    Hence, this modified version of FRONTIER 4.1 can be
+    run automatically (non-interactively).</li>
+<li>The source code can be compiled with the free
+    <a href="http://gcc.gnu.org/wiki/GFortran">
+    GNU Fortran compiler (gfortran)</a> now.</li>
+<li>The version number reported by FRONTIER has been changed
+    from 4.1c to 4.1d.</li>
+</ul>
+
+
+<h3>Download</h3>
+This modified version is available for download from here
+(with permission of
+<a href="http://www.uq.edu.au/economics/cepa/coelli.htm">
+Tim Coelli</a>):
+<ul>
+<li>Source code:
+    <a href="front41.for">front41.for</a></li>
+<li>Binary for GNU-Linux<sup>*</sup>:
+    <a href="front41.bin">front41.bin</a></li>
+<li>Binary for MS-Windows<sup>*</sup>:
+    <a href="front41.exe">front41.exe</a></li>
+<li>Start-up file (unmodified):
+    <a href="front41.000">front41.000</a></li>
+<li>A manual and examples are available on
+    <a href="http://www.uq.edu.au/economics/cepa/frontier.htm">
+    CEPA's website for FRONTIER 4.1</a>.</li>
+</ul>
+<sup>*</sup> The binaries have been compiled with
+<a href="http://gcc.gnu.org/wiki/GFortran">gfortran</a>
+using the options &quot;-static&quot; for static linking
+(no dynamic linking with the shared libraries)
+and &quot;-O2&quot; for using optimization level 2.
+
+
+<h3>Using this modified version of FRONTIER 4.1 with
+<a href="http://www.R-Project.org/">R</a></h3>
+<ul>
+<li>Instruction files, data files, and start-up files for FRONTIER 4.1
+  can be conveniently created by the function
+  &quot;front41WriteInput&quot; from the
+  <a href="http://www.R-Project.org/">R</a> package
+  <a href="http://r-forge.r-project.org/projects/frontier/">frontier</a>
+  (available also on
+  <a href="http://cran.r-project.org/package=frontier">CRAN</a>)
+</li>
+<li>Then, the modified version of FRONTIER 4.1
+  can be called from within
+  <a href="http://www.R-Project.org/">R</a>
+  using the &quot;system&quot; command
+  (see example in documentation of &quot;front41WriteInput&quot;).
+</li>
+<li>Finally, the output file from FRONTIER 4.1
+  can be read by the function
+  &quot;front41ReadOutput&quot; from the
+  <a href="http://www.R-Project.org/">R</a> package
+  <a href="http://r-forge.r-project.org/projects/frontier/">frontier</a>
+  (available also on
+  <a href="http://cran.r-project.org/package=frontier">CRAN</a>).
+  This simplifies further calculations based the estimation results.
+</li>
+<li>However, it is probably more convenient to use the function
+  &quot;frontier&quot; from the
+  <a href="http://www.R-Project.org/">R</a> package
+  <a href="http://r-forge.r-project.org/projects/frontier/">frontier</a>
+  that estimates a Stochastic Frontier Model with a single command
+  by internally using the FRONTIER 4.1 software.
+</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<hr />
+
+<p>&nbsp;</p>
+
+<a href="http://validator.w3.org/check/referer">
+  <img
+    src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/vxhtml10.png"
+    alt="Valid XHTML 1.0!"
+    height="31" width="88" border="0" />
+</a>
+
+<a href="http://quanta.kdewebdev.org/">
+  <img
+    src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/quanta.png"
+    alt="created with Quanta+"
+    width="120" height="73" border="0" />
+</a>
+
+<a href="http://www.anybrowser.org/campaign/">
+  <img
+    src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/anibrows.gif"
+    alt="Viewable With Any Browser"
+    width="88" height="31" border="0" />
+</a>
+
+<p>&nbsp;</p>
+
+<p>Last Update: 10 January 2009</p>
+
+</body>
+</html>
