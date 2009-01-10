@@ -22,7 +22,7 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
    of the maximum likelihood coefficients.
 }
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \examples{
    # example included in FRONTIER 4.1

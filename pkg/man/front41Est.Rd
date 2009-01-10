@@ -54,7 +54,7 @@
 
 \seealso{\code{\link{front41WriteInput}}, \code{\link{front41ReadOutput}}}
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \examples{
    data( front41Data )

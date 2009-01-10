@@ -44,7 +44,7 @@ The \code{vcov} method returns the covariance matrix
 of all coefficients estimated by Frontier 4.1.
 }
 
-\author{Arne Henningsen, \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \seealso{\code{\link{front41ReadOutput}}}
 

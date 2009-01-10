@@ -152,8 +152,7 @@ frontier( data, crossSectionName, timePeriodName = NULL,
       University of New England.
 }
 
-\author{Tim Coelli \email{t.coelli@uq.edu.au},
-   Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Tim Coelli and Arne Henningsen}
 
 \examples{
    # example included in FRONTIER 4.1

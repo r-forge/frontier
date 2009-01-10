@@ -33,7 +33,7 @@ returned by \code{\link{frontier}}.
    \item{printEffic}{argument \code{effic}.}
 }
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \examples{
    # example included in FRONTIER 4.1

@@ -29,7 +29,7 @@ for objects of class \code{frontier}.
    coefficients, their standard errors, t-values, and P-values.
 }
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \examples{
    # example included in FRONTIER 4.1

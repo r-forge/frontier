@@ -86,7 +86,7 @@
 
 \seealso{\code{\link{front41WriteInput}}, \code{\link{front41Est}}}
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen}
 
 \examples{
    # read the output file that is provided with Frontier 4.1
