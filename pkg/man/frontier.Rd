@@ -15,7 +15,7 @@
 }
 
 \usage{
-frontier( data, crossSectionName, timePeriodName = NULL,
+frontier( data,
    yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    functionType = 1, logDepVar = TRUE, mu = FALSE, eta = FALSE,
@@ -26,10 +26,12 @@ frontier( data, crossSectionName, timePeriodName = NULL,
 }
 
 \arguments{
-   \item{data}{data frame that contains the data.}
-   \item{crossSectionName}{string: name of the cross section identifier.}
-   \item{timePeriodName}{string: name of the time period identifier
-      or \code{NULL} in case of cross-section data.}
+   \item{data}{a (panel) data frame that contains the data;
+      if \code{data} is a usual data.frame,
+      it is assumed that these are cross-section data;
+      if \code{data} is a panel data frame
+      (created with \code{\link[plm]{plm.data}}),
+      it is assumed that these are panel data.}
    \item{yName}{string: name of the endogenous variable.}
    \item{xNames}{a vector of strings containing the names of the X variables
       (exogenous variables of the production or cost function).}
@@ -155,24 +157,25 @@ frontier( data, crossSectionName, timePeriodName = NULL,
 \author{Tim Coelli and Arne Henningsen}
 
 \examples{
-   # example included in FRONTIER 4.1
+   # example included in FRONTIER 4.1 (cross-section data)
    data( front41Data )
    front41Data$logOutput  <- log( front41Data$output )
    front41Data$logCapital <- log( front41Data$capital )
    front41Data$logLabour  <- log( front41Data$labour )
 
    # Cobb-Douglas production frontier
-   cobbDouglas <- frontier( front41Data, "firm", "time", "logOutput",
+   cobbDouglas <- frontier( front41Data, "logOutput",
       c( "logCapital", "logLabour" ) )
    cobbDouglas
 
    # Translog production frontier
-   translog <- frontier( front41Data, "firm", "time", "logOutput",
+   translog <- frontier( front41Data, "logOutput",
       c( "logCapital", "logLabour" ), qxNames = "all" )
    translog
 
-   # rice producers in the Phillipines
+   # rice producers in the Phillipines (panel data)
    data( riceProdPhil )
+   riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
    riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
    riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
    riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
@@ -180,13 +183,11 @@ frontier( data, crossSectionName, timePeriodName = NULL,
 
    # Error Components Frontier (Battese & Coelli 1992)
    rice <- frontier( riceProdPhil,
-      crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
    rice
 
    # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
    rice2 <- frontier( riceProdPhil,
-      crossSectionName = "FMERCODE", timePeriodName = "YEARDUM",
       yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
       zNames = c( "EDYRS", "BANRAT" ) )
    rice2

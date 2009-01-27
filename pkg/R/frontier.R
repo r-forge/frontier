@@ -1,5 +1,5 @@
 frontier <- function(
-      data, crossSectionName, timePeriodName = NULL,
+      data,
       yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       functionType = 1,
@@ -96,10 +96,13 @@ frontier <- function(
    }
    maxit <- as.integer( maxit )
 
-
-   nn <- length( unique( data[[ crossSectionName ]] ) )
-   nt <- ifelse( is.null( timePeriodName ), 1,
-      length( unique( data[[ timePeriodName ]] ) ) )
+   if( "plm.dim" %in% class( data ) ) {
+      nn <- length( unique( data[[ 1 ]] ) )
+      nt <- length( unique( data[[ 2 ]] ) )
+   } else {
+      nn <- nrow( data )
+      nt <- 1
+   }
    nob <- nrow( data )
    nXvars <- length( xNames )
    nTLvars <- length( qxNames )
@@ -109,13 +112,13 @@ frontier <- function(
       eta <- nZvars
    }
 
-   dataTable <- matrix( data[[ crossSectionName ]], ncol = 1 )
-
-   # time period identifier
-   if( is.null( timePeriodName ) ) {
-      dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
+   # cross section and time period identifier
+   if( "plm.dim" %in% class( data ) ) {
+      dataTable <- matrix( data[[ 1 ]], ncol = 1 )
+      dataTable <- cbind( dataTable, data[[ 2 ]] )
    } else {
-      dataTable <- cbind( dataTable, data[[ timePeriodName ]] )
+      dataTable <- matrix( 1:nrow( data ), ncol = 1 )
+      dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
    }
 
    # endogenous variable
