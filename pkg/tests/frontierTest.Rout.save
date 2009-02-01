@@ -31,7 +31,7 @@ Loading required package: Formula
 > front41Data$logCapital <- log( front41Data$capital )
 > front41Data$logLabour  <- log( front41Data$labour )
 > 
-> a1 <- frontier( front41Data, "logOutput",
+> a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
 > print( a1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -346,7 +346,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> a2 <- frontier( front41Data, "logOutput",
+> a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE )
 > print( a2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -665,7 +665,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> a3 <- frontier( front41Data, "logOutput",
+> a3 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), eta = TRUE )
 > print( a3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -984,7 +984,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> a4 <- frontier( front41Data, "logOutput",
+> a4 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
 > print( a4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1323,7 +1323,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> a5 <- frontier( front41Data, "logOutput",
+> a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 > print( a5 )
@@ -1642,7 +1642,7 @@ attr(,"class")
 > riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 > riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 > 
-> b1 <- frontier( riceProdPhil,
+> b1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 > print( b1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2231,7 +2231,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b2 <- frontier( riceProdPhil,
+> b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE )
 > print( b2 )
@@ -2841,7 +2841,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b3 <- frontier( riceProdPhil,
+> b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    eta = TRUE )
 > print( b3 )
@@ -3454,7 +3454,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b4 <- frontier( riceProdPhil,
+> b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, eta = TRUE )
 > print( b4 )
@@ -4073,7 +4073,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b5 <- frontier( riceProdPhil,
+> b5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
 > print( b5 )
@@ -4692,7 +4692,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b6 <- frontier( riceProdPhil,
+> b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
 > print( b6 )
@@ -5323,7 +5323,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b7 <- frontier( riceProdPhil,
+> b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, eta = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
@@ -5934,7 +5934,7 @@ $effic
 attr(,"class")
 [1] "frontier"
 > 
-> b8 <- frontier( riceProdPhil,
+> b8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
 +    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
@@ -6563,7 +6563,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > # translog
-> translog <- frontier( front41Data, "logOutput",
+> translog <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), qxNames = "all" )
 > print( translog )
 Stochastic Frontier Analysis with FRONTIER 4.1

@@ -1,6 +1,6 @@
 frontier <- function(
-      data,
-      yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
+      yName, xNames = NULL, qxNames = NULL, zNames = NULL, data,
+      quadHalf = TRUE,
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       functionType = 1,
       logDepVar = TRUE,
