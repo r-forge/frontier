@@ -15,8 +15,7 @@
 }
 
 \usage{
-frontier( yName, xNames = NULL, qxNames = NULL, zNames = NULL,
-   data, quadHalf = TRUE,
+frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    functionType = 1, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
@@ -29,11 +28,6 @@ frontier( yName, xNames = NULL, qxNames = NULL, zNames = NULL,
    \item{yName}{string: name of the endogenous variable.}
    \item{xNames}{a vector of strings containing the names of the X variables
       (exogenous variables of the production or cost function).}
-   \item{qxNames}{a vector of strings containing the names of the variables
-      to construct quadratic and interaction terms.
-      As a shortcut, this argument can be set to \code{"all"}
-      for using all variables specified in argument \code{xNames}
-      to get a full quadratic or translog model.}
    \item{zNames}{a vector of strings containing the names of the Z variables
       (variables explaining the efficiency level).}
    \item{data}{a (panel) data frame that contains the data;
@@ -42,7 +36,6 @@ frontier( yName, xNames = NULL, qxNames = NULL, zNames = NULL,
       if \code{data} is a panel data frame
       (created with \code{\link[plm]{plm.data}}),
       it is assumed that these are panel data.}
-   \item{quadHalf}{logical. Multiply the quadratic terms by one half?}
    \item{modelType}{model type: either 1 for an 'Error Components Frontier'
       or 2 for an 'Efficiency Effects Frontier'.}
    \item{functionType}{function type: either 1 for 'production function' or
@@ -154,6 +147,8 @@ frontier( yName, xNames = NULL, qxNames = NULL, zNames = NULL,
       University of New England.
 }
 
+\seealso{\code{\link{frontierQuad}} for quadratic/translog frontiers.}
+
 \author{Tim Coelli and Arne Henningsen}
 
 \examples{
@@ -167,12 +162,6 @@ frontier( yName, xNames = NULL, qxNames = NULL, zNames = NULL,
    cobbDouglas <- frontier( yName = "logOutput",
       xNames = c( "logCapital", "logLabour" ), data = front41Data )
    cobbDouglas
-
-   # Translog production frontier
-   translog <- frontier( yName = "logOutput",
-      xNames = c( "logCapital", "logLabour" ), qxNames = "all",
-      data = front41Data )
-   translog
 
    # rice producers in the Phillipines (panel data)
    data( riceProdPhil )

@@ -194,8 +194,8 @@ print( summary( b8 ) )
 print.default( b8 )
 
 # translog
-translog <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), qxNames = "all" )
+translog <- frontierQuad( data = front41Data, yName = "logOutput",
+   xNames = c( "logCapital", "logLabour" ) )
 print( translog )
 coef( translog, which = "start" )
 coef( translog, which = "ols" )
@@ -206,4 +206,35 @@ coef( summary( translog ) )
 vcov( translog )
 print( summary( translog ) )
 print.default( translog )
+
+# translog with shifter variable
+front41Data$firmNo <- c( 1:nrow( front41Data ) )
+translogShift <- frontierQuad( yName = "logOutput",
+   xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
+   data = front41Data )
+print( translogShift )
+coef( translogShift, which = "start" )
+coef( translogShift, which = "ols" )
+coef( translogShift, which = "grid" )
+coef( translogShift )
+coef( summary( translogShift ), which = "ols" )
+coef( summary( translogShift ) )
+vcov( translogShift )
+print( summary( translogShift ) )
+print.default( translogShift )
+
+# translog with Z variable
+translogZvar <- frontierQuad( yName = "logOutput",
+   xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
+   data = front41Data )
+print( translogZvar )
+coef( translogZvar, which = "start" )
+coef( translogZvar, which = "ols" )
+coef( translogZvar, which = "grid" )
+coef( translogZvar )
+coef( summary( translogZvar ), which = "ols" )
+coef( summary( translogZvar ) )
+vcov( translogZvar )
+print( summary( translogZvar ) )
+print.default( translogZvar )
 

@@ -1,4 +1,5 @@
 export( "frontier" )
+export( "frontierQuad" )
 export( "front41Est" )
 export( "front41ReadOutput" )
 export( "front41WriteInput" )
