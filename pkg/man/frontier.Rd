@@ -17,7 +17,7 @@
 \usage{
 frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
-   functionType = 1, logDepVar = TRUE, mu = FALSE, eta = FALSE,
+   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 100,
    startVal = NULL )
@@ -38,8 +38,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       it is assumed that these are panel data.}
    \item{modelType}{model type: either 1 for an 'Error Components Frontier'
       or 2 for an 'Efficiency Effects Frontier'.}
-   \item{functionType}{function type: either 1 for 'production function' or
-      2 for 'cost function'.}
+   \item{ineffDecrease}{logical. If \code{TRUE},
+      inefficience decreases the endogenous variable
+      (e.g. for estimating a production function);
+      if \code{FALSE},
+      inefficience increases the endogenous variable
+      (e.g. for estimating a cost function).}
    \item{logDepVar}{logical. Is the dependent variable logged.}
    \item{mu}{logical. Should a 'mu' (in case of an 'Error Components Frontier',
       i.e. modelType = 1)
@@ -85,7 +89,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \code{frontier} returns a list of class \code{frontier}
    containing following elements:
    \item{modelType}{model type (see above).}
-   \item{functionType}{function type (see above).}
+   \item{ineffDecrease}{indicates whether inefficiency decreases (or increases) 
+      the endognous variable (see above).}
    \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{nn}{number of cross-sections.}
    \item{nt}{number of time periods.}

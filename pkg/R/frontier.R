@@ -1,7 +1,7 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
-      functionType = 1,
+      ineffDecrease = TRUE,
       logDepVar = TRUE,
       mu = FALSE,
       eta = FALSE,
@@ -19,8 +19,8 @@ frontier <- function(
    if( !modelType %in% c( 1, 2 ) ) {
       stop( "argument 'modelType' must be either 1 or 2" )
    }
-   if( !functionType %in% c( 1, 2 ) ) {
-      stop( "argument 'functionType' must be either 1 or 2" )
+   if( !is.logical( ineffDecrease ) || length( ineffDecrease ) != 1 ) {
+      stop( "argument 'ineffDecrease' must be a single logical value" )
    }
    if( !is.logical( logDepVar ) ) {
       stop( "argument 'logDepVar' must be logical" )
@@ -146,7 +146,7 @@ frontier <- function(
    }
    returnObj <- .Fortran( "front41", 
       modelType = as.integer( modelType ),
-      functionType = as.integer( functionType ),
+      ineffDecrease = as.integer( !ineffDecrease + 1 ),
       logDepVar = as.integer( logDepVar ),
       nn = as.integer( nn ),
       nt = as.integer( nt ),
@@ -188,6 +188,7 @@ frontier <- function(
    if( length( startVal ) == 1 ){
       returnObj$startVal <- NULL
    }
+  returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){

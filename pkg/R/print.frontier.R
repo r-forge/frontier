@@ -6,10 +6,12 @@ print.frontier <- function( x, ... ) {
    } else {
       cat( "Tech. Eff. Effects Frontier (see Battese & Coelli 1995)\n" )
    }
-   if( x$functionType == 1 ) {
-      cat( "The model is a production function\n" )
+   if( x$ineffDecrease ) {
+      cat( "Inefficiency decreases the endogenous variable",
+	"(as in a production function)\n" )
    } else {
-      cat( "The model is a cost function\n" )
+      cat( "Inefficiency increases the endogenous variable",
+	"(as in a cost function\n" )
    }
    if( x$logDepVar == 1 ) {
       cat( "The dependent variable is logged\n" )
