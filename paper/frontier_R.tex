@@ -13,37 +13,84 @@
 \begin{document}
 \pagestyle{empty}
 
-\title{Title of your submission}
+\title{Efficiency Analysis in \textsf{R} using Parametric,\\[3mm]
+Semiparametric, and Nonparametric Methods}
 
 \begin{center}
-  {\bf FistNameA LastNameA$^{1,2,*}$ , FirstNameB LastNameB$^{1,3}$}
+  {\bf Arne Henningsen$^{1,2,*}$, Subal Kumbhakar$^{3}$}
 \end{center}
 
 \begin{affiliations}
-1. Affiliation of author A and author B \par
-2. Second affiliation of author A \par
-3. Second affiliation of author B \par
-* Contact author: email@adresse.fr
+1. Department of Agricultural Economics, University of Kiel (Germany)\par
+2. Institute of Food and Resource Economics, University of Copenhagen (Denmark)\par
+3. Department of Economics, State University of New York at Binghamton (USA)\par
+* Contact author: arne.henningsen@gmail.com
 \end{affiliations}
 
-\keywords First, Second, ... up to 5 keywords
+\keywords Efficiency, Productivity, Parametric, Semiparametric, Nonparametric
 
 \vskip 0.8cm
 
-Here come the abstract of your presentation. Since it is an abstract, we propose to avoid the use of \verb�\section� and \verb�\paragraph�. 
-You can add all the packages you want (graphics, amsmath, amssymb, ...) since you will only send us the pdf file.
-The document is up to one page. Do not number the page.
+Efficiency and productivity analysis is a major field
+in applied production economics.
+It is generally dominated by two methods:
+the parametric Stochastic Frontier Analysis (SFA) and
+the nonparametric and deterministic Data Envelopment Analysis (DEA).
+The SFA can be done in \textsf{R} with the \textbf{frontier} package
+\cite{r-frontier-0.9}
+and the DEA might be done with the \textbf{FEAR}%
+\footnote{%
+Please note that the non-academic use of the \textbf{FEAR} package
+is restricted and that this closed-source software
+is available as binary package for MS-Windows only.%
+}
+package \cite{wilson08}.
+The SFA approach contains a stochastic error term and hence,
+is suitable even if there is some ``noise'' in the data.
+However, this parametric approach requires the specification
+of an explicit functional form,
+although the functional form cannot be derived from theory.
+Selecting a wrong functional form may lead to severely biased
+estimation results.
+If the data set includes production units
+with rather different technologies,
+even flexible functional forms
+cannot model their production technologies adequately
+and hence, the parametric SFA is inappropriate.
+In contrast, the nonparametric and deterministic DEA approach does not require
+the specification of a functional form,
+but it does not include a stochastic component.
+Hence, the DEA is not suitable in case of ``noisy'' data.
 
-%%% Up to three references
-\paragraph{References}
-\begin{description}
-\item AuthorA (2007). Title of a web ressource,\\ \url{http://url.has.to.be/on.a.separate/line/}.
-\item AuthorB (2007). Title of an article. \textit{Name of the review}, 6, 13--17.
-\item AuthorC (2008). Article example in proceedings, User!2008 (Dortmund, Germany), July 2008, 31--37.
-\end{description}
+In many real world applications, the data are noisy \emph{and}
+production units have rather different technologies (in parametric sense)
+so that a stochastic and nonparametric approach is required
+and neither the SFA nor the DEA is appropriate.
+In cases like this,
+a semiparametric SFA \cite{fan96}
+is appropriate,
+because it allows for statistical ``noise''
+and does not require the specification of a functional form
+for production technologies.
+In a first step, a nonparametric production function is estimated
+and in a second step the residuals of the first step
+are used to estimate inefficiencies.
+Although this approach seems to be more appropriate
+than the SFA and DEA in many empirical applications,
+it has not been used much in applied studies,
+probably because nonavailability of user-friendly softwares.
+However, this has changed in recent years.
+We show that the powerful and feature-rich \textbf{np} package \cite{hayfield08}
+can be used in the first step to estimate the nonparametric production function
+and that the \textbf{frontier} package \cite{r-frontier-0.9}
+can be used in the second step to estimate the technical efficiencies.
+
+We show how the three approaches (SFA, DEA, and semiparametric SFA)
+can be used for applied efficiency analysis in \textbf{R}
+and we compare the results obtained from all three approaches.
 
 %\nocite{ref1,ref2}
-%\bibliographystyle{amsplain}
-%\bibliography{biblioExample}
+\bibliographystyle{amsplain}
+\bibliography{agrarpol}
 
 \end{document}
