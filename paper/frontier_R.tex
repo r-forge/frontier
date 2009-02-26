@@ -36,15 +36,15 @@ in applied production economics.
 It is generally dominated by two methods:
 the parametric Stochastic Frontier Analysis (SFA) and
 the nonparametric and deterministic Data Envelopment Analysis (DEA).
-The SFA can be done in \textsf{R} with the \textbf{frontier} package
-\cite{r-frontier-0.9}
+The SFA can be done in \textsf{R} with the \textbf{frontier}
+package~\cite{r-frontier-0.9}
 and the DEA might be done with the \textbf{FEAR}%
 \footnote{%
 Please note that the non-academic use of the \textbf{FEAR} package
 is restricted and that this closed-source software
 is available as binary package for MS-Windows only.%
 }
-package \cite{wilson08}.
+package~\cite{wilson08}.
 The SFA approach contains a stochastic error term and hence,
 is suitable even if there is some ``noise'' in the data.
 However, this parametric approach requires the specification
@@ -67,7 +67,7 @@ production units have rather different technologies (in parametric sense)
 so that a stochastic and nonparametric approach is required
 and neither the SFA nor the DEA is appropriate.
 In cases like this,
-a semiparametric SFA \cite{fan96}
+a semiparametric SFA~\cite{fan96}
 is appropriate,
 because it allows for statistical ``noise''
 and does not require the specification of a functional form
@@ -75,17 +75,18 @@ for production technologies.
 In a first step, a nonparametric production function is estimated
 and in a second step the residuals of the first step
 are used to estimate inefficiencies.
-Although this approach seems to be more appropriate
-than the SFA and DEA in many empirical applications,
+Although in many empirical applications this approach seems to be
+more appropriate than the SFA and DEA,
 it has not been used much in applied studies,
-probably because nonavailability of user-friendly softwares.
-However, this has changed in recent years.
-We show that the powerful and feature-rich \textbf{np} package \cite{hayfield08}
+probably because of nonavailability of user-friendly software.
+However, several soft-ware packages for nonparametric econometrics
+have become available in recent years.
+For instance, the powerful and feature-rich \textbf{np} package~\cite{hayfield08}
 can be used in the first step to estimate the nonparametric production function
-and that the \textbf{frontier} package \cite{r-frontier-0.9}
+and the \textbf{frontier} package~\cite{r-frontier-0.9}
 can be used in the second step to estimate the technical efficiencies.
 
-We show how the three approaches (SFA, DEA, and semiparametric SFA)
+We will demonstrate how the three approaches (SFA, DEA, and semiparametric SFA)
 can be used for applied efficiency analysis in \textbf{R}
 and we compare the results obtained from all three approaches.
 
