@@ -12,7 +12,7 @@ frontierQuad <- function(
    # linear terms
    xNamesAll <- NULL
    for( i in seq( along = xNames ) ) {
-      varName <- paste( "beta", i, sep = "_" )
+      varName <- paste( "a", i, sep = "_" )
       dataQuad[[ varName ]] <- data[[ xNames[ i ] ]]
       xNamesAll <- c( xNamesAll, varName )
    }
@@ -20,7 +20,7 @@ frontierQuad <- function(
    # quadratic and interaction terms
    for( i in seq( along = xNames ) ) {
       for( j in i:length( xNames ) ) {
-         varName <- paste( "beta", i, j, sep = "_" )
+         varName <- paste( "b", i, j, sep = "_" )
          dataQuad[[ varName ]] <-
                ifelse( i == j, 1 , 2 ) * ifelse( quadHalf, 0.5, 1 ) *
                data[[ xNames[ i ] ]] * data[[ xNames[ j ] ]]
@@ -30,7 +30,7 @@ frontierQuad <- function(
 
    # shifter variables
    for( i in seq( along = shifterNames ) ) {
-      varName <- paste( "alpha", i, sep = "_" )
+      varName <- paste( "d", i, sep = "_" )
       dataQuad[[ varName ]] <- data[[ shifterNames[ i ] ]]
       xNamesAll <- c( xNamesAll, varName )
    }
@@ -38,7 +38,7 @@ frontierQuad <- function(
    # z variables
    zNamesNew <- NULL
    for( i in seq( along = zNames ) ) {
-      varName <- paste( "d", i, sep = "_" )
+      varName <- paste( "delta", i, sep = "_" )
       dataQuad[[ varName ]] <- data[[ zNames[ i ] ]]
       zNamesNew <- c( zNamesNew, varName )
    }
@@ -46,7 +46,7 @@ frontierQuad <- function(
    result <- frontier( yName = "y", xNames = xNamesAll, zNames = zNamesNew,
       data = dataQuad, ... )
 
-   xNamesAll <- c( "beta_0", xNamesAll )
+   xNamesAll <- c( "a_0", xNamesAll )
    names( result$olsParam )[ 1:length( xNamesAll ) ] <- xNamesAll
    names( result$olsStdEr )[ 1:length( xNamesAll ) ] <- xNamesAll
    if( ! is.null( result$gridParam ) ) {
