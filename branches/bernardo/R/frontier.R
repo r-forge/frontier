@@ -1,5 +1,6 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
+      code="Fortran",
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       ineffDecrease = TRUE,
       logDepVar = TRUE,
@@ -16,6 +17,9 @@ frontier <- function(
       maxit = 100,
       startVal = NULL ) {
 
+   if( ! code %in% c("Fortran","R") ) {
+         stop( "argument 'code' must be either 'Fortran' or '2'" )
+   }
    if( !modelType %in% c( 1, 2 ) ) {
       stop( "argument 'modelType' must be either 1 or 2" )
    }
@@ -144,98 +148,115 @@ frontier <- function(
             nParamTotal, " parameters)" )
       }
    }
-   returnObj <- .Fortran( "front41", 
-      modelType = as.integer( modelType ),
-      ineffDecrease = as.integer( !ineffDecrease + 1 ),
-      logDepVar = as.integer( logDepVar ),
-      nn = as.integer( nn ),
-      nt = as.integer( nt ),
-      nob = as.integer( nob ),
-      nb = as.integer( nb ),
-      mu = as.integer( mu ),
-      eta = as.integer( eta ),
-      iprint = as.integer( iprint ),
-      indic = as.integer( indic ),
-      tol = as.double( tol ),
-      tol2 = as.double( tol2 ),
-      bignum = as.double( bignum ),
-      step1 = as.double( step1 ),
-      igrid2 = as.integer( igrid2 ),
-      gridno = as.double( gridno ),
-      maxit = as.integer( maxit ),
-      nStartVal = as.integer( length( startVal ) ),
-      startVal = as.double( startVal ),
-      nRowData = as.integer( nrow( dataTable ) ),
-      nColData = as.integer( ncol( dataTable ) ),
-      dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
-         ncol( dataTable ) ),
-      nParamTotal = as.integer( nParamTotal ),
-      olsParam = as.double( rep( 0, nParamTotal ) ),
-      olsStdEr = as.double( rep( 0, nParamTotal ) ),
-      olsLogl = as.double( 0 ),
-      gridParam = as.double( rep( 0, nParamTotal ) ),
-      mleParam = as.double( rep( 0, nParamTotal ) ),
-      mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
-      mleLogl = as.double( 0 ),
-      lrTestVal = as.double( 0 ),
-      lrTestDf = as.integer( 0 ),
-      nIter = as.integer( 0 ),
-      effic = matrix( as.double( 0 ), nn, nt ) )
-   returnObj$nStartVal <- NULL
-   returnObj$nRowData <- NULL
-   returnObj$nColData <- NULL
-   returnObj$nParamTotal <- NULL
-   if( length( startVal ) == 1 ){
-      returnObj$startVal <- NULL
-   }
-  returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
-   returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
-   returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
-   if( length( startVal ) == 1 ){
-      if( modelType == 1 ) {
-         returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
+   if (code=="Fortran") {
+      returnObj <- .Fortran( "front41", 
+          modelType = as.integer( modelType ),
+          ineffDecrease = as.integer( !ineffDecrease + 1 ),
+          logDepVar = as.integer( logDepVar ),
+          nn = as.integer( nn ),
+          nt = as.integer( nt ),
+          nob = as.integer( nob ),
+          nb = as.integer( nb ),
+          mu = as.integer( mu ),
+          eta = as.integer( eta ),
+          iprint = as.integer( iprint ),
+          indic = as.integer( indic ),
+          tol = as.double( tol ),
+          tol2 = as.double( tol2 ),
+          bignum = as.double( bignum ),
+          step1 = as.double( step1 ),
+          igrid2 = as.integer( igrid2 ),
+          gridno = as.double( gridno ),
+          maxit = as.integer( maxit ),
+          nStartVal = as.integer( length( startVal ) ),
+          startVal = as.double( startVal ),
+          nRowData = as.integer( nrow( dataTable ) ),
+          nColData = as.integer( ncol( dataTable ) ),
+          dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
+            ncol( dataTable ) ),
+          nParamTotal = as.integer( nParamTotal ),
+          olsParam = as.double( rep( 0, nParamTotal ) ),
+          olsStdEr = as.double( rep( 0, nParamTotal ) ),
+          olsLogl = as.double( 0 ),
+          gridParam = as.double( rep( 0, nParamTotal ) ),
+          mleParam = as.double( rep( 0, nParamTotal ) ),
+          mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
+          mleLogl = as.double( 0 ),
+          lrTestVal = as.double( 0 ),
+          lrTestDf = as.integer( 0 ),
+          nIter = as.integer( 0 ),
+          effic = matrix( as.double( 0 ), nn, nt ) )
+      returnObj$nStartVal <- NULL
+      returnObj$nRowData <- NULL
+      returnObj$nColData <- NULL
+      returnObj$nParamTotal <- NULL
+      if( length( startVal ) == 1 ){
+          returnObj$startVal <- NULL
+      }
+      returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+      returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
+      returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
+      if( length( startVal ) == 1 ){
+          if( modelType == 1 ) {
+            returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
+          } else {
+            returnObj$gridParam <- returnObj$gridParam[
+                c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
+          }
       } else {
-         returnObj$gridParam <- returnObj$gridParam[
-            c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
+          returnObj$gridParam <- NULL
+      }
+      if( modelType == 1 && eta == FALSE ) {
+          returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
+      }
+      if( modelType == 2 ) {
+          if( mu ){
+            paramNames <- c( paramNames, "delta_0" )
+          }
+          if( nZvars > 0 ) {
+            paramNames <- c( paramNames, 
+                paste( "delta", c( 1:nZvars ), sep = "_" ) )
+          }
+      }
+      paramNames <- c( paramNames, "sigma-sq", "gamma" )
+      if( modelType == 1 ) {
+          if( mu ){
+            paramNames <- c( paramNames, "mu" )
+          }
+          if( eta ){
+            paramNames <- c( paramNames, "eta" )
+          }
+      }
+      names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+          "sigma-sq" )
+      names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
+      if( !is.null( returnObj$gridParam ) ) {
+          names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
+            "sigma-sq", "gamma" )
+      }
+      names( returnObj$mleParam ) <- paramNames
+      rownames( returnObj$mleCov ) <- paramNames
+      colnames( returnObj$mleCov ) <- paramNames
+      if( !is.null( returnObj$startVal ) ) {
+          names( returnObj$startVal ) <- paramNames
       }
    } else {
-      returnObj$gridParam <- NULL
+       dataTable = cbind(matrix( as.double( dataTable ), nrow( dataTable ),
+            ncol( dataTable ) ),rep(1,nrow(dataTable)));
+       colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
+       
+        y <- dataTable[,yName];
+        x <- cbind(dataTable[,c("ones",xNames)]);
+        if (length(zNames)>0)  
+            z <-  dataTable[,zNames]
+        else 
+            z <- matrix(0,nrow(x),0);
+        dataR <<- list(y=y, x=x, z=z);
+        #print(dataR);
+       returnObj <- frontier.frontierR(dataR, igrid2, gridno);
    }
-   if( modelType == 1 && eta == FALSE ) {
-      returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
-   }
-   if( modelType == 2 ) {
-      if( mu ){
-         paramNames <- c( paramNames, "delta_0" )
-      }
-      if( nZvars > 0 ) {
-         paramNames <- c( paramNames, 
-            paste( "delta", c( 1:nZvars ), sep = "_" ) )
-      }
-   }
-   paramNames <- c( paramNames, "sigma-sq", "gamma" )
-   if( modelType == 1 ) {
-      if( mu ){
-         paramNames <- c( paramNames, "mu" )
-      }
-      if( eta ){
-         paramNames <- c( paramNames, "eta" )
-      }
-   }
-   names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
-      "sigma-sq" )
-   names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
-   if( !is.null( returnObj$gridParam ) ) {
-      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
-         "sigma-sq", "gamma" )
-   }
-   names( returnObj$mleParam ) <- paramNames
-   rownames( returnObj$mleCov ) <- paramNames
-   colnames( returnObj$mleCov ) <- paramNames
-   if( !is.null( returnObj$startVal ) ) {
-      names( returnObj$startVal ) <- paramNames
-   }
-
-   class( returnObj ) <- "frontier"
+   returnObj$code <- code;
+   
+   #class( returnObj ) <- "frontier"
    return( returnObj )
 }
