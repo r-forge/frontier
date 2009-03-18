@@ -1,4 +1,4 @@
-frontier.frontierR = function(data, igrid2, gridno, verbose=FALSE) {
+frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=FALSE) {
     
     ols <- frontier.olsEstimation(data);
     if (verbose) {
@@ -13,7 +13,7 @@ frontier.frontierR = function(data, igrid2, gridno, verbose=FALSE) {
         print(grid);
     }
     
-    mle = frontier.mle(grid,data);
+    mle = frontier.mle(grid, data, iterlim = iterlim);
     if (verbose) {
         cat(paste("\nGamma fitting  - LogLike:",frontier.logLike(mle$param,data), 
                "yCorrelation: ",frontier.yCorrelation(mle$param,data),"\n"));
@@ -27,5 +27,10 @@ frontier.frontierR = function(data, igrid2, gridno, verbose=FALSE) {
       gridParam   = c(grid$beta, grid$sigmaSq, grid$gamma),
       gridLogLike = frontier.logLike(grid, data),
       mleParam = c(beta=mle$param$beta, delta=mle$param$delta,
-                   sigmaSq=mle$param$sigmaSq, gamma=mle$param$gamma)  ));
+                   sigmaSq=mle$param$sigmaSq, gamma=mle$param$gamma),
+      mleCov = mle$cov,
+      mleLogLike = frontier.logLike(mle$param, data),
+      nIter = mle$nIter,
+      effic = frontier.efficiency(mle$param, data)
+      ));
 }

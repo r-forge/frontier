@@ -1,4 +1,4 @@
-frontier.mle = function(startParam, data) {
+frontier.mle = function(startParam, data, iterlim=100) {
     
     # The function frontier.minusLogLikeV will be called by the nonlinear
     #   minimization routine. 
@@ -24,12 +24,24 @@ frontier.mle = function(startParam, data) {
     
     mle <- nlm(frontier.nlm.minusLogLikeV, 
        frontier.nlm.unLimParam(frontier.nlm.param0[frontier.nlm.adjustableParam]), 
-        iterlim=100000,hessian=TRUE);
+        iterlim=iterlim,hessian=TRUE);
     
     paramV <- frontier.nlm.limParam(mle$estimate)
     param  <- list(sigmaSq=paramV[1],gamma=paramV[2],
                     beta=paramV[2+1:ncol(data$x)],
-                    delta = if (ncol(data$z)>0) paramV[2+ncol(data$x)+1:ncol(data$z)] else numeric(0))
+                    delta = if (ncol(data$z)>0) 
+                                paramV[2+ncol(data$x)+1:ncol(data$z)] 
+                            else 
+                                numeric(0)  )
+    
+    n <- length(frontier.nlm.param0);
+    hessian <- matrix(0,n,n);
+    hessian[ rep(frontier.nlm.adjustableParam,n) 
+           & rep(frontier.nlm.adjustableParam,each=n)] <- mle$hessian;
+    lap <- rep(1,n);
+    lap[frontier.nlm.adjustableParam] <- frontier.nlm.lapLimParam(mle$estimate);
+    hessian <- hessian / rep(lap,n) / rep(lap,each=n);
+    rownames(hessian) <- colnames(hessian) <- names(frontier.nlm.param0);
     
     #front.p <<- front.param0;
     #front.p[front.adjParam] <<- front.limParam(mle$estimate)
@@ -44,5 +56,7 @@ frontier.mle = function(startParam, data) {
     #            beta=front.p[3+1:ncol(data$x)],
     #     delta = if (ncol(data$z)>0) front.p[3+ncol(data$x)+1:ncol(data$z)] else numeric(0));
     #front.param;
-    return( list(param = param) );
+    return( list(param = param,
+                 cov = solve(hessian),
+                 nIter = mle$iterations));
 }
