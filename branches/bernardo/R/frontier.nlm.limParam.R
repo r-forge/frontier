@@ -1,7 +1,5 @@
 #Maps the unlimited argument to limited values
-frontier.nlm.limParam = function(x,
-                  min=frontier.nlm.minParam[frontier.nlm.adjustableParam],
-                  max=frontier.nlm.maxParam[frontier.nlm.adjustableParam]) {
+frontier.nlm.limParam = function(x, min, max) {
                                 
     y <- ifelse(min == -Inf & max == Inf,
             x,

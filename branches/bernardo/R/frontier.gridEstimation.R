@@ -1,14 +1,13 @@
 frontier.gridEstimation = function(olsParam,  data, igrid2, gridno) {
     
-    param <- list(sigmaSq=0, gamma=0, beta = olsParam$beta,
-                  delta = rep(0,ncol(data$z)));
-    names(param$delta) <- dimnames(data$z)[[2]]
+    param <- list(beta = olsParam$beta, delta = rep(0,ncol(data$z)),
+                  sigmaSq=0, gamma=0);
+    names(param$delta) <- colnames(data$z)
     
     K <- length(olsParam$beta);
     T <- length(data$y);
     logProbMax <- -Inf;
     gamma <- gridno;
-    names(gamma) <- "gamma";
     maxGamma <- 1;
     while (igrid2>=0) {
       while (gamma+gridno/1000 < maxGamma) {

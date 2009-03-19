@@ -6,7 +6,6 @@ frontier.olsEstimation = function(data) {
     sigmaSq <- sum(resid*resid) / (nrow(data$x) - ncol(data$x));
         
     names(beta)    <- colnames(data$x);
-    names(sigmaSq) <- "sigmaSq";
     
     return(list(param   = list(beta=beta,sigmaSq=sigmaSq),
                 stdEr   = sqrt(sigmaSq*diag(xtx_1)) ));

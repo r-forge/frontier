@@ -1,4 +1,4 @@
-frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=FALSE) {
+frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=T) {
     
     ols <- frontier.olsEstimation(data);
     if (verbose) {
@@ -21,16 +21,15 @@ frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=FALSE) {
     }
     
     return( list(
-      olsParam   = c(ols$param$beta,ols$param$sigmaSq),
+      olsParam   = list2vector(ols$param, attributes=FALSE),
       olsStdEr   = ols$stdEr,
       olsLogLike = frontier.olsLogLike(ols$param, data),
-      gridParam   = c(grid$beta, grid$sigmaSq, grid$gamma),
+      gridParam   = list2vector(grid, attributes=FALSE),
       gridLogLike = frontier.logLike(grid, data),
-      mleParam = c(beta=mle$param$beta, delta=mle$param$delta,
-                   sigmaSq=mle$param$sigmaSq, gamma=mle$param$gamma),
+      mleParam = list2vector(mle$param, attributes=FALSE),
       mleCov = mle$cov,
       mleLogLike = frontier.logLike(mle$param, data),
-      nIter = mle$nIter,
-      effic = frontier.efficiency(mle$param, data)
+      nIter = mle$nIter
+      #effic = frontier.efficiency(mle$param, data)
       ));
 }
