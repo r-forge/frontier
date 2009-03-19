@@ -16,6 +16,7 @@
 
 \usage{
 frontier( yName, xNames = NULL, zNames = NULL, data,
+   code = "Fortran",
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
@@ -36,6 +37,11 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{data} is a panel data frame
       (created with \code{\link[plm]{plm.data}}),
       it is assumed that these are panel data.}
+   \item{code}{character string.
+      If it is \code{"Fortran"}, the Fortran code of Frontier 4.1
+      (Coelli 1996) is used;
+      if this argument is \code{"R"}, the R code that has been written
+      by Bernardo Mello is used.}
    \item{modelType}{model type: either 1 for an 'Error Components Frontier'
       or 2 for an 'Efficiency Effects Frontier'.}
    \item{ineffDecrease}{logical. If \code{TRUE},
