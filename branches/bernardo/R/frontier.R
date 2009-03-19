@@ -261,6 +261,6 @@ frontier <- function(
    }
    returnObj$code <- code;
    
-   #class( returnObj ) <- "frontier"
+   class( returnObj ) <- "frontier"
    return( returnObj )
 }
