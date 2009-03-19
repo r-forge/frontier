@@ -1,0 +1,1077 @@
+
+R version 2.8.1 (2008-12-22)
+Copyright (C) 2008 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library( frontier )
+Loading required package: plm
+Loading required package: kinship
+Loading required package: survival
+Loading required package: splines
+Loading required package: nlme
+Loading required package: lattice
+[1] "kinship is loaded"
+Loading required package: Formula
+Loading required package: MASS
+Loading required package: sandwich
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 as.Date.numeric 
+
+> options( digits = 5 )
+> 
+> data( front41Data )
+> front41Data$logOutput  <- log( front41Data$output )
+> front41Data$logCapital <- log( front41Data$capital )
+> front41Data$logLabour  <- log( front41Data$labour )
+> 
+> a1 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), code = "R" )
+OLS Loglike: -18.4468410215135 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.24490    0.28049    0.53331 
+
+$param$sigmaSq
+[1] 0.11398
+
+
+$stdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+
+Gamma gridding   LogLike: -17.0348502023417 yCorrelation:  0.841358419595932 
+$beta
+      ones logCapital  logLabour 
+   0.58014    0.28049    0.53331 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.22067
+
+$gamma
+[1] 0.8
+
+
+Gamma fitting  - LogLike: -17.0272254387211 yCorrelation:  0.841357288231225 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.56164    0.28110    0.53647 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.217
+
+$param$gamma
+[1] 0.7972
+
+
+$cov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$nIter
+[1] 42
+
+> coef( a1, which = "start" )
+NULL
+> coef( a1, which = "ols" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+> coef( a1, which = "grid" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+> coef( a1 )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+> vcov( a1 )
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+> print.default( a1 )
+$olsParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+
+$olsStdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+$olsLogLike
+[1] -18.447
+
+$gridParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+
+$gridLogLike
+[1] -17.035
+
+$mleParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+
+$mleCov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$mleLogLike
+[1] -17.027
+
+$nIter
+[1] 42
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> a2 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), mu = TRUE, code = "R" )
+OLS Loglike: -18.4468410215135 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.24490    0.28049    0.53331 
+
+$param$sigmaSq
+[1] 0.11398
+
+
+$stdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+
+Gamma gridding   LogLike: -17.0348502023417 yCorrelation:  0.841358419595932 
+$beta
+      ones logCapital  logLabour 
+   0.58014    0.28049    0.53331 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.22067
+
+$gamma
+[1] 0.8
+
+
+Gamma fitting  - LogLike: -17.0272254387211 yCorrelation:  0.841357288231225 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.56164    0.28110    0.53647 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.217
+
+$param$gamma
+[1] 0.7972
+
+
+$cov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$nIter
+[1] 42
+
+> coef( a2, which = "start" )
+NULL
+> coef( a2, which = "ols" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+> coef( a2, which = "grid" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+> coef( a2 )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+> vcov( a2 )
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+> print.default( a2 )
+$olsParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+
+$olsStdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+$olsLogLike
+[1] -18.447
+
+$gridParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+
+$gridLogLike
+[1] -17.035
+
+$mleParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+
+$mleCov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$mleLogLike
+[1] -17.027
+
+$nIter
+[1] 42
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> a3 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), eta = TRUE, code = "R" )
+OLS Loglike: -18.4468410215135 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.24490    0.28049    0.53331 
+
+$param$sigmaSq
+[1] 0.11398
+
+
+$stdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+
+Gamma gridding   LogLike: -17.0348502023417 yCorrelation:  0.841358419595932 
+$beta
+      ones logCapital  logLabour 
+   0.58014    0.28049    0.53331 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.22067
+
+$gamma
+[1] 0.8
+
+
+Gamma fitting  - LogLike: -17.0272254387211 yCorrelation:  0.841357288231225 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.56164    0.28110    0.53647 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.217
+
+$param$gamma
+[1] 0.7972
+
+
+$cov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$nIter
+[1] 42
+
+> coef( a3, which = "start" )
+NULL
+> coef( a3, which = "ols" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+> coef( a3, which = "grid" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+> coef( a3 )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+> vcov( a3 )
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+> print.default( a3 )
+$olsParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+
+$olsStdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+$olsLogLike
+[1] -18.447
+
+$gridParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+
+$gridLogLike
+[1] -17.035
+
+$mleParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+
+$mleCov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$mleLogLike
+[1] -17.027
+
+$nIter
+[1] 42
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> a4 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE, code = "R" )
+OLS Loglike: -18.4468410215135 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.24490    0.28049    0.53331 
+
+$param$sigmaSq
+[1] 0.11398
+
+
+$stdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+
+Gamma gridding   LogLike: -17.0348502023417 yCorrelation:  0.841358419595932 
+$beta
+      ones logCapital  logLabour 
+   0.58014    0.28049    0.53331 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.22067
+
+$gamma
+[1] 0.8
+
+
+Gamma fitting  - LogLike: -17.0272254387211 yCorrelation:  0.841357288231225 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.56164    0.28110    0.53647 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.217
+
+$param$gamma
+[1] 0.7972
+
+
+$cov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$nIter
+[1] 42
+
+> coef( a4, which = "start" )
+NULL
+> coef( a4, which = "ols" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+> coef( a4, which = "grid" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+> coef( a4 )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+> vcov( a4 )
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+> print.default( a4 )
+$olsParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+
+$olsStdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+$olsLogLike
+[1] -18.447
+
+$gridParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+
+$gridLogLike
+[1] -17.035
+
+$mleParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+
+$mleCov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$mleLogLike
+[1] -17.027
+
+$nIter
+[1] 42
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> a5 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), mu = TRUE,
++    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ), code = "R" )
+OLS Loglike: -18.4468410215135 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.24490    0.28049    0.53331 
+
+$param$sigmaSq
+[1] 0.11398
+
+
+$stdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+
+Gamma gridding   LogLike: -17.0348502023417 yCorrelation:  0.841358419595932 
+$beta
+      ones logCapital  logLabour 
+   0.58014    0.28049    0.53331 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.22067
+
+$gamma
+[1] 0.8
+
+
+Gamma fitting  - LogLike: -17.0272254387211 yCorrelation:  0.841357288231225 
+$param
+$param$beta
+      ones logCapital  logLabour 
+   0.56164    0.28110    0.53647 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.217
+
+$param$gamma
+[1] 0.7972
+
+
+$cov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$nIter
+[1] 42
+
+> coef( a5, which = "start" )
+NULL
+> coef( a5, which = "ols" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+> coef( a5, which = "grid" )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+> coef( a5 )
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+> vcov( a5 )
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+> print.default( a5 )
+$olsParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq 
+        0.24490         0.28049         0.53331         0.11398 
+
+$olsStdEr
+      ones logCapital  logLabour 
+  0.213603   0.048067   0.051499 
+
+$olsLogLike
+[1] -18.447
+
+$gridParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.58014         0.28049         0.53331         0.22067         0.80000 
+
+$gridLogLike
+[1] -17.035
+
+$mleParam
+      beta.ones beta.logCapital  beta.logLabour         sigmaSq           gamma 
+        0.56164         0.28110         0.53647         0.21700         0.79720 
+
+$mleCov
+                 beta.ones beta.logCapital beta.logLabour     sigmaSq
+beta.ones        0.0410562     -3.1138e-03    -7.9856e-03  4.1238e-03
+beta.logCapital -0.0031138      2.2565e-03     3.7102e-05 -2.4492e-05
+beta.logLabour  -0.0079856      3.7102e-05     2.0424e-03 -4.6988e-05
+sigmaSq          0.0041238     -2.4492e-05    -4.6988e-05  4.1489e-03
+gamma            0.0095662     -8.8149e-05    -1.8328e-04  6.9374e-03
+                      gamma
+beta.ones        0.00956624
+beta.logCapital -0.00008815
+beta.logLabour  -0.00018328
+sigmaSq          0.00693739
+gamma            0.01918670
+
+$mleLogLike
+[1] -17.027
+
+$nIter
+[1] 42
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> # translog
+> translog <- frontierQuad( data = front41Data, yName = "logOutput",
++    xNames = c( "logCapital", "logLabour" ), code = "R" )
+OLS Loglike: -15.8572039132221 
+$param
+$param$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2 
+ 0.5562561  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000 
+
+$param$sigmaSq
+[1] 0.11037
+
+
+$stdEr
+    ones      a_1      a_2    b_1_1    b_1_2    b_2_2 
+0.363379 0.193844 0.212146 0.090341 0.045231 0.069849 
+
+
+Gamma gridding   LogLike: -14.4568507947017 yCorrelation:  0.85559460399114 
+$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2 
+ 0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.19244
+
+$gamma
+[1] 0.76
+
+
+Gamma fitting  - LogLike: -14.4342941924973 yCorrelation:  0.855565105173454 
+$param
+$param$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2 
+ 0.8091713  0.3919091  0.3640165 -0.1832402  0.0050639  0.0576547 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.18939
+
+$param$gamma
+[1] 0.76233
+
+
+$cov
+            beta.ones    beta.a_1    beta.a_2  beta.b_1_1  beta.b_1_2
+beta.ones   0.1115159 -0.03448335 -0.04954628 -0.00334858  0.00916508
+beta.a_1   -0.0344834  0.03185314  0.01096365 -0.00567472 -0.00694183
+beta.a_2   -0.0495463  0.01096365  0.03372338  0.00100733 -0.00318460
+beta.b_1_1 -0.0033486 -0.00567472  0.00100733  0.00701772  0.00022661
+beta.b_1_2  0.0091651 -0.00694183 -0.00318460  0.00022661  0.00180789
+beta.b_2_2  0.0109640 -0.00085513 -0.01011051 -0.00034416  0.00032216
+sigmaSq     0.0014221  0.00050222  0.00088988  0.00026083 -0.00020434
+gamma       0.0019356  0.00195994  0.00352126  0.00098669 -0.00079053
+            beta.b_2_2     sigmaSq       gamma
+beta.ones   0.01096396  0.00142206  0.00193565
+beta.a_1   -0.00085513  0.00050222  0.00195994
+beta.a_2   -0.01011051  0.00088988  0.00352126
+beta.b_1_1 -0.00034416  0.00026083  0.00098669
+beta.b_1_2  0.00032216 -0.00020434 -0.00079053
+beta.b_2_2  0.00355410 -0.00018548 -0.00077000
+sigmaSq    -0.00018548  0.00321994  0.00676857
+gamma      -0.00077000  0.00676857  0.02312761
+
+$nIter
+[1] 72
+
+> coef( translog, which = "start" )
+NULL
+> coef( translog, which = "ols" )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.5562561  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1103671 
+> coef( translog, which = "grid" )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1924378 
+     gamma 
+ 0.7600000 
+> coef( translog )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.8091713  0.3919091  0.3640165 -0.1832402  0.0050639  0.0576547  0.1893921 
+     gamma 
+ 0.7623284 
+> vcov( translog )
+               a_0         a_1         a_2       b_1_1       b_1_2       b_2_2
+a_0      0.1115159 -0.03448335 -0.04954628 -0.00334858  0.00916508  0.01096396
+a_1     -0.0344834  0.03185314  0.01096365 -0.00567472 -0.00694183 -0.00085513
+a_2     -0.0495463  0.01096365  0.03372338  0.00100733 -0.00318460 -0.01011051
+b_1_1   -0.0033486 -0.00567472  0.00100733  0.00701772  0.00022661 -0.00034416
+b_1_2    0.0091651 -0.00694183 -0.00318460  0.00022661  0.00180789  0.00032216
+b_2_2    0.0109640 -0.00085513 -0.01011051 -0.00034416  0.00032216  0.00355410
+sigmaSq  0.0014221  0.00050222  0.00088988  0.00026083 -0.00020434 -0.00018548
+gamma    0.0019356  0.00195994  0.00352126  0.00098669 -0.00079053 -0.00077000
+            sigmaSq       gamma
+a_0      0.00142206  0.00193565
+a_1      0.00050222  0.00195994
+a_2      0.00088988  0.00352126
+b_1_1    0.00026083  0.00098669
+b_1_2   -0.00020434 -0.00079053
+b_2_2   -0.00018548 -0.00077000
+sigmaSq  0.00321994  0.00676857
+gamma    0.00676857  0.02312761
+> print.default( translog )
+$olsParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.5562561  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1103671 
+
+$olsStdEr
+     a_0      a_1      a_2    b_1_1    b_1_2    b_2_2 
+0.363379 0.193844 0.212146 0.090341 0.045231 0.069849 
+
+$olsLogLike
+[1] -15.857
+
+$gridParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1924378 
+     gamma 
+ 0.7600000 
+
+$gridLogLike
+[1] -14.457
+
+$mleParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
+ 0.8091713  0.3919091  0.3640165 -0.1832402  0.0050639  0.0576547  0.1893921 
+     gamma 
+ 0.7623284 
+
+$mleCov
+               a_0         a_1         a_2       b_1_1       b_1_2       b_2_2
+a_0      0.1115159 -0.03448335 -0.04954628 -0.00334858  0.00916508  0.01096396
+a_1     -0.0344834  0.03185314  0.01096365 -0.00567472 -0.00694183 -0.00085513
+a_2     -0.0495463  0.01096365  0.03372338  0.00100733 -0.00318460 -0.01011051
+b_1_1   -0.0033486 -0.00567472  0.00100733  0.00701772  0.00022661 -0.00034416
+b_1_2    0.0091651 -0.00694183 -0.00318460  0.00022661  0.00180789  0.00032216
+b_2_2    0.0109640 -0.00085513 -0.01011051 -0.00034416  0.00032216  0.00355410
+sigmaSq  0.0014221  0.00050222  0.00088988  0.00026083 -0.00020434 -0.00018548
+gamma    0.0019356  0.00195994  0.00352126  0.00098669 -0.00079053 -0.00077000
+            sigmaSq       gamma
+a_0      0.00142206  0.00193565
+a_1      0.00050222  0.00195994
+a_2      0.00088988  0.00352126
+b_1_1    0.00026083  0.00098669
+b_1_2   -0.00020434 -0.00079053
+b_2_2   -0.00018548 -0.00077000
+sigmaSq  0.00321994  0.00676857
+gamma    0.00676857  0.02312761
+
+$mleLogLike
+[1] -14.434
+
+$nIter
+[1] 72
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
+> # translog with shifter variable
+> front41Data$firmNo <- c( 1:nrow( front41Data ) )
+> translogShift <- frontierQuad( yName = "logOutput",
++    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
++    data = front41Data, code = "R" )
+OLS Loglike: -15.3864371474308 
+$param
+$param$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.4398038  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+
+$param$sigmaSq
+[1] 0.11070
+
+
+$stdEr
+     ones       a_1       a_2     b_1_1     b_1_2     b_2_2       d_1 
+0.3855118 0.1941617 0.2160013 0.0906717 0.0454886 0.0707104 0.0026656 
+
+
+Gamma gridding   LogLike: -14.0652234104702 yCorrelation:  0.85802923137282 
+$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.7349262  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+
+$delta
+numeric(0)
+
+$sigmaSq
+[1] 0.18488
+
+$gamma
+[1] 0.74
+
+
+Gamma fitting  - LogLike: -14.0321711610627 yCorrelation:  0.85797721030289 
+$param
+$param$beta
+      ones        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.6981188  0.3954613  0.3969018 -0.1923180  0.0016954  0.0492767  0.0022167 
+
+$param$delta
+NULL
+
+$param$sigmaSq
+[1] 0.18457
+
+$param$gamma
+[1] 0.75448
+
+
+$cov
+             beta.ones    beta.a_1    beta.a_2  beta.b_1_1  beta.b_1_2
+beta.ones   0.12289502 -3.3247e-02 -5.2816e-02 -2.0832e-03  9.1774e-03
+beta.a_1   -0.03324735  3.1075e-02  1.0525e-02 -5.7365e-03 -6.7641e-03
+beta.a_2   -0.05281640  1.0525e-02  3.4567e-02  4.3006e-04 -3.1588e-03
+beta.b_1_1 -0.00208322 -5.7365e-03  4.3006e-04  6.9691e-03  2.9947e-04
+beta.b_1_2  0.00917738 -6.7641e-03 -3.1588e-03  2.9947e-04  1.7673e-03
+beta.b_2_2  0.01193115 -8.0556e-04 -1.0341e-02 -1.8916e-04  3.3232e-04
+beta.d_1   -0.00030019  1.1067e-05  9.2812e-05 -2.4254e-05 -9.4413e-06
+sigmaSq     0.00163581  5.3426e-04  7.8427e-04  8.3161e-05 -1.8709e-04
+gamma       0.00312769  2.1636e-03  3.2248e-03  3.5844e-04 -7.5347e-04
+            beta.b_2_2    beta.d_1     sigmaSq       gamma
+beta.ones   1.1931e-02 -3.0019e-04  1.6358e-03  0.00312769
+beta.a_1   -8.0556e-04  1.1067e-05  5.3426e-04  0.00216358
+beta.a_2   -1.0341e-02  9.2812e-05  7.8427e-04  0.00322476
+beta.b_1_1 -1.8916e-04 -2.4254e-05  8.3161e-05  0.00035844
+beta.b_1_2  3.3232e-04 -9.4413e-06 -1.8709e-04 -0.00075347
+beta.b_2_2  3.6034e-03 -2.3699e-05 -1.5145e-04 -0.00066149
+beta.d_1   -2.3699e-05  6.0818e-06 -2.6437e-06 -0.00001344
+sigmaSq    -1.5145e-04 -2.6437e-06  3.0614e-03  0.00674720
+gamma      -6.6149e-04 -1.3440e-05  6.7472e-03  0.02417361
+
+$nIter
+[1] 80
+
+> coef( translogShift, which = "start" )
+NULL
+> coef( translogShift, which = "ols" )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.4398038  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+   sigmaSq 
+ 0.1106987 
+> coef( translogShift, which = "grid" )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.7349262  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+   sigmaSq      gamma 
+ 0.1848811  0.7400000 
+> coef( translogShift )
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.6981188  0.3954613  0.3969018 -0.1923180  0.0016954  0.0492767  0.0022167 
+   sigmaSq      gamma 
+ 0.1845736  0.7544804 
+> vcov( translogShift )
+                a_0         a_1         a_2       b_1_1       b_1_2       b_2_2
+a_0      0.12289502 -3.3247e-02 -5.2816e-02 -2.0832e-03  9.1774e-03  1.1931e-02
+a_1     -0.03324735  3.1075e-02  1.0525e-02 -5.7365e-03 -6.7641e-03 -8.0556e-04
+a_2     -0.05281640  1.0525e-02  3.4567e-02  4.3006e-04 -3.1588e-03 -1.0341e-02
+b_1_1   -0.00208322 -5.7365e-03  4.3006e-04  6.9691e-03  2.9947e-04 -1.8916e-04
+b_1_2    0.00917738 -6.7641e-03 -3.1588e-03  2.9947e-04  1.7673e-03  3.3232e-04
+b_2_2    0.01193115 -8.0556e-04 -1.0341e-02 -1.8916e-04  3.3232e-04  3.6034e-03
+d_1     -0.00030019  1.1067e-05  9.2812e-05 -2.4254e-05 -9.4413e-06 -2.3699e-05
+sigmaSq  0.00163581  5.3426e-04  7.8427e-04  8.3161e-05 -1.8709e-04 -1.5145e-04
+gamma    0.00312769  2.1636e-03  3.2248e-03  3.5844e-04 -7.5347e-04 -6.6149e-04
+                d_1     sigmaSq       gamma
+a_0     -3.0019e-04  1.6358e-03  0.00312769
+a_1      1.1067e-05  5.3426e-04  0.00216358
+a_2      9.2812e-05  7.8427e-04  0.00322476
+b_1_1   -2.4254e-05  8.3161e-05  0.00035844
+b_1_2   -9.4413e-06 -1.8709e-04 -0.00075347
+b_2_2   -2.3699e-05 -1.5145e-04 -0.00066149
+d_1      6.0818e-06 -2.6437e-06 -0.00001344
+sigmaSq -2.6437e-06  3.0614e-03  0.00674720
+gamma   -1.3440e-05  6.7472e-03  0.02417361
+> print.default( translogShift )
+$olsParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.4398038  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+   sigmaSq 
+ 0.1106987 
+
+$olsStdEr
+      a_0       a_1       a_2     b_1_1     b_1_2     b_2_2       d_1 
+0.3855118 0.1941617 0.2160013 0.0906717 0.0454886 0.0707104 0.0026656 
+
+$olsLogLike
+[1] -15.386
+
+$gridParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.7349262  0.3815066  0.3834425 -0.1913548  0.0046860  0.0506553  0.0024405 
+   sigmaSq      gamma 
+ 0.1848811  0.7400000 
+
+$gridLogLike
+[1] -14.065
+
+$mleParam
+       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
+ 0.6981188  0.3954613  0.3969018 -0.1923180  0.0016954  0.0492767  0.0022167 
+   sigmaSq      gamma 
+ 0.1845736  0.7544804 
+
+$mleCov
+                a_0         a_1         a_2       b_1_1       b_1_2       b_2_2
+a_0      0.12289502 -3.3247e-02 -5.2816e-02 -2.0832e-03  9.1774e-03  1.1931e-02
+a_1     -0.03324735  3.1075e-02  1.0525e-02 -5.7365e-03 -6.7641e-03 -8.0556e-04
+a_2     -0.05281640  1.0525e-02  3.4567e-02  4.3006e-04 -3.1588e-03 -1.0341e-02
+b_1_1   -0.00208322 -5.7365e-03  4.3006e-04  6.9691e-03  2.9947e-04 -1.8916e-04
+b_1_2    0.00917738 -6.7641e-03 -3.1588e-03  2.9947e-04  1.7673e-03  3.3232e-04
+b_2_2    0.01193115 -8.0556e-04 -1.0341e-02 -1.8916e-04  3.3232e-04  3.6034e-03
+d_1     -0.00030019  1.1067e-05  9.2812e-05 -2.4254e-05 -9.4413e-06 -2.3699e-05
+sigmaSq  0.00163581  5.3426e-04  7.8427e-04  8.3161e-05 -1.8709e-04 -1.5145e-04
+gamma    0.00312769  2.1636e-03  3.2248e-03  3.5844e-04 -7.5347e-04 -6.6149e-04
+                d_1     sigmaSq       gamma
+a_0     -3.0019e-04  1.6358e-03  0.00312769
+a_1      1.1067e-05  5.3426e-04  0.00216358
+a_2      9.2812e-05  7.8427e-04  0.00322476
+b_1_1   -2.4254e-05  8.3161e-05  0.00035844
+b_1_2   -9.4413e-06 -1.8709e-04 -0.00075347
+b_2_2   -2.3699e-05 -1.5145e-04 -0.00066149
+d_1      6.0818e-06 -2.6437e-06 -0.00001344
+sigmaSq -2.6437e-06  3.0614e-03  0.00674720
+gamma   -1.3440e-05  6.7472e-03  0.02417361
+
+$mleLogLike
+[1] -14.032
+
+$nIter
+[1] 80
+
+$code
+[1] "R"
+
+attr(,"class")
+[1] "frontier"
+> 
