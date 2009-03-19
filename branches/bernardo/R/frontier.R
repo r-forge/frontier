@@ -76,8 +76,8 @@ frontier <- function(
       stop( "argument 'step1' must be positive" )
    }
    # igrid2
-   if( ! igrid2 %in% c( 1, 2 ) ) {
-      stop( "argument 'igrid2' must be either '1' or '2'" )
+   if( ! igrid2 %in% c( 0, 1 ) ) {
+      stop( "argument 'igrid2' must be either '0' or '1'" )
    }
    # gridno
    if( !is.numeric( gridno ) ) {
