@@ -94,6 +94,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
 \value{
    \code{frontier} returns a list of class \code{frontier}
    containing following elements:
+   \item{code}{source code used (see above)}
    \item{modelType}{model type (see above).}
    \item{ineffDecrease}{indicates whether inefficiency decreases (or increases) 
       the endognous variable (see above).}

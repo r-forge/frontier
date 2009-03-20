@@ -1,4 +1,4 @@
-frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=T) {
+frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=FALSE) {
     
     ols <- frontier.olsEstimation(data);
     if (verbose) {
@@ -29,7 +29,7 @@ frontier.frontierR = function(data, igrid2, gridno, iterlim, verbose=T) {
       mleParam = list2vector(mle$param, attributes=FALSE),
       mleCov = mle$cov,
       mleLogLike = frontier.logLike(mle$param, data),
-      nIter = mle$nIter
-      #effic = frontier.efficiency(mle$param, data)
+      nIter = mle$nIter,
+      effic = frontier.efficiency(mle$param, data)
       ));
 }

@@ -76,8 +76,8 @@ frontier <- function(
       stop( "argument 'step1' must be positive" )
    }
    # igrid2
-   if( ! igrid2 %in% c( 0, 1 ) ) {
-      stop( "argument 'igrid2' must be either '0' or '1'" )
+   if( ! igrid2 %in% c( 1, 2 ) ) {
+      stop( "argument 'igrid2' must be either '1' or '2'" )
    }
    # gridno
    if( !is.numeric( gridno ) ) {
@@ -246,10 +246,10 @@ frontier <- function(
        colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
        
         y <- dataTable[,yName];
-        x <- cbind(dataTable[,c("ones",xNames)]);
+        x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
         #colnames(x) <- paste("beta", 1:ncol(x)-1, sep="_");
         if (length(zNames)>0)  {
-            z <-  dataTable[,zNames]
+            z <-  matrix(dataTable[,zNames],length(y),length(zNames))
             #colnames(z) <- paste("delta", 1:ncol(z), sep="_");
         } else 
             z <- matrix(0,nrow(x),0);

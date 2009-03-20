@@ -5,7 +5,7 @@ frontier.yCorrelation = function(param, data) {
     if (is.null(param$rho) || param$rho==0) 
         s <- diag(1,n)
     else 
-        s <- diag(1,n) - param$rho * front.w;
+        s <- diag(1,n);
     y1 <- frontier.yEstimation(param,data);
     
     return(cor(s%*%data$y,y1));

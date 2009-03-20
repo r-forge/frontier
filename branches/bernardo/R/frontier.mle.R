@@ -20,7 +20,7 @@ frontier.mle = function(startParam, data, iterlim=100) {
     mle <- nlm(frontier.nlm.minusLogLikeV,
        frontier.nlm.unLimParam(param0[adjustableParam],minParam,maxParam),
        data,param0,minParam,maxParam,adjustableParam,
-        iterlim=iterlim,hessian=TRUE,check.analyticals = FALSE);
+        iterlim=iterlim,hessian=TRUE,check.analyticals = TRUE);
     paramV <- param0;
     paramV[adjustableParam] <- 
           frontier.nlm.limParam(mle$estimate,minParam,maxParam)
