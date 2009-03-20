@@ -7,6 +7,6 @@ frontierOlsEstimation = function(data) {
         
     names(beta)    <- colnames(data$x);
     
-    return(list(param   = list(beta=beta,sigmaSq=sigmaSq),
+    return(list(param   = frontierRParam(beta=beta,sigmaSq=sigmaSq),
                 stdEr   = sqrt(sigmaSq*diag(xtx_1)) ));
 }

@@ -5,33 +5,36 @@ frontierMle = function(startParam, data, iterlim=100) {
     # The function frontierMinusLogLikeV recieves a vector with the values 
     #   of the parameters and return the minuslogLike. 
     # Beyond the parameters, several data are necessary to the evaluation
-    param0 <- list2vector(startParam);
+    vParam0 <- list2vector(startParam);
                               
     # The adjustableParam is not being used, but may be usefull in the future.
-    adjustableParam <- c(rep(TRUE,ncol(data$x)), rep(TRUE,ncol(data$z)),
-                         TRUE, TRUE);
+    adjustableVParam <- list2vector(frontierRParam(beta=rep(TRUE,ncol(data$x)),
+            delta=rep(TRUE,ncol(data$z)), sigmaSq=TRUE, gamma=TRUE));
     
     #The minimum and maximum values allowed for the parameters
     #The limits on the parameters is imposed through the function limParam and
     #unLimPara, which maps the the real numbers in a limited interval and back.
-    minParam <- c(rep(-Inf,ncol(data$x)+ncol(data$z)),0,0);
-    maxParam <- c(rep(Inf,ncol(data$x)+ncol(data$z)),Inf,1);
+    minVParam <- list2vector(frontierRParam(beta=rep(-Inf,ncol(data$x)),
+            delta=rep(-Inf,ncol(data$z)), sigmaSq=0, gamma=0));
+    maxVParam <- list2vector(frontierRParam(beta=rep(Inf,ncol(data$x)),
+            delta=rep(Inf,ncol(data$z)), sigmaSq=Inf, gamma=1));
     
-    mle <- nlm(frontierNlmMinusLogLikeV,
-       frontierNlmUnLimParam(param0[adjustableParam],minParam,maxParam),
-       data,param0,minParam,maxParam,adjustableParam,
+    
+    mle <- nlm(frontierNlmMinusGradLogLikeV,
+       frontierNlmUnLimParam(vParam0[adjustableVParam],minVParam,maxVParam),
+       data,vParam0,minVParam,maxVParam,adjustableVParam,
         iterlim=iterlim,hessian=TRUE,check.analyticals = TRUE);
-    paramV <- param0;
-    paramV[adjustableParam] <- 
-          frontierNlmLimParam(mle$estimate,minParam,maxParam)
-    param <- vector2list(paramV)
+    vParam <- vParam0;
+    vParam[adjustableVParam] <- 
+          frontierNlmLimParam(mle$estimate,minVParam,maxVParam)
+    param <- vector2list(vParam)
     
     n <- length(param0);
     hessian <- matrix(0,n,n);
-    hessian[rep(adjustableParam,n) & rep(adjustableParam,each=n)] <- mle$hessian;
+    hessian[rep(adjustableParam,n) & rep(adjustableVParam,each=n)] <- mle$hessian;
     lap <- rep(1,n);
     lap[adjustableParam] <-
-                frontierNlmLapLimParam(mle$estimate,minParam,maxParam);
+                frontierNlmLapLimParam(mle$estimate,minVParam,maxVParam);
     hessian <- hessian / rep(lap,n) / rep(lap,each=n);
     rownames(hessian) <- colnames(hessian) <- names(param0);
     

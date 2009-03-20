@@ -1,6 +1,6 @@
 frontierGridEstimation = function(olsParam,  data, igrid2, gridno) {
     
-    param <- list(beta = olsParam$beta, delta = rep(0,ncol(data$z)),
+    param <- frontierRParam(beta = olsParam$beta, delta = rep(0,ncol(data$z)),
                   sigmaSq=0, gamma=0);
     names(param$delta) <- colnames(data$z)
     
