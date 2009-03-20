@@ -1,4 +1,4 @@
-frontier.efficiency = function(param, data) {
+frontierEfficiency = function(param, data) {
     e <- data$y - data$x %*% param$beta;
     zd <- if (ncol(data$z)>0)  data$z %*% param$delta else rep(0,length(e));
     sA <- sqrt(param$gamma*(1-param$gamma)*param$sigmaSq);

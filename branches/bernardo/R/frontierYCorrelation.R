@@ -1,4 +1,4 @@
-frontier.yCorrelation = function(param, data) {
+frontierYCorrelation = function(param, data) {
     
     #Correlation between the y estimation and the data
     n <- length(data$y);
@@ -6,7 +6,7 @@ frontier.yCorrelation = function(param, data) {
         s <- diag(1,n)
     else 
         s <- diag(1,n);
-    y1 <- frontier.yEstimation(param,data);
+    y1 <- frontierYEstimation(param,data);
     
     return(cor(s%*%data$y,y1));
 }

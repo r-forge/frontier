@@ -1,8 +1,8 @@
-frontier.mle = function(startParam, data, iterlim=100) {
+frontierMle = function(startParam, data, iterlim=100) {
     
-    # The function frontier.minusLogLikeV will be called by the nonlinear
+    # The function frontierMinusLogLikeV will be called by the nonlinear
     #   minimization routine. 
-    # The function frontier.minusLogLikeV recieves a vector with the values 
+    # The function frontierMinusLogLikeV recieves a vector with the values 
     #   of the parameters and return the minuslogLike. 
     # Beyond the parameters, several data are necessary to the evaluation
     param0 <- list2vector(startParam);
@@ -17,13 +17,13 @@ frontier.mle = function(startParam, data, iterlim=100) {
     minParam <- c(rep(-Inf,ncol(data$x)+ncol(data$z)),0,0);
     maxParam <- c(rep(Inf,ncol(data$x)+ncol(data$z)),Inf,1);
     
-    mle <- nlm(frontier.nlm.minusLogLikeV,
-       frontier.nlm.unLimParam(param0[adjustableParam],minParam,maxParam),
+    mle <- nlm(frontierNlmMinusLogLikeV,
+       frontierNlmUnLimParam(param0[adjustableParam],minParam,maxParam),
        data,param0,minParam,maxParam,adjustableParam,
         iterlim=iterlim,hessian=TRUE,check.analyticals = TRUE);
     paramV <- param0;
     paramV[adjustableParam] <- 
-          frontier.nlm.limParam(mle$estimate,minParam,maxParam)
+          frontierNlmLimParam(mle$estimate,minParam,maxParam)
     param <- vector2list(paramV)
     
     n <- length(param0);
@@ -31,7 +31,7 @@ frontier.mle = function(startParam, data, iterlim=100) {
     hessian[rep(adjustableParam,n) & rep(adjustableParam,each=n)] <- mle$hessian;
     lap <- rep(1,n);
     lap[adjustableParam] <-
-                frontier.nlm.lapLimParam(mle$estimate,minParam,maxParam);
+                frontierNlmLapLimParam(mle$estimate,minParam,maxParam);
     hessian <- hessian / rep(lap,n) / rep(lap,each=n);
     rownames(hessian) <- colnames(hessian) <- names(param0);
     

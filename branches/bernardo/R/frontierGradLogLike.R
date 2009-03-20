@@ -1,5 +1,5 @@
 #Calculate the value of the function and its gradients
-frontier.gradLogLike = function(param, data) {
+frontierGradLogLike = function(param, data) {
     #print(vetorPar)
     s2 <- param$sigmaSq;
     g <- param$gamma;

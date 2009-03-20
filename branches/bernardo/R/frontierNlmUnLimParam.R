@@ -1,5 +1,5 @@
 #Reverts limParam
-frontier.nlm.unLimParam = function(x, min, max) {
+frontierNlmUnLimParam = function(x, min, max) {
     
     y <- ifelse(min == -Inf & max == Inf,
             x,

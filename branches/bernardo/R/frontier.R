@@ -254,7 +254,7 @@ frontier <- function(
         } else 
             z <- matrix(0,nrow(x),0);
         dataR <- list(y=y, x=x, z=z);
-        returnObj <- frontier.frontierR(dataR, 
+        returnObj <- frontierR(dataR, 
             igrid2 = igrid2, 
             gridno = gridno, 
             iterlim = maxit );

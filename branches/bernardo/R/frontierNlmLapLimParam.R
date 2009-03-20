@@ -1,5 +1,5 @@
 #Laplacian: d limParam / d unlimParam
-frontier.nlm.lapLimParam = function(x, min, max) {
+frontierNlmLapLimParam = function(x, min, max) {
     y <- ifelse(min == -Inf & max == Inf,
            1, 
            ifelse(max==Inf,

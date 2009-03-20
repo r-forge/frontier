@@ -1,13 +1,13 @@
-frontier.nlm.minusLogLikeV = function(vParam, data, param0, minParam, maxParam,
+frontierNlmMinusLogLikeV = function(vParam, data, param0, minParam, maxParam,
                                       adjustableParam) {
     # Receive the parameters as a vector of unlimited values, transforms them to
     # the limited values and write it as list, so logLike can be called
     
     v <- param0;
-    v[adjustableParam] <- frontier.nlm.limParam(vParam, minParam, maxParam);
+    v[adjustableParam] <- frontierNlmLimParam(vParam, minParam, maxParam);
     #nx <- ncol(data$x);
     param <- vector2list(v);
-    return( -frontier.logLike(param, data) );
+    return( -frontierLogLike(param, data) );
 }
 
 

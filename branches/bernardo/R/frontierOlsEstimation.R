@@ -1,4 +1,4 @@
-frontier.olsEstimation = function(data) {
+frontierOlsEstimation = function(data) {
 
     xtx_1   <- solve( t(data$x) %*% data$x );
     beta    <- c(xtx_1 %*% t(data$x) %*% data$y);

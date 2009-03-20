@@ -1,4 +1,4 @@
-frontier.gridEstimation = function(olsParam,  data, igrid2, gridno) {
+frontierGridEstimation = function(olsParam,  data, igrid2, gridno) {
     
     param <- list(beta = olsParam$beta, delta = rep(0,ncol(data$z)),
                   sigmaSq=0, gamma=0);
@@ -14,7 +14,7 @@ frontier.gridEstimation = function(olsParam,  data, igrid2, gridno) {
           param$gamma   <- gamma;
           param$sigmaSq <- olsParam$sigmaSq * pi * (T-K)/T/(pi-2*gamma);
           param$beta[1] <- olsParam$beta[1] + sqrt(2*gamma*param$sigmaSq/pi);
-          lp <- frontier.logLike(param,data);
+          lp <- frontierLogLike(param,data);
           if (!is.nan(lp) && lp>logProbMax) {
               logProbMax <- lp;
               paramMax <- param;

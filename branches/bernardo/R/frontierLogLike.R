@@ -1,4 +1,4 @@
-frontier.logLike = function(param, data) {
+frontierLogLike = function(param, data) {
     #The order of the mathematical operation have a strong effect on performance
     
     e  <- data$y - data$x %*% param$beta;

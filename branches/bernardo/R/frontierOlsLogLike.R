@@ -1,4 +1,4 @@
-frontier.olsLogLike = function(param, data) {
+frontierOlsLogLike = function(param, data) {
     
     resid <- data$y - data$x %*% param$beta;
     sigma <- sqrt(sum(resid*resid)/(length(resid)));

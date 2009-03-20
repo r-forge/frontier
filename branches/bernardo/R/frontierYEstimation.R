@@ -1,4 +1,4 @@
-frontier.yEstimation = function(param, data) {
+frontierYEstimation = function(param, data) {
     
     s <- sqrt(param$gamma * param$sigmaSq);
     zd <- if (ncol(data$z)>0)  data$z %*% param$delta else rep(0,length(data$y));
