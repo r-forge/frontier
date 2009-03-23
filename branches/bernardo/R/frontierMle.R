@@ -29,14 +29,14 @@ frontierMle = function(startParam, data, iterlim=100) {
           frontierNlmLimParam(mle$estimate,minVParam,maxVParam)
     param <- vector2list(vParam)
     
-    n <- length(param0);
+    n <- length(vParam0);
     hessian <- matrix(0,n,n);
-    hessian[rep(adjustableParam,n) & rep(adjustableVParam,each=n)] <- mle$hessian;
+    hessian[rep(adjustableVParam,n) & rep(adjustableVParam,each=n)] <- mle$hessian;
     lap <- rep(1,n);
-    lap[adjustableParam] <-
+    lap[adjustableVParam] <-
                 frontierNlmLapLimParam(mle$estimate,minVParam,maxVParam);
     hessian <- hessian / rep(lap,n) / rep(lap,each=n);
-    rownames(hessian) <- colnames(hessian) <- names(param0);
+    rownames(hessian) <- colnames(hessian) <- names(vParam0);
     
     return( list(param = param,
                  cov = solve(hessian),

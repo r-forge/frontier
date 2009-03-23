@@ -247,13 +247,15 @@ frontier <- function(
        
         y <- dataTable[,yName];
         x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
+        #colnames(x) <- c("ones",xNames);
         #colnames(x) <- paste("beta", 1:ncol(x)-1, sep="_");
         if (length(zNames)>0)  {
             z <-  matrix(dataTable[,zNames],length(y),length(zNames))
             #colnames(z) <- paste("delta", 1:ncol(z), sep="_");
+            #colnames(z) <- length(zNames);
         } else 
             z <- matrix(0,nrow(x),0);
-        dataR <- list(y=y, x=x, z=z);
+        dataR <<- list(y=y, x=x, z=z);
         returnObj <- frontierR(dataR, 
             igrid2 = igrid2, 
             gridno = gridno, 
