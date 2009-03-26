@@ -1,6 +1,6 @@
 coef.frontier <- function( object, which = "mle", ... ) {
 
-   if( tolower( which ) == "start" ){
+  if( tolower( which ) == "start" ){
       return( object$startVal )
    } else if( tolower( which ) == "ols" ) {
       return( object$olsParam )

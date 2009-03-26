@@ -1,23 +1,31 @@
-frontierMle = function(startParam, data, iterlim=100) {
+frontierMle = function(startParam, data, iterlim=100, startVal=startVal) {
     
     # The function frontierMinusLogLikeV will be called by the nonlinear
     #   minimization routine. 
     # The function frontierMinusLogLikeV recieves a vector with the values 
     #   of the parameters and return the minuslogLike. 
     # Beyond the parameters, several data are necessary to the evaluation
-    vParam0 <- list2vector(startParam);
+    vParam0 <- unlist(as.relistable(startParam));
+    if (ncol(data$z)==0) {
+        attr(vParam0,"skeleton")$delta <- NULL
+    }
+    if (!is.null(startVal) && length(startVal)>1) {
+        vParam0[1:length(vParam0)] = startVal;
+    }
+    
+    
                               
     # The adjustableParam is not being used, but may be usefull in the future.
-    adjustableVParam <- list2vector(frontierRParam(beta=rep(TRUE,ncol(data$x)),
-            delta=rep(TRUE,ncol(data$z)), sigmaSq=TRUE, gamma=TRUE));
+    adjustableVParam <- unlist(as.relistable(frontierRParam(beta=rep(TRUE,ncol(data$x)),
+            delta=rep(TRUE,ncol(data$z)), sigmaSq=TRUE, gamma=TRUE)));
     
     #The minimum and maximum values allowed for the parameters
     #The limits on the parameters is imposed through the function limParam and
     #unLimPara, which maps the the real numbers in a limited interval and back.
-    minVParam <- list2vector(frontierRParam(beta=rep(-Inf,ncol(data$x)),
-            delta=rep(-Inf,ncol(data$z)), sigmaSq=0, gamma=0));
-    maxVParam <- list2vector(frontierRParam(beta=rep(Inf,ncol(data$x)),
-            delta=rep(Inf,ncol(data$z)), sigmaSq=Inf, gamma=1));
+    minVParam <- unlist(as.relistable(frontierRParam(beta=rep(-Inf,ncol(data$x)),
+            delta=rep(-Inf,ncol(data$z)), sigmaSq=0, gamma=0)));
+    maxVParam <- unlist(as.relistable(frontierRParam(beta=rep(Inf,ncol(data$x)),
+            delta=rep(Inf,ncol(data$z)), sigmaSq=Inf, gamma=1)));
     
     
     mle <- nlm(frontierNlmMinusGradLogLikeV,
@@ -27,7 +35,7 @@ frontierMle = function(startParam, data, iterlim=100) {
     vParam <- vParam0;
     vParam[adjustableVParam] <- 
           frontierNlmLimParam(mle$estimate,minVParam,maxVParam)
-    param <- vector2list(vParam)
+    param <- relist(vParam)
     
     n <- length(vParam0);
     hessian <- matrix(0,n,n);

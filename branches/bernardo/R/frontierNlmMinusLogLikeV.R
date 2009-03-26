@@ -5,7 +5,7 @@ frontierNlmMinusLogLikeV = function(unLimVParam, data, vParam0, minVParam, maxVP
     
     vParam <- vParam0;
     vParam[adjustableVParam] <- frontierNlmLimParam(unLimVParam, minVParam, maxVParam);
-    param <- vector2list(vParam);
+    param <- relist(vParam);
     return( -frontierLogLike(param, data) );
 }
 

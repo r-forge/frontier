@@ -18,7 +18,7 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
    } else {
       cat( "The dependent variable is not logged\n" )
    }
-
+   
    if( is.null( coef.frontier( x, which = "start" ) ) ) {
       cat( "\nOLS estimates\n" )
       printCoefmat( coef( x, which = "ols" ) )

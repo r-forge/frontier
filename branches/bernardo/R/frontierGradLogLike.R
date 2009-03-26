@@ -27,8 +27,8 @@ frontierGradLogLike = function(param, data) {
     dLdbeta    <- t(ezds2+dpS*(g/sS)) %*% data$x;
     dLddelta   <- - t(ezds2+dpd/sqrt(g*s2)-dpS*((1-g)/sS)) %*% data$z;
     
-    dif <- list2vector(frontierRParam( beta=dLdbeta, delta=dLddelta,
-                        sigmaSq=dLdsigmaS2, gamma=dLdgamma ) );
+    dif <- unlist(as.relistable(frontierRParam( beta=dLdbeta, delta=dLddelta,
+                        sigmaSq=dLdsigmaS2, gamma=dLdgamma ) ));
     returnObj <- -n/2*log(pi*s2*2)-1/2/s2*sumezd2 - sum(pnormd) + sum(pnormdS);
     attr(returnObj,"gradient") <- dif;
     return(returnObj);
