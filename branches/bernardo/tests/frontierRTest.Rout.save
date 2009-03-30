@@ -41,10 +41,10 @@ Attaching package: 'zoo'
 > front41Data$logOutput  <- log( front41Data$output )
 > front41Data$logCapital <- log( front41Data$capital )
 > front41Data$logLabour  <- log( front41Data$labour )
-> #cat("\n\n\n=======\na1=====\n");
 > 
-> a1 <- frontier( data = front41Data, "logOutput",  c( "logCapital", "logLabour" ), code = "R" )
-> print( a1 )   
+> a1 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), code = "R" )
+> print( a1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
@@ -359,7 +359,6 @@ $code
 
 attr(,"class")
 [1] "frontier"
-> #cat("\n\n\n=======\na2=====\n");
 > 
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE ,code="R")
@@ -683,11 +682,9 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> #cat("\n\n\n=======\na3=====\n");
-> 
-> a3<-a1
 > #a3 <- frontier( data = front41Data, "logOutput",
 > #   c( "logCapital", "logLabour" ), eta = TRUE , code = "R" )
+> a3<-a1
 > print( a3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1004,10 +1001,9 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> #cat("\n\n\n=======\na4=====\n");
-> a4<-a1
 > #a4 <- frontier( data = front41Data, "logOutput",
 > #   c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE , code = "R" )
+> a4<-a1
 > print( a4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1324,8 +1320,9 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> #cat("\n\n\n=======\na5=====\n");
-> a5 <- frontier( data = front41Data, "logOutput",   c( "logCapital", "logLabour" ), mu = TRUE,   startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
+> a5 <- frontier( data = front41Data, "logOutput",
++    c( "logCapital", "logLabour" ), mu = TRUE,
++    startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1636,7 +1633,6 @@ $code
 
 attr(,"class")
 [1] "frontier"
-> #cat("\n\n\n=======\na6=====\n");
 > 
 > 
 > data( riceProdPhil )
@@ -8913,6 +8909,5 @@ $code
 
 attr(,"class")
 [1] "frontier"
-> 
 > 
 > 

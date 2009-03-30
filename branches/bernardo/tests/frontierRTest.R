@@ -5,10 +5,10 @@ data( front41Data )
 front41Data$logOutput  <- log( front41Data$output )
 front41Data$logCapital <- log( front41Data$capital )
 front41Data$logLabour  <- log( front41Data$labour )
-#cat("\n\n\n=======\na1=====\n");
 
-a1 <- frontier( data = front41Data, "logOutput",  c( "logCapital", "logLabour" ), code = "R" )
-print( a1 )   
+a1 <- frontier( data = front41Data, "logOutput",
+   c( "logCapital", "logLabour" ), code = "R" )
+print( a1 )
 coef( a1, which = "start" )
 coef( a1, which = "ols" )
 coef( a1, which = "grid" )
@@ -18,7 +18,6 @@ coef( summary( a1 ) )
 vcov( a1 )
 print( summary( a1 ) )
 print.default( a1 )
-#cat("\n\n\n=======\na2=====\n");
 
 a2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE ,code="R")
@@ -33,11 +32,9 @@ vcov( a2 )
 print( summary( a2 ) )
 print.default( a2 )
 
-#cat("\n\n\n=======\na3=====\n");
-
-a3<-a1
 #a3 <- frontier( data = front41Data, "logOutput",
 #   c( "logCapital", "logLabour" ), eta = TRUE , code = "R" )
+a3<-a1
 print( a3 )
 coef( a3, which = "start" )
 coef( a3, which = "ols" )
@@ -49,10 +46,9 @@ vcov( a3 )
 print( summary( a3 ) )
 print.default( a3 )
 
-#cat("\n\n\n=======\na4=====\n");
-a4<-a1
 #a4 <- frontier( data = front41Data, "logOutput",
 #   c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE , code = "R" )
+a4<-a1
 print( a4 )
 coef( a4, which = "start" )
 coef( a4, which = "ols" )
@@ -64,8 +60,9 @@ vcov( a4 )
 print( summary( a4 ) )
 print.default( a4 )
 
-#cat("\n\n\n=======\na5=====\n");
-a5 <- frontier( data = front41Data, "logOutput",   c( "logCapital", "logLabour" ), mu = TRUE,   startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
+a5 <- frontier( data = front41Data, "logOutput",
+   c( "logCapital", "logLabour" ), mu = TRUE,
+   startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
 print( a5 )
 coef( a5, which = "start" )
 coef( a5, which = "ols" )
@@ -76,7 +73,6 @@ coef( summary( a5 ) )
 vcov( a5 )
 print( summary( a5 ) )
 print.default( a5 )
-#cat("\n\n\n=======\na6=====\n");
 
 
 data( riceProdPhil )
@@ -243,5 +239,4 @@ coef( summary( translogZvar ) )
 vcov( translogZvar )
 print( summary( translogZvar ) )
 print.default( translogZvar )
-
 
