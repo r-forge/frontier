@@ -137,9 +137,7 @@ vcov( b4 )
 print( summary( b4 ) )
 print.default( b4 )
 
-b5 <- frontier( data = riceProdPhil,
-   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), code="R" )
+b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R" )
 print( b5 )
 coef( b5, which = "start" )
 coef( b5, which = "ols" )

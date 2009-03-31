@@ -16,6 +16,7 @@
 
 \usage{
 frontier( yName, xNames = NULL, zNames = NULL, data,
+   showParNames = FALSE,
    code = "Fortran",
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
@@ -37,6 +38,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{data} is a panel data frame
       (created with \code{\link[plm]{plm.data}}),
       it is assumed that these are panel data.}
+   \item{showParNames}{ logical. If \code{TRUE}, the names of parameters beta 
+      and delta include the names from xNames and zNames. If \code{FALSE} the 
+      names of these parameters are numbered.}
    \item{code}{character string.
       If it is \code{"Fortran"}, the Fortran code of Frontier 4.1
       (Coelli 1996) is used;
