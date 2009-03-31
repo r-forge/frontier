@@ -1,5 +1,6 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
+      showParNames = FALSE,
       code="Fortran",
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       ineffDecrease = TRUE,
@@ -21,6 +22,12 @@ frontier <- function(
          stop( "argument 'code' must be either 'Fortran' or '2'" )
    }
    if( code=="R" ) {
+      if (!ineffDecrease) {
+          stop("ineffDecrease cannot be false when code='R'");
+      }
+      if (!logDepVar) {
+          stop("logDepVar cannot be false when code='R'");
+      }
       if (eta) {
           stop( "eta cannot be TRUE when code='R'");
       }
@@ -132,14 +139,22 @@ frontier <- function(
    dataTable <- cbind( dataTable, data[[ yName ]] )
 
    # exogenous variables
-   paramNames <- "beta_0"
+   if (showParNames) {
+      paramNames <- "b_const";
+   } else {
+      paramNames <- "beta_0";
+   }
    if( nXvars > 0 ) {
       for( i in 1:nXvars ) {
          if ( !any( xNames[i] == colnames(data) ) ) {
               stop(paste("X column",xNames[i],"not found"))
          }
          dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
-         paramNames <- c( paramNames, paste( "beta", i, sep = "_" ) )
+         if (showParNames) {
+            paramNames <- c( paramNames, paste( "b", xNames[i], sep = "_" ) )
+         } else {
+            paramNames <- c( paramNames, paste( "beta", i, sep = "_" ) )
+         }
       }
    }
 
@@ -274,11 +289,18 @@ frontier <- function(
     }
     if( modelType == 2 ) {
         if( mu ){
-          paramNames <- c( paramNames, "delta_0" )
+            if (showParNames) {
+                paramNames <- c( paramNames, "d_const" ) 
+            } else {
+                paramNames <- c( paramNames,  "delta_0" ) 
+            }
         }
         if( nZvars > 0 ) {
-          paramNames <- c( paramNames, 
-              paste( "delta", c( 1:nZvars ), sep = "_" ) )
+            if (showParNames) {
+                paramNames <- c( paramNames, paste( "d", zNames, sep="_") )
+            } else {
+                paramNames <- c( paramNames, paste( "delta", c( 1:nZvars ), sep = "_" ) ) 
+            }
         }
     }
     if( length( startVal ) == 1 ){
