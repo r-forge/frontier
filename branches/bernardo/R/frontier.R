@@ -1,12 +1,14 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
       showParNames = FALSE,
+      firmNames = NULL,
       code="Fortran",
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       mu = FALSE,
       eta = FALSE,
+      evalLogLike = FALSE,
       iprint = 0,
       indic = 1,
       tol = 0.00001,
@@ -15,7 +17,7 @@ frontier <- function(
       step1 = 0.00001,
       igrid2 = 1,
       gridno = 0.1,
-      maxit = 100,
+      maxit = 1000,
       startVal = NULL ) {
 
    if( ! code %in% c("Fortran","R") ) {
@@ -46,6 +48,9 @@ frontier <- function(
    }
    if( !is.logical( eta ) ) {
       stop( "argument 'eta' must be logical" )
+   }
+   if (evalLogLike && (is.null(startVal) || length(startVal)==0)) {
+      stop( "startVal must be provided when evalLogLike is TRUE" );
    }
    # iprint
    if( !is.numeric( iprint ) ) {
@@ -106,8 +111,7 @@ frontier <- function(
       stop( "argument 'maxit' must be positive" )
    }
    maxit <- as.integer( maxit )
-   
-   
+      
    if( "plm.dim" %in% class( data ) ) {
       nn <- length( unique( data[[ 1 ]] ) )
       nt <- length( unique( data[[ 2 ]] ) )
@@ -167,6 +171,12 @@ frontier <- function(
          dataTable <- cbind( dataTable, data[[ zNames[ i ] ]] )
       }
    }
+   
+   if ( !is.null(firmNames) ) {
+       if ( !any( firmNames == colnames(data) ) ) {
+            stop(paste("firmNames column", firmNames, "not found") );
+       }
+   }
 
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
@@ -178,7 +188,7 @@ frontier <- function(
             nParamTotal, " parameters)" )
       }
    }
-   if (code=="Fortran") {
+   if (code=="Fortran" && !evalLogLike) {
       returnObj <- .Fortran( "front41", 
           modelType = as.integer( modelType ),
           ineffDecrease = as.integer( !ineffDecrease + 1 ),
@@ -224,7 +234,7 @@ frontier <- function(
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
       returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
      } else {  # code = "R"
-       dataTable = cbind(matrix( as.double( dataTable ), nrow( dataTable ),
+       dataTable <- cbind(matrix( as.double( dataTable ), nrow( dataTable ),
             ncol( dataTable ) ),rep(1,nrow(dataTable)));
        colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
        
@@ -262,7 +272,9 @@ frontier <- function(
             dataTable = dataTable);
         rResult <- frontierR(dataR, 
             modelType = modelType,
+            code = code,
             mu = mu,
+            evalLogLike = evalLogLike,
             igrid2 = igrid2, 
             gridno = gridno, 
             iterlim = maxit,
@@ -271,6 +283,10 @@ frontier <- function(
             returnObj[[ names(rResult)[i] ]] = rResult[[i]]
         }
         returnObj$lrTestDf = as.integer(0)
+   }
+   
+   if (!evalLogLike && maxit==returnObj$nIter) {
+      stop("Maximum number of iterations reached");
    }
    
    returnObj$code <- code;
@@ -303,6 +319,7 @@ frontier <- function(
             }
         }
     }
+    
     if( length( startVal ) == 1 ){
           returnObj$startVal <- NULL
      }
@@ -315,6 +332,7 @@ frontier <- function(
           paramNames <- c( paramNames, "eta" )
         }
     }
+    
     names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
         "sigma-sq" )
     names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
@@ -322,11 +340,17 @@ frontier <- function(
         names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
           "sigma-sq", "gamma" )
     }
-    names( returnObj$mleParam ) <- paramNames
-    rownames( returnObj$mleCov ) <- paramNames
-    colnames( returnObj$mleCov ) <- paramNames
+    if (!evalLogLike) {
+        names( returnObj$mleParam ) <- paramNames
+        rownames( returnObj$mleCov ) <- paramNames
+        colnames( returnObj$mleCov ) <- paramNames
+    }
     if( !is.null( returnObj$startVal ) ) {
         names( returnObj$startVal ) <- paramNames
+    }
+    
+    if ( !is.null(firmNames) ) {
+        rownames( returnObj$effic ) <- data[[ firmNames ]]
     }
 
    class( returnObj ) <- "frontier"

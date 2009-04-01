@@ -193,6 +193,68 @@ vcov( b8 )
 print( summary( b8 ) )
 print.default( b8 )
 
+data( prodAgrBrazil)
+prodAgrBrazil$lProd <- log(prodAgrBrazil$production)
+prodAgrBrazil$lLabor <- log(prodAgrBrazil$labor)
+prodAgrBrazil$lArea <- log(prodAgrBrazil$area)
+prodAgrBrazil$lOther <- log(prodAgrBrazil$other_exp)
+prodAgrBrazil$lCapital <- log(prodAgrBrazil$capital)
+
+c1R <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R")
+print( c1R )
+coef( c1R, which = "start" )
+coef( c1R, which = "ols" )
+coef( c1R, which = "grid" )
+coef( c1R )
+coef( summary( c1R ), which = "ols" )
+coef( summary( c1R ) )
+vcov( c1R )
+print( summary( c1R ) )
+print.default( c1R )
+
+c1F <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran")
+print( c1F )
+coef( c1F, which = "start" )
+coef( c1F, which = "ols" )
+coef( c1F, which = "grid" )
+coef( c1F )
+coef( summary( c1F ), which = "ols" )
+coef( summary( c1F ) )
+vcov( c1F )
+print( summary( c1F ) )
+print.default( c1F )
+
+c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
+    startVal=c1R$mleParam)
+
+c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLike=TRUE, 
+    startVal=c1R$mleParam)
+
+c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
+    startVal=c1F$mleParam)
+
+c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLike=TRUE, 
+    startVal=c1F$mleParam)
+
+print(c1R$mleLogl)
+print(c1RR$logLike)
+print(c1RF$logLike)
+print(c1F$mleLogl)
+print(c1FR$logLike)
+print(c1FF$logLike)
+
 # translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ) )

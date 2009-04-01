@@ -1,4 +1,4 @@
-frontierMle = function(startParam, data, iterlim=100, startVal=startVal) {
+frontierMle = function(startParam, data, iterlim=100) {
     
     # The function frontierMinusLogLikeV will be called by the nonlinear
     #   minimization routine. 
@@ -8,9 +8,6 @@ frontierMle = function(startParam, data, iterlim=100, startVal=startVal) {
     vParam0 <- unlist(as.relistable(startParam));
     if (ncol(data$z)==0) {
         attr(vParam0,"skeleton")$delta <- NULL
-    }
-    if (!is.null(startVal) && length(startVal)>1) {
-        vParam0[1:length(vParam0)] = startVal;
     }
     
     

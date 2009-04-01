@@ -1,5 +1,5 @@
-frontierR = function(data, modelType, mu, igrid2, gridno, iterlim,
-                     startVal, verbose=FALSE) {
+frontierR = function(data, modelType, mu, evalLogLike=FALSE, igrid2, gridno,
+                     iterlim, startVal=NULL, code="R", verbose=FALSE) {
     
     nx=ncol(data$x);
     if (mu) {
@@ -18,34 +18,57 @@ frontierR = function(data, modelType, mu, igrid2, gridno, iterlim,
                 "yCorrelation: ",frontierYCorrelation(grid,data),"\n"));
         print(grid);
     }
-      
-      
-    mle <- frontierMle(grid, data, iterlim = iterlim, startVal = startVal);
-    if (verbose) {
-        cat(paste("\nGamma fitting  - LogLike:",frontierLogLike(mle$param,data), 
-               "yCorrelation: ",frontierYCorrelation(mle$param,data)));
-        print(mle);
+     
+    if (!is.null(startVal) && length(startVal)>1) {
+        startParam <- relist(startVal,skeleton=grid);
+    } else {
+        startParam <- grid;
     }
-    
+          
+    if (evalLogLike) {      
+        logLike <- frontierLogLike(startParam, data);
+    } else {
+        mle <- frontierMle(startParam, data, iterlim = iterlim);
+        if (verbose) {
+            cat(paste("\nGamma fitting  - LogLike:",frontierLogLike(mle$param,data), 
+                  "yCorrelation: ",frontierYCorrelation(mle$param,data)));
+            print(mle);
+        }
+    }
+        
     if (modelType==1 && mu) {
         parOrder <- c(1,3,4,2);
         grid <- grid[parOrder];
-        mle$param <- mle$param[parOrder];
-        vParOrder <- c(1:nx,nx+c(2,3,1));
-        mle$cov <- mle$cov[vParOrder,vParOrder];
-        rparOrder <- parOrder;
+        if (!evalLogLike) {
+            mle$param <- mle$param[parOrder];
+            vParOrder <- c(1:nx,nx+c(2,3,1));
+            mle$cov <- mle$cov[vParOrder,vParOrder];
+        }
     }
     
-    return( list(
+    returnObj <- list(
       olsParam   = as.vector(unlist(ols$param)),
       olsStdEr   = ols$stdEr,
       olsLogl = frontierOlsLogLike(ols$param, data),
       gridParam   = as.vector(unlist(grid)),
-      gridLogl = frontierLogLike(grid, data),
-      mleParam = as.vector(unlist(mle$param)),
-      mleCov = mle$cov,
-      mleLogl = frontierLogLike(mle$param,data),
-      nIter = mle$nIter,
-      effic = frontierEfficiency(mle$param, data)
-      ));
+      gridLogl = frontierLogLike(grid, data)
+      )
+    
+    if (evalLogLike) {
+        if (code=="R") {
+            returnObj$logLike <- frontierLogLike(startParam, data);
+        } else {
+            returnObj$logLike <- frontierLogLikeF41(startParam, data);
+        }
+        returnObj$effic <- frontierEfficiency(startParam, data)
+    } else {
+        returnObj$mleParam <- as.vector(unlist(mle$param))
+        returnObj$mleCov <- mle$cov
+        returnObj$mleLogl <- frontierLogLike(mle$param,data)
+        returnObj$nIter <- mle$nIter
+        returnObj$effic <- frontierEfficiency(mle$param, data)
+    }
+    
+    
+    return( returnObj );
 }
