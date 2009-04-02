@@ -126,7 +126,7 @@ with number of restrictions = 0
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 42 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -187,7 +187,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -447,7 +447,7 @@ with number of restrictions = 0
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 85 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -508,7 +508,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -767,7 +767,7 @@ with number of restrictions = 0
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 42 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -828,7 +828,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -1086,7 +1086,7 @@ with number of restrictions = 0
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 42 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -1147,7 +1147,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -1399,7 +1399,7 @@ with number of restrictions = 0
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 76 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -1460,7 +1460,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
@@ -1643,7 +1643,7 @@ attr(,"class")
 > riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 > 
 > b1 <- frontier( data = riceProdPhil,
-+    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R", maxit = 1000 )
++    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R" )
 > print( b1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2537,7 +2537,7 @@ attr(,"class")
 > 
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, code = "R", maxit = 1000 )
++    mu = TRUE, code = "R" )
 > print( b2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3557,7 +3557,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 13 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -3621,7 +3621,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -4177,7 +4177,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 20 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -4241,7 +4241,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -4693,7 +4693,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R", maxit = 1000 )
+> b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R" )
 > print( b5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5613,7 +5613,7 @@ attr(,"class")
 > 
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R", maxit = 1000 )
++    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R" )
 > print( b6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6641,7 +6641,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 14 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -6705,7 +6705,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu      eta 
@@ -7266,7 +7266,7 @@ with number of restrictions = 4
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 40 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -7330,7 +7330,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2   beta_3  delta_0  delta_1  delta_2 sigma-sq 
@@ -7797,7 +7797,7 @@ attr(,"class")
 > 
 > c1R <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", maxit = 1000 )
++     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R" )
 > print( c1R )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -8277,7 +8277,7 @@ with number of restrictions = 4
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 84 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 54 
 number of time periods = 1 
@@ -8338,7 +8338,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]   [,3]    [,4]    [,5]   [,6]   [,7] [,8]  [,9]
@@ -8520,7 +8520,7 @@ attr(,"class")
 > c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
 +     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
-+     startVal=c1R$mleParam, maxit = 1000 )
++     startVal=c1R$mleParam )
 > 
 > c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
@@ -8530,7 +8530,7 @@ attr(,"class")
 > c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
 +     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
-+     startVal=c1F$mleParam, maxit = 1000 )
++     startVal=c1F$mleParam )
 > 
 > c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
@@ -8668,7 +8668,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 11 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -8729,7 +8729,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8]
@@ -9047,7 +9047,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 11 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -9108,7 +9108,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8] [,9]
@@ -9424,7 +9424,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 16 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -9485,7 +9485,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8] [,9]

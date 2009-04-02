@@ -83,7 +83,7 @@ riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
 b1 <- frontier( data = riceProdPhil,
-   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R", maxit = 1000 )
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R" )
 print( b1 )
 coef( b1, which = "start" )
 coef( b1, which = "ols" )
@@ -97,7 +97,7 @@ print.default( b1 )
 
 b2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE, code = "R", maxit = 1000 )
+   mu = TRUE, code = "R" )
 print( b2 )
 coef( b2, which = "start" )
 coef( b2, which = "ols" )
@@ -137,7 +137,7 @@ vcov( b4 )
 print( summary( b4 ) )
 print.default( b4 )
 
-b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R", maxit = 1000 )
+b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R" )
 print( b5 )
 coef( b5, which = "start" )
 coef( b5, which = "ols" )
@@ -151,7 +151,7 @@ print.default( b5 )
 
 b6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R", maxit = 1000 )
+   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R" )
 print( b6 )
 coef( b6, which = "start" )
 coef( b6, which = "ols" )
@@ -202,7 +202,7 @@ prodAgrBrazil$lCapital <- log(prodAgrBrazil$capital)
 
 c1R <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", maxit = 1000 )
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R" )
 print( c1R )
 coef( c1R, which = "start" )
 coef( c1R, which = "ols" )
@@ -231,7 +231,7 @@ print.default( c1F )
 c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
-    startVal=c1R$mleParam, maxit = 1000 )
+    startVal=c1R$mleParam )
 
 c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
@@ -241,7 +241,7 @@ c1RF <- frontier( data = prodAgrBrazil, yName = "lProd",
 c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
-    startVal=c1F$mleParam, maxit = 1000 )
+    startVal=c1F$mleParam )
 
 c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 

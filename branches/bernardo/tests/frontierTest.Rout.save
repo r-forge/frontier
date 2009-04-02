@@ -126,7 +126,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 7 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -187,7 +187,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]
@@ -447,7 +447,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 19 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -508,7 +508,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]
@@ -769,7 +769,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 7 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -830,7 +830,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]
@@ -1102,7 +1102,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 19 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -1163,7 +1163,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]
@@ -1425,7 +1425,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 12 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -1486,7 +1486,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
@@ -1758,7 +1758,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 11 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -1819,7 +1819,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -2362,7 +2362,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 19 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -2423,7 +2423,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -2975,7 +2975,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 13 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -3039,7 +3039,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -3595,7 +3595,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 20 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -3659,7 +3659,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6]
@@ -4217,7 +4217,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 24 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -4281,7 +4281,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6] [,7] [,8]
@@ -4847,7 +4847,7 @@ with number of restrictions = 4
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 47 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -4911,7 +4911,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
        [,1] [,2]       [,3]     [,4]   [,5]   [,6] [,7] [,8]
@@ -5465,7 +5465,7 @@ with number of restrictions = 3
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 14 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -5529,7 +5529,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu      eta 
@@ -6090,7 +6090,7 @@ with number of restrictions = 4
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 40 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 43 
 number of time periods = 8 
@@ -6154,7 +6154,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $startVal
   beta_0   beta_1   beta_2   beta_3  delta_0  delta_1  delta_2 sigma-sq 
@@ -6730,7 +6730,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 11 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -6791,7 +6791,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8]
@@ -7109,7 +7109,7 @@ with number of restrictions = 1
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 11 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -7170,7 +7170,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8] [,9]
@@ -7486,7 +7486,7 @@ with number of restrictions = 2
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 16 
-(maximum number of iterations set at: 100 )
+(maximum number of iterations set at: 1000 )
 
 number of cross-sections = 60 
 number of time periods = 1 
@@ -7547,7 +7547,7 @@ $gridno
 [1] 0.1
 
 $maxit
-[1] 100
+[1] 1000
 
 $dataTable
       [,1] [,2]    [,3]      [,4]     [,5]      [,6]     [,7]       [,8] [,9]
