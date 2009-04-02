@@ -6,6 +6,7 @@ front41Data$logOutput  <- log( front41Data$output )
 front41Data$logCapital <- log( front41Data$capital )
 front41Data$logLabour  <- log( front41Data$labour )
 
+## cross-section data, error components frontier
 a1 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ) )
 print( a1 )
@@ -19,6 +20,7 @@ vcov( a1 )
 print( summary( a1 ) )
 print.default( a1 )
 
+## cross-section data, error components frontier, mu != 0
 a2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE )
 print( a2 )
@@ -32,6 +34,7 @@ vcov( a2 )
 print( summary( a2 ) )
 print.default( a2 )
 
+## cross-section data, error components frontier, eta != 0
 a3 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), eta = TRUE )
 print( a3 )
@@ -45,6 +48,7 @@ vcov( a3 )
 print( summary( a3 ) )
 print.default( a3 )
 
+## cross-section data, error components frontier, mu n!= 0, eta != 0
 a4 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
 print( a4 )
@@ -58,6 +62,7 @@ vcov( a4 )
 print( summary( a4 ) )
 print.default( a4 )
 
+## cross-section data, error components frontier, starting values
 a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
@@ -80,6 +85,7 @@ riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
 riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
+## panel data, error components frontier
 b1 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 print( b1 )
@@ -93,6 +99,7 @@ vcov( b1 )
 print( summary( b1 ) )
 print.default( b1 )
 
+## panel data, error components frontier, mu != 0
 b2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE )
@@ -107,6 +114,7 @@ vcov( b2 )
 print( summary( b2 ) )
 print.default( b2 )
 
+## panel data, error components frontier, eta != 0
 b3 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    eta = TRUE )
@@ -121,6 +129,7 @@ vcov( b3 )
 print( summary( b3 ) )
 print.default( b3 )
 
+## panel data, error components frontier, mu != 0, eta != 0
 b4 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE, eta = TRUE )
@@ -135,6 +144,7 @@ vcov( b4 )
 print( summary( b4 ) )
 print.default( b4 )
 
+## panel data, efficiency effects frontier
 b5 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
@@ -149,6 +159,7 @@ vcov( b5 )
 print( summary( b5 ) )
 print.default( b5 )
 
+## panel data, efficiency effects frontier, mu != 0
 b6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
@@ -163,6 +174,7 @@ vcov( b6 )
 print( summary( b6 ) )
 print.default( b6 )
 
+## panel data, efficiency effects frontier, starting values
 b7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE, eta = TRUE,
@@ -178,6 +190,7 @@ vcov( b7 )
 print( summary( b7 ) )
 print.default( b7 )
 
+## panel data, efficiency effects frontier, mu != 0, starting values
 b8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
@@ -193,7 +206,8 @@ vcov( b8 )
 print( summary( b8 ) )
 print.default( b8 )
 
-# translog
+## translog frontiers
+## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ) )
 print( translog )
@@ -207,7 +221,7 @@ vcov( translog )
 print( summary( translog ) )
 print.default( translog )
 
-# translog with shifter variable
+## cross-section data, error components frontier, translog, shifter
 front41Data$firmNo <- c( 1:nrow( front41Data ) )
 translogShift <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
@@ -223,7 +237,7 @@ vcov( translogShift )
 print( summary( translogShift ) )
 print.default( translogShift )
 
-# translog with Z variable
+## cross-section data, efficiency effects frontier, translog
 translogZvar <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
    data = front41Data )

@@ -42,6 +42,7 @@ Attaching package: 'zoo'
 > front41Data$logCapital <- log( front41Data$capital )
 > front41Data$logLabour  <- log( front41Data$labour )
 > 
+> ## cross-section data, error components frontier
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), code = "R" )
 > print( a1 )
@@ -360,6 +361,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section data, error components frontier, mu != 0
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE ,code="R")
 > print( a2 )
@@ -682,6 +684,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section data, error components frontier, eta != 0
 > #a3 <- frontier( data = front41Data, "logOutput",
 > #   c( "logCapital", "logLabour" ), eta = TRUE , code = "R" )
 > a3<-a1
@@ -1001,6 +1004,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section data, error components frontier, mu n!= 0, eta != 0
 > #a4 <- frontier( data = front41Data, "logOutput",
 > #   c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE , code = "R" )
 > a4<-a1
@@ -1320,6 +1324,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section data, error components frontier, starting values
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), mu = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
@@ -1642,6 +1647,7 @@ attr(,"class")
 > riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 > riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 > 
+> ## panel data, error components frontier
 > b1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R" )
 > print( b1 )
@@ -2535,6 +2541,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, error components frontier, mu != 0
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, code = "R" )
@@ -3455,6 +3462,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, error components frontier, eta != 0
 > b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    eta = TRUE )
@@ -4071,6 +4079,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, error components frontier, mu != 0, eta != 0
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, eta = TRUE )
@@ -4693,7 +4702,10 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> b5 <- frontier( data = riceProdPhil, yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ), code="R" )
+> ## panel data, efficiency effects frontier
+> b5 <- frontier( data = riceProdPhil,
++    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
++    zNames = c( "EDYRS", "BANRAT" ), code="R" )
 > print( b5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5611,6 +5623,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, efficiency effects frontier, mu != 0
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R" )
@@ -6543,6 +6556,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, efficiency effects frontier, starting values
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    mu = TRUE, eta = TRUE,
@@ -7157,6 +7171,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, efficiency effects frontier, mu != 0, starting values
 > b8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
@@ -8550,7 +8565,8 @@ attr(,"class")
 > print(c1FF$logLike)
 [1] -0.20152
 > 
-> # translog
+> ## translog frontiers
+> ## cross-section data, error components frontier, translog
 > translog <- frontierQuad( data = front41Data, yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ) )
 > print( translog )
@@ -8918,7 +8934,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> # translog with shifter variable
+> ## cross-section data, error components frontier, translog, shifter
 > front41Data$firmNo <- c( 1:nrow( front41Data ) )
 > translogShift <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
@@ -9301,7 +9317,7 @@ $code
 attr(,"class")
 [1] "frontier"
 > 
-> # translog with Z variable
+> ## cross-section data, efficiency effects frontier, translog
 > translogZvar <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
 +    data = front41Data )
