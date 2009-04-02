@@ -285,7 +285,7 @@ vcov( b6 )
 print( summary( b6 ) )
 print.default( b6 )
 
-## panel data, efficiency effects frontier, starting values
+## panel data, error components frontier, mu != 0, eta != 0, starting values
 b7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    mu = TRUE, eta = TRUE,
