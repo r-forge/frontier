@@ -5,6 +5,7 @@ data( front41Data )
 front41Data$logOutput  <- log( front41Data$output )
 front41Data$logCapital <- log( front41Data$capital )
 front41Data$logLabour  <- log( front41Data$labour )
+front41Data$firmNo     <- c( 1:nrow( front41Data ) )
 
 ## cross-section data, error components frontier
 a1 <- frontier( data = front41Data, "logOutput",
@@ -48,6 +49,49 @@ coef( summary( a5 ) )
 vcov( a5 )
 print( summary( a5 ) )
 print.default( a5 )
+
+## cross-section data, efficiency effects frontier
+aa1 <- frontier( data = front41Data, "logOutput",
+   c( "logCapital", "logLabour" ), zNames = "firmNo", code = "R" )
+print( aa1 )
+coef( aa1, which = "start" )
+coef( aa1, which = "ols" )
+coef( aa1, which = "grid" )
+coef( aa1 )
+coef( summary( aa1 ), which = "ols" )
+coef( summary( aa1 ) )
+vcov( aa1 )
+print( summary( aa1 ) )
+print.default( aa1 )
+
+## cross-section data, efficiency effects frontier, mu != 0
+aa2 <- frontier( data = front41Data, "logOutput",
+   c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE, code = "R" )
+print( aa2 )
+coef( aa2, which = "start" )
+coef( aa2, which = "ols" )
+coef( aa2, which = "grid" )
+coef( aa2 )
+coef( summary( aa2 ), which = "ols" )
+coef( summary( aa2 ) )
+vcov( aa2 )
+print( summary( aa2 ) )
+print.default( aa2 )
+
+## cross-section data, efficiency effects frontier, starting values
+aa5 <- frontier( data = front41Data, "logOutput",
+   c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE,
+   startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ), code = "R" )
+print( aa5 )
+coef( aa5, which = "start" )
+coef( aa5, which = "ols" )
+coef( aa5, which = "grid" )
+coef( aa5 )
+coef( summary( aa5 ), which = "ols" )
+coef( summary( aa5 ) )
+vcov( aa5 )
+print( summary( aa5 ) )
+print.default( aa5 )
 
 
 data( riceProdPhil )
@@ -256,7 +300,6 @@ print( summary( translog ) )
 print.default( translog )
 
 ## cross-section data, error components frontier, translog, shifter
-front41Data$firmNo <- c( 1:nrow( front41Data ) )
 translogShift <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
    data = front41Data )
