@@ -13,7 +13,7 @@ frontier <- function(
       step1 = 0.00001,
       igrid2 = 1,
       gridno = 0.1,
-      maxit = 100,
+      maxit = 1000,
       startVal = NULL ) {
 
    if( !modelType %in% c( 1, 2 ) ) {

@@ -19,7 +19,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
-   step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 100,
+   step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
 }
