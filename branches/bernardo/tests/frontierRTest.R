@@ -34,36 +34,6 @@ vcov( a2 )
 print( summary( a2 ) )
 print.default( a2 )
 
-## cross-section data, error components frontier, eta != 0
-#a3 <- frontier( data = front41Data, "logOutput",
-#   c( "logCapital", "logLabour" ), eta = TRUE , code = "R" )
-a3<-a1
-print( a3 )
-coef( a3, which = "start" )
-coef( a3, which = "ols" )
-coef( a3, which = "grid" )
-coef( a3 )
-coef( summary( a3 ), which = "ols" )
-coef( summary( a3 ) )
-vcov( a3 )
-print( summary( a3 ) )
-print.default( a3 )
-
-## cross-section data, error components frontier, mu n!= 0, eta != 0
-#a4 <- frontier( data = front41Data, "logOutput",
-#   c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE , code = "R" )
-a4<-a1
-print( a4 )
-coef( a4, which = "start" )
-coef( a4, which = "ols" )
-coef( a4, which = "grid" )
-coef( a4 )
-coef( summary( a4 ), which = "ols" )
-coef( summary( a4 ) )
-vcov( a4 )
-print( summary( a4 ) )
-print.default( a4 )
-
 ## cross-section data, error components frontier, starting values
 a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), mu = TRUE,
