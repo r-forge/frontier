@@ -19,7 +19,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
-   step1 = 0.00001, igrid2 = 1, gridno = 0.1, maxit = 1000,
+   step1 = 0.00001, doublePrec = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
 }
@@ -62,7 +62,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{step1}{numeric. Size of 1st step in search procedure.}
-   \item{igrid2}{numeric. 1 = double accuracy, 0 = single accuracy.}
+   \item{doublePrec}{logical. Use double precision?}
    \item{gridno}{numeric. Steps taken in single accuracy grid search on gamma.}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{startVal}{numeric vector. Optional starting values for the ML 

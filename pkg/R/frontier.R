@@ -11,7 +11,7 @@ frontier <- function(
       tol2 = 0.001,
       bignum = 1.0E+16,
       step1 = 0.00001,
-      igrid2 = 1,
+      doublePrec = TRUE,
       gridno = 0.1,
       maxit = 1000,
       startVal = NULL ) {
@@ -71,9 +71,9 @@ frontier <- function(
    } else if( step1 <= 0 ) {
       stop( "argument 'step1' must be positive" )
    }
-   # igrid2
-   if( ! igrid2 %in% c( 0, 1 ) ) {
-      stop( "argument 'igrid2' must be either '0' or '1'" )
+   # doublePrec (igrid2)
+   if( !is.logical( doublePrec ) || length( doublePrec ) != 1 ) {
+      stop( "argument 'doublePrec' must be a single logical value" )
    }
    # gridno
    if( !is.numeric( gridno ) ) {
@@ -160,7 +160,7 @@ frontier <- function(
       tol2 = as.double( tol2 ),
       bignum = as.double( bignum ),
       step1 = as.double( step1 ),
-      igrid2 = as.integer( igrid2 ),
+      doublePrec = as.integer( doublePrec ),
       gridno = as.double( gridno ),
       maxit = as.integer( maxit ),
       nStartVal = as.integer( length( startVal ) ),
@@ -189,6 +189,7 @@ frontier <- function(
       returnObj$startVal <- NULL
    }
   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+   returnObj$doublePrec <- as.logical( returnObj$doublePrec )
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){

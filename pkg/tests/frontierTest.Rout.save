@@ -180,8 +180,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -498,8 +498,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -817,8 +817,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -1147,8 +1147,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -1467,8 +1467,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -1797,8 +1797,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -2398,8 +2398,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -3011,8 +3011,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -3628,8 +3628,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -4247,8 +4247,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -4874,8 +4874,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -5489,8 +5489,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -6111,8 +6111,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -6745,8 +6745,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -7121,8 +7121,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
@@ -7495,8 +7495,8 @@ $bignum
 $step1
 [1] 1e-05
 
-$igrid2
-[1] 1
+$doublePrec
+[1] TRUE
 
 $gridno
 [1] 0.1
