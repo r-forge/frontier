@@ -15,7 +15,7 @@ frontier <- function(
       tol2 = 0.001,
       bignum = 1.0E+16,
       step1 = 0.00001,
-      igrid2 = 1,
+      gridDouble = TRUE,
       gridno = 0.1,
       maxit = 1000,
       startVal = NULL ) {
@@ -92,9 +92,9 @@ frontier <- function(
    } else if( step1 <= 0 ) {
       stop( "argument 'step1' must be positive" )
    }
-   # igrid2
-   if( ! igrid2 %in% c( 1, 2 ) ) {
-      stop( "argument 'igrid2' must be either '1' or '2'" )
+   # gridDouble (igrid2)
+   if( !is.logical( gridDouble ) || length( gridDouble ) != 1 ) {
+      stop( "argument 'gridDouble' must be a single logical value" )
    }
    # gridno
    if( !is.numeric( gridno ) ) {
@@ -189,7 +189,7 @@ frontier <- function(
       }
    }
    if (code=="Fortran" && !evalLogLike) {
-      returnObj <- .Fortran( "front41", 
+      returnObj <- .Fortran( "front41",
           modelType = as.integer( modelType ),
           ineffDecrease = as.integer( !ineffDecrease + 1 ),
           logDepVar = as.integer( logDepVar ),
@@ -205,7 +205,7 @@ frontier <- function(
           tol2 = as.double( tol2 ),
           bignum = as.double( bignum ),
           step1 = as.double( step1 ),
-          igrid2 = as.integer( igrid2 ),
+          gridDouble = as.integer( gridDouble ),
           gridno = as.double( gridno ),
           maxit = as.integer( maxit ),
           nStartVal = as.integer( length( startVal ) ),
@@ -231,6 +231,7 @@ frontier <- function(
       returnObj$nColData <- NULL
       returnObj$nParamTotal <- NULL
       returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+      returnObj$gridDouble <- as.logical( returnObj$gridDouble )
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
       returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
      } else {  # code = "R"
@@ -265,7 +266,7 @@ frontier <- function(
             tol2 = tol2,
             bignum = bignum,
             step1 = step1,
-            igrid2 = igrid2,
+            gridDouble = gridDouble,
             gridno = gridno,
             maxit = maxit,
             startVal = startVal,
@@ -275,7 +276,7 @@ frontier <- function(
             code = code,
             mu = mu,
             evalLogLike = evalLogLike,
-            igrid2 = igrid2, 
+            gridDouble = gridDouble,
             gridno = gridno, 
             iterlim = maxit,
             startVal = startVal);

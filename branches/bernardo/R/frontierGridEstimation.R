@@ -1,4 +1,4 @@
-frontierGridEstimation = function(olsParam,  data, igrid2, gridno) {
+frontierGridEstimation = function(olsParam,  data, gridDouble, gridno) {
     
     param <- frontierRParam(beta = olsParam$beta, delta = rep(0,ncol(data$z)),
                   sigmaSq=0, gamma=0);
@@ -9,6 +9,7 @@ frontierGridEstimation = function(olsParam,  data, igrid2, gridno) {
     logProbMax <- -Inf;
     gamma <- gridno;
     maxGamma <- 1;
+    igrid2 <- as.numeric( gridDouble )
     while (igrid2>=0) {
       while (gamma+gridno/1000 < maxGamma) {
           param$gamma   <- gamma;
