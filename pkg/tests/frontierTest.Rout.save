@@ -85,6 +85,12 @@ beta_1   -0.0031447  2.2699e-03  4.0107e-05 -2.9533e-05 -9.1561e-05
 beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04
 sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03
 gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02
+> logLik( a1, which = "ols" )
+[1] -18.447
+> logLik( a1, which = "grid" )
+[1] NA
+> logLik( a1 )
+[1] -17.027
 > print( summary( a1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -402,6 +408,10 @@ beta_2   -0.0088906  4.8566e-05  2.0894e-03  0.00070561 -0.00023014 -0.00786707
 sigma-sq -0.0310744 -6.4309e-04  7.0561e-04  0.39295542  0.07231633 -1.61305551
 gamma    -0.0039757 -2.4770e-04 -2.3014e-04  0.07231633  0.01382118 -0.29746394
 mu        0.1611476  1.3694e-04 -7.8671e-03 -1.61305551 -0.29746394  6.81257935
+> logLik( a2, which = "ols" )
+[1] -18.447
+> logLik( a2 )
+[1] -16.796
 > print( summary( a2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -721,6 +731,10 @@ beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04   0
 sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03   0
 gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02   0
 eta       0.0000000  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00   1
+> logLik( a3, which = "ols" )
+[1] -18.447
+> logLik( a3 )
+[1] -17.027
 > print( summary( a3 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1050,6 +1064,10 @@ sigma-sq   0
 gamma      0
 mu         0
 eta        1
+> logLik( a4, which = "ols" )
+[1] -18.447
+> logLik( a4 )
+[1] -16.796
 > print( summary( a4 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1380,6 +1398,10 @@ beta_2   -0.0086530  5.5371e-05  2.0917e-03  0.0041146  0.00039348 -0.019743
 sigma-sq -0.0772707  5.5713e-03  4.1146e-03  0.7565532  0.11721872 -3.245254
 gamma    -0.0079844  8.2383e-04  3.9348e-04  0.1172187  0.02058441 -0.480508
 mu        0.3729312 -1.9425e-02 -1.9743e-02 -3.2452540 -0.48050808 14.329196
+> logLik( a5, which = "ols" )
+[1] -18.447
+> logLik( a5 )
+[1] -16.795
 > print( summary( a5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1699,6 +1721,10 @@ beta_2   -0.0131920 -0.00280039  0.00404998 -0.00074415 -0.00018955 -0.00085978
 beta_3   -0.0045131 -0.00091344 -0.00074415  0.00166945 -0.00011830 -0.00052431
 sigma-sq  0.0018232  0.00024571 -0.00018955 -0.00011830  0.00058573  0.00186354
 gamma     0.0078379  0.00108926 -0.00085978 -0.00052431  0.00186354  0.00774807
+> logLik( b1, which = "ols" )
+[1] -104.91
+> logLik( b1 )
+[1] -86.43
 > print( summary( b1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2299,6 +2325,10 @@ beta_3    0.0035664
 sigma-sq -0.1648766
 gamma    -0.3331955
 mu        0.9273531
+> logLik( b2, which = "ols" )
+[1] -104.91
+> logLik( b2 )
+[1] -86.343
 > print( summary( b2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2909,6 +2939,10 @@ beta_3    4.0568e-05 -0.00033724
 sigma-sq  2.0707e-03 -0.00044655
 gamma     1.1506e-02 -0.00221151
 eta      -2.2115e-03  0.00096403
+> logLik( b3, which = "ols" )
+[1] -104.91
+> logLik( b3 )
+[1] -84.55
 > print( summary( b3 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3525,6 +3559,10 @@ sigma-sq -0.1520488  4.5114e-04
 gamma    -0.4204938  1.1963e-03
 mu        1.1034745 -9.1433e-03
 eta      -0.0091433  1.2722e-03
+> logLik( b4, which = "ols" )
+[1] -104.91
+> logLik( b4 )
+[1] -84.407
 > print( summary( b4 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4144,6 +4182,10 @@ delta_1   0.05238597 -0.02407688 -2.0324e-03
 delta_2   0.81713382 -0.24687295 -2.0243e-02
 sigma-sq -0.24687295  0.09458268  8.2214e-03
 gamma    -0.02024280  0.00822141  8.2530e-04
+> logLik( b5, which = "ols" )
+[1] -104.91
+> logLik( b5 )
+[1] -77.85
 > print( summary( b5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4770,6 +4812,10 @@ delta_1    0.2487830  -0.1325123 -1.7039e-03
 delta_2   59.9024365 -27.0485342 -3.2808e-01
 sigma-sq -27.0485342  12.5490174  1.5279e-01
 gamma     -0.3280824   0.1527877  1.8751e-03
+> logLik( b6, which = "ols" )
+[1] -104.91
+> logLik( b6 )
+[1] -77.314
 > print( summary( b6 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5395,6 +5441,10 @@ sigma-sq  0.06355197 -0.1572710  3.5389e-04
 gamma     0.17805670 -0.4373989  9.3733e-04
 mu       -0.43739890  1.1380635 -8.4083e-03
 eta       0.00093733 -0.0084083  1.2527e-03
+> logLik( b7, which = "ols" )
+[1] -104.91
+> logLik( b7 )
+[1] -84.407
 > print( summary( b7 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6015,6 +6065,10 @@ delta_1   2.1606e-02   0.3313307  -0.1958831 -2.4987e-03
 delta_2   3.3133e-01  57.0378243 -25.9764274 -3.1564e-01
 sigma-sq -1.9588e-01 -25.9764274  12.1119121  1.4793e-01
 gamma    -2.4987e-03  -0.3156428   0.1479327  1.8214e-03
+> logLik( b8, which = "ols" )
+[1] -104.91
+> logLik( b8 )
+[1] -77.314
 > print( summary( b8 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6641,6 +6695,10 @@ b_1_2    -0.00020002 -0.00080174
 b_2_2    -0.00020038 -0.00078002
 sigma-sq  0.00323716  0.00677148
 gamma     0.00677148  0.02328353
+> logLik( translog, which = "ols" )
+[1] -15.857
+> logLik( translog )
+[1] -14.434
 > print( summary( translog ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7014,6 +7072,10 @@ b_2_2     3.5941e-03 -2.3838e-05 -1.6627e-04 -6.9076e-04
 d_1      -2.3838e-05  6.1130e-06 -3.9875e-06 -1.1882e-05
 sigma-sq -1.6627e-04 -3.9875e-06  3.0804e-03  6.7178e-03
 gamma    -6.9076e-04 -1.1882e-05  6.7178e-03  2.4043e-02
+> logLik( translogShift, which = "ols" )
+[1] -15.386
+> logLik( translogShift )
+[1] -14.032
 > print( summary( translogShift ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7390,6 +7452,10 @@ b_2_2     3.3388e-03 -3.7438e-07 -0.00021710 -0.00042456
 delta_1  -3.7438e-07  1.5439e-04 -0.00100614 -0.00068303
 sigma-sq -2.1710e-04 -1.0061e-03  0.01186282  0.01069638
 gamma    -4.2456e-04 -6.8303e-04  0.01069638  0.01457518
+> logLik( translogZvar, which = "ols" )
+[1] -15.857
+> logLik( translogZvar )
+[1] -13.746
 > print( summary( translogZvar ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
