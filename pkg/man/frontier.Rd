@@ -112,7 +112,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{step1}{numeric. Size of 1st step in search procedure.}
-   \item{gridDouble}{logical. Stored value of argument \code{gridDouble}
+   \item{gridDouble}{logical. Value of argument \code{gridDouble}
       (see above).}
    \item{gridno}{numeric. Steps taken in single accuracy grid search
       on gamma.}
