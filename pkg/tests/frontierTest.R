@@ -234,6 +234,7 @@ vcov( translog )
 logLik( translog, which = "ols" )
 logLik( translog )
 print( summary( translog ) )
+elas( translog )
 print.default( translog )
 
 # translog with shifter variable
@@ -252,6 +253,7 @@ vcov( translogShift )
 logLik( translogShift, which = "ols" )
 logLik( translogShift )
 print( summary( translogShift ) )
+elas( translogShift )
 print.default( translogShift )
 
 # translog with Z variable
@@ -269,5 +271,6 @@ vcov( translogZvar )
 logLik( translogZvar, which = "ols" )
 logLik( translogZvar )
 print( summary( translogZvar ) )
+elas( translogZvar )
 print.default( translogZvar )
 
