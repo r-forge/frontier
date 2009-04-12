@@ -7053,7 +7053,7 @@ frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),
     data = front41Data)
 
 attr(,"class")
-[1] "frontier"
+[1] "frontierQuad" "frontier"    
 > 
 > # translog with shifter variable
 > front41Data$firmNo <- c( 1:nrow( front41Data ) )
@@ -7441,7 +7441,7 @@ frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),
     shifterNames = "firmNo", data = front41Data)
 
 attr(,"class")
-[1] "frontier"
+[1] "frontierQuad" "frontier"    
 > 
 > # translog with Z variable
 > translogZvar <- frontierQuad( yName = "logOutput",
@@ -7821,6 +7821,6 @@ frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),
     zNames = "firmNo", data = front41Data)
 
 attr(,"class")
-[1] "frontier"
+[1] "frontierQuad" "frontier"    
 > 
 > 

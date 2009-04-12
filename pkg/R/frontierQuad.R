@@ -57,5 +57,7 @@ frontierQuad <- function(
    rownames( result$mleCov )[ 1:length( xNamesAll ) ] <- xNamesAll
    colnames( result$mleCov )[ 1:length( xNamesAll ) ] <- xNamesAll
 
+   class( result ) <- c( "frontierQuad", class( result ) )
+
    return( result )
 }
