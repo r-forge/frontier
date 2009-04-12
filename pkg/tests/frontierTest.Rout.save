@@ -360,6 +360,10 @@ $effic
 [59,] 0.85670
 [60,] 0.70843
 
+$call
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -683,6 +687,10 @@ $effic
 [59,] 0.88686
 [60,] 0.77528
 
+$call
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data, mu = TRUE)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -1005,6 +1013,10 @@ $effic
 [58,] 0.66471
 [59,] 0.85670
 [60,] 0.70843
+
+$call
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data, eta = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -1349,6 +1361,10 @@ $effic
 [59,] 0.88686
 [60,] 0.77528
 
+$call
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data, mu = TRUE, eta = TRUE)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -1663,6 +1679,11 @@ $effic
 [58,] 0.73251
 [59,] 0.88646
 [60,] 0.77444
+
+$call
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data, mu = TRUE, startVal = c(0.5, 0.3, 0.5, 
+        0.5, 0.9, -1))
 
 attr(,"class")
 [1] "frontier"
@@ -2264,6 +2285,10 @@ $effic
 [41,] 0.93615
 [42,] 0.89945
 [43,] 0.72491
+
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    data = riceProdPhil)
 
 attr(,"class")
 [1] "frontier"
@@ -2878,6 +2903,10 @@ $effic
 [41,] 0.94313
 [42,] 0.91213
 [43,] 0.73794
+
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    data = riceProdPhil, mu = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -3495,6 +3524,10 @@ $effic
 [41,] 0.91554 0.92006 0.92435 0.92843 0.93230 0.93598 0.93946 0.94277
 [42,] 0.88815 0.89404 0.89965 0.90498 0.91005 0.91487 0.91945 0.92380
 [43,] 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
+
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    data = riceProdPhil, eta = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -4119,6 +4152,10 @@ $effic
 [42,] 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    data = riceProdPhil, mu = TRUE, eta = TRUE)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -4741,6 +4778,10 @@ $effic
 [41,] 0.83826 0.91345 0.91018 0.90043 0.74527 0.93608 0.81674 0.93878
 [42,] 0.93354 0.90354 0.89133 0.82957 0.73157 0.79449 0.74447 0.88131
 [43,] 0.35444 0.32688 0.70009 0.66794 0.83542 0.91312 0.80325 0.91832
+
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil)
 
 attr(,"class")
 [1] "frontier"
@@ -5377,6 +5418,10 @@ $effic
 [42,] 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 [43,] 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -5991,6 +6036,11 @@ $effic
 [41,] 0.92566 0.93004 0.93419 0.93810 0.94179 0.94527 0.94856 0.95165
 [42,] 0.90445 0.91001 0.91527 0.92025 0.92495 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
+
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    data = riceProdPhil, mu = TRUE, eta = TRUE, startVal = c(-1, 
+        0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
 attr(,"class")
 [1] "frontier"
@@ -6624,6 +6674,11 @@ $effic
 [42,] 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 [43,] 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$call
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE, 
+    startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8))
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -6992,6 +7047,10 @@ $effic
 [58,] 0.72446
 [59,] 0.87916
 [60,] 0.73574
+
+$call
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    data = front41Data)
 
 attr(,"class")
 [1] "frontier"
@@ -7377,6 +7436,10 @@ $effic
 [59,] 0.87002
 [60,] 0.71235
 
+$call
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    shifterNames = "firmNo", data = front41Data)
+
 attr(,"class")
 [1] "frontier"
 > 
@@ -7752,6 +7815,10 @@ $effic
 [58,] 0.78325
 [59,] 0.90467
 [60,] 0.79232
+
+$call
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
+    zNames = "firmNo", data = front41Data)
 
 attr(,"class")
 [1] "frontier"

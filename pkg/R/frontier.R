@@ -236,6 +236,7 @@ frontier <- function(
    if( !is.null( returnObj$startVal ) ) {
       names( returnObj$startVal ) <- paramNames
    }
+   returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"
    return( returnObj )
