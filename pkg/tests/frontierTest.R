@@ -234,7 +234,10 @@ vcov( translog )
 logLik( translog, which = "ols" )
 logLik( translog )
 print( summary( translog ) )
-elas( translog )
+translogEla <- elas( translog )
+print( translogEla )
+attributes( translogEla )$variance
+attributes( translogEla )$stdDev
 print.default( translog )
 
 # translog with shifter variable
@@ -253,7 +256,10 @@ vcov( translogShift )
 logLik( translogShift, which = "ols" )
 logLik( translogShift )
 print( summary( translogShift ) )
-elas( translogShift )
+translogShiftEla <- elas( translogShift )
+print( translogShiftEla )
+attributes( translogShiftEla )$variance
+attributes( translogShiftEla )$stdDev
 print.default( translogShift )
 
 # translog with Z variable
@@ -271,6 +277,9 @@ vcov( translogZvar )
 logLik( translogZvar, which = "ols" )
 logLik( translogZvar )
 print( summary( translogZvar ) )
-elas( translogZvar )
+translogZvarEla <- elas( translogZvar )
+print( translogZvarEla ) 
+attributes( translogZvarEla )$variance
+attributes( translogZvarEla )$stdDev
 print.default( translogZvar )
 

@@ -1,6 +1,6 @@
 
-R version 2.8.1 (2008-12-22)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.9.0 (2009-04-17)
+Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -49,11 +49,7 @@ Attaching package: 'Matrix'
 
 	The following object(s) are masked from package:base :
 
-	 colMeans,
-	 colSums,
-	 rcond,
-	 rowMeans,
-	 rowSums 
+	 rcond 
 
 Loading required package: car
 
@@ -6863,8 +6859,8 @@ total number of observations = 60
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.75939 
-> elas( translog )
-$ela
+> translogEla <- elas( translog )
+> print( translogEla )
     logCapital logLabour
 1  -0.00096808   0.58062
 2   0.13259364   0.62252
@@ -6926,8 +6922,7 @@ $ela
 58  0.00534187   0.63296
 59  0.03548138   0.61089
 60  0.09473289   0.59127
-
-$variance
+> attributes( translogEla )$variance
    logCapital logLabour
 1    0.056346  0.049933
 2    0.046825  0.060665
@@ -6989,8 +6984,7 @@ $variance
 58   0.063899  0.067885
 59   0.055785  0.058624
 60   0.045706  0.050609
-
-$stdDev
+> attributes( translogEla )$stdDev
    logCapital logLabour
 1     0.23737   0.22346
 2     0.21639   0.24630
@@ -7052,9 +7046,6 @@ $stdDev
 58    0.25278   0.26055
 59    0.23619   0.24212
 60    0.21379   0.22496
-
-attr(,"class")
-[1] "translogEla"
 > print.default( translog )
 $modelType
 [1] 1
@@ -7439,8 +7430,8 @@ total number of observations = 60
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.76282 
-> elas( translogShift )
-$ela
+> translogShiftEla <- elas( translogShift )
+> print( translogShiftEla )
     logCapital logLabour
 1  -0.02978644   0.57612
 2   0.10753102   0.61379
@@ -7502,8 +7493,7 @@ $ela
 58 -0.02646311   0.62087
 59  0.00650489   0.60247
 60  0.06982273   0.58658
-
-$variance
+> attributes( translogShiftEla )$variance
    logCapital logLabour
 1    0.056640  0.050678
 2    0.047028  0.061548
@@ -7565,8 +7555,7 @@ $variance
 58   0.064401  0.068826
 59   0.056150  0.059475
 60   0.045904  0.051390
-
-$stdDev
+> attributes( translogShiftEla )$stdDev
    logCapital logLabour
 1     0.23799   0.22512
 2     0.21686   0.24809
@@ -7628,9 +7617,6 @@ $stdDev
 58    0.25377   0.26235
 59    0.23696   0.24387
 60    0.21425   0.22669
-
-attr(,"class")
-[1] "translogEla"
 > print.default( translogShift )
 $modelType
 [1] 1
@@ -8013,8 +7999,8 @@ total number of observations = 60
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.77999 
-> elas( translogZvar )
-$ela
+> translogZvarEla <- elas( translogZvar )
+> print( translogZvarEla ) 
    logCapital logLabour
 1  -0.0102281   0.57839
 2   0.1203378   0.62313
@@ -8076,8 +8062,7 @@ $ela
 58 -0.0082743   0.63013
 59  0.0238279   0.60916
 60  0.0849475   0.59136
-
-$variance
+> attributes( translogZvarEla )$variance
    logCapital logLabour
 1    0.053643  0.046844
 2    0.043296  0.057114
@@ -8139,8 +8124,7 @@ $variance
 58   0.060243  0.063899
 59   0.052518  0.055135
 60   0.042702  0.047562
-
-$stdDev
+> attributes( translogZvarEla )$stdDev
    logCapital logLabour
 1     0.23161   0.21643
 2     0.20808   0.23898
@@ -8202,9 +8186,6 @@ $stdDev
 58    0.24544   0.25278
 59    0.22917   0.23481
 60    0.20664   0.21809
-
-attr(,"class")
-[1] "translogEla"
 > print.default( translogZvar )
 $modelType
 [1] 2
