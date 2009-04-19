@@ -36,15 +36,12 @@
 \details{
    This method internally calls the functions
    \code{\link[micEcon]{translogEla}} and
-   \code{\link[micEcon]{QuadFuncEla}}.
+   \code{\link[micEcon]{quadFuncEla}}.
 }
 
 \value{
-   a list of class \code{translogEla} containing following objects:
-   \item{ela}{data frame containing the elasticities.}
-   \item{variance}{data frame containing the variances of the elasticities.}
-   \item{stdDev}{data frame containing the standard deviations
-      of the elasticities.}
+   See documentation of \code{\link[micEcon]{translogEla}} and
+   \code{\link[micEcon]{quadFuncEla}}.
 }
 
 \seealso{
