@@ -1,6 +1,6 @@
 
-R version 2.8.1 (2008-12-22)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.9.0 (2009-04-17)
+Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -49,11 +49,7 @@ Attaching package: 'Matrix'
 
 	The following object(s) are masked from package:base :
 
-	 colMeans,
-	 colSums,
-	 rcond,
-	 rowMeans,
-	 rowSums 
+	 rcond 
 
 Loading required package: car
 
@@ -85,7 +81,7 @@ Attaching package: 'boot'
 
 	 aml 
 
-Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-1)
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-2)
 > 
 > ## *****************************
 > ## Testing front41WriteInput
@@ -622,7 +618,7 @@ beta_2        0.536480 0.045252 11.8555 < 2.2e-16 ***
 sigma-squared 0.217000 0.063909  3.3955 0.0006851 ***
 gamma         0.797207 0.136424  5.8436 5.108e-09 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
 Mean Efficiency: 0.7405677 
 > print( summary( sfa ), efficiencies = TRUE )
@@ -639,7 +635,7 @@ beta_2        0.536480 0.045252 11.8555 < 2.2e-16 ***
 sigma-squared 0.217000 0.063909  3.3955 0.0006851 ***
 gamma         0.797207 0.136424  5.8436 5.108e-09 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
 Efficiency Estimates:
    firm eff.-est.

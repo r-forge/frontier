@@ -81,7 +81,7 @@ Attaching package: 'boot'
 
 	 aml 
 
-Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-1)
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-2)
 > options( digits = 5 )
 > 
 > data( front41Data )
@@ -152,7 +152,7 @@ beta_1     0.2805     0.0481    5.84  2.8e-07 ***
 beta_2     0.5333     0.0515   10.36  1.3e-14 ***
 sigma-sq   0.1140         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
@@ -171,7 +171,7 @@ beta_2     0.5365     0.0453   11.86  < 2e-16 ***
 sigma-sq   0.2170     0.0639    3.40   0.0013 ** 
 gamma      0.7972     0.1364    5.84  2.9e-07 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
 LR test of the one-sided error = 2.8392 
@@ -477,7 +477,7 @@ beta_1     0.2805     0.0481    5.84  2.8e-07 ***
 beta_2     0.5333     0.0515   10.36  1.3e-14 ***
 sigma-sq   0.1140         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
@@ -497,7 +497,7 @@ sigma-sq   0.5477     0.6269    0.87    0.386
 gamma      0.9082     0.1176    7.72  2.7e-10 ***
 mu        -1.4106     2.6101   -0.54    0.591    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
 
 LR test of the one-sided error = 3.3023 
@@ -804,7 +804,7 @@ beta_1     0.2805     0.0481    5.84  2.8e-07 ***
 beta_2     0.5333     0.0515   10.36  1.3e-14 ***
 sigma-sq   0.1140         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
@@ -824,7 +824,7 @@ sigma-sq   0.2170     0.0639    3.40   0.0013 **
 gamma      0.7972     0.1364    5.84  3.0e-07 ***
 eta        0.0000     1.0000    0.00   1.0000    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
 LR test of the one-sided error = 2.8392 
@@ -1141,7 +1141,7 @@ beta_1     0.2805     0.0481    5.84  2.8e-07 ***
 beta_2     0.5333     0.0515   10.36  1.3e-14 ***
 sigma-sq   0.1140         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
@@ -1162,7 +1162,7 @@ gamma      0.9082     0.1176    7.72  3.1e-10 ***
 mu        -1.4106     2.6101   -0.54    0.591    
 eta        0.0000     1.0000    0.00    1.000    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
 
 LR test of the one-sided error = 3.3023 
@@ -1490,7 +1490,7 @@ sigma-sq   0.5486     0.8698    0.63    0.531
 gamma      0.9083     0.1435    6.33  5.0e-08 ***
 mu        -1.4118     3.7854   -0.37    0.711    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.795 
 
 LR test of the one-sided error = 3.3041 
@@ -1808,7 +1808,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -1829,7 +1829,7 @@ beta_3     0.2275     0.0409    5.57  5.2e-08 ***
 sigma-sq   0.1554     0.0242    6.42  4.6e-10 ***
 gamma      0.4643     0.0880    5.27  2.4e-07 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.43 
 
 LR test of the one-sided error = 36.953 
@@ -2416,7 +2416,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -2438,7 +2438,7 @@ sigma-sq   0.2034     0.1747    1.16   0.2452
 gamma      0.5905     0.3544    1.67   0.0966 .  
 mu        -0.2734     0.9630   -0.28   0.7766    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.343 
 
 LR test of the one-sided error = 37.128 
@@ -3034,7 +3034,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -3056,7 +3056,7 @@ sigma-sq   0.1300     0.0218    5.97  6.0e-09 ***
 gamma      0.3696     0.1073    3.45  0.00064 ***
 eta        0.0589     0.0310    1.90  0.05864 .  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
 
 LR test of the one-sided error = 40.713 
@@ -3658,7 +3658,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -3681,7 +3681,7 @@ gamma      0.5237     0.4123    1.27   0.2049
 mu        -0.3173     1.0505   -0.30   0.7628    
 eta        0.0647     0.0357    1.81   0.0705 .  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
 LR test of the one-sided error = 41 
@@ -4285,7 +4285,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -4308,7 +4308,7 @@ delta_2   -1.4056     0.9040   -1.55    0.121
 sigma-sq   0.5975     0.3075    1.94    0.053 .  
 gamma      0.9449     0.0287   32.89  < 2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
 LR test of the one-sided error = 54.115 
@@ -4919,7 +4919,7 @@ beta_2     0.3837     0.0658    5.83  1.3e-08 ***
 beta_3     0.2829     0.0399    7.09  8.0e-12 ***
 sigma-sq   0.1090         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
@@ -4943,7 +4943,7 @@ delta_2   -3.6353     7.7397   -0.47     0.64
 sigma-sq   1.6665     3.5425    0.47     0.64    
 gamma      0.9788     0.0433   22.60  < 2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
 LR test of the one-sided error = 55.186 
@@ -5566,7 +5566,7 @@ gamma      0.5236     0.4220    1.24    0.215
 mu        -0.3172     1.0668   -0.30    0.766    
 eta        0.0647     0.0354    1.83    0.068 .  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
 LR test of the one-sided error = 41 
@@ -6197,7 +6197,7 @@ delta_2   -3.6352     7.5523   -0.48     0.63
 sigma-sq   1.6664     3.4802    0.48     0.63    
 gamma      0.9788     0.0427   22.93  < 2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
 LR test of the one-sided error = 55.186 
@@ -6818,7 +6818,7 @@ b_1_2     0.00848    0.04523    0.19    0.852
 b_2_2     0.06010    0.06985    0.86    0.393  
 sigma-sq  0.11037         NA      NA       NA  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -15.857 
 
 estimates after the grid search
@@ -6843,7 +6843,7 @@ b_2_2     0.05769    0.05958    0.97   0.3374
 sigma-sq  0.18939    0.05690    3.33   0.0016 ** 
 gamma     0.76232    0.15259    5.00    7e-06 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.434 
 
 LR test of the one-sided error = 2.8458 
@@ -7387,7 +7387,7 @@ b_2_2     0.05066    0.07071    0.72    0.477
 d_1       0.00244    0.00267    0.92    0.364  
 sigma-sq  0.11070         NA      NA       NA  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -15.386 
 
 estimates after the grid search
@@ -7414,7 +7414,7 @@ d_1       0.00222    0.00247    0.90   0.3737
 sigma-sq  0.18471    0.05550    3.33   0.0016 ** 
 gamma     0.75478    0.15506    4.87  1.1e-05 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.032 
 
 LR test of the one-sided error = 2.7085 
@@ -7957,7 +7957,7 @@ b_1_2     0.00848    0.04523    0.19    0.852
 b_2_2     0.06010    0.06985    0.86    0.393  
 sigma-sq  0.11037         NA      NA       NA  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -15.857 
 
 estimates after the grid search
@@ -7983,7 +7983,7 @@ delta_1  -0.010222   0.012425   -0.82    0.415
 sigma-sq  0.251939   0.108917    2.31    0.025 *  
 gamma     0.819488   0.120728    6.79  1.2e-08 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -13.746 
 
 LR test of the one-sided error = 4.2215 
