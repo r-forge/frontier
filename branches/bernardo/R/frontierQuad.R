@@ -46,6 +46,7 @@ frontierQuad <- function(
    result <- frontier( yName = "y", xNames = xNamesAll, zNames = zNamesNew,
       data = dataQuad, ... )
 
+   result$call <- match.call()
    xNamesAll <- c( "a_0", xNamesAll )
    names( result$olsParam )[ 1:length( xNamesAll ) ] <- xNamesAll
    names( result$olsStdEr )[ 1:length( xNamesAll ) ] <- xNamesAll
@@ -55,6 +56,8 @@ frontierQuad <- function(
    names( result$mleParam )[ 1:length( xNamesAll ) ] <- xNamesAll
    rownames( result$mleCov )[ 1:length( xNamesAll ) ] <- xNamesAll
    colnames( result$mleCov )[ 1:length( xNamesAll ) ] <- xNamesAll
+
+   class( result ) <- c( "frontierQuad", class( result ) )
 
    return( result )
 }

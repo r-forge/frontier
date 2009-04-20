@@ -353,6 +353,7 @@ frontier <- function(
     if ( !is.null(firmNames) ) {
         rownames( returnObj$effic ) <- data[[ firmNames ]]
     }
+   returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"
    return( returnObj )

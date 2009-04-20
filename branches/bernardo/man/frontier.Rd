@@ -130,6 +130,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{startVal}{numeric vector. Starting values for the ML
       estimation (if specified by user).}
+   \item{call}{the matched call.}
    \item{dataTable}{matrix. Data matrix sent to Frontier 4.1.}
    \item{olsParam}{numeric vector. OLS estimates.}
    \item{olsStdEr}{numeric vector. Standard errors of OLS estimates.}

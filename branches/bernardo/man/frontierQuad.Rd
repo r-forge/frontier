@@ -34,7 +34,8 @@ frontierQuad( yName, xNames, shifterNames = NULL, zNames = NULL,
 }
 
 \value{
-   \code{frontierQuad} returns a list of class \code{frontier}
+   \code{frontierQuad} returns a list of class \code{frontierQuad}
+   (and \code{frontier})
    containing the same elements as returned by \code{\link{frontier}}.
 }
 

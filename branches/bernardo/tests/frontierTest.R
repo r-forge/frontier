@@ -330,6 +330,10 @@ coef( summary( translog ), which = "ols" )
 coef( summary( translog ) )
 vcov( translog )
 print( summary( translog ) )
+translogEla <- elas( translog )
+print( translogEla )
+attributes( translogEla )$variance
+attributes( translogEla )$stdDev
 print.default( translog )
 
 ## cross-section data, error components frontier, translog, shifter
@@ -345,6 +349,10 @@ coef( summary( translogShift ), which = "ols" )
 coef( summary( translogShift ) )
 vcov( translogShift )
 print( summary( translogShift ) )
+translogShiftEla <- elas( translogShift )
+print( translogShiftEla )
+attributes( translogShiftEla )$variance
+attributes( translogShiftEla )$stdDev
 print.default( translogShift )
 
 ## cross-section data, efficiency effects frontier, translog
@@ -360,5 +368,9 @@ coef( summary( translogZvar ), which = "ols" )
 coef( summary( translogZvar ) )
 vcov( translogZvar )
 print( summary( translogZvar ) )
+translogZvarEla <- elas( translogZvar )
+print( translogZvarEla ) 
+attributes( translogZvarEla )$variance
+attributes( translogZvarEla )$stdDev
 print.default( translogZvar )
 
