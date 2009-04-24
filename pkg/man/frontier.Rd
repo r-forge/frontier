@@ -18,7 +18,7 @@
 frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
-   printIter = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
+   printIter = 0, scaling = NA, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
@@ -54,10 +54,11 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
       if this argument is 0, do not print.}
-   \item{indic}{numeric. Use in unidimensional search procedure:
-      indic = 2 says do not scale step length in unidimensional search;
-      indic = 1 says scale (to length of last step) only if last step was smaller;
-      indic = any other number says scale (to length of last step).}
+   \item{scaling}{logical or \code{NA}. Scaling in unidimensional search procedure:
+      if \code{TRUE}, the step length is scaled to the length of the last step;
+      if \code{FALSE}, the step length is not scaled;
+      if \code{NA}, the step length is scaled (to the length of last step)
+         only if the last step was smaller.}
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
@@ -106,7 +107,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       the number of efficiency effects regressors (Zs).}
    \item{printIter}{numeric. Printing of information
       on the iterations (see above).}
-   \item{indic}{numeric. Scaling of unidimensional search procedure
+   \item{scaling}{numeric. Scaling of unidimensional search procedure
       (see above).}
    \item{tol}{numeric. Convergence tolerance.}
    \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}

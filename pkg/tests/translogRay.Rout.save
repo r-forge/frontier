@@ -230,9 +230,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -432,6 +429,9 @@ $effic
 [18,] 0.9981822
 [19,] 0.9984938
 [20,] 0.9981460
+
+$scaling
+[1] NA
 
 $call
 frontierTranslogRay(yNames = c("qCrop", "qAnimal"), xNames = c("qLabor", 

@@ -218,9 +218,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -407,6 +404,9 @@ $effic
 [59,] 0.85670
 [60,] 0.70843
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data)
@@ -543,9 +543,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -734,6 +731,9 @@ $effic
 [59,] 0.88686
 [60,] 0.77528
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, mu = TRUE)
@@ -870,9 +870,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1061,6 +1058,9 @@ $effic
 [59,] 0.85670
 [60,] 0.70843
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, eta = TRUE)
@@ -1208,9 +1208,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1408,6 +1405,9 @@ $effic
 [59,] 0.88686
 [60,] 0.77528
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, mu = TRUE, eta = TRUE)
@@ -1536,9 +1536,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1727,6 +1724,9 @@ $effic
 [59,] 0.88646
 [60,] 0.77444
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, mu = TRUE, startVal = c(0.5, 0.3, 0.5, 
@@ -1875,9 +1875,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -2333,6 +2330,9 @@ $effic
 [42,] 0.89945
 [43,] 0.72491
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil)
@@ -2484,9 +2484,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -2951,6 +2948,9 @@ $effic
 [42,] 0.91213
 [43,] 0.73794
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil, mu = TRUE)
@@ -3105,9 +3105,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -3572,6 +3569,9 @@ $effic
 [42,] 0.88815 0.89404 0.89965 0.90498 0.91005 0.91487 0.91945 0.92380
 [43,] 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil, eta = TRUE)
@@ -3730,9 +3730,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -4199,6 +4196,9 @@ $effic
 [42,] 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil, mu = TRUE, eta = TRUE)
@@ -4357,9 +4357,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -4826,6 +4823,9 @@ $effic
 [42,] 0.93354 0.90354 0.89133 0.82957 0.73157 0.79449 0.74447 0.88131
 [43,] 0.35444 0.32688 0.70009 0.66794 0.83542 0.91312 0.80325 0.91832
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil)
@@ -4992,9 +4992,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -5465,6 +5462,9 @@ $effic
 [42,] 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 [43,] 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE)
@@ -5615,9 +5615,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -6084,6 +6081,9 @@ $effic
 [42,] 0.90445 0.91001 0.91527 0.92025 0.92495 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil, mu = TRUE, eta = TRUE, startVal = c(-1, 
@@ -6246,9 +6246,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -6721,6 +6718,9 @@ $effic
 [42,] 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 [43,] 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$scaling
+[1] NA
+
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE, 
@@ -7077,9 +7077,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -7281,6 +7278,9 @@ $effic
 [58,] 0.72446
 [59,] 0.87916
 [60,] 0.73574
+
+$scaling
+[1] NA
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
@@ -7648,9 +7648,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -7856,6 +7853,9 @@ $effic
 [58,] 0.71186
 [59,] 0.87002
 [60,] 0.71235
+
+$scaling
+[1] NA
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
@@ -8217,9 +8217,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -8423,6 +8420,9 @@ $effic
 [58,] 0.78325
 [59,] 0.90467
 [60,] 0.79232
+
+$scaling
+[1] NA
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
