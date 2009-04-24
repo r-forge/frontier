@@ -8,7 +8,7 @@ frontier <- function(
       printIter = 0,
       scaling = NA,
       tol = 0.00001,
-      tol2 = 0.001,
+      gridTol = 0.001,
       bignum = 1.0E+16,
       step1 = 0.00001,
       gridDouble = TRUE,
@@ -56,11 +56,11 @@ frontier <- function(
    } else if( tol < 0 ) {
       stop( "argument 'tol' must be non-negative" )
    }
-   # tol2
-   if( !is.numeric( tol2 ) ) {
-      stop( "argument 'tol2' must be numeric" )
-   } else if( tol2 < 0 ) {
-      stop( "argument 'tol2' must be non-negative" )
+   # gridTol (tol2)
+   if( !is.numeric( gridTol ) ) {
+      stop( "argument 'gridTol' must be numeric" )
+   } else if( gridTol < 0 ) {
+      stop( "argument 'gridTol' must be non-negative" )
    }
    # bignum
    if( !is.numeric( bignum ) ) {
@@ -160,7 +160,7 @@ frontier <- function(
       printIter = as.integer( printIter ),
       indic = as.integer( indic ),
       tol = as.double( tol ),
-      tol2 = as.double( tol2 ),
+      gridTol = as.double( gridTol ),
       bignum = as.double( bignum ),
       step1 = as.double( step1 ),
       gridDouble = as.integer( gridDouble ),

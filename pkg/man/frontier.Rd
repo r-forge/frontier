@@ -18,7 +18,7 @@
 frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
-   printIter = 0, scaling = NA, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
+   printIter = 0, scaling = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
@@ -60,7 +60,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{NA}, the step length is scaled (to the length of last step)
          only if the last step was smaller.}
    \item{tol}{numeric. Convergence tolerance (proportional).}
-   \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
+   \item{gridTol}{numeric. Tolerance used in uni-dimensional grid search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{step1}{numeric. Size of 1st step in search procedure.}
    \item{gridDouble}{logical. If \code{TRUE},
@@ -110,7 +110,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{scaling}{numeric. Scaling of unidimensional search procedure
       (see above).}
    \item{tol}{numeric. Convergence tolerance.}
-   \item{tol2}{numeric. Tolerance used in uni-dimensional search procedure.}
+   \item{gridTol}{numeric. Tolerance used in uni-dimensional grid search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{step1}{numeric. Size of 1st step in search procedure.}
    \item{gridDouble}{logical. Value of argument \code{gridDouble}
