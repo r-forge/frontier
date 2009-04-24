@@ -39,10 +39,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{modelType}{model type: either 1 for an 'Error Components Frontier'
       or 2 for an 'Efficiency Effects Frontier'.}
    \item{ineffDecrease}{logical. If \code{TRUE},
-      inefficience decreases the endogenous variable
+      inefficiency decreases the endogenous variable
       (e.g. for estimating a production function);
       if \code{FALSE},
-      inefficience increases the endogenous variable
+      inefficiency increases the endogenous variable
       (e.g. for estimating a cost function).}
    \item{logDepVar}{logical. Is the dependent variable logged.}
    \item{mu}{logical. Should a 'mu' (in case of an 'Error Components Frontier',
@@ -92,7 +92,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    containing following elements:
    \item{modelType}{model type (see above).}
    \item{ineffDecrease}{indicates whether inefficiency decreases (or increases) 
-      the endognous variable (see above).}
+      the endogenous variable (see above).}
    \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{nn}{number of cross-sections.}
    \item{nt}{number of time periods.}
@@ -172,7 +172,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       xNames = c( "logCapital", "logLabour" ), data = front41Data )
    cobbDouglas
 
-   # rice producers in the Phillipines (panel data)
+   # rice producers in the Philippines (panel data)
    data( riceProdPhil )
    riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
    riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
