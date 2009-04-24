@@ -6,7 +6,7 @@ frontier <- function(
       mu = FALSE,
       eta = FALSE,
       printIter = 0,
-      scaling = NA,
+      gridScale = NA,
       tol = 0.00001,
       gridTol = 0.001,
       bignum = 1.0E+16,
@@ -40,15 +40,15 @@ frontier <- function(
       stop( "argument 'printIter' must be non-negative" )
    }
    printIter <- as.integer( printIter )
-   # scaling (indic)
-   if( length( scaling ) != 1 ) {
-      stop( "argument 'scaling' must be a single logical value or NA" )
-   } else if( is.na( scaling ) ) {
+   # gridScale (indic)
+   if( length( gridScale ) != 1 ) {
+      stop( "argument 'gridScale' must be a single logical value or NA" )
+   } else if( is.na( gridScale ) ) {
       indic <- as.integer( 1 )
-   } else if( is.logical( scaling ) ) {
-      indic <- as.integer( 2 - 2 * scaling )
+   } else if( is.logical( gridScale ) ) {
+      indic <- as.integer( 2 - 2 * gridScale )
    } else {
-      stop( "argument 'scaling' must be a logical value or NA" )
+      stop( "argument 'gridScale' must be a logical value or NA" )
    }
    # tol
    if( !is.numeric( tol ) ) {
@@ -194,11 +194,11 @@ frontier <- function(
   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    if( returnObj$indic == 2 ) {
-      returnObj$scaling <- FALSE
+      returnObj$gridScale <- FALSE
    } else if( returnObj$indic == 1 ) {
-      returnObj$scaling <- NA
+      returnObj$gridScale <- NA
    } else {
-      returnObj$scaling <- TRUE
+      returnObj$gridScale <- TRUE
    }
    returnObj$indic <- NULL
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
