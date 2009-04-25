@@ -6,7 +6,7 @@ frontier <- function(
       mu = FALSE,
       timeEffect = FALSE,
       printIter = 0,
-      gridScale = NA,
+      searchScale = NA,
       tol = 0.00001,
       searchTol = 0.001,
       bignum = 1.0E+16,
@@ -40,15 +40,15 @@ frontier <- function(
       stop( "argument 'printIter' must be non-negative" )
    }
    printIter <- as.integer( printIter )
-   # gridScale (indic)
-   if( length( gridScale ) != 1 ) {
-      stop( "argument 'gridScale' must be a single logical value or NA" )
-   } else if( is.na( gridScale ) ) {
+   # searchScale (indic)
+   if( length( searchScale ) != 1 ) {
+      stop( "argument 'searchScale' must be a single logical value or NA" )
+   } else if( is.na( searchScale ) ) {
       indic <- as.integer( 1 )
-   } else if( is.logical( gridScale ) ) {
-      indic <- as.integer( 2 - 2 * gridScale )
+   } else if( is.logical( searchScale ) ) {
+      indic <- as.integer( 2 - 2 * searchScale )
    } else {
-      stop( "argument 'gridScale' must be a logical value or NA" )
+      stop( "argument 'searchScale' must be a logical value or NA" )
    }
    # tol
    if( !is.numeric( tol ) ) {
@@ -196,11 +196,11 @@ frontier <- function(
   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    if( returnObj$indic == 2 ) {
-      returnObj$gridScale <- FALSE
+      returnObj$searchScale <- FALSE
    } else if( returnObj$indic == 1 ) {
-      returnObj$gridScale <- NA
+      returnObj$searchScale <- NA
    } else {
-      returnObj$gridScale <- TRUE
+      returnObj$searchScale <- TRUE
    }
    returnObj$indic <- NULL
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
