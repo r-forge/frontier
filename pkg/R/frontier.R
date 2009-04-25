@@ -8,7 +8,7 @@ frontier <- function(
       printIter = 0,
       gridScale = NA,
       tol = 0.00001,
-      gridTol = 0.001,
+      searchTol = 0.001,
       bignum = 1.0E+16,
       stepSize = 0.00001,
       gridDouble = TRUE,
@@ -56,11 +56,11 @@ frontier <- function(
    } else if( tol < 0 ) {
       stop( "argument 'tol' must be non-negative" )
    }
-   # gridTol (tol2)
-   if( !is.numeric( gridTol ) ) {
-      stop( "argument 'gridTol' must be numeric" )
-   } else if( gridTol < 0 ) {
-      stop( "argument 'gridTol' must be non-negative" )
+   # searchTol (tol2)
+   if( !is.numeric( searchTol ) ) {
+      stop( "argument 'searchTol' must be numeric" )
+   } else if( searchTol < 0 ) {
+      stop( "argument 'searchTol' must be non-negative" )
    }
    # bignum
    if( !is.numeric( bignum ) ) {
@@ -162,7 +162,7 @@ frontier <- function(
       printIter = as.integer( printIter ),
       indic = as.integer( indic ),
       tol = as.double( tol ),
-      gridTol = as.double( gridTol ),
+      searchTol = as.double( searchTol ),
       bignum = as.double( bignum ),
       stepSize = as.double( stepSize ),
       gridDouble = as.integer( gridDouble ),
