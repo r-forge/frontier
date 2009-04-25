@@ -10,7 +10,7 @@ frontier <- function(
       tol = 0.00001,
       gridTol = 0.001,
       bignum = 1.0E+16,
-      step1 = 0.00001,
+      stepSize = 0.00001,
       gridDouble = TRUE,
       gridno = 0.1,
       maxit = 1000,
@@ -68,11 +68,11 @@ frontier <- function(
    } else if( bignum <= 0 ) {
       stop( "argument 'bignum' must be positive" )
    }
-   # step1
-   if( !is.numeric( step1 ) ) {
-      stop( "argument 'step1' must be numeric" )
-   } else if( step1 <= 0 ) {
-      stop( "argument 'step1' must be positive" )
+   # stepSize (step1)
+   if( !is.numeric( stepSize ) ) {
+      stop( "argument 'stepSize' must be numeric" )
+   } else if( stepSize <= 0 ) {
+      stop( "argument 'stepSize' must be positive" )
    }
    # gridDouble (igrid2)
    if( !is.logical( gridDouble ) || length( gridDouble ) != 1 ) {
@@ -164,7 +164,7 @@ frontier <- function(
       tol = as.double( tol ),
       gridTol = as.double( gridTol ),
       bignum = as.double( bignum ),
-      step1 = as.double( step1 ),
+      stepSize = as.double( stepSize ),
       gridDouble = as.integer( gridDouble ),
       gridno = as.double( gridno ),
       maxit = as.integer( maxit ),
