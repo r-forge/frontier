@@ -4,7 +4,7 @@ frontier <- function(
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       mu = FALSE,
-      eta = FALSE,
+      timeEffect = FALSE,
       printIter = 0,
       gridScale = NA,
       tol = 0.00001,
@@ -28,8 +28,8 @@ frontier <- function(
    if( !is.logical( mu ) ) {
       stop( "argument 'mu' must be logical" )
    }
-   if( !is.logical( eta ) ) {
-      stop( "argument 'eta' must be logical" )
+   if( !is.logical( timeEffect ) ) {
+      stop( "argument 'timeEffect' must be logical" )
    }
    # printIter (iprint)
    if( !is.numeric( printIter ) ) {
@@ -105,7 +105,9 @@ frontier <- function(
    nXvars <- length( xNames )
    nb <- nXvars
    nZvars <- length( zNames )
-   if( modelType == 2 ) {
+   if( modelType == 1 ) {
+      eta <- timeEffect
+   } else {
       eta <- nZvars
    }
 
@@ -213,13 +215,13 @@ frontier <- function(
    } else {
       returnObj$gridParam <- NULL
    }
-   if( modelType == 1 && eta == FALSE ) {
+   if( modelType == 1 && timeEffect == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    # assign row names and column names to efficiency estimates
    if( "plm.dim" %in% class( data ) ) {
       rownames( returnObj$effic ) <- levels( data[[ 1 ]] )
-      if( modelType == 1 && eta == FALSE ) {
+      if( modelType == 1 && timeEffect == FALSE ) {
          colnames( returnObj$effic ) <- "efficiency"
       } else {
          colnames( returnObj$effic ) <- levels( data[[ 2 ]] )
@@ -242,8 +244,8 @@ frontier <- function(
       if( mu ){
          paramNames <- c( paramNames, "mu" )
       }
-      if( eta ){
-         paramNames <- c( paramNames, "eta" )
+      if( timeEffect ){
+         paramNames <- c( paramNames, "time" )
       }
    }
    names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],

@@ -17,7 +17,7 @@
 \usage{
 frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
-   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
+   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, timeEffect = FALSE,
    printIter = 0, gridScale = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
@@ -50,8 +50,13 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       or a delta0 (in case of an 'Efficiency Effects Frontier',
       i.e. modelType = 2)
       be included in the estimation.}
-   \item{eta}{logical. Should an 'eta' be included in the estimation
-      (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
+   \item{timeEffect}{logical. If \code{FALSE} (default),
+      the efficiency estimates of an \sQuote{Error Components Frontier}
+      (\code{modelType = 1})
+      are time invariant;
+      if \code{TRUE}, time is allowed to have an effect on efficiency
+      (this argument is ignored in case of an
+      \sQuote{Efficiency Effects Frontier}, i.e. \code{modelType = 2}).}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
       if this argument is 0, do not print.}
    \item{gridScale}{logical or \code{NA}. Scaling in unidimensional grid search procedure:

@@ -893,7 +893,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > a3 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), eta = TRUE )
++    c( "logCapital", "logLabour" ), timeEffect = TRUE )
 > print( a3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -902,7 +902,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma     time 
  0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
 > coef( a3, which = "start" )
 NULL
@@ -913,7 +913,7 @@ NULL
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
 > coef( a3 )
-  beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma     time 
  0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
 > coef( summary( a3 ), which = "ols" )
          Estimate Std. Error t value   Pr(>|t|)
@@ -928,15 +928,15 @@ beta_1    0.28110   0.047643  5.9001 2.4646e-07
 beta_2    0.53648   0.045252 11.8555 1.1804e-16
 sigma-sq  0.21700   0.063909  3.3955 1.2914e-03
 gamma     0.79721   0.136424  5.8436 3.0346e-07
-eta       0.00000   1.000000  0.0000 1.0000e+00
+time      0.00000   1.000000  0.0000 1.0000e+00
 > vcov( a3 )
-             beta_0      beta_1      beta_2    sigma-sq       gamma eta
-beta_0    0.0410536 -3.1447e-03 -8.0030e-03  4.0457e-03  9.2520e-03   0
-beta_1   -0.0031447  2.2699e-03  4.0107e-05 -2.9533e-05 -9.1561e-05   0
-beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04   0
-sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03   0
-gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02   0
-eta       0.0000000  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00   1
+             beta_0      beta_1      beta_2    sigma-sq       gamma time
+beta_0    0.0410536 -3.1447e-03 -8.0030e-03  4.0457e-03  9.2520e-03    0
+beta_1   -0.0031447  2.2699e-03  4.0107e-05 -2.9533e-05 -9.1561e-05    0
+beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04    0
+sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03    0
+gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02    0
+time      0.0000000  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00    1
 > logLik( a3, which = "ols" )
 [1] -18.447
 > logLik( a3 )
@@ -973,7 +973,7 @@ beta_1     0.2811     0.0476    5.90  2.5e-07 ***
 beta_2     0.5365     0.0453   11.86  < 2e-16 ***
 sigma-sq   0.2170     0.0639    3.40   0.0013 ** 
 gamma      0.7972     0.1364    5.84  3.0e-07 ***
-eta        0.0000     1.0000    0.00   1.0000    
+time       0.0000     1.0000    0.00   1.0000    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
@@ -1197,17 +1197,17 @@ $gridParam
  0.58014  0.28049  0.53331  0.22067  0.80000 
 
 $mleParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma     time 
  0.56162  0.28110  0.53648  0.21700  0.79721  0.00000 
 
 $mleCov
-             beta_0      beta_1      beta_2    sigma-sq       gamma eta
-beta_0    0.0410536 -3.1447e-03 -8.0030e-03  4.0457e-03  9.2520e-03   0
-beta_1   -0.0031447  2.2699e-03  4.0107e-05 -2.9533e-05 -9.1561e-05   0
-beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04   0
-sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03   0
-gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02   0
-eta       0.0000000  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00   1
+             beta_0      beta_1      beta_2    sigma-sq       gamma time
+beta_0    0.0410536 -3.1447e-03 -8.0030e-03  4.0457e-03  9.2520e-03    0
+beta_1   -0.0031447  2.2699e-03  4.0107e-05 -2.9533e-05 -9.1561e-05    0
+beta_2   -0.0080030  4.0107e-05  2.0477e-03 -4.7193e-05 -1.6406e-04    0
+sigma-sq  0.0040457 -2.9533e-05 -4.7193e-05  4.0844e-03  6.7451e-03    0
+gamma     0.0092520 -9.1561e-05 -1.6406e-04  6.7451e-03  1.8612e-02    0
+time      0.0000000  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00    1
 
 $mleLogl
 [1] -17.027
@@ -1289,13 +1289,13 @@ $gridScale
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, eta = TRUE)
+    data = front41Data, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > a4 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE, eta = TRUE )
++    c( "logCapital", "logLabour" ), mu = TRUE, timeEffect = TRUE )
 > print( a4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1304,7 +1304,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu     time 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
 > coef( a4, which = "start" )
 NULL
@@ -1315,7 +1315,7 @@ NULL
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
 > coef( a4 )
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu     time 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
 > coef( summary( a4 ), which = "ols" )
          Estimate Std. Error t value   Pr(>|t|)
@@ -1331,7 +1331,7 @@ beta_2    0.54040   0.045710 11.82233 1.7560e-16
 sigma-sq  0.54773   0.626862  0.87377 3.8619e-01
 gamma     0.90815   0.117564  7.72479 3.0843e-10
 mu       -1.41057   2.610092 -0.54043 5.9117e-01
-eta       0.00000   1.000000  0.00000 1.0000e+00
+time      0.00000   1.000000  0.00000 1.0000e+00
 > vcov( a4 )
              beta_0      beta_1      beta_2    sigma-sq       gamma          mu
 beta_0    0.0458771 -3.5751e-03 -8.8906e-03 -0.03107435 -0.00397568  0.16114764
@@ -1340,15 +1340,15 @@ beta_2   -0.0088906  4.8566e-05  2.0894e-03  0.00070561 -0.00023014 -0.00786707
 sigma-sq -0.0310744 -6.4309e-04  7.0561e-04  0.39295542  0.07231633 -1.61305551
 gamma    -0.0039757 -2.4770e-04 -2.3014e-04  0.07231633  0.01382118 -0.29746394
 mu        0.1611476  1.3694e-04 -7.8671e-03 -1.61305551 -0.29746394  6.81257935
-eta       0.0000000  0.0000e+00  0.0000e+00  0.00000000  0.00000000  0.00000000
-         eta
-beta_0     0
-beta_1     0
-beta_2     0
-sigma-sq   0
-gamma      0
-mu         0
-eta        1
+time      0.0000000  0.0000e+00  0.0000e+00  0.00000000  0.00000000  0.00000000
+         time
+beta_0      0
+beta_1      0
+beta_2      0
+sigma-sq    0
+gamma       0
+mu          0
+time        1
 > logLik( a4, which = "ols" )
 [1] -18.447
 > logLik( a4 )
@@ -1386,7 +1386,7 @@ beta_2     0.5404     0.0457   11.82  < 2e-16 ***
 sigma-sq   0.5477     0.6269    0.87    0.386    
 gamma      0.9082     0.1176    7.72  3.1e-10 ***
 mu        -1.4106     2.6101   -0.54    0.591    
-eta        0.0000     1.0000    0.00    1.000    
+time       0.0000     1.0000    0.00    1.000    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
@@ -1610,7 +1610,7 @@ $gridParam
  0.58014  0.28049  0.53331  0.22067  0.80000 
 
 $mleParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu      eta 
+  beta_0   beta_1   beta_2 sigma-sq    gamma       mu     time 
  0.47635  0.28260  0.54040  0.54773  0.90815 -1.41057  0.00000 
 
 $mleCov
@@ -1621,15 +1621,15 @@ beta_2   -0.0088906  4.8566e-05  2.0894e-03  0.00070561 -0.00023014 -0.00786707
 sigma-sq -0.0310744 -6.4309e-04  7.0561e-04  0.39295542  0.07231633 -1.61305551
 gamma    -0.0039757 -2.4770e-04 -2.3014e-04  0.07231633  0.01382118 -0.29746394
 mu        0.1611476  1.3694e-04 -7.8671e-03 -1.61305551 -0.29746394  6.81257935
-eta       0.0000000  0.0000e+00  0.0000e+00  0.00000000  0.00000000  0.00000000
-         eta
-beta_0     0
-beta_1     0
-beta_2     0
-sigma-sq   0
-gamma      0
-mu         0
-eta        1
+time      0.0000000  0.0000e+00  0.0000e+00  0.00000000  0.00000000  0.00000000
+         time
+beta_0      0
+beta_1      0
+beta_2      0
+sigma-sq    0
+gamma       0
+mu          0
+time        1
 
 $mleLogl
 [1] -16.796
@@ -1711,7 +1711,7 @@ $gridScale
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, mu = TRUE, eta = TRUE)
+    data = front41Data, mu = TRUE, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -3603,7 +3603,7 @@ attr(,"class")
 > 
 > b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    eta = TRUE )
++    timeEffect = TRUE )
 > print( b3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3612,7 +3612,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma     time 
 -0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
 > coef( b3, which = "start" )
 NULL
@@ -3623,7 +3623,7 @@ NULL
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
 > coef( b3 )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma     time 
 -0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
 > coef( summary( b3 ), which = "ols" )
          Estimate Std. Error t value   Pr(>|t|)
@@ -3640,7 +3640,7 @@ beta_2    0.30010   0.063940  4.6934 3.9142e-06
 beta_3    0.19946   0.042633  4.6786 4.1882e-06
 sigma-sq  0.12996   0.021767  5.9703 6.0056e-09
 gamma     0.36963   0.107268  3.4459 6.4112e-04
-eta       0.05891   0.031049  1.8973 5.8641e-02
+time      0.05891   0.031049  1.8973 5.8641e-02
 > vcov( b3 )
               beta_0      beta_1      beta_2      beta_3    sigma-sq
 beta_0    0.07751171  0.01589305 -0.01314803 -5.0117e-03  1.2173e-03
@@ -3649,15 +3649,15 @@ beta_2   -0.01314803 -0.00282002  0.00408833 -7.8056e-04 -2.2896e-04
 beta_3   -0.00501165 -0.00106251 -0.00078056  1.8175e-03  3.6935e-05
 sigma-sq  0.00121726  0.00012144 -0.00022896  3.6935e-05  4.7380e-04
 gamma     0.00754036  0.00086183 -0.00131956  4.0568e-05  2.0707e-03
-eta       0.00011262  0.00015100  0.00026954 -3.3724e-04 -4.4655e-04
-               gamma         eta
+time      0.00011262  0.00015100  0.00026954 -3.3724e-04 -4.4655e-04
+               gamma        time
 beta_0    7.5404e-03  0.00011262
 beta_1    8.6183e-04  0.00015100
 beta_2   -1.3196e-03  0.00026954
 beta_3    4.0568e-05 -0.00033724
 sigma-sq  2.0707e-03 -0.00044655
 gamma     1.1506e-02 -0.00221151
-eta      -2.2115e-03  0.00096403
+time     -2.2115e-03  0.00096403
 > logLik( b3, which = "ols" )
 [1] -104.91
 > logLik( b3 )
@@ -3697,7 +3697,7 @@ beta_2     0.3001     0.0639    4.69  3.9e-06 ***
 beta_3     0.1995     0.0426    4.68  4.2e-06 ***
 sigma-sq   0.1300     0.0218    5.97  6.0e-09 ***
 gamma      0.3696     0.1073    3.45  0.00064 ***
-eta        0.0589     0.0310    1.90  0.05864 .  
+time       0.0589     0.0310    1.90  0.05864 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
@@ -4266,7 +4266,7 @@ $gridParam
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
 
 $mleParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma      eta 
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma     time 
 -0.75392  0.47492  0.30010  0.19946  0.12996  0.36963  0.05891 
 
 $mleCov
@@ -4277,15 +4277,15 @@ beta_2   -0.01314803 -0.00282002  0.00408833 -7.8056e-04 -2.2896e-04
 beta_3   -0.00501165 -0.00106251 -0.00078056  1.8175e-03  3.6935e-05
 sigma-sq  0.00121726  0.00012144 -0.00022896  3.6935e-05  4.7380e-04
 gamma     0.00754036  0.00086183 -0.00131956  4.0568e-05  2.0707e-03
-eta       0.00011262  0.00015100  0.00026954 -3.3724e-04 -4.4655e-04
-               gamma         eta
+time      0.00011262  0.00015100  0.00026954 -3.3724e-04 -4.4655e-04
+               gamma        time
 beta_0    7.5404e-03  0.00011262
 beta_1    8.6183e-04  0.00015100
 beta_2   -1.3196e-03  0.00026954
 beta_3    4.0568e-05 -0.00033724
 sigma-sq  2.0707e-03 -0.00044655
 gamma     1.1506e-02 -0.00221151
-eta      -2.2115e-03  0.00096403
+time     -2.2115e-03  0.00096403
 
 $mleLogl
 [1] -84.55
@@ -4350,14 +4350,14 @@ $gridScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, eta = TRUE)
+    data = riceProdPhil, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, eta = TRUE )
++    mu = TRUE, timeEffect = TRUE )
 > print( b4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4366,7 +4366,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
 > coef( b4, which = "start" )
 NULL
@@ -4377,7 +4377,7 @@ NULL
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
 > coef( b4 )
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
 > coef( summary( b4 ), which = "ols" )
          Estimate Std. Error t value   Pr(>|t|)
@@ -4395,7 +4395,7 @@ beta_3    0.196116   0.043821  4.47534 1.0459e-05
 sigma-sq  0.172164   0.148676  1.15798 2.4770e-01
 gamma     0.523681   0.412289  1.27018 2.0490e-01
 mu       -0.317339   1.050464 -0.30209 7.6277e-01
-eta       0.064724   0.035668  1.81462 7.0474e-02
+time      0.064724   0.035668  1.81462 7.0474e-02
 > vcov( b4 )
               beta_0      beta_1      beta_2      beta_3    sigma-sq      gamma
 beta_0    7.7830e-02  0.01583962 -0.01277457 -0.00536899  0.00295376  0.0092053
@@ -4405,8 +4405,8 @@ beta_3   -5.3690e-03 -0.00115134 -0.00077216  0.00192032 -0.00049624 -0.0013890
 sigma-sq  2.9538e-03  0.00052180 -0.00096679 -0.00049624  0.02210467  0.0610145
 gamma     9.2053e-03  0.00160182 -0.00286252 -0.00138900  0.06101447  0.1699822
 mu       -6.6863e-03 -0.00243517  0.00428772  0.00404854 -0.15204880 -0.4204938
-eta      -6.1796e-05  0.00017758  0.00030249 -0.00041089  0.00045114  0.0011963
-                 mu         eta
+time     -6.1796e-05  0.00017758  0.00030249 -0.00041089  0.00045114  0.0011963
+                 mu        time
 beta_0   -0.0066863 -6.1796e-05
 beta_1   -0.0024352  1.7758e-04
 beta_2    0.0042877  3.0249e-04
@@ -4414,7 +4414,7 @@ beta_3    0.0040485 -4.1089e-04
 sigma-sq -0.1520488  4.5114e-04
 gamma    -0.4204938  1.1963e-03
 mu        1.1034746 -9.1433e-03
-eta      -0.0091433  1.2722e-03
+time     -0.0091433  1.2722e-03
 > logLik( b4, which = "ols" )
 [1] -104.91
 > logLik( b4 )
@@ -4455,7 +4455,7 @@ beta_3     0.1961     0.0438    4.48  1.0e-05 ***
 sigma-sq   0.1722     0.1487    1.16   0.2477    
 gamma      0.5237     0.4123    1.27   0.2049    
 mu        -0.3173     1.0505   -0.30   0.7628    
-eta        0.0647     0.0357    1.81   0.0705 .  
+time       0.0647     0.0357    1.81   0.0705 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
@@ -5024,7 +5024,7 @@ $gridParam
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476165  0.298471  0.196116  0.172164  0.523681 -0.317339  0.064724 
 
 $mleCov
@@ -5036,8 +5036,8 @@ beta_3   -5.3690e-03 -0.00115134 -0.00077216  0.00192032 -0.00049624 -0.0013890
 sigma-sq  2.9538e-03  0.00052180 -0.00096679 -0.00049624  0.02210467  0.0610145
 gamma     9.2053e-03  0.00160182 -0.00286252 -0.00138900  0.06101447  0.1699822
 mu       -6.6863e-03 -0.00243517  0.00428772  0.00404854 -0.15204880 -0.4204938
-eta      -6.1796e-05  0.00017758  0.00030249 -0.00041089  0.00045114  0.0011963
-                 mu         eta
+time     -6.1796e-05  0.00017758  0.00030249 -0.00041089  0.00045114  0.0011963
+                 mu        time
 beta_0   -0.0066863 -6.1796e-05
 beta_1   -0.0024352  1.7758e-04
 beta_2    0.0042877  3.0249e-04
@@ -5045,7 +5045,7 @@ beta_3    0.0040485 -4.1089e-04
 sigma-sq -0.1520488  4.5114e-04
 gamma    -0.4204938  1.1963e-03
 mu        1.1034746 -9.1433e-03
-eta      -0.0091433  1.2722e-03
+time     -0.0091433  1.2722e-03
 
 $mleLogl
 [1] -84.407
@@ -5110,7 +5110,7 @@ $gridScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, eta = TRUE)
+    data = riceProdPhil, mu = TRUE, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -6649,7 +6649,7 @@ attr(,"class")
 > 
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, eta = TRUE,
++    mu = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 > print( b7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -6659,10 +6659,10 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
 > coef( b7, which = "start" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu      eta 
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu     time 
     -1.0      0.3      0.3      0.3      0.2      0.5     -0.3      0.1 
 > coef( b7, which = "ols" )
   beta_0   beta_1   beta_2   beta_3 sigma-sq 
@@ -6670,7 +6670,7 @@ Final maximum likelihood estimates
 > coef( b7, which = "grid" )
 NULL
 > coef( b7 )
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
 > coef( summary( b7 ), which = "ols" )
          Estimate Std. Error t value   Pr(>|t|)
@@ -6688,7 +6688,7 @@ beta_3    0.196117   0.042668  4.59632 6.0947e-06
 sigma-sq  0.172149   0.151257  1.13812 2.5588e-01
 gamma     0.523640   0.421968  1.24095 2.1549e-01
 mu       -0.317230   1.066801 -0.29737 7.6637e-01
-eta       0.064722   0.035394  1.82863 6.8342e-02
+time      0.064722   0.035394  1.82863 6.8342e-02
 > vcov( b7 )
               beta_0      beta_1      beta_2      beta_3    sigma-sq
 beta_0    7.9228e-02  0.01605903 -0.01346440 -0.00510898  0.00437511
@@ -6698,8 +6698,8 @@ beta_3   -5.1090e-03 -0.00106447 -0.00072417  0.00182059 -0.00082927
 sigma-sq  4.3751e-03  0.00054954 -0.00093452 -0.00082927  0.02287862
 gamma     1.3342e-02  0.00177761 -0.00273077 -0.00241836  0.06355197
 mu       -1.6441e-02 -0.00260897  0.00397154  0.00638545 -0.15727103
-eta      -2.3896e-05  0.00014991  0.00029929 -0.00040330  0.00035389
-               gamma         mu         eta
+time     -2.3896e-05  0.00014991  0.00029929 -0.00040330  0.00035389
+               gamma         mu        time
 beta_0    0.01334202 -0.0164407 -2.3896e-05
 beta_1    0.00177761 -0.0026090  1.4991e-04
 beta_2   -0.00273077  0.0039715  2.9929e-04
@@ -6707,7 +6707,7 @@ beta_3   -0.00241836  0.0063854 -4.0330e-04
 sigma-sq  0.06355197 -0.1572710  3.5389e-04
 gamma     0.17805670 -0.4373989  9.3733e-04
 mu       -0.43739891  1.1380636 -8.4083e-03
-eta       0.00093733 -0.0084083  1.2527e-03
+time      0.00093733 -0.0084083  1.2527e-03
 > logLik( b7, which = "ols" )
 [1] -104.91
 > logLik( b7 )
@@ -6728,7 +6728,7 @@ beta_3    0.3
 sigma-sq  0.2
 gamma     0.5
 mu       -0.3
-eta       0.1
+time      0.1
 
 final maximum likelihood estimates
          Estimate Std. Error t value Pr(>|t|)    
@@ -6739,7 +6739,7 @@ beta_3     0.1961     0.0427    4.60  6.1e-06 ***
 sigma-sq   0.1721     0.1513    1.14    0.256    
 gamma      0.5236     0.4220    1.24    0.215    
 mu        -0.3172     1.0668   -0.30    0.766    
-eta        0.0647     0.0354    1.83    0.068 .  
+time       0.0647     0.0354    1.83    0.068 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
@@ -6946,7 +6946,7 @@ $maxit
 [1] 1000
 
 $startVal
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu      eta 
+  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu     time 
     -1.0      0.3      0.3      0.3      0.2      0.5     -0.3      0.1 
 
 $dataTable
@@ -7308,7 +7308,7 @@ $olsLogl
 [1] -104.91
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu       eta 
+   beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
 -0.750149  0.476163  0.298471  0.196117  0.172149  0.523640 -0.317230  0.064722 
 
 $mleCov
@@ -7320,8 +7320,8 @@ beta_3   -5.1090e-03 -0.00106447 -0.00072417  0.00182059 -0.00082927
 sigma-sq  4.3751e-03  0.00054954 -0.00093452 -0.00082927  0.02287862
 gamma     1.3342e-02  0.00177761 -0.00273077 -0.00241836  0.06355197
 mu       -1.6441e-02 -0.00260897  0.00397154  0.00638545 -0.15727103
-eta      -2.3896e-05  0.00014991  0.00029929 -0.00040330  0.00035389
-               gamma         mu         eta
+time     -2.3896e-05  0.00014991  0.00029929 -0.00040330  0.00035389
+               gamma         mu        time
 beta_0    0.01334202 -0.0164407 -2.3896e-05
 beta_1    0.00177761 -0.0026090  1.4991e-04
 beta_2   -0.00273077  0.0039715  2.9929e-04
@@ -7329,7 +7329,7 @@ beta_3   -0.00241836  0.0063854 -4.0330e-04
 sigma-sq  0.06355197 -0.1572710  3.5389e-04
 gamma     0.17805670 -0.4373989  9.3733e-04
 mu       -0.43739891  1.1380636 -8.4083e-03
-eta       0.00093733 -0.0084083  1.2527e-03
+time      0.00093733 -0.0084083  1.2527e-03
 
 $mleLogl
 [1] -84.407
@@ -7394,7 +7394,7 @@ $gridScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, eta = TRUE, startVal = c(-1, 
+    data = riceProdPhil, mu = TRUE, timeEffect = TRUE, startVal = c(-1, 
         0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
 attr(,"class")
