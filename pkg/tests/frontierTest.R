@@ -22,6 +22,7 @@ logLik( a1, which = "grid" )
 logLik( a1 )
 print( summary( a1 ) )
 efficiencies( a1 )
+efficiencies( a1, asInData = TRUE )
 print.default( a1 )
 
 a2 <- frontier( data = front41Data, "logOutput",
@@ -38,6 +39,7 @@ logLik( a2, which = "ols" )
 logLik( a2 )
 print( summary( a2 ) )
 efficiencies( a2 )
+efficiencies( a2, asInData = TRUE )
 print.default( a2 )
 
 a3 <- frontier( data = front41Data, "logOutput",
@@ -54,6 +56,7 @@ logLik( a3, which = "ols" )
 logLik( a3 )
 print( summary( a3 ) )
 efficiencies( a3 )
+efficiencies( a3, asInData = TRUE )
 print.default( a3 )
 
 a4 <- frontier( data = front41Data, "logOutput",
@@ -70,6 +73,7 @@ logLik( a4, which = "ols" )
 logLik( a4 )
 print( summary( a4 ) )
 efficiencies( a4 )
+efficiencies( a4, asInData = TRUE )
 print.default( a4 )
 
 a5 <- frontier( data = front41Data, "logOutput",
@@ -87,6 +91,7 @@ logLik( a5, which = "ols" )
 logLik( a5 )
 print( summary( a5 ) )
 efficiencies( a5 )
+efficiencies( a5, asInData = TRUE )
 print.default( a5 )
 
 
@@ -114,6 +119,7 @@ logLik( b1, which = "ols" )
 logLik( b1 )
 print( summary( b1 ) )
 efficiencies( b1 )
+efficiencies( b1, asInData = TRUE )
 print.default( b1 )
 
 b2 <- frontier( data = riceProdPhil,
@@ -131,6 +137,7 @@ logLik( b2, which = "ols" )
 logLik( b2 )
 print( summary( b2 ) )
 efficiencies( b2 )
+efficiencies( b2, asInData = TRUE )
 print.default( b2 )
 
 b3 <- frontier( data = riceProdPhil,
@@ -148,6 +155,7 @@ logLik( b3, which = "ols" )
 logLik( b3 )
 print( summary( b3 ) )
 efficiencies( b3 )
+efficiencies( b3, asInData = TRUE )
 print.default( b3 )
 
 b4 <- frontier( data = riceProdPhil,
@@ -165,6 +173,7 @@ logLik( b4, which = "ols" )
 logLik( b4 )
 print( summary( b4 ) )
 efficiencies( b4 )
+efficiencies( b4, asInData = TRUE )
 print.default( b4 )
 
 b5 <- frontier( data = riceProdPhil,
@@ -182,6 +191,7 @@ logLik( b5, which = "ols" )
 logLik( b5 )
 print( summary( b5 ) )
 efficiencies( b5 )
+efficiencies( b5, asInData = TRUE )
 print.default( b5 )
 
 b6 <- frontier( data = riceProdPhil,
@@ -199,6 +209,7 @@ logLik( b6, which = "ols" )
 logLik( b6 )
 print( summary( b6 ) )
 efficiencies( b6 )
+efficiencies( b6, asInData = TRUE )
 print.default( b6 )
 
 b7 <- frontier( data = riceProdPhil,
@@ -217,6 +228,7 @@ logLik( b7, which = "ols" )
 logLik( b7 )
 print( summary( b7 ) )
 efficiencies( b7 )
+efficiencies( b7, asInData = TRUE )
 print.default( b7 )
 
 b8 <- frontier( data = riceProdPhil,
@@ -235,6 +247,7 @@ logLik( b8, which = "ols" )
 logLik( b8 )
 print( summary( b8 ) )
 efficiencies( b8 )
+efficiencies( b8, asInData = TRUE )
 print.default( b8 )
 
 # translog
@@ -252,6 +265,7 @@ logLik( translog, which = "ols" )
 logLik( translog )
 print( summary( translog ) )
 efficiencies( translog )
+efficiencies( translog, asInData = TRUE )
 translogEla <- elas( translog )
 print( translogEla )
 attributes( translogEla )$variance
@@ -275,6 +289,7 @@ logLik( translogShift, which = "ols" )
 logLik( translogShift )
 print( summary( translogShift ) )
 efficiencies( translogShift )
+efficiencies( translogShift, asInData = TRUE )
 translogShiftEla <- elas( translogShift )
 print( translogShiftEla )
 attributes( translogShiftEla )$variance
@@ -297,6 +312,7 @@ logLik( translogZvar, which = "ols" )
 logLik( translogZvar )
 print( summary( translogZvar ) )
 efficiencies( translogZvar )
+efficiencies( translogZvar, asInData = TRUE )
 translogZvarEla <- elas( translogZvar )
 print( translogZvarEla ) 
 attributes( translogZvarEla )$variance
