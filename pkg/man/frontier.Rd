@@ -19,7 +19,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, timeEffect = FALSE,
    printIter = 0, searchScale = NA, tol = 0.00001, searchTol = 0.001, bignum = 1.0E+16,
-   searchStep = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
+   searchStep = 0.00001, gridDouble = TRUE, gridSize = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
 }
@@ -78,9 +78,11 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       to determine the optimal step length for the next iteration
       (see Himmelblau 1972).}
    \item{gridDouble}{logical. If \code{TRUE},
-      a second phase grid search for \eqn{\gamma}{gamma} is conducted
-      around the \dQuote{best} value obtained in the first phase.}
-   \item{gridno}{numeric. Steps taken in single accuracy grid search on gamma.}
+      a second phase grid search on \eqn{\gamma}{gamma} is conducted
+      around the \dQuote{best} value obtained in the first phase
+      with an increment of \code{gridSize/10}.}
+   \item{gridSize}{numeric. The size of the increment
+      in the first phase grid search on \eqn{\gamma}{gamma}.}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{startVal}{numeric vector. Optional starting values for the ML 
       estimation.}
@@ -124,7 +126,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{bignum}{numeric. Argument \code{bignum} (see above).}
    \item{searchStep}{numeric. Argument \code{searchStep} (see above).}
    \item{gridDouble}{logical. Argument \code{gridDouble} (see above).}
-   \item{gridno}{numeric. Argument \code{gridno} (see above).}
+   \item{gridSize}{numeric. Argument \code{gridSize} (see above).}
    \item{maxit}{numeric.  Argument \code{maxit} (see above).}
    \item{startVal}{numeric vector. Argument \code{startVal}
       (only if specified by user).}

@@ -309,7 +309,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -710,7 +710,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -1112,7 +1112,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -1525,7 +1525,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -1928,7 +1928,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -2402,7 +2402,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -3143,7 +3143,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -3897,7 +3897,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -4655,7 +4655,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -5415,7 +5415,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -6183,7 +6183,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -6939,7 +6939,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -7703,7 +7703,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -8608,7 +8608,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -9254,7 +9254,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit
@@ -9898,7 +9898,7 @@ $searchStep
 $gridDouble
 [1] TRUE
 
-$gridno
+$gridSize
 [1] 0.1
 
 $maxit

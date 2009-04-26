@@ -12,7 +12,7 @@ frontier <- function(
       bignum = 1.0E+16,
       searchStep = 0.00001,
       gridDouble = TRUE,
-      gridno = 0.1,
+      gridSize = 0.1,
       maxit = 1000,
       startVal = NULL ) {
 
@@ -78,11 +78,11 @@ frontier <- function(
    if( !is.logical( gridDouble ) || length( gridDouble ) != 1 ) {
       stop( "argument 'gridDouble' must be a single logical value" )
    }
-   # gridno
-   if( !is.numeric( gridno ) ) {
-      stop( "argument 'gridno' must be numeric" )
-   } else if( gridno <= 0 ) {
-      stop( "argument 'gridno' must be positive" )
+   # gridSize (gridno)
+   if( !is.numeric( gridSize ) ) {
+      stop( "argument 'gridSize' must be numeric" )
+   } else if( gridSize <= 0 ) {
+      stop( "argument 'gridSize' must be positive" )
    }
    # maxit
    if( !is.numeric( maxit ) ) {
@@ -166,7 +166,7 @@ frontier <- function(
       bignum = as.double( bignum ),
       searchStep = as.double( searchStep ),
       gridDouble = as.integer( gridDouble ),
-      gridno = as.double( gridno ),
+      gridSize = as.double( gridSize ),
       maxit = as.integer( maxit ),
       nStartVal = as.integer( length( startVal ) ),
       startVal = as.double( startVal ),
