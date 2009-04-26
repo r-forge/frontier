@@ -230,7 +230,7 @@ mean efficiency: 0.9982546
 0.9982127 0.9981822 0.9984938 0.9981460 
 > print.default( estResultRay )
 $modelType
-[1] 1
+[1] "ECF"
 
 $ineffDecrease
 [1] TRUE

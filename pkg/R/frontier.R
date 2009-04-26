@@ -1,6 +1,6 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
-      modelType = ifelse( is.null( zNames ), 1, 2 ), 
+      modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       truncNorm = FALSE,
@@ -17,12 +17,19 @@ frontier <- function(
       maxit = 1000,
       startVal = NULL ) {
 
-   if( !modelType %in% c( 1, 2 ) ) {
-      stop( "argument 'modelType' must be either 1 or 2" )
+   # modelType (im)
+   if( modelType %in% c( 1, "ECF" ) ) {
+      modelType <- 1
+   } else if( modelType %in% c( 2, "EEF" ) ) {
+      modelType <- 2
+   } else {
+      stop( "argument 'modelType' must be either 'ECF' or 'EEF'" )
    }
+   # ineffDecrease (ipc)
    if( !is.logical( ineffDecrease ) || length( ineffDecrease ) != 1 ) {
       stop( "argument 'ineffDecrease' must be a single logical value" )
    }
+   # logDepVar (il)
    if( !is.logical( logDepVar ) ) {
       stop( "argument 'logDepVar' must be logical" )
    }
@@ -202,6 +209,12 @@ frontier <- function(
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
+   # modelType
+   if( returnObj$modelType == 1 ) {
+      returnObj$modelType <- "ECF"
+   } else {
+      returnObj$modelType <- "EEF"
+   }
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
       returnObj$truncNorm <- as.logical( returnObj$mu )

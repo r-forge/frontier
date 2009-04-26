@@ -1,10 +1,12 @@
 print.frontier <- function( x, ... ) {
 
    cat( "Stochastic Frontier Analysis with FRONTIER 4.1\n\n" )
-   if( x$modelType == 1 ) {
+   if( x$modelType == "ECF" ) {
       cat( "Error Components Frontier (see Battese & Coelli 1992)\n" )
-   } else {
+   } else if( x$modelType == "EEF" ) {
       cat( "Tech. Eff. Effects Frontier (see Battese & Coelli 1995)\n" )
+   } else {
+      stop( "unknown model type '", x$modelType, "'" )
    }
    if( x$ineffDecrease ) {
       cat( "Inefficiency decreases the endogenous variable",
