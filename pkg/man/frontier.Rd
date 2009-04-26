@@ -114,11 +114,11 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nt}{number of time periods.}
    \item{nob}{number of observations in total.}
    \item{nb}{number of regressor variables (Xs).}
+   \item{nz}{numeric. The number of efficiency effects regressors (Zs)
+      (only for the \sQuote{Efficiency Effects Frontier}).}
    \item{mu}{logical. Argument \code{mu} (see above).}
-   \item{eta}{In case of an error component model: logical,
-      indicates if an 'eta' is included in the estimation.
-      In case of an efficiency effects model: numeric,
-      the number of efficiency effects regressors (Zs).}
+   \item{timeEffect}{logical. Argument \code{timeEffect}
+      (only or the \sQuote{Error Components Frontier}).}
    \item{printIter}{numeric. Argument \code{printIter} (see above).}
    \item{searchScale}{numeric. Argument \code{searchScale} (see above).}
    \item{tol}{numeric. Argument \code{tol} (see above).}

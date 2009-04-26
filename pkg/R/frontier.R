@@ -190,6 +190,13 @@ frontier <- function(
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
+   if( modelType == 1 ) {
+      returnObj$timeEffect <- as.logical( returnObj$eta )
+      returnObj$eta <- NULL
+   } else {
+      returnObj$nz <- returnObj$eta
+      returnObj$eta <- NULL
+   }
    if( length( startVal ) == 1 ){
       returnObj$startVal <- NULL
    }
