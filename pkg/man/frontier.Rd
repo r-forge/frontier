@@ -18,10 +18,10 @@
 frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
    ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
-   zIntercept = FALSE, timeEffect = FALSE, printIter = 0,
-   searchScale = NA, tol = 0.00001, searchTol = 0.001, bignum = 1.0E+16,
-   searchStep = 0.00001, gridDouble = TRUE, gridSize = 0.1, maxit = 1000,
-   startVal = NULL )
+   zIntercept = FALSE, timeEffect = FALSE, startVal = NULL,
+   tol = 0.00001, maxit = 1000, bignum = 1.0E+16,
+   searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
+   gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
 \method{print}{frontier}( x, \dots )
 }
 
@@ -63,8 +63,19 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{TRUE}, time is allowed to have an effect on efficiency
       (this argument is ignored in case of an
       \sQuote{Efficiency Effects Frontier}).}
-   \item{printIter}{numeric. Print info every \code{printIter} iterations;
-      if this argument is 0, do not print.}
+   \item{startVal}{numeric vector. Optional starting values for the ML
+      estimation.}
+   \item{tol}{numeric. Convergence tolerance (proportional).}
+   \item{maxit}{numeric. Maximum number of iterations permitted.}
+   \item{bignum}{numeric. Used to set bounds on densities and distributions.}
+   \item{searchStep}{numeric. Size of the first step in the Coggin
+      uni-dimensional search procedure done each iteration
+      to determine the optimal step length for the next iteration
+      (see Himmelblau 1972).}
+   \item{searchTol}{numeric. Tolerance used in the Coggin
+      uni-dimensional search procedure done each iteration
+      to determine the optimal step length for the next iteration
+      (see Himmelblau 1972).}
    \item{searchScale}{logical or \code{NA}. Scaling in the Coggin
       uni-dimensional search procedure done each iteration
       to determine the optimal step length for the next iteration
@@ -73,26 +84,15 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{FALSE}, the step length is not scaled;
       if \code{NA}, the step length is scaled (to the length of last step)
          only if the last step was smaller.}
-   \item{tol}{numeric. Convergence tolerance (proportional).}
-   \item{searchTol}{numeric. Tolerance used in the Coggin
-      uni-dimensional search procedure done each iteration
-      to determine the optimal step length for the next iteration
-      (see Himmelblau 1972).}
-   \item{bignum}{numeric. Used to set bounds on densities and distributions.}
-   \item{searchStep}{numeric. Size of the first step in the Coggin
-      uni-dimensional search procedure done each iteration
-      to determine the optimal step length for the next iteration
-      (see Himmelblau 1972).}
+   \item{gridSize}{numeric. The size of the increment
+      in the first phase grid search on \eqn{\gamma}{gamma}.}
    \item{gridDouble}{logical. If \code{TRUE},
       a second phase grid search on \eqn{\gamma}{gamma} is conducted
       around the \dQuote{best} value obtained in the first phase
       with an increment of \code{gridSize/10}.}
-   \item{gridSize}{numeric. The size of the increment
-      in the first phase grid search on \eqn{\gamma}{gamma}.}
-   \item{maxit}{numeric. Maximum number of iterations permitted.}
-   \item{startVal}{numeric vector. Optional starting values for the ML 
-      estimation.}
-   \item{x}{an object of class \code{frontier} 
+   \item{printIter}{numeric. Print info every \code{printIter} iterations;
+      if this argument is 0, do not print.}
+   \item{x}{an object of class \code{frontier}
       (returned by the function \code{frontier}).}
    \item{\dots}{currently unused.}
 }

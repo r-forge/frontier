@@ -6,16 +6,16 @@ frontier <- function(
       truncNorm = FALSE,
       zIntercept = FALSE,
       timeEffect = FALSE,
-      printIter = 0,
-      searchScale = NA,
+      startVal = NULL,
       tol = 0.00001,
-      searchTol = 0.001,
+      maxit = 1000,
       bignum = 1.0E+16,
       searchStep = 0.00001,
-      gridDouble = TRUE,
+      searchTol = 0.001,
+      searchScale = NA,
       gridSize = 0.1,
-      maxit = 1000,
-      startVal = NULL ) {
+      gridDouble = TRUE,
+      printIter = 0 ) {
 
    # modelType (im)
    if( modelType %in% c( 1, "ECF" ) ) {
