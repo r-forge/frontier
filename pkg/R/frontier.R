@@ -3,7 +3,8 @@ frontier <- function(
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       ineffDecrease = TRUE,
       logDepVar = TRUE,
-      mu = FALSE,
+      truncNorm = FALSE,
+      zIntercept = FALSE,
       timeEffect = FALSE,
       printIter = 0,
       searchScale = NA,
@@ -25,11 +26,22 @@ frontier <- function(
    if( !is.logical( logDepVar ) ) {
       stop( "argument 'logDepVar' must be logical" )
    }
-   if( !is.logical( mu ) ) {
-      stop( "argument 'mu' must be logical" )
+   # truncNorm (mu)
+   if( !is.logical( truncNorm ) ) {
+      stop( "argument 'truncNorm' must be logical" )
+   }
+   # zIntercept (mu)
+   if( !is.logical( zIntercept ) ) {
+      stop( "argument 'zIntercept' must be logical" )
    }
    if( !is.logical( timeEffect ) ) {
       stop( "argument 'timeEffect' must be logical" )
+   }
+   # mu: truncNorm, zIntercept
+   if( modelType == 1 ) {
+      mu <- truncNorm
+   } else {
+      mu <- zIntercept
    }
    # printIter (iprint)
    if( !is.numeric( printIter ) ) {
@@ -190,6 +202,15 @@ frontier <- function(
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
+   # mu: truncNorm, zIntercept
+   if( modelType == 1 ) {
+      returnObj$truncNorm <- as.logical( returnObj$mu )
+      returnObj$mu <- NULL
+   } else {
+      returnObj$zIntercept <- as.logical( returnObj$mu )
+      returnObj$mu <- NULL
+   }
+   # eta: timeEffect, nz
    if( modelType == 1 ) {
       returnObj$timeEffect <- as.logical( returnObj$eta )
       returnObj$eta <- NULL
@@ -238,7 +259,7 @@ frontier <- function(
       colnames( returnObj$effic ) <- "efficiency"
    }
    if( modelType == 2 ) {
-      if( mu ){
+      if( zIntercept ){
          paramNames <- c( paramNames, "delta_0" )
       }
       if( nZvars > 0 ) {
@@ -248,7 +269,7 @@ frontier <- function(
    }
    paramNames <- c( paramNames, "sigma-sq", "gamma" )
    if( modelType == 1 ) {
-      if( mu ){
+      if( truncNorm ){
          paramNames <- c( paramNames, "mu" )
       }
       if( timeEffect ){

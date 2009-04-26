@@ -285,9 +285,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -477,6 +474,9 @@ F_58    0.66471
 F_59    0.85670
 F_60    0.70843
 
+$truncNorm
+[1] FALSE
+
 $timeEffect
 [1] FALSE
 
@@ -491,7 +491,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > a2 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE )
++    c( "logCapital", "logLabour" ), truncNorm = TRUE )
 > print( a2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -686,9 +686,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 1
-
 $printIter
 [1] 0
 
@@ -879,6 +876,9 @@ F_58    0.73363
 F_59    0.88686
 F_60    0.77528
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] FALSE
 
@@ -887,7 +887,7 @@ $searchScale
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, mu = TRUE)
+    data = front41Data, truncNorm = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -1088,9 +1088,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -1281,6 +1278,9 @@ F_58    0.66471
 F_59    0.85670
 F_60    0.70843
 
+$truncNorm
+[1] FALSE
+
 $timeEffect
 [1] TRUE
 
@@ -1295,7 +1295,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > a4 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE, timeEffect = TRUE )
++    c( "logCapital", "logLabour" ), truncNorm = TRUE, timeEffect = TRUE )
 > print( a4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1501,9 +1501,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 1
-
 $printIter
 [1] 0
 
@@ -1703,6 +1700,9 @@ F_58    0.73363
 F_59    0.88686
 F_60    0.77528
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] TRUE
 
@@ -1711,13 +1711,13 @@ $searchScale
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, mu = TRUE, timeEffect = TRUE)
+    data = front41Data, truncNorm = TRUE, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > a5 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE,
++    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1903,9 +1903,6 @@ $nob
 
 $nb
 [1] 2
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -2097,6 +2094,9 @@ F_58    0.73251
 F_59    0.88646
 F_60    0.77444
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] FALSE
 
@@ -2105,8 +2105,8 @@ $searchScale
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, mu = TRUE, startVal = c(0.5, 0.3, 0.5, 
-        0.5, 0.9, -1))
+    data = front41Data, truncNorm = TRUE, startVal = c(0.5, 0.3, 
+        0.5, 0.5, 0.9, -1))
 
 attr(,"class")
 [1] "frontier"
@@ -2377,9 +2377,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $printIter
 [1] 0
@@ -2838,6 +2835,9 @@ F_41    0.93615
 F_42    0.89945
 F_43    0.72491
 
+$truncNorm
+[1] FALSE
+
 $timeEffect
 [1] FALSE
 
@@ -2853,7 +2853,7 @@ attr(,"class")
 > 
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE )
++    truncNorm = TRUE )
 > print( b2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3118,9 +3118,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -3588,6 +3585,9 @@ F_41    0.94313
 F_42    0.91213
 F_43    0.73794
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] FALSE
 
@@ -3596,7 +3596,7 @@ $searchScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE)
+    data = riceProdPhil, truncNorm = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -3872,9 +3872,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $printIter
 [1] 0
@@ -4342,6 +4339,9 @@ F_41 0.91554 0.92006 0.92435 0.92843 0.93230 0.93598 0.93946 0.94277
 F_42 0.88815 0.89404 0.89965 0.90498 0.91005 0.91487 0.91945 0.92380
 F_43 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 
+$truncNorm
+[1] FALSE
+
 $timeEffect
 [1] TRUE
 
@@ -4357,7 +4357,7 @@ attr(,"class")
 > 
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, timeEffect = TRUE )
++    truncNorm = TRUE, timeEffect = TRUE )
 > print( b4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4630,9 +4630,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -5102,6 +5099,9 @@ F_41 0.92566 0.93004 0.93419 0.93810 0.94179 0.94527 0.94856 0.95165
 F_42 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] TRUE
 
@@ -5110,7 +5110,7 @@ $searchScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, timeEffect = TRUE)
+    data = riceProdPhil, truncNorm = TRUE, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -5390,9 +5390,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $printIter
 [1] 0
@@ -5862,6 +5859,9 @@ F_41 0.83826 0.91345 0.91018 0.90043 0.74527 0.93608 0.81674 0.93878
 F_42 0.93354 0.90354 0.89133 0.82957 0.73157 0.79449 0.74447 0.88131
 F_43 0.35444 0.32688 0.70009 0.66794 0.83542 0.91312 0.80325 0.91832
 
+$zIntercept
+[1] FALSE
+
 $nz
 [1] 2
 
@@ -5877,7 +5877,7 @@ attr(,"class")
 > 
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 > print( b6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6158,9 +6158,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -6634,6 +6631,9 @@ F_41 0.85291 0.91815 0.91528 0.90737 0.77138 0.93845 0.83545 0.94066
 F_42 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 F_43 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$zIntercept
+[1] TRUE
+
 $nz
 [1] 2
 
@@ -6642,14 +6642,14 @@ $searchScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE)
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, timeEffect = TRUE,
++    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 > print( b7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -6914,9 +6914,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -7386,6 +7383,9 @@ F_41 0.92566 0.93004 0.93419 0.93810 0.94179 0.94527 0.94856 0.95165
 F_42 0.90445 0.91001 0.91527 0.92025 0.92495 0.92940 0.93359 0.93755
 F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$truncNorm
+[1] TRUE
+
 $timeEffect
 [1] TRUE
 
@@ -7394,15 +7394,15 @@ $searchScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, timeEffect = TRUE, startVal = c(-1, 
-        0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
+    data = riceProdPhil, truncNorm = TRUE, timeEffect = TRUE, 
+    startVal = c(-1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
 attr(,"class")
 [1] "frontier"
 > 
 > b8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 > print( b8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -7678,9 +7678,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -8156,6 +8153,9 @@ F_41 0.85291 0.91815 0.91528 0.90737 0.77138 0.93845 0.83545 0.94066
 F_42 0.93491 0.90774 0.89673 0.84234 0.75129 0.80891 0.76335 0.88763
 F_43 0.36314 0.33368 0.72688 0.69669 0.85130 0.91786 0.82360 0.92253
 
+$zIntercept
+[1] TRUE
+
 $nz
 [1] 2
 
@@ -8164,7 +8164,7 @@ $searchScale
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE, 
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
     startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8))
 
 attr(,"class")
@@ -8584,9 +8584,6 @@ $nob
 $nb
 [1] 5
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -8791,6 +8788,9 @@ $effic
 58    0.72446
 59    0.87916
 60    0.73574
+
+$truncNorm
+[1] FALSE
 
 $timeEffect
 [1] FALSE
@@ -9230,9 +9230,6 @@ $nob
 $nb
 [1] 6
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -9441,6 +9438,9 @@ $effic
 58    0.71186
 59    0.87002
 60    0.71235
+
+$truncNorm
+[1] FALSE
 
 $timeEffect
 [1] FALSE
@@ -9874,9 +9874,6 @@ $nob
 $nb
 [1] 5
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -10083,6 +10080,9 @@ $effic
 58    0.78325
 59    0.90467
 60    0.79232
+
+$zIntercept
+[1] FALSE
 
 $nz
 [1] 1

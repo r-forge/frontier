@@ -26,7 +26,7 @@ efficiencies( a1, asInData = TRUE )
 print.default( a1 )
 
 a2 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), mu = TRUE )
+   c( "logCapital", "logLabour" ), truncNorm = TRUE )
 print( a2 )
 coef( a2, which = "start" )
 coef( a2, which = "ols" )
@@ -60,7 +60,7 @@ efficiencies( a3, asInData = TRUE )
 print.default( a3 )
 
 a4 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), mu = TRUE, timeEffect = TRUE )
+   c( "logCapital", "logLabour" ), truncNorm = TRUE, timeEffect = TRUE )
 print( a4 )
 coef( a4, which = "start" )
 coef( a4, which = "ols" )
@@ -77,7 +77,7 @@ efficiencies( a4, asInData = TRUE )
 print.default( a4 )
 
 a5 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), mu = TRUE,
+   c( "logCapital", "logLabour" ), truncNorm = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 print( a5 )
 coef( a5, which = "start" )
@@ -124,7 +124,7 @@ print.default( b1 )
 
 b2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE )
+   truncNorm = TRUE )
 print( b2 )
 coef( b2, which = "start" )
 coef( b2, which = "ols" )
@@ -160,7 +160,7 @@ print.default( b3 )
 
 b4 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE, timeEffect = TRUE )
+   truncNorm = TRUE, timeEffect = TRUE )
 print( b4 )
 coef( b4, which = "start" )
 coef( b4, which = "ols" )
@@ -196,7 +196,7 @@ print.default( b5 )
 
 b6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 print( b6 )
 coef( b6, which = "start" )
 coef( b6, which = "ols" )
@@ -214,7 +214,7 @@ print.default( b6 )
 
 b7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE, timeEffect = TRUE,
+   truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 print( b7 )
 coef( b7, which = "start" )
@@ -233,7 +233,7 @@ print.default( b7 )
 
 b8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 print( b8 )
 coef( b8, which = "start" )
