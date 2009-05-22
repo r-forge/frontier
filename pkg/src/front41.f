@@ -700,16 +700,6 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
 	return 
 	end
  
-	double precision function den(a)   
-c       evaluates the n(0,1) density function.
-	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bignum,step1,gridno,igrid2
-	data rrt2pi/ 0.3989422804/ 
-	den=rrt2pi*dexp(-0.5*a**2) 
-	if (den.lt.1.0/bignum) den=1.0/bignum  
-	return 
-	end
- 
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
      $  nParamTotal, ob, obse, gb, y, h, chi, idf, ate )
