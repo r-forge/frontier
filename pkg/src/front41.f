@@ -438,7 +438,7 @@ c       error components model.
 	a=0.5*ftot*(dlog(2.0*pi)+dlog(s2))    
 	a=a+0.5*(ftot-f)*dlog(1.0-g)    
 	z=u/(s2*g)**0.5
-	a=a+f*dlog(dis(z))   
+	a=a+f*dislog(z)
 	a=a+0.5*f*z**2  
 	a2=0.0
 	do 132 i=1,nn   
@@ -458,7 +458,7 @@ c       error components model.
   101   continue   
 	zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
 	a=a+0.5*dlog(1.0+(epe-1.0)*g)   
-	a=a-dlog(dis(zi))    
+	a=a-dislog(zi)
 	do 133 l=1,nt   
 	if (xx(i,l,1).ne.0.0) then
 	ee=yy(i,l)  
@@ -634,7 +634,7 @@ c       TE effects model.
 	us=(1.-g)*zd-sc*g*ee  
 	d=zd/(g*s2)**0.5   
 	ds=us/ss   
-	a=a-0.5*dlog(2.*pi)-0.5*dlog(s2)-(dlog(dis(d))-dlog(dis(ds)))  
+	a=a-0.5*dlog(2.*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
      +  -0.5*(ee+sc*zd)**2/s2 
 	endif
    10   continue   
