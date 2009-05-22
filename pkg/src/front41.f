@@ -511,8 +511,8 @@ c       of the log-likelihood function of the error components model.
 	do 106 j=1,n        
 	gx(j)=0.0
  106    continue
-	gx(n1)=0.5*ftot/s2-0.5*f*(den(-z)/(dis(z))+z)*z/s2
-	gx(n2)=-.5*(ftot-f)/(1.-g)-.5*f*(den(-z)/(1.-dis(-z))+z)*z/g
+	gx(n1)=0.5*ftot/s2-0.5*f*(den(-z)/dis(z)+z)*z/s2
+	gx(n2)=-.5*(ftot-f)/(1.-g)-.5*f*(den(-z)/dis(z)+z)*z/g
 	
 	do 105 i=1,nn
 	epr=0.0    
@@ -543,11 +543,11 @@ c       of the log-likelihood function of the error components model.
 	do 146 l=1,nt
 	if(xx(i,l,1).ne.0.0)xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
  146    continue
-	d=(den(-zi)/(dis(zi))+zi)*g*xpe*sc
+	d=(den(-zi)/dis(zi)+zi)*g*xpe*sc
 	gx(j)=gx(j)-d/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5   
  132    continue    
 	
-	gx(n1)=gx(n1)+.5*(den(-zi)/(dis(zi))+zi)*zi/s2  
+	gx(n1)=gx(n1)+.5*(den(-zi)/dis(zi)+zi)*zi/s2
 	ss=0.0
 	do 138 l=1,nt   
 	ee=yy(i,l)  
@@ -565,11 +565,11 @@ c       of the log-likelihood function of the error components model.
 	c=0.5*(u*(1.0-g)-sc*g*epr) 
 	dzi=dzi-c*((1.0-2.0*g)+(epe-1.0)*g*(2.0-3.0*g))  
 	dzi=dzi/(d**1.5*s2**0.5)    
-	gx(n2)=gx(n2)-(den(-zi)/(dis(zi))+zi)*dzi
+	gx(n2)=gx(n2)-(den(-zi)/dis(zi)+zi)*dzi
   
 	if (nmu.eq.1) then  
-	gx(n3)=gx(n3)+1./(s2*g)**0.5*(den(-z)/(dis(z))+z)   
-	d=(den(-zi)/(dis(zi))+zi)*(1.-g)
+	gx(n3)=gx(n3)+1./(s2*g)**0.5*(den(-z)/dis(z)+z)
+	d=(den(-zi)/dis(zi)+zi)*(1.-g)
 	gx(n3)=gx(n3)-d/(g*(1.-g)*s2*(1.+(epe-1.)*g))**.5  
 	end if
   
@@ -592,7 +592,7 @@ c       of the log-likelihood function of the error components model.
 	c=u*(1.0-g)-sc*g*epr  
 	c=c*0.5*g**2*(1.0-g)*s2*de    
 	dzi=(d-c)/dd**1.5    
-	gx(n4)=gx(n4)-(den(-zi)/(dis(zi))+zi)*dzi
+	gx(n4)=gx(n4)-(den(-zi)/dis(zi)+zi)*dzi
 	gx(n4)=gx(n4)+g/2.0*de/(1.0+(epe-1.0)*g)   
 	end if
   105   continue
@@ -947,7 +947,7 @@ c       efficiency.
 	si2=g*(1.0-g)*s2/(1.0+(epe-1.0)*g)  
 	si=si2**0.5
 	if (il.eq.1) then
-	tei=(1.0-dis(sc*si*eta-fi/si))/(dis(fi/si)) 
+	tei=dis(-sc*si*eta+fi/si)/dis(fi/si)
 	tei=tei*dexp(-fi*eta*sc+0.5*si2*eta**2)
 	else
 	tei=fi+si*den(fi/si)/dis(fi/si)
