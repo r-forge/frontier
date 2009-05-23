@@ -20,17 +20,17 @@ frontier <- function(
       startVal = NULL ) {
 
    if( ! code %in% c("Fortran","R") ) {
-         stop( "argument 'code' must be either 'Fortran' or '2'" )
+      stop( "argument 'code' must be either 'Fortran' or '2'" )
    }
    if( code=="R" ) {
       if (!ineffDecrease) {
-          stop("ineffDecrease cannot be false when code='R'");
+         stop("ineffDecrease cannot be false when code='R'");
       }
       if (!logDepVar) {
-          stop("logDepVar cannot be false when code='R'");
+         stop("logDepVar cannot be false when code='R'");
       }
       if ( timeEffect ) {
-          stop( "argument 'timeEffect' cannot be TRUE when code='R'");
+         stop( "argument 'timeEffect' cannot be TRUE when code='R'");
       }
    }
    if( !modelType %in% c( 1, 2 ) ) {
@@ -142,7 +142,7 @@ frontier <- function(
 
    # endogenous variable
    if ( !any( yName == colnames(data) ) ) {
-       stop(paste("Y column",yName,"not found"))
+      stop(paste("Y column",yName,"not found"))
    }
    dataTable <- cbind( dataTable, data[[ yName ]] )
 
@@ -188,42 +188,42 @@ frontier <- function(
    }
    if (code=="Fortran" && !evalLogLik) {
       returnObj <- .Fortran( "front41",
-          modelType = as.integer( modelType ),
-          ineffDecrease = as.integer( !ineffDecrease + 1 ),
-          logDepVar = as.integer( logDepVar ),
-          nn = as.integer( nn ),
-          nt = as.integer( nt ),
-          nob = as.integer( nob ),
-          nb = as.integer( nb ),
-          mu = as.integer( mu ),
-          eta = as.integer( eta ),
-          printIter = as.integer( printIter ),
-          indic = as.integer( indic ),
-          tol = as.double( tol ),
-          searchTol = as.double( searchTol ),
-          bignum = as.double( bignum ),
-          searchStep = as.double( searchStep ),
-          gridDouble = as.integer( gridDouble ),
-          gridno = as.double( gridno ),
-          maxit = as.integer( maxit ),
-          nStartVal = as.integer( length( startVal ) ),
-          startVal = as.double( startVal ),
-          nRowData = as.integer( nrow( dataTable ) ),
-          nColData = as.integer( ncol( dataTable ) ),
-          dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
+         modelType = as.integer( modelType ),
+         ineffDecrease = as.integer( !ineffDecrease + 1 ),
+         logDepVar = as.integer( logDepVar ),
+         nn = as.integer( nn ),
+         nt = as.integer( nt ),
+         nob = as.integer( nob ),
+         nb = as.integer( nb ),
+         mu = as.integer( mu ),
+         eta = as.integer( eta ),
+         printIter = as.integer( printIter ),
+         indic = as.integer( indic ),
+         tol = as.double( tol ),
+         searchTol = as.double( searchTol ),
+         bignum = as.double( bignum ),
+         searchStep = as.double( searchStep ),
+         gridDouble = as.integer( gridDouble ),
+         gridno = as.double( gridno ),
+         maxit = as.integer( maxit ),
+         nStartVal = as.integer( length( startVal ) ),
+         startVal = as.double( startVal ),
+         nRowData = as.integer( nrow( dataTable ) ),
+         nColData = as.integer( ncol( dataTable ) ),
+         dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
             ncol( dataTable ) ),
-          nParamTotal = as.integer( nParamTotal ),
-          olsParam = as.double( rep( 0, nParamTotal ) ),
-          olsStdEr = as.double( rep( 0, nParamTotal ) ),
-          olsLogl = as.double( 0 ),
-          gridParam = as.double( rep( 0, nParamTotal ) ),
-          mleParam = as.double( rep( 0, nParamTotal ) ),
-          mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
-          mleLogl = as.double( 0 ),
-          lrTestVal = as.double( 0 ),
-          lrTestDf = as.integer( 0 ),
-          nIter = as.integer( 0 ),
-          effic = matrix( as.double( 0 ), nn, nt ) )
+         nParamTotal = as.integer( nParamTotal ),
+         olsParam = as.double( rep( 0, nParamTotal ) ),
+         olsStdEr = as.double( rep( 0, nParamTotal ) ),
+         olsLogl = as.double( 0 ),
+         gridParam = as.double( rep( 0, nParamTotal ) ),
+         mleParam = as.double( rep( 0, nParamTotal ) ),
+         mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
+         mleLogl = as.double( 0 ),
+         lrTestVal = as.double( 0 ),
+         lrTestDf = as.integer( 0 ),
+         nIter = as.integer( 0 ),
+         effic = matrix( as.double( 0 ), nn, nt ) )
       returnObj$nStartVal <- NULL
       returnObj$nRowData <- NULL
       returnObj$nColData <- NULL
@@ -239,56 +239,56 @@ frontier <- function(
       returnObj$gridDouble <- as.logical( returnObj$gridDouble )
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
       returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
-     } else {  # code = "R"
-       dataTable <- cbind(matrix( as.double( dataTable ), nrow( dataTable ),
-            ncol( dataTable ) ),rep(1,nrow(dataTable)));
-       colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
+   } else {  # code = "R"
+      dataTable <- cbind(matrix( as.double( dataTable ), nrow( dataTable ),
+         ncol( dataTable ) ),rep(1,nrow(dataTable)));
+      colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
        
-        y <- dataTable[,yName];
-        x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
-        #colnames(x) <- c("ones",xNames);
-        #colnames(x) <- paste("beta", 1:ncol(x)-1, sep="_");
-        z <- matrix(0,nrow(x),0);
-        if (length(zNames)>0)  {
-             z <-  matrix(dataTable[,zNames],length(y),length(zNames))
+      y <- dataTable[,yName];
+      x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
+      #colnames(x) <- c("ones",xNames);
+      #colnames(x) <- paste("beta", 1:ncol(x)-1, sep="_");
+      z <- matrix(0,nrow(x),0);
+      if (length(zNames)>0)  {
+         z <-  matrix(dataTable[,zNames],length(y),length(zNames))
              #colnames(z) <- paste("delta", 1:ncol(z), sep="_");
              #colnames(z) <- length(zNames);
-        } 
+      } 
         
-        dataR <- list(y=y, x=x, z=z);
-        returnObj= list(modelType = modelType,
-            ineffDecrease = ineffDecrease,
-            logDepVar = as.integer(logDepVar),
-            nn = nn,
-            nt = nt,
-            nob = nob,
-            nb = nb,
-            mu = as.integer(mu),
-            eta = as.integer(eta),
-            printIter = printIter,
-            indic = indic,
-            tol = tol,
-            searchTol = searchTol,
-            bignum = bignum,
-            searchStep = searchStep,
-            gridDouble = gridDouble,
-            gridno = gridno,
-            maxit = maxit,
-            startVal = startVal,
-            dataTable = dataTable);
-        rResult <- frontierR(dataR, 
-            modelType = modelType,
-            code = code,
-            mu = mu,
-            evalLogLik = evalLogLik,
-            gridDouble = gridDouble,
-            gridno = gridno, 
-            iterlim = maxit,
-            startVal = startVal);
-        for (i in 1:length(rResult)) {
-            returnObj[[ names(rResult)[i] ]] = rResult[[i]]
-        }
-        returnObj$lrTestDf = as.integer(0)
+      dataR <- list(y=y, x=x, z=z);
+      returnObj= list(modelType = modelType,
+         ineffDecrease = ineffDecrease,
+         logDepVar = as.integer(logDepVar),
+         nn = nn,
+         nt = nt,
+         nob = nob,
+         nb = nb,
+         mu = as.integer(mu),
+         eta = as.integer(eta),
+         printIter = printIter,
+         indic = indic,
+         tol = tol,
+         searchTol = searchTol,
+         bignum = bignum,
+         searchStep = searchStep,
+         gridDouble = gridDouble,
+         gridno = gridno,
+         maxit = maxit,
+         startVal = startVal,
+         dataTable = dataTable);
+      rResult <- frontierR(dataR,
+         modelType = modelType,
+         code = code,
+         mu = mu,
+         evalLogLik = evalLogLik,
+         gridDouble = gridDouble,
+         gridno = gridno,
+         iterlim = maxit,
+         startVal = startVal);
+      for (i in 1:length(rResult)) {
+         returnObj[[ names(rResult)[i] ]] = rResult[[i]]
+      }
+      returnObj$lrTestDf = as.integer(0)
    }
    
    if (!evalLogLik && maxit==returnObj$nIter) {
