@@ -281,9 +281,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 0
-
 $eta
 [1] 0
 
@@ -476,6 +473,9 @@ F_60    0.70843
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -489,9 +489,9 @@ frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, error components frontier, mu != 0
+> ## cross-section data, error components frontier, truncNorm
 > a2 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE ,code="R")
++    c( "logCapital", "logLabour" ), truncNorm = TRUE ,code="R")
 > print( a2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -681,9 +681,6 @@ $nob
 
 $nb
 [1] 2
-
-$mu
-[1] 1
 
 $eta
 [1] 0
@@ -878,6 +875,9 @@ F_60    0.78560
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -886,14 +886,14 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, code = "R", mu = TRUE)
+    data = front41Data, code = "R", truncNorm = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, error components frontier, starting values
+> ## cross-section data, error components frontier, truncNorm, starting values
 > a5 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), mu = TRUE,
++    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1075,9 +1075,6 @@ $nob
 
 $nb
 [1] 2
-
-$mu
-[1] 1
 
 $eta
 [1] 0
@@ -1272,6 +1269,9 @@ F_60    0.78560
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -1280,7 +1280,7 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, code = "R", mu = TRUE, startVal = c(0.5, 
+    data = front41Data, code = "R", truncNorm = TRUE, startVal = c(0.5, 
         0.3, 0.5, -1, 0.5, 0.9))
 
 attr(,"class")
@@ -1486,9 +1486,6 @@ $nob
 $nb
 [1] 2
 
-$mu
-[1] 0
-
 $eta
 [1] 1
 
@@ -1689,6 +1686,9 @@ F_60    0.76698
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -1702,9 +1702,9 @@ frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, efficiency effects frontier, mu != 0
+> ## cross-section data, efficiency effects frontier, zIntercept
 > aa2 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE, code = "R" )
++    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE, code = "R" )
 > print( aa2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1905,9 +1905,6 @@ $nob
 
 $nb
 [1] 2
-
-$mu
-[1] 1
 
 $eta
 [1] 1
@@ -2111,6 +2108,9 @@ F_60    0.78575
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -2119,14 +2119,14 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    zNames = "firmNo", data = front41Data, code = "R", mu = TRUE)
+    zNames = "firmNo", data = front41Data, code = "R", zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, efficiency effects frontier, starting values
+> ## cross-section data, efficiency effects frontier, zIntercept, starting values
 > aa5 <- frontier( data = front41Data, "logOutput",
-+    c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE,
++    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ), code = "R" )
 > print( aa5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2320,9 +2320,6 @@ $nob
 
 $nb
 [1] 2
-
-$mu
-[1] 1
 
 $eta
 [1] 1
@@ -2526,6 +2523,9 @@ F_60    0.78566
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -2534,7 +2534,7 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    zNames = "firmNo", data = front41Data, code = "R", mu = TRUE, 
+    zNames = "firmNo", data = front41Data, code = "R", zIntercept = TRUE, 
     startVal = c(0.5, 0.3, 0.5, -0.4, -0.01, 0.4, 0.9))
 
 attr(,"class")
@@ -3085,9 +3085,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $eta
 [1] 0
@@ -3850,6 +3847,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -3863,10 +3863,10 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section rice data, error components frontier, mu != 0
+> ## cross-section rice data, error components frontier, truncNorm
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, code = "R" )
++    truncNorm = TRUE, code = "R" )
 > print( bb2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -4416,9 +4416,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 0
@@ -5192,6 +5189,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -5200,7 +5200,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", mu = TRUE)
+    data = riceProdPhil, code = "R", truncNorm = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -5758,9 +5758,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $eta
 [1] 2
@@ -6534,6 +6531,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -6547,10 +6547,10 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section rice data, efficiency effects frontier, mu != 0
+> ## cross-section rice data, efficiency effects frontier, zIntercept
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R" )
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE, code = "R" )
 > print( bb6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7108,9 +7108,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 2
@@ -7888,6 +7885,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -7897,15 +7897,15 @@ $code
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    mu = TRUE)
+    zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section rice data, error components frontier, mu != 0, starting values
+> ## cross-section rice data, error components frontier, truncNorm, starting values
 > bb7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, code = "R",
++    truncNorm = TRUE, code = "R",
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, 0.2, 0.5 ) )
 > print( bb7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -8446,9 +8446,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 0
@@ -9222,6 +9219,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -9230,16 +9230,16 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", mu = TRUE, startVal = c(-1, 
+    data = riceProdPhil, code = "R", truncNorm = TRUE, startVal = c(-1, 
         0.3, 0.3, 0.3, -0.3, 0.2, 0.5))
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section rice data, efficiency effects frontier, mu != 0, starting values
+> ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 > bb8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R",
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE, code = "R",
 +    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 > print( bb8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -9792,9 +9792,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 2
@@ -10574,6 +10571,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -10583,8 +10583,8 @@ $code
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    mu = TRUE, startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, -4, 
-        2, 0.8))
+    zIntercept = TRUE, startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, 
+        -4, 2, 0.8))
 
 attr(,"class")
 [1] "frontier"
@@ -11149,9 +11149,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $eta
 [1] 0
@@ -11914,6 +11911,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -11927,10 +11927,10 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0
+> ## panel data, error components frontier, truncNorm
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, code = "R" )
++    truncNorm = TRUE, code = "R" )
 > print( b2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -12496,9 +12496,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 0
@@ -13272,6 +13269,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -13280,7 +13280,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", mu = TRUE)
+    data = riceProdPhil, code = "R", truncNorm = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -13553,9 +13553,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $printIter
 [1] 0
@@ -14026,6 +14023,9 @@ F_43 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 $timeEffect
 [1] TRUE
 
+$truncNorm
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -14039,10 +14039,10 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0, timeEffect != 0
+> ## panel data, error components frontier, truncNorm, timeEffect != 0
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, timeEffect = TRUE )
++    truncNorm = TRUE, timeEffect = TRUE )
 > print( b4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -14311,9 +14311,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -14786,6 +14783,9 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -14794,7 +14794,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, timeEffect = TRUE)
+    data = riceProdPhil, truncNorm = TRUE, timeEffect = TRUE)
 
 attr(,"class")
 [1] "frontier"
@@ -15368,9 +15368,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 0
 
 $eta
 [1] 2
@@ -16144,6 +16141,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -16157,10 +16157,10 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, efficiency effects frontier, mu != 0
+> ## panel data, efficiency effects frontier, zIntercept
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, code = "R" )
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE, code = "R" )
 > print( b6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -16734,9 +16734,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $eta
 [1] 2
@@ -17514,6 +17511,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -17523,15 +17523,15 @@ $code
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    mu = TRUE)
+    zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0, timeEffect != 0, starting values
+> ## panel data, error components frontier, truncNorm, timeEffect != 0, starting values
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    mu = TRUE, timeEffect = TRUE,
++    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 > print( b7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -17792,9 +17792,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -18267,6 +18264,9 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
+$truncNorm
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -18275,16 +18275,16 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, mu = TRUE, timeEffect = TRUE, startVal = c(-1, 
-        0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
+    data = riceProdPhil, truncNorm = TRUE, timeEffect = TRUE, 
+    startVal = c(-1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, efficiency effects frontier, mu != 0, starting values
+> ## panel data, efficiency effects frontier, zIntercept, starting values
 > b8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
++    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 > print( b8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -18556,9 +18556,6 @@ $nob
 
 $nb
 [1] 3
-
-$mu
-[1] 1
 
 $printIter
 [1] 0
@@ -19037,6 +19034,9 @@ F_43 0.36314 0.33368 0.72688 0.69669 0.85130 0.91786 0.82360 0.92253
 $nz
 [1] 2
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -19045,7 +19045,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, mu = TRUE, 
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
     startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8))
 
 attr(,"class")
@@ -19060,7 +19060,7 @@ attr(,"class")
 > 
 > c1R <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R" )
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R" )
 > print( c1R )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -19278,9 +19278,6 @@ $nob
 $nb
 [1] 4
 
-$mu
-[1] 1
-
 $eta
 [1] 2
 
@@ -19479,6 +19476,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -19488,14 +19488,14 @@ $code
 $call
 frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther", 
     "lCapital"), zNames = c("idh", "gip_pc"), data = prodAgrBrazil, 
-    code = "R", mu = TRUE)
+    code = "R", zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > c1F <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran")
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran")
 > print( c1F )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -19713,9 +19713,6 @@ $nob
 $nb
 [1] 4
 
-$mu
-[1] 1
-
 $printIter
 [1] 0
 
@@ -19914,6 +19911,9 @@ $effic
 $nz
 [1] 2
 
+$zIntercept
+[1] TRUE
+
 $searchScale
 [1] NA
 
@@ -19923,29 +19923,29 @@ $code
 $call
 frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther", 
     "lCapital"), zNames = c("idh", "gip_pc"), data = prodAgrBrazil, 
-    code = "Fortran", mu = TRUE)
+    code = "Fortran", zIntercept = TRUE)
 
 attr(,"class")
 [1] "frontier"
 > 
 > c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLik=TRUE,
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
 +     startVal=c1R$mleParam )
 > 
 > c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLik=TRUE,
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
 +     startVal=c1R$mleParam)
 > 
 > c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLik=TRUE,
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
 +     startVal=c1F$mleParam )
 > 
 > c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLik=TRUE,
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
 +     startVal=c1F$mleParam)
 > 
 > print(c1R$mleLogl)
@@ -20185,9 +20185,6 @@ $nob
 $nb
 [1] 5
 
-$mu
-[1] 0
-
 $eta
 [1] 0
 
@@ -20395,6 +20392,9 @@ $effic
 
 $lrTestDf
 [1] 0
+
+$truncNorm
+[1] FALSE
 
 $searchScale
 [1] NA
@@ -20642,9 +20642,6 @@ $nob
 $nb
 [1] 6
 
-$mu
-[1] 0
-
 $eta
 [1] 0
 
@@ -20856,6 +20853,9 @@ $effic
 
 $lrTestDf
 [1] 0
+
+$truncNorm
+[1] FALSE
 
 $searchScale
 [1] NA
@@ -21097,9 +21097,6 @@ $nob
 
 $nb
 [1] 5
-
-$mu
-[1] 0
 
 $eta
 [1] 1
@@ -21371,6 +21368,9 @@ $effic
 
 $lrTestDf
 [1] 0
+
+$zIntercept
+[1] FALSE
 
 $searchScale
 [1] NA

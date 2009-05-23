@@ -27,9 +27,9 @@ efficiencies( a1 )
 efficiencies( a1, asInData = TRUE )
 print.default( a1 )
 
-## cross-section data, error components frontier, mu != 0
+## cross-section data, error components frontier, truncNorm
 a2 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), mu = TRUE )
+   c( "logCapital", "logLabour" ), truncNorm = TRUE )
 print( a2 )
 coef( a2, which = "start" )
 coef( a2, which = "ols" )
@@ -45,9 +45,9 @@ efficiencies( a2 )
 efficiencies( a2, asInData = TRUE )
 print.default( a2 )
 
-## cross-section data, error components frontier, starting values
+## cross-section data, error components frontier, truncNorm, starting values
 a5 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), mu = TRUE,
+   c( "logCapital", "logLabour" ), truncNorm = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 print( a5 )
 coef( a5, which = "start" )
@@ -80,9 +80,9 @@ efficiencies( aa1 )
 efficiencies( aa1, asInData = TRUE )
 print.default( aa1 )
 
-## cross-section data, efficiency effects frontier, mu != 0
+## cross-section data, efficiency effects frontier, zIntercept
 aa2 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE )
+   c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
 print( aa2 )
 coef( aa2, which = "start" )
 coef( aa2, which = "ols" )
@@ -96,9 +96,9 @@ efficiencies( aa2 )
 efficiencies( aa2, asInData = TRUE )
 print.default( aa2 )
 
-## cross-section data, efficiency effects frontier, starting values
+## cross-section data, efficiency effects frontier, zIntercept, starting values
 aa5 <- frontier( data = front41Data, "logOutput",
-   c( "logCapital", "logLabour" ), zNames = "firmNo", mu = TRUE,
+   c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
 print( aa5 )
 coef( aa5, which = "start" )
@@ -137,10 +137,10 @@ efficiencies( bb1 )
 efficiencies( bb1, asInData = TRUE )
 print.default( bb1 )
 
-## cross-section rice data, error components frontier, mu != 0
+## cross-section rice data, error components frontier, truncNorm
 bb2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE )
+   truncNorm = TRUE )
 print( bb2 )
 coef( bb2, which = "start" )
 coef( bb2, which = "ols" )
@@ -171,10 +171,10 @@ efficiencies( bb5 )
 efficiencies( bb5, asInData = TRUE )
 print.default( bb5 )
 
-## cross-section rice data, efficiency effects frontier, mu != 0
+## cross-section rice data, efficiency effects frontier, zIntercept
 bb6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 print( bb6 )
 coef( bb6, which = "start" )
 coef( bb6, which = "ols" )
@@ -188,10 +188,10 @@ efficiencies( bb6 )
 efficiencies( bb6, asInData = TRUE )
 print.default( bb6 )
 
-## cross-section rice data, error components frontier, mu != 0, starting values
+## cross-section rice data, error components frontier, truncNorm, starting values
 bb7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE,
+   truncNorm = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3 ) )
 print( bb7 )
 coef( bb7, which = "start" )
@@ -206,10 +206,10 @@ efficiencies( bb7 )
 efficiencies( bb7, asInData = TRUE )
 print.default( bb7 )
 
-## cross-section rice data, efficiency effects frontier, mu != 0, starting values
+## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 bb8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE,
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 print( bb8 )
 coef( bb8, which = "start" )
@@ -249,10 +249,10 @@ efficiencies( b1 )
 efficiencies( b1, asInData = TRUE )
 print.default( b1 )
 
-## panel data, error components frontier, mu != 0
+## panel data, error components frontier, truncNorm
 b2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE )
+   truncNorm = TRUE )
 print( b2 )
 coef( b2, which = "start" )
 coef( b2, which = "ols" )
@@ -287,10 +287,10 @@ efficiencies( b3 )
 efficiencies( b3, asInData = TRUE )
 print.default( b3 )
 
-## panel data, error components frontier, mu != 0, timeEffect != 0
+## panel data, error components frontier, truncNorm, timeEffect != 0
 b4 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE, timeEffect = TRUE )
+   truncNorm = TRUE, timeEffect = TRUE )
 print( b4 )
 coef( b4, which = "start" )
 coef( b4, which = "ols" )
@@ -325,10 +325,10 @@ efficiencies( b5 )
 efficiencies( b5, asInData = TRUE )
 print.default( b5 )
 
-## panel data, efficiency effects frontier, mu != 0
+## panel data, efficiency effects frontier, zIntercept
 b6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE )
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 print( b6 )
 coef( b6, which = "start" )
 coef( b6, which = "ols" )
@@ -344,10 +344,10 @@ efficiencies( b6 )
 efficiencies( b6, asInData = TRUE )
 print.default( b6 )
 
-## panel data, error components frontier, mu != 0, timeEffect != 0, starting values
+## panel data, error components frontier, truncNorm, timeEffect != 0, starting values
 b7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   mu = TRUE, timeEffect = TRUE,
+   truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 print( b7 )
 coef( b7, which = "start" )
@@ -364,10 +364,10 @@ efficiencies( b7 )
 efficiencies( b7, asInData = TRUE )
 print.default( b7 )
 
-## panel data, efficiency effects frontier, mu != 0, starting values
+## panel data, efficiency effects frontier, zIntercept, starting values
 b8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = c( "EDYRS", "BANRAT" ), mu = TRUE, 
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
 print( b8 )
 coef( b8, which = "start" )

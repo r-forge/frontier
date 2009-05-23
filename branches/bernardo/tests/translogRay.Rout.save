@@ -250,9 +250,6 @@ $nob
 $nb
 [1] 14
 
-$mu
-[1] 0
-
 $printIter
 [1] 0
 
@@ -457,6 +454,9 @@ $effic
 20  0.9981460
 
 $timeEffect
+[1] FALSE
+
+$truncNorm
 [1] FALSE
 
 $searchScale

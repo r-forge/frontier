@@ -19,9 +19,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    showParNames = FALSE,
    code = "Fortran",
    modelType = ifelse( is.null( zNames ), 1, 2 ),
-   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, timeEffect = FALSE,
-   evalLogLik = FALSE,
-   printIter = 0, searchScale = NA, tol = 0.00001, searchTol = 0.001, bignum = 1.0E+16,
+   ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
+   zIntercept = FALSE, timeEffect = FALSE, evalLogLik = FALSE, printIter = 0,
+   searchScale = NA, tol = 0.00001, searchTol = 0.001, bignum = 1.0E+16,
    searchStep = 0.00001, gridDouble = TRUE, gridSize = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
@@ -56,11 +56,18 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       inefficiency increases the endogenous variable
       (e.g. for estimating a cost function).}
    \item{logDepVar}{logical. Is the dependent variable logged.}
-   \item{mu}{logical. Should a 'mu' (in case of an 'Error Components Frontier',
-      i.e. modelType = 1)
-      or a delta0 (in case of an 'Efficiency Effects Frontier',
-      i.e. modelType = 2)
-      be included in the estimation.}
+   \item{truncNorm}{logical. If \code{TRUE},
+      the inefficiencies are assumed to have a truncated normal distribution
+      (i.e. parameter \eqn{\mu}{mu} is added);
+      if \code{FALSE},
+      they are assumed to have a half-normal distribution
+      (only relevant for the \sQuote{Error Components Frontier},
+      i.e. modelType = 1).}
+   \item{zIntercept}{logical. If \code{TRUE},
+      an intercept (with parameter \eqn{\delta_0}{delta_0})
+      is added to the Z variables
+      (only relevant for the \sQuote{Efficiency Effects Frontier},
+      i.e. modelType = 2).}
    \item{timeEffect}{logical. If \code{FALSE} (default),
       the efficiency estimates of an \sQuote{Error Components Frontier}
       (\code{modelType = 1})
@@ -130,6 +137,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nb}{number of regressor variables (Xs).}
    \item{mu}{logical. Argument \code{mu} (see above).}
    \item{nz}{numeric. The number of efficiency effects regressors (Zs)
+      (only for the \sQuote{Efficiency Effects Frontier}).}
+   \item{truncNorm}{logical. Argument \code{truncNorm}
+      (only for the \sQuote{Error Components Frontier}).}
+   \item{zIntercept}{logical. Argument \code{zIntercept}
       (only for the \sQuote{Efficiency Effects Frontier}).}
    \item{timeEffect}{logical. Argument \code{timeEffect}
       (only or the \sQuote{Error Components Frontier}).}
