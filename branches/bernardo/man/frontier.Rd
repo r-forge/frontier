@@ -21,7 +21,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    evalLogLik = FALSE,
-   printIter = 0, scaling = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
+   printIter = 0, gridScale = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
@@ -67,7 +67,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       is evaluated and returned (given the starting values and the data).}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
       if this argument is 0, do not print.}
-   \item{scaling}{logical or \code{NA}. Scaling in unidimensional search procedure:
+   \item{gridScale}{logical or \code{NA}. Scaling in unidimensional grid search procedure:
       if \code{TRUE}, the step length is scaled to the length of the last step;
       if \code{FALSE}, the step length is not scaled;
       if \code{NA}, the step length is scaled (to the length of last step)
@@ -121,7 +121,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       the number of efficiency effects regressors (Zs).}
    \item{printIter}{numeric. Printing of information
       on the iterations (see above).}
-   \item{scaling}{numeric. Scaling of unidimensional search procedure
+   \item{gridScale}{numeric. Scaling of unidimensional grid search procedure
       (see above).}
    \item{tol}{numeric. Convergence tolerance.}
    \item{gridTol}{numeric. Tolerance used in uni-dimensional grid search procedure.}
