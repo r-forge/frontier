@@ -22,7 +22,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, timeEffect = FALSE,
    evalLogLik = FALSE,
    printIter = 0, gridScale = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
-   step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
+   stepSize = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
 }
@@ -80,7 +80,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{gridTol}{numeric. Tolerance used in uni-dimensional grid search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
-   \item{step1}{numeric. Size of 1st step in search procedure.}
+   \item{stepSize}{numeric. Size of the 1st step in the iterative
+      uni-dimensional search procedure to determine the optimal step length
+      for the next iteration.
+      The Coggin method is used (see Himmelblau, 1972).}
    \item{gridDouble}{logical. If \code{TRUE},
       a second phase grid search for \eqn{\gamma}{gamma} is conducted
       around the \dQuote{best} value obtained in the first phase.}
@@ -131,7 +134,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{tol}{numeric. Convergence tolerance.}
    \item{gridTol}{numeric. Tolerance used in uni-dimensional grid search procedure.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
-   \item{step1}{numeric. Size of 1st step in search procedure.}
+   \item{stepSize}{numeric. Size of the 1st step in the iterative
+      uni-dimensional search procedure (see above).}
    \item{gridDouble}{logical. Value of argument \code{gridDouble}
       (see above).}
    \item{gridno}{numeric. Steps taken in single accuracy grid search
@@ -174,6 +178,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       Estimation, CEPA Working Paper 96/08,
       \url{http://www.uq.edu.au/economics/cepa/frontier.htm},
       University of New England.
+
+   Himmelblau, D.M. (1972), \emph{Applied Non-Linear Programming},
+      McGraw-Hill, New York.
 }
 
 \seealso{\code{\link{frontierQuad}} for quadratic/translog frontiers.}
