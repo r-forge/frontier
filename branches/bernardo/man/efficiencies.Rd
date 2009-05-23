@@ -9,13 +9,13 @@
 }
 
 \usage{
-   efficiencies( object, \dots )
-   \method{efficiencies}{default}( object, \dots )
+efficiencies( object, \dots )
+\method{efficiencies}{default}( object, \dots )
 }
 
 \arguments{
-  \item{object}{a frontier model}
-  \item{\dots}{further arguments for methods}
+   \item{object}{a frontier model.}
+   \item{\dots}{further arguments for methods.}
 }
 
 \details{
