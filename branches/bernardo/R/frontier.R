@@ -308,6 +308,18 @@ frontier <- function(
     if( modelType == 1 && eta == FALSE ) {
         returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
     }
+   # assign row names and column names to efficiency estimates
+   if( "plm.dim" %in% class( data ) && code != "R" ) {
+      rownames( returnObj$effic ) <- unique( dataTable[ , 1 ] )
+      if( modelType == 1 && eta == FALSE ) {
+         colnames( returnObj$effic ) <- "efficiency"
+      } else {
+         colnames( returnObj$effic ) <- unique( dataTable[ , 2 ] )
+      }
+   } else {
+      rownames( returnObj$effic ) <- rownames( data )
+      colnames( returnObj$effic ) <- "efficiency"
+   }
     if( modelType == 2 ) {
         if( mu ){
             if (showParNames) {
