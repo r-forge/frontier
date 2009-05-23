@@ -26,6 +26,6 @@
 
 \author{Arne Henningsen}
 
-\seealso{\code{\link{frontier}}}
+\seealso{\code{\link{efficiencies.frontier}}.}
 
 \keyword{methods}
