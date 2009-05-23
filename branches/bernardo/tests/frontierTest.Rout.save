@@ -296,7 +296,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -701,7 +701,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -1099,7 +1099,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -1509,7 +1509,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -1929,7 +1929,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -2344,7 +2344,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -3109,7 +3109,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -4436,7 +4436,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -5776,7 +5776,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -7126,7 +7126,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -8459,7 +8459,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -9803,7 +9803,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -10862,7 +10862,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -11607,7 +11607,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -12365,7 +12365,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -13127,7 +13127,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -13891,7 +13891,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -14663,7 +14663,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -15423,7 +15423,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -16191,7 +16191,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -17100,7 +17100,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -17748,7 +17748,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
@@ -18395,7 +18395,7 @@ $printIter
 $tol
 [1] 1e-05
 
-$gridTol
+$searchTol
 [1] 0.001
 
 $bignum
