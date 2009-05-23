@@ -131,8 +131,8 @@ frontier <- function(
 
    # cross section and time period identifier
    if( "plm.dim" %in% class( data ) ) {
-      dataTable <- matrix( data[[ 1 ]], ncol = 1 )
-      dataTable <- cbind( dataTable, data[[ 2 ]] )
+      dataTable <- matrix( as.integer( data[[ 1 ]] ), ncol = 1 )
+      dataTable <- cbind( dataTable, as.integer( data[[ 2 ]] ) )
    } else {
       dataTable <- matrix( 1:nrow( data ), ncol = 1 )
       dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
