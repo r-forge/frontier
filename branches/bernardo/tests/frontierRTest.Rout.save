@@ -214,9 +214,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -403,6 +400,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -539,9 +539,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -730,6 +727,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -858,9 +858,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1049,6 +1046,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -1193,9 +1193,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1391,6 +1388,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -1538,9 +1538,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -1738,6 +1735,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -1878,9 +1878,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -2078,6 +2075,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -2226,9 +2226,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -2985,6 +2982,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -3140,9 +3140,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -3910,6 +3907,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -4065,9 +4065,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -4835,6 +4832,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -4998,9 +4998,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -5772,6 +5769,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -5919,9 +5919,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -6689,6 +6686,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -6848,9 +6848,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -7624,6 +7621,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -7769,9 +7769,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -8528,6 +8525,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -8683,9 +8683,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -9453,6 +9450,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -9607,9 +9607,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -10074,6 +10071,9 @@ $effic
 [42,] 0.88815 0.89404 0.89965 0.90498 0.91005 0.91487 0.91945 0.92380
 [43,] 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 
+$scaling
+[1] NA
+
 $code
 [1] "Fortran"
 
@@ -10232,9 +10232,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -10701,6 +10698,9 @@ $effic
 [42,] 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$scaling
+[1] NA
+
 $code
 [1] "Fortran"
 
@@ -10856,9 +10856,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -11626,6 +11623,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -11789,9 +11789,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -12563,6 +12560,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -12714,9 +12714,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -13183,6 +13180,9 @@ $effic
 [42,] 0.90445 0.91001 0.91527 0.92025 0.92495 0.92940 0.93359 0.93755
 [43,] 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
+$scaling
+[1] NA
+
 $code
 [1] "Fortran"
 
@@ -13345,9 +13345,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -13820,6 +13817,9 @@ $effic
 [42,] 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 [43,] 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
+$scaling
+[1] NA
+
 $code
 [1] "Fortran"
 
@@ -13997,9 +13997,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -14193,6 +14190,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -14363,9 +14363,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -14558,6 +14555,9 @@ $effic
 [52,] 0.95792
 [53,] 0.39189
 [54,] 0.34706
+
+$scaling
+[1] NA
 
 $code
 [1] "Fortran"
@@ -14761,9 +14761,6 @@ $eta
 $printIter
 [1] 0
 
-$indic
-[1] 1
-
 $tol
 [1] 1e-05
 
@@ -14966,6 +14963,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -15142,9 +15142,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -15352,6 +15349,9 @@ $effic
 $lrTestDf
 [1] 0
 
+$scaling
+[1] NA
+
 $code
 [1] "R"
 
@@ -15523,9 +15523,6 @@ $eta
 
 $printIter
 [1] 0
-
-$indic
-[1] 1
 
 $tol
 [1] 1e-05
@@ -15791,6 +15788,9 @@ $effic
 
 $lrTestDf
 [1] 0
+
+$scaling
+[1] NA
 
 $code
 [1] "R"

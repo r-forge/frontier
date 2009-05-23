@@ -9,7 +9,7 @@ frontier <- function(
       eta = FALSE,
       evalLogLik = FALSE,
       printIter = 0,
-      indic = 1,
+      scaling = NA,
       tol = 0.00001,
       tol2 = 0.001,
       bignum = 1.0E+16,
@@ -60,13 +60,16 @@ frontier <- function(
       stop( "argument 'printIter' must be non-negative" )
    }
    printIter <- as.integer( printIter )
-   # indic
-   if( !is.numeric( indic ) ) {
-      stop( "argument 'indic' must be numeric" )
-   } else if( indic != round( indic ) ) {
-      stop( "argument 'indic' must be an integer" )
+   # scaling (indic)
+   if( length( scaling ) != 1 ) {
+      stop( "argument 'scaling' must be a single logical value or NA" )
+   } else if( is.na( scaling ) ) {
+      indic <- as.integer( 1 )
+   } else if( is.logical( scaling ) ) {
+      indic <- as.integer( 2 - 2 * scaling )
+   } else {
+      stop( "argument 'scaling' must be a logical value or NA" )
    }
-   indic <- as.integer( indic )
    # tol
    if( !is.numeric( tol ) ) {
       stop( "argument 'tol' must be numeric" )
@@ -282,6 +285,14 @@ frontier <- function(
    if (!evalLogLik && maxit==returnObj$nIter) {
       stop("Maximum number of iterations reached");
    }
+   if( returnObj$indic == 2 ) {
+      returnObj$scaling <- FALSE
+   } else if( returnObj$indic == 1 ) {
+      returnObj$scaling <- NA
+   } else {
+      returnObj$scaling <- TRUE
+   }
+   returnObj$indic <- NULL
    
    returnObj$code <- code;
     if( length( startVal ) == 1 ){
