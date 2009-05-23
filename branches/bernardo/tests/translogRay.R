@@ -18,4 +18,5 @@ estResultRay <- frontierTranslogRay( yNames = c( "qCrop", "qAnimal" ),
 print( estResultRay )
 summary( estResultRay )
 efficiencies( estResultRay )
+efficiencies( estResultRay, asInData = TRUE )
 print.default( estResultRay )

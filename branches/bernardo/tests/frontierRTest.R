@@ -21,6 +21,7 @@ coef( summary( a1 ) )
 vcov( a1 )
 print( summary( a1 ) )
 efficiencies( a1 )
+efficiencies( a1, asInData = TRUE )
 print.default( a1 )
 
 ## cross-section data, error components frontier, mu != 0
@@ -36,6 +37,7 @@ coef( summary( a2 ) )
 vcov( a2 )
 print( summary( a2 ) )
 efficiencies( a2 )
+efficiencies( a2, asInData = TRUE )
 print.default( a2 )
 
 ## cross-section data, error components frontier, starting values
@@ -52,6 +54,7 @@ coef( summary( a5 ) )
 vcov( a5 )
 print( summary( a5 ) )
 efficiencies( a5 )
+efficiencies( a5, asInData = TRUE )
 print.default( a5 )
 
 ## cross-section data, efficiency effects frontier
@@ -67,6 +70,7 @@ coef( summary( aa1 ) )
 vcov( aa1 )
 print( summary( aa1 ) )
 efficiencies( aa1 )
+efficiencies( aa1, asInData = TRUE )
 print.default( aa1 )
 
 ## cross-section data, efficiency effects frontier, mu != 0
@@ -82,6 +86,7 @@ coef( summary( aa2 ) )
 vcov( aa2 )
 print( summary( aa2 ) )
 efficiencies( aa2 )
+efficiencies( aa2, asInData = TRUE )
 print.default( aa2 )
 
 ## cross-section data, efficiency effects frontier, starting values
@@ -98,6 +103,7 @@ coef( summary( aa5 ) )
 vcov( aa5 )
 print( summary( aa5 ) )
 efficiencies( aa5 )
+efficiencies( aa5, asInData = TRUE )
 print.default( aa5 )
 
 
@@ -121,6 +127,7 @@ coef( summary( bb1 ) )
 vcov( bb1 )
 print( summary( bb1 ) )
 efficiencies( bb1 )
+efficiencies( bb1, asInData = TRUE )
 print.default( bb1 )
 
 ## cross-section rice data, error components frontier, mu != 0
@@ -137,6 +144,7 @@ coef( summary( bb2 ) )
 vcov( bb2 )
 print( summary( bb2 ) )
 efficiencies( bb2 )
+efficiencies( bb2, asInData = TRUE )
 print.default( bb2 )
 
 ## cross-section rice data, efficiency effects frontier
@@ -153,6 +161,7 @@ coef( summary( bb5 ) )
 vcov( bb5 )
 print( summary( bb5 ) )
 efficiencies( bb5 )
+efficiencies( bb5, asInData = TRUE )
 print.default( bb5 )
 
 ## cross-section rice data, efficiency effects frontier, mu != 0
@@ -169,6 +178,7 @@ coef( summary( bb6 ) )
 vcov( bb6 )
 print( summary( bb6 ) )
 efficiencies( bb6 )
+efficiencies( bb6, asInData = TRUE )
 print.default( bb6 )
 
 ## cross-section rice data, error components frontier, mu != 0, starting values
@@ -186,6 +196,7 @@ coef( summary( bb7 ) )
 vcov( bb7 )
 print( summary( bb7 ) )
 efficiencies( bb7 )
+efficiencies( bb7, asInData = TRUE )
 print.default( bb7 )
 
 ## cross-section rice data, efficiency effects frontier, mu != 0, starting values
@@ -203,6 +214,7 @@ coef( summary( bb8 ) )
 vcov( bb8 )
 print( summary( bb8 ) )
 efficiencies( bb8 )
+efficiencies( bb8, asInData = TRUE )
 print.default( bb8 )
 
 
@@ -225,6 +237,7 @@ coef( summary( b1 ) )
 vcov( b1 )
 print( summary( b1 ) )
 efficiencies( b1 )
+efficiencies( b1, asInData = TRUE )
 print.default( b1 )
 
 ## panel data, error components frontier, mu != 0
@@ -241,6 +254,7 @@ coef( summary( b2 ) )
 vcov( b2 )
 print( summary( b2 ) )
 efficiencies( b2 )
+efficiencies( b2, asInData = TRUE )
 print.default( b2 )
 
 ## panel data, error components frontier, eta != 0
@@ -257,6 +271,7 @@ coef( summary( b3 ) )
 vcov( b3 )
 print( summary( b3 ) )
 efficiencies( b3 )
+efficiencies( b3, asInData = TRUE )
 print.default( b3 )
 
 ## panel data, error components frontier, mu != 0, eta != 0
@@ -273,6 +288,7 @@ coef( summary( b4 ) )
 vcov( b4 )
 print( summary( b4 ) )
 efficiencies( b4 )
+efficiencies( b4, asInData = TRUE )
 print.default( b4 )
 
 ## panel data, efficiency effects frontier
@@ -289,6 +305,7 @@ coef( summary( b5 ) )
 vcov( b5 )
 print( summary( b5 ) )
 efficiencies( b5 )
+efficiencies( b5, asInData = TRUE )
 print.default( b5 )
 
 ## panel data, efficiency effects frontier, mu != 0
@@ -305,6 +322,7 @@ coef( summary( b6 ) )
 vcov( b6 )
 print( summary( b6 ) )
 efficiencies( b6 )
+efficiencies( b6, asInData = TRUE )
 print.default( b6 )
 
 ## panel data, error components frontier, mu != 0, eta != 0, starting values
@@ -322,6 +340,7 @@ coef( summary( b7 ) )
 vcov( b7 )
 print( summary( b7 ) )
 efficiencies( b7 )
+efficiencies( b7, asInData = TRUE )
 print.default( b7 )
 
 ## panel data, efficiency effects frontier, mu != 0, starting values
@@ -339,6 +358,7 @@ coef( summary( b8 ) )
 vcov( b8 )
 print( summary( b8 ) )
 efficiencies( b8 )
+efficiencies( b8, asInData = TRUE )
 print.default( b8 )
 
 data( prodAgrBrazil)
@@ -361,6 +381,7 @@ coef( summary( c1R ) )
 vcov( c1R )
 print( summary( c1R ) )
 efficiencies( c1R )
+efficiencies( c1R, asInData = TRUE )
 print.default( c1R )
 
 c1F <- frontier( data = prodAgrBrazil, yName = "lProd", 
@@ -376,6 +397,7 @@ coef( summary( c1F ) )
 vcov( c1F )
 print( summary( c1F ) )
 efficiencies( c1F )
+efficiencies( c1F, asInData = TRUE )
 print.default( c1F )
 
 c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
@@ -419,6 +441,7 @@ coef( summary( translog ) )
 vcov( translog )
 print( summary( translog ) )
 efficiencies( translog )
+efficiencies( translog, asInData = TRUE )
 print.default( translog )
 
 ## cross-section data, error components frontier, translog, shifter
@@ -435,6 +458,7 @@ coef( summary( translogShift ) )
 vcov( translogShift )
 print( summary( translogShift ) )
 efficiencies( translogShift )
+efficiencies( translogShift, asInData = TRUE )
 print.default( translogShift )
 
 ## cross-section data, efficiency effects frontier, translog
@@ -451,5 +475,6 @@ coef( summary( translogZvar ) )
 vcov( translogZvar )
 print( summary( translogZvar ) )
 efficiencies( translogZvar )
+efficiencies( translogZvar, asInData = TRUE )
 print.default( translogZvar )
 
