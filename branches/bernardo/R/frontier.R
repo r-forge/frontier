@@ -295,19 +295,19 @@ frontier <- function(
    returnObj$indic <- NULL
    
    returnObj$code <- code;
-    if( length( startVal ) == 1 ){
-        if( modelType == 1 ) {
-          returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
-        } else {
-          returnObj$gridParam <- returnObj$gridParam[
-              c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
-        }
-    } else {
-        returnObj$gridParam <- NULL
-    }
-    if( modelType == 1 && eta == FALSE ) {
-        returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
-    }
+   if( length( startVal ) == 1 ){
+      if( modelType == 1 ) {
+         returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
+      } else {
+         returnObj$gridParam <- returnObj$gridParam[
+            c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
+      }
+   } else {
+      returnObj$gridParam <- NULL
+   }
+   if( modelType == 1 && eta == FALSE ) {
+      returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
+   }
    # assign row names and column names to efficiency estimates
    if( "plm.dim" %in% class( data ) && code != "R" ) {
       rownames( returnObj$effic ) <- unique( dataTable[ , 1 ] )
@@ -320,51 +320,51 @@ frontier <- function(
       rownames( returnObj$effic ) <- rownames( data )
       colnames( returnObj$effic ) <- "efficiency"
    }
-    if( modelType == 2 ) {
-        if( mu ){
-            if (showParNames) {
-                paramNames <- c( paramNames, "d_const" ) 
-            } else {
-                paramNames <- c( paramNames,  "delta_0" ) 
-            }
-        }
-        if( nZvars > 0 ) {
-            if (showParNames) {
-                paramNames <- c( paramNames, paste( "d", zNames, sep="_") )
-            } else {
-                paramNames <- c( paramNames, paste( "delta", c( 1:nZvars ), sep = "_" ) ) 
-            }
-        }
-    }
+   if( modelType == 2 ) {
+      if( mu ){
+         if (showParNames) {
+            paramNames <- c( paramNames, "d_const" )
+         } else {
+            paramNames <- c( paramNames,  "delta_0" )
+         }
+      }
+      if( nZvars > 0 ) {
+         if (showParNames) {
+            paramNames <- c( paramNames, paste( "d", zNames, sep="_") )
+         } else {
+            paramNames <- c( paramNames, paste( "delta", c( 1:nZvars ), sep = "_" ) )
+         }
+      }
+   }
     
-    if( length( startVal ) == 1 ){
-          returnObj$startVal <- NULL
-     }
-      paramNames <- c( paramNames, "sigma-sq", "gamma" )
-    if( modelType == 1 ) {
-        if( mu ){
-          paramNames <- c( paramNames, "mu" )
-        }
-        if( eta ){
-          paramNames <- c( paramNames, "eta" )
-        }
-    }
+   if( length( startVal ) == 1 ){
+      returnObj$startVal <- NULL
+   }
+   paramNames <- c( paramNames, "sigma-sq", "gamma" )
+   if( modelType == 1 ) {
+      if( mu ){
+         paramNames <- c( paramNames, "mu" )
+      }
+      if( eta ){
+         paramNames <- c( paramNames, "eta" )
+      }
+   }
     
-    names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
-        "sigma-sq" )
-    names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
-    if( !is.null( returnObj$gridParam ) ) {
-        names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
-          "sigma-sq", "gamma" )
-    }
-    if (!evalLogLik) {
-        names( returnObj$mleParam ) <- paramNames
-        rownames( returnObj$mleCov ) <- paramNames
-        colnames( returnObj$mleCov ) <- paramNames
-    }
-    if( !is.null( returnObj$startVal ) ) {
-        names( returnObj$startVal ) <- paramNames
-    }
+   names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+      "sigma-sq" )
+   names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
+   if( !is.null( returnObj$gridParam ) ) {
+      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+         "sigma-sq", "gamma" )
+   }
+   if (!evalLogLik) {
+      names( returnObj$mleParam ) <- paramNames
+      rownames( returnObj$mleCov ) <- paramNames
+      colnames( returnObj$mleCov ) <- paramNames
+   }
+   if( !is.null( returnObj$startVal ) ) {
+      names( returnObj$startVal ) <- paramNames
+   }
     
    returnObj$call <- match.call()
 
