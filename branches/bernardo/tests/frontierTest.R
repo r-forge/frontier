@@ -2,6 +2,7 @@ library( frontier )
 options( digits = 5 )
 
 data( front41Data )
+row.names( front41Data ) <- paste( "F", row.names( front41Data ), sep = "_" )
 front41Data$logOutput  <- log( front41Data$output )
 front41Data$logCapital <- log( front41Data$capital )
 front41Data$logLabour  <- log( front41Data$labour )
@@ -201,7 +202,10 @@ print.default( bb8 )
 
 
 ## panel data
-riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
+riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
+   riceProdPhil$FMERCODE, sep = "" )
+riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
+riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 
 ## panel data, error components frontier
 b1 <- frontier( data = riceProdPhil,
