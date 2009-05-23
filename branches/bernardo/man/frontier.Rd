@@ -21,7 +21,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
    evalLogLik = FALSE,
-   iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
+   printIter = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
 \method{print}{frontier}( x, \dots )
@@ -65,7 +65,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
    \item{evalLogLik}{logical. If \code{TRUE}, only the log likelihood value
       is evaluated and returned (given the starting values and the data).}
-   \item{iprint}{numeric. Print info every \code{iprint} iterations;
+   \item{printIter}{numeric. Print info every \code{printIter} iterations;
       if this argument is 0, do not print.}
    \item{indic}{numeric. Use in unidimensional search procedure:
       indic = 2 says do not scale step length in unidimensional search;
@@ -118,7 +118,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       indicates if an 'eta' is included in the estimation.
       In case of an efficiency effects model: numeric,
       the number of efficiency effects regressors (Zs).}
-   \item{iprint}{numeric. Printing of information
+   \item{printIter}{numeric. Printing of information
       on the iterations (see above).}
    \item{indic}{numeric. Scaling of unidimensional search procedure
       (see above).}

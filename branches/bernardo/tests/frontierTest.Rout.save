@@ -217,7 +217,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -547,7 +547,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -870,7 +870,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -1205,7 +1205,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -1550,7 +1550,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -1890,7 +1890,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -2238,7 +2238,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -3148,7 +3148,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -4071,7 +4071,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -5004,7 +5004,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -5920,7 +5920,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -6847,7 +6847,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -7771,7 +7771,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -8384,7 +8384,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -9009,7 +9009,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -9638,7 +9638,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -10269,7 +10269,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -10908,7 +10908,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -11535,7 +11535,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -12170,7 +12170,7 @@ $mu
 $eta
 [1] 2
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -13004,7 +13004,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -13577,7 +13577,7 @@ $mu
 $eta
 [1] 0
 
-$iprint
+$printIter
 [1] 0
 
 $indic
@@ -14149,7 +14149,7 @@ $mu
 $eta
 [1] 1
 
-$iprint
+$printIter
 [1] 0
 
 $indic

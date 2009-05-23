@@ -8,7 +8,7 @@ frontier <- function(
       mu = FALSE,
       eta = FALSE,
       evalLogLik = FALSE,
-      iprint = 0,
+      printIter = 0,
       indic = 1,
       tol = 0.00001,
       tol2 = 0.001,
@@ -51,15 +51,15 @@ frontier <- function(
    if (evalLogLik && (is.null(startVal) || length(startVal)==0)) {
       stop( "startVal must be provided when argument 'evalLogLik' is TRUE" );
    }
-   # iprint
-   if( !is.numeric( iprint ) ) {
-      stop( "argument 'iprint' must be numeric" )
-   } else if( iprint != round( iprint ) ) {
-      stop( "argument 'iprint' must be an iteger" )
-   } else if( iprint < 0 ) {
-      stop( "argument 'iprint' must be non-negative" )
+   # printIter (iprint)
+   if( !is.numeric( printIter ) ) {
+      stop( "argument 'printIter' must be numeric" )
+   } else if( printIter != round( printIter ) ) {
+      stop( "argument 'printIter' must be an iteger" )
+   } else if( printIter < 0 ) {
+      stop( "argument 'printIter' must be non-negative" )
    }
-   iprint <- as.integer( iprint )
+   printIter <- as.integer( printIter )
    # indic
    if( !is.numeric( indic ) ) {
       stop( "argument 'indic' must be numeric" )
@@ -192,7 +192,7 @@ frontier <- function(
           nb = as.integer( nb ),
           mu = as.integer( mu ),
           eta = as.integer( eta ),
-          iprint = as.integer( iprint ),
+          printIter = as.integer( printIter ),
           indic = as.integer( indic ),
           tol = as.double( tol ),
           tol2 = as.double( tol2 ),
@@ -253,7 +253,7 @@ frontier <- function(
             nb = nb,
             mu = as.integer(mu),
             eta = as.integer(eta),
-            iprint = iprint,
+            printIter = printIter,
             indic = indic,
             tol = tol,
             tol2 = tol2,
