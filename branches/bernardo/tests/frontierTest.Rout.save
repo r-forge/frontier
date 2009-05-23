@@ -302,7 +302,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -707,7 +707,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -1105,7 +1105,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -1515,7 +1515,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -1935,7 +1935,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -2350,7 +2350,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -3115,7 +3115,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -4442,7 +4442,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -5782,7 +5782,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -7132,7 +7132,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -8465,7 +8465,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -9809,7 +9809,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -10868,7 +10868,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -11613,7 +11613,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -12371,7 +12371,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -13133,7 +13133,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -13897,7 +13897,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -14669,7 +14669,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -15429,7 +15429,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -16197,7 +16197,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -17106,7 +17106,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -17754,7 +17754,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
@@ -18401,7 +18401,7 @@ $searchTol
 $bignum
 [1] 1e+16
 
-$stepSize
+$searchStep
 [1] 1e-05
 
 $gridDouble
