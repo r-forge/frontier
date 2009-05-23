@@ -7,7 +7,7 @@ frontier <- function(
       logDepVar = TRUE,
       mu = FALSE,
       eta = FALSE,
-      evalLogLike = FALSE,
+      evalLogLik = FALSE,
       iprint = 0,
       indic = 1,
       tol = 0.00001,
@@ -48,8 +48,8 @@ frontier <- function(
    if( !is.logical( eta ) ) {
       stop( "argument 'eta' must be logical" )
    }
-   if (evalLogLike && (is.null(startVal) || length(startVal)==0)) {
-      stop( "startVal must be provided when evalLogLike is TRUE" );
+   if (evalLogLik && (is.null(startVal) || length(startVal)==0)) {
+      stop( "startVal must be provided when argument 'evalLogLik' is TRUE" );
    }
    # iprint
    if( !is.numeric( iprint ) ) {
@@ -181,7 +181,7 @@ frontier <- function(
             nParamTotal, " parameters)" )
       }
    }
-   if (code=="Fortran" && !evalLogLike) {
+   if (code=="Fortran" && !evalLogLik) {
       returnObj <- .Fortran( "front41",
           modelType = as.integer( modelType ),
           ineffDecrease = as.integer( !ineffDecrease + 1 ),
@@ -268,7 +268,7 @@ frontier <- function(
             modelType = modelType,
             code = code,
             mu = mu,
-            evalLogLike = evalLogLike,
+            evalLogLik = evalLogLik,
             gridDouble = gridDouble,
             gridno = gridno, 
             iterlim = maxit,
@@ -279,7 +279,7 @@ frontier <- function(
         returnObj$lrTestDf = as.integer(0)
    }
    
-   if (!evalLogLike && maxit==returnObj$nIter) {
+   if (!evalLogLik && maxit==returnObj$nIter) {
       stop("Maximum number of iterations reached");
    }
    
@@ -334,7 +334,7 @@ frontier <- function(
         names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
           "sigma-sq", "gamma" )
     }
-    if (!evalLogLike) {
+    if (!evalLogLik) {
         names( returnObj$mleParam ) <- paramNames
         rownames( returnObj$mleCov ) <- paramNames
         colnames( returnObj$mleCov ) <- paramNames

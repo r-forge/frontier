@@ -354,22 +354,22 @@ print.default( c1F )
 
 c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLik=TRUE,
     startVal=c1R$mleParam )
 
 c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLike=TRUE, 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLik=TRUE,
     startVal=c1R$mleParam)
 
 c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLike=TRUE, 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="R", evalLogLik=TRUE,
     startVal=c1F$mleParam )
 
 c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLike=TRUE, 
+    zNames = c( "idh", "gip_pc" ), mu = TRUE, code="Fortran", evalLogLik=TRUE,
     startVal=c1F$mleParam)
 
 print(c1R$mleLogl)

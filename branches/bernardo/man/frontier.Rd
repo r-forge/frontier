@@ -20,6 +20,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    code = "Fortran",
    modelType = ifelse( is.null( zNames ), 1, 2 ),
    ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
+   evalLogLik = FALSE,
    iprint = 0, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
    startVal = NULL )
@@ -62,6 +63,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       be included in the estimation.}
    \item{eta}{logical. Should an 'eta' be included in the estimation
       (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
+   \item{evalLogLik}{logical. If \code{TRUE}, only the log likelihood value
+      is evaluated and returned (given the starting values and the data).}
    \item{iprint}{numeric. Print info every \code{iprint} iterations;
       if this argument is 0, do not print.}
    \item{indic}{numeric. Use in unidimensional search procedure:

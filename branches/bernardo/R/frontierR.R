@@ -1,4 +1,4 @@
-frontierR = function(data, modelType, mu, evalLogLike=FALSE, gridDouble, gridno,
+frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridno,
                      iterlim, startVal=NULL, code="R", verbose=FALSE) {
     
     nx=ncol(data$x);
@@ -25,7 +25,7 @@ frontierR = function(data, modelType, mu, evalLogLike=FALSE, gridDouble, gridno,
         startParam <- grid;
     }
           
-    if (evalLogLike) {      
+    if (evalLogLik) {
         logLike <- frontierLogLike(startParam, data);
     } else {
         mle <- frontierMle(startParam, data, iterlim = iterlim);
@@ -39,7 +39,7 @@ frontierR = function(data, modelType, mu, evalLogLike=FALSE, gridDouble, gridno,
     if (modelType==1 && mu) {
         parOrder <- c(1,3,4,2);
         grid <- grid[parOrder];
-        if (!evalLogLike) {
+        if (!evalLogLik) {
             mle$param <- mle$param[parOrder];
             vParOrder <- c(1:nx,nx+c(2,3,1));
             mle$cov <- mle$cov[vParOrder,vParOrder];
@@ -54,7 +54,7 @@ frontierR = function(data, modelType, mu, evalLogLike=FALSE, gridDouble, gridno,
       gridLogl = frontierLogLike(grid, data)
       )
     
-    if (evalLogLike) {
+    if (evalLogLik) {
         if (code=="R") {
             returnObj$logLike <- frontierLogLike(startParam, data);
         } else {
