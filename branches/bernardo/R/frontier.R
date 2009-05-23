@@ -6,7 +6,7 @@ frontier <- function(
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       mu = FALSE,
-      eta = FALSE,
+      timeEffect = FALSE,
       evalLogLik = FALSE,
       printIter = 0,
       gridScale = NA,
@@ -29,8 +29,8 @@ frontier <- function(
       if (!logDepVar) {
           stop("logDepVar cannot be false when code='R'");
       }
-      if (eta) {
-          stop( "eta cannot be TRUE when code='R'");
+      if ( timeEffect ) {
+          stop( "argument 'timeEffect' cannot be TRUE when code='R'");
       }
    }
    if( !modelType %in% c( 1, 2 ) ) {
@@ -45,8 +45,8 @@ frontier <- function(
    if( !is.logical( mu ) ) {
       stop( "argument 'mu' must be logical" )
    }
-   if( !is.logical( eta ) ) {
-      stop( "argument 'eta' must be logical" )
+   if( !is.logical( timeEffect ) ) {
+      stop( "argument 'timeEffect' must be logical" )
    }
    if (evalLogLik && (is.null(startVal) || length(startVal)==0)) {
       stop( "startVal must be provided when argument 'evalLogLik' is TRUE" );
@@ -125,7 +125,9 @@ frontier <- function(
    nXvars <- length( xNames )
    nb <- nXvars
    nZvars <- length( zNames )
-   if( modelType == 2 ) {
+   if( modelType == 1 ) {
+      eta <- timeEffect
+   } else {
       eta <- nZvars
    }
 
@@ -226,6 +228,13 @@ frontier <- function(
       returnObj$nRowData <- NULL
       returnObj$nColData <- NULL
       returnObj$nParamTotal <- NULL
+      if( modelType == 1 ) {
+         returnObj$timeEffect <- as.logical( returnObj$eta )
+         returnObj$eta <- NULL
+      } else {
+         returnObj$nz <- returnObj$eta
+         returnObj$eta <- NULL
+      }
       returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
       returnObj$gridDouble <- as.logical( returnObj$gridDouble )
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
@@ -305,13 +314,13 @@ frontier <- function(
    } else {
       returnObj$gridParam <- NULL
    }
-   if( modelType == 1 && eta == FALSE ) {
+   if( modelType == 1 && timeEffect == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    # assign row names and column names to efficiency estimates
    if( "plm.dim" %in% class( data ) && code != "R" ) {
       rownames( returnObj$effic ) <- levels( data[[ 1 ]] )
-      if( modelType == 1 && eta == FALSE ) {
+      if( modelType == 1 && timeEffect == FALSE ) {
          colnames( returnObj$effic ) <- "efficiency"
       } else {
          colnames( returnObj$effic ) <- levels( data[[ 2 ]] )
@@ -345,8 +354,8 @@ frontier <- function(
       if( mu ){
          paramNames <- c( paramNames, "mu" )
       }
-      if( eta ){
-         paramNames <- c( paramNames, "eta" )
+      if( timeEffect ){
+         paramNames <- c( paramNames, "time" )
       }
    }
     

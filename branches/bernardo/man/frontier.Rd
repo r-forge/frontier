@@ -19,7 +19,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    showParNames = FALSE,
    code = "Fortran",
    modelType = ifelse( is.null( zNames ), 1, 2 ),
-   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, eta = FALSE,
+   ineffDecrease = TRUE, logDepVar = TRUE, mu = FALSE, timeEffect = FALSE,
    evalLogLik = FALSE,
    printIter = 0, gridScale = NA, tol = 0.00001, gridTol = 0.001, bignum = 1.0E+16,
    step1 = 0.00001, gridDouble = TRUE, gridno = 0.1, maxit = 1000,
@@ -61,8 +61,13 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       or a delta0 (in case of an 'Efficiency Effects Frontier',
       i.e. modelType = 2)
       be included in the estimation.}
-   \item{eta}{logical. Should an 'eta' be included in the estimation
-      (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
+   \item{timeEffect}{logical. If \code{FALSE} (default),
+      the efficiency estimates of an \sQuote{Error Components Frontier}
+      (\code{modelType = 1})
+      are time invariant;
+      if \code{TRUE}, time is allowed to have an effect on efficiency
+      (this argument is ignored in case of an
+      \sQuote{Efficiency Effects Frontier}, i.e. \code{modelType = 2}).}
    \item{evalLogLik}{logical. If \code{TRUE}, only the log likelihood value
       is evaluated and returned (given the starting values and the data).}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
@@ -115,10 +120,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nb}{number of regressor variables (Xs).}
    \item{mu}{logical. Indicates if a 'mu'/'delta0' is included
       in the estimation (see above).}
-   \item{eta}{In case of an error component model: logical,
-      indicates if an 'eta' is included in the estimation.
-      In case of an efficiency effects model: numeric,
-      the number of efficiency effects regressors (Zs).}
+   \item{nz}{numeric. The number of efficiency effects regressors (Zs)
+      (only for the \sQuote{Efficiency Effects Frontier}).}
+   \item{timeEffect}{logical. Argument \code{timeEffect}
+      (only or the \sQuote{Error Components Frontier}).}
    \item{printIter}{numeric. Printing of information
       on the iterations (see above).}
    \item{gridScale}{numeric. Scaling of unidimensional grid search procedure

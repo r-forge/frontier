@@ -58,7 +58,8 @@
 
    # Error Components Frontier (Battese & Coelli 1992), with time effect
    riceTime <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil, eta = TRUE )
+      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil,
+      timeEffect = TRUE )
    efficiencies( riceTime )
    riceProdPhil$efficienciesTime <- efficiencies( riceTime, asInData = TRUE )
 }
