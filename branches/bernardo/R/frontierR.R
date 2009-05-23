@@ -1,4 +1,4 @@
-frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridno,
+frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize,
                      iterlim, startVal=NULL, code="R", verbose=FALSE) {
     
     nx=ncol(data$x);
@@ -12,7 +12,7 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridno,
         print(ols);
     }
     
-    grid <- frontierGridEstimation(ols$param, data, gridDouble, gridno);
+    grid <- frontierGridEstimation(ols$param, data, gridDouble, gridSize);
     if (verbose) {
         cat(paste("\nGamma gridding   LogLike:", frontierLogLike(grid,data), 
                 "yCorrelation: ",frontierYCorrelation(grid,data),"\n"));
