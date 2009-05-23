@@ -120,35 +120,28 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    containing following elements:
    \item{code}{source code used (see above)}
    \item{modelType}{model type (see above).}
-   \item{ineffDecrease}{indicates whether inefficiency decreases (or increases) 
-      the endogenous variable (see above).}
-   \item{logDepVar}{logical. Is the dependent variable logged?}
+   \item{ineffDecrease}{logical. Argument \code{ineffDecrease} (see above).}
+   \item{logDepVar}{logical. Argument \code{logDepVar} (see above).}
    \item{nn}{number of cross-sections.}
    \item{nt}{number of time periods.}
    \item{nob}{number of observations in total.}
    \item{nb}{number of regressor variables (Xs).}
-   \item{mu}{logical. Indicates if a 'mu'/'delta0' is included
-      in the estimation (see above).}
+   \item{mu}{logical. Argument \code{mu} (see above).}
    \item{nz}{numeric. The number of efficiency effects regressors (Zs)
       (only for the \sQuote{Efficiency Effects Frontier}).}
    \item{timeEffect}{logical. Argument \code{timeEffect}
       (only or the \sQuote{Error Components Frontier}).}
-   \item{printIter}{numeric. Printing of information
-      on the iterations (see above).}
-   \item{searchScale}{numeric. Scaling in the unidimensional search procedure
-      (see above).}
-   \item{tol}{numeric. Convergence tolerance.}
-   \item{searchTol}{numeric. Tolerance used in uni-dimensional search procedure.}
-   \item{bignum}{numeric. Used to set bounds on densities and distributions.}
-   \item{searchStep}{numeric. Size of the 1st step in the iterative
-      uni-dimensional search procedure (see above).}
-   \item{gridDouble}{logical. Value of argument \code{gridDouble}
-      (see above).}
-   \item{gridno}{numeric. Steps taken in single accuracy grid search
-      on gamma.}
-   \item{maxit}{numeric. Maximum number of iterations permitted.}
-   \item{startVal}{numeric vector. Starting values for the ML
-      estimation (if specified by user).}
+   \item{printIter}{numeric. Argument \code{printIter} (see above).}
+   \item{searchScale}{numeric. Argument \code{searchScale} (see above).}
+   \item{tol}{numeric. Argument \code{tol} (see above).}
+   \item{searchTol}{numeric. Argument \code{searchTol} (see above).}
+   \item{bignum}{numeric. Argument \code{bignum} (see above).}
+   \item{searchStep}{numeric. Argument \code{searchStep} (see above).}
+   \item{gridDouble}{logical. Argument \code{gridDouble} (see above).}
+   \item{gridno}{numeric. Argument \code{gridno} (see above).}
+   \item{maxit}{numeric.  Argument \code{maxit} (see above).}
+   \item{startVal}{numeric vector. Argument \code{startVal}
+      (only if specified by user).}
    \item{call}{the matched call.}
    \item{dataTable}{matrix. Data matrix sent to Frontier 4.1.}
    \item{olsParam}{numeric vector. OLS estimates.}
