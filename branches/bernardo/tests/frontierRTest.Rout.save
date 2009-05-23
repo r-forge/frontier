@@ -476,7 +476,7 @@ F_60    0.70843
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -878,7 +878,7 @@ F_60    0.78560
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -1272,7 +1272,7 @@ F_60    0.78560
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -1689,7 +1689,7 @@ F_60    0.76698
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -2111,7 +2111,7 @@ F_60    0.78575
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -2526,7 +2526,7 @@ F_60    0.78566
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -3850,7 +3850,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -5192,7 +5192,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -6534,7 +6534,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -7888,7 +7888,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -9222,7 +9222,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -10574,7 +10574,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -11914,7 +11914,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -13272,7 +13272,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -14026,7 +14026,7 @@ F_43 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -14786,7 +14786,7 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -16144,7 +16144,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -17514,7 +17514,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -18267,7 +18267,7 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -19037,7 +19037,7 @@ F_43 0.36314 0.33368 0.72688 0.69669 0.85130 0.91786 0.82360 0.92253
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -19479,7 +19479,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -19914,7 +19914,7 @@ $effic
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -20396,7 +20396,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -20857,7 +20857,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -21372,7 +21372,7 @@ $effic
 $lrTestDf
 [1] 0
 
-$gridScale
+$searchScale
 [1] NA
 
 $code

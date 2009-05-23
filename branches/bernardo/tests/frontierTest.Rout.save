@@ -482,7 +482,7 @@ F_60    0.70843
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -888,7 +888,7 @@ F_60    0.77528
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -1286,7 +1286,7 @@ F_60    0.77444
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -1703,7 +1703,7 @@ F_60    0.76698
 $nz
 [1] 1
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -2125,7 +2125,7 @@ F_60    0.78576
 $nz
 [1] 1
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -2540,7 +2540,7 @@ F_60    0.78575
 $nz
 [1] 1
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -3864,7 +3864,7 @@ $effic
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -5200,7 +5200,7 @@ $effic
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -6542,7 +6542,7 @@ $effic
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -7896,7 +7896,7 @@ $effic
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -9223,7 +9223,7 @@ $effic
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -10575,7 +10575,7 @@ $effic
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -11316,7 +11316,7 @@ F_43    0.72491
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -12070,7 +12070,7 @@ F_43    0.73794
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -12828,7 +12828,7 @@ F_43 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -13592,7 +13592,7 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -14356,7 +14356,7 @@ F_43 0.35444 0.32688 0.70009 0.66794 0.83542 0.91312 0.80325 0.91832
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -15132,7 +15132,7 @@ F_43 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -15888,7 +15888,7 @@ F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 $timeEffect
 [1] TRUE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -16662,7 +16662,7 @@ F_43 0.36314 0.33368 0.72688 0.69669 0.85130 0.91786 0.82360 0.92253
 $nz
 [1] 2
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -17302,7 +17302,7 @@ $effic
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -17954,7 +17954,7 @@ $effic
 $timeEffect
 [1] FALSE
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
@@ -18599,7 +18599,7 @@ $effic
 $nz
 [1] 1
 
-$gridScale
+$searchScale
 [1] NA
 
 $code
