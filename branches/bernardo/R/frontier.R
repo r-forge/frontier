@@ -1,7 +1,6 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
       showParNames = FALSE,
-      firmNames = NULL,
       code="Fortran",
       modelType = ifelse( is.null( zNames ), 1, 2 ), 
       ineffDecrease = TRUE,
@@ -172,12 +171,6 @@ frontier <- function(
       }
    }
    
-   if ( !is.null(firmNames) ) {
-       if ( !any( firmNames == colnames(data) ) ) {
-            stop(paste("firmNames column", firmNames, "not found") );
-       }
-   }
-
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
       startVal <- 0
@@ -350,9 +343,6 @@ frontier <- function(
         names( returnObj$startVal ) <- paramNames
     }
     
-    if ( !is.null(firmNames) ) {
-        rownames( returnObj$effic ) <- data[[ firmNames ]]
-    }
    returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"
