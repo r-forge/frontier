@@ -128,8 +128,8 @@ frontier <- function(
       stop( "argument 'maxit' must be numeric" )
    } else if( maxit != round( maxit ) ) {
       stop( "argument 'maxit' must be an integer" )
-   } else if( maxit <= 0 ) {
-      stop( "argument 'maxit' must be positive" )
+   } else if( maxit < 0 ) {
+      stop( "argument 'maxit' must not be negative" )
    }
    maxit <- as.integer( maxit )
       
