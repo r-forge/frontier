@@ -2,7 +2,7 @@ frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
       showParNames = FALSE,
       code="Fortran",
-      modelType = ifelse( is.null( zNames ), 1, 2 ), 
+      modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       truncNorm = FALSE,
@@ -34,12 +34,19 @@ frontier <- function(
          stop( "argument 'timeEffect' cannot be TRUE when code='R'");
       }
    }
-   if( !modelType %in% c( 1, 2 ) ) {
-      stop( "argument 'modelType' must be either 1 or 2" )
+   # modelType (im)
+   if( modelType %in% c( 1, "ECF" ) ) {
+      modelType <- 1
+   } else if( modelType %in% c( 2, "EEF" ) ) {
+      modelType <- 2
+   } else {
+      stop( "argument 'modelType' must be either 'ECF' or 'EEF'" )
    }
+   # ineffDecrease (ipc)
    if( !is.logical( ineffDecrease ) || length( ineffDecrease ) != 1 ) {
       stop( "argument 'ineffDecrease' must be a single logical value" )
    }
+   # logDepVar (il)
    if( !is.logical( logDepVar ) ) {
       stop( "argument 'logDepVar' must be logical" )
    }
@@ -301,6 +308,12 @@ frontier <- function(
          returnObj[[ names(rResult)[i] ]] = rResult[[i]]
       }
       returnObj$lrTestDf = as.integer(0)
+   }
+   # modelType
+   if( returnObj$modelType == 1 ) {
+      returnObj$modelType <- "ECF"
+   } else {
+      returnObj$modelType <- "EEF"
    }
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {

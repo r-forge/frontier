@@ -18,7 +18,7 @@
 frontier( yName, xNames = NULL, zNames = NULL, data,
    showParNames = FALSE,
    code = "Fortran",
-   modelType = ifelse( is.null( zNames ), 1, 2 ),
+   modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
    ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
    zIntercept = FALSE, timeEffect = FALSE, evalLogLik = FALSE, printIter = 0,
    searchScale = NA, tol = 0.00001, searchTol = 0.001, bignum = 1.0E+16,
@@ -47,8 +47,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (Coelli 1996) is used;
       if this argument is \code{"R"}, the R code that has been written
       by Bernardo Mello is used.}
-   \item{modelType}{model type: either 1 for an 'Error Components Frontier'
-      or 2 for an 'Efficiency Effects Frontier'.}
+   \item{modelType}{model type:
+      either \code{"ECF"} for an 'Error Components Frontier'
+      or \code{"EEF"} for an 'Efficiency Effects Frontier'.}
    \item{ineffDecrease}{logical. If \code{TRUE},
       inefficiency decreases the endogenous variable
       (e.g. for estimating a production function);
@@ -61,20 +62,17 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (i.e. parameter \eqn{\mu}{mu} is added);
       if \code{FALSE},
       they are assumed to have a half-normal distribution
-      (only relevant for the \sQuote{Error Components Frontier},
-      i.e. modelType = 1).}
+      (only relevant for the \sQuote{Error Components Frontier}).}
    \item{zIntercept}{logical. If \code{TRUE},
       an intercept (with parameter \eqn{\delta_0}{delta_0})
       is added to the Z variables
-      (only relevant for the \sQuote{Efficiency Effects Frontier},
-      i.e. modelType = 2).}
+      (only relevant for the \sQuote{Efficiency Effects Frontier}).}
    \item{timeEffect}{logical. If \code{FALSE} (default),
       the efficiency estimates of an \sQuote{Error Components Frontier}
-      (\code{modelType = 1})
       are time invariant;
       if \code{TRUE}, time is allowed to have an effect on efficiency
       (this argument is ignored in case of an
-      \sQuote{Efficiency Effects Frontier}, i.e. \code{modelType = 2}).}
+      \sQuote{Efficiency Effects Frontier}).}
    \item{evalLogLik}{logical. If \code{TRUE}, only the log likelihood value
       is evaluated and returned (given the starting values and the data).}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
@@ -128,7 +126,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \code{frontier} returns a list of class \code{frontier}
    containing following elements:
    \item{code}{source code used (see above)}
-   \item{modelType}{model type (see above).}
+   \item{modelType}{character string. Argument \code{modelType} (see above).}
    \item{ineffDecrease}{logical. Argument \code{ineffDecrease} (see above).}
    \item{logDepVar}{logical. Argument \code{logDepVar} (see above).}
    \item{nn}{number of cross-sections.}
