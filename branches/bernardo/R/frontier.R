@@ -1,24 +1,24 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
-      showParNames = FALSE,
-      code="Fortran",
       modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       truncNorm = FALSE,
       zIntercept = FALSE,
       timeEffect = FALSE,
+      startVal = NULL,
+      code="Fortran",
       evalLogLik = FALSE,
-      printIter = 0,
-      searchScale = NA,
       tol = 0.00001,
-      searchTol = 0.001,
+      maxit = 1000,
       bignum = 1.0E+16,
       searchStep = 0.00001,
-      gridDouble = TRUE,
+      searchTol = 0.001,
+      searchScale = NA,
       gridSize = 0.1,
-      maxit = 1000,
-      startVal = NULL ) {
+      gridDouble = TRUE,
+      showParNames = FALSE,
+      printIter = 0 ) {
 
    if( ! code %in% c("Fortran","R") ) {
       stop( "argument 'code' must be either 'Fortran' or '2'" )

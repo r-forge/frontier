@@ -886,7 +886,7 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, code = "R", truncNorm = TRUE)
+    data = front41Data, truncNorm = TRUE, code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -1280,8 +1280,8 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data, code = "R", truncNorm = TRUE, startVal = c(0.5, 
-        0.3, 0.5, -1, 0.5, 0.9))
+    data = front41Data, truncNorm = TRUE, startVal = c(0.5, 0.3, 
+        0.5, -1, 0.5, 0.9), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -2119,7 +2119,8 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    zNames = "firmNo", data = front41Data, code = "R", zIntercept = TRUE)
+    zNames = "firmNo", data = front41Data, zIntercept = TRUE, 
+    code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -2534,8 +2535,8 @@ $code
 
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    zNames = "firmNo", data = front41Data, code = "R", zIntercept = TRUE, 
-    startVal = c(0.5, 0.3, 0.5, -0.4, -0.01, 0.4, 0.9))
+    zNames = "firmNo", data = front41Data, zIntercept = TRUE, 
+    startVal = c(0.5, 0.3, 0.5, -0.4, -0.01, 0.4, 0.9), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -5200,7 +5201,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", truncNorm = TRUE)
+    data = riceProdPhil, truncNorm = TRUE, code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -7896,8 +7897,8 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    zIntercept = TRUE)
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
+    code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -9230,8 +9231,8 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", truncNorm = TRUE, startVal = c(-1, 
-        0.3, 0.3, 0.3, -0.3, 0.2, 0.5))
+    data = riceProdPhil, truncNorm = TRUE, startVal = c(-1, 0.3, 
+        0.3, 0.3, -0.3, 0.2, 0.5), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -10582,9 +10583,8 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    zIntercept = TRUE, startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, 
-        -4, 2, 0.8))
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
+    startVal = c(-1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -13280,7 +13280,7 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    data = riceProdPhil, code = "R", truncNorm = TRUE)
+    data = riceProdPhil, truncNorm = TRUE, code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -17522,8 +17522,8 @@ $code
 
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, code = "R", 
-    zIntercept = TRUE)
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
+    code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -19488,7 +19488,7 @@ $code
 $call
 frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther", 
     "lCapital"), zNames = c("idh", "gip_pc"), data = prodAgrBrazil, 
-    code = "R", zIntercept = TRUE)
+    zIntercept = TRUE, code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -19923,7 +19923,7 @@ $code
 $call
 frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther", 
     "lCapital"), zNames = c("idh", "gip_pc"), data = prodAgrBrazil, 
-    code = "Fortran", zIntercept = TRUE)
+    zIntercept = TRUE, code = "Fortran")
 
 attr(,"class")
 [1] "frontier"
