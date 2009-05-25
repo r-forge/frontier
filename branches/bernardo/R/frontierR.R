@@ -5,7 +5,8 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
     if (mu) {
         data$z <- cbind(rep(1,length(data$y)),data$z);
     }
-    
+    nz <- ncol( data$z )
+
     ols <- frontierOlsEstimation(data);
     if (verbose) {
         cat(paste("OLS Loglike:",frontierOlsLogLike(ols$param,data),"\n"));
@@ -20,7 +21,23 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
     }
      
     if (!is.null(startVal) && length(startVal)>1) {
-        startParam <- relist(startVal,skeleton=grid);
+        startParam <- list()
+        startParam$beta <- startVal[ 1:nx ]
+        if( modelType == 1 ) {
+            if( mu ) {
+                startParam$delta <- startVal[ nx + 3 ]
+            }
+            startParam$sigmaSq <- startVal[ nx + 1 ]
+            startParam$gamma <- startVal[ nx + 2 ]
+        } else if( modelType == 2 ) {
+            if( nz > 0 ) {
+                startParam$delta <- startVal[ ( nx + 1 ):( nx + nz ) ]
+            }
+            startParam$sigmaSq <- startVal[ length( startVal ) - 1 ]
+            startParam$gamma <- startVal[ length( startVal ) ]
+        } else {
+            stop( "unknown modelType '", modelType, "'" )
+        }
     } else {
         startParam <- grid;
     }

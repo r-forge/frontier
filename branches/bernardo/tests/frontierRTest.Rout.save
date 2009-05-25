@@ -904,7 +904,7 @@ attr(,"class")
 > ## cross-section data, error components frontier, truncNorm, starting values
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
-+    startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
++    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) , code = "R" )
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -917,7 +917,7 @@ Final maximum likelihood estimates
  0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
 > coef( a5, which = "start" )
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
-     0.5      0.3      0.5     -1.0      0.5      0.9 
+     0.5      0.3      0.5      0.5      0.9     -1.0 
 > coef( a5, which = "ols" )
   beta_0   beta_1   beta_2 sigma-sq 
  0.24490  0.28049  0.53331  0.11398 
@@ -964,9 +964,9 @@ starting values provided by the user
 beta_0    0.5
 beta_1    0.3
 beta_2    0.5
-sigma-sq -1.0
-gamma     0.5
-mu        0.9
+sigma-sq  0.5
+gamma     0.9
+mu       -1.0
 
 final maximum likelihood estimates
          Estimate Std. Error t value Pr(>|t|)    
@@ -1119,7 +1119,7 @@ $maxit
 
 $startVal
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
-     0.5      0.3      0.5     -1.0      0.5      0.9 
+     0.5      0.3      0.5      0.5      0.9     -1.0 
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -1295,7 +1295,7 @@ $code
 $call
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, truncNorm = TRUE, startVal = c(0.5, 0.3, 
-        0.5, -1, 0.5, 0.9), code = "R")
+        0.5, 0.5, 0.9, -1), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -7921,7 +7921,7 @@ attr(,"class")
 > bb7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, code = "R",
-+    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, 0.2, 0.5 ) )
++    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3 ) )
 > print( bb7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7936,7 +7936,7 @@ Final maximum likelihood estimates
 -3637.98894 
 > coef( bb7, which = "start" )
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
-    -1.0      0.3      0.3      0.3     -0.3      0.2      0.5 
+    -1.0      0.3      0.3      0.3      0.2      0.5     -0.3 
 > coef( bb7, which = "ols" )
   beta_0   beta_1   beta_2   beta_3 sigma-sq 
 -1.66964  0.32976  0.38375  0.28292  0.10902 
@@ -7993,9 +7993,9 @@ beta_0   -1.0
 beta_1    0.3
 beta_2    0.3
 beta_3    0.3
-sigma-sq -0.3
-gamma     0.2
-mu        0.5
+sigma-sq  0.2
+gamma     0.5
+mu       -0.3
 
 final maximum likelihood estimates
           Estimate Std. Error   t value Pr(>|t|)    
@@ -8491,7 +8491,7 @@ $maxit
 
 $startVal
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
-    -1.0      0.3      0.3      0.3     -0.3      0.2      0.5 
+    -1.0      0.3      0.3      0.3      0.2      0.5     -0.3 
 
 $dataTable
        seq t      lPROD    lAREA lLABOR   lNPK ones
@@ -9246,7 +9246,7 @@ $code
 $call
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"), 
     data = riceProdPhil, truncNorm = TRUE, startVal = c(-1, 0.3, 
-        0.3, 0.3, -0.3, 0.2, 0.5), code = "R")
+        0.3, 0.3, 0.2, 0.5, -0.3), code = "R")
 
 attr(,"class")
 [1] "frontier"
@@ -19578,9 +19578,11 @@ attr(,"class")
 > print(c1R$mleLogl)
 [1] 3.3184
 > print(c1RR$logLike)
-[1] 3.3184
+sigma-sq 
+  3.3184 
 > print(c1RF$logLike)
-[1] -264.31
+sigma-sq 
+ -264.31 
 > # print(c1F$mleLogl)
 > # print(c1FR$logLike)
 > # print(c1FF$logLike)

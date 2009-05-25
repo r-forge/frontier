@@ -48,7 +48,7 @@ print.default( a2 )
 ## cross-section data, error components frontier, truncNorm, starting values
 a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE,
-   startVal = c( 0.5, 0.3, 0.5, -1 , 0.5, 0.9) , code = "R" )
+   startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) , code = "R" )
 print( a5 )
 coef( a5, which = "start" )
 coef( a5, which = "ols" )
@@ -192,7 +192,7 @@ print.default( bb6 )
 bb7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, code = "R",
-   startVal = c( -1, 0.3, 0.3, 0.3, -0.3, 0.2, 0.5 ) )
+   startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3 ) )
 print( bb7 )
 coef( bb7, which = "start" )
 coef( bb7, which = "ols" )
