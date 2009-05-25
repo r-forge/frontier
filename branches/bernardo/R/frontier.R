@@ -21,7 +21,7 @@ frontier <- function(
       printIter = 0 ) {
 
    if( ! code %in% c("Fortran","R") ) {
-      stop( "argument 'code' must be either 'Fortran' or '2'" )
+      stop( "argument 'code' must be either 'Fortran' or 'R'" )
    }
    if( code=="R" ) {
       if (!ineffDecrease) {
