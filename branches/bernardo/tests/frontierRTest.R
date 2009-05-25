@@ -347,7 +347,7 @@ print.default( b7 )
 b8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
-   startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
+   startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 print( b8 )
 coef( b8, which = "start" )
 coef( b8, which = "ols" )
@@ -384,21 +384,21 @@ efficiencies( c1R )
 efficiencies( c1R, asInData = TRUE )
 print.default( c1R )
 
-c1F <- frontier( data = prodAgrBrazil, yName = "lProd", 
-    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran")
-print( c1F )
-coef( c1F, which = "start" )
-coef( c1F, which = "ols" )
-coef( c1F, which = "grid" )
-coef( c1F )
-coef( summary( c1F ), which = "ols" )
-coef( summary( c1F ) )
-vcov( c1F )
-print( summary( c1F ) )
-efficiencies( c1F )
-efficiencies( c1F, asInData = TRUE )
-print.default( c1F )
+# c1F <- frontier( data = prodAgrBrazil, yName = "lProd", 
+#     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+#     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran")
+# print( c1F )
+# coef( c1F, which = "start" )
+# coef( c1F, which = "ols" )
+# coef( c1F, which = "grid" )
+# coef( c1F )
+# coef( summary( c1F ), which = "ols" )
+# coef( summary( c1F ) )
+# vcov( c1F )
+# print( summary( c1F ) )
+# efficiencies( c1F )
+# efficiencies( c1F, asInData = TRUE )
+# print.default( c1F )
 
 c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
@@ -410,22 +410,22 @@ c1RF <- frontier( data = prodAgrBrazil, yName = "lProd",
     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
     startVal=c1R$mleParam)
 
-c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
-    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
-    startVal=c1F$mleParam )
+# c1FR <- frontier( data = prodAgrBrazil, yName = "lProd", 
+#     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+#     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
+#     startVal=c1F$mleParam )
 
-c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
-    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
-    startVal=c1F$mleParam)
+# c1FF <- frontier( data = prodAgrBrazil, yName = "lProd", 
+#     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+#     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
+#     startVal=c1F$mleParam)
 
 print(c1R$mleLogl)
 print(c1RR$logLike)
 print(c1RF$logLike)
-print(c1F$mleLogl)
-print(c1FR$logLike)
-print(c1FF$logLike)
+# print(c1F$mleLogl)
+# print(c1FR$logLike)
+# print(c1FF$logLike)
 
 ## translog frontiers
 ## cross-section data, error components frontier, translog

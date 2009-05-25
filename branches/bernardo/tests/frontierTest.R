@@ -192,7 +192,7 @@ print.default( bb6 )
 bb7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE,
-   startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3 ) )
+   startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
 print( bb7 )
 coef( bb7, which = "start" )
 coef( bb7, which = "ols" )
@@ -210,7 +210,7 @@ print.default( bb7 )
 bb8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
-   startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
+   startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 print( bb8 )
 coef( bb8, which = "start" )
 coef( bb8, which = "ols" )
@@ -368,7 +368,7 @@ print.default( b7 )
 b8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
-   startVal = c( -1, 0.3, 0.3, 0.3, -3, -0.1, -4, 2, 0.8 ) )
+   startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 print( b8 )
 coef( b8, which = "start" )
 coef( b8, which = "ols" )

@@ -710,58 +710,6 @@ c       evaluates the n(0,1) density function.
 	return 
 	end
  
-	double precision function dis(x)   
-c       evaluates the n(0,1) distribution function.   
-	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bignum,step1,gridno,igrid2
-	dimension a(5),connor(17)  
-	data connor
-     +  /8.0327350124d-17, 1.4483264644d-15, 2.4668270103d-14,  
-     +  3.9554295164d-13, 5.9477940136d-12, 8.3507027951d-11,   
-     +  1.0892221037d-9, 1.3122532964d-8, 1.4503852223d-7,  
-     +  1.4589169001d-6, 1.3227513228d-5, 1.0683760684d-4,  
-     +  7.5757575758d-4, 4.6296296296d-3, 2.3809523810d-2,  
-     +  0.1, 0.3333333333 / 
-	data rrt2pi/0.3989422804/  
-	s=x
-	y=s*s  
-	if(s) 10,11,12 
-   11   p=0.5   
-	goto 31
-   10   s=-s
-   12   z=rrt2pi*dexp(-0.5*y)   
-	if(s-2.5) 13,14,14 
-   13   y=-0.5*y
-	p=connor(1)
-	do 15 l=2,17   
-   15   p=p*y+connor(l) 
-	p=(p*y+1.0)*x*rrt2pi+0.5   
-	goto 31
-   14   a(2)=1.0
-	a(5)=1.0   
-	a(3)=1.0   
-	y=1.0/y
-	a(4)=1.0+y 
-	r=2.0  
-   19   do 17 l=1,3,2   
-	do 18 j=1,2
-	k=l+j  
-	ka=7-k 
-   18   a(k)=a(ka)+a(k)*r*y 
-   17   r=r+1.0 
-	if(dabs(a(2)/a(3)-a(5)/a(4)).gt.1.0/bignum) goto 19
-   20   p=(a(5)/a(4))*z/x   
-	if(x) 21,11,22 
-   21   p=-p
-	goto 31
-   22   p=1.0-p 
-   31   continue
-	if(p.lt.1.0/bignum) p=1.0/bignum   
-	if(p.gt.(1.0-1.0/bignum)) p=1.0-1.0/bignum 
-	dis=p  
-	return 
-	end
- 
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
      $  nParamTotal, ob, obse, gb, y, h, chi, idf, ate )
