@@ -1677,9 +1677,6 @@ F_60    0.76698
 $zIntercept
 [1] FALSE
 
-$nz
-[1] 1
-
 $searchScale
 [1] NA
 
@@ -2096,9 +2093,6 @@ F_60    0.78575
 $zIntercept
 [1] TRUE
 
-$nz
-[1] 1
-
 $searchScale
 [1] NA
 
@@ -2507,9 +2501,6 @@ F_60    0.78575
 
 $zIntercept
 [1] TRUE
-
-$nz
-[1] 1
 
 $searchScale
 [1] NA
@@ -6501,9 +6492,6 @@ $effic
 $zIntercept
 [1] FALSE
 
-$nz
-[1] 2
-
 $searchScale
 [1] NA
 
@@ -7851,9 +7839,6 @@ $effic
 
 $zIntercept
 [1] TRUE
-
-$nz
-[1] 2
 
 $searchScale
 [1] NA
@@ -10524,9 +10509,6 @@ $effic
 
 $zIntercept
 [1] TRUE
-
-$nz
-[1] 2
 
 $searchScale
 [1] NA
@@ -14291,9 +14273,6 @@ F_43 0.35444 0.32688 0.70009 0.66794 0.83542 0.91312 0.80325 0.91832
 $zIntercept
 [1] FALSE
 
-$nz
-[1] 2
-
 $searchScale
 [1] NA
 
@@ -15063,9 +15042,6 @@ F_43 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
 $zIntercept
 [1] TRUE
-
-$nz
-[1] 2
 
 $searchScale
 [1] NA
@@ -16587,9 +16563,6 @@ F_43 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
 $zIntercept
 [1] TRUE
-
-$nz
-[1] 2
 
 $searchScale
 [1] NA
@@ -18515,9 +18488,6 @@ $effic
 
 $zIntercept
 [1] FALSE
-
-$nz
-[1] 1
 
 $searchScale
 [1] NA
