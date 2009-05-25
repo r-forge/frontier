@@ -168,7 +168,7 @@ frontier <- function(
             nParamTotal, " parameters)" )
       }
    }
-   returnObj <- .Fortran( "front41", 
+   returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( !ineffDecrease + 1 ),
       logDepVar = as.integer( logDepVar ),
@@ -231,7 +231,7 @@ frontier <- function(
    if( length( startVal ) == 1 ){
       returnObj$startVal <- NULL
    }
-  returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    if( returnObj$indic == 2 ) {
       returnObj$searchScale <- FALSE
@@ -273,7 +273,7 @@ frontier <- function(
          paramNames <- c( paramNames, "delta_0" )
       }
       if( nZvars > 0 ) {
-         paramNames <- c( paramNames, 
+         paramNames <- c( paramNames,
             paste( "delta", c( 1:nZvars ), sep = "_" ) )
       }
    }
@@ -290,7 +290,7 @@ frontier <- function(
       "sigma-sq" )
    names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
    if( !is.null( returnObj$gridParam ) ) {
-      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ], 
+      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ],
          "sigma-sq", "gamma" )
    }
    names( returnObj$mleParam ) <- paramNames
