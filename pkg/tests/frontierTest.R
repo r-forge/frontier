@@ -114,15 +114,122 @@ efficiencies( aa5, asInData = TRUE )
 print.default( aa5 )
 
 
+## data set of rice producers in the Philippines
 data( riceProdPhil )
-riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
-   riceProdPhil$FMERCODE, sep = "" )
-riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
-riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
 riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
 riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
+
+## cross-section rice data, error components frontier
+bb1 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
+print( bb1 )
+coef( bb1, which = "start" )
+coef( bb1, which = "ols" )
+coef( bb1, which = "grid" )
+coef( bb1 )
+coef( summary( bb1 ), which = "ols" )
+coef( summary( bb1 ) )
+vcov( bb1 )
+print( summary( bb1 ) )
+efficiencies( bb1 )
+efficiencies( bb1, asInData = TRUE )
+print.default( bb1 )
+
+## cross-section rice data, error components frontier, truncNorm
+bb2 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   truncNorm = TRUE )
+print( bb2 )
+coef( bb2, which = "start" )
+coef( bb2, which = "ols" )
+coef( bb2, which = "grid" )
+coef( bb2 )
+coef( summary( bb2 ), which = "ols" )
+coef( summary( bb2 ) )
+vcov( bb2 )
+print( summary( bb2 ) )
+efficiencies( bb2 )
+efficiencies( bb2, asInData = TRUE )
+print.default( bb2 )
+
+## cross-section rice data, efficiency effects frontier
+bb5 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   zNames = c( "EDYRS", "BANRAT" ) )
+print( bb5 )
+coef( bb5, which = "start" )
+coef( bb5, which = "ols" )
+coef( bb5, which = "grid" )
+coef( bb5 )
+coef( summary( bb5 ), which = "ols" )
+coef( summary( bb5 ) )
+vcov( bb5 )
+print( summary( bb5 ) )
+efficiencies( bb5 )
+efficiencies( bb5, asInData = TRUE )
+print.default( bb5 )
+
+## cross-section rice data, efficiency effects frontier, zIntercept
+bb6 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
+print( bb6 )
+coef( bb6, which = "start" )
+coef( bb6, which = "ols" )
+coef( bb6, which = "grid" )
+coef( bb6 )
+coef( summary( bb6 ), which = "ols" )
+coef( summary( bb6 ) )
+vcov( bb6 )
+print( summary( bb6 ) )
+efficiencies( bb6 )
+efficiencies( bb6, asInData = TRUE )
+print.default( bb6 )
+
+## cross-section rice data, error components frontier, truncNorm, starting values
+bb7 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   truncNorm = TRUE,
+   startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
+print( bb7 )
+coef( bb7, which = "start" )
+coef( bb7, which = "ols" )
+coef( bb7, which = "grid" )
+coef( bb7 )
+coef( summary( bb7 ), which = "ols" )
+coef( summary( bb7 ) )
+vcov( bb7 )
+print( summary( bb7 ) )
+efficiencies( bb7 )
+efficiencies( bb7, asInData = TRUE )
+print.default( bb7 )
+
+## cross-section rice data, efficiency effects frontier, zIntercept, starting values
+bb8 <- frontier( data = riceProdPhil,
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
+   startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
+print( bb8 )
+coef( bb8, which = "start" )
+coef( bb8, which = "ols" )
+coef( bb8, which = "grid" )
+coef( bb8 )
+coef( summary( bb8 ), which = "ols" )
+coef( summary( bb8 ) )
+vcov( bb8 )
+print( summary( bb8 ) )
+efficiencies( bb8 )
+efficiencies( bb8, asInData = TRUE )
+print.default( bb8 )
+
+
+## panel data
+riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
+   riceProdPhil$FMERCODE, sep = "" )
+riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
+riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 
 ## panel data, error components frontier
 b1 <- frontier( data = riceProdPhil,
