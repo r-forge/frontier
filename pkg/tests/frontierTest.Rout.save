@@ -492,7 +492,7 @@ frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, error components frontier, mu != 0
+> ## cross-section data, error components frontier, truncNorm
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
 > print( a2 )
@@ -895,7 +895,7 @@ frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## cross-section data, error components frontier, starting values
+> ## cross-section data, error components frontier, truncNorm, starting values
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
@@ -11276,7 +11276,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0
+> ## panel data, error components frontier, truncNorm
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
@@ -12027,7 +12027,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, eta != 0
+> ## panel data, error components frontier, timeEffect != 0
 > b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
@@ -12782,7 +12782,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0, eta != 0
+> ## panel data, error components frontier, truncNorm, timeEffect != 0
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
@@ -14304,7 +14304,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, efficiency effects frontier, mu != 0
+> ## panel data, efficiency effects frontier, zIntercept
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
@@ -15077,7 +15077,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, mu != 0, eta != 0, starting values
+> ## panel data, error components frontier, truncNorm, timeEffect != 0, starting values
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
@@ -15831,7 +15831,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, efficiency effects frontier, mu != 0, starting values
+> ## panel data, efficiency effects frontier, zIntercept, starting values
 > b8 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
