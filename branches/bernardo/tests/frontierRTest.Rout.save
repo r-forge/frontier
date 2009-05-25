@@ -287,9 +287,6 @@ $nob
 $nb
 [1] 2
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -480,6 +477,9 @@ $lrTestDf
 [1] 0
 
 $truncNorm
+[1] FALSE
+
+$timeEffect
 [1] FALSE
 
 $searchScale
@@ -692,9 +692,6 @@ $nob
 $nb
 [1] 2
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -887,6 +884,9 @@ $lrTestDf
 
 $truncNorm
 [1] TRUE
+
+$timeEffect
+[1] FALSE
 
 $searchScale
 [1] NA
@@ -1090,9 +1090,6 @@ $nob
 $nb
 [1] 2
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -1285,6 +1282,9 @@ $lrTestDf
 
 $truncNorm
 [1] TRUE
+
+$timeEffect
+[1] FALSE
 
 $searchScale
 [1] NA
@@ -1499,9 +1499,6 @@ $nob
 
 $nb
 [1] 2
-
-$eta
-[1] 1
 
 $printIter
 [1] 0
@@ -1920,9 +1917,6 @@ $nob
 $nb
 [1] 2
 
-$eta
-[1] 1
-
 $printIter
 [1] 0
 
@@ -2335,9 +2329,6 @@ $nob
 
 $nb
 [1] 2
-
-$eta
-[1] 1
 
 $printIter
 [1] 0
@@ -3101,9 +3092,6 @@ $nob
 $nb
 [1] 3
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -3865,6 +3853,9 @@ $lrTestDf
 $truncNorm
 [1] FALSE
 
+$timeEffect
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -4431,9 +4422,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 0
 
 $printIter
 [1] 0
@@ -5207,6 +5195,9 @@ $lrTestDf
 $truncNorm
 [1] TRUE
 
+$timeEffect
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -5773,9 +5764,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 2
 
 $printIter
 [1] 0
@@ -7124,9 +7112,6 @@ $nob
 $nb
 [1] 3
 
-$eta
-[1] 2
-
 $printIter
 [1] 0
 
@@ -8462,9 +8447,6 @@ $nob
 $nb
 [1] 3
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -9237,6 +9219,9 @@ $lrTestDf
 $truncNorm
 [1] TRUE
 
+$timeEffect
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -9807,9 +9792,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 2
 
 $printIter
 [1] 0
@@ -11169,9 +11151,6 @@ $nob
 $nb
 [1] 3
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -11933,6 +11912,9 @@ $lrTestDf
 $truncNorm
 [1] FALSE
 
+$timeEffect
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -12519,9 +12501,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 0
 
 $printIter
 [1] 0
@@ -13295,6 +13274,9 @@ $lrTestDf
 $truncNorm
 [1] TRUE
 
+$timeEffect
+[1] FALSE
+
 $searchScale
 [1] NA
 
@@ -14047,11 +14029,11 @@ F_41 0.91554 0.92006 0.92435 0.92843 0.93230 0.93598 0.93946 0.94277
 F_42 0.88815 0.89404 0.89965 0.90498 0.91005 0.91487 0.91945 0.92380
 F_43 0.63267 0.64923 0.66527 0.68077 0.69574 0.71017 0.72407 0.73744
 
-$timeEffect
-[1] TRUE
-
 $truncNorm
 [1] FALSE
+
+$timeEffect
+[1] TRUE
 
 $searchScale
 [1] NA
@@ -14811,10 +14793,10 @@ F_41 0.92566 0.93004 0.93419 0.93810 0.94179 0.94527 0.94856 0.95165
 F_42 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 F_43 0.63911 0.65701 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
-$timeEffect
+$truncNorm
 [1] TRUE
 
-$truncNorm
+$timeEffect
 [1] TRUE
 
 $searchScale
@@ -15403,9 +15385,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 2
 
 $printIter
 [1] 0
@@ -16773,9 +16752,6 @@ $nob
 
 $nb
 [1] 3
-
-$eta
-[1] 2
 
 $printIter
 [1] 0
@@ -18304,10 +18280,10 @@ F_41 0.92566 0.93004 0.93419 0.93810 0.94179 0.94527 0.94856 0.95165
 F_42 0.90445 0.91001 0.91528 0.92025 0.92496 0.92940 0.93359 0.93755
 F_43 0.63911 0.65702 0.67429 0.69093 0.70692 0.72227 0.73699 0.75107
 
-$timeEffect
+$truncNorm
 [1] TRUE
 
-$truncNorm
+$timeEffect
 [1] TRUE
 
 $searchScale
@@ -19078,9 +19054,6 @@ F_41 0.85291 0.91815 0.91528 0.90737 0.77138 0.93845 0.83545 0.94066
 F_42 0.93491 0.90774 0.89673 0.84234 0.75128 0.80891 0.76335 0.88763
 F_43 0.36313 0.33368 0.72688 0.69669 0.85130 0.91786 0.82359 0.92253
 
-$nz
-[1] 2
-
 $zIntercept
 [1] TRUE
 
@@ -19324,9 +19297,6 @@ $nob
 
 $nb
 [1] 4
-
-$eta
-[1] 2
 
 $printIter
 [1] 0
@@ -20003,9 +19973,6 @@ $nob
 $nb
 [1] 5
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -20212,6 +20179,9 @@ $lrTestDf
 [1] 0
 
 $truncNorm
+[1] FALSE
+
+$timeEffect
 [1] FALSE
 
 $searchScale
@@ -20651,9 +20621,6 @@ $nob
 $nb
 [1] 6
 
-$eta
-[1] 0
-
 $printIter
 [1] 0
 
@@ -20864,6 +20831,9 @@ $lrTestDf
 [1] 0
 
 $truncNorm
+[1] FALSE
+
+$timeEffect
 [1] FALSE
 
 $searchScale
@@ -21297,9 +21267,6 @@ $nob
 
 $nb
 [1] 5
-
-$eta
-[1] 1
 
 $printIter
 [1] 0

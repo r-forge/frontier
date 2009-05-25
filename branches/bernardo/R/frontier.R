@@ -247,13 +247,6 @@ frontier <- function(
       returnObj$nRowData <- NULL
       returnObj$nColData <- NULL
       returnObj$nParamTotal <- NULL
-      if( modelType == 1 ) {
-         returnObj$timeEffect <- as.logical( returnObj$eta )
-         returnObj$eta <- NULL
-      } else {
-         returnObj$nz <- returnObj$eta
-         returnObj$eta <- NULL
-      }
       returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
       returnObj$gridDouble <- as.logical( returnObj$gridDouble )
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
@@ -323,6 +316,11 @@ frontier <- function(
       returnObj$zIntercept <- as.logical( returnObj$mu )
       returnObj$mu <- NULL
    }
+   # eta: timeEffect, nz
+   if( modelType == 1 ) {
+      returnObj$timeEffect <- as.logical( returnObj$eta )
+   }
+   returnObj$eta <- NULL
    
    if (!evalLogLik && maxit==returnObj$nIter) {
       stop("Maximum number of iterations reached");
