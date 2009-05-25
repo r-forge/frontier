@@ -132,7 +132,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nt}{number of time periods.}
    \item{nob}{number of observations in total.}
    \item{nb}{number of regressor variables (Xs).}
-   \item{mu}{logical. Argument \code{mu} (see above).}
    \item{nz}{numeric. The number of efficiency effects regressors (Zs)
       (only for the \sQuote{Efficiency Effects Frontier}).}
    \item{truncNorm}{logical. Argument \code{truncNorm}
