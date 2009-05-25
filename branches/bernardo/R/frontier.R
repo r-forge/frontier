@@ -132,7 +132,7 @@ frontier <- function(
       stop( "argument 'maxit' must not be negative" )
    }
    maxit <- as.integer( maxit )
-      
+
    if( "plm.dim" %in% class( data ) ) {
       nn <- length( unique( data[[ 1 ]] ) )
       nt <- length( unique( data[[ 2 ]] ) )
@@ -194,7 +194,7 @@ frontier <- function(
          dataTable <- cbind( dataTable, data[[ zNames[ i ] ]] )
       }
    }
-   
+
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
       startVal <- 0
@@ -255,7 +255,7 @@ frontier <- function(
       dataTable <- cbind(matrix( as.double( dataTable ), nrow( dataTable ),
          ncol( dataTable ) ),rep(1,nrow(dataTable)));
       colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
-       
+
       y <- dataTable[,yName];
       x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
       #colnames(x) <- c("ones",xNames);
@@ -265,8 +265,8 @@ frontier <- function(
          z <-  matrix(dataTable[,zNames],length(y),length(zNames))
              #colnames(z) <- paste("delta", 1:ncol(z), sep="_");
              #colnames(z) <- length(zNames);
-      } 
-        
+      }
+
       dataR <- list(y=y, x=x, z=z);
       returnObj= list(modelType = modelType,
          ineffDecrease = ineffDecrease,
@@ -321,7 +321,7 @@ frontier <- function(
       returnObj$timeEffect <- as.logical( returnObj$eta )
    }
    returnObj$eta <- NULL
-   
+
    if (!evalLogLik && maxit==returnObj$nIter) {
       stop("Maximum number of iterations reached");
    }
@@ -333,7 +333,7 @@ frontier <- function(
       returnObj$searchScale <- TRUE
    }
    returnObj$indic <- NULL
-   
+
    returnObj$code <- code;
    if( length( startVal ) == 1 ){
       if( modelType == 1 ) {
@@ -365,7 +365,7 @@ frontier <- function(
          if (showParNames) {
             paramNames <- c( paramNames, "d_const" )
          } else {
-            paramNames <- c( paramNames,  "delta_0" )
+            paramNames <- c( paramNames, "delta_0" )
          }
       }
       if( nZvars > 0 ) {
@@ -376,7 +376,7 @@ frontier <- function(
          }
       }
    }
-    
+
    if( length( startVal ) == 1 ){
       returnObj$startVal <- NULL
    }
@@ -389,7 +389,6 @@ frontier <- function(
          paramNames <- c( paramNames, "time" )
       }
    }
-    
    names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
       "sigma-sq" )
    names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
@@ -405,7 +404,6 @@ frontier <- function(
    if( !is.null( returnObj$startVal ) ) {
       names( returnObj$startVal ) <- paramNames
    }
-    
    returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"

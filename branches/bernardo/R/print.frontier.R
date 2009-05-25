@@ -1,7 +1,6 @@
 print.frontier <- function( x, ... ) {
 
    cat( "Stochastic Frontier Analysis with FRONTIER 4.1\n\n" )
-   
    if( x$modelType == "ECF" ) {
       cat( "Error Components Frontier (see Battese & Coelli 1992)\n" )
    } else if( x$modelType == "EEF" ) {
