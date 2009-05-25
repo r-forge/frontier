@@ -467,6 +467,10 @@ logLik( translog )
 print( summary( translog ) )
 efficiencies( translog )
 efficiencies( translog, asInData = TRUE )
+translogEla <- elas( translog )
+print( translogEla )
+attributes( translogEla )$variance
+attributes( translogEla )$stdDev
 print.default( translog )
 
 ## cross-section data, error components frontier, translog, shifter
@@ -486,6 +490,10 @@ logLik( translogShift )
 print( summary( translogShift ) )
 efficiencies( translogShift )
 efficiencies( translogShift, asInData = TRUE )
+translogShiftEla <- elas( translogShift )
+print( translogShiftEla )
+attributes( translogShiftEla )$variance
+attributes( translogShiftEla )$stdDev
 print.default( translogShift )
 
 ## cross-section data, efficiency effects frontier, translog
@@ -505,5 +513,9 @@ logLik( translogZvar )
 print( summary( translogZvar ) )
 efficiencies( translogZvar )
 efficiencies( translogZvar, asInData = TRUE )
+translogZvarEla <- elas( translogZvar )
+print( translogZvarEla ) 
+attributes( translogZvarEla )$variance
+attributes( translogZvarEla )$stdDev
 print.default( translogZvar )
 
