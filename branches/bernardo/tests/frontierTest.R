@@ -268,7 +268,7 @@ efficiencies( b2 )
 efficiencies( b2, asInData = TRUE )
 print.default( b2 )
 
-## panel data, error components frontier, timeEffect != 0
+## panel data, error components frontier, timeEffect
 b3 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    timeEffect = TRUE )
@@ -287,7 +287,7 @@ efficiencies( b3 )
 efficiencies( b3, asInData = TRUE )
 print.default( b3 )
 
-## panel data, error components frontier, truncNorm, timeEffect != 0
+## panel data, error components frontier, truncNorm, timeEffect
 b4 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE )
@@ -344,7 +344,7 @@ efficiencies( b6 )
 efficiencies( b6, asInData = TRUE )
 print.default( b6 )
 
-## panel data, error components frontier, truncNorm, timeEffect != 0, starting values
+## panel data, error components frontier, truncNorm, timeEffect, starting values
 b7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE,

@@ -12069,7 +12069,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, timeEffect != 0
+> ## panel data, error components frontier, timeEffect
 > b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
@@ -12827,7 +12827,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, truncNorm, timeEffect != 0
+> ## panel data, error components frontier, truncNorm, timeEffect
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
@@ -15131,7 +15131,7 @@ frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),
 attr(,"class")
 [1] "frontier"
 > 
-> ## panel data, error components frontier, truncNorm, timeEffect != 0, starting values
+> ## panel data, error components frontier, truncNorm, timeEffect, starting values
 > b7 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
