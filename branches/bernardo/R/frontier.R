@@ -25,13 +25,16 @@ frontier <- function(
    }
    if( code=="R" ) {
       if (!ineffDecrease) {
-         stop("ineffDecrease cannot be false when code='R'");
+         stop( "argument 'ineffDecrease' cannot be FALSE",
+            " when argument 'code' is set to 'R'" )
       }
       if (!logDepVar) {
-         stop("logDepVar cannot be false when code='R'");
+         stop( "argument 'logDepVar' cannot be FALSE",
+            " when argument 'code' is set to 'R'" )
       }
-      if ( timeEffect ) {
-         stop( "argument 'timeEffect' cannot be TRUE when code='R'");
+      if( "plm.dim" %in% class( data ) ) {
+         stop( "panel data models cannot be estimated",
+            " when argument 'code' is set to 'R'" )
       }
    }
    # modelType (im)
