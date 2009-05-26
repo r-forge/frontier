@@ -20,6 +20,10 @@ frontier <- function(
       showParNames = FALSE,
       printIter = 0 ) {
 
+   # check names of variables
+   checkNames( c( yName, xNames, zNames ), names( data ) )
+
+   # code
    if( ! code %in% c("Fortran","R") ) {
       stop( "argument 'code' must be either 'Fortran' or 'R'" )
    }
@@ -177,9 +181,6 @@ frontier <- function(
    }
 
    # endogenous variable
-   if ( !any( yName == colnames(data) ) ) {
-      stop(paste("Y column",yName,"not found"))
-   }
    dataTable <- cbind( dataTable, data[[ yName ]] )
 
    # exogenous variables
@@ -190,9 +191,6 @@ frontier <- function(
    }
    if( nXvars > 0 ) {
       for( i in 1:nXvars ) {
-         if ( !any( xNames[i] == colnames(data) ) ) {
-              stop(paste("X column",xNames[i],"not found"))
-         }
          dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
          if (showParNames) {
             paramNames <- c( paramNames, paste( "b", xNames[i], sep = "_" ) )
@@ -205,9 +203,6 @@ frontier <- function(
    # variables explaining the efficiency level
    if( nZvars > 0 ) {
       for( i in 1:nZvars ) {
-         if ( !any( zNames[i] == colnames(data) ) ) {
-              stop(paste("Z column",zNames[i],"not found"))
-         }
          dataTable <- cbind( dataTable, data[[ zNames[ i ] ]] )
       }
    }
