@@ -54,13 +54,27 @@ frontier <- function(
    if( !is.logical( truncNorm ) ) {
       stop( "argument 'truncNorm' must be logical" )
    }
+   if( truncNorm && modelType == 2 ) {
+      warning( "argument 'truncNorm' is ignored in",
+         " Efficiency Effects Frontiers (EEF)" )
+   }
    # zIntercept (mu)
    if( !is.logical( zIntercept ) ) {
       stop( "argument 'zIntercept' must be logical" )
    }
+   if( zIntercept && modelType == 1 ) {
+      warning( "argument 'zIntercept' is ignored in",
+         " Efficiency Components Frontiers (ECF)" )
+   }
+   # timeEffect (eta)
    if( !is.logical( timeEffect ) ) {
       stop( "argument 'timeEffect' must be logical" )
    }
+   if( timeEffect && ! "plm.dim" %in% class( data ) ) {
+      warning( "argument 'timeEffect' is ignored in case of",
+         " cross-sectional data" )
+   }
+   # evalLogLik
    if (evalLogLik && (is.null(startVal) || length(startVal)==0)) {
       stop( "startVal must be provided when argument 'evalLogLik' is TRUE" );
    }
