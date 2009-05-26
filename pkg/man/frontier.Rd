@@ -144,6 +144,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{olsLogl}{numeric. Log likelihood value of OLS estimation.}
    \item{gridParam}{numeric vector. Parameters obtained from the grid search
       (if no starting values were specified).}
+   \item{gridLogl}{numeric. Log likelihood value of the parameters
+      obtained from the grid search
+      (only if no starting values were specified).}
+   \item{startLogl}{numeric. Log likelihood value of the starting values
+      for the parameters
+      (only if starting values were specified).}
    \item{mleParam}{numeric vector. Parameters obtained from ML estimation.}
    \item{mleCov}{matrix. Covariance matrix of the parameters obtained
       from the OLS estimation.}
