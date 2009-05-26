@@ -185,7 +185,7 @@ frontier <- function(
 
    # exogenous variables
    if (showParNames) {
-      paramNames <- "b_const";
+      paramNames <- "(Intercept)";
    } else {
       paramNames <- "beta_0";
    }
@@ -193,7 +193,7 @@ frontier <- function(
       for( i in 1:nXvars ) {
          dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
          if (showParNames) {
-            paramNames <- c( paramNames, paste( "b", xNames[i], sep = "_" ) )
+            paramNames <- c( paramNames, xNames[ i ] )
          } else {
             paramNames <- c( paramNames, paste( "beta", i, sep = "_" ) )
          }
@@ -375,14 +375,14 @@ frontier <- function(
    if( modelType == 2 ) {
       if( zIntercept ){
          if (showParNames) {
-            paramNames <- c( paramNames, "d_const" )
+            paramNames <- c( paramNames, "Z_(Intercept)" )
          } else {
             paramNames <- c( paramNames, "delta_0" )
          }
       }
       if( nZvars > 0 ) {
          if (showParNames) {
-            paramNames <- c( paramNames, paste( "d", zNames, sep="_") )
+            paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
          } else {
             paramNames <- c( paramNames, paste( "delta", c( 1:nZvars ), sep = "_" ) )
          }
