@@ -17,6 +17,9 @@ frontier <- function(
       gridDouble = TRUE,
       printIter = 0 ) {
 
+   # check names of variables
+   checkNames( c( yName, xNames, zNames ), names( data ) )
+
    # modelType (im)
    if( modelType %in% c( 1, "ECF" ) ) {
       modelType <- 1
