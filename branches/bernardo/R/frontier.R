@@ -248,6 +248,7 @@ frontier <- function(
          olsStdEr = as.double( rep( 0, nParamTotal ) ),
          olsLogl = as.double( 0 ),
          gridParam = as.double( rep( 0, nParamTotal ) ),
+         startLogl = as.double( 0 ),
          mleParam = as.double( rep( 0, nParamTotal ) ),
          mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
          mleLogl = as.double( 0 ),
@@ -354,6 +355,7 @@ frontier <- function(
          returnObj$gridParam <- returnObj$gridParam[
             c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
       }
+      names( returnObj )[ names( returnObj ) == "startLogl" ] <- "gridLogl"
    } else {
       returnObj$gridParam <- NULL
    }

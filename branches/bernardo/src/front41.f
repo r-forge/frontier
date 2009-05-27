@@ -5,7 +5,7 @@
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, olsLogl, gb, y, h, fmleLogl,
+     $  nParamTotal, ob, obse, olsLogl, gb, startLogl, y, h, fmleLogl,
      $  chi, idf, nIter, ate )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
@@ -66,13 +66,14 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, gb, y, h, chi, idf, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, idf, ate )
 	olsLogl = -fxols
+      startLogl = -fxs
 	fmleLogl = -fx
 	nIter = iter
 	end
  
-	subroutine mini(yy,xx,mm,sv,ob,obse,gb,y,h,chi,idf,ate)
+	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,idf,ate)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
@@ -90,6 +91,8 @@ c       contains the main loop of this iterative program.
 	call ols(ob,obse,yy,xx)  
 	if (igrid.eq.1) then   
 	call grid(x,y,yy,xx,ob,gb)  
+      if (im.eq.1) call fun1(gb,fxs,yy,xx)
+      if (im.eq.2) call fun2(gb,fxs,yy,xx)
 	else   
 	do 131 i=1,n   
 	y(i)=sv(i) 
@@ -97,7 +100,8 @@ c       contains the main loop of this iterative program.
   131   continue   
 	if (im.eq.1) call fun1(x,fx,yy,xx) 
 	if (im.eq.2) call fun2(x,fx,yy,xx) 
-	fy=fx  
+	fy=fx
+      fxs=fx
 	end if 
 	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,chi,idf,ate)
 	iter=0 
@@ -702,7 +706,7 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
  
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, obse, gb, y, h, chi, idf, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, idf, ate )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -802,7 +806,7 @@ c       also reads data from a file.
 	stop  
 	end if
   149   continue   
-	call mini(yy,xx,mm,sv,ob,obse,gb,y,h,chi,idf,ate)
+	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,idf,ate)
 	deallocate(yy,xx,mm,sv,xxd)
 	return 
 	end

@@ -138,7 +138,7 @@ gamma     0.0092520 -9.1555e-05 -1.6405e-04  6.7451e-03  1.8612e-02
 > logLik( a1, which = "ols" )
 [1] -18.447
 > logLik( a1, which = "grid" )
-[1] NA
+[1] -17.035
 > logLik( a1 )
 [1] -17.027
 > print( summary( a1 ) )
@@ -388,6 +388,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
+
+$gridLogl
+[1] -17.035
 
 $mleParam
   beta_0   beta_1   beta_2 sigma-sq    gamma 
@@ -794,6 +797,9 @@ $gridParam
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
 
+$gridLogl
+[1] -17.035
+
 $mleParam
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
  0.47641  0.28259  0.54038  0.54776  0.90815 -1.41060 
@@ -1191,6 +1197,9 @@ $olsStdEr
 
 $olsLogl
 [1] -18.447
+
+$startLogl
+[1] -23.321
 
 $mleParam
   beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
@@ -1594,6 +1603,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
+
+$gridLogl
+[1] -17.035
 
 $mleParam
    beta_0    beta_1    beta_2   delta_1  sigma-sq     gamma 
@@ -2004,6 +2016,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2 sigma-sq    gamma 
  0.58014  0.28049  0.53331  0.22067  0.80000 
+
+$gridLogl
+[1] -17.035
 
 $mleParam
    beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
@@ -2416,6 +2431,9 @@ $olsStdEr
 
 $olsLogl
 [1] -18.447
+
+$startLogl
+[1] -25.120
 
 $mleParam
    beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
@@ -3462,6 +3480,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+
+$gridLogl
+[1] -88.207
 
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
@@ -4789,6 +4810,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+
+$gridLogl
+[1] -88.207
 
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
@@ -6129,6 +6153,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+
+$gridLogl
+[1] -88.207
 
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_1   delta_2  sigma-sq     gamma 
@@ -7477,6 +7504,9 @@ $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
 
+$gridLogl
+[1] -88.207
+
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051760  0.379767  0.321029  0.263797 -2.746459 -0.028610 -3.635528  1.666588 
@@ -8806,6 +8836,9 @@ $olsStdEr
 
 $olsLogl
 [1] -104.91
+
+$startLogl
+[1] -96.527
 
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
@@ -10153,6 +10186,9 @@ $olsStdEr
 $olsLogl
 [1] -104.91
 
+$startLogl
+[1] -112.79
+
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051771  0.379769  0.321030  0.263795 -2.747260 -0.028600 -3.636439  1.666887 
@@ -11207,6 +11243,9 @@ $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
 
+$gridLogl
+[1] -89.228
+
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431 
@@ -11951,6 +11990,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+
+$gridLogl
+[1] -89.228
 
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
@@ -12709,6 +12751,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+
+$gridLogl
+[1] -89.228
 
 $mleParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma     time 
@@ -13471,6 +13516,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.47456  0.32976  0.38375  0.28292  0.14581  0.41000 
+
+$gridLogl
+[1] -89.228
 
 $mleParam
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
@@ -14235,6 +14283,9 @@ $olsLogl
 $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+
+$gridLogl
+[1] -88.207
 
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_1   delta_2  sigma-sq     gamma 
@@ -15005,6 +15056,9 @@ $gridParam
   beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
 -1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
 
+$gridLogl
+[1] -88.207
+
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051760  0.379767  0.321029  0.263797 -2.746459 -0.028610 -3.635528  1.666588 
@@ -15761,6 +15815,9 @@ $olsStdEr
 
 $olsLogl
 [1] -104.91
+
+$startLogl
+[1] -111.34
 
 $mleParam
    beta_0    beta_1    beta_2    beta_3  sigma-sq     gamma        mu      time 
@@ -16532,6 +16589,9 @@ $olsStdEr
 $olsLogl
 [1] -104.91
 
+$startLogl
+[1] -195.92
+
 $mleParam
    beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
 -1.051762  0.379766  0.321029  0.263797 -2.746339 -0.028617 -3.635447  1.666552 
@@ -17153,6 +17213,9 @@ $gridParam
  0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1924378 
      gamma 
  0.7600000 
+
+$gridLogl
+[1] -14.457
 
 $mleParam
        a_0        a_1        a_2      b_1_1      b_1_2      b_2_2   sigma-sq 
@@ -17804,6 +17867,9 @@ $gridParam
   sigma-sq      gamma 
  0.1871335  0.7500000 
 
+$gridLogl
+[1] -14.062
+
 $mleParam
        a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
  0.6981902  0.3954495  0.3968769 -0.1923227  0.0016946  0.0492933  0.0022187 
@@ -18448,6 +18514,9 @@ $gridParam
  0.8613911  0.3785431  0.3477993 -0.1859180  0.0084811  0.0601000  0.1924378 
      gamma 
  0.7600000 
+
+$gridLogl
+[1] -14.457
 
 $mleParam
         a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 

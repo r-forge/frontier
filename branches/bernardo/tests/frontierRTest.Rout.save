@@ -11343,6 +11343,9 @@ $gridParam
    beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq     gamma 
 -0.306199  0.144456  0.199638  0.495654  0.042643  0.173570  0.530000 
 
+$gridLogl
+[1] -18.074
+
 $mleParam
    beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
 -1.056270  0.236656  0.281383  0.278424  0.180893 -0.667513  3.458396 -0.302460 
