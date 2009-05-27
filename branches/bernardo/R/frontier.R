@@ -17,7 +17,6 @@ frontier <- function(
       searchScale = NA,
       gridSize = 0.1,
       gridDouble = TRUE,
-      showParNames = TRUE,
       printIter = 0 ) {
 
    # check names of variables
@@ -184,19 +183,11 @@ frontier <- function(
    dataTable <- cbind( dataTable, data[[ yName ]] )
 
    # exogenous variables
-   if (showParNames) {
-      paramNames <- "(Intercept)";
-   } else {
-      paramNames <- "beta_0";
-   }
+   paramNames <- "(Intercept)";
    if( nXvars > 0 ) {
       for( i in 1:nXvars ) {
          dataTable <- cbind( dataTable, data[[ xNames[ i ] ]] )
-         if (showParNames) {
-            paramNames <- c( paramNames, xNames[ i ] )
-         } else {
-            paramNames <- c( paramNames, paste( "beta", i, sep = "_" ) )
-         }
+         paramNames <- c( paramNames, xNames[ i ] )
       }
    }
 
@@ -376,18 +367,10 @@ frontier <- function(
    }
    if( modelType == 2 ) {
       if( zIntercept ){
-         if (showParNames) {
-            paramNames <- c( paramNames, "Z_(Intercept)" )
-         } else {
-            paramNames <- c( paramNames, "delta_0" )
-         }
+         paramNames <- c( paramNames, "Z_(Intercept)" )
       }
       if( nZvars > 0 ) {
-         if (showParNames) {
-            paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
-         } else {
-            paramNames <- c( paramNames, paste( "delta", c( 1:nZvars ), sep = "_" ) )
-         }
+         paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
       }
    }
 

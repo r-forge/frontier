@@ -22,7 +22,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    code = "Fortran", evalLogLik = FALSE,
    tol = 0.00001, maxit = 1000, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
-   gridSize = 0.1, gridDouble = TRUE, showParNames = TRUE, printIter = 0 )
+   gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
 \method{print}{frontier}( x, \dots )
 }
 
@@ -98,9 +98,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       a second phase grid search on \eqn{\gamma}{gamma} is conducted
       around the \dQuote{best} value obtained in the first phase
       with an increment of \code{gridSize/10}.}
-   \item{showParNames}{ logical. If \code{TRUE}, the names of parameters beta
-      and delta include the names from xNames and zNames. If \code{FALSE} the
-      names of these parameters are numbered.}
    \item{printIter}{numeric. Print info every \code{printIter} iterations;
       if this argument is 0, do not print.}
    \item{x}{an object of class \code{frontier}
