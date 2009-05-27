@@ -326,8 +326,8 @@ frontier <- function(
    }
    returnObj$eta <- NULL
 
-   if (!evalLogLik && maxit==returnObj$nIter) {
-      stop("Maximum number of iterations reached");
+   if( !evalLogLik && maxit <= returnObj$nIter && maxit > 0 ) {
+      warning( "Maximum number of iterations reached" );
    }
    if( returnObj$indic == 2 ) {
       returnObj$searchScale <- FALSE
