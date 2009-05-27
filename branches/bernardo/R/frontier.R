@@ -306,6 +306,12 @@ frontier <- function(
       }
       returnObj$lrTestDf = as.integer(0)
    }
+
+   # check if the maximum number of iterations has been reached
+   if( !evalLogLik && maxit <= returnObj$nIter && maxit > 0 ) {
+      warning( "Maximum number of iterations reached" );
+   }
+
    # modelType
    if( returnObj$modelType == 1 ) {
       returnObj$modelType <- "ECF"
@@ -326,9 +332,6 @@ frontier <- function(
    }
    returnObj$eta <- NULL
 
-   if( !evalLogLik && maxit <= returnObj$nIter && maxit > 0 ) {
-      warning( "Maximum number of iterations reached" );
-   }
    if( returnObj$indic == 2 ) {
       returnObj$searchScale <- FALSE
    } else if( returnObj$indic == 1 ) {
