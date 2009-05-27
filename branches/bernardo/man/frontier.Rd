@@ -22,7 +22,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    code = "Fortran", evalLogLik = FALSE,
    tol = 0.00001, maxit = 1000, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
-   gridSize = 0.1, gridDouble = TRUE, showParNames = FALSE, printIter = 0 )
+   gridSize = 0.1, gridDouble = TRUE, showParNames = TRUE, printIter = 0 )
 \method{print}{frontier}( x, \dots )
 }
 

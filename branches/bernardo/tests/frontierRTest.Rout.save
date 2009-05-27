@@ -102,39 +102,39 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.56162  0.28110  0.53648  0.21700  0.79721 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.56162     0.28110     0.53648     0.21700     0.79721 
 > coef( a1, which = "start" )
 NULL
 > coef( a1, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( a1, which = "grid" )
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 > coef( a1 )
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.56162  0.28110  0.53648  0.21700  0.79721 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.56162     0.28110     0.53648     0.21700     0.79721 
 > coef( summary( a1 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( a1 ) )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.56162   0.202622  2.7718 7.5934e-03
-beta_1    0.28110   0.047503  5.9176 2.1852e-07
-beta_2    0.53648   0.045193 11.8709 8.4395e-17
-sigma-sq  0.21700   0.064412  3.3689 1.3845e-03
-gamma     0.79721   0.138513  5.7555 3.9820e-07
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.56162   0.202622  2.7718 7.5934e-03
+logCapital   0.28110   0.047503  5.9176 2.1852e-07
+logLabour    0.53648   0.045193 11.8709 8.4395e-17
+sigma-sq     0.21700   0.064412  3.3689 1.3845e-03
+gamma        0.79721   0.138513  5.7555 3.9820e-07
 > vcov( a1 )
-             beta_0      beta_1      beta_2    sigma-sq       gamma
-beta_0    0.0410555 -3.1137e-03 -7.9854e-03  4.1237e-03  9.5664e-03
-beta_1   -0.0031137  2.2565e-03  3.7095e-05 -2.4474e-05 -8.8111e-05
-beta_2   -0.0079854  3.7095e-05  2.0424e-03 -4.6977e-05 -1.8341e-04
-sigma-sq  0.0041237 -2.4474e-05 -4.6977e-05  4.1489e-03  6.9372e-03
-gamma     0.0095664 -8.8111e-05 -1.8341e-04  6.9372e-03  1.9186e-02
+            (Intercept)  logCapital   logLabour    sigma-sq       gamma
+(Intercept)   0.0410555 -3.1137e-03 -7.9854e-03  4.1237e-03  9.5664e-03
+logCapital   -0.0031137  2.2565e-03  3.7095e-05 -2.4474e-05 -8.8111e-05
+logLabour    -0.0079854  3.7095e-05  2.0424e-03 -4.6977e-05 -1.8341e-04
+sigma-sq      0.0041237 -2.4474e-05 -4.6977e-05  4.1489e-03  6.9372e-03
+gamma         0.0095664 -8.8111e-05 -1.8341e-04  6.9372e-03  1.9186e-02
 > logLik( a1, which = "ols" )
 [1] -18.447
 > logLik( a1, which = "grid" )
@@ -149,30 +149,30 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.2449     0.2136    1.15     0.26    
-beta_1     0.2805     0.0481    5.84  2.8e-07 ***
-beta_2     0.5333     0.0515   10.36  1.3e-14 ***
-sigma-sq   0.1140         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.2449     0.2136    1.15     0.26    
+logCapital    0.2805     0.0481    5.84  2.8e-07 ***
+logLabour     0.5333     0.0515   10.36  1.3e-14 ***
+sigma-sq      0.1140         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
-            [,1]
-beta_0   0.58014
-beta_1   0.28049
-beta_2   0.53331
-sigma-sq 0.22067
-gamma    0.80000
+               [,1]
+(Intercept) 0.58014
+logCapital  0.28049
+logLabour   0.53331
+sigma-sq    0.22067
+gamma       0.80000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.5616     0.2026    2.77   0.0076 ** 
-beta_1     0.2811     0.0475    5.92  2.2e-07 ***
-beta_2     0.5365     0.0452   11.87  < 2e-16 ***
-sigma-sq   0.2170     0.0644    3.37   0.0014 ** 
-gamma      0.7972     0.1385    5.76  4.0e-07 ***
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.5616     0.2026    2.77   0.0076 ** 
+logCapital    0.2811     0.0475    5.92  2.2e-07 ***
+logLabour     0.5365     0.0452   11.87  < 2e-16 ***
+sigma-sq      0.2170     0.0644    3.37   0.0014 ** 
+gamma         0.7972     0.1385    5.76  4.0e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
@@ -375,34 +375,34 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
 
 $gridParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 
 $gridLogl
 [1] -17.035
 
 $mleParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.56162  0.28110  0.53648  0.21700  0.79721 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.56162     0.28110     0.53648     0.21700     0.79721 
 
 $mleCov
-             beta_0      beta_1      beta_2    sigma-sq       gamma
-beta_0    0.0410555 -3.1137e-03 -7.9854e-03  4.1237e-03  9.5664e-03
-beta_1   -0.0031137  2.2565e-03  3.7095e-05 -2.4474e-05 -8.8111e-05
-beta_2   -0.0079854  3.7095e-05  2.0424e-03 -4.6977e-05 -1.8341e-04
-sigma-sq  0.0041237 -2.4474e-05 -4.6977e-05  4.1489e-03  6.9372e-03
-gamma     0.0095664 -8.8111e-05 -1.8341e-04  6.9372e-03  1.9186e-02
+            (Intercept)  logCapital   logLabour    sigma-sq       gamma
+(Intercept)   0.0410555 -3.1137e-03 -7.9854e-03  4.1237e-03  9.5664e-03
+logCapital   -0.0031137  2.2565e-03  3.7095e-05 -2.4474e-05 -8.8111e-05
+logLabour    -0.0079854  3.7095e-05  2.0424e-03 -4.6977e-05 -1.8341e-04
+sigma-sq      0.0041237 -2.4474e-05 -4.6977e-05  4.1489e-03  6.9372e-03
+gamma         0.0095664 -8.8111e-05 -1.8341e-04  6.9372e-03  1.9186e-02
 
 $mleLogl
 [1] -17.027
@@ -506,41 +506,41 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 > coef( a2, which = "start" )
 NULL
 > coef( a2, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( a2, which = "grid" )
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 > coef( a2 )
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 > coef( summary( a2 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( a2 ) )
-         Estimate Std. Error  t value   Pr(>|t|)
-beta_0    0.46453   0.230315  2.01693 4.8687e-02
-beta_1    0.28327   0.047882  5.91608 2.3239e-07
-beta_2    0.54098   0.045340 11.93166 9.1750e-17
-sigma-sq  0.89028   4.171585  0.21342 8.3181e-01
-gamma     0.94180   0.262122  3.59299 7.0706e-04
-mu       -2.84154  17.591974 -0.16152 8.7228e-01
+            Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)  0.46453   0.230315  2.01693 4.8687e-02
+logCapital   0.28327   0.047882  5.91608 2.3239e-07
+logLabour    0.54098   0.045340 11.93166 9.1750e-17
+sigma-sq     0.89028   4.171585  0.21342 8.3181e-01
+gamma        0.94180   0.262122  3.59299 7.0706e-04
+mu          -2.84154  17.591974 -0.16152 8.7228e-01
 > vcov( a2 )
-             beta_0      beta_1      beta_2   sigma-sq      gamma        mu
-beta_0    0.0530451 -3.4472e-03 -8.5403e-03  -0.468801 -0.0279016   2.05352
-beta_1   -0.0034472  2.2926e-03 -2.3441e-05   0.019143  0.0011353  -0.08313
-beta_2   -0.0085403 -2.3441e-05  2.0557e-03   0.027302  0.0016649  -0.11683
-sigma-sq -0.4688010  1.9143e-02  2.7302e-02  17.402121  1.0889284 -73.24566
-gamma    -0.0279016  1.1353e-03  1.6649e-03   1.088928  0.0687078  -4.56772
-mu        2.0535246 -8.3131e-02 -1.1683e-01 -73.245665 -4.5677196 309.47756
+            (Intercept)  logCapital   logLabour   sigma-sq      gamma        mu
+(Intercept)   0.0530451 -3.4472e-03 -8.5403e-03  -0.468801 -0.0279016   2.05352
+logCapital   -0.0034472  2.2926e-03 -2.3441e-05   0.019143  0.0011353  -0.08313
+logLabour    -0.0085403 -2.3441e-05  2.0557e-03   0.027302  0.0016649  -0.11683
+sigma-sq     -0.4688010  1.9143e-02  2.7302e-02  17.402121  1.0889284 -73.24566
+gamma        -0.0279016  1.1353e-03  1.6649e-03   1.088928  0.0687078  -4.56772
+mu            2.0535246 -8.3131e-02 -1.1683e-01 -73.245665 -4.5677196 309.47756
 > logLik( a2, which = "ols" )
 [1] -18.447
 > logLik( a2 )
@@ -553,31 +553,31 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.2449     0.2136    1.15     0.26    
-beta_1     0.2805     0.0481    5.84  2.8e-07 ***
-beta_2     0.5333     0.0515   10.36  1.3e-14 ***
-sigma-sq   0.1140         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.2449     0.2136    1.15     0.26    
+logCapital    0.2805     0.0481    5.84  2.8e-07 ***
+logLabour     0.5333     0.0515   10.36  1.3e-14 ***
+sigma-sq      0.1140         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
-            [,1]
-beta_0   0.58014
-beta_1   0.28049
-beta_2   0.53331
-sigma-sq 0.22067
-gamma    0.80000
+               [,1]
+(Intercept) 0.58014
+logCapital  0.28049
+logLabour   0.53331
+sigma-sq    0.22067
+gamma       0.80000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.4645     0.2303    2.02   0.0487 *  
-beta_1     0.2833     0.0479    5.92  2.3e-07 ***
-beta_2     0.5410     0.0453   11.93  < 2e-16 ***
-sigma-sq   0.8903     4.1716    0.21   0.8318    
-gamma      0.9418     0.2621    3.59   0.0007 ***
-mu        -2.8415    17.5920   -0.16   0.8723    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.4645     0.2303    2.02   0.0487 *  
+logCapital    0.2833     0.0479    5.92  2.3e-07 ***
+logLabour     0.5410     0.0453   11.93  < 2e-16 ***
+sigma-sq      0.8903     4.1716    0.21   0.8318    
+gamma         0.9418     0.2621    3.59   0.0007 ***
+mu           -2.8415    17.5920   -0.16   0.8723    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.786 
@@ -780,35 +780,35 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
 
 $gridParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 
 $gridLogl
 [1] -17.035
 
 $mleParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 
 $mleCov
-             beta_0      beta_1      beta_2   sigma-sq      gamma        mu
-beta_0    0.0530451 -3.4472e-03 -8.5403e-03  -0.468801 -0.0279016   2.05352
-beta_1   -0.0034472  2.2926e-03 -2.3441e-05   0.019143  0.0011353  -0.08313
-beta_2   -0.0085403 -2.3441e-05  2.0557e-03   0.027302  0.0016649  -0.11683
-sigma-sq -0.4688010  1.9143e-02  2.7302e-02  17.402121  1.0889284 -73.24566
-gamma    -0.0279016  1.1353e-03  1.6649e-03   1.088928  0.0687078  -4.56772
-mu        2.0535246 -8.3131e-02 -1.1683e-01 -73.245665 -4.5677196 309.47756
+            (Intercept)  logCapital   logLabour   sigma-sq      gamma        mu
+(Intercept)   0.0530451 -3.4472e-03 -8.5403e-03  -0.468801 -0.0279016   2.05352
+logCapital   -0.0034472  2.2926e-03 -2.3441e-05   0.019143  0.0011353  -0.08313
+logLabour    -0.0085403 -2.3441e-05  2.0557e-03   0.027302  0.0016649  -0.11683
+sigma-sq     -0.4688010  1.9143e-02  2.7302e-02  17.402121  1.0889284 -73.24566
+gamma        -0.0279016  1.1353e-03  1.6649e-03   1.088928  0.0687078  -4.56772
+mu            2.0535246 -8.3131e-02 -1.1683e-01 -73.245665 -4.5677196 309.47756
 
 $mleLogl
 [1] -16.786
@@ -913,41 +913,48 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 > coef( a5, which = "start" )
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
-     0.5      0.3      0.5      0.5      0.9     -1.0 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+        0.5         0.3         0.5         0.5         0.9        -1.0 
 > coef( a5, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( a5, which = "grid" )
 NULL
 > coef( a5 )
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 > coef( summary( a5 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( a5 ) )
-         Estimate Std. Error  t value   Pr(>|t|)
-beta_0    0.46453   0.230302  2.01705 4.8674e-02
-beta_1    0.28327   0.047881  5.91610 2.3238e-07
-beta_2    0.54098   0.045339 11.93172 9.1731e-17
-sigma-sq  0.89028   4.170345  0.21348 8.3176e-01
-gamma     0.94180   0.262043  3.59407 7.0470e-04
-mu       -2.84154  17.586836 -0.16157 8.7225e-01
+            Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)  0.46453   0.230302  2.01705 4.8674e-02
+logCapital   0.28327   0.047881  5.91610 2.3238e-07
+logLabour    0.54098   0.045339 11.93172 9.1731e-17
+sigma-sq     0.89028   4.170345  0.21348 8.3176e-01
+gamma        0.94180   0.262043  3.59407 7.0470e-04
+mu          -2.84154  17.586836 -0.16157 8.7225e-01
 > vcov( a5 )
-             beta_0      beta_1      beta_2   sigma-sq      gamma         mu
-beta_0    0.0530389 -3.4470e-03 -8.5399e-03  -0.468547 -0.0278856   2.052463
-beta_1   -0.0034470  2.2926e-03 -2.3457e-05   0.019132  0.0011346  -0.083085
-beta_2   -0.0085399 -2.3457e-05  2.0557e-03   0.027287  0.0016640  -0.116768
-sigma-sq -0.4685468  1.9132e-02  2.7287e-02  17.391776  1.0882751 -73.202421
-gamma    -0.0278856  1.1346e-03  1.6640e-03   1.088275  0.0686666  -4.564989
-mu        2.0524626 -8.3085e-02 -1.1677e-01 -73.202421 -4.5649888 309.296811
+            (Intercept)  logCapital   logLabour   sigma-sq      gamma
+(Intercept)   0.0530389 -3.4470e-03 -8.5399e-03  -0.468547 -0.0278856
+logCapital   -0.0034470  2.2926e-03 -2.3457e-05   0.019132  0.0011346
+logLabour    -0.0085399 -2.3457e-05  2.0557e-03   0.027287  0.0016640
+sigma-sq     -0.4685468  1.9132e-02  2.7287e-02  17.391776  1.0882751
+gamma        -0.0278856  1.1346e-03  1.6640e-03   1.088275  0.0686666
+mu            2.0524626 -8.3085e-02 -1.1677e-01 -73.202421 -4.5649888
+                    mu
+(Intercept)   2.052463
+logCapital   -0.083085
+logLabour    -0.116768
+sigma-sq    -73.202421
+gamma        -4.564989
+mu          309.296811
 > logLik( a5, which = "ols" )
 [1] -18.447
 > logLik( a5 )
@@ -960,22 +967,22 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 starting values provided by the user
-         [,1]
-beta_0    0.5
-beta_1    0.3
-beta_2    0.5
-sigma-sq  0.5
-gamma     0.9
-mu       -1.0
+            [,1]
+(Intercept)  0.5
+logCapital   0.3
+logLabour    0.5
+sigma-sq     0.5
+gamma        0.9
+mu          -1.0
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.4645     0.2303    2.02   0.0487 *  
-beta_1     0.2833     0.0479    5.92  2.3e-07 ***
-beta_2     0.5410     0.0453   11.93  < 2e-16 ***
-sigma-sq   0.8903     4.1703    0.21   0.8318    
-gamma      0.9418     0.2620    3.59   0.0007 ***
-mu        -2.8415    17.5868   -0.16   0.8722    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.4645     0.2303    2.02   0.0487 *  
+logCapital    0.2833     0.0479    5.92  2.3e-07 ***
+logLabour     0.5410     0.0453   11.93  < 2e-16 ***
+sigma-sq      0.8903     4.1703    0.21   0.8318    
+gamma         0.9418     0.2620    3.59   0.0007 ***
+mu           -2.8415    17.5868   -0.16   0.8722    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.786 
@@ -1115,8 +1122,8 @@ $maxit
 [1] 1000
 
 $startVal
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
-     0.5      0.3      0.5      0.5      0.9     -1.0 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+        0.5         0.3         0.5         0.5         0.9        -1.0 
 
 $dataTable
       seq t logOutput logCapital logLabour ones
@@ -1182,12 +1189,12 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
@@ -1196,17 +1203,24 @@ $gridLogl
 [1] -17.035
 
 $mleParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma       mu 
- 0.46453  0.28327  0.54098  0.89028  0.94180 -2.84154 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
+    0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
 
 $mleCov
-             beta_0      beta_1      beta_2   sigma-sq      gamma         mu
-beta_0    0.0530389 -3.4470e-03 -8.5399e-03  -0.468547 -0.0278856   2.052463
-beta_1   -0.0034470  2.2926e-03 -2.3457e-05   0.019132  0.0011346  -0.083085
-beta_2   -0.0085399 -2.3457e-05  2.0557e-03   0.027287  0.0016640  -0.116768
-sigma-sq -0.4685468  1.9132e-02  2.7287e-02  17.391776  1.0882751 -73.202421
-gamma    -0.0278856  1.1346e-03  1.6640e-03   1.088275  0.0686666  -4.564989
-mu        2.0524626 -8.3085e-02 -1.1677e-01 -73.202421 -4.5649888 309.296811
+            (Intercept)  logCapital   logLabour   sigma-sq      gamma
+(Intercept)   0.0530389 -3.4470e-03 -8.5399e-03  -0.468547 -0.0278856
+logCapital   -0.0034470  2.2926e-03 -2.3457e-05   0.019132  0.0011346
+logLabour    -0.0085399 -2.3457e-05  2.0557e-03   0.027287  0.0016640
+sigma-sq     -0.4685468  1.9132e-02  2.7287e-02  17.391776  1.0882751
+gamma        -0.0278856  1.1346e-03  1.6640e-03   1.088275  0.0686666
+mu            2.0524626 -8.3085e-02 -1.1677e-01 -73.202421 -4.5649888
+                    mu
+(Intercept)   2.052463
+logCapital   -0.083085
+logLabour    -0.116768
+sigma-sq    -73.202421
+gamma        -4.564989
+mu          309.296811
 
 $mleLogl
 [1] -16.786
@@ -1311,48 +1325,48 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2   delta_1  sigma-sq     gamma 
- 0.536807  0.268649  0.539341 -0.010282  0.284557  0.840088 
+(Intercept)  logCapital   logLabour    Z_firmNo    sigma-sq       gamma 
+   0.536807    0.268649    0.539341   -0.010282    0.284557    0.840088 
 > coef( aa1, which = "start" )
 NULL
 > coef( aa1, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( aa1, which = "grid" )
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 > coef( aa1 )
-   beta_0    beta_1    beta_2   delta_1  sigma-sq     gamma 
- 0.536807  0.268649  0.539341 -0.010282  0.284557  0.840088 
+(Intercept)  logCapital   logLabour    Z_firmNo    sigma-sq       gamma 
+   0.536807    0.268649    0.539341   -0.010282    0.284557    0.840088 
 > coef( summary( aa1 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( aa1 ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0    0.536807   0.199328  2.69308 9.4105e-03
-beta_1    0.268649   0.048878  5.49633 1.0796e-06
-beta_2    0.539341   0.044265 12.18424 3.9999e-17
-delta_1  -0.010282   0.012414 -0.82823 4.1118e-01
-sigma-sq  0.284557   0.119251  2.38621 2.0558e-02
-gamma     0.840088   0.109457  7.67502 3.3071e-10
+             Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)  0.536807   0.199328  2.69308 9.4105e-03
+logCapital   0.268649   0.048878  5.49633 1.0796e-06
+logLabour    0.539341   0.044265 12.18424 3.9999e-17
+Z_firmNo    -0.010282   0.012414 -0.82823 4.1118e-01
+sigma-sq     0.284557   0.119251  2.38621 2.0558e-02
+gamma        0.840088   0.109457  7.67502 3.3071e-10
 > vcov( aa1 )
-              beta_0      beta_1      beta_2     delta_1    sigma-sq
-beta_0    0.03973184 -2.9314e-03 -7.6810e-03  2.1608e-04  0.00373725
-beta_1   -0.00293143  2.3891e-03 -1.9815e-05  1.2298e-04 -0.00091250
-beta_2   -0.00768096 -1.9815e-05  1.9594e-03 -3.0612e-05  0.00010339
-delta_1   0.00021608  1.2298e-04 -3.0612e-05  1.5410e-04 -0.00108207
-sigma-sq  0.00373725 -9.1250e-04  1.0339e-04 -1.0821e-03  0.01422074
-gamma     0.00613111 -5.1149e-04 -1.0842e-04 -5.4079e-04  0.01026774
-               gamma
-beta_0    0.00613111
-beta_1   -0.00051149
-beta_2   -0.00010842
-delta_1  -0.00054079
-sigma-sq  0.01026774
-gamma     0.01198094
+            (Intercept)  logCapital   logLabour    Z_firmNo    sigma-sq
+(Intercept)  0.03973184 -2.9314e-03 -7.6810e-03  2.1608e-04  0.00373725
+logCapital  -0.00293143  2.3891e-03 -1.9815e-05  1.2298e-04 -0.00091250
+logLabour   -0.00768096 -1.9815e-05  1.9594e-03 -3.0612e-05  0.00010339
+Z_firmNo     0.00021608  1.2298e-04 -3.0612e-05  1.5410e-04 -0.00108207
+sigma-sq     0.00373725 -9.1250e-04  1.0339e-04 -1.0821e-03  0.01422074
+gamma        0.00613111 -5.1149e-04 -1.0842e-04 -5.4079e-04  0.01026774
+                  gamma
+(Intercept)  0.00613111
+logCapital  -0.00051149
+logLabour   -0.00010842
+Z_firmNo    -0.00054079
+sigma-sq     0.01026774
+gamma        0.01198094
 > print( summary( aa1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1361,31 +1375,31 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.2449     0.2136    1.15     0.26    
-beta_1     0.2805     0.0481    5.84  2.8e-07 ***
-beta_2     0.5333     0.0515   10.36  1.3e-14 ***
-sigma-sq   0.1140         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.2449     0.2136    1.15     0.26    
+logCapital    0.2805     0.0481    5.84  2.8e-07 ***
+logLabour     0.5333     0.0515   10.36  1.3e-14 ***
+sigma-sq      0.1140         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
-            [,1]
-beta_0   0.58014
-beta_1   0.28049
-beta_2   0.53331
-sigma-sq 0.22067
-gamma    0.80000
+               [,1]
+(Intercept) 0.58014
+logCapital  0.28049
+logLabour   0.53331
+sigma-sq    0.22067
+gamma       0.80000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.5368     0.1993    2.69   0.0094 ** 
-beta_1     0.2686     0.0489    5.50  1.1e-06 ***
-beta_2     0.5393     0.0443   12.18  < 2e-16 ***
-delta_1   -0.0103     0.0124   -0.83   0.4112    
-sigma-sq   0.2846     0.1193    2.39   0.0206 *  
-gamma      0.8401     0.1095    7.68  3.3e-10 ***
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.5368     0.1993    2.69   0.0094 ** 
+logCapital    0.2686     0.0489    5.50  1.1e-06 ***
+logLabour     0.5393     0.0443   12.18  < 2e-16 ***
+Z_firmNo     -0.0103     0.0124   -0.83   0.4112    
+sigma-sq      0.2846     0.1193    2.39   0.0206 *  
+gamma         0.8401     0.1095    7.68  3.3e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
@@ -1588,42 +1602,42 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132     60    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
 
 $gridParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 
 $gridLogl
 [1] -17.035
 
 $mleParam
-   beta_0    beta_1    beta_2   delta_1  sigma-sq     gamma 
- 0.536807  0.268649  0.539341 -0.010282  0.284557  0.840088 
+(Intercept)  logCapital   logLabour    Z_firmNo    sigma-sq       gamma 
+   0.536807    0.268649    0.539341   -0.010282    0.284557    0.840088 
 
 $mleCov
-              beta_0      beta_1      beta_2     delta_1    sigma-sq
-beta_0    0.03973184 -2.9314e-03 -7.6810e-03  2.1608e-04  0.00373725
-beta_1   -0.00293143  2.3891e-03 -1.9815e-05  1.2298e-04 -0.00091250
-beta_2   -0.00768096 -1.9815e-05  1.9594e-03 -3.0612e-05  0.00010339
-delta_1   0.00021608  1.2298e-04 -3.0612e-05  1.5410e-04 -0.00108207
-sigma-sq  0.00373725 -9.1250e-04  1.0339e-04 -1.0821e-03  0.01422074
-gamma     0.00613111 -5.1149e-04 -1.0842e-04 -5.4079e-04  0.01026774
-               gamma
-beta_0    0.00613111
-beta_1   -0.00051149
-beta_2   -0.00010842
-delta_1  -0.00054079
-sigma-sq  0.01026774
-gamma     0.01198094
+            (Intercept)  logCapital   logLabour    Z_firmNo    sigma-sq
+(Intercept)  0.03973184 -2.9314e-03 -7.6810e-03  2.1608e-04  0.00373725
+logCapital  -0.00293143  2.3891e-03 -1.9815e-05  1.2298e-04 -0.00091250
+logLabour   -0.00768096 -1.9815e-05  1.9594e-03 -3.0612e-05  0.00010339
+Z_firmNo     0.00021608  1.2298e-04 -3.0612e-05  1.5410e-04 -0.00108207
+sigma-sq     0.00373725 -9.1250e-04  1.0339e-04 -1.0821e-03  0.01422074
+gamma        0.00613111 -5.1149e-04 -1.0842e-04 -5.4079e-04  0.01026774
+                  gamma
+(Intercept)  0.00613111
+logCapital  -0.00051149
+logLabour   -0.00010842
+Z_firmNo    -0.00054079
+sigma-sq     0.01026774
+gamma        0.01198094
 
 $mleLogl
 [1] -16.382
@@ -1724,51 +1738,55 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508700  0.270836  0.540396 -0.398563 -0.014105  0.407064  0.883283 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508700      0.270836      0.540396     -0.398563     -0.014105 
+     sigma-sq         gamma 
+     0.407064      0.883283 
 > coef( aa2, which = "start" )
 NULL
 > coef( aa2, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( aa2, which = "grid" )
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 > coef( aa2 )
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508700  0.270836  0.540396 -0.398563 -0.014105  0.407064  0.883283 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508700      0.270836      0.540396     -0.398563     -0.014105 
+     sigma-sq         gamma 
+     0.407064      0.883283 
 > coef( summary( aa2 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( aa2 ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0    0.508700   0.225075  2.26013 2.7947e-02
-beta_1    0.270836   0.049906  5.42688 1.4527e-06
-beta_2    0.540396   0.044483 12.14842 6.0819e-17
-delta_0  -0.398563   2.333722 -0.17078 8.6504e-01
-delta_1  -0.014105   0.028473 -0.49537 6.2239e-01
-sigma-sq  0.407064   0.733925  0.55464 5.8147e-01
-gamma     0.883283   0.200948  4.39558 5.3410e-05
+               Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)    0.508700   0.225075  2.26013 2.7947e-02
+logCapital     0.270836   0.049906  5.42688 1.4527e-06
+logLabour      0.540396   0.044483 12.14842 6.0819e-17
+Z_(Intercept) -0.398563   2.333722 -0.17078 8.6504e-01
+Z_firmNo      -0.014105   0.028473 -0.49537 6.2239e-01
+sigma-sq       0.407064   0.733925  0.55464 5.8147e-01
+gamma          0.883283   0.200948  4.39558 5.3410e-05
 > vcov( aa2 )
-             beta_0      beta_1      beta_2   delta_0     delta_1   sigma-sq
-beta_0    0.0506588 -3.9655e-03 -8.0935e-03  0.251032  2.4765e-03 -0.0704108
-beta_1   -0.0039655  2.4906e-03 -9.1101e-06 -0.021784 -1.4902e-05  0.0052183
-beta_2   -0.0080935 -9.1101e-06  1.9787e-03 -0.010346 -1.3653e-04  0.0032744
-delta_0   0.2510318 -2.1784e-02 -1.0346e-02  5.446258  5.0255e-02 -1.6653550
-delta_1   0.0024765 -1.4902e-05 -1.3653e-04  0.050255  8.1071e-04 -0.0177480
-sigma-sq -0.0704108  5.2183e-03  3.2744e-03 -1.665355 -1.7748e-02  0.5386465
-gamma    -0.0153783  1.2596e-03  7.4241e-04 -0.431515 -4.6169e-03  0.1428708
-               gamma
-beta_0   -0.01537826
-beta_1    0.00125958
-beta_2    0.00074241
-delta_0  -0.43151471
-delta_1  -0.00461690
-sigma-sq  0.14287078
-gamma     0.04038005
+              (Intercept)  logCapital   logLabour Z_(Intercept)    Z_firmNo
+(Intercept)     0.0506588 -3.9655e-03 -8.0935e-03      0.251032  2.4765e-03
+logCapital     -0.0039655  2.4906e-03 -9.1101e-06     -0.021784 -1.4902e-05
+logLabour      -0.0080935 -9.1101e-06  1.9787e-03     -0.010346 -1.3653e-04
+Z_(Intercept)   0.2510318 -2.1784e-02 -1.0346e-02      5.446258  5.0255e-02
+Z_firmNo        0.0024765 -1.4902e-05 -1.3653e-04      0.050255  8.1071e-04
+sigma-sq       -0.0704108  5.2183e-03  3.2744e-03     -1.665355 -1.7748e-02
+gamma          -0.0153783  1.2596e-03  7.4241e-04     -0.431515 -4.6169e-03
+                sigma-sq       gamma
+(Intercept)   -0.0704108 -0.01537826
+logCapital     0.0052183  0.00125958
+logLabour      0.0032744  0.00074241
+Z_(Intercept) -1.6653550 -0.43151471
+Z_firmNo      -0.0177480 -0.00461690
+sigma-sq       0.5386465  0.14287078
+gamma          0.1428708  0.04038005
 > print( summary( aa2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -1777,32 +1795,32 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.2449     0.2136    1.15     0.26    
-beta_1     0.2805     0.0481    5.84  2.8e-07 ***
-beta_2     0.5333     0.0515   10.36  1.3e-14 ***
-sigma-sq   0.1140         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   0.2449     0.2136    1.15     0.26    
+logCapital    0.2805     0.0481    5.84  2.8e-07 ***
+logLabour     0.5333     0.0515   10.36  1.3e-14 ***
+sigma-sq      0.1140         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
 
 estimates after the grid search
-            [,1]
-beta_0   0.58014
-beta_1   0.28049
-beta_2   0.53331
-sigma-sq 0.22067
-gamma    0.80000
+               [,1]
+(Intercept) 0.58014
+logCapital  0.28049
+logLabour   0.53331
+sigma-sq    0.22067
+gamma       0.80000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.5087     0.2251    2.26    0.028 *  
-beta_1     0.2708     0.0499    5.43  1.5e-06 ***
-beta_2     0.5404     0.0445   12.15  < 2e-16 ***
-delta_0   -0.3986     2.3337   -0.17    0.865    
-delta_1   -0.0141     0.0285   -0.50    0.622    
-sigma-sq   0.4071     0.7339    0.55    0.581    
-gamma      0.8833     0.2009    4.40  5.3e-05 ***
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     0.5087     0.2251    2.26    0.028 *  
+logCapital      0.2708     0.0499    5.43  1.5e-06 ***
+logLabour       0.5404     0.0445   12.15  < 2e-16 ***
+Z_(Intercept)  -0.3986     2.3337   -0.17    0.865    
+Z_firmNo       -0.0141     0.0285   -0.50    0.622    
+sigma-sq        0.4071     0.7339    0.55    0.581    
+gamma           0.8833     0.2009    4.40  5.3e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
@@ -2005,44 +2023,46 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132     60    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
 
 $gridParam
-  beta_0   beta_1   beta_2 sigma-sq    gamma 
- 0.58014  0.28049  0.53331  0.22067  0.80000 
+(Intercept)  logCapital   logLabour    sigma-sq       gamma 
+    0.58014     0.28049     0.53331     0.22067     0.80000 
 
 $gridLogl
 [1] -17.035
 
 $mleParam
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508700  0.270836  0.540396 -0.398563 -0.014105  0.407064  0.883283 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508700      0.270836      0.540396     -0.398563     -0.014105 
+     sigma-sq         gamma 
+     0.407064      0.883283 
 
 $mleCov
-             beta_0      beta_1      beta_2   delta_0     delta_1   sigma-sq
-beta_0    0.0506588 -3.9655e-03 -8.0935e-03  0.251032  2.4765e-03 -0.0704108
-beta_1   -0.0039655  2.4906e-03 -9.1101e-06 -0.021784 -1.4902e-05  0.0052183
-beta_2   -0.0080935 -9.1101e-06  1.9787e-03 -0.010346 -1.3653e-04  0.0032744
-delta_0   0.2510318 -2.1784e-02 -1.0346e-02  5.446258  5.0255e-02 -1.6653550
-delta_1   0.0024765 -1.4902e-05 -1.3653e-04  0.050255  8.1071e-04 -0.0177480
-sigma-sq -0.0704108  5.2183e-03  3.2744e-03 -1.665355 -1.7748e-02  0.5386465
-gamma    -0.0153783  1.2596e-03  7.4241e-04 -0.431515 -4.6169e-03  0.1428708
-               gamma
-beta_0   -0.01537826
-beta_1    0.00125958
-beta_2    0.00074241
-delta_0  -0.43151471
-delta_1  -0.00461690
-sigma-sq  0.14287078
-gamma     0.04038005
+              (Intercept)  logCapital   logLabour Z_(Intercept)    Z_firmNo
+(Intercept)     0.0506588 -3.9655e-03 -8.0935e-03      0.251032  2.4765e-03
+logCapital     -0.0039655  2.4906e-03 -9.1101e-06     -0.021784 -1.4902e-05
+logLabour      -0.0080935 -9.1101e-06  1.9787e-03     -0.010346 -1.3653e-04
+Z_(Intercept)   0.2510318 -2.1784e-02 -1.0346e-02      5.446258  5.0255e-02
+Z_firmNo        0.0024765 -1.4902e-05 -1.3653e-04      0.050255  8.1071e-04
+sigma-sq       -0.0704108  5.2183e-03  3.2744e-03     -1.665355 -1.7748e-02
+gamma          -0.0153783  1.2596e-03  7.4241e-04     -0.431515 -4.6169e-03
+                sigma-sq       gamma
+(Intercept)   -0.0704108 -0.01537826
+logCapital     0.0052183  0.00125958
+logLabour      0.0032744  0.00074241
+Z_(Intercept) -1.6653550 -0.43151471
+Z_firmNo      -0.0177480 -0.00461690
+sigma-sq       0.5386465  0.14287078
+gamma          0.1428708  0.04038005
 
 $mleLogl
 [1] -16.356
@@ -2145,51 +2165,57 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508840  0.270826  0.540390 -0.395365 -0.014070  0.406031  0.883010 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508840      0.270826      0.540390     -0.395365     -0.014070 
+     sigma-sq         gamma 
+     0.406031      0.883010 
 > coef( aa5, which = "start" )
-  beta_0   beta_1   beta_2  delta_0  delta_1 sigma-sq    gamma 
-    0.50     0.30     0.50    -0.40    -0.01     0.40     0.90 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+         0.50          0.30          0.50         -0.40         -0.01 
+     sigma-sq         gamma 
+         0.40          0.90 
 > coef( aa5, which = "ols" )
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 > coef( aa5, which = "grid" )
 NULL
 > coef( aa5 )
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508840  0.270826  0.540390 -0.395365 -0.014070  0.406031  0.883010 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508840      0.270826      0.540390     -0.395365     -0.014070 
+     sigma-sq         gamma 
+     0.406031      0.883010 
 > coef( summary( aa5 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0    0.24490   0.213603  1.1465 2.5646e-01
-beta_1    0.28049   0.048067  5.8355 2.8107e-07
-beta_2    0.53331   0.051499 10.3557 1.2686e-14
-sigma-sq  0.11398         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept)  0.24490   0.213603  1.1465 2.5646e-01
+logCapital   0.28049   0.048067  5.8355 2.8107e-07
+logLabour    0.53331   0.051499 10.3557 1.2686e-14
+sigma-sq     0.11398         NA      NA         NA
 > coef( summary( aa5 ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0    0.508840   0.225066  2.26084 2.7900e-02
-beta_1    0.270826   0.049904  5.42694 1.4524e-06
-beta_2    0.540390   0.044482 12.14844 6.0815e-17
-delta_0  -0.395365   2.320453 -0.17038 8.6536e-01
-delta_1  -0.014070   0.028336 -0.49653 6.2157e-01
-sigma-sq  0.406031   0.729787  0.55637 5.8030e-01
-gamma     0.883010   0.200818  4.39706 5.3146e-05
+               Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)    0.508840   0.225066  2.26084 2.7900e-02
+logCapital     0.270826   0.049904  5.42694 1.4524e-06
+logLabour      0.540390   0.044482 12.14844 6.0815e-17
+Z_(Intercept) -0.395365   2.320453 -0.17038 8.6536e-01
+Z_firmNo      -0.014070   0.028336 -0.49653 6.2157e-01
+sigma-sq       0.406031   0.729787  0.55637 5.8030e-01
+gamma          0.883010   0.200818  4.39706 5.3146e-05
 > vcov( aa5 )
-             beta_0      beta_1      beta_2   delta_0     delta_1   sigma-sq
-beta_0    0.0506549 -3.9644e-03 -8.0930e-03  0.249520  2.4615e-03 -0.0699586
-beta_1   -0.0039644  2.4904e-03 -9.0370e-06 -0.021647 -1.4057e-05  0.0051801
-beta_2   -0.0080930 -9.0370e-06  1.9787e-03 -0.010273 -1.3572e-04  0.0032515
-delta_0   0.2495205 -2.1647e-02 -1.0273e-02  5.384500  4.9655e-02 -1.6462554
-delta_1   0.0024615 -1.4057e-05 -1.3572e-04  0.049655  8.0293e-04 -0.0175494
-sigma-sq -0.0699586  5.1801e-03  3.2515e-03 -1.646255 -1.7549e-02  0.5325893
-gamma    -0.0153366  1.2559e-03  7.4009e-04 -0.428545 -4.5866e-03  0.1419425
-               gamma
-beta_0   -0.01533659
-beta_1    0.00125586
-beta_2    0.00074009
-delta_0  -0.42854489
-delta_1  -0.00458657
-sigma-sq  0.14194255
-gamma     0.04032803
+              (Intercept)  logCapital   logLabour Z_(Intercept)    Z_firmNo
+(Intercept)     0.0506549 -3.9644e-03 -8.0930e-03      0.249520  2.4615e-03
+logCapital     -0.0039644  2.4904e-03 -9.0370e-06     -0.021647 -1.4057e-05
+logLabour      -0.0080930 -9.0370e-06  1.9787e-03     -0.010273 -1.3572e-04
+Z_(Intercept)   0.2495205 -2.1647e-02 -1.0273e-02      5.384500  4.9655e-02
+Z_firmNo        0.0024615 -1.4057e-05 -1.3572e-04      0.049655  8.0293e-04
+sigma-sq       -0.0699586  5.1801e-03  3.2515e-03     -1.646255 -1.7549e-02
+gamma          -0.0153366  1.2559e-03  7.4009e-04     -0.428545 -4.5866e-03
+                sigma-sq       gamma
+(Intercept)   -0.0699586 -0.01533659
+logCapital     0.0051801  0.00125586
+logLabour      0.0032515  0.00074009
+Z_(Intercept) -1.6462554 -0.42854489
+Z_firmNo      -0.0175494 -0.00458657
+sigma-sq       0.5325893  0.14194255
+gamma          0.1419425  0.04032803
 > print( summary( aa5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2198,24 +2224,24 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 starting values provided by the user
-          [,1]
-beta_0    0.50
-beta_1    0.30
-beta_2    0.50
-delta_0  -0.40
-delta_1  -0.01
-sigma-sq  0.40
-gamma     0.90
+               [,1]
+(Intercept)    0.50
+logCapital     0.30
+logLabour      0.50
+Z_(Intercept) -0.40
+Z_firmNo      -0.01
+sigma-sq       0.40
+gamma          0.90
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0     0.5088     0.2251    2.26    0.028 *  
-beta_1     0.2708     0.0499    5.43  1.5e-06 ***
-beta_2     0.5404     0.0445   12.15  < 2e-16 ***
-delta_0   -0.3954     2.3205   -0.17    0.865    
-delta_1   -0.0141     0.0283   -0.50    0.622    
-sigma-sq   0.4060     0.7298    0.56    0.580    
-gamma      0.8830     0.2008    4.40  5.3e-05 ***
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     0.5088     0.2251    2.26    0.028 *  
+logCapital      0.2708     0.0499    5.43  1.5e-06 ***
+logLabour       0.5404     0.0445   12.15  < 2e-16 ***
+Z_(Intercept)  -0.3954     2.3205   -0.17    0.865    
+Z_firmNo       -0.0141     0.0283   -0.50    0.622    
+sigma-sq        0.4060     0.7298    0.56    0.580    
+gamma           0.8830     0.2008    4.40  5.3e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
@@ -2355,8 +2381,10 @@ $maxit
 [1] 1000
 
 $startVal
-  beta_0   beta_1   beta_2  delta_0  delta_1 sigma-sq    gamma 
-    0.50     0.30     0.50    -0.40    -0.01     0.40     0.90 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+         0.50          0.30          0.50         -0.40         -0.01 
+     sigma-sq         gamma 
+         0.40          0.90 
 
 $dataTable
       seq t logOutput logCapital logLabour firmNo ones
@@ -2422,12 +2450,12 @@ $dataTable
 [60,]  60 1   2.64653   1.726510  3.789132     60    1
 
 $olsParam
-  beta_0   beta_1   beta_2 sigma-sq 
- 0.24490  0.28049  0.53331  0.11398 
+(Intercept)  logCapital   logLabour    sigma-sq 
+    0.24490     0.28049     0.53331     0.11398 
 
 $olsStdEr
-  beta_0   beta_1   beta_2 
-0.213603 0.048067 0.051499 
+(Intercept)  logCapital   logLabour 
+   0.213603    0.048067    0.051499 
 
 $olsLogl
 [1] -18.447
@@ -2436,26 +2464,28 @@ $gridLogl
 [1] -17.035
 
 $mleParam
-   beta_0    beta_1    beta_2   delta_0   delta_1  sigma-sq     gamma 
- 0.508840  0.270826  0.540390 -0.395365 -0.014070  0.406031  0.883010 
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+     0.508840      0.270826      0.540390     -0.395365     -0.014070 
+     sigma-sq         gamma 
+     0.406031      0.883010 
 
 $mleCov
-             beta_0      beta_1      beta_2   delta_0     delta_1   sigma-sq
-beta_0    0.0506549 -3.9644e-03 -8.0930e-03  0.249520  2.4615e-03 -0.0699586
-beta_1   -0.0039644  2.4904e-03 -9.0370e-06 -0.021647 -1.4057e-05  0.0051801
-beta_2   -0.0080930 -9.0370e-06  1.9787e-03 -0.010273 -1.3572e-04  0.0032515
-delta_0   0.2495205 -2.1647e-02 -1.0273e-02  5.384500  4.9655e-02 -1.6462554
-delta_1   0.0024615 -1.4057e-05 -1.3572e-04  0.049655  8.0293e-04 -0.0175494
-sigma-sq -0.0699586  5.1801e-03  3.2515e-03 -1.646255 -1.7549e-02  0.5325893
-gamma    -0.0153366  1.2559e-03  7.4009e-04 -0.428545 -4.5866e-03  0.1419425
-               gamma
-beta_0   -0.01533659
-beta_1    0.00125586
-beta_2    0.00074009
-delta_0  -0.42854489
-delta_1  -0.00458657
-sigma-sq  0.14194255
-gamma     0.04032803
+              (Intercept)  logCapital   logLabour Z_(Intercept)    Z_firmNo
+(Intercept)     0.0506549 -3.9644e-03 -8.0930e-03      0.249520  2.4615e-03
+logCapital     -0.0039644  2.4904e-03 -9.0370e-06     -0.021647 -1.4057e-05
+logLabour      -0.0080930 -9.0370e-06  1.9787e-03     -0.010273 -1.3572e-04
+Z_(Intercept)   0.2495205 -2.1647e-02 -1.0273e-02      5.384500  4.9655e-02
+Z_firmNo        0.0024615 -1.4057e-05 -1.3572e-04      0.049655  8.0293e-04
+sigma-sq       -0.0699586  5.1801e-03  3.2515e-03     -1.646255 -1.7549e-02
+gamma          -0.0153366  1.2559e-03  7.4009e-04     -0.428545 -4.5866e-03
+                sigma-sq       gamma
+(Intercept)   -0.0699586 -0.01533659
+logCapital     0.0051801  0.00125586
+logLabour      0.0032515  0.00074009
+Z_(Intercept) -1.6462554 -0.42854489
+Z_firmNo      -0.0175494 -0.00458657
+sigma-sq       0.5325893  0.14194255
+gamma          0.1419425  0.04032803
 
 $mleLogl
 [1] -16.356
@@ -2565,42 +2595,49 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.04325  0.35551  0.33330  0.27128  0.23863  0.88538 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.04325     0.35551     0.33330     0.27128     0.23863     0.88538 
 > coef( bb1, which = "start" )
 NULL
 > coef( bb1, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb1, which = "grid" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 > coef( bb1 )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.04325  0.35551  0.33330  0.27128  0.23863  0.88538 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.04325     0.35551     0.33330     0.27128     0.23863     0.88538 
 > coef( summary( bb1 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb1 ) )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.04325   0.255428 -4.0843 5.5247e-05
-beta_1    0.35551   0.060311  5.8946 9.0958e-09
-beta_2    0.33330   0.063143  5.2785 2.3350e-07
-beta_3    0.27128   0.035297  7.6856 1.6697e-13
-sigma-sq  0.23863   0.025776  9.2576 2.4701e-18
-gamma     0.88538   0.032646 27.1210 7.8819e-87
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.04325   0.255428 -4.0843 5.5247e-05
+lAREA        0.35551   0.060311  5.8946 9.0958e-09
+lLABOR       0.33330   0.063143  5.2785 2.3350e-07
+lNPK         0.27128   0.035297  7.6856 1.6697e-13
+sigma-sq     0.23863   0.025776  9.2576 2.4701e-18
+gamma        0.88538   0.032646 27.1210 7.8819e-87
 > vcov( bb1 )
-             beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma
-beta_0    0.0652436  0.01415945 -0.01299231 -2.7221e-03  1.4334e-03  0.00267145
-beta_1    0.0141595  0.00363746 -0.00290436 -6.1913e-04  1.2448e-04  0.00027741
-beta_2   -0.0129923 -0.00290436  0.00398708 -6.9503e-04 -1.7568e-04 -0.00037157
-beta_3   -0.0027221 -0.00061913 -0.00069503  1.2459e-03 -5.5014e-05 -0.00011919
-sigma-sq  0.0014334  0.00012448 -0.00017568 -5.5014e-05  6.6442e-04  0.00058086
-gamma     0.0026714  0.00027741 -0.00037157 -1.1919e-04  5.8086e-04  0.00106574
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)   0.0652436  0.01415945 -0.01299231 -2.7221e-03  1.4334e-03
+lAREA         0.0141595  0.00363746 -0.00290436 -6.1913e-04  1.2448e-04
+lLABOR       -0.0129923 -0.00290436  0.00398708 -6.9503e-04 -1.7568e-04
+lNPK         -0.0027221 -0.00061913 -0.00069503  1.2459e-03 -5.5014e-05
+sigma-sq      0.0014334  0.00012448 -0.00017568 -5.5014e-05  6.6442e-04
+gamma         0.0026714  0.00027741 -0.00037157 -1.1919e-04  5.8086e-04
+                  gamma
+(Intercept)  0.00267145
+lAREA        0.00027741
+lLABOR      -0.00037157
+lNPK        -0.00011919
+sigma-sq     0.00058086
+gamma        0.00106574
 > print( summary( bb1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -2609,33 +2646,33 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.6696     0.2487   -6.71  8.0e-11 ***
-beta_1     0.3298     0.0624    5.28  2.3e-07 ***
-beta_2     0.3837     0.0658    5.83  1.3e-08 ***
-beta_3     0.2829     0.0399    7.09  8.0e-12 ***
-sigma-sq   0.1090         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+lAREA         0.3298     0.0624    5.28  2.3e-07 ***
+lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
+lNPK          0.2829     0.0399    7.09  8.0e-12 ***
+sigma-sq      0.1090         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
-             [,1]
-beta_0   -1.30390
-beta_1    0.32976
-beta_2    0.38375
-beta_3    0.28292
-sigma-sq  0.24151
-gamma     0.87000
+                [,1]
+(Intercept) -1.30390
+lAREA        0.32976
+lLABOR       0.38375
+lNPK         0.28292
+sigma-sq     0.24151
+gamma        0.87000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0432     0.2554   -4.08  5.5e-05 ***
-beta_1     0.3555     0.0603    5.89  9.1e-09 ***
-beta_2     0.3333     0.0631    5.28  2.3e-07 ***
-beta_3     0.2713     0.0353    7.69  1.7e-13 ***
-sigma-sq   0.2386     0.0258    9.26  < 2e-16 ***
-gamma      0.8854     0.0326   27.12  < 2e-16 ***
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.0432     0.2554   -4.08  5.5e-05 ***
+lAREA         0.3555     0.0603    5.89  9.1e-09 ***
+lLABOR        0.3333     0.0631    5.28  2.3e-07 ***
+lNPK          0.2713     0.0353    7.69  1.7e-13 ***
+sigma-sq      0.2386     0.0258    9.26  < 2e-16 ***
+gamma         0.8854     0.0326   27.12  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
@@ -3464,35 +3501,42 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
 
 $gridParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 
 $gridLogl
 [1] -88.207
 
 $mleParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.04325  0.35551  0.33330  0.27128  0.23863  0.88538 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.04325     0.35551     0.33330     0.27128     0.23863     0.88538 
 
 $mleCov
-             beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma
-beta_0    0.0652436  0.01415945 -0.01299231 -2.7221e-03  1.4334e-03  0.00267145
-beta_1    0.0141595  0.00363746 -0.00290436 -6.1913e-04  1.2448e-04  0.00027741
-beta_2   -0.0129923 -0.00290436  0.00398708 -6.9503e-04 -1.7568e-04 -0.00037157
-beta_3   -0.0027221 -0.00061913 -0.00069503  1.2459e-03 -5.5014e-05 -0.00011919
-sigma-sq  0.0014334  0.00012448 -0.00017568 -5.5014e-05  6.6442e-04  0.00058086
-gamma     0.0026714  0.00027741 -0.00037157 -1.1919e-04  5.8086e-04  0.00106574
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)   0.0652436  0.01415945 -0.01299231 -2.7221e-03  1.4334e-03
+lAREA         0.0141595  0.00363746 -0.00290436 -6.1913e-04  1.2448e-04
+lLABOR       -0.0129923 -0.00290436  0.00398708 -6.9503e-04 -1.7568e-04
+lNPK         -0.0027221 -0.00061913 -0.00069503  1.2459e-03 -5.5014e-05
+sigma-sq      0.0014334  0.00012448 -0.00017568 -5.5014e-05  6.6442e-04
+gamma         0.0026714  0.00027741 -0.00037157 -1.1919e-04  5.8086e-04
+                  gamma
+(Intercept)  0.00267145
+lAREA        0.00027741
+lLABOR      -0.00037157
+lNPK        -0.00011919
+sigma-sq     0.00058086
+gamma        0.00106574
 
 $mleLogl
 [1] -86.203
@@ -3881,56 +3925,56 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14651     0.35393     0.33451     0.27288   864.82397     0.99996 
          mu 
 -3209.47022 
 > coef( bb2, which = "start" )
 NULL
 > coef( bb2, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb2, which = "grid" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 > coef( bb2 )
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14651     0.35393     0.33451     0.27288   864.82397     0.99996 
          mu 
 -3209.47022 
 > coef( summary( bb2 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb2 ) )
-            Estimate Std. Error    t value   Pr(>|t|)
-beta_0      -1.14651 2.4705e-01    -4.6408 4.9762e-06
-beta_1       0.35393 5.8800e-02     6.0192 4.5750e-09
-beta_2       0.33451 6.0693e-02     5.5115 7.0818e-08
-beta_3       0.27288 3.4119e-02     7.9978 2.0513e-14
-sigma-sq   864.82397 8.4911e+01    10.1851 2.0389e-21
-gamma        0.99996 1.0380e-05 96333.7259 0.0000e+00
-mu       -3209.47022        NaN        NaN        NaN
+               Estimate Std. Error    t value   Pr(>|t|)
+(Intercept)    -1.14651 2.4705e-01    -4.6408 4.9762e-06
+lAREA           0.35393 5.8800e-02     6.0192 4.5750e-09
+lLABOR          0.33451 6.0693e-02     5.5115 7.0818e-08
+lNPK            0.27288 3.4119e-02     7.9978 2.0513e-14
+sigma-sq      864.82397 8.4911e+01    10.1851 2.0389e-21
+gamma           0.99996 1.0380e-05 96333.7259 0.0000e+00
+mu          -3209.47022        NaN        NaN        NaN
 > vcov( bb2 )
-              beta_0      beta_1      beta_2      beta_3    sigma-sq
-beta_0    6.1032e-02  1.3414e-02 -1.2112e-02 -2.6524e-03  4.1653e+00
-beta_1    1.3414e-02  3.4575e-03 -2.7151e-03 -6.2978e-04  3.1243e-01
-beta_2   -1.2112e-02 -2.7151e-03  3.6836e-03 -6.1153e-04 -5.2425e-01
-beta_3   -2.6524e-03 -6.2978e-04 -6.1153e-04  1.1641e-03 -9.1329e-02
-sigma-sq  4.1653e+00  3.1243e-01 -5.2425e-01 -9.1329e-02  7.2098e+03
-gamma     6.1344e-07  5.4099e-08 -8.6493e-08 -1.5010e-08  7.0354e-04
-mu       -3.4869e-03 -9.0679e-05  2.0521e-04  1.7402e-04 -3.5859e+00
-               gamma          mu
-beta_0    6.1344e-07 -3.4869e-03
-beta_1    5.4099e-08 -9.0679e-05
-beta_2   -8.6493e-08  2.0521e-04
-beta_3   -1.5010e-08  1.7402e-04
-sigma-sq  7.0354e-04 -3.5859e+00
-gamma     1.0775e-10 -7.5189e-07
-mu       -7.5189e-07 -1.4312e+01
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)  6.1032e-02  1.3414e-02 -1.2112e-02 -2.6524e-03  4.1653e+00
+lAREA        1.3414e-02  3.4575e-03 -2.7151e-03 -6.2978e-04  3.1243e-01
+lLABOR      -1.2112e-02 -2.7151e-03  3.6836e-03 -6.1153e-04 -5.2425e-01
+lNPK        -2.6524e-03 -6.2978e-04 -6.1153e-04  1.1641e-03 -9.1329e-02
+sigma-sq     4.1653e+00  3.1243e-01 -5.2425e-01 -9.1329e-02  7.2098e+03
+gamma        6.1344e-07  5.4099e-08 -8.6493e-08 -1.5010e-08  7.0354e-04
+mu          -3.4869e-03 -9.0679e-05  2.0521e-04  1.7402e-04 -3.5859e+00
+                  gamma          mu
+(Intercept)  6.1344e-07 -3.4869e-03
+lAREA        5.4099e-08 -9.0679e-05
+lLABOR      -8.6493e-08  2.0521e-04
+lNPK        -1.5010e-08  1.7402e-04
+sigma-sq     7.0354e-04 -3.5859e+00
+gamma        1.0775e-10 -7.5189e-07
+mu          -7.5189e-07 -1.4312e+01
 > print( summary( bb2 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -3939,34 +3983,34 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.6696     0.2487   -6.71  8.0e-11 ***
-beta_1     0.3298     0.0624    5.28  2.3e-07 ***
-beta_2     0.3837     0.0658    5.83  1.3e-08 ***
-beta_3     0.2829     0.0399    7.09  8.0e-12 ***
-sigma-sq   0.1090         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+lAREA         0.3298     0.0624    5.28  2.3e-07 ***
+lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
+lNPK          0.2829     0.0399    7.09  8.0e-12 ***
+sigma-sq      0.1090         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
-             [,1]
-beta_0   -1.30390
-beta_1    0.32976
-beta_2    0.38375
-beta_3    0.28292
-sigma-sq  0.24151
-gamma     0.87000
+                [,1]
+(Intercept) -1.30390
+lAREA        0.32976
+lLABOR       0.38375
+lNPK         0.28292
+sigma-sq     0.24151
+gamma        0.87000
 
 final maximum likelihood estimates
-          Estimate Std. Error  t value Pr(>|t|)    
-beta_0   -1.15e+00   2.47e-01    -4.64  5.0e-06 ***
-beta_1    3.54e-01   5.88e-02     6.02  4.6e-09 ***
-beta_2    3.35e-01   6.07e-02     5.51  7.1e-08 ***
-beta_3    2.73e-01   3.41e-02     8.00  2.1e-14 ***
-sigma-sq  8.65e+02   8.49e+01    10.19  < 2e-16 ***
-gamma     1.00e+00   1.04e-05 96333.73  < 2e-16 ***
-mu       -3.21e+03         NA       NA       NA    
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) -1.15e+00   2.47e-01    -4.64  5.0e-06 ***
+lAREA        3.54e-01   5.88e-02     6.02  4.6e-09 ***
+lLABOR       3.35e-01   6.07e-02     5.51  7.1e-08 ***
+lNPK         2.73e-01   3.41e-02     8.00  2.1e-14 ***
+sigma-sq     8.65e+02   8.49e+01    10.19  < 2e-16 ***
+gamma        1.00e+00   1.04e-05 96333.73  < 2e-16 ***
+mu          -3.21e+03         NA       NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -81.601 
@@ -4795,46 +4839,46 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
 
 $gridParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 
 $gridLogl
 [1] -88.207
 
 $mleParam
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14651     0.35393     0.33451     0.27288   864.82397     0.99996 
          mu 
 -3209.47022 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3    sigma-sq
-beta_0    6.1032e-02  1.3414e-02 -1.2112e-02 -2.6524e-03  4.1653e+00
-beta_1    1.3414e-02  3.4575e-03 -2.7151e-03 -6.2978e-04  3.1243e-01
-beta_2   -1.2112e-02 -2.7151e-03  3.6836e-03 -6.1153e-04 -5.2425e-01
-beta_3   -2.6524e-03 -6.2978e-04 -6.1153e-04  1.1641e-03 -9.1329e-02
-sigma-sq  4.1653e+00  3.1243e-01 -5.2425e-01 -9.1329e-02  7.2098e+03
-gamma     6.1344e-07  5.4099e-08 -8.6493e-08 -1.5010e-08  7.0354e-04
-mu       -3.4869e-03 -9.0679e-05  2.0521e-04  1.7402e-04 -3.5859e+00
-               gamma          mu
-beta_0    6.1344e-07 -3.4869e-03
-beta_1    5.4099e-08 -9.0679e-05
-beta_2   -8.6493e-08  2.0521e-04
-beta_3   -1.5010e-08  1.7402e-04
-sigma-sq  7.0354e-04 -3.5859e+00
-gamma     1.0775e-10 -7.5189e-07
-mu       -7.5189e-07 -1.4312e+01
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)  6.1032e-02  1.3414e-02 -1.2112e-02 -2.6524e-03  4.1653e+00
+lAREA        1.3414e-02  3.4575e-03 -2.7151e-03 -6.2978e-04  3.1243e-01
+lLABOR      -1.2112e-02 -2.7151e-03  3.6836e-03 -6.1153e-04 -5.2425e-01
+lNPK        -2.6524e-03 -6.2978e-04 -6.1153e-04  1.1641e-03 -9.1329e-02
+sigma-sq     4.1653e+00  3.1243e-01 -5.2425e-01 -9.1329e-02  7.2098e+03
+gamma        6.1344e-07  5.4099e-08 -8.6493e-08 -1.5010e-08  7.0354e-04
+mu          -3.4869e-03 -9.0679e-05  2.0521e-04  1.7402e-04 -3.5859e+00
+                  gamma          mu
+(Intercept)  6.1344e-07 -3.4869e-03
+lAREA        5.4099e-08 -9.0679e-05
+lLABOR      -8.6493e-08  2.0521e-04
+lNPK        -1.5010e-08  1.7402e-04
+sigma-sq     7.0354e-04 -3.5859e+00
+gamma        1.0775e-10 -7.5189e-07
+mu          -7.5189e-07 -1.4312e+01
 
 $mleLogl
 [1] -81.601
@@ -5223,55 +5267,59 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3   delta_1   delta_2  sigma-sq     gamma 
--1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405672  0.597476  0.944931 
+(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
+  -1.008580    0.384099    0.318983    0.260355   -0.058069   -1.405672 
+   sigma-sq       gamma 
+   0.597476    0.944931 
 > coef( bb5, which = "start" )
 NULL
 > coef( bb5, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb5, which = "grid" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 > coef( bb5 )
-   beta_0    beta_1    beta_2    beta_3   delta_1   delta_2  sigma-sq     gamma 
--1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405672  0.597476  0.944931 
+(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
+  -1.008580    0.384099    0.318983    0.260355   -0.058069   -1.405672 
+   sigma-sq       gamma 
+   0.597476    0.944931 
 > coef( summary( bb5 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb5 ) )
-          Estimate Std. Error  t value    Pr(>|t|)
-beta_0   -1.008580   0.250588 -4.02485  7.0493e-05
-beta_1    0.384099   0.059857  6.41693  4.7301e-10
-beta_2    0.318983   0.061330  5.20108  3.4516e-07
-beta_3    0.260355   0.034197  7.61345  2.7266e-13
-delta_1  -0.058069   0.085435 -0.67969  4.9717e-01
-delta_2  -1.405672   0.892903 -1.57427  1.1637e-01
-sigma-sq  0.597476   0.302517  1.97502  4.9085e-02
-gamma     0.944931   0.028445 33.21978 3.4552e-108
+             Estimate Std. Error  t value    Pr(>|t|)
+(Intercept) -1.008580   0.250588 -4.02485  7.0493e-05
+lAREA        0.384099   0.059857  6.41693  4.7301e-10
+lLABOR       0.318983   0.061330  5.20108  3.4516e-07
+lNPK         0.260355   0.034197  7.61345  2.7266e-13
+Z_EDYRS     -0.058069   0.085435 -0.67969  4.9717e-01
+Z_BANRAT    -1.405672   0.892903 -1.57427  1.1637e-01
+sigma-sq     0.597476   0.302517  1.97502  4.9085e-02
+gamma        0.944931   0.028445 33.21978 3.4552e-108
 > vcov( bb5 )
-              beta_0      beta_1      beta_2      beta_3     delta_1    delta_2
-beta_0    0.06279448  1.3830e-02 -1.2464e-02 -2.6574e-03  0.00176910  0.0019934
-beta_1    0.01382963  3.5829e-03 -2.8099e-03 -6.3786e-04  0.00032776 -0.0030203
-beta_2   -0.01246425 -2.8099e-03  3.7614e-03 -6.1054e-04 -0.00030932  0.0006368
-beta_3   -0.00265737 -6.3786e-04 -6.1054e-04  1.1694e-03  0.00010775  0.0020536
-delta_1   0.00176910  3.2776e-04 -3.0932e-04  1.0775e-04  0.00729911  0.0497296
-delta_2   0.00199342 -3.0203e-03  6.3681e-04  2.0536e-03  0.04972955  0.7972750
-sigma-sq -0.00064784  1.1793e-04  8.5856e-05 -6.3871e-04 -0.02318028 -0.2382830
-gamma     0.00058869  6.3219e-05 -8.9738e-05 -6.7287e-05 -0.00196295 -0.0194167
-            sigma-sq       gamma
-beta_0   -6.4784e-04  5.8869e-04
-beta_1    1.1793e-04  6.3219e-05
-beta_2    8.5856e-05 -8.9738e-05
-beta_3   -6.3871e-04 -6.7287e-05
-delta_1  -2.3180e-02 -1.9630e-03
-delta_2  -2.3828e-01 -1.9417e-02
-sigma-sq  9.1516e-02  7.9693e-03
-gamma     7.9693e-03  8.0911e-04
+            (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS
+(Intercept)  0.06279448  1.3830e-02 -1.2464e-02 -2.6574e-03  0.00176910
+lAREA        0.01382963  3.5829e-03 -2.8099e-03 -6.3786e-04  0.00032776
+lLABOR      -0.01246425 -2.8099e-03  3.7614e-03 -6.1054e-04 -0.00030932
+lNPK        -0.00265737 -6.3786e-04 -6.1054e-04  1.1694e-03  0.00010775
+Z_EDYRS      0.00176910  3.2776e-04 -3.0932e-04  1.0775e-04  0.00729911
+Z_BANRAT     0.00199342 -3.0203e-03  6.3681e-04  2.0536e-03  0.04972955
+sigma-sq    -0.00064784  1.1793e-04  8.5856e-05 -6.3871e-04 -0.02318028
+gamma        0.00058869  6.3219e-05 -8.9738e-05 -6.7287e-05 -0.00196295
+              Z_BANRAT    sigma-sq       gamma
+(Intercept)  0.0019934 -6.4784e-04  5.8869e-04
+lAREA       -0.0030203  1.1793e-04  6.3219e-05
+lLABOR       0.0006368  8.5856e-05 -8.9738e-05
+lNPK         0.0020536 -6.3871e-04 -6.7287e-05
+Z_EDYRS      0.0497296 -2.3180e-02 -1.9630e-03
+Z_BANRAT     0.7972750 -2.3828e-01 -1.9417e-02
+sigma-sq    -0.2382830  9.1516e-02  7.9693e-03
+gamma       -0.0194167  7.9693e-03  8.0911e-04
 > print( summary( bb5 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -5280,35 +5328,35 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.6696     0.2487   -6.71  8.0e-11 ***
-beta_1     0.3298     0.0624    5.28  2.3e-07 ***
-beta_2     0.3837     0.0658    5.83  1.3e-08 ***
-beta_3     0.2829     0.0399    7.09  8.0e-12 ***
-sigma-sq   0.1090         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+lAREA         0.3298     0.0624    5.28  2.3e-07 ***
+lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
+lNPK          0.2829     0.0399    7.09  8.0e-12 ***
+sigma-sq      0.1090         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
-             [,1]
-beta_0   -1.30390
-beta_1    0.32976
-beta_2    0.38375
-beta_3    0.28292
-sigma-sq  0.24151
-gamma     0.87000
+                [,1]
+(Intercept) -1.30390
+lAREA        0.32976
+lLABOR       0.38375
+lNPK         0.28292
+sigma-sq     0.24151
+gamma        0.87000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0086     0.2506   -4.02  7.0e-05 ***
-beta_1     0.3841     0.0599    6.42  4.7e-10 ***
-beta_2     0.3190     0.0613    5.20  3.5e-07 ***
-beta_3     0.2604     0.0342    7.61  2.7e-13 ***
-delta_1   -0.0581     0.0854   -0.68    0.497    
-delta_2   -1.4057     0.8929   -1.57    0.116    
-sigma-sq   0.5975     0.3025    1.98    0.049 *  
-gamma      0.9449     0.0284   33.22  < 2e-16 ***
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.0086     0.2506   -4.02  7.0e-05 ***
+lAREA         0.3841     0.0599    6.42  4.7e-10 ***
+lLABOR        0.3190     0.0613    5.20  3.5e-07 ***
+lNPK          0.2604     0.0342    7.61  2.7e-13 ***
+Z_EDYRS      -0.0581     0.0854   -0.68    0.497    
+Z_BANRAT     -1.4057     0.8929   -1.57    0.116    
+sigma-sq      0.5975     0.3025    1.98    0.049 *  
+gamma         0.9449     0.0284   33.22  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
@@ -6137,46 +6185,48 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741     6   0.60    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
 
 $gridParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 
 $gridLogl
 [1] -88.207
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3   delta_1   delta_2  sigma-sq     gamma 
--1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405672  0.597476  0.944931 
+(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
+  -1.008580    0.384099    0.318983    0.260355   -0.058069   -1.405672 
+   sigma-sq       gamma 
+   0.597476    0.944931 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3     delta_1    delta_2
-beta_0    0.06279448  1.3830e-02 -1.2464e-02 -2.6574e-03  0.00176910  0.0019934
-beta_1    0.01382963  3.5829e-03 -2.8099e-03 -6.3786e-04  0.00032776 -0.0030203
-beta_2   -0.01246425 -2.8099e-03  3.7614e-03 -6.1054e-04 -0.00030932  0.0006368
-beta_3   -0.00265737 -6.3786e-04 -6.1054e-04  1.1694e-03  0.00010775  0.0020536
-delta_1   0.00176910  3.2776e-04 -3.0932e-04  1.0775e-04  0.00729911  0.0497296
-delta_2   0.00199342 -3.0203e-03  6.3681e-04  2.0536e-03  0.04972955  0.7972750
-sigma-sq -0.00064784  1.1793e-04  8.5856e-05 -6.3871e-04 -0.02318028 -0.2382830
-gamma     0.00058869  6.3219e-05 -8.9738e-05 -6.7287e-05 -0.00196295 -0.0194167
-            sigma-sq       gamma
-beta_0   -6.4784e-04  5.8869e-04
-beta_1    1.1793e-04  6.3219e-05
-beta_2    8.5856e-05 -8.9738e-05
-beta_3   -6.3871e-04 -6.7287e-05
-delta_1  -2.3180e-02 -1.9630e-03
-delta_2  -2.3828e-01 -1.9417e-02
-sigma-sq  9.1516e-02  7.9693e-03
-gamma     7.9693e-03  8.0911e-04
+            (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS
+(Intercept)  0.06279448  1.3830e-02 -1.2464e-02 -2.6574e-03  0.00176910
+lAREA        0.01382963  3.5829e-03 -2.8099e-03 -6.3786e-04  0.00032776
+lLABOR      -0.01246425 -2.8099e-03  3.7614e-03 -6.1054e-04 -0.00030932
+lNPK        -0.00265737 -6.3786e-04 -6.1054e-04  1.1694e-03  0.00010775
+Z_EDYRS      0.00176910  3.2776e-04 -3.0932e-04  1.0775e-04  0.00729911
+Z_BANRAT     0.00199342 -3.0203e-03  6.3681e-04  2.0536e-03  0.04972955
+sigma-sq    -0.00064784  1.1793e-04  8.5856e-05 -6.3871e-04 -0.02318028
+gamma        0.00058869  6.3219e-05 -8.9738e-05 -6.7287e-05 -0.00196295
+              Z_BANRAT    sigma-sq       gamma
+(Intercept)  0.0019934 -6.4784e-04  5.8869e-04
+lAREA       -0.0030203  1.1793e-04  6.3219e-05
+lLABOR       0.0006368  8.5856e-05 -8.9738e-05
+lNPK         0.0020536 -6.3871e-04 -6.7287e-05
+Z_EDYRS      0.0497296 -2.3180e-02 -1.9630e-03
+Z_BANRAT     0.7972750 -2.3828e-01 -1.9417e-02
+sigma-sq    -0.2382830  9.1516e-02  7.9693e-03
+gamma       -0.0194167  7.9693e-03  8.0911e-04
 
 $mleLogl
 [1] -77.85
@@ -6562,62 +6612,62 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028610 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028610     -3.635488      1.666570      0.978799 
 > coef( bb6, which = "start" )
 NULL
 > coef( bb6, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb6, which = "grid" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 > coef( bb6 )
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028610 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028610     -3.635488      1.666570      0.978799 
 > coef( summary( bb6 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb6 ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0   -1.051759   0.252784 -4.16071 4.0369e-05
-beta_1    0.379767   0.059738  6.35724 6.7205e-10
-beta_2    0.321028   0.061017  5.26133 2.5576e-07
-beta_3    0.263797   0.034205  7.71212 1.4268e-13
-delta_0  -2.746419   8.318051 -0.33018 7.4147e-01
-delta_1  -0.028610   0.214364 -0.13347 8.9390e-01
-delta_2  -3.635488   7.889482 -0.46080 6.4524e-01
-sigma-sq  1.666570   3.616607  0.46081 6.4523e-01
-gamma     0.978799   0.044496 21.99741 5.4016e-67
+               Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)   -1.051759   0.252784 -4.16071 4.0369e-05
+lAREA          0.379767   0.059738  6.35724 6.7205e-10
+lLABOR         0.321028   0.061017  5.26133 2.5576e-07
+lNPK           0.263797   0.034205  7.71212 1.4268e-13
+Z_(Intercept) -2.746419   8.318051 -0.33018 7.4147e-01
+Z_EDYRS       -0.028610   0.214364 -0.13347 8.9390e-01
+Z_BANRAT      -3.635488   7.889482 -0.46080 6.4524e-01
+sigma-sq       1.666570   3.616607  0.46081 6.4523e-01
+gamma          0.978799   0.044496 21.99741 5.4016e-67
 > vcov( bb6 )
-              beta_0      beta_1      beta_2      beta_3    delta_0     delta_1
-beta_0    0.06389956  0.01389580 -0.01243833 -2.7821e-03   0.365765  0.00011564
-beta_1    0.01389580  0.00356860 -0.00278661 -6.5603e-04   0.036404  0.00048366
-beta_2   -0.01243833 -0.00278661  0.00372302 -5.9193e-04  -0.026961 -0.00054434
-beta_3   -0.00278213 -0.00065603 -0.00059193  1.1700e-03  -0.016579  0.00047961
-delta_0   0.36576538  0.03640391 -0.02696056 -1.6579e-02  69.189977 -0.02742447
-delta_1   0.00011564  0.00048366 -0.00054434  4.7961e-04  -0.027424  0.04595172
-delta_2   0.30063552  0.02184186 -0.02153816 -7.5500e-03  62.948748  0.23200726
-sigma-sq -0.14224966 -0.01394394  0.01094052  4.7002e-03 -29.464285 -0.12470755
-gamma    -0.00152300 -0.00015277  0.00010078  5.3609e-05  -0.359999 -0.00160872
-            delta_2    sigma-sq       gamma
-beta_0     0.300636  -0.1422497 -1.5230e-03
-beta_1     0.021842  -0.0139439 -1.5277e-04
-beta_2    -0.021538   0.0109405  1.0078e-04
-beta_3    -0.007550   0.0047002  5.3609e-05
-delta_0   62.948748 -29.4642853 -3.6000e-01
-delta_1    0.232007  -0.1247076 -1.6087e-03
-delta_2   62.243931 -28.1611623 -3.4380e-01
-sigma-sq -28.161162  13.0798462  1.6030e-01
-gamma     -0.343797   0.1603014  1.9799e-03
+              (Intercept)       lAREA      lLABOR        lNPK Z_(Intercept)
+(Intercept)    0.06389956  0.01389580 -0.01243833 -2.7821e-03      0.365765
+lAREA          0.01389580  0.00356860 -0.00278661 -6.5603e-04      0.036404
+lLABOR        -0.01243833 -0.00278661  0.00372302 -5.9193e-04     -0.026961
+lNPK          -0.00278213 -0.00065603 -0.00059193  1.1700e-03     -0.016579
+Z_(Intercept)  0.36576538  0.03640391 -0.02696056 -1.6579e-02     69.189977
+Z_EDYRS        0.00011564  0.00048366 -0.00054434  4.7961e-04     -0.027424
+Z_BANRAT       0.30063552  0.02184186 -0.02153816 -7.5500e-03     62.948748
+sigma-sq      -0.14224966 -0.01394394  0.01094052  4.7002e-03    -29.464285
+gamma         -0.00152300 -0.00015277  0.00010078  5.3609e-05     -0.359999
+                  Z_EDYRS   Z_BANRAT    sigma-sq       gamma
+(Intercept)    0.00011564   0.300636  -0.1422497 -1.5230e-03
+lAREA          0.00048366   0.021842  -0.0139439 -1.5277e-04
+lLABOR        -0.00054434  -0.021538   0.0109405  1.0078e-04
+lNPK           0.00047961  -0.007550   0.0047002  5.3609e-05
+Z_(Intercept) -0.02742447  62.948748 -29.4642853 -3.6000e-01
+Z_EDYRS        0.04595172   0.232007  -0.1247076 -1.6087e-03
+Z_BANRAT       0.23200726  62.243931 -28.1611623 -3.4380e-01
+sigma-sq      -0.12470755 -28.161162  13.0798462  1.6030e-01
+gamma         -0.00160872  -0.343797   0.1603014  1.9799e-03
 > print( summary( bb6 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -6626,36 +6676,36 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.6696     0.2487   -6.71  8.0e-11 ***
-beta_1     0.3298     0.0624    5.28  2.3e-07 ***
-beta_2     0.3837     0.0658    5.83  1.3e-08 ***
-beta_3     0.2829     0.0399    7.09  8.0e-12 ***
-sigma-sq   0.1090         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+lAREA         0.3298     0.0624    5.28  2.3e-07 ***
+lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
+lNPK          0.2829     0.0399    7.09  8.0e-12 ***
+sigma-sq      0.1090         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
 
 estimates after the grid search
-             [,1]
-beta_0   -1.30390
-beta_1    0.32976
-beta_2    0.38375
-beta_3    0.28292
-sigma-sq  0.24151
-gamma     0.87000
+                [,1]
+(Intercept) -1.30390
+lAREA        0.32976
+lLABOR       0.38375
+lNPK         0.28292
+sigma-sq     0.24151
+gamma        0.87000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0518     0.2528   -4.16  4.0e-05 ***
-beta_1     0.3798     0.0597    6.36  6.7e-10 ***
-beta_2     0.3210     0.0610    5.26  2.6e-07 ***
-beta_3     0.2638     0.0342    7.71  1.4e-13 ***
-delta_0   -2.7464     8.3181   -0.33     0.74    
-delta_1   -0.0286     0.2144   -0.13     0.89    
-delta_2   -3.6355     7.8895   -0.46     0.65    
-sigma-sq   1.6666     3.6166    0.46     0.65    
-gamma      0.9788     0.0445   22.00  < 2e-16 ***
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0518     0.2528   -4.16  4.0e-05 ***
+lAREA           0.3798     0.0597    6.36  6.7e-10 ***
+lLABOR          0.3210     0.0610    5.26  2.6e-07 ***
+lNPK            0.2638     0.0342    7.71  1.4e-13 ***
+Z_(Intercept)  -2.7464     8.3181   -0.33     0.74    
+Z_EDYRS        -0.0286     0.2144   -0.13     0.89    
+Z_BANRAT       -3.6355     7.8895   -0.46     0.65    
+sigma-sq        1.6666     3.6166    0.46     0.65    
+gamma           0.9788     0.0445   22.00  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
@@ -7484,50 +7534,50 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741     6   0.60    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
 
 $gridParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma 
--1.30390  0.32976  0.38375  0.28292  0.24151  0.87000 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+   -1.30390     0.32976     0.38375     0.28292     0.24151     0.87000 
 
 $gridLogl
 [1] -88.207
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028610 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028610     -3.635488      1.666570      0.978799 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3    delta_0     delta_1
-beta_0    0.06389956  0.01389580 -0.01243833 -2.7821e-03   0.365765  0.00011564
-beta_1    0.01389580  0.00356860 -0.00278661 -6.5603e-04   0.036404  0.00048366
-beta_2   -0.01243833 -0.00278661  0.00372302 -5.9193e-04  -0.026961 -0.00054434
-beta_3   -0.00278213 -0.00065603 -0.00059193  1.1700e-03  -0.016579  0.00047961
-delta_0   0.36576538  0.03640391 -0.02696056 -1.6579e-02  69.189977 -0.02742447
-delta_1   0.00011564  0.00048366 -0.00054434  4.7961e-04  -0.027424  0.04595172
-delta_2   0.30063552  0.02184186 -0.02153816 -7.5500e-03  62.948748  0.23200726
-sigma-sq -0.14224966 -0.01394394  0.01094052  4.7002e-03 -29.464285 -0.12470755
-gamma    -0.00152300 -0.00015277  0.00010078  5.3609e-05  -0.359999 -0.00160872
-            delta_2    sigma-sq       gamma
-beta_0     0.300636  -0.1422497 -1.5230e-03
-beta_1     0.021842  -0.0139439 -1.5277e-04
-beta_2    -0.021538   0.0109405  1.0078e-04
-beta_3    -0.007550   0.0047002  5.3609e-05
-delta_0   62.948748 -29.4642853 -3.6000e-01
-delta_1    0.232007  -0.1247076 -1.6087e-03
-delta_2   62.243931 -28.1611623 -3.4380e-01
-sigma-sq -28.161162  13.0798462  1.6030e-01
-gamma     -0.343797   0.1603014  1.9799e-03
+              (Intercept)       lAREA      lLABOR        lNPK Z_(Intercept)
+(Intercept)    0.06389956  0.01389580 -0.01243833 -2.7821e-03      0.365765
+lAREA          0.01389580  0.00356860 -0.00278661 -6.5603e-04      0.036404
+lLABOR        -0.01243833 -0.00278661  0.00372302 -5.9193e-04     -0.026961
+lNPK          -0.00278213 -0.00065603 -0.00059193  1.1700e-03     -0.016579
+Z_(Intercept)  0.36576538  0.03640391 -0.02696056 -1.6579e-02     69.189977
+Z_EDYRS        0.00011564  0.00048366 -0.00054434  4.7961e-04     -0.027424
+Z_BANRAT       0.30063552  0.02184186 -0.02153816 -7.5500e-03     62.948748
+sigma-sq      -0.14224966 -0.01394394  0.01094052  4.7002e-03    -29.464285
+gamma         -0.00152300 -0.00015277  0.00010078  5.3609e-05     -0.359999
+                  Z_EDYRS   Z_BANRAT    sigma-sq       gamma
+(Intercept)    0.00011564   0.300636  -0.1422497 -1.5230e-03
+lAREA          0.00048366   0.021842  -0.0139439 -1.5277e-04
+lLABOR        -0.00054434  -0.021538   0.0109405  1.0078e-04
+lNPK           0.00047961  -0.007550   0.0047002  5.3609e-05
+Z_(Intercept) -0.02742447  62.948748 -29.4642853 -3.6000e-01
+Z_EDYRS        0.04595172   0.232007  -0.1247076 -1.6087e-03
+Z_BANRAT       0.23200726  62.243931 -28.1611623 -3.4380e-01
+sigma-sq      -0.12470755 -28.161162  13.0798462  1.6030e-01
+gamma         -0.00160872  -0.343797   0.1603014  1.9799e-03
 
 $mleLogl
 [1] -77.314
@@ -7915,56 +7965,58 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14650     0.35393     0.33451     0.27288   702.40215     0.99995 
          mu 
 -2606.52681 
 > coef( bb7, which = "start" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
-   -1.00     0.30     0.30     0.30     0.20     0.90    -0.01 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+      -1.00        0.30        0.30        0.30        0.20        0.90 
+         mu 
+      -0.01 
 > coef( bb7, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb7, which = "grid" )
 NULL
 > coef( bb7 )
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14650     0.35393     0.33451     0.27288   702.40215     0.99995 
          mu 
 -2606.52681 
 > coef( summary( bb7 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb7 ) )
-            Estimate Std. Error    t value   Pr(>|t|)
-beta_0      -1.14650 2.4706e-01    -4.6405 4.9845e-06
-beta_1       0.35393 5.8807e-02     6.0185 4.5927e-09
-beta_2       0.33451 6.0699e-02     5.5110 7.1031e-08
-beta_3       0.27288 3.4117e-02     7.9982 2.0458e-14
-sigma-sq   702.40215 6.8878e+01    10.1978 1.8452e-21
-gamma        0.99995 1.2766e-05 78326.1419 0.0000e+00
-mu       -2606.52681 4.6358e+00  -562.2552 0.0000e+00
+               Estimate Std. Error    t value   Pr(>|t|)
+(Intercept)    -1.14650 2.4706e-01    -4.6405 4.9845e-06
+lAREA           0.35393 5.8807e-02     6.0185 4.5927e-09
+lLABOR          0.33451 6.0699e-02     5.5110 7.1031e-08
+lNPK            0.27288 3.4117e-02     7.9982 2.0458e-14
+sigma-sq      702.40215 6.8878e+01    10.1978 1.8452e-21
+gamma           0.99995 1.2766e-05 78326.1419 0.0000e+00
+mu          -2606.52681 4.6358e+00  -562.2552 0.0000e+00
 > vcov( bb7 )
-              beta_0      beta_1      beta_2      beta_3    sigma-sq
-beta_0    6.1041e-02  1.3417e-02 -1.2115e-02 -2.6524e-03  3.3696e+00
-beta_1    1.3417e-02  3.4583e-03 -2.7160e-03 -6.2983e-04  2.5209e-01
-beta_2   -1.2115e-02 -2.7160e-03  3.6844e-03 -6.1135e-04 -4.2377e-01
-beta_3   -2.6524e-03 -6.2983e-04 -6.1135e-04  1.1640e-03 -7.3798e-02
-sigma-sq  3.3696e+00  2.5209e-01 -4.2377e-01 -7.3798e-02  4.7442e+03
-gamma     7.5288e-07  6.6258e-08 -1.0613e-07 -1.8388e-08  7.0134e-04
-mu       -8.6857e-03 -2.8875e-03  1.4606e-03  1.0162e-03 -1.9872e+00
-               gamma          mu
-beta_0    7.5288e-07 -8.6857e-03
-beta_1    6.6258e-08 -2.8875e-03
-beta_2   -1.0613e-07  1.4606e-03
-beta_3   -1.8388e-08  1.0162e-03
-sigma-sq  7.0134e-04 -1.9872e+00
-gamma     1.6298e-10  4.9742e-07
-mu        4.9742e-07  2.1491e+01
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)  6.1041e-02  1.3417e-02 -1.2115e-02 -2.6524e-03  3.3696e+00
+lAREA        1.3417e-02  3.4583e-03 -2.7160e-03 -6.2983e-04  2.5209e-01
+lLABOR      -1.2115e-02 -2.7160e-03  3.6844e-03 -6.1135e-04 -4.2377e-01
+lNPK        -2.6524e-03 -6.2983e-04 -6.1135e-04  1.1640e-03 -7.3798e-02
+sigma-sq     3.3696e+00  2.5209e-01 -4.2377e-01 -7.3798e-02  4.7442e+03
+gamma        7.5288e-07  6.6258e-08 -1.0613e-07 -1.8388e-08  7.0134e-04
+mu          -8.6857e-03 -2.8875e-03  1.4606e-03  1.0162e-03 -1.9872e+00
+                  gamma          mu
+(Intercept)  7.5288e-07 -8.6857e-03
+lAREA        6.6258e-08 -2.8875e-03
+lLABOR      -1.0613e-07  1.4606e-03
+lNPK        -1.8388e-08  1.0162e-03
+sigma-sq     7.0134e-04 -1.9872e+00
+gamma        1.6298e-10  4.9742e-07
+mu           4.9742e-07  2.1491e+01
 > print( summary( bb7 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -7973,24 +8025,24 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 starting values provided by the user
-          [,1]
-beta_0   -1.00
-beta_1    0.30
-beta_2    0.30
-beta_3    0.30
-sigma-sq  0.20
-gamma     0.90
-mu       -0.01
+             [,1]
+(Intercept) -1.00
+lAREA        0.30
+lLABOR       0.30
+lNPK         0.30
+sigma-sq     0.20
+gamma        0.90
+mu          -0.01
 
 final maximum likelihood estimates
-          Estimate Std. Error  t value Pr(>|t|)    
-beta_0   -1.15e+00   2.47e-01    -4.64  5.0e-06 ***
-beta_1    3.54e-01   5.88e-02     6.02  4.6e-09 ***
-beta_2    3.35e-01   6.07e-02     5.51  7.1e-08 ***
-beta_3    2.73e-01   3.41e-02     8.00  2.0e-14 ***
-sigma-sq  7.02e+02   6.89e+01    10.20  < 2e-16 ***
-gamma     1.00e+00   1.28e-05 78326.14  < 2e-16 ***
-mu       -2.61e+03   4.64e+00  -562.26  < 2e-16 ***
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) -1.15e+00   2.47e-01    -4.64  5.0e-06 ***
+lAREA        3.54e-01   5.88e-02     6.02  4.6e-09 ***
+lLABOR       3.35e-01   6.07e-02     5.51  7.1e-08 ***
+lNPK         2.73e-01   3.41e-02     8.00  2.0e-14 ***
+sigma-sq     7.02e+02   6.89e+01    10.20  < 2e-16 ***
+gamma        1.00e+00   1.28e-05 78326.14  < 2e-16 ***
+mu          -2.61e+03   4.64e+00  -562.26  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -81.601 
@@ -8472,8 +8524,10 @@ $maxit
 [1] 1000
 
 $startVal
-  beta_0   beta_1   beta_2   beta_3 sigma-sq    gamma       mu 
-   -1.00     0.30     0.30     0.30     0.20     0.90    -0.01 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
+      -1.00        0.30        0.30        0.30        0.20        0.90 
+         mu 
+      -0.01 
 
 $dataTable
        seq t      lPROD    lAREA lLABOR   lNPK ones
@@ -8823,12 +8877,12 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
@@ -8837,28 +8891,28 @@ $gridLogl
 [1] -88.207
 
 $mleParam
-     beta_0      beta_1      beta_2      beta_3    sigma-sq       gamma 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14650     0.35393     0.33451     0.27288   702.40215     0.99995 
          mu 
 -2606.52681 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3    sigma-sq
-beta_0    6.1041e-02  1.3417e-02 -1.2115e-02 -2.6524e-03  3.3696e+00
-beta_1    1.3417e-02  3.4583e-03 -2.7160e-03 -6.2983e-04  2.5209e-01
-beta_2   -1.2115e-02 -2.7160e-03  3.6844e-03 -6.1135e-04 -4.2377e-01
-beta_3   -2.6524e-03 -6.2983e-04 -6.1135e-04  1.1640e-03 -7.3798e-02
-sigma-sq  3.3696e+00  2.5209e-01 -4.2377e-01 -7.3798e-02  4.7442e+03
-gamma     7.5288e-07  6.6258e-08 -1.0613e-07 -1.8388e-08  7.0134e-04
-mu       -8.6857e-03 -2.8875e-03  1.4606e-03  1.0162e-03 -1.9872e+00
-               gamma          mu
-beta_0    7.5288e-07 -8.6857e-03
-beta_1    6.6258e-08 -2.8875e-03
-beta_2   -1.0613e-07  1.4606e-03
-beta_3   -1.8388e-08  1.0162e-03
-sigma-sq  7.0134e-04 -1.9872e+00
-gamma     1.6298e-10  4.9742e-07
-mu        4.9742e-07  2.1491e+01
+            (Intercept)       lAREA      lLABOR        lNPK    sigma-sq
+(Intercept)  6.1041e-02  1.3417e-02 -1.2115e-02 -2.6524e-03  3.3696e+00
+lAREA        1.3417e-02  3.4583e-03 -2.7160e-03 -6.2983e-04  2.5209e-01
+lLABOR      -1.2115e-02 -2.7160e-03  3.6844e-03 -6.1135e-04 -4.2377e-01
+lNPK        -2.6524e-03 -6.2983e-04 -6.1135e-04  1.1640e-03 -7.3798e-02
+sigma-sq     3.3696e+00  2.5209e-01 -4.2377e-01 -7.3798e-02  4.7442e+03
+gamma        7.5288e-07  6.6258e-08 -1.0613e-07 -1.8388e-08  7.0134e-04
+mu          -8.6857e-03 -2.8875e-03  1.4606e-03  1.0162e-03 -1.9872e+00
+                  gamma          mu
+(Intercept)  7.5288e-07 -8.6857e-03
+lAREA        6.6258e-08 -2.8875e-03
+lLABOR      -1.0613e-07  1.4606e-03
+lNPK        -1.8388e-08  1.0162e-03
+sigma-sq     7.0134e-04 -1.9872e+00
+gamma        1.6298e-10  4.9742e-07
+mu           4.9742e-07  2.1491e+01
 
 $mleLogl
 [1] -81.601
@@ -9249,64 +9303,64 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028611 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028611     -3.635488      1.666570      0.978799 
 > coef( bb8, which = "start" )
-  beta_0   beta_1   beta_2   beta_3  delta_0  delta_1  delta_2 sigma-sq 
-   -1.00     0.30     0.30     0.30    -0.20    -0.01    -0.30     0.30 
-   gamma 
-    0.80 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.00          0.30          0.30          0.30         -0.20 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+        -0.01         -0.30          0.30          0.80 
 > coef( bb8, which = "ols" )
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 > coef( bb8, which = "grid" )
 NULL
 > coef( bb8 )
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028611 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028611     -3.635488      1.666570      0.978799 
 > coef( summary( bb8 ), which = "ols" )
-         Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.66964   0.248698 -6.7135 8.0106e-11
-beta_1    0.32976   0.062397  5.2850 2.2559e-07
-beta_2    0.38375   0.065811  5.8310 1.2846e-08
-beta_3    0.28292   0.039927  7.0859 8.0477e-12
-sigma-sq  0.10902         NA      NA         NA
+            Estimate Std. Error t value   Pr(>|t|)
+(Intercept) -1.66964   0.248698 -6.7135 8.0106e-11
+lAREA        0.32976   0.062397  5.2850 2.2559e-07
+lLABOR       0.38375   0.065811  5.8310 1.2846e-08
+lNPK         0.28292   0.039927  7.0859 8.0477e-12
+sigma-sq     0.10902         NA      NA         NA
 > coef( summary( bb8 ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0   -1.051759   0.252768 -4.16097 4.0325e-05
-beta_1    0.379767   0.059737  6.35734 6.7163e-10
-beta_2    0.321028   0.061016  5.26141 2.5566e-07
-beta_3    0.263797   0.034205  7.71212 1.4268e-13
-delta_0  -2.746419   8.307051 -0.33061 7.4114e-01
-delta_1  -0.028611   0.214322 -0.13349 8.9388e-01
-delta_2  -3.635488   7.874453 -0.46168 6.4461e-01
-sigma-sq  1.666570   3.610183  0.46163 6.4465e-01
-gamma     0.978799   0.044417 22.03634 3.8028e-67
+               Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)   -1.051759   0.252768 -4.16097 4.0325e-05
+lAREA          0.379767   0.059737  6.35734 6.7163e-10
+lLABOR         0.321028   0.061016  5.26141 2.5566e-07
+lNPK           0.263797   0.034205  7.71212 1.4268e-13
+Z_(Intercept) -2.746419   8.307051 -0.33061 7.4114e-01
+Z_EDYRS       -0.028611   0.214322 -0.13349 8.9388e-01
+Z_BANRAT      -3.635488   7.874453 -0.46168 6.4461e-01
+sigma-sq       1.666570   3.610183  0.46163 6.4465e-01
+gamma          0.978799   0.044417 22.03634 3.8028e-67
 > vcov( bb8 )
-              beta_0      beta_1      beta_2      beta_3    delta_0     delta_1
-beta_0    0.06389148  0.01389479 -1.2437e-02 -2.7820e-03   0.364527  0.00009693
-beta_1    0.01389479  0.00356848 -2.7865e-03 -6.5601e-04   0.036240  0.00048189
-beta_2   -0.01243731 -0.00278650  3.7229e-03 -5.9195e-04  -0.026794 -0.00054272
-beta_3   -0.00278205 -0.00065601 -5.9195e-04  1.1700e-03  -0.016572  0.00048011
-delta_0   0.36452668  0.03623992 -2.6794e-02 -1.6572e-02  69.007093 -0.03092917
-delta_1   0.00009693  0.00048189 -5.4272e-04  4.8011e-04  -0.030929  0.04593406
-delta_2   0.29926331  0.02166965 -2.1364e-02 -7.5377e-03  62.738119  0.22852376
-sigma-sq -0.14164026 -0.01386634  1.0862e-02  4.6949e-03 -29.371356 -0.12312644
-gamma    -0.00151553 -0.00015182  9.9816e-05  5.3543e-05  -0.358858 -0.00158941
-             delta_2    sigma-sq       gamma
-beta_0     0.2992633  -0.1416403 -1.5155e-03
-beta_1     0.0216697  -0.0138663 -1.5182e-04
-beta_2    -0.0213637   0.0108622  9.9816e-05
-beta_3    -0.0075377   0.0046949  5.3543e-05
-delta_0   62.7381188 -29.3713560 -3.5886e-01
-delta_1    0.2285238  -0.1231264 -1.5894e-03
-delta_2   62.0070119 -28.0562959 -3.4251e-01
-sigma-sq -28.0562959  13.0334221  1.5973e-01
-gamma     -0.3425113   0.1597318  1.9729e-03
+              (Intercept)       lAREA      lLABOR        lNPK Z_(Intercept)
+(Intercept)    0.06389148  0.01389479 -1.2437e-02 -2.7820e-03      0.364527
+lAREA          0.01389479  0.00356848 -2.7865e-03 -6.5601e-04      0.036240
+lLABOR        -0.01243731 -0.00278650  3.7229e-03 -5.9195e-04     -0.026794
+lNPK          -0.00278205 -0.00065601 -5.9195e-04  1.1700e-03     -0.016572
+Z_(Intercept)  0.36452668  0.03623992 -2.6794e-02 -1.6572e-02     69.007093
+Z_EDYRS        0.00009693  0.00048189 -5.4272e-04  4.8011e-04     -0.030929
+Z_BANRAT       0.29926331  0.02166965 -2.1364e-02 -7.5377e-03     62.738119
+sigma-sq      -0.14164026 -0.01386634  1.0862e-02  4.6949e-03    -29.371356
+gamma         -0.00151553 -0.00015182  9.9816e-05  5.3543e-05     -0.358858
+                  Z_EDYRS    Z_BANRAT    sigma-sq       gamma
+(Intercept)    0.00009693   0.2992633  -0.1416403 -1.5155e-03
+lAREA          0.00048189   0.0216697  -0.0138663 -1.5182e-04
+lLABOR        -0.00054272  -0.0213637   0.0108622  9.9816e-05
+lNPK           0.00048011  -0.0075377   0.0046949  5.3543e-05
+Z_(Intercept) -0.03092917  62.7381188 -29.3713560 -3.5886e-01
+Z_EDYRS        0.04593406   0.2285238  -0.1231264 -1.5894e-03
+Z_BANRAT       0.22852376  62.0070119 -28.0562959 -3.4251e-01
+sigma-sq      -0.12312644 -28.0562959  13.0334221  1.5973e-01
+gamma         -0.00158941  -0.3425113   0.1597318  1.9729e-03
 > print( summary( bb8 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -9315,28 +9369,28 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 starting values provided by the user
-          [,1]
-beta_0   -1.00
-beta_1    0.30
-beta_2    0.30
-beta_3    0.30
-delta_0  -0.20
-delta_1  -0.01
-delta_2  -0.30
-sigma-sq  0.30
-gamma     0.80
+               [,1]
+(Intercept)   -1.00
+lAREA          0.30
+lLABOR         0.30
+lNPK           0.30
+Z_(Intercept) -0.20
+Z_EDYRS       -0.01
+Z_BANRAT      -0.30
+sigma-sq       0.30
+gamma          0.80
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0518     0.2528   -4.16  4.0e-05 ***
-beta_1     0.3798     0.0597    6.36  6.7e-10 ***
-beta_2     0.3210     0.0610    5.26  2.6e-07 ***
-beta_3     0.2638     0.0342    7.71  1.4e-13 ***
-delta_0   -2.7464     8.3071   -0.33     0.74    
-delta_1   -0.0286     0.2143   -0.13     0.89    
-delta_2   -3.6355     7.8745   -0.46     0.64    
-sigma-sq   1.6666     3.6102    0.46     0.64    
-gamma      0.9788     0.0444   22.04  < 2e-16 ***
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0518     0.2528   -4.16  4.0e-05 ***
+lAREA           0.3798     0.0597    6.36  6.7e-10 ***
+lLABOR          0.3210     0.0610    5.26  2.6e-07 ***
+lNPK            0.2638     0.0342    7.71  1.4e-13 ***
+Z_(Intercept)  -2.7464     8.3071   -0.33     0.74    
+Z_EDYRS        -0.0286     0.2143   -0.13     0.89    
+Z_BANRAT       -3.6355     7.8745   -0.46     0.64    
+sigma-sq        1.6666     3.6102    0.46     0.64    
+gamma           0.9788     0.0444   22.04  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
@@ -9818,10 +9872,10 @@ $maxit
 [1] 1000
 
 $startVal
-  beta_0   beta_1   beta_2   beta_3  delta_0  delta_1  delta_2 sigma-sq 
-   -1.00     0.30     0.30     0.30    -0.20    -0.01    -0.30     0.30 
-   gamma 
-    0.80 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.00          0.30          0.30          0.30         -0.20 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+        -0.01         -0.30          0.30          0.80 
 
 $dataTable
        seq t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT ones
@@ -10171,12 +10225,12 @@ $dataTable
 [344,] 344 1  2.0451089  0.69315 4.3944 4.7741     6   0.60    1
 
 $olsParam
-  beta_0   beta_1   beta_2   beta_3 sigma-sq 
--1.66964  0.32976  0.38375  0.28292  0.10902 
+(Intercept)       lAREA      lLABOR        lNPK    sigma-sq 
+   -1.66964     0.32976     0.38375     0.28292     0.10902 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3 
-0.248698 0.062397 0.065811 0.039927 
+(Intercept)       lAREA      lLABOR        lNPK 
+   0.248698    0.062397    0.065811    0.039927 
 
 $olsLogl
 [1] -104.91
@@ -10185,32 +10239,32 @@ $gridLogl
 [1] -88.207
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3   delta_0   delta_1   delta_2  sigma-sq 
--1.051759  0.379767  0.321028  0.263797 -2.746419 -0.028611 -3.635488  1.666570 
-    gamma 
- 0.978799 
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+    -1.051759      0.379767      0.321028      0.263797     -2.746419 
+      Z_EDYRS      Z_BANRAT      sigma-sq         gamma 
+    -0.028611     -3.635488      1.666570      0.978799 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3    delta_0     delta_1
-beta_0    0.06389148  0.01389479 -1.2437e-02 -2.7820e-03   0.364527  0.00009693
-beta_1    0.01389479  0.00356848 -2.7865e-03 -6.5601e-04   0.036240  0.00048189
-beta_2   -0.01243731 -0.00278650  3.7229e-03 -5.9195e-04  -0.026794 -0.00054272
-beta_3   -0.00278205 -0.00065601 -5.9195e-04  1.1700e-03  -0.016572  0.00048011
-delta_0   0.36452668  0.03623992 -2.6794e-02 -1.6572e-02  69.007093 -0.03092917
-delta_1   0.00009693  0.00048189 -5.4272e-04  4.8011e-04  -0.030929  0.04593406
-delta_2   0.29926331  0.02166965 -2.1364e-02 -7.5377e-03  62.738119  0.22852376
-sigma-sq -0.14164026 -0.01386634  1.0862e-02  4.6949e-03 -29.371356 -0.12312644
-gamma    -0.00151553 -0.00015182  9.9816e-05  5.3543e-05  -0.358858 -0.00158941
-             delta_2    sigma-sq       gamma
-beta_0     0.2992633  -0.1416403 -1.5155e-03
-beta_1     0.0216697  -0.0138663 -1.5182e-04
-beta_2    -0.0213637   0.0108622  9.9816e-05
-beta_3    -0.0075377   0.0046949  5.3543e-05
-delta_0   62.7381188 -29.3713560 -3.5886e-01
-delta_1    0.2285238  -0.1231264 -1.5894e-03
-delta_2   62.0070119 -28.0562959 -3.4251e-01
-sigma-sq -28.0562959  13.0334221  1.5973e-01
-gamma     -0.3425113   0.1597318  1.9729e-03
+              (Intercept)       lAREA      lLABOR        lNPK Z_(Intercept)
+(Intercept)    0.06389148  0.01389479 -1.2437e-02 -2.7820e-03      0.364527
+lAREA          0.01389479  0.00356848 -2.7865e-03 -6.5601e-04      0.036240
+lLABOR        -0.01243731 -0.00278650  3.7229e-03 -5.9195e-04     -0.026794
+lNPK          -0.00278205 -0.00065601 -5.9195e-04  1.1700e-03     -0.016572
+Z_(Intercept)  0.36452668  0.03623992 -2.6794e-02 -1.6572e-02     69.007093
+Z_EDYRS        0.00009693  0.00048189 -5.4272e-04  4.8011e-04     -0.030929
+Z_BANRAT       0.29926331  0.02166965 -2.1364e-02 -7.5377e-03     62.738119
+sigma-sq      -0.14164026 -0.01386634  1.0862e-02  4.6949e-03    -29.371356
+gamma         -0.00151553 -0.00015182  9.9816e-05  5.3543e-05     -0.358858
+                  Z_EDYRS    Z_BANRAT    sigma-sq       gamma
+(Intercept)    0.00009693   0.2992633  -0.1416403 -1.5155e-03
+lAREA          0.00048189   0.0216697  -0.0138663 -1.5182e-04
+lLABOR        -0.00054272  -0.0213637   0.0108622  9.9816e-05
+lNPK           0.00048011  -0.0075377   0.0046949  5.3543e-05
+Z_(Intercept) -0.03092917  62.7381188 -29.3713560 -3.5886e-01
+Z_EDYRS        0.04593406   0.2285238  -0.1231264 -1.5894e-03
+Z_BANRAT       0.22852376  62.0070119 -28.0562959 -3.4251e-01
+sigma-sq      -0.12312644 -28.0562959  13.0334221  1.5973e-01
+gamma         -0.00158941  -0.3425113   0.1597318  1.9729e-03
 
 $mleLogl
 [1] -77.314
@@ -10606,66 +10660,68 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056265  0.236655  0.281381  0.278425  0.180893 -0.667506  3.458376 -0.302459 
- sigma-sq     gamma 
- 0.064456  0.502207 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056265      0.236655      0.281381      0.278425      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667506      3.458376     -0.302459      0.064456      0.502207 
 > coef( c1R, which = "start" )
 NULL
 > coef( c1R, which = "ols" )
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq 
--0.548199  0.144456  0.199638  0.495654  0.042643  0.126741 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
 > coef( c1R, which = "grid" )
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq     gamma 
--0.306199  0.144456  0.199638  0.495654  0.042643  0.173570  0.530000 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
+      gamma 
+   0.530000 
 > coef( c1R )
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056265  0.236655  0.281381  0.278425  0.180893 -0.667506  3.458376 -0.302459 
- sigma-sq     gamma 
- 0.064456  0.502207 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056265      0.236655      0.281381      0.278425      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667506      3.458376     -0.302459      0.064456      0.502207 
 > coef( summary( c1R ), which = "ols" )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0   -0.548199   0.681946 -0.80388 4.2543e-01
-beta_1    0.144456   0.031582  4.57404 3.3811e-05
-beta_2    0.199638   0.057944  3.44537 1.1942e-03
-beta_3    0.495654   0.045580 10.87425 1.5175e-14
-beta_4    0.042643   0.077400  0.55094 5.8423e-01
-sigma-sq  0.126741         NA       NA         NA
+             Estimate Std. Error  t value   Pr(>|t|)
+(Intercept) -0.548199   0.681946 -0.80388 4.2543e-01
+lArea        0.144456   0.031582  4.57404 3.3811e-05
+lLabor       0.199638   0.057944  3.44537 1.1942e-03
+lOther       0.495654   0.045580 10.87425 1.5175e-14
+lCapital     0.042643   0.077400  0.55094 5.8423e-01
+sigma-sq     0.126741         NA       NA         NA
 > coef( summary( c1R ) )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0   -1.056265   0.433343 -2.43748 1.8901e-02
-beta_1    0.236655   0.025368  9.32879 5.4453e-12
-beta_2    0.281381   0.042026  6.69539 3.2007e-08
-beta_3    0.278425   0.042308  6.58096 4.7153e-08
-beta_4    0.180893   0.049568  3.64936 6.9371e-04
-delta_0  -0.667506   1.120656 -0.59564 5.5447e-01
-delta_1   3.458376   1.812410  1.90816 6.2908e-02
-delta_2  -0.302459   0.077320 -3.91180 3.1359e-04
-sigma-sq  0.064456   0.015494  4.16010 1.4514e-04
-gamma     0.502207   0.239103  2.10038 4.1461e-02
+               Estimate Std. Error  t value   Pr(>|t|)
+(Intercept)   -1.056265   0.433343 -2.43748 1.8901e-02
+lArea          0.236655   0.025368  9.32879 5.4453e-12
+lLabor         0.281381   0.042026  6.69539 3.2007e-08
+lOther         0.278425   0.042308  6.58096 4.7153e-08
+lCapital       0.180893   0.049568  3.64936 6.9371e-04
+Z_(Intercept) -0.667506   1.120656 -0.59564 5.5447e-01
+Z_idh          3.458376   1.812410  1.90816 6.2908e-02
+Z_gip_pc      -0.302459   0.077320 -3.91180 3.1359e-04
+sigma-sq       0.064456   0.015494  4.16010 1.4514e-04
+gamma          0.502207   0.239103  2.10038 4.1461e-02
 > vcov( c1R )
-              beta_0      beta_1      beta_2      beta_3      beta_4
-beta_0    0.18778631 -5.1209e-03 -5.6594e-04  6.2817e-03 -1.2856e-02
-beta_1   -0.00512092  6.4355e-04  6.0402e-04 -6.3407e-04  3.6006e-05
-beta_2   -0.00056594  6.0402e-04  1.7662e-03 -9.1397e-04 -7.5980e-04
-beta_3    0.00628166 -6.3407e-04 -9.1397e-04  1.7899e-03 -1.1125e-03
-beta_4   -0.01285551  3.6006e-05 -7.5980e-04 -1.1125e-03  2.4570e-03
-delta_0  -0.01986109  1.1960e-02  1.7249e-02 -1.2299e-02 -6.5045e-03
-delta_1   0.01089067 -1.6002e-02 -2.5378e-02  1.3661e-02  1.4077e-02
-delta_2  -0.00063786  4.0681e-04  1.1188e-03 -4.6061e-04 -5.0271e-04
-sigma-sq -0.00088462  5.2964e-05 -7.7739e-06 -2.4269e-05  5.2911e-05
-gamma    -0.01942632  1.9553e-03  1.9998e-03 -2.1722e-03  8.4335e-04
-             delta_0    delta_1     delta_2    sigma-sq       gamma
-beta_0   -0.01986109  0.0108907 -0.00063786 -8.8462e-04 -0.01942632
-beta_1    0.01195975 -0.0160022  0.00040681  5.2964e-05  0.00195531
-beta_2    0.01724944 -0.0253784  0.00111880 -7.7739e-06  0.00199983
-beta_3   -0.01229921  0.0136608 -0.00046061 -2.4269e-05 -0.00217220
-beta_4   -0.00650447  0.0140766 -0.00050271  5.2911e-05  0.00084335
-delta_0   1.25587050 -2.0043245  0.06547302 -5.5059e-04  0.04219663
-delta_1  -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
-delta_2   0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
-sigma-sq -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
-gamma     0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
+              (Intercept)       lArea      lLabor      lOther    lCapital
+(Intercept)    0.18778631 -5.1209e-03 -5.6594e-04  6.2817e-03 -1.2856e-02
+lArea         -0.00512092  6.4355e-04  6.0402e-04 -6.3407e-04  3.6006e-05
+lLabor        -0.00056594  6.0402e-04  1.7662e-03 -9.1397e-04 -7.5980e-04
+lOther         0.00628166 -6.3407e-04 -9.1397e-04  1.7899e-03 -1.1125e-03
+lCapital      -0.01285551  3.6006e-05 -7.5980e-04 -1.1125e-03  2.4570e-03
+Z_(Intercept) -0.01986109  1.1960e-02  1.7249e-02 -1.2299e-02 -6.5045e-03
+Z_idh          0.01089067 -1.6002e-02 -2.5378e-02  1.3661e-02  1.4077e-02
+Z_gip_pc      -0.00063786  4.0681e-04  1.1188e-03 -4.6061e-04 -5.0271e-04
+sigma-sq      -0.00088462  5.2964e-05 -7.7739e-06 -2.4269e-05  5.2911e-05
+gamma         -0.01942632  1.9553e-03  1.9998e-03 -2.1722e-03  8.4335e-04
+              Z_(Intercept)      Z_idh    Z_gip_pc    sigma-sq       gamma
+(Intercept)     -0.01986109  0.0108907 -0.00063786 -8.8462e-04 -0.01942632
+lArea            0.01195975 -0.0160022  0.00040681  5.2964e-05  0.00195531
+lLabor           0.01724944 -0.0253784  0.00111880 -7.7739e-06  0.00199983
+lOther          -0.01229921  0.0136608 -0.00046061 -2.4269e-05 -0.00217220
+lCapital        -0.00650447  0.0140766 -0.00050271  5.2911e-05  0.00084335
+Z_(Intercept)    1.25587050 -2.0043245  0.06547302 -5.5059e-04  0.04219663
+Z_idh           -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
+Z_gip_pc         0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
+sigma-sq        -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
+gamma            0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
 > print( summary( c1R ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -10674,39 +10730,39 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -0.5482     0.6819   -0.80   0.4254    
-beta_1     0.1445     0.0316    4.57  3.4e-05 ***
-beta_2     0.1996     0.0579    3.45   0.0012 ** 
-beta_3     0.4957     0.0456   10.87  1.5e-14 ***
-beta_4     0.0426     0.0774    0.55   0.5842    
-sigma-sq   0.1267         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.5482     0.6819   -0.80   0.4254    
+lArea         0.1445     0.0316    4.57  3.4e-05 ***
+lLabor        0.1996     0.0579    3.45   0.0012 ** 
+lOther        0.4957     0.0456   10.87  1.5e-14 ***
+lCapital      0.0426     0.0774    0.55   0.5842    
+sigma-sq      0.1267         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.228 
 
 estimates after the grid search
-              [,1]
-beta_0   -0.306199
-beta_1    0.144456
-beta_2    0.199638
-beta_3    0.495654
-beta_4    0.042643
-sigma-sq  0.173570
-gamma     0.530000
+                 [,1]
+(Intercept) -0.306199
+lArea        0.144456
+lLabor       0.199638
+lOther       0.495654
+lCapital     0.042643
+sigma-sq     0.173570
+gamma        0.530000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0563     0.4333   -2.44  0.01890 *  
-beta_1     0.2367     0.0254    9.33  5.4e-12 ***
-beta_2     0.2814     0.0420    6.70  3.2e-08 ***
-beta_3     0.2784     0.0423    6.58  4.7e-08 ***
-beta_4     0.1809     0.0496    3.65  0.00069 ***
-delta_0   -0.6675     1.1207   -0.60  0.55447    
-delta_1    3.4584     1.8124    1.91  0.06291 .  
-delta_2   -0.3025     0.0773   -3.91  0.00031 ***
-sigma-sq   0.0645     0.0155    4.16  0.00015 ***
-gamma      0.5022     0.2391    2.10  0.04146 *  
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0563     0.4333   -2.44  0.01890 *  
+lArea           0.2367     0.0254    9.33  5.4e-12 ***
+lLabor          0.2814     0.0420    6.70  3.2e-08 ***
+lOther          0.2784     0.0423    6.58  4.7e-08 ***
+lCapital        0.1809     0.0496    3.65  0.00069 ***
+Z_(Intercept)  -0.6675     1.1207   -0.60  0.55447    
+Z_idh           3.4584     1.8124    1.91  0.06291 .  
+Z_gip_pc       -0.3025     0.0773   -3.91  0.00031 ***
+sigma-sq        0.0645     0.0155    4.16  0.00015 ***
+gamma           0.5022     0.2391    2.10  0.04146 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 3.3184 
@@ -10897,52 +10953,54 @@ $dataTable
 [54,]  54 1 14.247 12.0749 16.2227 19.233   18.876 0.76   4.28    1
 
 $olsParam
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq 
--0.548199  0.144456  0.199638  0.495654  0.042643  0.126741 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3   beta_4 
-0.681946 0.031582 0.057944 0.045580 0.077400 
+(Intercept)       lArea      lLabor      lOther    lCapital 
+   0.681946    0.031582    0.057944    0.045580    0.077400 
 
 $olsLogl
 [1] -18.228
 
 $gridParam
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq     gamma 
--0.306199  0.144456  0.199638  0.495654  0.042643  0.173570  0.530000 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
+      gamma 
+   0.530000 
 
 $gridLogl
 [1] -18.074
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056265  0.236655  0.281381  0.278425  0.180893 -0.667506  3.458376 -0.302459 
- sigma-sq     gamma 
- 0.064456  0.502207 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056265      0.236655      0.281381      0.278425      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667506      3.458376     -0.302459      0.064456      0.502207 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3      beta_4
-beta_0    0.18778631 -5.1209e-03 -5.6594e-04  6.2817e-03 -1.2856e-02
-beta_1   -0.00512092  6.4355e-04  6.0402e-04 -6.3407e-04  3.6006e-05
-beta_2   -0.00056594  6.0402e-04  1.7662e-03 -9.1397e-04 -7.5980e-04
-beta_3    0.00628166 -6.3407e-04 -9.1397e-04  1.7899e-03 -1.1125e-03
-beta_4   -0.01285551  3.6006e-05 -7.5980e-04 -1.1125e-03  2.4570e-03
-delta_0  -0.01986109  1.1960e-02  1.7249e-02 -1.2299e-02 -6.5045e-03
-delta_1   0.01089067 -1.6002e-02 -2.5378e-02  1.3661e-02  1.4077e-02
-delta_2  -0.00063786  4.0681e-04  1.1188e-03 -4.6061e-04 -5.0271e-04
-sigma-sq -0.00088462  5.2964e-05 -7.7739e-06 -2.4269e-05  5.2911e-05
-gamma    -0.01942632  1.9553e-03  1.9998e-03 -2.1722e-03  8.4335e-04
-             delta_0    delta_1     delta_2    sigma-sq       gamma
-beta_0   -0.01986109  0.0108907 -0.00063786 -8.8462e-04 -0.01942632
-beta_1    0.01195975 -0.0160022  0.00040681  5.2964e-05  0.00195531
-beta_2    0.01724944 -0.0253784  0.00111880 -7.7739e-06  0.00199983
-beta_3   -0.01229921  0.0136608 -0.00046061 -2.4269e-05 -0.00217220
-beta_4   -0.00650447  0.0140766 -0.00050271  5.2911e-05  0.00084335
-delta_0   1.25587050 -2.0043245  0.06547302 -5.5059e-04  0.04219663
-delta_1  -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
-delta_2   0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
-sigma-sq -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
-gamma     0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
+              (Intercept)       lArea      lLabor      lOther    lCapital
+(Intercept)    0.18778631 -5.1209e-03 -5.6594e-04  6.2817e-03 -1.2856e-02
+lArea         -0.00512092  6.4355e-04  6.0402e-04 -6.3407e-04  3.6006e-05
+lLabor        -0.00056594  6.0402e-04  1.7662e-03 -9.1397e-04 -7.5980e-04
+lOther         0.00628166 -6.3407e-04 -9.1397e-04  1.7899e-03 -1.1125e-03
+lCapital      -0.01285551  3.6006e-05 -7.5980e-04 -1.1125e-03  2.4570e-03
+Z_(Intercept) -0.01986109  1.1960e-02  1.7249e-02 -1.2299e-02 -6.5045e-03
+Z_idh          0.01089067 -1.6002e-02 -2.5378e-02  1.3661e-02  1.4077e-02
+Z_gip_pc      -0.00063786  4.0681e-04  1.1188e-03 -4.6061e-04 -5.0271e-04
+sigma-sq      -0.00088462  5.2964e-05 -7.7739e-06 -2.4269e-05  5.2911e-05
+gamma         -0.01942632  1.9553e-03  1.9998e-03 -2.1722e-03  8.4335e-04
+              Z_(Intercept)      Z_idh    Z_gip_pc    sigma-sq       gamma
+(Intercept)     -0.01986109  0.0108907 -0.00063786 -8.8462e-04 -0.01942632
+lArea            0.01195975 -0.0160022  0.00040681  5.2964e-05  0.00195531
+lLabor           0.01724944 -0.0253784  0.00111880 -7.7739e-06  0.00199983
+lOther          -0.01229921  0.0136608 -0.00046061 -2.4269e-05 -0.00217220
+lCapital        -0.00650447  0.0140766 -0.00050271  5.2911e-05  0.00084335
+Z_(Intercept)    1.25587050 -2.0043245  0.06547302 -5.5059e-04  0.04219663
+Z_idh           -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
+Z_gip_pc         0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
+sigma-sq        -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
+gamma            0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
 
 $mleLogl
 [1] 3.3184
@@ -11038,66 +11096,68 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 Final maximum likelihood estimates
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056270  0.236656  0.281383  0.278424  0.180893 -0.667513  3.458396 -0.302460 
- sigma-sq     gamma 
- 0.064456  0.502210 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056270      0.236656      0.281383      0.278424      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667513      3.458396     -0.302460      0.064456      0.502210 
 > coef( c1F, which = "start" )
 NULL
 > coef( c1F, which = "ols" )
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq 
--0.548199  0.144456  0.199638  0.495654  0.042643  0.126741 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
 > coef( c1F, which = "grid" )
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq     gamma 
--0.306199  0.144456  0.199638  0.495654  0.042643  0.173570  0.530000 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
+      gamma 
+   0.530000 
 > coef( c1F )
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056270  0.236656  0.281383  0.278424  0.180893 -0.667513  3.458396 -0.302460 
- sigma-sq     gamma 
- 0.064456  0.502210 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056270      0.236656      0.281383      0.278424      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667513      3.458396     -0.302460      0.064456      0.502210 
 > coef( summary( c1F ), which = "ols" )
-          Estimate Std. Error  t value   Pr(>|t|)
-beta_0   -0.548199   0.681946 -0.80388 4.2543e-01
-beta_1    0.144456   0.031582  4.57404 3.3811e-05
-beta_2    0.199638   0.057944  3.44537 1.1942e-03
-beta_3    0.495654   0.045580 10.87425 1.5175e-14
-beta_4    0.042643   0.077400  0.55094 5.8423e-01
-sigma-sq  0.126741         NA       NA         NA
+             Estimate Std. Error  t value   Pr(>|t|)
+(Intercept) -0.548199   0.681946 -0.80388 4.2543e-01
+lArea        0.144456   0.031582  4.57404 3.3811e-05
+lLabor       0.199638   0.057944  3.44537 1.1942e-03
+lOther       0.495654   0.045580 10.87425 1.5175e-14
+lCapital     0.042643   0.077400  0.55094 5.8423e-01
+sigma-sq     0.126741         NA       NA         NA
 > coef( summary( c1F ) )
-          Estimate Std. Error t value   Pr(>|t|)
-beta_0   -1.056270   0.428673 -2.4640 1.7716e-02
-beta_1    0.236656   0.024942  9.4884 3.2901e-12
-beta_2    0.281383   0.041292  6.8144 2.1397e-08
-beta_3    0.278424   0.041641  6.6862 3.3016e-08
-beta_4    0.180893   0.049066  3.6867 6.2039e-04
-delta_0  -0.667513   1.120181 -0.5959 5.5430e-01
-delta_1   3.458396   1.813513  1.9070 6.3061e-02
-delta_2  -0.302460   0.077616 -3.8969 3.2829e-04
-sigma-sq  0.064456   0.015620  4.1266 1.6121e-04
-gamma     0.502210   0.237293  2.1164 4.0003e-02
+               Estimate Std. Error t value   Pr(>|t|)
+(Intercept)   -1.056270   0.428673 -2.4640 1.7716e-02
+lArea          0.236656   0.024942  9.4884 3.2901e-12
+lLabor         0.281383   0.041292  6.8144 2.1397e-08
+lOther         0.278424   0.041641  6.6862 3.3016e-08
+lCapital       0.180893   0.049066  3.6867 6.2039e-04
+Z_(Intercept) -0.667513   1.120181 -0.5959 5.5430e-01
+Z_idh          3.458396   1.813513  1.9070 6.3061e-02
+Z_gip_pc      -0.302460   0.077616 -3.8969 3.2829e-04
+sigma-sq       0.064456   0.015620  4.1266 1.6121e-04
+gamma          0.502210   0.237293  2.1164 4.0003e-02
 > vcov( c1F )
-              beta_0      beta_1      beta_2      beta_3      beta_4
-beta_0    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
-beta_1   -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
-beta_2   -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
-beta_3    0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
-beta_4   -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
-delta_0  -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
-delta_1   0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
-delta_2  -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
-sigma-sq -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
-gamma    -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
-             delta_0    delta_1     delta_2    sigma-sq       gamma
-beta_0   -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
-beta_1    0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
-beta_2    0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
-beta_3   -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
-beta_4   -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
-delta_0   1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
-delta_1  -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
-delta_2   0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
-sigma-sq -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
-gamma     0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
+              (Intercept)       lArea      lLabor      lOther    lCapital
+(Intercept)    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
+lArea         -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
+lLabor        -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
+lOther         0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
+lCapital      -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
+Z_(Intercept) -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
+Z_idh          0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
+Z_gip_pc      -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
+sigma-sq      -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
+gamma         -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
+              Z_(Intercept)      Z_idh    Z_gip_pc    sigma-sq       gamma
+(Intercept)     -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
+lArea            0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
+lLabor           0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
+lOther          -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
+lCapital        -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
+Z_(Intercept)    1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
+Z_idh           -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
+Z_gip_pc         0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
+sigma-sq        -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
+gamma            0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
 > print( summary( c1F ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -11106,39 +11166,39 @@ Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
 OLS estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -0.5482     0.6819   -0.80   0.4254    
-beta_1     0.1445     0.0316    4.57  3.4e-05 ***
-beta_2     0.1996     0.0579    3.45   0.0012 ** 
-beta_3     0.4957     0.0456   10.87  1.5e-14 ***
-beta_4     0.0426     0.0774    0.55   0.5842    
-sigma-sq   0.1267         NA      NA       NA    
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.5482     0.6819   -0.80   0.4254    
+lArea         0.1445     0.0316    4.57  3.4e-05 ***
+lLabor        0.1996     0.0579    3.45   0.0012 ** 
+lOther        0.4957     0.0456   10.87  1.5e-14 ***
+lCapital      0.0426     0.0774    0.55   0.5842    
+sigma-sq      0.1267         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.228 
 
 estimates after the grid search
-              [,1]
-beta_0   -0.306199
-beta_1    0.144456
-beta_2    0.199638
-beta_3    0.495654
-beta_4    0.042643
-sigma-sq  0.173570
-gamma     0.530000
+                 [,1]
+(Intercept) -0.306199
+lArea        0.144456
+lLabor       0.199638
+lOther       0.495654
+lCapital     0.042643
+sigma-sq     0.173570
+gamma        0.530000
 
 final maximum likelihood estimates
-         Estimate Std. Error t value Pr(>|t|)    
-beta_0    -1.0563     0.4287   -2.46  0.01772 *  
-beta_1     0.2367     0.0249    9.49  3.3e-12 ***
-beta_2     0.2814     0.0413    6.81  2.1e-08 ***
-beta_3     0.2784     0.0416    6.69  3.3e-08 ***
-beta_4     0.1809     0.0491    3.69  0.00062 ***
-delta_0   -0.6675     1.1202   -0.60  0.55430    
-delta_1    3.4584     1.8135    1.91  0.06306 .  
-delta_2   -0.3025     0.0776   -3.90  0.00033 ***
-sigma-sq   0.0645     0.0156    4.13  0.00016 ***
-gamma      0.5022     0.2373    2.12  0.04000 *  
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0563     0.4287   -2.46  0.01772 *  
+lArea           0.2367     0.0249    9.49  3.3e-12 ***
+lLabor          0.2814     0.0413    6.81  2.1e-08 ***
+lOther          0.2784     0.0416    6.69  3.3e-08 ***
+lCapital        0.1809     0.0491    3.69  0.00062 ***
+Z_(Intercept)  -0.6675     1.1202   -0.60  0.55430    
+Z_idh           3.4584     1.8135    1.91  0.06306 .  
+Z_gip_pc       -0.3025     0.0776   -3.90  0.00033 ***
+sigma-sq        0.0645     0.0156    4.13  0.00016 ***
+gamma           0.5022     0.2373    2.12  0.04000 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 3.3184 
@@ -11329,52 +11389,54 @@ $dataTable
 [54,]   54    1 14.247 12.0749 16.2227 19.233 18.876 0.76  4.28
 
 $olsParam
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq 
--0.548199  0.144456  0.199638  0.495654  0.042643  0.126741 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
 
 $olsStdEr
-  beta_0   beta_1   beta_2   beta_3   beta_4 
-0.681946 0.031582 0.057944 0.045580 0.077400 
+(Intercept)       lArea      lLabor      lOther    lCapital 
+   0.681946    0.031582    0.057944    0.045580    0.077400 
 
 $olsLogl
 [1] -18.228
 
 $gridParam
-   beta_0    beta_1    beta_2    beta_3    beta_4  sigma-sq     gamma 
--0.306199  0.144456  0.199638  0.495654  0.042643  0.173570  0.530000 
+(Intercept)       lArea      lLabor      lOther    lCapital    sigma-sq 
+  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
+      gamma 
+   0.530000 
 
 $gridLogl
 [1] -18.074
 
 $mleParam
-   beta_0    beta_1    beta_2    beta_3    beta_4   delta_0   delta_1   delta_2 
--1.056270  0.236656  0.281383  0.278424  0.180893 -0.667513  3.458396 -0.302460 
- sigma-sq     gamma 
- 0.064456  0.502210 
+  (Intercept)         lArea        lLabor        lOther      lCapital 
+    -1.056270      0.236656      0.281383      0.278424      0.180893 
+Z_(Intercept)         Z_idh      Z_gip_pc      sigma-sq         gamma 
+    -0.667513      3.458396     -0.302460      0.064456      0.502210 
 
 $mleCov
-              beta_0      beta_1      beta_2      beta_3      beta_4
-beta_0    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
-beta_1   -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
-beta_2   -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
-beta_3    0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
-beta_4   -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
-delta_0  -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
-delta_1   0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
-delta_2  -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
-sigma-sq -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
-gamma    -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
-             delta_0    delta_1     delta_2    sigma-sq       gamma
-beta_0   -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
-beta_1    0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
-beta_2    0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
-beta_3   -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
-beta_4   -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
-delta_0   1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
-delta_1  -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
-delta_2   0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
-sigma-sq -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
-gamma     0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
+              (Intercept)       lArea      lLabor      lOther    lCapital
+(Intercept)    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
+lArea         -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
+lLabor        -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
+lOther         0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
+lCapital      -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
+Z_(Intercept) -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
+Z_idh          0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
+Z_gip_pc      -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
+sigma-sq      -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
+gamma         -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
+              Z_(Intercept)      Z_idh    Z_gip_pc    sigma-sq       gamma
+(Intercept)     -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
+lArea            0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
+lLabor           0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
+lOther          -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
+lCapital        -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
+Z_(Intercept)    1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
+Z_idh           -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
+Z_gip_pc         0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
+sigma-sq        -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
+gamma            0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
 
 $mleLogl
 [1] 3.3184
@@ -12804,7 +12866,7 @@ The dependent variable is logged
 Final maximum likelihood estimates
         a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 
  0.75675353  0.40224531  0.37502667 -0.18436442  0.00026623  0.05697079 
-    delta_1    sigma-sq       gamma 
+   Z_firmNo    sigma-sq       gamma 
 -0.01022218  0.25193817  0.81948823 
 > coef( translogZvar, which = "start" )
 NULL
@@ -12819,7 +12881,7 @@ NULL
 > coef( translogZvar )
         a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 
  0.75675353  0.40224531  0.37502667 -0.18436442  0.00026623  0.05697079 
-    delta_1    sigma-sq       gamma 
+   Z_firmNo    sigma-sq       gamma 
 -0.01022218  0.25193817  0.81948823 
 > coef( summary( translogZvar ), which = "ols" )
            Estimate Std. Error  t value Pr(>|t|)
@@ -12838,7 +12900,7 @@ a_2       0.37502667   0.175390  2.1382423 3.7310e-02
 b_1_1    -0.18436442   0.083742 -2.2015795 3.2245e-02
 b_1_2     0.00026623   0.040931  0.0065043 9.9484e-01
 b_2_2     0.05697079   0.057558  0.9897916 3.2695e-01
-delta_1  -0.01022218   0.012147 -0.8415173 4.0399e-01
+Z_firmNo -0.01022218   0.012147 -0.8415173 4.0399e-01
 sigma-sq  0.25193817   0.107432  2.3451035 2.2951e-02
 gamma     0.81948823   0.120015  6.8281893 1.0169e-08
 > vcov( translogZvar )
@@ -12849,17 +12911,17 @@ a_2      -0.04462051  9.7581e-03  0.0307617  1.1668e-03 -2.9257e-03 -9.3003e-03
 b_1_1    -0.00387660 -5.2719e-03  0.0011668  7.0127e-03  8.4674e-05 -3.2159e-04
 b_1_2     0.00838482 -6.2338e-03 -0.0029257  8.4674e-05  1.6754e-03  2.8692e-04
 b_2_2     0.00981741 -7.6924e-04 -0.0093003 -3.2159e-04  2.8692e-04  3.3130e-03
-delta_1   0.00043638 -9.6764e-05 -0.0000783  3.0699e-06  4.5422e-05 -2.8392e-06
+Z_firmNo  0.00043638 -9.6764e-05 -0.0000783  3.0699e-06  4.5422e-05 -2.8392e-06
 sigma-sq -0.00124827  1.3427e-03  0.0015773  3.9969e-04 -5.9636e-04 -1.7863e-04
 gamma    -0.00087335  1.9238e-03  0.0025201  8.4182e-04 -8.1870e-04 -4.0313e-04
-             delta_1    sigma-sq       gamma
+            Z_firmNo    sigma-sq       gamma
 a_0       4.3638e-04 -0.00124827 -0.00087335
 a_1      -9.6764e-05  0.00134266  0.00192384
 a_2      -7.8300e-05  0.00157735  0.00252012
 b_1_1     3.0699e-06  0.00039969  0.00084182
 b_1_2     4.5422e-05 -0.00059636 -0.00081870
 b_2_2    -2.8392e-06 -0.00017863 -0.00040313
-delta_1   1.4756e-04 -0.00095945 -0.00065046
+Z_firmNo  1.4756e-04 -0.00095945 -0.00065046
 sigma-sq -9.5945e-04  0.01154154  0.01047213
 gamma    -6.5046e-04  0.01047213  0.01440371
 > logLik( translogZvar, which = "ols" )
@@ -12905,7 +12967,7 @@ a_2       0.375027   0.175390    2.14    0.037 *
 b_1_1    -0.184364   0.083742   -2.20    0.032 *  
 b_1_2     0.000266   0.040931    0.01    0.995    
 b_2_2     0.056971   0.057558    0.99    0.327    
-delta_1  -0.010222   0.012147   -0.84    0.404    
+Z_firmNo -0.010222   0.012147   -0.84    0.404    
 sigma-sq  0.251938   0.107432    2.35    0.023 *  
 gamma     0.819488   0.120015    6.83  1.0e-08 ***
 ---
@@ -13380,7 +13442,7 @@ $gridLogl
 $mleParam
         a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 
  0.75675353  0.40224531  0.37502667 -0.18436442  0.00026623  0.05697079 
-    delta_1    sigma-sq       gamma 
+   Z_firmNo    sigma-sq       gamma 
 -0.01022218  0.25193817  0.81948823 
 
 $mleCov
@@ -13391,17 +13453,17 @@ a_2      -0.04462051  9.7581e-03  0.0307617  1.1668e-03 -2.9257e-03 -9.3003e-03
 b_1_1    -0.00387660 -5.2719e-03  0.0011668  7.0127e-03  8.4674e-05 -3.2159e-04
 b_1_2     0.00838482 -6.2338e-03 -0.0029257  8.4674e-05  1.6754e-03  2.8692e-04
 b_2_2     0.00981741 -7.6924e-04 -0.0093003 -3.2159e-04  2.8692e-04  3.3130e-03
-delta_1   0.00043638 -9.6764e-05 -0.0000783  3.0699e-06  4.5422e-05 -2.8392e-06
+Z_firmNo  0.00043638 -9.6764e-05 -0.0000783  3.0699e-06  4.5422e-05 -2.8392e-06
 sigma-sq -0.00124827  1.3427e-03  0.0015773  3.9969e-04 -5.9636e-04 -1.7863e-04
 gamma    -0.00087335  1.9238e-03  0.0025201  8.4182e-04 -8.1870e-04 -4.0313e-04
-             delta_1    sigma-sq       gamma
+            Z_firmNo    sigma-sq       gamma
 a_0       4.3638e-04 -0.00124827 -0.00087335
 a_1      -9.6764e-05  0.00134266  0.00192384
 a_2      -7.8300e-05  0.00157735  0.00252012
 b_1_1     3.0699e-06  0.00039969  0.00084182
 b_1_2     4.5422e-05 -0.00059636 -0.00081870
 b_2_2    -2.8392e-06 -0.00017863 -0.00040313
-delta_1   1.4756e-04 -0.00095945 -0.00065046
+Z_firmNo  1.4756e-04 -0.00095945 -0.00065046
 sigma-sq -9.5945e-04  0.01154154  0.01047213
 gamma    -6.5046e-04  0.01047213  0.01440371
 

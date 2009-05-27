@@ -17,7 +17,7 @@ frontier <- function(
       searchScale = NA,
       gridSize = 0.1,
       gridDouble = TRUE,
-      showParNames = FALSE,
+      showParNames = TRUE,
       printIter = 0 ) {
 
    # check names of variables
