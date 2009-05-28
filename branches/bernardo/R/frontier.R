@@ -251,7 +251,6 @@ frontier <- function(
          mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
          mleLogl = as.double( 0 ),
          lrTestVal = as.double( 0 ),
-         lrTestDf = as.integer( 0 ),
          nIter = as.integer( 0 ),
          effic = matrix( as.double( 0 ), nn, nt ) )
       returnObj$nStartVal <- NULL
@@ -311,6 +310,13 @@ frontier <- function(
    # check if the maximum number of iterations has been reached
    if( !evalLogLik && maxit <= returnObj$nIter && maxit > 0 ) {
       warning( "Maximum number of iterations reached" );
+   }
+
+   # degrees of freedom of the likelihood ratio test
+   if( returnObj$modelType == 1 ) {
+      returnObj$lrTestDf <- truncNorm + timeEffect + 1
+   } else {
+      returnObj$lrTestDf <- zIntercept + nZvars + 1
    }
 
    # modelType

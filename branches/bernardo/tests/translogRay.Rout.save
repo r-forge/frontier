@@ -187,7 +187,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 64.45507 
 
 LR test of the one-sided error = 0 
-with number of restrictions = 0 
+with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
 number of iterations = 1 
@@ -406,9 +406,6 @@ $mleLogl
 $lrTestVal
 [1] 0
 
-$lrTestDf
-[1] 0
-
 $nIter
 [1] 1
 
@@ -434,6 +431,9 @@ $effic
 18  0.9981822
 19  0.9984938
 20  0.9981460
+
+$lrTestDf
+[1] 1
 
 $truncNorm
 [1] FALSE
