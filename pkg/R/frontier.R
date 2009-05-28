@@ -239,6 +239,13 @@ frontier <- function(
       warning( "Maximum number of iterations reached" );
    }
 
+   # degrees of freedom of the likelihood ratio test
+   if( returnObj$modelType == 1 ) {
+      returnObj$lrTestDf <- truncNorm + timeEffect + 1
+   } else {
+      returnObj$lrTestDf <- zIntercept + nZvars + 1
+   }
+
    # modelType
    if( returnObj$modelType == 1 ) {
       returnObj$modelType <- "ECF"
