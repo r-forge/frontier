@@ -226,7 +226,6 @@ frontier <- function(
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
       lrTestVal = as.double( 0 ),
-      lrTestDf = as.integer( 0 ),
       nIter = as.integer( 0 ),
       effic = matrix( as.double( 0 ), nn, nt ) )
    returnObj$nStartVal <- NULL

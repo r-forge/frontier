@@ -6,7 +6,7 @@
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
      $  nParamTotal, ob, obse, olsLogl, gb, startLogl, y, h, fmleLogl,
-     $  chi, idf, nIter, ate )
+     $  chi, nIter, ate )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -66,14 +66,14 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, idf, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, ate )
 	olsLogl = -fxols
       startLogl = -fxs
 	fmleLogl = -fx
 	nIter = iter
 	end
  
-	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,idf,ate)
+	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,ate)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
@@ -103,7 +103,7 @@ c       contains the main loop of this iterative program.
 	fy=fx
       fxs=fx
 	end if 
-	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,chi,idf,ate)
+	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,chi,ate)
 	iter=0 
 	if (im.eq.1) call der1(x,gx,yy,xx) 
 	if (im.eq.2) call der2(x,gx,yy,xx) 
@@ -163,7 +163,7 @@ c       contains the main loop of this iterative program.
 	if(nc.le.n) goto 303   
   301   format(' iteration = ',i5,'  func evals =',i7,'  llf =',e16.8) 
   302   format(4x,5e15.8)  
-	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2,chi,idf,ate)
+	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2,chi,ate)
 	deallocate(x,s,delx,delg,gx,gy)
 	return 
 	end
@@ -706,7 +706,7 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
  
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, idf, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, chi, ate )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -806,13 +806,13 @@ c       also reads data from a file.
 	stop  
 	end if
   149   continue   
-	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,idf,ate)
+	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,chi,ate)
 	deallocate(yy,xx,mm,sv,xxd)
 	return 
 	end
 
 
-	subroutine result(yy,xx,mm,h,y,sv,ob,obse,gb,ncall,chi,idf,ate)  
+	subroutine result(yy,xx,mm,h,y,sv,ob,obse,gb,ncall,chi,ate)
 c       presents estimates, covariance matrix, standard errors and t-ratios,
 c       as well as presenting many results including estimates of technical  
 c       efficiency.   
@@ -842,9 +842,7 @@ c       efficiency.
      +  /,'using ols! - try again using different starting values')  
 	else   
 	chi=2.0*dabs(fx-fxols) 
-	if (im.eq.1) idf=nmu+neta+1
-	if (im.eq.2) idf=nz+1   
-	end if 
+	end if
  
 	sc=1.
 	if(ipc.eq.2) sc=-1.

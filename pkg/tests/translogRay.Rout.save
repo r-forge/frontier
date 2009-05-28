@@ -406,9 +406,6 @@ $mleLogl
 $lrTestVal
 [1] 0
 
-$lrTestDf
-[1] 1
-
 $nIter
 [1] 1
 
@@ -434,6 +431,9 @@ $effic
 18  0.9981822
 19  0.9984938
 20  0.9981460
+
+$lrTestDf
+[1] 1
 
 $truncNorm
 [1] FALSE
