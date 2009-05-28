@@ -13,14 +13,18 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
         print(ols);
     }
     
-    grid <- frontierGridEstimation(ols$param, data, gridDouble, gridSize);
-    if (verbose) {
-        cat(paste("\nGamma gridding   LogLike:", frontierLogLike(grid,data), 
-                "yCorrelation: ",frontierYCorrelation(grid,data),"\n"));
-        print(grid);
-    }
-     
-    if (!is.null(startVal) && length(startVal)>1) {
+    if( is.null( startVal ) || length( startVal ) <= 1 ) {
+        grid <- frontierGridEstimation(ols$param, data, gridDouble, gridSize);
+        gridLogl <- frontierLogLike( grid, data )
+        if (verbose) {
+            cat(paste("\nGamma gridding   LogLike:", gridLogl,
+                  "yCorrelation: ",frontierYCorrelation(grid,data),"\n"));
+            print(grid);
+        }
+        startParam <- grid;
+    } else {
+        grid <- NULL
+        gridLogl <- NULL
         startParam <- list()
         startParam$beta <- startVal[ 1:nx ]
         if( modelType == 1 ) {
@@ -38,8 +42,6 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
         } else {
             stop( "unknown modelType '", modelType, "'" )
         }
-    } else {
-        startParam <- grid;
     }
           
     if (evalLogLik) {
@@ -68,7 +70,7 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
       olsStdEr   = ols$stdEr,
       olsLogl = frontierOlsLogLike(ols$param, data),
       gridParam   = as.vector(unlist(grid)),
-      gridLogl = frontierLogLike(grid, data)
+      gridLogl = gridLogl
       )
     
     if (evalLogLik) {

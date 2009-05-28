@@ -1199,9 +1199,6 @@ $olsStdEr
 $olsLogl
 [1] -18.447
 
-$gridLogl
-[1] -17.035
-
 $mleParam
 (Intercept)  logCapital   logLabour    sigma-sq       gamma          mu 
     0.46453     0.28327     0.54098     0.89028     0.94180    -2.84154 
@@ -2459,9 +2456,6 @@ $olsStdEr
 
 $olsLogl
 [1] -18.447
-
-$gridLogl
-[1] -17.035
 
 $mleParam
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
@@ -8887,9 +8881,6 @@ $olsStdEr
 $olsLogl
 [1] -104.91
 
-$gridLogl
-[1] -88.207
-
 $mleParam
 (Intercept)       lAREA      lLABOR        lNPK    sigma-sq       gamma 
    -1.14650     0.35393     0.33451     0.27288   702.40215     0.99995 
@@ -10234,9 +10225,6 @@ $olsStdEr
 
 $olsLogl
 [1] -104.91
-
-$gridLogl
-[1] -88.207
 
 $mleParam
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
