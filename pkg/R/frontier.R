@@ -300,7 +300,7 @@ frontier <- function(
          paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
       }
    }
-   paramNames <- c( paramNames, "sigma-sq", "gamma" )
+   paramNames <- c( paramNames, "sigmaSq", "gamma" )
    if( modelType == 1 ) {
       if( truncNorm ){
          paramNames <- c( paramNames, "mu" )
@@ -310,11 +310,11 @@ frontier <- function(
       }
    }
    names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
-      "sigma-sq" )
+      "sigmaSq" )
    names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
    if( !is.null( returnObj$gridParam ) ) {
       names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ],
-         "sigma-sq", "gamma" )
+         "sigmaSq", "gamma" )
    }
    names( returnObj$mleParam ) <- paramNames
    rownames( returnObj$mleCov ) <- paramNames
