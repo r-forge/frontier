@@ -21,6 +21,10 @@ frontier <- function(
 
    # check names of variables
    checkNames( c( yName, xNames, zNames ), names( data ) )
+   if( any( c( "id", "t" ) %in% c( yName, xNames, zNames ) ) ) {
+      stop( "variables in arguments 'yName', 'xNames', and 'zNames'",
+         " must not have names 'id' or 't'" )
+   }
 
    # code
    if( ! code %in% c("Fortran","R") ) {
@@ -198,6 +202,9 @@ frontier <- function(
       }
    }
 
+   # adding column names to the data table
+   colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
+
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
       startVal <- 0
@@ -233,7 +240,7 @@ frontier <- function(
          nRowData = as.integer( nrow( dataTable ) ),
          nColData = as.integer( ncol( dataTable ) ),
          dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
-            ncol( dataTable ) ),
+            ncol( dataTable ), dimnames = dimnames( dataTable ) ),
          nParamTotal = as.integer( nParamTotal ),
          olsParam = as.double( rep( 0, nParamTotal ) ),
          olsStdEr = as.double( rep( 0, nParamTotal ) ),
@@ -256,22 +263,16 @@ frontier <- function(
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
       returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    } else {  # code = "R"
-      dataTable <- cbind(matrix( as.double( dataTable ), nrow( dataTable ),
-         ncol( dataTable ) ),rep(1,nrow(dataTable)));
-      colnames(dataTable) <- c("seq","t",yName,xNames,zNames,"ones");
+      # list for data separated into Y, X, and Z variables
+      dataR <- list( )
+      # endogenous variable
+      dataR$y <- dataTable[ , yName ]
+      # explanatory variables (including intercept)
+      dataR$x <- cbind( ones = rep( 1, nrow( dataTable ) ),
+         dataTable[ ,xNames, drop = FALSE ] )
+      # variables explaining the efficiency level
+      dataR$z <- dataTable[ , zNames, drop = FALSE ]
 
-      y <- dataTable[,yName];
-      x <- matrix(dataTable[,c("ones",xNames)],length(y),1+length(xNames));
-      #colnames(x) <- c("ones",xNames);
-      #colnames(x) <- paste("beta", 1:ncol(x)-1, sep="_");
-      z <- matrix(0,nrow(x),0);
-      if (length(zNames)>0)  {
-         z <-  matrix(dataTable[,zNames],length(y),length(zNames))
-             #colnames(z) <- paste("delta", 1:ncol(z), sep="_");
-             #colnames(z) <- length(zNames);
-      }
-
-      dataR <- list(y=y, x=x, z=z);
       returnObj= list(modelType = modelType,
          ineffDecrease = ineffDecrease,
          logDepVar = as.integer(logDepVar),
