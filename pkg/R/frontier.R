@@ -19,6 +19,10 @@ frontier <- function(
 
    # check names of variables
    checkNames( c( yName, xNames, zNames ), names( data ) )
+   if( any( c( "id", "t" ) %in% c( yName, xNames, zNames ) ) ) {
+      stop( "variables in arguments 'yName', 'xNames', and 'zNames'",
+         " must not have names 'id' or 't'" )
+   }
 
    # modelType (im)
    if( modelType %in% c( 1, "ECF" ) ) {
@@ -174,6 +178,9 @@ frontier <- function(
       }
    }
 
+   # adding column names to the data table
+   colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
+
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
       startVal <- 0
@@ -208,7 +215,7 @@ frontier <- function(
       nRowData = as.integer( nrow( dataTable ) ),
       nColData = as.integer( ncol( dataTable ) ),
       dataTable = matrix( as.double( dataTable ), nrow( dataTable ),
-         ncol( dataTable ) ),
+         ncol( dataTable ), dimnames = dimnames( dataTable ) ),
       nParamTotal = as.integer( nParamTotal ),
       olsParam = as.double( rep( 0, nParamTotal ) ),
       olsStdEr = as.double( rep( 0, nParamTotal ) ),
