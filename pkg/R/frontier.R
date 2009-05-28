@@ -226,6 +226,12 @@ frontier <- function(
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
+
+   # check if the maximum number of iterations has been reached
+   if( maxit <= returnObj$nIter && maxit > 0 ) {
+      warning( "Maximum number of iterations reached" );
+   }
+
    # modelType
    if( returnObj$modelType == 1 ) {
       returnObj$modelType <- "ECF"
