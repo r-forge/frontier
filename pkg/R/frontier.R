@@ -238,6 +238,14 @@ frontier <- function(
       warning( "Maximum number of iterations reached" );
    }
 
+   # likelihood ratio test
+   returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
+   if( returnObj$lrTestVal < 0 ) {
+      warning( "the likelihood value of the ML estimation is less",
+         " than that obtained using ols --",
+         " please try again using different starting values" )
+   }
+
    # degrees of freedom of the likelihood ratio test
    if( returnObj$modelType == 1 ) {
       returnObj$lrTestDf <- truncNorm + timeEffect + 1

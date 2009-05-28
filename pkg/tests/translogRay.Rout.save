@@ -98,6 +98,9 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-2)
 > estResultRay <- frontierTranslogRay( yNames = c( "qCrop", "qAnimal" ),
 +    xNames = c( "qLabor", "land", "qVarInput" ),
 +    data = germanFarms )
+Warning message:
+In frontier(yName = "y", xNames = xNamesAll, zNames = zNamesNew,  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > print( estResultRay )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -186,7 +189,7 @@ gamma    5.0000e-02  1.0000e+00    0.0500 0.9632651
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 64.45507 
 
-LR test of the one-sided error = 0 
+LR test of the one-sided error = -0.006240708 
 with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -404,7 +407,7 @@ $mleLogl
 [1] 64.45507
 
 $lrTestVal
-[1] 0
+[1] -0.006240708
 
 $nIter
 [1] 1
