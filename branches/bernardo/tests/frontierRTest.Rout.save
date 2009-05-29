@@ -10685,10 +10685,10 @@ attr(,"class")
 > prodAgrBrazil$lOther <- log(prodAgrBrazil$other_exp)
 > prodAgrBrazil$lCapital <- log(prodAgrBrazil$capital)
 > 
-> c1R <- frontier( data = prodAgrBrazil, yName = "lProd", 
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
+> c1 <- frontier( data = prodAgrBrazil, yName = "lProd",
++     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
 +     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R" )
-> print( c1R )
+> print( c1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
@@ -10700,22 +10700,22 @@ Final maximum likelihood estimates
     -1.056265      0.236655      0.281381      0.278425      0.180893 
 Z_(Intercept)         Z_idh      Z_gip_pc       sigmaSq         gamma 
     -0.667506      3.458376     -0.302459      0.064456      0.502207 
-> coef( c1R, which = "start" )
+> coef( c1, which = "start" )
 NULL
-> coef( c1R, which = "ols" )
+> coef( c1, which = "ols" )
 (Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
   -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
-> coef( c1R, which = "grid" )
+> coef( c1, which = "grid" )
 (Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
   -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
       gamma 
    0.530000 
-> coef( c1R )
+> coef( c1 )
   (Intercept)         lArea        lLabor        lOther      lCapital 
     -1.056265      0.236655      0.281381      0.278425      0.180893 
 Z_(Intercept)         Z_idh      Z_gip_pc       sigmaSq         gamma 
     -0.667506      3.458376     -0.302459      0.064456      0.502207 
-> coef( summary( c1R ), which = "ols" )
+> coef( summary( c1 ), which = "ols" )
              Estimate Std. Error  t value   Pr(>|t|)
 (Intercept) -0.548199   0.681946 -0.80388 4.2543e-01
 lArea        0.144456   0.031582  4.57404 3.3811e-05
@@ -10723,7 +10723,7 @@ lLabor       0.199638   0.057944  3.44537 1.1942e-03
 lOther       0.495654   0.045580 10.87425 1.5175e-14
 lCapital     0.042643   0.077400  0.55094 5.8423e-01
 sigmaSq      0.126741         NA       NA         NA
-> coef( summary( c1R ) )
+> coef( summary( c1 ) )
                Estimate Std. Error  t value   Pr(>|t|)
 (Intercept)   -1.056265   0.433343 -2.43748 1.8901e-02
 lArea          0.236655   0.025368  9.32879 5.4453e-12
@@ -10735,7 +10735,7 @@ Z_idh          3.458376   1.812410  1.90816 6.2908e-02
 Z_gip_pc      -0.302459   0.077320 -3.91180 3.1359e-04
 sigmaSq        0.064456   0.015494  4.16010 1.4514e-04
 gamma          0.502207   0.239103  2.10038 4.1461e-02
-> vcov( c1R )
+> vcov( c1 )
               (Intercept)       lArea      lLabor      lOther    lCapital
 (Intercept)    0.18778631 -5.1209e-03 -5.6594e-04  6.2817e-03 -1.2856e-02
 lArea         -0.00512092  6.4355e-04  6.0402e-04 -6.3407e-04  3.6006e-05
@@ -10758,7 +10758,7 @@ Z_idh           -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
 Z_gip_pc         0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
 sigmaSq         -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
 gamma            0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
-> print( summary( c1R ) )
+> print( summary( c1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
 Efficiency Effects Frontier (see Battese & Coelli 1995)
@@ -10816,7 +10816,7 @@ total number of observations = 54
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.66217 
-> efficiencies( c1R )
+> efficiencies( c1 )
    efficiency
 1     0.54171
 2     0.59444
@@ -10872,7 +10872,7 @@ mean efficiency: 0.66217
 52    0.98221
 53    0.52657
 54    0.46308
-> efficiencies( c1R, asInData = TRUE )
+> efficiencies( c1, asInData = TRUE )
       1       2       3       4       5       6       7       8       9      10 
 0.54171 0.59444 0.91838 0.91555 0.43257 0.49412 0.97408 0.91945 0.54168 0.36726 
      11      12      13      14      15      16      17      18      19      20 
@@ -10885,7 +10885,7 @@ mean efficiency: 0.66217
 0.52344 0.48423 0.92648 0.59884 0.29723 0.97189 0.54115 0.93216 0.67384 0.59111 
      51      52      53      54 
 0.95187 0.98221 0.52657 0.46308 
-> print.default( c1R )
+> print.default( c1 )
 $modelType
 [1] "EEF"
 
@@ -11124,481 +11124,24 @@ frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther",
 attr(,"class")
 [1] "frontier"
 > 
-> c1F <- frontier( data = prodAgrBrazil, yName = "lProd",
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran")
-> print( c1F )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
-
-Final maximum likelihood estimates
-  (Intercept)         lArea        lLabor        lOther      lCapital 
-    -1.056270      0.236656      0.281383      0.278424      0.180893 
-Z_(Intercept)         Z_idh      Z_gip_pc       sigmaSq         gamma 
-    -0.667513      3.458396     -0.302460      0.064456      0.502210 
-> coef( c1F, which = "start" )
-NULL
-> coef( c1F, which = "ols" )
-(Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
-  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
-> coef( c1F, which = "grid" )
-(Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
-  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
-      gamma 
-   0.530000 
-> coef( c1F )
-  (Intercept)         lArea        lLabor        lOther      lCapital 
-    -1.056270      0.236656      0.281383      0.278424      0.180893 
-Z_(Intercept)         Z_idh      Z_gip_pc       sigmaSq         gamma 
-    -0.667513      3.458396     -0.302460      0.064456      0.502210 
-> coef( summary( c1F ), which = "ols" )
-             Estimate Std. Error  t value   Pr(>|t|)
-(Intercept) -0.548199   0.681946 -0.80388 4.2543e-01
-lArea        0.144456   0.031582  4.57404 3.3811e-05
-lLabor       0.199638   0.057944  3.44537 1.1942e-03
-lOther       0.495654   0.045580 10.87425 1.5175e-14
-lCapital     0.042643   0.077400  0.55094 5.8423e-01
-sigmaSq      0.126741         NA       NA         NA
-> coef( summary( c1F ) )
-               Estimate Std. Error t value   Pr(>|t|)
-(Intercept)   -1.056270   0.428673 -2.4640 1.7716e-02
-lArea          0.236656   0.024942  9.4884 3.2901e-12
-lLabor         0.281383   0.041292  6.8144 2.1397e-08
-lOther         0.278424   0.041641  6.6862 3.3016e-08
-lCapital       0.180893   0.049066  3.6867 6.2039e-04
-Z_(Intercept) -0.667513   1.120181 -0.5959 5.5430e-01
-Z_idh          3.458396   1.813513  1.9070 6.3061e-02
-Z_gip_pc      -0.302460   0.077616 -3.8969 3.2829e-04
-sigmaSq        0.064456   0.015620  4.1266 1.6121e-04
-gamma          0.502210   0.237293  2.1164 4.0003e-02
-> vcov( c1F )
-              (Intercept)       lArea      lLabor      lOther    lCapital
-(Intercept)    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
-lArea         -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
-lLabor        -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
-lOther         0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
-lCapital      -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
-Z_(Intercept) -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
-Z_idh          0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
-Z_gip_pc      -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
-sigmaSq       -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
-gamma         -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
-              Z_(Intercept)      Z_idh    Z_gip_pc     sigmaSq       gamma
-(Intercept)     -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
-lArea            0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
-lLabor           0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
-lOther          -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
-lCapital        -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
-Z_(Intercept)    1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
-Z_idh           -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
-Z_gip_pc         0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
-sigmaSq         -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
-gamma            0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
-> print( summary( c1F ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
-Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -0.5482     0.6819   -0.80   0.4254    
-lArea         0.1445     0.0316    4.57  3.4e-05 ***
-lLabor        0.1996     0.0579    3.45   0.0012 ** 
-lOther        0.4957     0.0456   10.87  1.5e-14 ***
-lCapital      0.0426     0.0774    0.55   0.5842    
-sigmaSq       0.1267         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.228 
-
-estimates after the grid search
-                 [,1]
-(Intercept) -0.306199
-lArea        0.144456
-lLabor       0.199638
-lOther       0.495654
-lCapital     0.042643
-sigmaSq      0.173570
-gamma        0.530000
-
-final maximum likelihood estimates
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    -1.0563     0.4287   -2.46  0.01772 *  
-lArea           0.2367     0.0249    9.49  3.3e-12 ***
-lLabor          0.2814     0.0413    6.81  2.1e-08 ***
-lOther          0.2784     0.0416    6.69  3.3e-08 ***
-lCapital        0.1809     0.0491    3.69  0.00062 ***
-Z_(Intercept)  -0.6675     1.1202   -0.60  0.55430    
-Z_idh           3.4584     1.8135    1.91  0.06306 .  
-Z_gip_pc       -0.3025     0.0776   -3.90  0.00033 ***
-sigmaSq         0.0645     0.0156    4.13  0.00016 ***
-gamma           0.5022     0.2373    2.12  0.04000 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 3.3184 
-
-LR test of the one-sided error = 43.093 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
-
-number of iterations = 26 
-(maximum number of iterations set at: 1000 )
-
-number of cross-sections = 54 
-number of time periods = 1 
-total number of observations = 54 
-thus there are 0 observations not in the panel
-
-mean efficiency: 0.66217 
-> efficiencies( c1F )
-   efficiency
-1     0.54171
-2     0.59444
-3     0.91838
-4     0.91555
-5     0.43257
-6     0.49412
-7     0.97408
-8     0.91945
-9     0.54168
-10    0.36726
-11    0.50598
-12    0.72482
-13    0.75475
-14    0.44998
-15    0.48301
-16    0.86866
-17    0.63711
-18    0.33855
-19    0.95164
-20    0.47124
-21    0.93877
-22    0.41643
-23    0.33984
-24    0.93838
-25    0.97495
-26    0.40375
-27    0.26428
-28    0.54996
-29    0.52484
-30    0.60933
-31    0.80651
-32    0.55997
-33    0.50039
-34    0.99252
-35    0.95941
-36    0.75429
-37    0.36748
-38    0.91859
-39    0.77668
-40    0.81160
-41    0.52343
-42    0.48422
-43    0.92648
-44    0.59884
-45    0.29723
-46    0.97189
-47    0.54114
-48    0.93216
-49    0.67383
-50    0.59111
-51    0.95187
-52    0.98221
-53    0.52657
-54    0.46308
-> efficiencies( c1F, asInData = TRUE )
-      1       2       3       4       5       6       7       8       9      10 
-0.54171 0.59444 0.91838 0.91555 0.43257 0.49412 0.97408 0.91945 0.54168 0.36726 
-     11      12      13      14      15      16      17      18      19      20 
-0.50598 0.72482 0.75475 0.44998 0.48301 0.86866 0.63711 0.33855 0.95164 0.47124 
-     21      22      23      24      25      26      27      28      29      30 
-0.93877 0.41643 0.33984 0.93838 0.97495 0.40375 0.26428 0.54996 0.52484 0.60933 
-     31      32      33      34      35      36      37      38      39      40 
-0.80651 0.55997 0.50039 0.99252 0.95941 0.75429 0.36748 0.91859 0.77668 0.81160 
-     41      42      43      44      45      46      47      48      49      50 
-0.52343 0.48422 0.92648 0.59884 0.29723 0.97189 0.54114 0.93216 0.67383 0.59111 
-     51      52      53      54 
-0.95187 0.98221 0.52657 0.46308 
-> print.default( c1F )
-$modelType
-[1] "EEF"
-
-$ineffDecrease
-[1] TRUE
-
-$logDepVar
-[1] 1
-
-$nn
-[1] 54
-
-$nt
-[1] 1
-
-$nob
-[1] 54
-
-$nb
-[1] 4
-
-$printIter
-[1] 0
-
-$tol
-[1] 1e-05
-
-$searchTol
-[1] 0.001
-
-$bignum
-[1] 1e+16
-
-$searchStep
-[1] 1e-05
-
-$gridDouble
-[1] TRUE
-
-$gridSize
-[1] 0.1
-
-$maxit
-[1] 1000
-
-$dataTable
-      id t  lProd   lArea  lLabor lOther lCapital  idh gip_pc
- [1,]  1 1 11.582 13.4447 11.4466 14.087   15.317 0.71   3.31
- [2,]  2 1 13.392 14.3518 12.9764 16.497   17.003 0.62   2.27
- [3,]  3 1 11.140 12.4868  9.7208 12.497   15.211 0.75   5.73
- [4,]  4 1 12.812 13.5467 12.7669 15.686   16.489 0.72   7.17
- [5,]  5 1 14.559 16.7268 14.7352 18.350   18.851 0.67   3.20
- [6,]  6 1 13.731 15.2020 13.9731 17.278   17.392 0.65   2.82
- [7,]  7 1 11.816 12.0002  9.5685 16.307   16.388 0.83  11.52
- [8,]  8 1 13.895 14.7899 12.7699 17.418   17.136 0.75   6.98
- [9,]  9 1 14.764 16.8873 13.0640 19.491   18.427 0.74   4.17
-[10,] 10 1 13.456 15.6291 14.1021 16.849   17.542 0.61   1.46
-[11,] 11 1 14.501 17.0102 12.6970 19.273   18.617 0.74   4.26
-[12,] 12 1 14.596 16.9594 12.2195 19.017   18.278 0.75   5.53
-[13,] 13 1 15.673 17.2006 14.5087 19.815   18.864 0.76   5.77
-[14,] 14 1 13.842 15.9274 13.6921 17.156   18.468 0.71   3.36
-[15,] 15 1 13.057 14.7289 13.0815 16.632   16.237 0.65   2.41
-[16,] 16 1 15.532 16.2817 14.0683 20.282   18.462 0.77   6.66
-[17,] 17 1 14.022 15.0286 13.7905 17.551   17.313 0.66   3.55
-[18,] 18 1 12.743 14.9387 13.4097 16.691   16.856 0.63   1.77
-[19,] 19 1 13.354 14.4480 12.0684 17.367   15.479 0.79   8.47
-[20,] 20 1 12.782 14.4226 12.7144 16.438   16.477 0.67   2.77
-[21,] 21 1 15.635 16.6671 14.1354 20.378   18.156 0.80   8.48
-[22,] 22 1 12.720 15.0258 12.6265 15.783   17.276 0.75   3.34
-[23,] 23 1 11.036 14.3317 10.4471 14.226   15.858 0.75   2.71
-[24,] 24 1 15.000 15.1789 13.4852 19.717   16.997 0.79   7.37
-[25,] 25 1 15.945 16.4771 13.7266 20.463   18.579 0.81  10.29
-[26,] 26 1 12.519 14.1751 12.6548 17.109   16.846 0.68   3.33
-[27,] 27 1 12.784 16.2443 12.1768 17.520   17.718 0.69   1.84
-[28,] 28 1 12.886 11.5058 14.0063 17.064   17.014 0.75   4.18
-[29,] 29 1 14.096 12.9835 14.4330 18.434   18.999 0.68   3.07
-[30,] 30 1 11.358  9.4827 13.1537 15.011   15.479 0.78   5.07
-[31,] 31 1 13.360 12.5087 15.2538 16.274   17.347 0.78   7.02
-[32,] 32 1 15.945 14.6579 16.7553 20.403   20.259 0.74   4.11
-[33,] 33 1 14.619 13.9492 15.4442 18.269   19.540 0.72   3.35
-[34,] 34 1 12.663 10.0064 12.5200 17.742   16.767 0.87  22.32
-[35,] 35 1 15.028 12.6129 14.6232 20.029   18.990 0.80   9.05
-[36,] 36 1 16.065 12.9053 16.7660 21.203   20.483 0.80   5.91
-[37,] 37 1 14.546 13.8096 16.1418 19.258   19.871 0.68   2.75
-[38,] 38 1 16.325 12.8019 17.2058 20.765   20.787 0.80   7.33
-[39,] 39 1 15.625 12.2102 16.8427 20.786   19.754 0.80   6.29
-[40,] 40 1 16.778 14.4365 17.1285 22.034   20.693 0.80   6.55
-[41,] 41 1 15.255 13.5896 16.6117 19.071   19.993 0.75   3.70
-[42,] 42 1 13.859 13.1009 14.8097 17.437   18.944 0.72   3.27
-[43,] 43 1 16.710 13.9085 16.4421 22.142   20.598 0.82   7.81
-[44,] 44 1 14.907 13.7699 15.7778 18.438   19.484 0.72   3.88
-[45,] 45 1 13.647 13.6302 15.3029 18.519   19.122 0.70   2.50
-[46,] 46 1 13.958 11.9671 14.6085 18.162   16.469 0.83  10.50
-[47,] 47 1 13.880 12.4180 14.7107 18.000   18.867 0.74   4.01
-[48,] 48 1 16.685 14.0140 16.6002 22.087   20.821 0.83   8.50
-[49,] 49 1 14.556 12.5317 15.5343 18.821   18.339 0.78   4.98
-[50,] 50 1 12.043 10.3110 13.8499 15.878   17.197 0.75   5.39
-[51,] 51 1 15.989 13.2490 15.6779 21.454   20.079 0.84   9.28
-[52,] 52 1 17.141 13.6798 16.5911 22.125   20.590 0.83  11.60
-[53,] 53 1 13.586 12.5051 14.5426 17.767   18.840 0.74   4.49
-[54,] 54 1 14.247 12.0749 16.2227 19.233   18.876 0.76   4.28
-
-$olsParam
-(Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
-  -0.548199    0.144456    0.199638    0.495654    0.042643    0.126741 
-
-$olsStdEr
-(Intercept)       lArea      lLabor      lOther    lCapital 
-   0.681946    0.031582    0.057944    0.045580    0.077400 
-
-$olsLogl
-[1] -18.228
-
-$gridParam
-(Intercept)       lArea      lLabor      lOther    lCapital     sigmaSq 
-  -0.306199    0.144456    0.199638    0.495654    0.042643    0.173570 
-      gamma 
-   0.530000 
-
-$gridLogl
-[1] -18.074
-
-$mleParam
-  (Intercept)         lArea        lLabor        lOther      lCapital 
-    -1.056270      0.236656      0.281383      0.278424      0.180893 
-Z_(Intercept)         Z_idh      Z_gip_pc       sigmaSq         gamma 
-    -0.667513      3.458396     -0.302460      0.064456      0.502210 
-
-$mleCov
-              (Intercept)       lArea      lLabor      lOther    lCapital
-(Intercept)    0.18376096 -5.2689e-03 -9.2603e-04  6.4208e-03 -1.2387e-02
-lArea         -0.00526886  6.2209e-04  5.6771e-04 -5.9761e-04  5.0174e-05
-lLabor        -0.00092603  5.6771e-04  1.7051e-03 -8.6131e-04 -7.2028e-04
-lOther         0.00642077 -5.9761e-04 -8.6131e-04  1.7340e-03 -1.1295e-03
-lCapital      -0.01238747  5.0174e-05 -7.2028e-04 -1.1295e-03  2.4075e-03
-Z_(Intercept) -0.02751866  1.1646e-02  1.6383e-02 -1.1825e-02 -5.6608e-03
-Z_idh          0.02199246 -1.5661e-02 -2.4173e-02  1.3137e-02  1.2810e-02
-Z_gip_pc      -0.00089664  4.0757e-04  1.0928e-03 -4.6212e-04 -4.6749e-04
-sigmaSq       -0.00053122  5.0730e-05  8.0527e-06 -2.0904e-05  1.9224e-05
-gamma         -0.01863071  1.9955e-03  2.0515e-03 -2.1667e-03  7.2231e-04
-              Z_(Intercept)      Z_idh    Z_gip_pc     sigmaSq       gamma
-(Intercept)     -0.02751866  0.0219925 -0.00089664 -5.3122e-04 -0.01863071
-lArea            0.01164566 -0.0156606  0.00040757  5.0730e-05  0.00199550
-lLabor           0.01638327 -0.0241729  0.00109282  8.0527e-06  0.00205149
-lOther          -0.01182499  0.0131372 -0.00046212 -2.0904e-05 -0.00216674
-lCapital        -0.00566079  0.0128105 -0.00046749  1.9224e-05  0.00072231
-Z_(Intercept)    1.25480612 -2.0040424  0.06534228 -3.0048e-04  0.04550338
-Z_idh           -2.00404243  3.2888310 -0.11671971  2.1583e-03 -0.04601456
-Z_gip_pc         0.06534228 -0.1167197  0.00602431 -2.8170e-04  0.00010906
-sigmaSq         -0.00030048  0.0021583 -0.00028170  2.4397e-04  0.00199587
-gamma            0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
-
-$mleLogl
-[1] 3.3184
-
-$nIter
-[1] 26
-
-$effic
-   efficiency
-1     0.54171
-2     0.59444
-3     0.91838
-4     0.91555
-5     0.43257
-6     0.49412
-7     0.97408
-8     0.91945
-9     0.54168
-10    0.36726
-11    0.50598
-12    0.72482
-13    0.75475
-14    0.44998
-15    0.48301
-16    0.86866
-17    0.63711
-18    0.33855
-19    0.95164
-20    0.47124
-21    0.93877
-22    0.41643
-23    0.33984
-24    0.93838
-25    0.97495
-26    0.40375
-27    0.26428
-28    0.54996
-29    0.52484
-30    0.60933
-31    0.80651
-32    0.55997
-33    0.50039
-34    0.99252
-35    0.95941
-36    0.75429
-37    0.36748
-38    0.91859
-39    0.77668
-40    0.81160
-41    0.52343
-42    0.48422
-43    0.92648
-44    0.59884
-45    0.29723
-46    0.97189
-47    0.54114
-48    0.93216
-49    0.67383
-50    0.59111
-51    0.95187
-52    0.98221
-53    0.52657
-54    0.46308
-
-$lrTestVal
-[1] 43.093
-
-$lrTestDf
-[1] 4
-
-$zIntercept
-[1] TRUE
-
-$searchScale
-[1] NA
-
-$code
-[1] "Fortran"
-
-$call
-frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther", 
-    "lCapital"), zNames = c("idh", "gip_pc"), data = prodAgrBrazil, 
-    zIntercept = TRUE, code = "Fortran")
-
-attr(,"class")
-[1] "frontier"
-> 
-> c1RR <- frontier( data = prodAgrBrazil, yName = "lProd", 
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
-+     startVal=c1R$mleParam )
-> 
-> c1RF <- frontier( data = prodAgrBrazil, yName = "lProd", 
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ), 
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
-+     startVal=c1R$mleParam)
-> 
-> c1FR <- frontier( data = prodAgrBrazil, yName = "lProd",
+> c1RR <- frontier( data = prodAgrBrazil, yName = "lProd",
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
 +     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
-+     startVal=c1F$mleParam )
++     startVal=c1$mleParam )
 > 
-> c1FF <- frontier( data = prodAgrBrazil, yName = "lProd",
+> c1RF <- frontier( data = prodAgrBrazil, yName = "lProd",
 +     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="Fortran", evalLogLik=TRUE,
-+     startVal=c1F$mleParam)
++     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE,
++     startVal=c1$mleParam, maxit = 0 )
 > 
-> print(c1R$mleLogl)
+> print(c1$mleLogl)
 [1] 3.3184
 > print(c1RR$logLike)
 sigmaSq 
  3.3184 
-> print(c1RF$logLike)
-sigmaSq 
--264.31 
-> print(c1F$mleLogl)
+> print(c1RF$startLogl)
 [1] 3.3184
-> print(c1FR$logLike)
-sigmaSq 
- 3.3184 
-> print(c1FF$logLike)
-sigmaSq 
--264.31 
+> 
 > 
 > ## translog frontiers
 > ## cross-section data, error components frontier, translog
