@@ -406,9 +406,6 @@ gamma       0     0       0     1
 $mleLogl
 [1] 64.45507
 
-$lrTestVal
-[1] -0.006240708
-
 $nIter
 [1] 1
 
@@ -434,6 +431,9 @@ $effic
 18  0.9981822
 19  0.9984938
 20  0.9981460
+
+$lrTestVal
+[1] -0.006240708
 
 $lrTestDf
 [1] 1
@@ -470,6 +470,3 @@ $theta
 attr(,"class")
 [1] "frontierTranslogRay" "frontierQuad"        "frontier"           
 > 
-
-the likelihood value is less than that obtained
-using ols! - try again using different starting values
