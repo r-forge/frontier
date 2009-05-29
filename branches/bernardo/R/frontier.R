@@ -303,7 +303,6 @@ frontier <- function(
       for (i in 1:length(rResult)) {
          returnObj[[ names(rResult)[i] ]] = rResult[[i]]
       }
-      returnObj$lrTestDf = as.integer(0)
    }
 
    # check if the maximum number of iterations has been reached
