@@ -177,7 +177,7 @@ gamma         0.7972     0.1385    5.76  4.0e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 2.8392 
 with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -476,6 +476,9 @@ F_60    0.70843
 $lrTestDf
 [1] 1
 
+$lrTestVal
+[1] 2.8392
+
 $truncNorm
 [1] FALSE
 
@@ -582,7 +585,7 @@ mu           -2.8415    17.5920   -0.16   0.8723
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.786 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 3.3224 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -882,6 +885,9 @@ F_60    0.78560
 $lrTestDf
 [1] 2
 
+$lrTestVal
+[1] 3.3224
+
 $truncNorm
 [1] TRUE
 
@@ -987,7 +993,7 @@ mu           -2.8415    17.5868   -0.16   0.8722
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.786 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 3.3224 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -1294,6 +1300,9 @@ F_60    0.78560
 $lrTestDf
 [1] 2
 
+$lrTestVal
+[1] 3.3224
+
 $truncNorm
 [1] TRUE
 
@@ -1404,7 +1413,7 @@ gamma         0.8401     0.1095    7.68  3.3e-10 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 4.1293 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -1711,6 +1720,9 @@ F_60    0.76698
 $lrTestDf
 [1] 2
 
+$lrTestVal
+[1] 4.1293
+
 $zIntercept
 [1] FALSE
 
@@ -1825,7 +1837,7 @@ gamma           0.8833     0.2009    4.40  5.3e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 4.1824 
 with number of restrictions = 3 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -2136,6 +2148,9 @@ F_60    0.78575
 $lrTestDf
 [1] 3
 
+$lrTestVal
+[1] 4.1824
+
 $zIntercept
 [1] TRUE
 
@@ -2246,7 +2261,7 @@ gamma           0.8830     0.2008    4.40  5.3e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 4.1824 
 with number of restrictions = 3 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -2559,6 +2574,9 @@ F_60    0.78566
 $lrTestDf
 [1] 3
 
+$lrTestVal
+[1] 4.1824
+
 $zIntercept
 [1] TRUE
 
@@ -2677,7 +2695,7 @@ gamma         0.8854     0.0326   27.12  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 37.408 
 with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -3894,6 +3912,9 @@ $effic
 $lrTestDf
 [1] 1
 
+$lrTestVal
+[1] 37.408
+
 $truncNorm
 [1] FALSE
 
@@ -4015,7 +4036,7 @@ mu          -3.21e+03         NA       NA       NA
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -81.601 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 46.611 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -5236,6 +5257,9 @@ $effic
 $lrTestDf
 [1] 2
 
+$lrTestVal
+[1] 46.611
+
 $truncNorm
 [1] TRUE
 
@@ -5361,7 +5385,7 @@ gamma         0.9449     0.0284   33.22  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 54.115 
 with number of restrictions = 3 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -6584,6 +6608,9 @@ $effic
 $lrTestDf
 [1] 3
 
+$lrTestVal
+[1] 54.115
+
 $zIntercept
 [1] FALSE
 
@@ -6710,7 +6737,7 @@ gamma           0.9788     0.0445   22.00  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 55.186 
 with number of restrictions = 4 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -7935,6 +7962,9 @@ $effic
 $lrTestDf
 [1] 4
 
+$lrTestVal
+[1] 55.186
+
 $zIntercept
 [1] TRUE
 
@@ -8047,7 +8077,7 @@ mu          -2.61e+03   4.64e+00  -562.26  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -81.601 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 46.611 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -9270,6 +9300,9 @@ $effic
 $lrTestDf
 [1] 2
 
+$lrTestVal
+[1] 46.611
+
 $truncNorm
 [1] TRUE
 
@@ -9395,7 +9428,7 @@ gamma           0.9788     0.0444   22.04  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 55.186 
 with number of restrictions = 4 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -10622,6 +10655,9 @@ $effic
 $lrTestDf
 [1] 4
 
+$lrTestVal
+[1] 55.186
+
 $zIntercept
 [1] TRUE
 
@@ -10767,7 +10803,7 @@ gamma           0.5022     0.2391    2.10  0.04146 *
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 3.3184 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 43.093 
 with number of restrictions = 4 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -11067,6 +11103,9 @@ $effic
 
 $lrTestDf
 [1] 4
+
+$lrTestVal
+[1] 43.093
 
 $zIntercept
 [1] TRUE
@@ -11441,9 +11480,6 @@ gamma            0.04550338 -0.0460146  0.00010906  1.9959e-03  0.05630817
 $mleLogl
 [1] 3.3184
 
-$lrTestVal
-[1] 43.093
-
 $nIter
 [1] 26
 
@@ -11503,6 +11539,9 @@ $effic
 52    0.98221
 53    0.52657
 54    0.46308
+
+$lrTestVal
+[1] 43.093
 
 $lrTestDf
 [1] 4
@@ -11679,7 +11718,7 @@ gamma    0.76232    0.15208    5.01  6.6e-06 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.434 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 2.8458 
 with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -12181,6 +12220,9 @@ $effic
 $lrTestDf
 [1] 1
 
+$lrTestVal
+[1] 2.8458
+
 $truncNorm
 [1] FALSE
 
@@ -12327,7 +12369,7 @@ gamma    0.75448    0.15548    4.85  1.2e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.032 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 2.7085 
 with number of restrictions = 1 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -12833,6 +12875,9 @@ $effic
 $lrTestDf
 [1] 1
 
+$lrTestVal
+[1] 2.7085
+
 $truncNorm
 [1] FALSE
 
@@ -12974,7 +13019,7 @@ gamma     0.819488   0.120015    6.83  1.0e-08 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -13.746 
 
-LR test of the one-sided error = 
+LR test of the one-sided error = 4.2215 
 with number of restrictions = 2 
 [note that this statistic has a mixed chi-square distribution]
 
@@ -13477,6 +13522,9 @@ $effic
 
 $lrTestDf
 [1] 2
+
+$lrTestVal
+[1] 4.2215
 
 $zIntercept
 [1] FALSE

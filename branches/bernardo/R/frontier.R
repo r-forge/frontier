@@ -250,7 +250,6 @@ frontier <- function(
          mleParam = as.double( rep( 0, nParamTotal ) ),
          mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
          mleLogl = as.double( 0 ),
-         lrTestVal = as.double( 0 ),
          nIter = as.integer( 0 ),
          effic = matrix( as.double( 0 ), nn, nt ) )
       returnObj$nStartVal <- NULL
@@ -312,11 +311,21 @@ frontier <- function(
       warning( "Maximum number of iterations reached" );
    }
 
-   # degrees of freedom of the likelihood ratio test
-   if( returnObj$modelType == 1 ) {
-      returnObj$lrTestDf <- truncNorm + timeEffect + 1
-   } else {
-      returnObj$lrTestDf <- zIntercept + nZvars + 1
+   # likelihood ratio test
+   if( ! evalLogLik ) {
+      returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
+      if( returnObj$lrTestVal < 0 ) {
+         warning( "the likelihood value of the ML estimation is less",
+            " than that obtained using ols --",
+            " please try again using different starting values" )
+      }
+
+      # degrees of freedom of the likelihood ratio test
+      if( returnObj$modelType == 1 ) {
+         returnObj$lrTestDf <- truncNorm + timeEffect + 1
+      } else {
+         returnObj$lrTestDf <- zIntercept + nZvars + 1
+      }
    }
 
    # modelType
