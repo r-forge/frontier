@@ -24,19 +24,37 @@ logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
       if( tolower( which ) != "mle" ) {
          warning( "argument 'which' has been ignored" )
       }
-      result <- logLik( frontier(
-         yName = eval( object$call$yName ),
-         xNames = eval( object$call$xNames ),
-         zNames = eval( object$call$zNames ),
-         data = eval( object$call$data ),
-         modelType = object$modelType,
-         ineffDecrease = object$ineffDecrease,
-         logDepVar = object$logDepVar,
-         truncNorm = object$truncNorm,
-         zIntercept = object$zIntercept,
-         timeEffect = object$timeEffect,
-         startVal = newParam,
-         maxit = 0 ), which = "start" )
+      if( "frontierQuad" %in% class( object ) ) {
+         result <- logLik( frontierQuad(
+            yName = eval( object$call$yName ),
+            xNames = eval( object$call$xNames ),
+            shifterNames = eval( object$call$shifterNames ),
+            zNames = eval( object$call$zNames ),
+            data = eval( object$call$data ),
+            quadHalf = object$quadHalf,
+            modelType = object$modelType,
+            ineffDecrease = object$ineffDecrease,
+            logDepVar = object$logDepVar,
+            truncNorm = object$truncNorm,
+            zIntercept = object$zIntercept,
+            timeEffect = object$timeEffect,
+            startVal = newParam,
+            maxit = 0 ), which = "start" )
+      } else {
+         result <- logLik( frontier(
+            yName = eval( object$call$yName ),
+            xNames = eval( object$call$xNames ),
+            zNames = eval( object$call$zNames ),
+            data = eval( object$call$data ),
+            modelType = object$modelType,
+            ineffDecrease = object$ineffDecrease,
+            logDepVar = object$logDepVar,
+            truncNorm = object$truncNorm,
+            zIntercept = object$zIntercept,
+            timeEffect = object$timeEffect,
+            startVal = newParam,
+            maxit = 0 ), which = "start" )
+      }
    }
    return( result )
 }

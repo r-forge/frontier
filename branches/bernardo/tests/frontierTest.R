@@ -627,27 +627,21 @@ frontier( data = prodAgrBrazil, yName = "lProd",
 ## translog frontiers
 ## cross-section data, error components frontier, translog
 logLik( translog )
-logLik( frontierQuad( data = front41Data, yName = "logOutput",
-   xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
-   maxit = 0 ), which = "start" )
+logLik( translog, newParam = coef( translog ) )
 logLik( frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
    code = "R", maxit = 0 ), which = "start" )
 
 ## cross-section data, error components frontier, translog, shifter
 logLik( translogShift )
-logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-   shifterNames = "firmNo", data = front41Data,
-   startVal = coef( translogShift ), maxit = 0 ), which = "start" )
+logLik( translogShift, newParam = coef( translogShift ) )
 logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    shifterNames = "firmNo", data = front41Data,
    startVal = coef( translogShift ), code = "R", maxit = 0 ), which = "start" )
 
 ## cross-section data, efficiency effects frontier, translog
 logLik( translogZvar )
-logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-   zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
-   maxit = 0 ), which = "start" )
+logLik( translogZvar, newParam = coef( translogZvar ) )
 logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
    code = "R", maxit = 0 ), which = "start" )
