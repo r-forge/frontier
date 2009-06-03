@@ -8,7 +8,7 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{logLik}{frontier}( object, which = "mle", \dots )
+\method{logLik}{frontier}( object, which = "mle", newParam = NULL, \dots )
 }
 
 \arguments{
@@ -24,6 +24,9 @@ returned by \code{\link{frontier}}.
       (only if starting values were provided),
       or 'mle' for the log-likelihood values of the parameters estimated
       by Maximum Likelihood.}
+   \item{newParam}{optional vector of parameters.
+      If this argument is provided by the user, the log-likelihood value
+      of the model \code{object} is calculated with these (new) parameters.}
    \item{\dots}{currently unused.}
 }
 
@@ -42,18 +45,28 @@ returned by \code{\link{frontier}}.
    front41Data$logCapital <- log( front41Data$capital )
    front41Data$logLabour  <- log( front41Data$labour )
 
+   # SFA estimation with starting values obtained from a grid search
    sfa <- frontier( yName = "logOutput",
       xNames = c( "logCapital", "logLabour" ), data = front41Data )
    logLik( sfa, which = "ols" )
    logLik( sfa, which = "grid" )
    logLik( sfa )
 
+   # SFA estimation with starting values provided by the user
    sfa2 <- frontier( yName = "logOutput",
       xNames = c( "logCapital", "logLabour" ), data = front41Data,
       startVal = 0.9 * coef( sfa ) )
    logLik( sfa2, which = "ols" )
    logLik( sfa2, which = "start" )
    logLik( sfa2 )
+
+   # evaluate log likelihood function for a user-provided parameter vector
+   logLik( sfa, newParam = 0.9 * coef( sfa ) )
+      # equal to  logLik( sfa2, which = "start" )
+
+   # log likelihood function for different values of gamma
+   plot( t( sapply( seq( 0.05, 0.95, 0.05 ), function(x) c( x,
+      logLik( sfa, newParam = c( coef( sfa )[1:4], x ) ) ) ) ) )
 }
 
 \keyword{models}
