@@ -454,6 +454,9 @@ $call
 frontierTranslogRay(yNames = c("qCrop", "qAnimal"), xNames = c("qLabor", 
     "land", "qVarInput"), data = germanFarms)
 
+$quadHalf
+[1] TRUE
+
 $yNames
 [1] "qCrop"   "qAnimal"
 

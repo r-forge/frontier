@@ -62,6 +62,7 @@ frontierQuad <- function(
    names( result$mleParam ) <- allParNames
    rownames( result$mleCov ) <- allParNames
    colnames( result$mleCov ) <- allParNames
+   result$quadHalf <- quadHalf
 
    class( result ) <- c( "frontierQuad", class( result ) )
 
