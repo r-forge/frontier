@@ -559,4 +559,4 @@ logLik( translogShift, newParam = coef( translogShift ) )
 
 ## cross-section data, efficiency effects frontier, translog
 logLik( translogZvar )
-logLik( translogZvar, startVal = coef( translogZvar ) )
+logLik( translogZvar, newParam = coef( translogZvar ) )

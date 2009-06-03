@@ -18969,6 +18969,6 @@ attr(,"class")
 > ## cross-section data, efficiency effects frontier, translog
 > logLik( translogZvar )
 [1] -13.7464626
-> logLik( translogZvar, startVal = coef( translogZvar ) )
+> logLik( translogZvar, newParam = coef( translogZvar ) )
 [1] -13.7464626
 > 
