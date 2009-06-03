@@ -7,7 +7,7 @@ frontierLogLike = function(param, data) {
     d  <- zd / sqrt(param$gamma*param$sigmaSq);
     sS <- sqrt(param$gamma*(1-param$gamma)*param$sigmaSq);
     dS <- (1-param$gamma)/sS*zd - param$gamma/sS*e;
-    return( - n/2*log(pi*param$sigmaSq*2) - 1/2/param$sigmaSq*sum((e+zd)^2) -
-        sum(pnorm(d,log.p=TRUE))+sum(pnorm(dS,log.p=TRUE)));
+    return( as.numeric( - n/2*log(pi*param$sigmaSq*2) - 1/2/param$sigmaSq*sum((e+zd)^2) -
+        sum(pnorm(d,log.p=TRUE))+sum(pnorm(dS,log.p=TRUE))));
         
 }
