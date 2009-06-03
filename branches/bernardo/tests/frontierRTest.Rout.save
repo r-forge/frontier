@@ -13258,7 +13258,7 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 [1] -14.4342926
 > frontierQuad( data = front41Data, yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
-+    code = "R" )$startLogl
++    code = "R", maxit = 0 )$startLogl
 [1] -14.434294
 > 
 > ## cross-section data, error components frontier, translog, shifter
@@ -13270,7 +13270,7 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 [1] -14.0321691
 > frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
 +    shifterNames = "firmNo", data = front41Data,
-+    startVal = coef( translogShift ), code = "R" )$startLogl
++    startVal = coef( translogShift ), code = "R", maxit = 0 )$startLogl
 [1] -14.0321706
 > 
 > ## cross-section data, efficiency effects frontier, translog
@@ -13282,6 +13282,6 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 [1] -13.7464626
 > frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
 +    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
-+    code = "R" )$startLogl
++    code = "R", maxit = 0 )$startLogl
 [1] -13.7464641
 > 

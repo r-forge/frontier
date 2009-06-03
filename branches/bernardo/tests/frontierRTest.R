@@ -456,7 +456,7 @@ frontierQuad( data = front41Data, yName = "logOutput",
    maxit = 0 )$startLogl
 frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
-   code = "R" )$startLogl
+   code = "R", maxit = 0 )$startLogl
 
 ## cross-section data, error components frontier, translog, shifter
 logLik( translogShift )
@@ -465,7 +465,7 @@ frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    startVal = coef( translogShift ), maxit = 0 )$startLogl
 frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    shifterNames = "firmNo", data = front41Data,
-   startVal = coef( translogShift ), code = "R" )$startLogl
+   startVal = coef( translogShift ), code = "R", maxit = 0 )$startLogl
 
 ## cross-section data, efficiency effects frontier, translog
 logLik( translogZvar )
@@ -474,4 +474,4 @@ frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    maxit = 0 )$startLogl
 frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
-   code = "R" )$startLogl
+   code = "R", maxit = 0 )$startLogl
