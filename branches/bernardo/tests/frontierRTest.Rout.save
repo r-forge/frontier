@@ -11829,6 +11829,9 @@ $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     data = front41Data, code = "R")
 
+$quadHalf
+[1] TRUE
+
 attr(,"class")
 [1] "frontierQuad" "frontier"    
 > 
@@ -12487,6 +12490,9 @@ $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     shifterNames = "firmNo", data = front41Data, code = "R")
 
+$quadHalf
+[1] TRUE
+
 attr(,"class")
 [1] "frontierQuad" "frontier"    
 > 
@@ -13137,6 +13143,9 @@ $code
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
     zNames = "firmNo", data = front41Data, code = "R")
+
+$quadHalf
+[1] TRUE
 
 attr(,"class")
 [1] "frontierQuad" "frontier"    
