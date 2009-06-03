@@ -441,6 +441,9 @@ $lrTestDf
 $truncNorm
 [1] FALSE
 
+$zIntercept
+[1] FALSE
+
 $timeEffect
 [1] FALSE
 

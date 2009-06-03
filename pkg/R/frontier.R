@@ -261,14 +261,18 @@ frontier <- function(
    # mu: truncNorm, zIntercept
    if( modelType == "ECF" ) {
       returnObj$truncNorm <- as.logical( returnObj$mu )
+      returnObj$zIntercept <- zIntercept
       returnObj$mu <- NULL
    } else {
+      returnObj$truncNorm <- truncNorm
       returnObj$zIntercept <- as.logical( returnObj$mu )
       returnObj$mu <- NULL
    }
    # eta: timeEffect, nz
    if( modelType == "ECF" ) {
       returnObj$timeEffect <- as.logical( returnObj$eta )
+   } else {
+      returnObj$timeEffect <- timeEffect
    }
    returnObj$eta <- NULL
    if( length( startVal ) == 1 ){

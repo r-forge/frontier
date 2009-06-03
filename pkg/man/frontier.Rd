@@ -120,12 +120,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nt}{number of time periods.}
    \item{nob}{number of observations in total.}
    \item{nb}{number of regressor variables (Xs).}
-   \item{truncNorm}{logical. Argument \code{truncNorm}
-      (only for the \sQuote{Error Components Frontier}).}
-   \item{zIntercept}{logical. Argument \code{zIntercept}
-      (only for the \sQuote{Efficiency Effects Frontier}).}
-   \item{timeEffect}{logical. Argument \code{timeEffect}
-      (only or the \sQuote{Error Components Frontier}).}
+   \item{truncNorm}{logical. Argument \code{truncNorm}.}
+   \item{zIntercept}{logical. Argument \code{zIntercept}.}
+   \item{timeEffect}{logical. Argument \code{timeEffect}.}
    \item{printIter}{numeric. Argument \code{printIter} (see above).}
    \item{searchScale}{numeric. Argument \code{searchScale} (see above).}
    \item{tol}{numeric. Argument \code{tol} (see above).}
