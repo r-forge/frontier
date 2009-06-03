@@ -13159,8 +13159,7 @@ attr(,"class")
 > ## cross-section data, error components frontier
 > logLik( a1 )
 [1] -17.0272254
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    startVal = coef( a1 ), maxit = 0 ), which = "start" )
+> logLik( a1, newParam = coef( a1 ) )
 [1] -17.0272240
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    startVal = coef( a1 ), code = "R", evalLogLik = TRUE )$logLike
@@ -13169,11 +13168,10 @@ attr(,"class")
 > ## cross-section data, error components frontier, truncNorm
 > logLik( a2 )
 [1] -16.7856334
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    truncNorm = TRUE, startVal = coef( a2 ), maxit = 0 ), which = "start" )
+> logLik( a2, newParam = coef( a2 ) )
 [1] -18.6880436
 Warning message:
-In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
+In frontier(yName = eval(object$call$yName), xNames = eval(object$call$xNames),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    truncNorm = TRUE, startVal = coef( a2 ), code = "R",
@@ -13183,11 +13181,10 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section data, error components frontier, truncNorm, starting values
 > logLik( a5 )
 [1] -16.7856334
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    truncNorm = TRUE, startVal = coef( a5 ), maxit = 0 ), which = "start" )
+> logLik( a5, newParam = coef( a5 ) )
 [1] -18.6880431
 Warning message:
-In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
+In frontier(yName = eval(object$call$yName), xNames = eval(object$call$xNames),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    truncNorm = TRUE, startVal = coef( a5 ), code = "R",
@@ -13197,8 +13194,7 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section data, efficiency effects frontier
 > logLik( aa1 )
 [1] -16.3821708
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", startVal = coef( aa1 ), maxit = 0 ), which = "start" )
+> logLik( aa1, newParam = coef( aa1 ) )
 [1] -16.3821693
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    zNames = "firmNo", startVal = coef( aa1 ), code = "R",
@@ -13208,9 +13204,7 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section data, efficiency effects frontier, zIntercept
 > logLik( aa2 )
 [1] -16.3556562
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa2 ),
-+    maxit = 0 ), which = "start" )
+> logLik( aa2, newParam = coef( aa2 ) )
 [1] -16.3556547
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa2 ),
@@ -13220,9 +13214,7 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
 > logLik( aa5 )
 [1] -16.355657
-> logLik( frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa5 ),
-+    maxit = 0 ), which = "start" )
+> logLik( aa5, newParam = coef( aa5 ) )
 [1] -16.3556556
 > frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
 +    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa5 ),
@@ -13236,9 +13228,7 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section rice data, error components frontier
 > logLik( bb1 )
 [1] -86.20269
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), startVal = coef( bb1 ),
-+    maxit = 0 ), which = "start" )
+> logLik( bb1, newParam = coef( bb1 ) )
 [1] -86.2026818
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), startVal = coef( bb1 ),
@@ -13248,12 +13238,10 @@ In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
 > ## cross-section rice data, error components frontier, truncNorm
 > logLik( bb2 )
 [1] -81.6012023
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
-+    startVal = coef( bb2 ), maxit = 0 ), which = "start" )
+> logLik( bb2, newParam = coef( bb2 ) )
 [1] -1013.88281
 Warning message:
-In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
+In frontier(yName = eval(object$call$yName), xNames = eval(object$call$xNames),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
@@ -13263,9 +13251,7 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 > ## cross-section rice data, efficiency effects frontier
 > logLik( bb5 )
 [1] -77.8495523
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    startVal = coef( bb5 ), maxit = 0 ), which = "start" )
+> logLik( bb5, newParam = coef( bb5 ) )
 [1] -77.849544
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
@@ -13275,9 +13261,7 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 > ## cross-section rice data, efficiency effects frontier, zIntercept
 > logLik( bb6 )
 [1] -77.3136342
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    zIntercept = TRUE, startVal = coef( bb6 ), maxit = 0 ), which = "start" )
+> logLik( bb6, newParam = coef( bb6 ) )
 [1] -77.3136259
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
@@ -13288,12 +13272,10 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 > ## cross-section rice data, error components frontier, truncNorm, starting values
 > logLik( bb7 )
 [1] -81.6012029
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
-+    startVal = coef( bb7 ), maxit = 0 ), which = "start" )
+> logLik( bb7, newParam = coef( bb7 ) )
 [1] -978.998433
 Warning message:
-In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
+In frontier(yName = eval(object$call$yName), xNames = eval(object$call$xNames),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
@@ -13303,9 +13285,7 @@ In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 > logLik( bb8 )
 [1] -77.3136342
-> logLik( frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    zIntercept = TRUE, startVal = coef( bb8 ), maxit = 0 ), which = "start" )
+> logLik( bb8, newParam = coef( bb8 ) )
 [1] -77.3136259
 > frontier( data = riceProdPhil, yName = "lPROD",
 +    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
