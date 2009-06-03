@@ -257,6 +257,7 @@ frontier <- function(
       returnObj$nColData <- NULL
       returnObj$nParamTotal <- NULL
       returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+      returnObj$logDepVar <- as.logical( returnObj$logDepVar )
       returnObj$gridDouble <- as.logical( returnObj$gridDouble )
       returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
       returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
@@ -273,7 +274,7 @@ frontier <- function(
 
       returnObj= list(modelType = modelType,
          ineffDecrease = ineffDecrease,
-         logDepVar = as.integer(logDepVar),
+         logDepVar = logDepVar,
          nn = nn,
          nt = nt,
          nob = nob,

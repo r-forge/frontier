@@ -273,7 +273,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -691,7 +691,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -1109,7 +1109,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -1532,7 +1532,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -1962,7 +1962,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -2391,7 +2391,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -3173,7 +3173,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -4517,7 +4517,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -5869,7 +5869,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -7227,7 +7227,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -8572,7 +8572,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -9926,7 +9926,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 344
@@ -10998,7 +10998,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -11760,7 +11760,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -12530,7 +12530,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -13304,7 +13304,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -14080,7 +14080,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -14860,7 +14860,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -15632,7 +15632,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -16410,7 +16410,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 43
@@ -17143,7 +17143,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 54
@@ -17782,7 +17782,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -18436,7 +18436,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
@@ -19089,7 +19089,7 @@ $ineffDecrease
 [1] TRUE
 
 $logDepVar
-[1] 1
+[1] TRUE
 
 $nn
 [1] 60
