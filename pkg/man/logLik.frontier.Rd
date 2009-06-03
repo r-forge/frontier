@@ -16,11 +16,14 @@ returned by \code{\link{frontier}}.
       (returned by the function \code{\link{frontier}}).}
    \item{which}{character string. Which log-likelihood value
       should be returned?
-      ('ols' for the log-likelihood value of the model estimated by OLS,
-      'grid' for the log-likelihood value of the model obtained
-      by the grid search (not implemented yet),
-      or 'mle' for the log-likelihood values of the model estimated
-      by Maximum Likelihood).}
+      'ols' for the log-likelihood value of the parameters estimated by OLS,
+      'grid' for the log-likelihood value of the parameters obtained
+      by the grid search (only if no starting values were provided),
+      'start' for the log-likelihood value of the starting values
+      of the parameters specified by the user
+      (only if starting values were provided),
+      or 'mle' for the log-likelihood values of the parameters estimated
+      by Maximum Likelihood.}
    \item{\dots}{currently unused.}
 }
 
@@ -42,7 +45,15 @@ returned by \code{\link{frontier}}.
    sfa <- frontier( yName = "logOutput",
       xNames = c( "logCapital", "logLabour" ), data = front41Data )
    logLik( sfa, which = "ols" )
+   logLik( sfa, which = "grid" )
    logLik( sfa )
+
+   sfa2 <- frontier( yName = "logOutput",
+      xNames = c( "logCapital", "logLabour" ), data = front41Data,
+      startVal = 0.9 * coef( sfa ) )
+   logLik( sfa2, which = "ols" )
+   logLik( sfa2, which = "start" )
+   logLik( sfa2 )
 }
 
 \keyword{models}
