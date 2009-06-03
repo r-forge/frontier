@@ -18957,24 +18957,18 @@ attr(,"class")
 > ## cross-section data, error components frontier, translog
 > logLik( translog )
 [1] -14.4342926
-> logLik( frontierQuad( data = front41Data, yName = "logOutput",
-+    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
-+    maxit = 0 ), which = "start" )
+> logLik( translog, newParam = coef( translog ) )
 [1] -14.4342926
 > 
 > ## cross-section data, error components frontier, translog, shifter
 > logLik( translogShift )
 [1] -14.0321663
-> logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-+    shifterNames = "firmNo", data = front41Data,
-+    startVal = coef( translogShift ), maxit = 0 ), which = "start" )
+> logLik( translogShift, newParam = coef( translogShift ) )
 [1] -14.0321663
 > 
 > ## cross-section data, efficiency effects frontier, translog
 > logLik( translogZvar )
 [1] -13.7464626
-> logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
-+    maxit = 0 ), which = "start" )
+> logLik( translogZvar, startVal = coef( translogZvar ) )
 [1] -13.7464626
 > 
