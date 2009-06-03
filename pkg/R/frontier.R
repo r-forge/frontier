@@ -279,6 +279,7 @@ frontier <- function(
       returnObj$startVal <- NULL
    }
    returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+   returnObj$logDepVar <- as.logical( returnObj$logDepVar )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    if( returnObj$indic == 2 ) {
       returnObj$searchScale <- FALSE
