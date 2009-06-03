@@ -24,11 +24,19 @@ frontierMle = function(startParam, data, iterlim=100) {
     maxVParam <- unlist(as.relistable(frontierRParam(beta=rep(Inf,ncol(data$x)),
             delta=rep(Inf,ncol(data$z)), sigmaSq=Inf, gamma=1)));
     
-    
-    mle <- nlm(frontierNlmMinusGradLogLikeV,
-       frontierNlmUnLimParam(vParam0[adjustableVParam],minVParam,maxVParam),
-       data,vParam0,minVParam,maxVParam,adjustableVParam,
-        iterlim=iterlim,hessian=TRUE,check.analyticals = TRUE);
+    if( iterlim > 0 ) {
+      mle <- nlm(frontierNlmMinusGradLogLikeV,
+         frontierNlmUnLimParam(vParam0[adjustableVParam],minVParam,maxVParam),
+         data,vParam0,minVParam,maxVParam,adjustableVParam,
+         iterlim=iterlim,hessian=TRUE,check.analyticals = TRUE);
+    } else {
+      mle <- list()
+      mle$estimate <- frontierNlmUnLimParam( vParam0[ adjustableVParam ],
+         minVParam, maxVParam )
+      mle$hessian <- diag( length( mle$estimate ) )
+      mle$iterations <- 0
+    }
+
     vParam <- vParam0;
     vParam[adjustableVParam] <- 
           frontierNlmLimParam(mle$estimate,minVParam,maxVParam)
