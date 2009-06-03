@@ -10758,6 +10758,8 @@ Z_idh           -2.00432448  3.2848318 -0.11651203  2.3963e-03 -0.04167130
 Z_gip_pc         0.06547302 -0.1165120  0.00597831 -2.6530e-04  0.00011782
 sigmaSq         -0.00055059  0.0023963 -0.00026530  2.4006e-04  0.00201981
 gamma            0.04219663 -0.0416713  0.00011782  2.0198e-03  0.05717037
+> logLik( c1 )
+[1] 3.3184
 > print( summary( c1 ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -11123,24 +11125,6 @@ frontier(yName = "lProd", xNames = c("lArea", "lLabor", "lOther",
 
 attr(,"class")
 [1] "frontier"
-> 
-> c1RR <- frontier( data = prodAgrBrazil, yName = "lProd",
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, code="R", evalLogLik=TRUE,
-+     startVal=c1$mleParam )
-> 
-> c1RF <- frontier( data = prodAgrBrazil, yName = "lProd",
-+     xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+     zNames = c( "idh", "gip_pc" ), zIntercept = TRUE,
-+     startVal=c1$mleParam, maxit = 0 )
-> 
-> print(c1$mleLogl)
-[1] 3.3184
-> print(c1RR$logLike)
-sigmaSq 
- 3.3184 
-> print(c1RF$startLogl)
-[1] 3.3184
 > 
 > 
 > ## translog frontiers
@@ -13085,4 +13069,235 @@ frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),
 attr(,"class")
 [1] "frontierQuad" "frontier"    
 > 
+> 
+> ##############################################
+> ##### evaluating log likelihood values #######
+> ##############################################
+> options( digits = 9 )
+> 
+> ## cross-section data, error components frontier
+> logLik( a1 )
+[1] -17.0272254
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    startVal = coef( a1 ), maxit = 0 )$startLogl
+[1] -17.0272240
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    startVal = coef( a1 ), code = "R", evalLogLik = TRUE )$logLike
+    sigmaSq 
+-17.0272254 
+> 
+> ## cross-section data, error components frontier, truncNorm
+> logLik( a2 )
+[1] -16.7856334
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    truncNorm = TRUE, startVal = coef( a2 ), maxit = 0 )$startLogl
+[1] -18.6880436
+Warning message:
+In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    truncNorm = TRUE, startVal = coef( a2 ), code = "R",
++    evalLogLik = TRUE )$logLike
+    sigmaSq 
+-16.7856334 
+> 
+> ## cross-section data, error components frontier, truncNorm, starting values
+> logLik( a5 )
+[1] -16.7856334
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    truncNorm = TRUE, startVal = coef( a5 ), maxit = 0 )$startLogl
+[1] -18.6880431
+Warning message:
+In frontier(data = front41Data, "logOutput", c("logCapital", "logLabour"),  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    truncNorm = TRUE, startVal = coef( a5 ), code = "R",
++    evalLogLik = TRUE )$logLike
+    sigmaSq 
+-16.7856334 
+> 
+> ## cross-section data, efficiency effects frontier
+> logLik( aa1 )
+[1] -16.3821708
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", startVal = coef( aa1 ), maxit = 0 )$startLogl
+[1] -16.3821693
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", startVal = coef( aa1 ), code = "R",
++    evalLogLik = TRUE )$logLike
+    sigmaSq 
+-16.3821708 
+> 
+> ## cross-section data, efficiency effects frontier, zIntercept
+> logLik( aa2 )
+[1] -16.3556562
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa2 ),
++    maxit = 0 )$startLogl
+[1] -16.3556547
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa2 ),
++    code = "R", evalLogLik = TRUE )$logLike
+    sigmaSq 
+-16.3556562 
+> 
+> ## cross-section data, efficiency effects frontier, zIntercept, starting values
+> logLik( aa5 )
+[1] -16.355657
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa5 ),
++    maxit = 0 )$startLogl
+[1] -16.3556556
+> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
++    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa5 ),
++    code = "R", evalLogLik = TRUE )$logLike
+   sigmaSq 
+-16.355657 
+> 
+> 
+> ## data set of rice producers in the Philippines
+> riceProdPhil <- as.data.frame( riceProdPhil )
+> 
+> ## cross-section rice data, error components frontier
+> logLik( bb1 )
+[1] -86.20269
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), startVal = coef( bb1 ),
++    maxit = 0 )$startLogl
+[1] -86.2026818
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), startVal = coef( bb1 ),
++    code = "R", evalLogLik = TRUE )$logLike
+  sigmaSq 
+-86.20269 
+> 
+> ## cross-section rice data, error components frontier, truncNorm
+> logLik( bb2 )
+[1] -81.6012023
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
++    startVal = coef( bb2 ), maxit = 0 )$startLogl
+[1] -1013.88281
+Warning message:
+In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
++    startVal = coef( bb2 ), code = "R", evalLogLik = TRUE )$startLogl
+    sigmaSq 
+-81.6012023 
+> 
+> ## cross-section rice data, efficiency effects frontier
+> logLik( bb5 )
+[1] -77.8495523
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    startVal = coef( bb5 ), maxit = 0 )$startLogl
+[1] -77.849544
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    startVal = coef( bb5 ), code = "R", evalLogLik = TRUE )$logLike
+    sigmaSq 
+-77.8495523 
+> 
+> ## cross-section rice data, efficiency effects frontier, zIntercept
+> logLik( bb6 )
+[1] -77.3136342
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    zIntercept = TRUE, startVal = coef( bb6 ), maxit = 0 )$startLogl
+[1] -77.3136259
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    zIntercept = TRUE, startVal = coef( bb6 ), code = "R",
++    evalLogLik = TRUE )$logLike
+    sigmaSq 
+-77.3136342 
+> 
+> ## cross-section rice data, error components frontier, truncNorm, starting values
+> logLik( bb7 )
+[1] -81.6012029
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
++    startVal = coef( bb7 ), maxit = 0 )$startLogl
+[1] -978.998433
+Warning message:
+In frontier(data = riceProdPhil, yName = "lPROD", xNames = c("lAREA",  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
++    startVal = coef( bb7 ), code = "R", evalLogLik = TRUE )$logLike
+    sigmaSq 
+-81.6012029 
+> 
+> ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
+> logLik( bb8 )
+[1] -77.3136342
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    zIntercept = TRUE, startVal = coef( bb8 ), maxit = 0 )$startLogl
+[1] -77.3136259
+> frontier( data = riceProdPhil, yName = "lPROD",
++    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
++    zIntercept = TRUE, startVal = coef( bb8 ), code = "R",
++    evalLogLik = TRUE )$logLike
+    sigmaSq 
+-77.3136342 
+> 
+> 
+> ## data about agricultural production in Brazil
+> logLik( c1 )
+[1] 3.31840593
+> frontier( data = prodAgrBrazil, yName = "lProd",
++    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
++    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, startVal = coef( c1 ),
++    maxit = 0 )$startLogl
+[1] 3.31840723
+> frontier( data = prodAgrBrazil, yName = "lProd",
++    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
++    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, startVal = coef( c1 ),
++    code = "R", evalLogLik = TRUE )$logLike
+   sigmaSq 
+3.31840593 
+> 
+> 
+> ## translog frontiers
+> ## cross-section data, error components frontier, translog
+> logLik( translog )
+[1] -14.434294
+> frontierQuad( data = front41Data, yName = "logOutput",
++    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
++    maxit = 0 )$startLogl
+[1] -14.4342926
+> frontierQuad( data = front41Data, yName = "logOutput",
++    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
++    code = "R" )$startLogl
+   sigmaSq 
+-14.434294 
+> 
+> ## cross-section data, error components frontier, translog, shifter
+> logLik( translogShift )
+[1] -14.0321706
+> frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
++    shifterNames = "firmNo", data = front41Data,
++    startVal = coef( translogShift ), maxit = 0 )$startLogl
+[1] -14.0321691
+> frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
++    shifterNames = "firmNo", data = front41Data,
++    startVal = coef( translogShift ), code = "R" )$startLogl
+    sigmaSq 
+-14.0321706 
+> 
+> ## cross-section data, efficiency effects frontier, translog
+> logLik( translogZvar )
+[1] -13.7464641
+> frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
++    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
++    maxit = 0 )$startLogl
+[1] -13.7464626
+> frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
++    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
++    code = "R" )$startLogl
+    sigmaSq 
+-13.7464641 
 > 
