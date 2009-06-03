@@ -19355,8 +19355,7 @@ attr(,"class")
 [1] -17.0272240
 > logLik( a1, newParam = coef( a1 ) )
 [1] -17.0272240
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    startVal = coef( a1 ), code = "R", evalLogLik = TRUE )$logLike
+> logLik( a1, newParam = coef( a1 ), code = "R" )
 [1] -17.0272254
 > 
 > ## cross-section data, error components frontier, truncNorm
@@ -19364,9 +19363,7 @@ attr(,"class")
 [1] -16.7956674
 > logLik( a2, newParam = coef( a2 ) )
 [1] -16.7956674
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    truncNorm = TRUE, startVal = coef( a2 ), code = "R",
-+    evalLogLik = TRUE )$logLike
+> logLik( a2, newParam = coef( a2 ), code = "R" )
 [1] -16.7956689
 > 
 > ## cross-section data, error components frontier, truncNorm, starting values
@@ -19374,9 +19371,7 @@ attr(,"class")
 [1] -16.7948264
 > logLik( a5, newParam = coef( a5 ) )
 [1] -16.7948264
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    truncNorm = TRUE, startVal = coef( a5 ), code = "R",
-+    evalLogLik = TRUE )$logLike
+> logLik( a5, newParam = coef( a5 ), code = "R" )
 [1] -16.7948279
 > 
 > ## cross-section data, efficiency effects frontier
@@ -19384,9 +19379,7 @@ attr(,"class")
 [1] -16.3821693
 > logLik( aa1, newParam = coef( aa1 ) )
 [1] -16.3821693
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", startVal = coef( aa1 ), code = "R",
-+    evalLogLik = TRUE )$logLike
+> logLik( aa1, newParam = coef( aa1 ), code = "R" )
 [1] -16.3821708
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
@@ -19394,9 +19387,7 @@ attr(,"class")
 [1] -16.3556547
 > logLik( aa2, newParam = coef( aa2 ) )
 [1] -16.3556547
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa2 ),
-+    code = "R", evalLogLik = TRUE )$logLike
+> logLik( aa2, newParam = coef( aa2 ), code = "R" )
 [1] -16.3556562
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
@@ -19404,9 +19395,7 @@ attr(,"class")
 [1] -16.3556547
 > logLik( aa5, newParam = coef( aa5 ) )
 [1] -16.3556547
-> frontier( data = front41Data, "logOutput", c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", zIntercept = TRUE, startVal = coef( aa5 ),
-+    code = "R", evalLogLik = TRUE )$logLike
+> logLik( aa5, newParam = coef( aa5 ), code = "R" )
 [1] -16.3556562
 > 
 > 
@@ -19418,9 +19407,7 @@ attr(,"class")
 [1] -86.2026818
 > logLik( bb1, newParam = coef( bb1 ) )
 [1] -86.2026818
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), startVal = coef( bb1 ),
-+    code = "R", evalLogLik = TRUE )$logLike
+> logLik( bb1, newParam = coef( bb1 ), code = "R" )
 [1] -86.20269
 > 
 > ## cross-section rice data, error components frontier, truncNorm
@@ -19428,9 +19415,7 @@ attr(,"class")
 [1] -82.2298049
 > logLik( bb2, newParam = coef( bb2 ) )
 [1] -82.2298049
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
-+    startVal = coef( bb2 ), code = "R", evalLogLik = TRUE )$logLike
+> logLik( bb2, newParam = coef( bb2 ), code = "R" )
 [1] -82.2298132
 > 
 > ## cross-section rice data, efficiency effects frontier
@@ -19438,9 +19423,7 @@ attr(,"class")
 [1] -77.849544
 > logLik( bb5, newParam = coef( bb5 ) )
 [1] -77.849544
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    startVal = coef( bb5 ), code = "R", evalLogLik = TRUE )$logLike
+> logLik( bb5, newParam = coef( bb5 ), code = "R" )
 [1] -77.8495523
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept
@@ -19448,10 +19431,7 @@ attr(,"class")
 [1] -77.3136259
 > logLik( bb6, newParam = coef( bb6 ) )
 [1] -77.3136259
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    zIntercept = TRUE, startVal = coef( bb6 ), code = "R",
-+    evalLogLik = TRUE )$logLike
+> logLik( bb6, newParam = coef( bb6 ), code = "R" )
 [1] -77.3136342
 > 
 > ## cross-section rice data, error components frontier, truncNorm, starting values
@@ -19459,9 +19439,7 @@ attr(,"class")
 [1] -82.2236347
 > logLik( bb7, newParam = coef( bb7 ) )
 [1] -82.2236347
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), truncNorm = TRUE,
-+    startVal = coef( bb7 ), code = "R", evalLogLik = TRUE )$logLike
+> logLik( bb7, newParam = coef( bb7 ), code = "R" )
 [1] -82.223643
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
@@ -19469,10 +19447,7 @@ attr(,"class")
 [1] -77.313626
 > logLik( bb8, newParam = coef( bb8 ) )
 [1] -77.313626
-> frontier( data = riceProdPhil, yName = "lPROD",
-+    xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = c( "EDYRS", "BANRAT" ),
-+    zIntercept = TRUE, startVal = coef( bb8 ), code = "R",
-+    evalLogLik = TRUE )$logLike
+> logLik( bb8, newParam = coef( bb8 ), code = "R" )
 [1] -77.3136342
 > 
 > 
@@ -19531,15 +19506,9 @@ attr(,"class")
 > ## data about agricultural production in Brazil
 > logLik( c1 )
 [1] 3.31840722
-> logLik( frontier( data = prodAgrBrazil, yName = "lProd",
-+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, startVal = coef( c1 ),
-+    maxit = 0 ), which = "start" )
+> logLik( c1, newParam = coef( c1 ) )
 [1] 3.31840722
-> frontier( data = prodAgrBrazil, yName = "lProd",
-+    xNames = c( "lArea", "lLabor", "lOther", "lCapital" ),
-+    zNames = c( "idh", "gip_pc" ), zIntercept = TRUE, startVal = coef( c1 ),
-+    code = "R", evalLogLik = TRUE )$logLike
+> logLik( c1, newParam = coef( c1 ), code = "R" )
 [1] 3.31840593
 > 
 > 
@@ -19549,9 +19518,7 @@ attr(,"class")
 [1] -14.4342926
 > logLik( translog, newParam = coef( translog ) )
 [1] -14.4342926
-> logLik( frontierQuad( data = front41Data, yName = "logOutput",
-+    xNames = c( "logCapital", "logLabour" ), startVal = coef( translog ),
-+    code = "R", maxit = 0 ), which = "start" )
+> logLik( translog, newParam = coef( translog ), code = "R" )
 [1] -14.434294
 > 
 > ## cross-section data, error components frontier, translog, shifter
@@ -19559,9 +19526,7 @@ attr(,"class")
 [1] -14.0321663
 > logLik( translogShift, newParam = coef( translogShift ) )
 [1] -14.0321663
-> logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-+    shifterNames = "firmNo", data = front41Data,
-+    startVal = coef( translogShift ), code = "R", maxit = 0 ), which = "start" )
+> logLik( translogShift, newParam = coef( translogShift ), code = "R" )
 [1] -14.0321677
 > 
 > ## cross-section data, efficiency effects frontier, translog
@@ -19569,8 +19534,6 @@ attr(,"class")
 [1] -13.7464626
 > logLik( translogZvar, newParam = coef( translogZvar ) )
 [1] -13.7464626
-> logLik( frontierQuad( yName = "logOutput", xNames = c( "logCapital", "logLabour" ),
-+    zNames = "firmNo", data = front41Data, startVal = coef( translogZvar ),
-+    code = "R", maxit = 0 ), which = "start" )
+> logLik( translogZvar, newParam = coef( translogZvar ), code = "R" )
 [1] -13.7464641
 > 

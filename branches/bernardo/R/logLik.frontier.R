@@ -1,4 +1,5 @@
-logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
+logLik.frontier <- function( object, which = "mle", newParam = NULL,
+      code = object$code, ... ) {
 
    if( is.null( newParam ) ) {
       if( tolower( which ) == "ols" ) {
@@ -39,6 +40,7 @@ logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
             zIntercept = object$zIntercept,
             timeEffect = object$timeEffect,
             startVal = newParam,
+            code = code,
             maxit = 0 ), which = "start" )
       } else {
          result <- logLik( frontier(
@@ -53,6 +55,7 @@ logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
             zIntercept = object$zIntercept,
             timeEffect = object$timeEffect,
             startVal = newParam,
+            code = code,
             maxit = 0 ), which = "start" )
       }
    }

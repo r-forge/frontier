@@ -8,7 +8,8 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{logLik}{frontier}( object, which = "mle", newParam = NULL, \dots )
+\method{logLik}{frontier}( object, which = "mle", newParam = NULL,
+   code = object$code, \dots )
 }
 
 \arguments{
@@ -27,6 +28,13 @@ returned by \code{\link{frontier}}.
    \item{newParam}{optional vector of parameters.
       If this argument is provided by the user, the log-likelihood value
       of the model \code{object} is calculated with these (new) parameters.}
+   \item{code}{character string.
+      If this argument is \code{"Fortran"}, the log likelihood value
+      is calculated with the Fortran code of Frontier 4.1 (Coelli 1996);
+      if this argument is \code{"R"}, the log likelihood value
+      is calculated with the R code that has been written
+      by Bernardo Mello.
+      This argument is ignored if argument \code{newParam} is not used.}
    \item{\dots}{currently unused.}
 }
 
