@@ -19,7 +19,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
    ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
    zIntercept = FALSE, timeEffect = FALSE, startVal = NULL,
-   code = "Fortran", evalLogLik = FALSE,
+   code = "Fortran",
    tol = 0.00001, maxit = 1000, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
    gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
@@ -71,8 +71,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (Coelli 1996) is used;
       if this argument is \code{"R"}, the R code that has been written
       by Bernardo Mello is used.}
-   \item{evalLogLik}{logical. If \code{TRUE}, only the log likelihood value
-      is evaluated and returned (given the starting values and the data).}
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
@@ -105,7 +103,22 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{\dots}{currently unused.}
 }
 
-\details{The \code{frontier} function uses the Fortran source code of
+\details{
+   One can use the \code{frontier} function
+   to calculate the log likelihood value for a given model,
+   a given data set, and given parameters
+   by using the argument \code{startVal} to specify the parameters
+   and using the other arguments to specify the model and the data.
+   The log likelihood value can then be retrieved by
+   the \code{\link[=logLik.frontier]{logLik}} method
+   with argument \code{which} set to \code{"start"}.
+   Setting argument \code{maxit} to \code{0} avoids the
+   (eventually time-consuming) ML estimation and allows
+   to retrieve the log likelihood value
+   with the \code{\link[=logLik.frontier]{logLik}} method
+   without further arguments.
+
+   The \code{frontier} function uses the Fortran source code of
    Tim Coelli's software FRONTIER 4.1
    (\url{http://www.uq.edu.au/economics/cepa/frontier.htm})
    and hence, provides the same features as FRONTIER 4.1.

@@ -1,4 +1,4 @@
-frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize,
+frontierR = function(data, modelType, mu, gridDouble, gridSize,
                      iterlim, startVal=NULL, code="R", verbose=FALSE) {
     
     nx=ncol(data$x);
@@ -44,25 +44,19 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
         startLogl <- frontierLogLike( startParam, data )
     }
           
-    if (evalLogLik) {
-        logLike <- frontierLogLike(startParam, data);
-    } else {
-        mle <- frontierMle(startParam, data, iterlim = iterlim);
-        if (verbose) {
-            cat(paste("\nGamma fitting  - LogLike:",frontierLogLike(mle$param,data), 
-                  "yCorrelation: ",frontierYCorrelation(mle$param,data)));
-            print(mle);
-        }
+    mle <- frontierMle(startParam, data, iterlim = iterlim);
+    if (verbose) {
+        cat(paste("\nGamma fitting  - LogLike:",frontierLogLike(mle$param,data),
+            "yCorrelation: ",frontierYCorrelation(mle$param,data)));
+        print(mle);
     }
         
     if (modelType==1 && mu) {
         parOrder <- c(1,3,4,2);
         grid <- grid[parOrder];
-        if (!evalLogLik) {
-            mle$param <- mle$param[parOrder];
-            vParOrder <- c(1:nx,nx+c(2,3,1));
-            mle$cov <- mle$cov[vParOrder,vParOrder];
-        }
+        mle$param <- mle$param[parOrder];
+        vParOrder <- c(1:nx,nx+c(2,3,1));
+        mle$cov <- mle$cov[vParOrder,vParOrder];
     }
     
     returnObj <- list(
@@ -73,20 +67,11 @@ frontierR = function(data, modelType, mu, evalLogLik=FALSE, gridDouble, gridSize
       startLogl = startLogl
       )
     
-    if (evalLogLik) {
-        if (code=="R") {
-            returnObj$logLike <- frontierLogLike(startParam, data);
-        } else {
-            returnObj$logLike <- frontierLogLikeF41(startParam, data);
-        }
-        returnObj$effic <- frontierEfficiency(startParam, data)
-    } else {
-        returnObj$mleParam <- as.vector(unlist(mle$param))
-        returnObj$mleCov <- mle$cov
-        returnObj$mleLogl <- frontierLogLike(mle$param,data)
-        returnObj$nIter <- mle$nIter
-        returnObj$effic <- frontierEfficiency(mle$param, data)
-    }
+    returnObj$mleParam <- as.vector(unlist(mle$param))
+    returnObj$mleCov <- mle$cov
+    returnObj$mleLogl <- frontierLogLike(mle$param,data)
+    returnObj$nIter <- mle$nIter
+    returnObj$effic <- frontierEfficiency(mle$param, data)
     
     
     return( returnObj );

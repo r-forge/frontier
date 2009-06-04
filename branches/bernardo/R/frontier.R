@@ -8,7 +8,6 @@ frontier <- function(
       timeEffect = FALSE,
       startVal = NULL,
       code="Fortran",
-      evalLogLik = FALSE,
       tol = 0.00001,
       maxit = 1000,
       bignum = 1.0E+16,
@@ -83,10 +82,6 @@ frontier <- function(
    if( timeEffect && ! "plm.dim" %in% class( data ) ) {
       warning( "argument 'timeEffect' is ignored in case of",
          " cross-sectional data" )
-   }
-   # evalLogLik
-   if (evalLogLik && (is.null(startVal) || length(startVal)==0)) {
-      stop( "startVal must be provided when argument 'evalLogLik' is TRUE" );
    }
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
@@ -215,7 +210,7 @@ frontier <- function(
             nParamTotal, " parameters)" )
       }
    }
-   if (code=="Fortran" && !evalLogLik) {
+   if( code == "Fortran" ) {
       returnObj <- .Fortran( "front41",
          modelType = as.integer( modelType ),
          ineffDecrease = as.integer( !ineffDecrease + 1 ),
@@ -296,7 +291,6 @@ frontier <- function(
          modelType = modelType,
          code = code,
          mu = mu,
-         evalLogLik = evalLogLik,
          gridDouble = gridDouble,
          gridSize = gridSize,
          iterlim = maxit,
@@ -307,25 +301,23 @@ frontier <- function(
    }
 
    # check if the maximum number of iterations has been reached
-   if( !evalLogLik && maxit <= returnObj$nIter && maxit > 0 ) {
+   if( maxit <= returnObj$nIter && maxit > 0 ) {
       warning( "Maximum number of iterations reached" );
    }
 
    # likelihood ratio test
-   if( ! evalLogLik ) {
-      returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
-      if( returnObj$lrTestVal < 0 ) {
-         warning( "the likelihood value of the ML estimation is less",
-            " than that obtained using ols --",
-            " please try again using different starting values" )
-      }
+   returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
+   if( returnObj$lrTestVal < 0 ) {
+      warning( "the likelihood value of the ML estimation is less",
+         " than that obtained using ols --",
+         " please try again using different starting values" )
+   }
 
-      # degrees of freedom of the likelihood ratio test
-      if( returnObj$modelType == 1 ) {
-         returnObj$lrTestDf <- truncNorm + timeEffect + 1
-      } else {
-         returnObj$lrTestDf <- zIntercept + nZvars + 1
-      }
+   # degrees of freedom of the likelihood ratio test
+   if( returnObj$modelType == 1 ) {
+      returnObj$lrTestDf <- truncNorm + timeEffect + 1
+   } else {
+      returnObj$lrTestDf <- zIntercept + nZvars + 1
    }
 
    # modelType
@@ -416,11 +408,9 @@ frontier <- function(
       names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ],
          "sigmaSq", "gamma" )
    }
-   if (!evalLogLik) {
-      names( returnObj$mleParam ) <- paramNames
-      rownames( returnObj$mleCov ) <- paramNames
-      colnames( returnObj$mleCov ) <- paramNames
-   }
+   names( returnObj$mleParam ) <- paramNames
+   rownames( returnObj$mleCov ) <- paramNames
+   colnames( returnObj$mleCov ) <- paramNames
    if( !is.null( returnObj$startVal ) ) {
       names( returnObj$startVal ) <- paramNames
    }
