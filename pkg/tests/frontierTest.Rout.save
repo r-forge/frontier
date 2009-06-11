@@ -311,6 +311,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
       id t logOutput logCapital logLabour
  [1,]  1 1   2.54772   2.242410  3.559169
@@ -726,6 +729,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
       id t logOutput logCapital logLabour
  [1,]  1 1   2.54772   2.242410  3.559169
@@ -1140,6 +1146,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $startVal
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
@@ -1560,6 +1569,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
       id t logOutput logCapital logLabour firmNo
@@ -1988,6 +2000,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
       id t logOutput logCapital logLabour firmNo
  [1,]  1 1   2.54772   2.242410  3.559169      1
@@ -2413,6 +2428,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $startVal
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
@@ -3192,6 +3210,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
         id t      lPROD    lAREA lLABOR   lNPK
@@ -4533,6 +4554,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
         id t      lPROD    lAREA lLABOR   lNPK
@@ -5882,6 +5906,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
         id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
@@ -7238,6 +7265,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
         id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
   [1,]   1 1  2.0630581  0.91629 5.0814 5.3351    10   1.00
@@ -8579,6 +8609,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $startVal
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -9931,6 +9964,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $startVal
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.00          0.30          0.30          0.30         -0.20 
@@ -11000,6 +11036,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK
   [1,]  1 1  2.0630581  0.91629 5.0814 5.3351
@@ -11758,6 +11797,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK
@@ -12525,6 +12567,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK
@@ -13296,6 +13341,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK
@@ -14069,6 +14117,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
@@ -14847,6 +14898,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
        id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
   [1,]  1 1  2.0630581  0.91629 5.0814 5.3351    10   1.00
@@ -15615,6 +15669,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $startVal
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -16390,6 +16447,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $startVal
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -17303,6 +17363,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
       id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2
  [1,]  1 1 2.54772  2.242410 3.559169 2.5142021  7.98112  6.3338431
@@ -17957,6 +18020,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$muBound
+[1] 2
+
 $dataTable
       id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2 d_1
  [1,]  1 1 2.54772  2.242410 3.559169 2.5142021  7.98112  6.3338431   1
@@ -18609,6 +18675,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$muBound
+[1] 2
 
 $dataTable
       id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2 delta_1
