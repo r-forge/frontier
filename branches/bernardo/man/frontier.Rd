@@ -20,7 +20,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
    zIntercept = FALSE, timeEffect = FALSE, startVal = NULL,
    code = "Fortran",
-   tol = 0.00001, maxit = 1000, bignum = 1.0E+16,
+   tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
    gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
 \method{print}{frontier}( x, \dots )
@@ -73,6 +73,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       by Bernardo Mello is used.}
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
+   \item{muBound}{numeric. Bounds on the parameter \eqn{\mu}{mu}
+      (see \sQuote{details} section).}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
    \item{searchStep}{numeric. Size of the first step in the Coggin
       uni-dimensional search procedure done each iteration
@@ -129,6 +131,17 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \url{http://www.uq.edu.au/economics/cepa/frontier.htm}.
    It is recommended to read this documentation, 
    because the \code{frontier} function is based on the FRONTIER 4.1 software.
+
+   In case of an Error Components Frontier (ECF)
+   with the inefficiency terms \eqn{u} following a
+   truncated normal distribution with mean \eqn{\mu}{mu},
+   argument \code{muBound} can be used to restrict \eqn{\mu}{mu}
+   to be in the interval \eqn{\pm}{+/-}\code{muBound} * \eqn{\sigma_u}{sigma_u},
+   where \eqn{\sigma_u}{sigma_u} is the standard deviation of \eqn{u}.
+   If \code{muBound} is infinity, zero, or negative,
+   no bounds on \eqn{\mu}{mu} are imposed.
+   This feature is implemented only the the Fortran code;
+   argument \code{muBound} is ignored when using the R code.
 }
 
 \value{

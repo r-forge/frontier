@@ -10,6 +10,7 @@ frontier <- function(
       code="Fortran",
       tol = 0.00001,
       maxit = 1000,
+      muBound = 2,
       bignum = 1.0E+16,
       searchStep = 0.00001,
       searchTol = 0.001,
@@ -119,6 +120,12 @@ frontier <- function(
       stop( "argument 'searchTol' must be numeric" )
    } else if( searchTol < 0 ) {
       stop( "argument 'searchTol' must be non-negative" )
+   }
+   # muBound
+   if( !is.numeric( muBound ) || length( muBound ) != 1 ) {
+      stop( "argument 'bignum' must be a numeric scalar" )
+   } else if( is.infinite( muBound ) ) {
+      muBound <- 0
    }
    # bignum
    if( !is.numeric( bignum ) ) {
@@ -230,6 +237,7 @@ frontier <- function(
          gridDouble = as.integer( gridDouble ),
          gridSize = as.double( gridSize ),
          maxit = as.integer( maxit ),
+         muBound = as.double( muBound ),
          nStartVal = as.integer( length( startVal ) ),
          startVal = as.double( startVal ),
          nRowData = as.integer( nrow( dataTable ) ),
@@ -285,6 +293,7 @@ frontier <- function(
          gridDouble = gridDouble,
          gridSize = gridSize,
          maxit = maxit,
+         muBound = muBound,
          startVal = startVal,
          dataTable = dataTable);
       rResult <- frontierR(dataR,
