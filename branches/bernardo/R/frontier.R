@@ -123,7 +123,7 @@ frontier <- function(
    }
    # muBound
    if( !is.numeric( muBound ) || length( muBound ) != 1 ) {
-      stop( "argument 'bignum' must be a numeric scalar" )
+      stop( "argument 'muBound' must be a numeric scalar" )
    } else if( is.infinite( muBound ) ) {
       muBound <- 0
    }
