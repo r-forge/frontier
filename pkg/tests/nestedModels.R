@@ -57,7 +57,7 @@ b5ecf <- bb5ecf
 b5eef <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    modelType = "EEF" )
-all.equal( b5eef[ -c( 4, 5, 17, 27, 35 ) ], bb5eef[ -c( 4, 5, 17, 27, 35 ) ] )
+all.equal( b5eef[ -c( 4, 5, 17, 27, 34 ) ], bb5eef[ -c( 4, 5, 17, 27, 34 ) ] )
 
 # Comparisons
 all.equal( coef( b5ecf ), coef( b5eef ) )
