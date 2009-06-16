@@ -23,7 +23,7 @@ bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 # Efficiency Effects Frontier (EEF)
 bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   modelType = "EEF" )
+   zNames = NA )
 
 # Comparisons
 all.equal( coef( bb5ecf ), coef( bb5eef ) )
@@ -40,7 +40,7 @@ bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 # Efficiency Effects Frontier (EEF)
 bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zIntercept = TRUE, modelType = "EEF", code = "R" )
+   zIntercept = TRUE, zNames = NA, code = "R" )
 
 # Comparisons
 all.equal( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )

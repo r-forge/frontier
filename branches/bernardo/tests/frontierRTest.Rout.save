@@ -267,7 +267,7 @@ F_60    0.70843
 0.84238 0.85099 0.85964 0.75508 0.81650 0.75991 0.87351 0.66471 0.85670 0.70843 
 > print.default( a1 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -681,7 +681,7 @@ F_60    0.78560
 0.88187 0.88702 0.89224 0.82277 0.86499 0.82522 0.90402 0.74496 0.89071 0.78560 
 > print.default( a2 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -1095,7 +1095,7 @@ F_60    0.78560
 0.88187 0.88702 0.89224 0.82277 0.86499 0.82522 0.90402 0.74496 0.89071 0.78560 
 > print.default( a5 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -1521,7 +1521,7 @@ F_60    0.76698
 0.86952 0.87938 0.88620 0.80098 0.84948 0.80868 0.89951 0.72609 0.88626 0.76698 
 > print.default( aa1 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -1954,7 +1954,7 @@ F_60    0.78575
 0.87926 0.88756 0.89350 0.81785 0.86158 0.82420 0.90602 0.74606 0.89357 0.78575 
 > print.default( aa2 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -2387,7 +2387,7 @@ F_60    0.78566
 0.87922 0.88752 0.89346 0.81776 0.86152 0.82412 0.90598 0.74596 0.89354 0.78566 
 > print.default( aa5 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -3172,7 +3172,7 @@ mean efficiency: 0.72298
 0.79583 0.93042 0.84494 0.90672 
 > print.default( bb1 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -4519,7 +4519,7 @@ mean efficiency: 0.78775
 0.86121 0.93980 0.89006 0.92529 
 > print.default( bb2 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -5874,7 +5874,7 @@ mean efficiency: 0.77076
 0.84772 0.93878 0.88131 0.91832 
 > print.default( bb5 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -7235,7 +7235,7 @@ mean efficiency: 0.78493
 0.86096 0.94066 0.88763 0.92253 
 > print.default( bb6 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -8584,7 +8584,7 @@ mean efficiency: 0.78775
 0.86121 0.93980 0.89006 0.92529 
 > print.default( bb7 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -9941,7 +9941,7 @@ mean efficiency: 0.78493
 0.86096 0.94066 0.88763 0.92253 
 > print.default( bb8 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -10979,7 +10979,7 @@ mean efficiency: 0.66217
 0.95187 0.98221 0.52657 0.46308 
 > print.default( c1 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -11621,7 +11621,7 @@ mean efficiency: 0.75939
 60    0.21353   0.22483
 > print.default( translog )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -12281,7 +12281,7 @@ mean efficiency: 0.76291
 60    0.21356   0.22646
 > print.default( translogShift )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -12940,7 +12940,7 @@ mean efficiency: 0.77999
 60    0.20486   0.21630
 > print.default( translogZvar )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
