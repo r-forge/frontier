@@ -101,18 +101,18 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > ## without mu / zIntercept
 > # Error Components Frontier (ECF)
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
-+    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
++    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R" )
 > 
 > # Efficiency Effects Frontier (EEF)
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-+    zNames = NA )
++    zNames = NA, code = "R" )
 > 
 > # Comparisons
 > all.equal( coef( bb5ecf ), coef( bb5eef ) )
 [1] TRUE
 > all.equal( vcov( bb5ecf ), vcov( bb5eef ) )
-[1] "Mean relative difference: 2.657292e-08"
+[1] TRUE
 > all.equal( efficiencies( bb5ecf ), efficiencies( bb5eef ) )
 [1] TRUE
 > 

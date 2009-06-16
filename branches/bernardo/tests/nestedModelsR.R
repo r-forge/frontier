@@ -18,12 +18,12 @@ riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 ## without mu / zIntercept
 # Error Components Frontier (ECF)
 bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
-   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
+   yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ), code = "R" )
 
 # Efficiency Effects Frontier (EEF)
 bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
-   zNames = NA )
+   zNames = NA, code = "R" )
 
 # Comparisons
 all.equal( coef( bb5ecf ), coef( bb5eef ) )
