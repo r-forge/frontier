@@ -26,10 +26,10 @@ frontier <- function(
    }
 
    # modelType (im)
-   if( modelType == "ECF" ) {
-      modelTypeNo <- 1
-   } else if( modelType == "EEF" ) {
-      modelTypeNo <- 2
+   if( modelType %in% c( 1, "ECF" ) ) {
+      modelType <- 1
+   } else if( modelType %in% c( 2, "EEF" ) ) {
+      modelType <- 2
    } else {
       stop( "argument 'modelType' must be either 'ECF' or 'EEF'" )
    }
@@ -45,7 +45,7 @@ frontier <- function(
    if( !is.logical( truncNorm ) ) {
       stop( "argument 'truncNorm' must be logical" )
    }
-   if( truncNorm && modelType == "EEF" ) {
+   if( truncNorm && modelType == 2 ) {
       warning( "argument 'truncNorm' is ignored in",
          " Efficiency Effects Frontiers (EEF)" )
    }
@@ -53,7 +53,7 @@ frontier <- function(
    if( !is.logical( zIntercept ) ) {
       stop( "argument 'zIntercept' must be logical" )
    }
-   if( zIntercept && modelType == "ECF" ) {
+   if( zIntercept && modelType == 1 ) {
       warning( "argument 'zIntercept' is ignored in",
          " Efficiency Components Frontiers (ECF)" )
    }
@@ -66,7 +66,7 @@ frontier <- function(
          " cross-sectional data" )
    }
    # mu: truncNorm, zIntercept
-   if( modelType == "ECF" ) {
+   if( modelType == 1 ) {
       mu <- truncNorm
    } else {
       mu <- zIntercept
@@ -151,7 +151,7 @@ frontier <- function(
    nXvars <- length( xNames )
    nb <- nXvars
    nZvars <- length( zNames )
-   if( modelType == "ECF" ) {
+   if( modelType == 1 ) {
       eta <- timeEffect
    } else {
       eta <- nZvars
@@ -199,7 +199,7 @@ frontier <- function(
       }
    }
    returnObj <- .Fortran( "front41",
-      modelType = as.integer( modelTypeNo ),
+      modelType = as.integer( modelType ),
       ineffDecrease = as.integer( !ineffDecrease + 1 ),
       logDepVar = as.integer( logDepVar ),
       nn = as.integer( nn ),
@@ -254,7 +254,7 @@ frontier <- function(
    }
 
    # degrees of freedom of the likelihood ratio test
-   if( modelType == "ECF" ) {
+   if( returnObj$modelType == 1 ) {
       returnObj$lrTestDf <- truncNorm + timeEffect + 1
    } else {
       returnObj$lrTestDf <- zIntercept + nZvars + 1
@@ -267,7 +267,7 @@ frontier <- function(
       returnObj$modelType <- "EEF"
    }
    # mu: truncNorm, zIntercept
-   if( modelType == "ECF" ) {
+   if( modelType == 1 ) {
       returnObj$truncNorm <- as.logical( returnObj$mu )
       returnObj$zIntercept <- zIntercept
       returnObj$mu <- NULL
@@ -277,7 +277,7 @@ frontier <- function(
       returnObj$mu <- NULL
    }
    # eta: timeEffect, nz
-   if( modelType == "ECF" ) {
+   if( modelType == 1 ) {
       returnObj$timeEffect <- as.logical( returnObj$eta )
    } else {
       returnObj$timeEffect <- timeEffect
@@ -300,7 +300,7 @@ frontier <- function(
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){
-      if( modelType == "ECF" ) {
+      if( modelType == 1 ) {
          returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
       } else {
          returnObj$gridParam <- returnObj$gridParam[
@@ -310,13 +310,13 @@ frontier <- function(
    } else {
       returnObj$gridParam <- NULL
    }
-   if( modelType == "ECF" && timeEffect == FALSE ) {
+   if( modelType == 1 && timeEffect == FALSE ) {
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    # assign row names and column names to efficiency estimates
    if( "plm.dim" %in% class( data ) ) {
       rownames( returnObj$effic ) <- levels( data[[ 1 ]] )
-      if( modelType == "ECF" && timeEffect == FALSE ) {
+      if( modelType == 1 && timeEffect == FALSE ) {
          colnames( returnObj$effic ) <- "efficiency"
       } else {
          colnames( returnObj$effic ) <- levels( data[[ 2 ]] )
@@ -325,7 +325,7 @@ frontier <- function(
       rownames( returnObj$effic ) <- rownames( data )
       colnames( returnObj$effic ) <- "efficiency"
    }
-   if( modelType == "EEF" ) {
+   if( modelType == 2 ) {
       if( zIntercept ){
          paramNames <- c( paramNames, "Z_(Intercept)" )
       }
@@ -334,7 +334,7 @@ frontier <- function(
       }
    }
    paramNames <- c( paramNames, "sigmaSq", "gamma" )
-   if( modelType == "ECF" ) {
+   if( modelType == 1 ) {
       if( truncNorm ){
          paramNames <- c( paramNames, "mu" )
       }
