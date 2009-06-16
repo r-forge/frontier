@@ -378,7 +378,7 @@ frontier <- function(
       returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
    }
    # assign row names and column names to efficiency estimates
-   if( "plm.dim" %in% class( data ) && code != "R" ) {
+   if( "plm.dim" %in% class( data ) ) {
       rownames( returnObj$effic ) <- levels( data[[ 1 ]] )
       if( modelType == 1 && timeEffect == FALSE ) {
          colnames( returnObj$effic ) <- "efficiency"
