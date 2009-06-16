@@ -267,7 +267,7 @@ F_60    0.70843
 0.84238 0.85099 0.85964 0.75508 0.81650 0.75991 0.87351 0.66471 0.85670 0.70843 
 > print.default( a1 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -685,7 +685,7 @@ F_60    0.77528
 0.87727 0.88291 0.88853 0.81420 0.85917 0.81703 0.90070 0.73364 0.88685 0.77528 
 > print.default( a2 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -1103,7 +1103,7 @@ F_60    0.77440
 0.87707 0.88249 0.88816 0.81369 0.85908 0.81635 0.90013 0.73246 0.88645 0.77440 
 > print.default( a5 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -1526,7 +1526,7 @@ F_60    0.76698
 0.86952 0.87938 0.88620 0.80098 0.84948 0.80868 0.89951 0.72609 0.88626 0.76698 
 > print.default( aa1 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -1956,7 +1956,7 @@ F_60    0.78575
 0.87926 0.88756 0.89350 0.81785 0.86158 0.82420 0.90602 0.74606 0.89357 0.78575 
 > print.default( aa2 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -2385,7 +2385,7 @@ F_60    0.78575
 0.87926 0.88756 0.89350 0.81785 0.86158 0.82420 0.90602 0.74606 0.89357 0.78575 
 > print.default( aa5 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -3167,7 +3167,7 @@ mean efficiency: 0.72298
 0.79583 0.93042 0.84494 0.90672 
 > print.default( bb1 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -4511,7 +4511,7 @@ mean efficiency: 0.76998
 0.84494 0.93766 0.87906 0.92083 
 > print.default( bb2 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -5863,7 +5863,7 @@ mean efficiency: 0.77076
 0.84772 0.93878 0.88131 0.91832 
 > print.default( bb5 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -7221,7 +7221,7 @@ mean efficiency: 0.78493
 0.86096 0.94066 0.88763 0.92253 
 > print.default( bb6 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -8566,7 +8566,7 @@ mean efficiency: 0.76766
 0.84280 0.93862 0.87883 0.92184 
 > print.default( bb7 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -9920,7 +9920,7 @@ mean efficiency: 0.78493
 0.86096 0.94066 0.88763 0.92253 
 > print.default( bb8 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -10992,7 +10992,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.72491   0.72491   0.72491   0.72491   0.72491   0.72491   0.72491   0.72491 
 > print.default( b1 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -11754,7 +11754,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.73794   0.73794   0.73794   0.73794   0.73794   0.73794   0.73794   0.73794 
 > print.default( b2 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -12524,7 +12524,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.63267   0.64923   0.66527   0.68077   0.69574   0.71017   0.72407   0.73744 
 > print.default( b3 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -13298,7 +13298,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.63911   0.65701   0.67429   0.69093   0.70692   0.72227   0.73699   0.75107 
 > print.default( b4 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -14074,7 +14074,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.35444   0.32688   0.70009   0.66794   0.83542   0.91312   0.80325   0.91832 
 > print.default( b5 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -14854,7 +14854,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.36313   0.33368   0.72688   0.69669   0.85130   0.91786   0.82359   0.92253 
 > print.default( b6 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -15626,7 +15626,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.63911   0.65702   0.67429   0.69093   0.70692   0.72227   0.73699   0.75107 
 > print.default( b7 )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -16404,7 +16404,7 @@ F_43_1999 F_43_2000 F_43_2001 F_43_2002 F_43_2003 F_43_2004 F_43_2005 F_43_2006
   0.36313   0.33368   0.72688   0.69669   0.85130   0.91786   0.82359   0.92253 
 > print.default( b8 )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE
@@ -17319,7 +17319,7 @@ mean efficiency: 0.75939
 60    0.21405   0.22581
 > print.default( translog )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -17976,7 +17976,7 @@ mean efficiency: 0.76282
 60    0.21405   0.22670
 > print.default( translogShift )
 $modelType
-[1] "ECF"
+[1] 1
 
 $ineffDecrease
 [1] TRUE
@@ -18632,7 +18632,7 @@ mean efficiency: 0.77999
 60    0.20664   0.21809
 > print.default( translogZvar )
 $modelType
-[1] "EEF"
+[1] 2
 
 $ineffDecrease
 [1] TRUE

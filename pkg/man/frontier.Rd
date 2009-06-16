@@ -16,7 +16,6 @@
 
 \usage{
 frontier( yName, xNames = NULL, zNames = NULL, data,
-   modelType = ifelse( is.null( zNames ), "ECF", "EEF" ),
    ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
    zIntercept = FALSE, timeEffect = FALSE, startVal = NULL,
    tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
@@ -37,9 +36,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{data} is a panel data frame
       (created with \code{\link[plm]{plm.data}}),
       it is assumed that these are panel data.}
-   \item{modelType}{model type:
-      either \code{"ECF"} for an 'Error Components Frontier'
-      or \code{"EEF"} for an 'Efficiency Effects Frontier'.}
    \item{ineffDecrease}{logical. If \code{TRUE},
       inefficiency decreases the endogenous variable
       (e.g. for estimating a production function);
@@ -111,6 +107,16 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    It is recommended to read this documentation, 
    because the \code{frontier} function is based on the FRONTIER 4.1 software.
 
+   If argument \code{zNames} is \code{NULL},
+   an \sQuote{Error Components Frontier} (ECF, see Battese and Coelli 1992)
+   is estimated.
+   If argument \code{zNames} is not \code{NULL},
+   an \sQuote{Efficiency Effects Frontier} (EEF, see Battese and Coelli 1995)
+   is estimated.
+   Generally, there should be no reason to estimate an EEF
+   without z variable,
+   but this can done by setting argument \code{zNames} to \code{NA}.
+
    In case of an Error Components Frontier (ECF)
    with the inefficiency terms \eqn{u} following a
    truncated normal distribution with mean \eqn{\mu}{mu},
@@ -124,7 +130,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
 \value{
    \code{frontier} returns a list of class \code{frontier}
    containing following elements:
-   \item{modelType}{character string. Argument \code{modelType} (see above).}
+   \item{modelType}{integer.
+      A \sQuote{1} denotes an \sQuote{Error Components Frontier} (ECF);
+      a \sQuote{2} denotes an \sQuote{Efficiency Effects Frontier} (EFF).}
    \item{ineffDecrease}{logical. Argument \code{ineffDecrease} (see above).}
    \item{logDepVar}{logical. Argument \code{logDepVar} (see above).}
    \item{nn}{number of cross-sections.}
