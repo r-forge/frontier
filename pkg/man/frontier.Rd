@@ -95,7 +95,22 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{\dots}{currently unused.}
 }
 
-\details{The \code{frontier} function uses the Fortran source code of
+\details{
+   One can use the \code{frontier} function
+   to calculate the log likelihood value for a given model,
+   a given data set, and given parameters
+   by using the argument \code{startVal} to specify the parameters
+   and using the other arguments to specify the model and the data.
+   The log likelihood value can then be retrieved by
+   the \code{\link[=logLik.frontier]{logLik}} method
+   with argument \code{which} set to \code{"start"}.
+   Setting argument \code{maxit} to \code{0} avoids the
+   (eventually time-consuming) ML estimation and allows
+   to retrieve the log likelihood value
+   with the \code{\link[=logLik.frontier]{logLik}} method
+   without further arguments.
+
+   The \code{frontier} function uses the Fortran source code of
    Tim Coelli's software FRONTIER 4.1
    (\url{http://www.uq.edu.au/economics/cepa/frontier.htm})
    and hence, provides the same features as FRONTIER 4.1.
