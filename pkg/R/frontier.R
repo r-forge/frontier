@@ -240,6 +240,11 @@ frontier <- function(
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
+   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
+   returnObj$logDepVar <- as.logical( returnObj$logDepVar )
+   returnObj$gridDouble <- as.logical( returnObj$gridDouble )
+   returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
+   returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
 
    # check if the maximum number of iterations has been reached
    if( maxit <= returnObj$nIter && maxit > 0 ) {
@@ -278,12 +283,7 @@ frontier <- function(
       returnObj$timeEffect <- timeEffect
    }
    returnObj$eta <- NULL
-   if( length( startVal ) == 1 ){
-      returnObj$startVal <- NULL
-   }
-   returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
-   returnObj$logDepVar <- as.logical( returnObj$logDepVar )
-   returnObj$gridDouble <- as.logical( returnObj$gridDouble )
+
    if( returnObj$indic == 2 ) {
       returnObj$searchScale <- FALSE
    } else if( returnObj$indic == 1 ) {
@@ -292,8 +292,6 @@ frontier <- function(
       returnObj$searchScale <- TRUE
    }
    returnObj$indic <- NULL
-   returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
-   returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
    if( length( startVal ) == 1 ){
       if( modelType == 1 ) {
          returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
@@ -327,6 +325,10 @@ frontier <- function(
       if( nZvars > 0 ) {
          paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
       }
+   }
+
+   if( length( startVal ) == 1 ){
+      returnObj$startVal <- NULL
    }
    paramNames <- c( paramNames, "sigmaSq", "gamma" )
    if( modelType == 1 ) {
