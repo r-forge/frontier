@@ -1114,6 +1114,6 @@ c       calculate b=inv(x'x)x'y
       double precision function dendis(a)
 c       calculates den(a) / dis(a)
       implicit double precision (a-h,o-z)
-      dendis=den(a)/dis(a)
+      dendis=dexp(denlog(a)-dislog(a))
       return
       end
