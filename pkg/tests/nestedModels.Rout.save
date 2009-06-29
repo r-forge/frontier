@@ -135,10 +135,10 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > # Comparisons
 > rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma         mu
-[1,]   -1.144691 0.3539985 0.3343665 0.2728681 18.38143 0.9980452  -67.24036
+[1,]   -1.144270 0.3540112 0.3343366 0.2728624 15.14468 0.9976302  -55.22099
 [2,]   -1.145766 0.3539452 0.3344952 0.2728637 28.64973 0.9987433 -105.42269
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ) )
-[1] "Mean relative difference: 0.0004889816"
+[1] "Mean relative difference: 0.00073359"
 > 
 > 
 > ############ panel data ###############
@@ -182,14 +182,14 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > all.equal( b6eef[ -c( 4, 5, 17, 27, 34 ) ], bb6eef[ -c( 4, 5, 17, 27, 34 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
-[1] "Mean relative difference: 0.0004889816"
+[1] "Mean relative difference: 0.00073359"
 > 
 > # Comparisons
 > rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma         mu
-[1,]   -1.144691 0.3539985 0.3343665 0.2728681 18.38143 0.9980452  -67.24036
+[1,]   -1.144270 0.3540112 0.3343366 0.2728624 15.14468 0.9976302  -55.22099
 [2,]   -1.145766 0.3539452 0.3344952 0.2728637 28.64973 0.9987433 -105.42269
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
-[1] "Mean relative difference: 0.0004889816"
+[1] "Mean relative difference: 0.00073359"
 > 
 > 
