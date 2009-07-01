@@ -50,8 +50,15 @@ frontierMle = function(startParam, data, iterlim=100) {
                 frontierNlmLapLimParam(mle$estimate,minVParam,maxVParam);
     hessian <- hessian / rep(lap,n) / rep(lap,each=n);
     rownames(hessian) <- colnames(hessian) <- names(vParam0);
-    
-    return( list(param = param,
-                 cov = solve(hessian),
-                 nIter = mle$iterations));
+
+   # create object to be returned
+   returnObj <- list( param = param, nIter = mle$iterations)
+   returnObj$cov <- try( solve( hessian ), silent = TRUE )
+   if( "try-error" %in% class( returnObj$cov ) ) {
+      warning( "cannot compute covariance matrix of the estimated parameters\n",
+         sub( "^Error[^:]*: *\n *", "", returnObj$cov ) )
+      returnObj$cov <- matrix( NA, n, n )
+   }
+
+   return( returnObj )
 }
