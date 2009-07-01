@@ -1,5 +1,5 @@
 
-R version 2.9.0 (2009-04-17)
+R version 2.9.1 (2009-06-26)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -109,6 +109,10 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 +    zNames = NA, code = "R" )
 > 
 > # Comparisons
+> rbind( coef( bb5ecf ), coef( bb5eef ) )
+     (Intercept)    lAREA    lLABOR      lNPK   sigmaSq     gamma
+[1,]   -1.043247 0.355511 0.3332991 0.2712778 0.2386281 0.8853828
+[2,]   -1.043247 0.355511 0.3332991 0.2712778 0.2386281 0.8853828
 > all.equal( coef( bb5ecf ), coef( bb5eef ) )
 [1] TRUE
 > all.equal( vcov( bb5ecf ), vcov( bb5eef ) )

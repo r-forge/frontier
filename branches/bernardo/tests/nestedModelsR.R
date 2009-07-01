@@ -26,6 +26,7 @@ bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
    zNames = NA, code = "R" )
 
 # Comparisons
+rbind( coef( bb5ecf ), coef( bb5eef ) )
 all.equal( coef( bb5ecf ), coef( bb5eef ) )
 all.equal( vcov( bb5ecf ), vcov( bb5eef ) )
 all.equal( efficiencies( bb5ecf ), efficiencies( bb5eef ) )
