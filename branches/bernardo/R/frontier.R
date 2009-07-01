@@ -222,7 +222,7 @@ frontier <- function(
    if( code == "Fortran" ) {
       returnObj <- .Fortran( "front41",
          modelType = as.integer( modelType ),
-         ineffDecrease = as.integer( !ineffDecrease + 1 ),
+         ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
          logDepVar = as.integer( logDepVar ),
          nn = as.integer( nn ),
          nt = as.integer( nt ),
