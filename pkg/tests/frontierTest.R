@@ -266,7 +266,7 @@ print.default( dd2 )
 
 ## cross-section rice data, efficiency effects cost frontier
 dd5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   zNames = c( "EDYRS" ), data = riceProdPhil, #, "BANRAT"
+   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE )
 print( dd5 )
 coef( dd5, which = "start" )
@@ -527,7 +527,7 @@ print.default( d4 )
 
 ## panel rice data, efficiency effects cost frontier
 d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   zNames = c( "EDYRS" ), data = riceProdPhil, #, "BANRAT"
+   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE )
 print( d5 )
 coef( d5, which = "start" )
