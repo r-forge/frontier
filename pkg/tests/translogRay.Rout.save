@@ -1,5 +1,5 @@
 
-R version 2.9.0 (2009-04-17)
+R version 2.9.2 (2009-08-24)
 Copyright (C) 2009 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -99,7 +99,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 +    xNames = c( "qLabor", "land", "qVarInput" ),
 +    data = germanFarms )
 Warning message:
-In frontier(yName = "y", xNames = xNamesAll, zNames = zNamesNew,  :
+In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > print( estResultRay )
 Stochastic Frontier Analysis with FRONTIER 4.1

@@ -10805,7 +10805,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 > dd1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
-In frontier("lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), data = riceProdPhil,  :
+In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( sdd1[-34], dd1[-34] )
 [1] TRUE
@@ -12144,7 +12144,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 > dd2 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
 Warning message:
-In frontier("lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), data = riceProdPhil,  :
+In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( sdd2[-34], dd2[-34] )
 [1] TRUE

@@ -110,8 +110,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
 }
 
 \details{
-   Functions \code{sfa} and \code{frontier} do the same
-   but they have a different user interface.
+   Function \code{frontier} is a wrapper function
+   that calls \code{sfa} for the estimation.
+   The two functions differ only in the user interface;
+   function \code{frontier} has the \dQuote{old} user interface
+   and is kept to maintain compatibility with older versions
+   of the \code{frontier} package.
 
    One can use functions \code{sfa} and \code{frontier}
    to calculate the log likelihood value for a given model,
