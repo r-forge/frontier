@@ -95,7 +95,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-33], a1[-c(31,34)] )
+> all.equal( sa1[-34], a1[-34] )
 [1] TRUE
 > print( a1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -509,7 +509,7 @@ attr(,"class")
 +    truncNorm = TRUE )
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-33], a2[-c(31,34)] )
+> all.equal( sa2[-34], a2[-34] )
 [1] TRUE
 > print( a2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -940,7 +940,7 @@ attr(,"class")
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-33], a5[-c(31,34)] )
+> all.equal( sa5[-34], a5[-34] )
 [1] TRUE
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1362,7 +1362,7 @@ attr(,"class")
 +    data = front41Data )
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-33], aa1[-c(31,34)] )
+> all.equal( saa1[-34], aa1[-34] )
 [1] TRUE
 > print( aa1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1788,7 +1788,7 @@ attr(,"class")
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-33], aa2[-c(31,34)] )
+> all.equal( saa2[-34], aa2[-34] )
 [1] TRUE
 > print( aa2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2227,7 +2227,7 @@ attr(,"class")
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-33], aa5[-c(31,34)] )
+> all.equal( saa5[-34], aa5[-34] )
 [1] TRUE
 > print( aa5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2669,7 +2669,7 @@ attr(,"class")
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-33], bb1[-c(31,34)] )
+> all.equal( sbb1[-34], bb1[-34] )
 [1] TRUE
 > print( bb1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -4009,7 +4009,7 @@ attr(,"class")
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-33], bb2[-c(31,34)] )
+> all.equal( sbb2[-34], bb2[-34] )
 [1] TRUE
 > print( bb2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -5361,7 +5361,7 @@ attr(,"class")
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-33], bb5[-c(31,34)] )
+> all.equal( sbb5[-34], bb5[-34] )
 [1] TRUE
 > print( bb5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -6719,7 +6719,7 @@ attr(,"class")
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-33], bb6[-c(31,34)] )
+> all.equal( sbb6[-34], bb6[-34] )
 [1] TRUE
 > print( bb6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -8084,7 +8084,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-33], bb7[-c(31,34)] )
+> all.equal( sbb7[-34], bb7[-34] )
 [1] TRUE
 > print( bb7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -9433,7 +9433,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-33], bb8[-c(31,34)] )
+> all.equal( sbb8[-34], bb8[-34] )
 [1] TRUE
 > print( bb8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -10807,7 +10807,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 Warning message:
 In frontier("lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), data = riceProdPhil,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( sdd1[-33], dd1[-c(31,34)] )
+> all.equal( sdd1[-34], dd1[-34] )
 [1] TRUE
 > print( dd1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -12146,7 +12146,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 Warning message:
 In frontier("lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), data = riceProdPhil,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( sdd2[-33], dd2[-c(31,34)] )
+> all.equal( sdd2[-34], dd2[-34] )
 [1] TRUE
 > print( dd2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -13492,7 +13492,7 @@ attr(,"class")
 > dd5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
-> all.equal( sdd5[-33], dd5[-c(31,34)] )
+> all.equal( sdd5[-34], dd5[-34] )
 [1] TRUE
 > print( dd5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -14844,7 +14844,7 @@ attr(,"class")
 > dd6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sdd6[-33], dd6[-c(31,34)] )
+> all.equal( sdd6[-34], dd6[-34] )
 [1] TRUE
 > print( dd6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -16208,7 +16208,7 @@ attr(,"class")
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > b1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-33], b1[-c(31,34)] )
+> all.equal( sb1[-34], b1[-34] )
 [1] TRUE
 > print( b1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -16966,7 +16966,7 @@ attr(,"class")
 > b2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-33], b2[-c(31,34)] )
+> all.equal( sb2[-34], b2[-34] )
 [1] TRUE
 > print( b2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -17736,7 +17736,7 @@ attr(,"class")
 > b3 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-33], b3[-c(31,34)] )
+> all.equal( sb3[-34], b3[-34] )
 [1] TRUE
 > print( b3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -18510,7 +18510,7 @@ attr(,"class")
 > b4 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-33], b4[-c(31,34)] )
+> all.equal( sb4[-34], b4[-34] )
 [1] TRUE
 > print( b4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -19290,7 +19290,7 @@ attr(,"class")
 > b5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-33], b5[-c(31,34)] )
+> all.equal( sb5[-34], b5[-34] )
 [1] TRUE
 > print( b5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -20070,7 +20070,7 @@ attr(,"class")
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-33], b6[-c(31,34)] )
+> all.equal( sb6[-34], b6[-34] )
 [1] TRUE
 > print( b6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -20858,7 +20858,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-33], b7[-c(31,34)] )
+> all.equal( sb7[-34], b7[-34] )
 [1] TRUE
 > print( b7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -21636,7 +21636,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-33], b8[-c(31,34)] )
+> all.equal( sb8[-34], b8[-34] )
 [1] TRUE
 > print( b8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -22420,7 +22420,7 @@ attr(,"class")
 +    ineffDecrease = FALSE )
 > d1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sd1[-33], d1[-c(31,34)] )
+> all.equal( sd1[-34], d1[-34] )
 [1] TRUE
 > print( d1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -23173,7 +23173,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-33], d2[-c(31,34)] )
+> all.equal( sd2[-34], d2[-34] )
 [1] TRUE
 > print( d2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -23938,7 +23938,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-33], d3[-c(31,34)] )
+> all.equal( sd3[-34], d3[-34] )
 [1] TRUE
 > print( d3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -24708,7 +24708,7 @@ attr(,"class")
 > d4 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-33], d4[-c(31,34)] )
+> all.equal( sd4[-34], d4[-34] )
 [1] TRUE
 > print( d4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -25485,7 +25485,7 @@ attr(,"class")
 > d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
-> all.equal( sd5[-33], d5[-c(31,34)] )
+> all.equal( sd5[-34], d5[-34] )
 [1] TRUE
 > print( d5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -26261,7 +26261,7 @@ attr(,"class")
 > d6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sd6[-33], d6[-c(31,34)] )
+> all.equal( sd6[-34], d6[-34] )
 [1] TRUE
 > print( d6 )
 Stochastic Frontier Analysis with FRONTIER 4.1

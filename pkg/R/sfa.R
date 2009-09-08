@@ -178,6 +178,7 @@ sfa <- function(
    # variables explaining the efficiency level
    if( is.null( effFormula  ) ) {
       zNames <- NULL
+      zIntercept <- FALSE
    } else {
       if( class( effFormula ) != "formula" ) {
          stop( "argument 'effFormula' must be a formula" )
@@ -321,9 +322,11 @@ sfa <- function(
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
       returnObj$truncNorm <- as.logical( returnObj$mu )
+      returnObj$zIntercept <- zIntercept
       returnObj$mu <- NULL
    } else {
       returnObj$truncNorm <- truncNorm
+      returnObj$zIntercept <- as.logical( returnObj$mu )
       returnObj$mu <- NULL
    }
    # eta: timeEffect, nz

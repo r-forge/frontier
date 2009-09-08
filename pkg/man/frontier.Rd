@@ -174,8 +174,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{nob}{number of observations in total.}
    \item{nb}{number of regressor variables (Xs).}
    \item{truncNorm}{logical. Argument \code{truncNorm}.}
-   \item{zIntercept}{logical. Argument \code{zIntercept}
-      (returned by \code{frontier} only).}
+   \item{zIntercept}{logical. Argument \code{zIntercept}.}
    \item{timeEffect}{logical. Argument \code{timeEffect}.}
    \item{printIter}{numeric. Argument \code{printIter} (see above).}
    \item{searchScale}{numeric. Argument \code{searchScale} (see above).}
