@@ -24,11 +24,7 @@ sfa( formula, effFormula = NULL, data = sys.frame( sys.parent() ),
    gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
 
 frontier( yName, xNames = NULL, zNames = NULL, data,
-   ineffDecrease = TRUE, logDepVar = TRUE, truncNorm = FALSE,
-   zIntercept = FALSE, timeEffect = FALSE, startVal = NULL,
-   tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
-   searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
-   gridSize = 0.1, gridDouble = TRUE, printIter = 0 )
+   zIntercept = FALSE, \dots )
 
 \method{print}{frontier}( x, \dots )
 }
@@ -106,7 +102,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (only relevant for the \sQuote{Efficiency Effects Frontier}).}
    \item{x}{an object of class \code{frontier}
       (returned by the function \code{frontier}).}
-   \item{\dots}{currently unused.}
+   \item{\dots}{additional arguments of \code{frontier}
+      are passed to \code{sfa};
+      additional arguments of the \code{print} method
+      are currently ignored.}
 }
 
 \details{

@@ -1,21 +1,7 @@
 frontier <- function(
       yName, xNames = NULL, zNames = NULL, data,
-      ineffDecrease = TRUE,
-      logDepVar = TRUE,
-      truncNorm = FALSE,
       zIntercept = FALSE,
-      timeEffect = FALSE,
-      startVal = NULL,
-      tol = 0.00001,
-      maxit = 1000,
-      muBound = 2,
-      bignum = 1.0E+16,
-      searchStep = 0.00001,
-      searchTol = 0.001,
-      searchScale = NA,
-      gridSize = 0.1,
-      gridDouble = TRUE,
-      printIter = 0 ) {
+      ... ) {
 
    # check names of variables
    checkNames( c( yName, xNames ), names( data ) )
@@ -67,21 +53,7 @@ frontier <- function(
       formula = sfaFormula,
       effFormula = effFormula,
       data = data,
-      ineffDecrease = ineffDecrease,
-      logDepVar = logDepVar,
-      truncNorm = truncNorm,
-      timeEffect = timeEffect,
-      startVal = startVal,
-      tol = tol,
-      maxit = maxit,
-      muBound = muBound,
-      bignum = bignum,
-      searchStep = searchStep,
-      searchTol = searchTol,
-      searchScale = searchScale,
-      gridSize = gridSize,
-      gridDouble = gridDouble,
-      printIter = printIter )
+      ... )
 
    returnObj$zIntercept <- zIntercept
    returnObj$call <- match.call()

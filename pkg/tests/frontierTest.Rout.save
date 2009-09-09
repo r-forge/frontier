@@ -16191,8 +16191,8 @@ $searchScale
 
 $call
 frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, ineffDecrease = FALSE, 
-    zIntercept = TRUE)
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
+    ineffDecrease = FALSE)
 
 attr(,"class")
 [1] "frontier"
@@ -27032,8 +27032,8 @@ $searchScale
 
 $call
 frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"), 
-    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, ineffDecrease = FALSE, 
-    zIntercept = TRUE)
+    zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE, 
+    ineffDecrease = FALSE)
 
 attr(,"class")
 [1] "frontier"
