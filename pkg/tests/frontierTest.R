@@ -823,6 +823,30 @@ logLik( bb8, newParam = coef( bb8 ) )
 logLik( sbb8, newParam = coef( sbb8 ) )
 
 
+## Cost Frontier (with land as quasi-fixed input)
+## cross-section rice data, error components cost frontier
+logLik( dd1 )
+logLik( dd1, newParam = coef( dd1 ) )
+logLik( sdd1, newParam = coef( sdd1 ) )
+logLik( Sdd1, newParam = coef( dd1 ) )
+
+## cross-section rice data, error components cost frontier, truncNorm
+logLik( dd2 )
+logLik( dd2, newParam = coef( dd2 ) )
+logLik( sdd2, newParam = coef( sdd2 ) )
+
+## cross-section rice data, efficiency effects cost frontier
+logLik( dd5 )
+logLik( dd5, newParam = coef( dd5 ) )
+logLik( sdd5, newParam = coef( sdd5 ) )
+logLik( Sdd5, newParam = coef( dd5 ) )
+
+## cross-section rice data, efficiency effects cost frontier, zIntercept
+logLik( dd6 )
+logLik( dd6, newParam = coef( dd6 ) )
+logLik( sdd6, newParam = coef( sdd6 ) )
+
+
 ## panel data
 riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 
@@ -867,6 +891,40 @@ logLik( sb7, newParam = coef( sb7 ) )
 logLik( b8 )
 logLik( b8, newParam = coef( b8 ) )
 logLik( sb8, newParam = coef( sb8 ) )
+
+
+## Cost Frontier (with land as quasi-fixed input)
+## panel rice data, error components cost frontier
+logLik( d1 )
+logLik( d1, newParam = coef( d1 ) )
+logLik( sd1, newParam = coef( sd1 ) )
+logLik( Sd1, newParam = coef( d1 ) )
+
+## panel rice data, error components cost frontier, truncNorm
+logLik( d2 )
+logLik( d2, newParam = coef( d2 ) )
+logLik( sd2, newParam = coef( sd2 ) )
+
+## panel rice data, error components cost frontier, timeEffect
+logLik( d3 )
+logLik( d3, newParam = coef( d3 ) )
+logLik( sd3, newParam = coef( sd3 ) )
+
+## panel rice data, error components cost frontier, truncNorm, timeEffect
+logLik( d4 )
+logLik( d4, newParam = coef( d4 ) )
+logLik( sd4, newParam = coef( sd4 ) )
+
+## panel rice data, efficiency effects cost frontier
+logLik( d5 )
+logLik( d5, newParam = coef( d5 ) )
+logLik( sd5, newParam = coef( sd5 ) )
+logLik( Sd5, newParam = coef( d5 ) )
+
+## panel rice data, efficiency effects cost frontier, zIntercept
+logLik( d6 )
+logLik( d6, newParam = coef( d6 ) )
+logLik( sd6, newParam = coef( sd6 ) )
 
 
 ## translog frontiers
