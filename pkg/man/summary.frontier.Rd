@@ -36,31 +36,24 @@ returned by \code{\link{frontier}}.
 \author{Arne Henningsen}
 
 \examples{
-   # example included in FRONTIER 4.1
+   # example included in FRONTIER 4.1 (cross-section data)
    data( front41Data )
-   front41Data$logOutput  <- log( front41Data$output )
-   front41Data$logCapital <- log( front41Data$capital )
-   front41Data$logLabour  <- log( front41Data$labour )
 
-   sfa <- frontier( yName = "logOutput",
-      xNames = c( "logCapital", "logLabour" ), data = front41Data )
-   summary( sfa )
+   sfaResult <- sfa( log( output ) ~ log( capital ) + log( labour ),
+      data = front41Data )
+   summary( sfaResult )
 
-   # rice producers in the Phillipines
+   # rice producers in the Phillipines (panel data)
    data( riceProdPhil )
-   riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
-   riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
-   riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
-   riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
-   riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
-   rice <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil )
+   # Error Components Frontier
+   rice <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      data = riceProdPhil )
    summary( rice )
 
-   rice2 <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ),
-      zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil )
+   # Efficiency Effects Frontier
+   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      ~ EDYRS + BANRAT, data = riceProdPhil )
    summary( rice2 )
 }
 

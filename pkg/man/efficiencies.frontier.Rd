@@ -45,21 +45,16 @@
    # rice producers in the Philippines (panel data)
    data( riceProdPhil )
    riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
-   riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
-   riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
-   riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
-   riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 
    # Error Components Frontier (Battese & Coelli 1992), no time effect
-   rice <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil )
+   rice <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      data = riceProdPhil )
    efficiencies( rice )
    riceProdPhil$efficiencies <- efficiencies( rice, asInData = TRUE )
 
    # Error Components Frontier (Battese & Coelli 1992), with time effect
-   riceTime <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil,
-      timeEffect = TRUE )
+   riceTime <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      data = riceProdPhil, timeEffect = TRUE )
    efficiencies( riceTime )
    riceProdPhil$efficienciesTime <- efficiencies( riceTime, asInData = TRUE )
 }
