@@ -26,7 +26,7 @@ frontier <- function(
 
    # formula for the SFA
    sfaFormula <- paste( yName, "~",
-      paste( xNames, collapse = " + " ) )
+      paste( c( "1", xNames ), collapse = " + " ) )
 
    # formula for efficiency effects
    if( is.null( zNames ) ) {
