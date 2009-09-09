@@ -1,6 +1,7 @@
 library( frontier )
 options( digits = 5 )
 
+## example data included in FRONTIER 4.1 (cross-section data)
 data( front41Data )
 row.names( front41Data ) <- paste( "F", row.names( front41Data ), sep = "_" )
 front41Data$logOutput  <- log( front41Data$output )
@@ -747,6 +748,29 @@ print( translogZvarEla )
 attributes( translogZvarEla )$variance
 attributes( translogZvarEla )$stdDev
 print.default( translogZvar )
+
+
+##############################################
+## estimation with data NOT in a data frame ##
+##############################################
+
+## example data included in FRONTIER 4.1 (cross-section data)
+y <- front41Data$output
+x1 <- front41Data$capital
+x2 <- front41Data$labour
+z1 <- front41Data$firmNo
+
+## cross-section data, error components frontier
+a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
+all.equal( a1a[ -34 ], a1[ -34 ], check.attributes = FALSE )
+
+## cross-section data, efficiency effects frontier
+aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
+all.equal( aa1a[ -34 ], aa1[ -34 ], check.attributes = FALSE )
+
+## cross-section data, efficiency effects frontier, zIntercept
+aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
+all.equal( aa2a[ -34 ], aa2[ -34 ], check.attributes = FALSE )
 
 
 ##############################################
