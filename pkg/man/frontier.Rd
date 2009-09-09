@@ -269,6 +269,40 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    riceCost <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
       data = riceProdPhil, ineffDecrease = FALSE )
    summary( riceCost )
+
+   ######################################################
+   ### using frontier() with the "old" user interface ###
+   ######################################################
+
+   # example included in FRONTIER 4.1 (cross-section data)
+   front41Data$logOutput  <- log( front41Data$output )
+   front41Data$logCapital <- log( front41Data$capital )
+   front41Data$logLabour  <- log( front41Data$labour )
+
+   # Cobb-Douglas production frontier
+   cobbDouglasFront <- frontier( yName = "logOutput",
+      xNames = c( "logCapital", "logLabour" ), data = front41Data )
+   all.equal( cobbDouglasFront, cobbDouglas )   # only the call (element 34)
+      # and the names of the parameters are slightly different
+
+   # rice producers in the Philippines (panel data)
+   riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
+   riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
+   riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
+   riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
+
+   # Error Components Frontier (Battese & Coelli 1992)
+   riceFront <- frontier( yName = "lPROD",
+      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil )
+   all.equal( riceFront, rice )   # only the call (element 34)
+      # and the names of the parameters are slightly different
+
+   # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
+   rice2Front <- frontier( yName = "lPROD",
+      xNames = c( "lAREA", "lLABOR", "lNPK" ),
+      zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil )
+   all.equal( rice2Front, rice2 )   # only the call (element 34)
+      # and the names of the parameters are slightly different
 }
 
 \keyword{models}
