@@ -29055,11 +29055,17 @@ attr(,"class")
 [1] -17.0272240
 > logLik( a1, newParam = coef( a1 ) )
 [1] -17.0272240
+> logLik( sa1, newParam = coef( sa1 ) )
+[1] -17.0272240
+> logLik( Sa1, newParam = coef( a1 ) )
+[1] -17.0272240
 > 
 > ## cross-section data, error components frontier, truncNorm
 > logLik( a2 )
 [1] -16.7956674
 > logLik( a2, newParam = coef( a2 ) )
+[1] -16.7956674
+> logLik( sa2, newParam = coef( sa2 ) )
 [1] -16.7956674
 > 
 > ## cross-section data, error components frontier, truncNorm, starting values
@@ -29067,11 +29073,17 @@ attr(,"class")
 [1] -16.7948264
 > logLik( a5, newParam = coef( a5 ) )
 [1] -16.7948264
+> logLik( sa5, newParam = coef( sa5 ) )
+[1] -16.7948264
 > 
 > ## cross-section data, efficiency effects frontier
 > logLik( aa1 )
 [1] -16.3821693
 > logLik( aa1, newParam = coef( aa1 ) )
+[1] -16.3821693
+> logLik( saa1, newParam = coef( saa1 ) )
+[1] -16.3821693
+> logLik( Saa1, newParam = coef( aa1 ) )
 [1] -16.3821693
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
@@ -29079,11 +29091,15 @@ attr(,"class")
 [1] -16.3556547
 > logLik( aa2, newParam = coef( aa2 ) )
 [1] -16.3556547
+> logLik( saa2, newParam = coef( saa2 ) )
+[1] -16.3556547
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
 > logLik( aa5 )
 [1] -16.3556547
 > logLik( aa5, newParam = coef( aa5 ) )
+[1] -16.3556547
+> logLik( saa5, newParam = coef( saa5 ) )
 [1] -16.3556547
 > 
 > 
@@ -29095,11 +29111,17 @@ attr(,"class")
 [1] -86.2026818
 > logLik( bb1, newParam = coef( bb1 ) )
 [1] -86.2026818
+> logLik( sbb1, newParam = coef( sbb1 ) )
+[1] -86.2026818
+> logLik( Sbb1, newParam = coef( bb1 ) )
+[1] -86.2026818
 > 
 > ## cross-section rice data, error components frontier, truncNorm
 > logLik( bb2 )
 [1] -82.2298049
 > logLik( bb2, newParam = coef( bb2 ) )
+[1] -82.2298049
+> logLik( sbb2, newParam = coef( sbb2 ) )
 [1] -82.2298049
 > 
 > ## cross-section rice data, efficiency effects frontier
@@ -29107,11 +29129,17 @@ attr(,"class")
 [1] -77.849544
 > logLik( bb5, newParam = coef( bb5 ) )
 [1] -77.849544
+> logLik( sbb5, newParam = coef( sbb5 ) )
+[1] -77.849544
+> logLik( Sbb5, newParam = coef( bb5 ) )
+[1] -77.849544
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept
 > logLik( bb6 )
 [1] -77.3136259
 > logLik( bb6, newParam = coef( bb6 ) )
+[1] -77.3136259
+> logLik( sbb6, newParam = coef( sbb6 ) )
 [1] -77.3136259
 > 
 > ## cross-section rice data, error components frontier, truncNorm, starting values
@@ -29119,11 +29147,15 @@ attr(,"class")
 [1] -82.2236347
 > logLik( bb7, newParam = coef( bb7 ) )
 [1] -82.2236347
+> logLik( sbb7, newParam = coef( sbb7 ) )
+[1] -82.2236347
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 > logLik( bb8 )
 [1] -77.313626
 > logLik( bb8, newParam = coef( bb8 ) )
+[1] -77.313626
+> logLik( sbb8, newParam = coef( sbb8 ) )
 [1] -77.313626
 > 
 > 
@@ -29135,11 +29167,17 @@ attr(,"class")
 [1] -86.4304195
 > logLik( b1, newParam = coef( b1 ) )
 [1] -86.4304195
+> logLik( sb1, newParam = coef( sb1 ) )
+[1] -86.4304195
+> logLik( Sb1, newParam = coef( b1 ) )
+[1] -86.4304195
 > 
 > ## panel data, error components frontier, truncNorm
 > logLik( b2 )
 [1] -86.3428632
 > logLik( b2, newParam = coef( b2 ) )
+[1] -86.3428632
+> logLik( sb2, newParam = coef( sb2 ) )
 [1] -86.3428632
 > 
 > ## panel data, error components frontier, timeEffect
@@ -29147,11 +29185,15 @@ attr(,"class")
 [1] -84.5503578
 > logLik( b3, newParam = coef( b3 ) )
 [1] -84.5503578
+> logLik( sb3, newParam = coef( sb3 ) )
+[1] -84.5503578
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect
 > logLik( b4 )
 [1] -84.4067823
 > logLik( b4, newParam = coef( b4 ) )
+[1] -84.4067823
+> logLik( sb4, newParam = coef( sb4 ) )
 [1] -84.4067823
 > 
 > ## panel data, efficiency effects frontier
@@ -29159,11 +29201,17 @@ attr(,"class")
 [1] -77.849544
 > logLik( b5, newParam = coef( b5 ) )
 [1] -77.849544
+> logLik( sb5, newParam = coef( sb5 ) )
+[1] -77.849544
+> logLik( Sb5, newParam = coef( b5 ) )
+[1] -77.849544
 > 
 > ## panel data, efficiency effects frontier, zIntercept
 > logLik( b6 )
 [1] -77.3136259
 > logLik( b6, newParam = coef( b6 ) )
+[1] -77.3136259
+> logLik( sb6, newParam = coef( sb6 ) )
 [1] -77.3136259
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect, starting values
@@ -29171,11 +29219,15 @@ attr(,"class")
 [1] -84.4067823
 > logLik( b7, newParam = coef( b7 ) )
 [1] -84.4067823
+> logLik( sb7, newParam = coef( sb7 ) )
+[1] -84.4067823
 > 
 > ## panel data, efficiency effects frontier, zIntercept, starting values
 > logLik( b8 )
 [1] -77.3136259
 > logLik( b8, newParam = coef( b8 ) )
+[1] -77.3136259
+> logLik( sb8, newParam = coef( sb8 ) )
 [1] -77.3136259
 > 
 > 

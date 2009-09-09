@@ -757,26 +757,34 @@ options( digits = 9 )
 ## cross-section data, error components frontier
 logLik( a1 )
 logLik( a1, newParam = coef( a1 ) )
+logLik( sa1, newParam = coef( sa1 ) )
+logLik( Sa1, newParam = coef( a1 ) )
 
 ## cross-section data, error components frontier, truncNorm
 logLik( a2 )
 logLik( a2, newParam = coef( a2 ) )
+logLik( sa2, newParam = coef( sa2 ) )
 
 ## cross-section data, error components frontier, truncNorm, starting values
 logLik( a5 )
 logLik( a5, newParam = coef( a5 ) )
+logLik( sa5, newParam = coef( sa5 ) )
 
 ## cross-section data, efficiency effects frontier
 logLik( aa1 )
 logLik( aa1, newParam = coef( aa1 ) )
+logLik( saa1, newParam = coef( saa1 ) )
+logLik( Saa1, newParam = coef( aa1 ) )
 
 ## cross-section data, efficiency effects frontier, zIntercept
 logLik( aa2 )
 logLik( aa2, newParam = coef( aa2 ) )
+logLik( saa2, newParam = coef( saa2 ) )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
 logLik( aa5 )
 logLik( aa5, newParam = coef( aa5 ) )
+logLik( saa5, newParam = coef( saa5 ) )
 
 
 ## data set of rice producers in the Philippines
@@ -785,26 +793,34 @@ riceProdPhil <- as.data.frame( riceProdPhil )
 ## cross-section rice data, error components frontier
 logLik( bb1 )
 logLik( bb1, newParam = coef( bb1 ) )
+logLik( sbb1, newParam = coef( sbb1 ) )
+logLik( Sbb1, newParam = coef( bb1 ) )
 
 ## cross-section rice data, error components frontier, truncNorm
 logLik( bb2 )
 logLik( bb2, newParam = coef( bb2 ) )
+logLik( sbb2, newParam = coef( sbb2 ) )
 
 ## cross-section rice data, efficiency effects frontier
 logLik( bb5 )
 logLik( bb5, newParam = coef( bb5 ) )
+logLik( sbb5, newParam = coef( sbb5 ) )
+logLik( Sbb5, newParam = coef( bb5 ) )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept
 logLik( bb6 )
 logLik( bb6, newParam = coef( bb6 ) )
+logLik( sbb6, newParam = coef( sbb6 ) )
 
 ## cross-section rice data, error components frontier, truncNorm, starting values
 logLik( bb7 )
 logLik( bb7, newParam = coef( bb7 ) )
+logLik( sbb7, newParam = coef( sbb7 ) )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 logLik( bb8 )
 logLik( bb8, newParam = coef( bb8 ) )
+logLik( sbb8, newParam = coef( sbb8 ) )
 
 
 ## panel data
@@ -813,34 +829,44 @@ riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 ## panel data, error components frontier
 logLik( b1 )
 logLik( b1, newParam = coef( b1 ) )
+logLik( sb1, newParam = coef( sb1 ) )
+logLik( Sb1, newParam = coef( b1 ) )
 
 ## panel data, error components frontier, truncNorm
 logLik( b2 )
 logLik( b2, newParam = coef( b2 ) )
+logLik( sb2, newParam = coef( sb2 ) )
 
 ## panel data, error components frontier, timeEffect
 logLik( b3 )
 logLik( b3, newParam = coef( b3 ) )
+logLik( sb3, newParam = coef( sb3 ) )
 
 ## panel data, error components frontier, truncNorm, timeEffect
 logLik( b4 )
 logLik( b4, newParam = coef( b4 ) )
+logLik( sb4, newParam = coef( sb4 ) )
 
 ## panel data, efficiency effects frontier
 logLik( b5 )
 logLik( b5, newParam = coef( b5 ) )
+logLik( sb5, newParam = coef( sb5 ) )
+logLik( Sb5, newParam = coef( b5 ) )
 
 ## panel data, efficiency effects frontier, zIntercept
 logLik( b6 )
 logLik( b6, newParam = coef( b6 ) )
+logLik( sb6, newParam = coef( sb6 ) )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
 logLik( b7 )
 logLik( b7, newParam = coef( b7 ) )
+logLik( sb7, newParam = coef( sb7 ) )
 
 ## panel data, efficiency effects frontier, zIntercept, starting values
 logLik( b8 )
 logLik( b8, newParam = coef( b8 ) )
+logLik( sb8, newParam = coef( sb8 ) )
 
 
 ## translog frontiers
