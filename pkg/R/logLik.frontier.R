@@ -56,7 +56,6 @@ logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
          } else if( object$call[1] == "sfa()" ) {
             result <- logLik( sfa(
                formula = eval( object$call$formula ),
-               effFormula = eval( object$call$effFormula ),
                data = eval( object$call$data ),
                ineffDecrease = object$ineffDecrease,
                logDepVar = object$logDepVar,

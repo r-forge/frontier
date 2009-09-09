@@ -25,33 +25,31 @@ frontier <- function(
    }
 
    # formula for the SFA
-   sfaFormula <- as.formula( paste( yName, "~",
-      paste( xNames, collapse = " + " ) ) )
+   sfaFormula <- paste( yName, "~",
+      paste( xNames, collapse = " + " ) )
 
    # formula for efficiency effects
    if( is.null( zNames ) ) {
-      effFormula <- NULL
+      sfaFormula <- as.formula( sfaFormula )
    } else {
       if( is.na( zNames[1] ) ) {
          if( zIntercept ) {
-            effFormula <- ~ 1
+            effFormula <- "1"
          } else {
-            effFormula <- ~ - 1
+            effFormula <- "- 1"
          }
       } else {
          if( zIntercept ) {
-            effFormula <- as.formula( paste( "~",
-               paste( zNames, collapse = " + " ) ) )
+            effFormula <- paste( zNames, collapse = " + " )
          } else {
-            effFormula <- as.formula( paste( "~",
-               paste( zNames, collapse = " + " ), "- 1" ) )
+            effFormula <- paste( paste( zNames, collapse = " + " ), "- 1" )
          }
       }
+      sfaFormula <- as.formula( paste( sfaFormula, "|", effFormula ) )
    }
 
    returnObj <- sfa(
       formula = sfaFormula,
-      effFormula = effFormula,
       data = data,
       ... )
 

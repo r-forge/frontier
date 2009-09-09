@@ -1361,9 +1361,9 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section data, efficiency effects frontier
-> saa1 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo - 1,
+> saa1 <- sfa( logOutput ~ logCapital + logLabour | firmNo - 1,
 +    data = front41Data )
-> Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), ~ firmNo - 1,
+> Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
 +    data = front41Data )
 > all.equal( Saa1[-34], saa1[-34], check.attributes = FALSE )
 [1] TRUE
@@ -1791,7 +1791,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
-> saa2 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo,
+> saa2 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
@@ -2229,7 +2229,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
-> saa5 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo,
+> saa5 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
 +    data = front41Data, startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
@@ -5367,10 +5367,10 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section rice data, efficiency effects frontier
-> sbb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT - 1,
+> sbb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhil )
-> Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    ~ EDYRS + BANRAT - 1, data = riceProdPhil )
+> Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
++    EDYRS + BANRAT - 1, data = riceProdPhil )
 > all.equal( Sbb5[-34], sbb5[-34], check.attributes = FALSE )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
@@ -6729,7 +6729,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept
-> sbb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+> sbb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhil )
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -9441,7 +9441,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
-> sbb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+> sbb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhil,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 > bb8 <- frontier( data = riceProdPhil,
@@ -10827,7 +10827,7 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
 > dd1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
-In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
+In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( sdd1[-34], dd1[-34] )
 [1] TRUE
@@ -12166,7 +12166,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 > dd2 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
 Warning message:
-In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
+In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( sdd2[-34], dd2[-34] )
 [1] TRUE
@@ -13509,10 +13509,10 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section rice data, efficiency effects cost frontier
-> sdd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT - 1,
+> sdd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> Sdd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    ~ EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+> Sdd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
++    EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 > all.equal( Sdd5[-34], sdd5[-34], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
@@ -14865,7 +14865,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
-> sdd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT,
+> sdd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > dd6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -19315,10 +19315,10 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## panel data, efficiency effects frontier
-> sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT - 1,
+> sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhil )
-> Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    ~ EDYRS + BANRAT - 1, data = riceProdPhil )
+> Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
++    EDYRS + BANRAT - 1, data = riceProdPhil )
 > all.equal( Sb5[-34], sb5[-34], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhil,
@@ -20099,7 +20099,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## panel data, efficiency effects frontier, zIntercept
-> sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+> sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhil )
 > b6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -21663,7 +21663,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## panel data, efficiency effects frontier, zIntercept, starting values
-> sb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+> sb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhil,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 > b8 <- frontier( data = riceProdPhil,
@@ -25518,10 +25518,10 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## panel rice data, efficiency effects cost frontier
-> sd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT - 1,
+> sd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    ~ EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+> Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
++    EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 > all.equal( Sd5[-34], sd5[-34], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
@@ -26298,7 +26298,7 @@ attr(,"class")
 [1] "frontier"
 > 
 > ## panel rice data, efficiency effects cost frontier, zIntercept
-> sd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT,
+> sd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > d6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -29166,17 +29166,17 @@ attr(,"class")
 > logLik( dd1, newParam = coef( dd1 ) )
 [1] -42.6228824
 Warning message:
-In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
+In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > logLik( sdd1, newParam = coef( sdd1 ) )
 [1] -42.6228824
 Warning message:
-In sfa(formula = eval(object$call$formula), effFormula = eval(object$call$effFormula),  :
+In sfa(formula = eval(object$call$formula), data = eval(object$call$data),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > logLik( Sdd1, newParam = coef( dd1 ) )
 [1] -42.6228824
 Warning message:
-In sfa(formula = eval(object$call$formula), effFormula = eval(object$call$effFormula),  :
+In sfa(formula = eval(object$call$formula), data = eval(object$call$data),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > 
 > ## cross-section rice data, error components cost frontier, truncNorm
@@ -29185,12 +29185,12 @@ In sfa(formula = eval(object$call$formula), effFormula = eval(object$call$effFor
 > logLik( dd2, newParam = coef( dd2 ) )
 [1] -42.6244767
 Warning message:
-In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
+In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > logLik( sdd2, newParam = coef( sdd2 ) )
 [1] -42.6244767
 Warning message:
-In sfa(formula = eval(object$call$formula), effFormula = eval(object$call$effFormula),  :
+In sfa(formula = eval(object$call$formula), data = eval(object$call$data),  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > 
 > ## cross-section rice data, efficiency effects cost frontier

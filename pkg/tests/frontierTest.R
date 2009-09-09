@@ -75,9 +75,9 @@ efficiencies( a5, asInData = TRUE )
 print.default( a5 )
 
 ## cross-section data, efficiency effects frontier
-saa1 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo - 1,
+saa1 <- sfa( logOutput ~ logCapital + logLabour | firmNo - 1,
    data = front41Data )
-Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), ~ firmNo - 1,
+Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
    data = front41Data )
 all.equal( Saa1[-34], saa1[-34], check.attributes = FALSE )
 aa1 <- frontier( data = front41Data, "logOutput",
@@ -97,7 +97,7 @@ efficiencies( aa1, asInData = TRUE )
 print.default( aa1 )
 
 ## cross-section data, efficiency effects frontier, zIntercept
-saa2 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo,
+saa2 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
    data = front41Data )
 aa2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
@@ -116,7 +116,7 @@ efficiencies( aa2, asInData = TRUE )
 print.default( aa2 )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
-saa5 <- sfa( logOutput ~ logCapital + logLabour, ~ firmNo,
+saa5 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
    data = front41Data, startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
 aa5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
@@ -185,10 +185,10 @@ efficiencies( bb2, asInData = TRUE )
 print.default( bb2 )
 
 ## cross-section rice data, efficiency effects frontier
-sbb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT - 1,
+sbb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhil )
-Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-   ~ EDYRS + BANRAT - 1, data = riceProdPhil )
+Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT - 1, data = riceProdPhil )
 all.equal( Sbb5[-34], sbb5[-34], check.attributes = FALSE )
 bb5 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -208,7 +208,7 @@ efficiencies( bb5, asInData = TRUE )
 print.default( bb5 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept
-sbb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+sbb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhil )
 bb6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -249,7 +249,7 @@ efficiencies( bb7, asInData = TRUE )
 print.default( bb7 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
-sbb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+sbb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhil,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 bb8 <- frontier( data = riceProdPhil,
@@ -320,10 +320,10 @@ efficiencies( dd2, asInData = TRUE )
 print.default( dd2 )
 
 ## cross-section rice data, efficiency effects cost frontier
-sdd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT - 1,
+sdd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
    data = riceProdPhil, ineffDecrease = FALSE )
-Sdd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-   ~ EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+Sdd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
+   EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 all.equal( Sdd5[-34], sdd5[-34], check.attributes = FALSE )
 dd5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -343,7 +343,7 @@ efficiencies( dd5, asInData = TRUE )
 print.default( dd5 )
 
 ## cross-section rice data, efficiency effects cost frontier, zIntercept
-sdd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT,
+sdd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
    data = riceProdPhil, ineffDecrease = FALSE )
 dd6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -459,10 +459,10 @@ efficiencies( b4, asInData = TRUE )
 print.default( b4 )
 
 ## panel data, efficiency effects frontier
-sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT - 1,
+sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhil )
-Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-   ~ EDYRS + BANRAT - 1, data = riceProdPhil )
+Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT - 1, data = riceProdPhil )
 all.equal( Sb5[-34], sb5[-34], check.attributes = FALSE )
 b5 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -484,7 +484,7 @@ efficiencies( b5, asInData = TRUE )
 print.default( b5 )
 
 ## panel data, efficiency effects frontier, zIntercept
-sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhil )
 b6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -530,7 +530,7 @@ efficiencies( b7, asInData = TRUE )
 print.default( b7 )
 
 ## panel data, efficiency effects frontier, zIntercept, starting values
-sb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ EDYRS + BANRAT,
+sb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhil,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 b8 <- frontier( data = riceProdPhil,
@@ -636,10 +636,10 @@ efficiencies( d4, asInData = TRUE )
 print.default( d4 )
 
 ## panel rice data, efficiency effects cost frontier
-sd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT - 1,
+sd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
    data = riceProdPhil, ineffDecrease = FALSE )
-Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-   ~ EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
+   EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 all.equal( Sd5[-34], sd5[-34], check.attributes = FALSE )
 d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -659,7 +659,7 @@ efficiencies( d5, asInData = TRUE )
 print.default( d5 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
-sd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, ~ EDYRS + BANRAT,
+sd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
    data = riceProdPhil, ineffDecrease = FALSE )
 d6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,

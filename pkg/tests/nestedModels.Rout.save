@@ -108,7 +108,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
-> sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ - 1,
+> sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
 +    data = as.data.frame( riceProdPhil ) )
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -140,7 +140,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
-> sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ 1,
+> sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 +    data = as.data.frame( riceProdPhil ) )
 > bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -164,7 +164,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > b5ecf <- bb5ecf
 > 
 > # Efficiency Effects Frontier (EEF)
-> sb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ - 1,
+> sb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
 +    data = riceProdPhil )
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -200,7 +200,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
-> sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ 1,
+> sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 +    data = riceProdPhil )
 > b6eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),

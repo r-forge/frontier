@@ -24,7 +24,7 @@ bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 all.equal( sbb5ecf[-34], bb5ecf[-34] )
 
 # Efficiency Effects Frontier (EEF)
-sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ - 1,
+sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
    data = as.data.frame( riceProdPhil ) )
 bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -48,7 +48,7 @@ bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 all.equal( sbb6ecf[-34], bb6ecf[-34] )
 
 # Efficiency Effects Frontier (EEF)
-sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ 1,
+sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
    data = as.data.frame( riceProdPhil ) )
 bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -67,7 +67,7 @@ all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ) )
 b5ecf <- bb5ecf
 
 # Efficiency Effects Frontier (EEF)
-sb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ - 1,
+sb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
    data = riceProdPhil )
 b5eef <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -93,7 +93,7 @@ all.equal( sb6ecf[-34], b6ecf[-34] )
 all.equal( b6ecf[ -34 ], bb6ecf[ -34 ] )
 
 # Efficiency Effects Frontier (EEF)
-sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK, ~ 1,
+sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
    data = riceProdPhil )
 b6eef <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),

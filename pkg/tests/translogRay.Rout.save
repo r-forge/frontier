@@ -99,7 +99,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 +    xNames = c( "qLabor", "land", "qVarInput" ),
 +    data = germanFarms )
 Warning message:
-In sfa(formula = sfaFormula, effFormula = effFormula, data = data,  :
+In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > print( estResultRay )
 Stochastic Frontier Analysis with FRONTIER 4.1

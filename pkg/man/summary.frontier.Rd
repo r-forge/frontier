@@ -53,8 +53,8 @@ returned by \code{\link{frontier}}.
    summary( rice )
 
    # Efficiency Effects Frontier
-   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-      ~ EDYRS + BANRAT, data = riceProdPhil )
+   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+      EDYRS + BANRAT, data = riceProdPhil )
    summary( rice2 )
 }
 

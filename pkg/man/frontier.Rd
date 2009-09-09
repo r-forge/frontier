@@ -16,7 +16,7 @@
 }
 
 \usage{
-sfa( formula, effFormula = NULL, data = sys.frame( sys.parent() ),
+sfa( formula, data = sys.frame( sys.parent() ),
    ineffDecrease = TRUE,  logDepVar = TRUE, truncNorm = FALSE,
    timeEffect = FALSE, startVal = NULL,
    tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
@@ -30,11 +30,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
 }
 
 \arguments{
-   \item{formula}{a formula (object of class \code{formula})
-      that specifies the model to be fitted.}
-   \item{effFormula}{a one-sided formula
-      (object of class \code{formula} without left hand-side variable)
-      that specifies the variables explaining the efficiency levels.}
+   \item{formula}{a symbolic description of the model to be estimated;
+      it can be either a (usual) one-part or a two-part formula
+      (see section \sQuote{Details}).}
    \item{data}{a (panel) data frame that contains the data;
       if \code{data} is a usual data.frame,
       it is assumed that these are cross-section data;
@@ -142,16 +140,24 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    It is recommended to read this documentation, 
    because the \code{frontier} function is based on the FRONTIER 4.1 software.
 
-   If argument \code{effFormula} of \code{sfa}
-   (or argument\code{zNames} of \code{frontier}) is \code{NULL},
+   If argument \code{formula} of \code{sfa} is a (usual) one-part formula
+   (or argument \code{zNames} of \code{frontier} is \code{NULL}),
    an \sQuote{Error Components Frontier} (ECF, see Battese and Coelli 1992)
    is estimated.
-   If argument \code{effFormula} (or \code{zNames}) is not \code{NULL},
+   If argument \code{formula} is a two-part formula
+   (or \code{zNames}) is not \code{NULL}),
    an \sQuote{Efficiency Effects Frontier} (EEF, see Battese and Coelli 1995)
    is estimated.
+   In this case, the first part of the formula
+   (i.e. the part before the \dQuote{|} symbol)
+   is used to explain the endogenous variable directly (X variables),
+   while the second part of the formula
+   (i.e. the part after the \dQuote{|} symbol)
+   is used to explain the efficiency levels (Z variables).
    Generally, there should be no reason for estimating an EEF
    without Z variables,
-   but this can done by setting argument \code{effFormula} to \code{~ - 1}
+   but this can done by setting the second part of argument \code{formula}
+   to \code{1} (with Z intercept) or \code{- 1} (without Z intercept)
    (or by setting argument \code{zNames}) to \code{NA}).
 
    In case of an Error Components Frontier (ECF)
@@ -259,8 +265,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    summary( rice )
 
    # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
-   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-      ~ EDYRS + BANRAT - 1, data = riceProdPhil )
+   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+      EDYRS + BANRAT - 1, data = riceProdPhil )
    summary( rice2 )
 
    # Cost Frontier (with land as quasi-fixed input)

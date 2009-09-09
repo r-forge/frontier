@@ -1,5 +1,5 @@
 sfa <- function(
-      formula, effFormula = NULL, data = sys.frame( sys.parent() ),
+      formula, data = sys.frame( sys.parent() ),
       ineffDecrease = TRUE,
       logDepVar = TRUE,
       truncNorm = FALSE,
@@ -17,11 +17,17 @@ sfa <- function(
       printIter = 0 ) {
 
    # determine modelType (im)
-   if( is.null( effFormula ) ) {
+   formula <- as.Formula( formula )
+   if( length( formula ) == 1 ) {
       modelType <- 1
-   } else {
+      effFormula <- NULL
+   } else if( length( formula ) == 2 ) {
       modelType <- 2
+      effFormula <- formula( formula, part = "second", response = FALSE )
+   } else {
+      stop( "argument 'formula' has an inappropriate number of parts" )
    }
+   formula <- formula( formula, part = "first", response = TRUE )
 
    # formula
    if( class( formula ) != "formula" ) {
@@ -125,11 +131,12 @@ sfa <- function(
 
    # preparing model matrix and model response
    mc <- match.call( expand.dots = FALSE )
-   m <- match( c( "formula", "data" ), names( mc ), 0 )
+   m <- match( "data", names( mc ), 0 )
    mf <- mc[ c( 1, m ) ]
+   mf$formula <- formula
    mf$na.action <- na.pass
    mf[[ 1 ]] <- as.name( "model.frame" )
-   names( mf )[ 2 ] <- "formula"
+   names( mf )[ 3 ] <- "formula"
    mf <- eval( mf, parent.frame() )
    mt <- attr( mf, "terms" )
    xMat <- model.matrix( mt, mf )
@@ -185,11 +192,12 @@ sfa <- function(
       } else if( length( effFormula ) != 2 ) {
          stop( "argument 'formula' must be a 1-sided formula" )
       }
-      me <- match( c( "effFormula", "data" ), names( mc ), 0 )
+      me <- match( "data", names( mc ), 0 )
       mfe <- mc[ c( 1, me ) ]
+      mfe$formula <- effFormula
       mfe$na.action <- na.pass
       mfe[[ 1 ]] <- as.name( "model.frame" )
-      names( mfe )[ 2 ] <- "formula"
+      names( mfe )[ 3 ] <- "formula"
       mfe <- eval( mfe, parent.frame() )
       mte <- attr( mfe, "terms" )
       zMat <- model.matrix( mte, mfe )
