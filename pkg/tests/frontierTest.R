@@ -774,6 +774,35 @@ all.equal( aa2a[ -34 ], aa2[ -34 ], check.attributes = FALSE )
 
 
 ##############################################
+### estimations with 0 or 1 variable only ###
+##############################################
+
+## cross-section data, error components frontier
+sa10 <- sfa( logOutput ~ 1, data = front41Data )
+a10 <- frontier( "logOutput", NULL, data = front41Data )
+print( sa10 )
+all.equal( sa10[ -34 ], a10[ -34 ], check.attributes = FALSE )
+
+sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
+a11 <- frontier( "logOutput", "logLabour", data = front41Data )
+print( sa11 )
+all.equal( sa11[ -34 ], a11[ -34 ], check.attributes = FALSE )
+
+## cross-section data, efficiency effects frontier
+saa10 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
+aa10 <- frontier( data = front41Data, "logOutput", NULL,
+   zNames = "firmNo" )
+print( saa10 )
+all.equal( saa10[-34], aa10[-34] )
+
+saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
+aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
+   zNames = "firmNo" )
+print( saa11 )
+all.equal( saa11[-34], aa11[-34] )
+
+
+##############################################
 ##### evaluating log likelihood values #######
 ##############################################
 options( digits = 9 )
