@@ -40,18 +40,33 @@ logLik.frontier <- function( object, which = "mle", newParam = NULL, ... ) {
             startVal = newParam,
             maxit = 0 ), which = "start" )
       } else {
-         result <- logLik( frontier(
-            yName = eval( object$call$yName ),
-            xNames = eval( object$call$xNames ),
-            zNames = eval( object$call$zNames ),
-            data = eval( object$call$data ),
-            ineffDecrease = object$ineffDecrease,
-            logDepVar = object$logDepVar,
-            truncNorm = object$truncNorm,
-            zIntercept = object$zIntercept,
-            timeEffect = object$timeEffect,
-            startVal = newParam,
-            maxit = 0 ), which = "start" )
+         if( object$call[1] == "frontier()" ) {
+            result <- logLik( frontier(
+               yName = eval( object$call$yName ),
+               xNames = eval( object$call$xNames ),
+               zNames = eval( object$call$zNames ),
+               data = eval( object$call$data ),
+               ineffDecrease = object$ineffDecrease,
+               logDepVar = object$logDepVar,
+               truncNorm = object$truncNorm,
+               zIntercept = object$zIntercept,
+               timeEffect = object$timeEffect,
+               startVal = newParam,
+               maxit = 0 ), which = "start" )
+         } else if( object$call[1] == "sfa()" ) {
+            result <- logLik( sfa(
+               formula = eval( object$call$formula ),
+               effFormula = eval( object$call$effFormula ),
+               data = eval( object$call$data ),
+               ineffDecrease = object$ineffDecrease,
+               logDepVar = object$logDepVar,
+               truncNorm = object$truncNorm,
+               timeEffect = object$timeEffect,
+               startVal = newParam,
+               maxit = 0 ), which = "start" )
+         } else {
+            stop( "unknown function '", object$call[1], "' in element 'call'" )
+         }
       }
    }
    return( result )
