@@ -134,9 +134,9 @@ sfa <- function(
    m <- match( "data", names( mc ), 0 )
    mf <- mc[ c( 1, m ) ]
    mf$formula <- formula
+   attributes( mf$formula ) <- NULL
    mf$na.action <- na.pass
    mf[[ 1 ]] <- as.name( "model.frame" )
-   names( mf )[ 3 ] <- "formula"
    mf <- eval( mf, parent.frame() )
    mt <- attr( mf, "terms" )
    xMat <- model.matrix( mt, mf )
@@ -163,7 +163,7 @@ sfa <- function(
    } else {
       dataTable <- matrix( 1:length( yVec ), ncol = 1 )
       dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
-      nn <- nrow( data )
+      nn <- nrow( xMat )
       nt <- 1
    }
    nob <- nrow( dataTable )
@@ -195,9 +195,9 @@ sfa <- function(
       me <- match( "data", names( mc ), 0 )
       mfe <- mc[ c( 1, me ) ]
       mfe$formula <- effFormula
+      attributes( mfe$formula ) <- NULL
       mfe$na.action <- na.pass
       mfe[[ 1 ]] <- as.name( "model.frame" )
-      names( mfe )[ 3 ] <- "formula"
       mfe <- eval( mfe, parent.frame() )
       mte <- attr( mfe, "terms" )
       zMat <- model.matrix( mte, mfe )
