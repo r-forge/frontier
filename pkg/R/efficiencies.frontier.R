@@ -2,19 +2,35 @@
 efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
-      data <- eval( object$call$data )
-      if( "plm.dim" %in% class( data ) ) {
-         result <- rep( NA, nrow( data ) )
-         for( i in 1:nrow( data ) ) {
-            if( ncol( object$effic ) == 1 ) {
-               result[ i ] <- object$effic[ data[[ 1 ]][ i ], 1 ]
-            } else {
-               result[ i ] <- object$effic[ data[[ 1 ]][ i ], data[[ 2 ]][ i ] ]
-            }
-         }
+      if( object$modelType == 1 && object$ineffDecrease &&
+            object$logDepVar && !object$truncNorm && object$nt == 1 ) {
+         resid <- residuals( object, asInData = TRUE )
+         sigmaSq <- coef( object )[ "sigmaSq" ]
+         gamma <- coef( object )[ "gamma" ]
+         lambda <- sqrt( gamma / ( 1 - gamma ) )
+         muStar <- - resid * gamma
+         sigmaStarSq <- sigmaSq * gamma * ( 1 - gamma )
+         sigmaStar <- sqrt( sigmaStarSq )
+         result <- ( ( 1 - pnorm( sigmaStar - muStar / sigmaStar ) ) /
+            ( 1 - pnorm( - muStar / sigmaStar ) ) ) *
+            exp( - muStar + 0.5 * sigmaStarSq )
       } else {
-         result <- drop( object$effic )
+         data <- eval( object$call$data )
+         if( "plm.dim" %in% class( data ) ) {
+            result <- rep( NA, nrow( data ) )
+            for( i in 1:nrow( data ) ) {
+               if( ncol( object$effic ) == 1 ) {
+                  result[ i ] <- object$effic[ data[[ 1 ]][ i ], 1 ]
+               } else {
+                  result[ i ] <- object$effic[ data[[ 1 ]][ i ], data[[ 2 ]][ i ] ]
+               }
+            }
+         } else {
+            result <- drop( object$effic )
+         }
       }
+
+
       names( result ) <- rownames( object$dataTable )
    } else {
       result <- object$effic
