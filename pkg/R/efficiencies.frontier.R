@@ -16,8 +16,8 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
          muStar <- - gamma * resid + mu * ( 1 - gamma )
          sigmaStarSq <- sigmaSq * gamma * ( 1 - gamma )
          sigmaStar <- sqrt( sigmaStarSq )
-         result <- ( ( 1 - pnorm( sigmaStar - muStar / sigmaStar ) ) /
-            ( 1 - pnorm( - muStar / sigmaStar ) ) ) *
+         result <- ( pnorm( - sigmaStar + muStar / sigmaStar ) /
+            pnorm( muStar / sigmaStar ) ) *
             exp( - muStar + 0.5 * sigmaStarSq )
       } else {
          data <- eval( object$call$data )
