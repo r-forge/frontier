@@ -6,7 +6,7 @@
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, bmuArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
      $  nParamTotal, ob, obse, olsLogl, gb, startLogl, y, h, fmleLogl,
-     $  nIter, ate )
+     $  nIter, ate, em )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
@@ -41,6 +41,7 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	dimension y(nParamTotal)
 	dimension h(nParamTotal,nParamTotal)
 	dimension ate(nnArg,ntArg)
+      dimension em(nnArg,ntArg)
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
@@ -67,19 +68,20 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, gb, fxs, y, h, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, ate, em )
 	olsLogl = -fxols
       startLogl = -fxs
 	fmleLogl = -fx
 	nIter = iter
 	end
  
-	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,ate)
+	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,ate,em)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,fxols,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,il
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n),ate(nn,nt)
+      dimension em(nn,nt)
 	dimension ob(n),gb(n),obse(n),x(:),y(n),s(:)   
 	dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
 	allocatable :: x,s,delx,delg,gx,gy
@@ -104,7 +106,7 @@ c       contains the main loop of this iterative program.
 	fy=fx
       fxs=fx
 	end if 
-	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,ate)
+	call result(yy,xx,mm,h,y,sv,ob,obse,gb,1,ate,em)
 	iter=0 
 	if (im.eq.1) call der1(x,gx,yy,xx) 
 	if (im.eq.2) call der2(x,gx,yy,xx) 
@@ -164,7 +166,7 @@ c       contains the main loop of this iterative program.
 	if(nc.le.n) goto 303   
   301   format(' iteration = ',i5,'  func evals =',i7,'  llf =',e16.8) 
   302   format(4x,5e15.8)  
-	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2,ate)
+	call result(yy,xx,mm,h,y,sv,ob,obse,gb,2,ate,em)
 	deallocate(x,s,delx,delg,gx,gy)
 	return 
 	end
@@ -707,7 +709,7 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
  
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, obse, gb, fxs, y, h, ate )
+     $  nParamTotal, ob, obse, gb, fxs, y, h, ate, em )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -715,6 +717,7 @@ c       also reads data from a file.
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	character chst
 	dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:),ate(nn,nt)
+      dimension em(nn,nt)
 	dimension startVal(nStartVal)
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
@@ -807,13 +810,13 @@ c       also reads data from a file.
 	stop  
 	end if
   149   continue   
-	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,ate)
+	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h,ate,em)
 	deallocate(yy,xx,mm,sv,xxd)
 	return 
 	end
 
 
-	subroutine result(yy,xx,mm,h,y,sv,ob,obse,gb,ncall,ate)
+	subroutine result(yy,xx,mm,h,y,sv,ob,obse,gb,ncall,ate,em)
 c       presents estimates, covariance matrix, standard errors and t-ratios,
 c       as well as presenting many results including estimates of technical  
 c       efficiency.   
@@ -823,6 +826,7 @@ c       efficiency.
 	common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn)
 	dimension h(n,n),y(n),sv(n),ob(n),obse(n),gb(n),ate(nn,nt)
+      dimension em(nn,nt)
 	data pi/3.1415926/ 
 	n1=nr+1
 	n2=nr+2
@@ -869,7 +873,8 @@ c       efficiency.
 	ee=yy(i,k)  
 	do 102 j=1,nb   
 	ee=ee-y(j)*xx(i,k,j)   
-  102   continue   
+  102   continue
+      em(i,k)=ee
 	xb=yy(i,k)-ee
 	xbb=xbb+xb
 	epr=epr+ee*dexp(-e*(dfloat(k)-fnt))   
@@ -907,8 +912,9 @@ c       efficiency.
 	xb=0.  
 	do 11 j=1,nb   
 	xb=xb+xx(i,l,j)*y(j) 
-   11   continue   
-	zd=0.  
+   11   continue
+      em(i,l)=yy(i,l)-xb
+	zd=0.
 	if (nz.ne.0) then  
 	do 12 j=nb+1,nr
 	zd=zd+xx(i,l,j)*y(j) 

@@ -296,7 +296,8 @@ sfa <- function(
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
       nIter = as.integer( 0 ),
-      effic = matrix( as.double( 0 ), nn, nt ) )
+      effic = matrix( as.double( 0 ), nn, nt ),
+      resid = matrix( as.double( 0 ), nn, nt ) )
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
@@ -375,9 +376,13 @@ sfa <- function(
       } else {
          colnames( returnObj$effic ) <- levels( data[[ 2 ]] )
       }
+      rownames( returnObj$resid ) <- levels( data[[ 1 ]] )
+      colnames( returnObj$resid ) <- levels( data[[ 2 ]] )
    } else {
       rownames( returnObj$effic ) <- obsNames
       colnames( returnObj$effic ) <- "efficiency"
+      rownames( returnObj$resid ) <- obsNames
+      colnames( returnObj$resid ) <- "residuals"
    }
    if( modelType == 2 ) {
       if( zIntercept ){

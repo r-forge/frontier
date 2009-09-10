@@ -221,6 +221,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{effic}{matrix. Efficiency estimates:
       each row corresponds to a cross-section;
       each column corresponds to a time period.}
+   \item{resid}{matrix. Residuals:
+      each row corresponds to a cross-section;
+      each column corresponds to a time period.}
 }
 
 \references{

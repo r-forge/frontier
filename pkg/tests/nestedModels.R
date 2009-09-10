@@ -21,7 +21,7 @@ sbb5ecf <- sfa( lPROD ~ lAREA + lLABOR + lNPK,
    data = as.data.frame( riceProdPhil ) )
 bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-all.equal( sbb5ecf[-34], bb5ecf[-34] )
+all.equal( sbb5ecf[-35], bb5ecf[-35] )
 
 # Efficiency Effects Frontier (EEF)
 sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
@@ -29,7 +29,7 @@ sbb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
 bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = NA )
-all.equal( sbb5eef[-34], bb5eef[-34] )
+all.equal( sbb5eef[-35], bb5eef[-35] )
 
 # Comparisons
 rbind( coef( bb5ecf ), coef( bb5eef ) )
@@ -45,7 +45,7 @@ sbb6ecf <- sfa( lPROD ~ lAREA + lLABOR + lNPK,
 bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, muBound = 0 )
-all.equal( sbb6ecf[-34], bb6ecf[-34] )
+all.equal( sbb6ecf[-35], bb6ecf[-35] )
 
 # Efficiency Effects Frontier (EEF)
 sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
@@ -53,7 +53,7 @@ sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zIntercept = TRUE, zNames = NA )
-all.equal( sbb6eef[-34], bb6eef[-34] )
+all.equal( sbb6eef[-35], bb6eef[-35] )
 
 # Comparisons
 rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )
@@ -72,8 +72,9 @@ sb5eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | - 1,
 b5eef <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = NA )
-all.equal( sb5eef[-34], b5eef[-34] )
-all.equal( b5eef[ -c( 4, 5, 17, 27, 34 ) ], bb5eef[ -c( 4, 5, 17, 27, 34 ) ] )
+all.equal( sb5eef[-35], b5eef[-35] )
+all.equal( b5eef[ -c( 4, 5, 17, 27, 28, 35 ) ], bb5eef[ -c( 4, 5, 17, 27, 28, 35 ) ] )
+all.equal( c( t( b5eef$resid ) ), c( bb5eef$resid ) )
 
 # Comparisons
 rbind( coef( b5ecf ), coef( b5eef ) )
@@ -89,8 +90,8 @@ sb6ecf <- sfa( lPROD ~ lAREA + lLABOR + lNPK,
 b6ecf <- frontier( data = as.data.frame( riceProdPhil ),
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, muBound = Inf )
-all.equal( sb6ecf[-34], b6ecf[-34] )
-all.equal( b6ecf[ -34 ], bb6ecf[ -34 ] )
+all.equal( sb6ecf[-35], b6ecf[-35] )
+all.equal( b6ecf[-35], bb6ecf[-35] )
 
 # Efficiency Effects Frontier (EEF)
 sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
@@ -98,11 +99,13 @@ sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 b6eef <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zIntercept = TRUE, zNames = NA )
-all.equal( sb6eef[-34], b6eef[-34] )
-all.equal( b6eef[ -c( 4, 5, 17, 27, 34 ) ], bb6eef[ -c( 4, 5, 17, 27, 34 ) ] )
+all.equal( sb6eef[-35], b6eef[-35] )
+all.equal( b6eef[ -c( 4, 5, 17, 27, 28, 35 ) ], bb6eef[ -c( 4, 5, 17, 27, 28, 35 ) ] )
 all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
+all.equal( c( b6ecf$resid ), c( bb6eef$resid ) )
 
 # Comparisons
 rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
 all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
+all.equal( c( b6ecf$resid ), c( t( b6eef$resid ) ) )
 
