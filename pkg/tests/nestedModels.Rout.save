@@ -178,7 +178,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [1] TRUE
 > all.equal( b5eef[ -c( 4, 5, 17, 27, 28, 35 ) ], bb5eef[ -c( 4, 5, 17, 27, 28, 35 ) ] )
 [1] TRUE
-> all.equal( c( t( b5eef$resid ) ), c( bb5eef$resid ) )
+> all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ) )
 [1] TRUE
 > 
 > # Comparisons
@@ -218,7 +218,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
 [1] "Mean relative difference: 0.0001840363"
-> all.equal( c( b6ecf$resid ), c( bb6eef$resid ) )
+> all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ) )
 [1] "Mean relative difference: 0.0006285359"
 > 
 > # Comparisons
@@ -228,7 +228,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 [2,]   -1.144392 0.3540012 0.3343539 0.2728624 14.97770 0.9976031 -54.62098
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
 [1] "Mean relative difference: 0.0001840363"
-> all.equal( c( b6ecf$resid ), c( t( b6eef$resid ) ) )
+> all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ) )
 [1] "Mean relative difference: 0.0006285359"
 > 
 > 

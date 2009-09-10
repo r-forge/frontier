@@ -74,7 +74,7 @@ b5eef <- frontier( data = riceProdPhil,
    zNames = NA )
 all.equal( sb5eef[-35], b5eef[-35] )
 all.equal( b5eef[ -c( 4, 5, 17, 27, 28, 35 ) ], bb5eef[ -c( 4, 5, 17, 27, 28, 35 ) ] )
-all.equal( c( t( b5eef$resid ) ), c( bb5eef$resid ) )
+all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ) )
 
 # Comparisons
 rbind( coef( b5ecf ), coef( b5eef ) )
@@ -102,10 +102,10 @@ b6eef <- frontier( data = riceProdPhil,
 all.equal( sb6eef[-35], b6eef[-35] )
 all.equal( b6eef[ -c( 4, 5, 17, 27, 28, 35 ) ], bb6eef[ -c( 4, 5, 17, 27, 28, 35 ) ] )
 all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
-all.equal( c( b6ecf$resid ), c( bb6eef$resid ) )
+all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ) )
 
 # Comparisons
 rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
 all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
-all.equal( c( b6ecf$resid ), c( t( b6eef$resid ) ) )
+all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ) )
 

@@ -30,6 +30,8 @@ logLik( a1 )
 print( summary( a1 ) )
 efficiencies( a1 )
 efficiencies( a1, asInData = TRUE )
+residuals( a1 )
+residuals( a1, asInData = TRUE )
 print.default( a1 )
 
 ## cross-section data, error components frontier, truncNorm
@@ -51,6 +53,8 @@ logLik( a2 )
 print( summary( a2 ) )
 efficiencies( a2 )
 efficiencies( a2, asInData = TRUE )
+residuals( a2 )
+residuals( a2, asInData = TRUE )
 print.default( a2 )
 
 ## cross-section data, error components frontier, truncNorm, starting values
@@ -95,6 +99,8 @@ vcov( aa1 )
 print( summary( aa1 ) )
 efficiencies( aa1 )
 efficiencies( aa1, asInData = TRUE )
+residuals( aa1 )
+residuals( aa1, asInData = TRUE )
 print.default( aa1 )
 
 ## cross-section data, efficiency effects frontier, zIntercept
@@ -114,6 +120,8 @@ vcov( aa2 )
 print( summary( aa2 ) )
 efficiencies( aa2 )
 efficiencies( aa2, asInData = TRUE )
+residuals( aa2 )
+residuals( aa2, asInData = TRUE )
 print.default( aa2 )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
@@ -163,6 +171,8 @@ vcov( bb1 )
 print( summary( bb1 ) )
 efficiencies( bb1 )
 efficiencies( bb1, asInData = TRUE )
+residuals( bb1 )
+residuals( bb1, asInData = TRUE )
 print.default( bb1 )
 
 ## cross-section rice data, error components frontier, truncNorm
@@ -183,6 +193,8 @@ vcov( bb2 )
 print( summary( bb2 ) )
 efficiencies( bb2 )
 efficiencies( bb2, asInData = TRUE )
+residuals( bb2 )
+residuals( bb2, asInData = TRUE )
 print.default( bb2 )
 
 ## cross-section rice data, efficiency effects frontier
@@ -206,6 +218,8 @@ vcov( bb5 )
 print( summary( bb5 ) )
 efficiencies( bb5 )
 efficiencies( bb5, asInData = TRUE )
+residuals( bb5 )
+residuals( bb5, asInData = TRUE )
 print.default( bb5 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept
@@ -226,6 +240,8 @@ vcov( bb6 )
 print( summary( bb6 ) )
 efficiencies( bb6 )
 efficiencies( bb6, asInData = TRUE )
+residuals( bb6 )
+residuals( bb6, asInData = TRUE )
 print.default( bb6 )
 
 ## cross-section rice data, error components frontier, truncNorm, starting values
@@ -299,6 +315,8 @@ vcov( dd1 )
 print( summary( dd1 ) )
 efficiencies( dd1 )
 efficiencies( dd1, asInData = TRUE )
+residuals( dd1 )
+residuals( dd1, asInData = TRUE )
 print.default( dd1 )
 
 ## cross-section rice data, error components cost frontier, truncNorm
@@ -318,6 +336,8 @@ vcov( dd2 )
 print( summary( dd2 ) )
 efficiencies( dd2 )
 efficiencies( dd2, asInData = TRUE )
+residuals( dd2 )
+residuals( dd2, asInData = TRUE )
 print.default( dd2 )
 
 ## cross-section rice data, efficiency effects cost frontier
@@ -341,6 +361,8 @@ vcov( dd5 )
 print( summary( dd5 ) )
 efficiencies( dd5 )
 efficiencies( dd5, asInData = TRUE )
+residuals( dd5 )
+residuals( dd5, asInData = TRUE )
 print.default( dd5 )
 
 ## cross-section rice data, efficiency effects cost frontier, zIntercept
@@ -361,6 +383,8 @@ vcov( dd6 )
 print( summary( dd6 ) )
 efficiencies( dd6 )
 efficiencies( dd6, asInData = TRUE )
+residuals( dd6 )
+residuals( dd6, asInData = TRUE )
 print.default( dd6 )
 
 
@@ -391,6 +415,8 @@ logLik( b1 )
 print( summary( b1 ) )
 efficiencies( b1 )
 efficiencies( b1, asInData = TRUE )
+residuals( b1 )
+residuals( b1, asInData = TRUE )
 print.default( b1 )
 
 ## panel data, error components frontier, truncNorm
@@ -413,6 +439,8 @@ logLik( b2 )
 print( summary( b2 ) )
 efficiencies( b2 )
 efficiencies( b2, asInData = TRUE )
+residuals( b2 )
+residuals( b2, asInData = TRUE )
 print.default( b2 )
 
 ## panel data, error components frontier, timeEffect
@@ -435,6 +463,8 @@ logLik( b3 )
 print( summary( b3 ) )
 efficiencies( b3 )
 efficiencies( b3, asInData = TRUE )
+residuals( b3 )
+residuals( b3, asInData = TRUE )
 print.default( b3 )
 
 ## panel data, error components frontier, truncNorm, timeEffect
@@ -457,6 +487,8 @@ logLik( b4 )
 print( summary( b4 ) )
 efficiencies( b4 )
 efficiencies( b4, asInData = TRUE )
+residuals( b4 )
+residuals( b4, asInData = TRUE )
 print.default( b4 )
 
 ## panel data, efficiency effects frontier
@@ -482,6 +514,8 @@ logLik( b5 )
 print( summary( b5 ) )
 efficiencies( b5 )
 efficiencies( b5, asInData = TRUE )
+residuals( b5 )
+residuals( b5, asInData = TRUE )
 print.default( b5 )
 
 ## panel data, efficiency effects frontier, zIntercept
@@ -504,6 +538,8 @@ logLik( b6 )
 print( summary( b6 ) )
 efficiencies( b6 )
 efficiencies( b6, asInData = TRUE )
+residuals( b6 )
+residuals( b6, asInData = TRUE )
 print.default( b6 )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
@@ -576,6 +612,8 @@ vcov( d1 )
 print( summary( d1 ) )
 efficiencies( d1 )
 efficiencies( d1, asInData = TRUE )
+residuals( d1 )
+residuals( d1, asInData = TRUE )
 print.default( d1 )
 
 ## panel rice data, error components cost frontier, truncNorm
@@ -595,6 +633,8 @@ vcov( d2 )
 print( summary( d2 ) )
 efficiencies( d2 )
 efficiencies( d2, asInData = TRUE )
+residuals( d2 )
+residuals( d2, asInData = TRUE )
 print.default( d2 )
 
 ## panel rice data, error components cost frontier, timeEffect
@@ -614,6 +654,8 @@ vcov( d3 )
 print( summary( d3 ) )
 efficiencies( d3 )
 efficiencies( d3, asInData = TRUE )
+residuals( d3 )
+residuals( d3, asInData = TRUE )
 print.default( d3 )
 
 ## panel rice data, error components cost frontier, truncNorm, timeEffect
@@ -634,6 +676,8 @@ vcov( d4 )
 print( summary( d4 ) )
 efficiencies( d4 )
 efficiencies( d4, asInData = TRUE )
+residuals( d4 )
+residuals( d4, asInData = TRUE )
 print.default( d4 )
 
 ## panel rice data, efficiency effects cost frontier
@@ -657,6 +701,8 @@ vcov( d5 )
 print( summary( d5 ) )
 efficiencies( d5 )
 efficiencies( d5, asInData = TRUE )
+residuals( d5 )
+residuals( d5, asInData = TRUE )
 print.default( d5 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
@@ -677,6 +723,8 @@ vcov( d6 )
 print( summary( d6 ) )
 efficiencies( d6 )
 efficiencies( d6, asInData = TRUE )
+residuals( d6 )
+residuals( d6, asInData = TRUE )
 print.default( d6 )
 
 
@@ -697,6 +745,8 @@ logLik( translog )
 print( summary( translog ) )
 efficiencies( translog )
 efficiencies( translog, asInData = TRUE )
+residuals( translog )
+residuals( translog, asInData = TRUE )
 translogEla <- elas( translog )
 print( translogEla )
 attributes( translogEla )$variance
@@ -720,6 +770,8 @@ logLik( translogShift )
 print( summary( translogShift ) )
 efficiencies( translogShift )
 efficiencies( translogShift, asInData = TRUE )
+residuals( translogShift )
+residuals( translogShift, asInData = TRUE )
 translogShiftEla <- elas( translogShift )
 print( translogShiftEla )
 attributes( translogShiftEla )$variance
@@ -743,6 +795,8 @@ logLik( translogZvar )
 print( summary( translogZvar ) )
 efficiencies( translogZvar )
 efficiencies( translogZvar, asInData = TRUE )
+residuals( translogZvar )
+residuals( translogZvar, asInData = TRUE )
 translogZvarEla <- elas( translogZvar )
 print( translogZvarEla ) 
 attributes( translogZvarEla )$variance
