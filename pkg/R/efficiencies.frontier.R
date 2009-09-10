@@ -3,12 +3,17 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
       if( object$modelType == 1 && object$ineffDecrease &&
-            object$logDepVar && !object$truncNorm && object$nt == 1 ) {
+            object$logDepVar && object$nt == 1 ) {
          resid <- residuals( object, asInData = TRUE )
          sigmaSq <- coef( object )[ "sigmaSq" ]
          gamma <- coef( object )[ "gamma" ]
          lambda <- sqrt( gamma / ( 1 - gamma ) )
-         muStar <- - resid * gamma
+         if( object$truncNorm ) {
+            mu <- coef( object )[ "mu" ]
+         } else {
+            mu <- 0
+         }
+         muStar <- - gamma * resid + mu * ( 1 - gamma )
          sigmaStarSq <- sigmaSq * gamma * ( 1 - gamma )
          sigmaStar <- sqrt( sigmaStarSq )
          result <- ( ( 1 - pnorm( sigmaStar - muStar / sigmaStar ) ) /
