@@ -392,14 +392,14 @@ print.default( dd6 )
 riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
    riceProdPhil$FMERCODE, sep = "" )
 riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
-riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
+riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
 
 ## panel data, error components frontier
-sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
+sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
 Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-   data = riceProdPhil )
+   data = riceProdPhilPanel )
 all.equal( Sb1[-35], sb1[-35], check.attributes = FALSE )
-b1 <- frontier( data = riceProdPhil,
+b1 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 all.equal( sb1[-35], b1[-35] )
 print( b1 )
@@ -420,9 +420,9 @@ residuals( b1, asInData = TRUE )
 print.default( b1 )
 
 ## panel data, error components frontier, truncNorm
-sb2 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil,
+sb2 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
    truncNorm = TRUE )
-b2 <- frontier( data = riceProdPhil,
+b2 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE )
 all.equal( sb2[-35], b2[-35] )
@@ -444,9 +444,9 @@ residuals( b2, asInData = TRUE )
 print.default( b2 )
 
 ## panel data, error components frontier, timeEffect
-sb3 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil,
+sb3 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
    timeEffect = TRUE )
-b3 <- frontier( data = riceProdPhil,
+b3 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    timeEffect = TRUE )
 all.equal( sb3[-35], b3[-35] )
@@ -468,9 +468,9 @@ residuals( b3, asInData = TRUE )
 print.default( b3 )
 
 ## panel data, error components frontier, truncNorm, timeEffect
-sb4 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil,
+sb4 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
    truncNorm = TRUE, timeEffect = TRUE )
-b4 <- frontier( data = riceProdPhil,
+b4 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE )
 all.equal( sb4[-35], b4[-35] )
@@ -493,11 +493,11 @@ print.default( b4 )
 
 ## panel data, efficiency effects frontier
 sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
-   data = riceProdPhil )
+   data = riceProdPhilPanel )
 Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
-   EDYRS + BANRAT - 1, data = riceProdPhil )
+   EDYRS + BANRAT - 1, data = riceProdPhilPanel )
 all.equal( Sb5[-35], sb5[-35], check.attributes = FALSE )
-b5 <- frontier( data = riceProdPhil,
+b5 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 all.equal( sb5[-35], b5[-35] )
@@ -520,8 +520,8 @@ print.default( b5 )
 
 ## panel data, efficiency effects frontier, zIntercept
 sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
-   data = riceProdPhil )
-b6 <- frontier( data = riceProdPhil,
+   data = riceProdPhilPanel )
+b6 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 all.equal( sb6[-35], b6[-35] )
@@ -543,10 +543,10 @@ residuals( b6, asInData = TRUE )
 print.default( b6 )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
-sb7 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil,
+sb7 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
    truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-b7 <- frontier( data = riceProdPhil,
+b7 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
@@ -568,9 +568,9 @@ print.default( b7 )
 
 ## panel data, efficiency effects frontier, zIntercept, starting values
 sb8 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
-   data = riceProdPhil,
+   data = riceProdPhilPanel,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-b8 <- frontier( data = riceProdPhil,
+b8 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
@@ -593,13 +593,13 @@ print.default( b8 )
 
 ## Cost Frontier (with land as quasi-fixed input)
 ## panel rice data, error components cost frontier
-sd1 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil,
+sd1 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE )
 Sd1 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-   data = riceProdPhil, ineffDecrease = FALSE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE )
 all.equal( Sd1[-35], sd1[-35], check.attributes = FALSE )
 d1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   data = riceProdPhil, ineffDecrease = FALSE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE )
 all.equal( sd1[-35], d1[-35] )
 print( d1 )
 coef( d1, which = "start" )
@@ -617,10 +617,10 @@ residuals( d1, asInData = TRUE )
 print.default( d1 )
 
 ## panel rice data, error components cost frontier, truncNorm
-sd2 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil,
+sd2 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE, truncNorm = TRUE )
 d2 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
 all.equal( sd2[-35], d2[-35] )
 print( d2 )
 coef( d2, which = "start" )
@@ -638,10 +638,10 @@ residuals( d2, asInData = TRUE )
 print.default( d2 )
 
 ## panel rice data, error components cost frontier, timeEffect
-sd3 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil,
+sd3 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE, timeEffect = TRUE )
 d3 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   data = riceProdPhil, ineffDecrease = FALSE, timeEffect = TRUE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
 all.equal( sd3[-35], d3[-35] )
 print( d3 )
 coef( d3, which = "start" )
@@ -659,10 +659,10 @@ residuals( d3, asInData = TRUE )
 print.default( d3 )
 
 ## panel rice data, error components cost frontier, truncNorm, timeEffect
-sd4 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil,
+sd4 <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
 d4 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE,
+   data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
    timeEffect = TRUE )
 all.equal( sd4[-35], d4[-35] )
 print( d4 )
@@ -682,12 +682,12 @@ print.default( d4 )
 
 ## panel rice data, efficiency effects cost frontier
 sd5 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
-   data = riceProdPhil, ineffDecrease = FALSE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE )
 Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
-   EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+   EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 all.equal( Sd5[-35], sd5[-35], check.attributes = FALSE )
 d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
+   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE )
 all.equal( sd5[-35], d5[-35] )
 print( d5 )
@@ -707,9 +707,9 @@ print.default( d5 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
 sd6 <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
-   data = riceProdPhil, ineffDecrease = FALSE )
+   data = riceProdPhilPanel, ineffDecrease = FALSE )
 d6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
-   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
+   zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE, zIntercept = TRUE )
 all.equal( sd6[-35], d6[-35] )
 print( d6 )
@@ -895,7 +895,6 @@ logLik( saa5, newParam = coef( saa5 ) )
 
 
 ## data set of rice producers in the Philippines
-riceProdPhil <- as.data.frame( riceProdPhil )
 
 ## cross-section rice data, error components frontier
 logLik( bb1 )
@@ -955,7 +954,6 @@ logLik( sdd6, newParam = coef( sdd6 ) )
 
 
 ## panel data
-riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
 
 ## panel data, error components frontier
 logLik( b1 )
