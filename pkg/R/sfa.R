@@ -234,7 +234,6 @@ sfa <- function(
 
    # adding column names to the data table
    colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
-   rownames( dataTable ) <- NULL
 
    # obtaining names of the observations
    if( !is.null( rownames( data ) ) ) {
@@ -248,6 +247,7 @@ sfa <- function(
    } else {
       obsNames <- NULL
    }
+   rownames( dataTable ) <- obsNames
 
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
