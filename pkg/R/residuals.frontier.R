@@ -2,11 +2,11 @@
 residuals.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
-      data <- eval( object$call$data )
-      if( "plm.dim" %in% class( data ) ) {
-         result <- rep( NA, nrow( data ) )
-         for( i in 1:nrow( data ) ) {
-            result[ i ] <- object$resid[ data[[ 1 ]][ i ], data[[ 2 ]][ i ] ]
+      if( object$nt > 1 ) {
+         result <- rep( NA, nrow( object$dataTable ) )
+         for( i in 1:length( result ) ) {
+            result[ i ] <- object$resid[ object$dataTable[ i , 1 ],
+               object$dataTable[ i , 2 ] ]
          }
       } else {
          result <- drop( object$resid )
