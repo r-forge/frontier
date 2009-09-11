@@ -8,11 +8,13 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
             residStar <- resid
             tStar <- 1
          } else {
-            residStar <- rep( NA, object$nn )
-            tStar <- rep( NA, object$nn )
-            for( i in 1:object$nn ) {
-               residStar[ i ] <- sum( resid[ object$dataTable[ , 1 ] == i ] )
-               tStar[ i ] <- sum( object$dataTable[ , 1 ] == i )
+            residStar <- rep( NA, object$nob )
+            tStar <- rep( NA, object$nob )
+            for( i in 1:object$nob ) {
+               residStar[ i ] <- sum( resid[ object$dataTable[ , 1 ] ==
+                  object$dataTable[ i, 1 ] ] )
+               tStar[ i ] <- sum( object$dataTable[ , 1 ] ==
+                  object$dataTable[ i, 1 ] )
             }
          }
          sigmaSq <- coef( object )[ "sigmaSq" ]
@@ -33,17 +35,9 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
          sigmaStarSq <- sigmaSq * gamma * ( 1 - gamma ) /
             ( 1 + ( tStar - 1 ) * gamma )
          sigmaStar <- sqrt( sigmaStarSq )
-         effic <- ( pnorm( - dir * sigmaStar + muStar / sigmaStar ) /
+         result <- ( pnorm( - dir * sigmaStar + muStar / sigmaStar ) /
             pnorm( muStar / sigmaStar ) ) *
             exp( - dir * muStar + 0.5 * sigmaStarSq )
-         if( object$nt == 1 ) {
-            result <- effic
-         } else {
-            result <- rep( NA, nrow( object$dataTable ) )
-            for( i in 1:length( result ) ) {
-               result[ i ] <- effic[ object$dataTable[ i, 1 ] ]
-            }
-         }
       } else {
          data <- eval( object$call$data )
          if( "plm.dim" %in% class( data ) ) {
