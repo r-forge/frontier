@@ -555,11 +555,13 @@ c       of the log-likelihood function of the error components model.
 	gx(n1)=gx(n1)+.5*(dendis(zi)+zi)*zi/s2
 	ss=0.0
 	do 138 l=1,nt   
+      if(xx(i,l,1).ne.0.0) then
 	ee=yy(i,l)  
 	do 139 j=1,nb   
 	ee=ee-xx(i,l,j)*b(j)   
  139    continue    
 	ss=ss+ee**2 
+      endif
  138    continue
 	gx(n1)=gx(n1)-0.5*ss/((1.0-g)*s2**2)   
 	
