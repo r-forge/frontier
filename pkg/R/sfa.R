@@ -296,8 +296,7 @@ sfa <- function(
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
       nIter = as.integer( 0 ),
-      effic = matrix( as.double( 0 ), nn, nt ),
-      resid = matrix( as.double( 0 ), nn, nt ) )
+      effic = matrix( as.double( 0 ), nn, nt ) )
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
@@ -307,6 +306,20 @@ sfa <- function(
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
+
+   ## calculate residuals
+   resid <- drop( dataTable[ , 3 ] -
+      cbind( rep( 1, nrow( dataTable ) ), xMat ) %*%
+      returnObj$mleParam[ 1:( nb + 1 ) ] )
+   returnObj$resid <- matrix( NA, nrow = nn, ncol = nt )
+   if( length( resid ) != nrow( dataTable ) ) {
+      stop( "internal error: length of residuals is not equal to",
+         " the number of rows of the data table" )
+   }
+   for( i in 1:length( resid ) ) {
+      returnObj$resid[ dataTable[ i, 1 ], dataTable[ i, 2 ] ] <-
+         resid[ i ]
+   }
 
    # check if the maximum number of iterations has been reached
    if( maxit <= returnObj$nIter && maxit > 0 ) {
