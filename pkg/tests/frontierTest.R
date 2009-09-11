@@ -728,6 +728,142 @@ residuals( d6, asInData = TRUE )
 print.default( d6 )
 
 
+## unbalanced panel data
+set.seed( 321 )
+riceProdPhilPanelUnb <- riceProdPhilPanel[ -c(3,5,111,222), ]
+
+## unbalanced panel data, error components frontier
+b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
+print( b1u )
+print( summary( b1u ) )
+efficiencies( b1u )
+efficiencies( b1u, asInData = TRUE )
+residuals( b1u )
+residuals( b1u, asInData = TRUE )
+print.default( b1u )
+
+## unbalanced panel data, error components frontier, truncNorm
+b2u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   truncNorm = TRUE )
+print( b2u )
+print( summary( b2u ) )
+efficiencies( b2u )
+efficiencies( b2u, asInData = TRUE )
+residuals( b2u )
+residuals( b2u, asInData = TRUE )
+print.default( b2u )
+
+## unbalanced panel data, error components frontier, timeEffect
+b3u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   timeEffect = TRUE )
+print( b3u )
+print( summary( b3u ) )
+efficiencies( b3u )
+efficiencies( b3u, asInData = TRUE )
+residuals( b3u )
+residuals( b3u, asInData = TRUE )
+print.default( b3u )
+
+## unbalanced panel data, error components frontier, truncNorm, timeEffect
+b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   truncNorm = TRUE, timeEffect = TRUE )
+print( b4u )
+print( summary( b4u ) )
+efficiencies( b4u )
+efficiencies( b4u, asInData = TRUE )
+residuals( b4u )
+residuals( b4u, asInData = TRUE )
+print.default( b4u )
+
+## unbalanced panel data, efficiency effects frontier
+b5u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
+   data = riceProdPhilPanelUnb )
+print( b5u )
+print( summary( b5u ) )
+efficiencies( b5u )
+efficiencies( b5u, asInData = TRUE )
+residuals( b5u )
+residuals( b5u, asInData = TRUE )
+print.default( b5u )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+b6u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
+   data = riceProdPhilPanelUnb )
+print( b6u )
+print( summary( b6u ) )
+efficiencies( b6u )
+efficiencies( b6u, asInData = TRUE )
+residuals( b6u )
+residuals( b6u, asInData = TRUE )
+print.default( b6u )
+
+## unbalanced panel rice data, error components cost frontier
+d1u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE )
+print( d1u )
+print( summary( d1u ) )
+efficiencies( d1u )
+efficiencies( d1u, asInData = TRUE )
+residuals( d1u )
+residuals( d1u, asInData = TRUE )
+print.default( d1u )
+
+## unbalanced panel rice data, error components cost frontier, truncNorm
+d2u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, truncNorm = TRUE )
+print( d2u )
+print( summary( d2u ) )
+efficiencies( d2u )
+efficiencies( d2u, asInData = TRUE )
+residuals( d2u )
+residuals( d2u, asInData = TRUE )
+print.default( d2u )
+
+## unbalanced panel rice data, error components cost frontier, timeEffect
+d3u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, timeEffect = TRUE )
+print( d3u )
+print( summary( d3u ) )
+efficiencies( d3u )
+efficiencies( d3u, asInData = TRUE )
+residuals( d3u )
+residuals( d3u, asInData = TRUE )
+print.default( d3u )
+
+## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
+d4u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
+print( d4u )
+print( summary( d4u ) )
+efficiencies( d4u )
+efficiencies( d4u, asInData = TRUE )
+residuals( d4u )
+residuals( d4u, asInData = TRUE )
+print.default( d4u )
+
+## unbalanced panel rice data, efficiency effects cost frontier
+d5u <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
+   data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+print( d5u )
+print( summary( d5u ) )
+efficiencies( d5u )
+efficiencies( d5u, asInData = TRUE )
+residuals( d5u )
+residuals( d5u, asInData = TRUE )
+print.default( d5u )
+
+## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
+d6u <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
+   data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+print( d6u )
+print( summary( d6u ) )
+efficiencies( d6u )
+efficiencies( d6u, asInData = TRUE )
+residuals( d6u )
+residuals( d6u, asInData = TRUE )
+print.default( d6u )
+
+
 ## translog frontiers
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
