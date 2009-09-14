@@ -21,9 +21,8 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
                residStar[ i ] <- sum( resid[ object$dataTable[ , 1 ] ==
                   object$dataTable[ i, 1 ] ] *
                   etaStar[ object$dataTable[ , 1 ] == object$dataTable[ i, 1 ] ] )
-               tStar[ i ] <- sum( exp( - 2 * eta *
-                  ( object$dataTable[ object$dataTable[ , 1 ] ==
-                  object$dataTable[ i, 1 ], 2 ] - object$nt ) ) )
+               tStar[ i ] <- sum( etaStar[ object$dataTable[ , 1 ] ==
+                  object$dataTable[ i, 1 ] ]^2 )
             }
          }
          sigmaSq <- coef( object )[ "sigmaSq" ]
