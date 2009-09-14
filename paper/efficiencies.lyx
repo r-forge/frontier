@@ -66,5 +66,17 @@ TE_{it} & = & \frac{\Phi\left(-\delta\:\tilde{\sigma}_{i}\:\tilde{\eta}_{t}+\fra
 
 \end_layout
 
+\begin_layout Itemize
+dependent variable is not logged:
+\begin_inset Formula \begin{eqnarray*}
+TE_{it} & = & 1-\delta\:\frac{\tilde{\eta}_{t}\:\left(\tilde{\mu}_{i}+\tilde{\sigma}_{i}\:\phi\left(\frac{\tilde{\mu}_{it}}{\tilde{\sigma}_{i}}\right)\Phi\left(\frac{\tilde{\mu}_{it}}{\tilde{\sigma}_{i}}\right)^{-1}\right)}{\frac{\tilde{y}_{i}}{T_{i}}}\\
+\tilde{y}_{i} & = & \sum_{t}\Delta_{it}\, x_{it}'\,\beta\\
+T_{i} & = & \sum_{t}\Delta_{it}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
