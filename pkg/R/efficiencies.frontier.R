@@ -2,8 +2,15 @@
 efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
-      if( object$modelType == 1 && object$logDepVar && !object$timeEffect ) {
+      if( object$modelType == 1 && object$logDepVar ) {
          resid <- residuals( object, asInData = TRUE )
+         if( object$timeEffect ) {
+            eta <- coef( object )[ "time" ]
+            etaStar <- exp( - eta * ( object$dataTable[ , 2 ] - object$nt ) )
+         } else {
+            eta <- 0
+            etaStar <- 1
+         }
          if( object$nt == 1 ) {
             residStar <- resid
             tStar <- 1
@@ -12,9 +19,12 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
             tStar <- rep( NA, object$nob )
             for( i in 1:object$nob ) {
                residStar[ i ] <- sum( resid[ object$dataTable[ , 1 ] ==
-                  object$dataTable[ i, 1 ] ] )
-               tStar[ i ] <- sum( object$dataTable[ , 1 ] ==
-                  object$dataTable[ i, 1 ] )
+                  object$dataTable[ i, 1 ] ] * 
+                  exp( - eta * ( object$dataTable[ object$dataTable[ , 1 ] ==
+                  object$dataTable[ i, 1 ], 2 ] - object$nt ) ) )
+               tStar[ i ] <- sum( exp( - 2 * eta *
+                  ( object$dataTable[ object$dataTable[ , 1 ] ==
+                  object$dataTable[ i, 1 ], 2 ] - object$nt ) ) )
             }
          }
          sigmaSq <- coef( object )[ "sigmaSq" ]
@@ -35,9 +45,9 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
          sigmaStarSq <- sigmaSq * gamma * ( 1 - gamma ) /
             ( 1 + ( tStar - 1 ) * gamma )
          sigmaStar <- sqrt( sigmaStarSq )
-         result <- ( pnorm( - dir * sigmaStar + muStar / sigmaStar ) /
+         result <- ( pnorm( - dir * sigmaStar * etaStar + muStar / sigmaStar ) /
             pnorm( muStar / sigmaStar ) ) *
-            exp( - dir * muStar + 0.5 * sigmaStarSq )
+            exp( - dir * muStar * etaStar + 0.5 * sigmaStarSq * etaStar^2 )
       } else {
          data <- eval( object$call$data )
          if( "plm.dim" %in% class( data ) ) {
