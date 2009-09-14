@@ -98,7 +98,7 @@ TE_{it} & = & \frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\
 \begin_layout Itemize
 dependent variable not logged
 \begin_inset Formula \begin{eqnarray*}
-TE_{ij} & = & 1-\kappa\:\frac{\tilde{\eta}_{t}\:\left(\bar{\mu}_{it}+\bar{\sigma}\:\phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)^{-1}\right)}{x_{it}'\,\beta}\end{eqnarray*}
+TE_{ij} & = & 1-\kappa\:\frac{\bar{\mu}_{it}+\bar{\sigma}\:\phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)^{-1}}{x_{it}'\,\beta}\end{eqnarray*}
 
 \end_inset
 
