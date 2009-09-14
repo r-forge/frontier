@@ -3,6 +3,7 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
       resid <- residuals( object, asInData = TRUE )
+      fitted <- object$dataTable[ , 3 ] - resid
       sigmaSq <- coef( object )[ "sigmaSq" ]
       gamma <- coef( object )[ "gamma" ]
       lambda <- sqrt( gamma / ( 1 - gamma ) )
@@ -48,7 +49,6 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
                pnorm( muStar / sigmaStar ) ) *
                exp( - dir * muStar * etaStar + 0.5 * sigmaStarSq * etaStar^2 )
          } else {
-            fitted <- object$dataTable[ , 3 ] - resid
             fittedStar <- rep( NA, object$nob )
             tInd <- rep( NA, object$nob )
             for( i in 1:object$nob ) {
@@ -62,12 +62,7 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
                   pnorm( muStar / sigmaStar, log = TRUE ) ) ) /
                ( fittedStar / tInd )
          }
-         if( object$ineffDecrease ) {
-            result[ result > 1 ] <- 1
-         } else {
-            result[ result < 1 ] <- 1
-         }
-     } else if( object$modelType == 2 && object$logDepVar ) {
+     } else if( object$modelType == 2 ) {
          if( object$zIntercept ) {
             zDelta <- coef( object )[ "Z_(Intercept)" ]
          } else {
@@ -84,26 +79,26 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
          sigmaBarSq <- gamma * ( 1 - gamma ) * sigmaSq
          sigmaBar <- sqrt( sigmaBarSq )
          muBar <- ( 1 - gamma ) * zDelta - dir * gamma * resid
-         result <- ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
-               pnorm( muBar / sigmaBar ) ) *
-               exp( - dir * muBar + 0.5 * sigmaBarSq )
-     } else {
-         data <- eval( object$call$data )
-         if( "plm.dim" %in% class( data ) ) {
-            result <- rep( NA, nrow( data ) )
-            for( i in 1:nrow( data ) ) {
-               if( ncol( object$effic ) == 1 ) {
-                  result[ i ] <- object$effic[ data[[ 1 ]][ i ], 1 ]
-               } else {
-                  result[ i ] <- object$effic[ data[[ 1 ]][ i ], data[[ 2 ]][ i ] ]
-               }
-            }
+         if( object$logDepVar ) {
+            result <- ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
+                  pnorm( muBar / sigmaBar ) ) *
+                  exp( - dir * muBar + 0.5 * sigmaBarSq )
          } else {
-            result <- drop( object$effic )
+            result <- 1 - dir * ( muBar + sigmaBar *
+               exp( dnorm( muBar / sigmaBar, log = TRUE ) -
+                  pnorm( muBar / sigmaBar, log = TRUE ) ) ) /
+               fitted
          }
+      } else {
+         stop( "internal error: unknow model type '",
+            object$modelType, "'" )
       }
 
-
+      if( object$ineffDecrease ) {
+         result[ result > 1 ] <- 1
+      } else {
+         result[ result < 1 ] <- 1
+      }
       names( result ) <- rownames( object$dataTable )
    } else {
       result <- object$effic
