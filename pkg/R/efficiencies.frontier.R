@@ -9,7 +9,7 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
             etaStar <- exp( - eta * ( object$dataTable[ , 2 ] - object$nt ) )
          } else {
             eta <- 0
-            etaStar <- 1
+            etaStar <- rep( 1, object$nob ) 
          }
          if( object$nt == 1 ) {
             residStar <- resid
@@ -19,9 +19,8 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
             tStar <- rep( NA, object$nob )
             for( i in 1:object$nob ) {
                residStar[ i ] <- sum( resid[ object$dataTable[ , 1 ] ==
-                  object$dataTable[ i, 1 ] ] * 
-                  exp( - eta * ( object$dataTable[ object$dataTable[ , 1 ] ==
-                  object$dataTable[ i, 1 ], 2 ] - object$nt ) ) )
+                  object$dataTable[ i, 1 ] ] *
+                  etaStar[ object$dataTable[ , 1 ] == object$dataTable[ i, 1 ] ] )
                tStar[ i ] <- sum( exp( - 2 * eta *
                   ( object$dataTable[ object$dataTable[ , 1 ] ==
                   object$dataTable[ i, 1 ], 2 ] - object$nt ) ) )
