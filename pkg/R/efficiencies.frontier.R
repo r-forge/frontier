@@ -2,8 +2,16 @@
 efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
 
    if( asInData ) {
+      resid <- residuals( object, asInData = TRUE )
+      sigmaSq <- coef( object )[ "sigmaSq" ]
+      gamma <- coef( object )[ "gamma" ]
+      lambda <- sqrt( gamma / ( 1 - gamma ) )
+      if( object$ineffDecrease ) {
+         dir <- 1
+      } else {
+         dir <- -1
+      }
       if( object$modelType == 1 ) {
-         resid <- residuals( object, asInData = TRUE )
          if( object$timeEffect ) {
             eta <- coef( object )[ "time" ]
             etaStar <- exp( - eta * ( object$dataTable[ , 2 ] - object$nt ) )
@@ -25,18 +33,10 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
                   object$dataTable[ i, 1 ] ]^2 )
             }
          }
-         sigmaSq <- coef( object )[ "sigmaSq" ]
-         gamma <- coef( object )[ "gamma" ]
-         lambda <- sqrt( gamma / ( 1 - gamma ) )
          if( object$truncNorm ) {
             mu <- coef( object )[ "mu" ]
          } else {
             mu <- 0
-         }
-         if( object$ineffDecrease ) {
-            dir <- 1
-         } else {
-            dir <- -1
          }
          muStar <- ( - dir * gamma * residStar + mu * ( 1 - gamma ) ) /
             ( 1 + ( tStar - 1 ) * gamma )
@@ -67,7 +67,27 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
          } else {
             result[ result < 1 ] <- 1
          }
-      } else {
+     } else if( object$modelType == 2 && object$logDepVar ) {
+         if( object$zIntercept ) {
+            zDelta <- coef( object )[ "Z_(Intercept)" ]
+         } else {
+            zDelta <- 0
+         }
+         nz <- ncol( object$dataTable ) - 3 - object$nb
+         if( nz > 0 ) {
+            for( i in 1:nz ) {
+               zDelta <- zDelta + object$dataTable[ ,
+                     ncol( object$dataTable ) - nz + i ] *
+                  coef( object )[ object$nb + object$zIntercept + 1 + i  ]
+            }
+         }
+         sigmaBarSq <- gamma * ( 1 - gamma ) * sigmaSq
+         sigmaBar <- sqrt( sigmaBarSq )
+         muBar <- ( 1 - gamma ) * zDelta - dir * gamma * resid
+         result <- ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
+               pnorm( muBar / sigmaBar ) ) *
+               exp( - dir * muBar + 0.5 * sigmaBarSq )
+     } else {
          data <- eval( object$call$data )
          if( "plm.dim" %in% class( data ) ) {
             result <- rep( NA, nrow( data ) )
