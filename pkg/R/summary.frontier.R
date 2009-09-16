@@ -1,5 +1,13 @@
-summary.frontier <- function( object, effic = FALSE, ... ) {
+summary.frontier <- function( object, effic = FALSE,
+      logDepVar = object$logDepVar, ... ) {
 
+   # save variable 'logDepVar'
+   object$logDepVar <- logDepVar
+
+   # calculate efficiency estimates
+   object$effic <- efficiencies( object, logDepVar = logDepVar )
+
+   # matrix of OLS estimates, their standard errors, t-values and P-values
    olsParam <- matrix( NA, length( object$olsParam ) , 4 )
    rownames( olsParam ) <- names( object$olsParam )
    colnames( olsParam ) <- c( "Estimate", "Std. Error", "t value", 
@@ -11,6 +19,7 @@ summary.frontier <- function( object, effic = FALSE, ... ) {
    olsParam[ , 4 ] <- 2 * pt( abs( olsParam[ , 3 ] ), df, lower.tail = FALSE )
    object$olsParam <- olsParam
 
+   # matrix of ML estimates, their standard errors, t-values and P-values
    mleParam <- matrix( NA, length( object$mleParam ) , 4 )
    rownames( mleParam ) <- names( object$mleParam )
    colnames( mleParam ) <- colnames( olsParam )

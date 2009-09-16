@@ -9,7 +9,8 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{summary}{frontier}( object, effic = FALSE, \dots )
+\method{summary}{frontier}( object, effic = FALSE,
+   logDepVar = object$logDepVar, \dots )
 \method{print}{summary.frontier}( x, effic = x$printEffic, \dots )
 }
 
@@ -19,6 +20,7 @@ returned by \code{\link{frontier}}.
    \item{x}{an object of class \code{summary.frontier} 
       (returned by the function \code{summary.frontier}).}
    \item{effic}{logical. Print the individual efficiency estimates?}
+   \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{\dots}{currently unused.}
 }
 
