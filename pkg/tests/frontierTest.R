@@ -1094,6 +1094,91 @@ all.equal( d6n[-c(3,27,35)], d6[-c(3,27,35)], check.attributes = FALSE )
 efficiencies( d6n )
 efficiencies( d6n, asInData = TRUE )
 
+## unbalanced panel data, error components frontier
+b1un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   logDepVar = FALSE )
+all.equal( b1un[-c(3,27,35)], b1u[-c(3,27,35)] )
+efficiencies( b1un )
+efficiencies( b1un, asInData = TRUE )
+
+## unbalanced panel data, error components frontier, truncNorm
+b2un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   truncNorm = TRUE, logDepVar = FALSE )
+all.equal( b2un[-c(3,27,35)], b2u[-c(3,27,35)] )
+efficiencies( b2un )
+efficiencies( b2un, asInData = TRUE )
+
+## unbalanced panel data, error components frontier, timeEffect
+b3un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   timeEffect = TRUE, logDepVar = FALSE )
+all.equal( b3un[-c(3,27,35)], b3u[-c(3,27,35)] )
+efficiencies( b3un )
+efficiencies( b3un, asInData = TRUE )
+
+## unbalanced panel data, error components frontier, truncNorm, timeEffect
+b4un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
+   truncNorm = TRUE, timeEffect = TRUE, logDepVar = FALSE )
+all.equal( b4un[-c(3,27,35)], b4u[-c(3,27,35)] )
+efficiencies( b4un )
+efficiencies( b4un, asInData = TRUE )
+
+## unbalanced panel data, efficiency effects frontier
+b5un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
+   data = riceProdPhilPanelUnb, logDepVar = FALSE )
+all.equal( b5un[-c(3,27,35)], b5u[-c(3,27,35)] )
+efficiencies( b5un )
+efficiencies( b5un, asInData = TRUE )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+b6un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
+   data = riceProdPhilPanelUnb, logDepVar = FALSE )
+all.equal( b6un[-c(3,27,35)], b6u[-c(3,27,35)] )
+efficiencies( b6un )
+efficiencies( b6un, asInData = TRUE )
+
+## unbalanced panel rice data, error components cost frontier
+d1un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, logDepVar = FALSE )
+all.equal( d1un[-c(3,27,35)], d1u[-c(3,27,35)] )
+efficiencies( d1un )
+efficiencies( d1un, asInData = TRUE )
+
+## unbalanced panel rice data, error components cost frontier, truncNorm
+d2un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, truncNorm = TRUE, logDepVar = FALSE )
+all.equal( d2un[-c(3,27,35)], d2u[-c(3,27,35)] )
+efficiencies( d2un )
+efficiencies( d2un, asInData = TRUE )
+
+## unbalanced panel rice data, error components cost frontier, timeEffect
+d3un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, timeEffect = TRUE, logDepVar = FALSE )
+all.equal( d3un[-c(3,27,35)], d3u[-c(3,27,35)] )
+efficiencies( d3un )
+efficiencies( d3un, asInData = TRUE )
+
+## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
+d4un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
+   ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE,
+   logDepVar = FALSE )
+all.equal( d4un[-c(3,27,35)], d4u[-c(3,27,35)] )
+efficiencies( d4un )
+efficiencies( d4un, asInData = TRUE )
+
+## unbalanced panel rice data, efficiency effects cost frontier
+d5un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
+   data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
+all.equal( d5un[-c(3,27,35)], d5u[-c(3,27,35)] )
+efficiencies( d5un )
+efficiencies( d5un, asInData = TRUE )
+
+## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
+d6un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
+   data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
+all.equal( d6un[-c(3,27,35)], d6u[-c(3,27,35)] )
+efficiencies( d6un )
+efficiencies( d6un, asInData = TRUE )
+
 
 ##############################################
 ## estimation with data NOT in a data frame ##
