@@ -321,6 +321,12 @@ sfa <- function(
          resid[ i ]
    }
 
+   ## efficiency estimates of missing observations: convert NaNs to NAs
+   if( ncol( returnObj$effic ) > 1 ) {
+      returnObj$effic[ is.na( returnObj$effic ) &
+         is.na( returnObj$resid ) ] <- NA
+   }
+
    # check if the maximum number of iterations has been reached
    if( maxit <= returnObj$nIter && maxit > 0 ) {
       warning( "Maximum number of iterations reached" );
