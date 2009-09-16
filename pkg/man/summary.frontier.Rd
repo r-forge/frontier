@@ -27,12 +27,15 @@ returned by \code{\link{frontier}}.
 \value{
    \code{summary.frontier} returns a list of class \code{summaryfrontier}
    that is identical to an object returned by \code{\link{frontier}}
-   with two modifications and (up to) three additional elements:
+   with two modifications and (up to) four additional elements:
    \item{olsParam}{matrix of OLS estimates, their standard errors,
       t values, and P values.}
    \item{mleParam}{matrix of ML estimates, their standard errors,
       t values, and P values.}
    \item{printEffic}{argument \code{effic}.}
+   \item{effic}{matrix. Efficiency estimates:
+      each row corresponds to a cross-section;
+      each column corresponds to a time period.}
    \item{efficMean}{numeric scalar. Mean efficiency.}
    \item{efficYearMeans}{numeric vector.
       Mean efficiency for each year in the sample

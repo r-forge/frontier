@@ -218,9 +218,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       with \code{lrTestDf} degrees of freedom.}
    \item{lrTestDf}{numeric. Degrees of freedom of the LR test.}
    \item{nIter}{numeric. Number of iterations of the ML estimation.}
-   \item{effic}{matrix. Efficiency estimates:
-      each row corresponds to a cross-section;
-      each column corresponds to a time period.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;
       each column corresponds to a time period.}

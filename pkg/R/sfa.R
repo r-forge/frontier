@@ -296,7 +296,6 @@ sfa <- function(
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
       nIter = as.integer( 0 ) )
-   returnObj$effic <- NA
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
@@ -423,6 +422,5 @@ sfa <- function(
    returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"
-   returnObj$effic <- efficiencies( returnObj )
    return( returnObj )
 }
