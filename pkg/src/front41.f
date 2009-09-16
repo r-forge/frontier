@@ -838,6 +838,9 @@ c       efficiency.
 	fxols=fnob/2.0*(dlog(2.0*pi)+dlog(os2)+1.0)  
 	
 	else
+
+      dnan = 0.0
+      dnan = 0.0/dnan
 	
 	sc=1.
 	if(ipc.eq.2) sc=-1.
@@ -892,8 +895,10 @@ c       efficiency.
 	if ((ipc.eq.2).and.(tei.lt.1.0)) tei=1.0
 	te=te+tei
 	ncount=ncount+1
-	endif
 	ate(i,l) = tei
+      else
+      ate(i,l) = dnan
+      endif
  136    continue    
  138    continue    
 
@@ -926,8 +931,10 @@ c       efficiency.
 	if ((ipc.eq.1).and.(tei.gt.1.0)) tei=1.0
 	if ((ipc.eq.2).and.(tei.lt.1.0)) tei=1.0
 	te=te+tei  
-	endif
 	ate(i,l) = tei
+      else
+      ate(i,l) = dnan
+      endif
   10    continue
 	endif
 	

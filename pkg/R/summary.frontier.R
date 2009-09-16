@@ -23,6 +23,22 @@ summary.frontier <- function( object, effic = FALSE, ... ) {
 
    object$printEffic <- effic
 
+   if( ncol( object$effic ) > 1 ) {
+      object$efficYearMeans <- rep( NA, object$nt )
+      resid <- residuals( object )
+      for( i in 1:object$nt ) {
+         object$efficYearMeans[ i ] <-
+            mean( object$effic[ !is.na( resid[ , i ] ), i ] )
+      }
+      names( object$efficYearMeans ) <- colnames( object$effic )
+   }
+
+   if( object$modelType == 1 && !object$timeEffect ) {
+      object$efficMean <- mean( object$effic )
+   } else {
+      object$efficMean <- mean( object$effic[ !is.na( residuals( object ) ) ] )
+   }
+
    class( object ) <- "summary.frontier"
    return( object )
 }
