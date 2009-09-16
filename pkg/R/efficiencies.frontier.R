@@ -1,5 +1,6 @@
 # efficiencies of frontier models
-efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
+efficiencies.frontier <- function( object, asInData = FALSE,
+      logDepVar = object$logDepVar, ... ) {
 
    resid <- residuals( object )
    fitted <- - resid
@@ -47,7 +48,7 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
       sigmaStar <- sqrt( sigmaStarSq )
       result <- matrix( NA, nrow = object$nn,
          ncol = object$nt^object$timeEffect )
-      if( object$logDepVar ) {
+      if( logDepVar ) {
          for( j in 1:ncol( result ) ) {
             result[ , j ] <- (
                pnorm( - dir * sigmaStar * etaStar[j] + muStar / sigmaStar ) /
@@ -96,7 +97,7 @@ efficiencies.frontier <- function( object, asInData = FALSE, ... ) {
       sigmaBarSq <- gamma * ( 1 - gamma ) * sigmaSq
       sigmaBar <- sqrt( sigmaBarSq )
       muBar <- ( 1 - gamma ) * zDeltaMat - dir * gamma * resid
-      if( object$logDepVar ) {
+      if( logDepVar ) {
          result <- ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
                pnorm( muBar / sigmaBar ) ) *
                exp( - dir * muBar + 0.5 * sigmaBarSq )

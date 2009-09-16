@@ -9,7 +9,8 @@
 }
 
 \usage{
-\method{efficiencies}{frontier}( object, asInData = FALSE, \dots )
+\method{efficiencies}{frontier}( object, asInData = FALSE,
+   logDepVar = object$logDepVar, \dots )
 }
 
 \arguments{
@@ -20,6 +21,7 @@
       as the corresponding observations in the data set
       used for the estimation
       (see section \sQuote{value} below).}
+   \item{logDepVar}{logical. Is the dependent variable logged.}
    \item{\dots}{currently ignored.}
 }
 
