@@ -21,7 +21,7 @@
       as the corresponding observations in the data set
       used for the estimation
       (see section \sQuote{value} below).}
-   \item{logDepVar}{logical. Is the dependent variable logged.}
+   \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{\dots}{currently ignored.}
 }
 
