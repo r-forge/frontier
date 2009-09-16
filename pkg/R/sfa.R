@@ -295,8 +295,8 @@ sfa <- function(
       mleParam = as.double( rep( 0, nParamTotal ) ),
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
-      nIter = as.integer( 0 ),
-      effic = matrix( as.double( 0 ), nn, nt ) )
+      nIter = as.integer( 0 ) )
+   returnObj$effic <- NA
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
@@ -319,12 +319,6 @@ sfa <- function(
    for( i in 1:length( resid ) ) {
       returnObj$resid[ dataTable[ i, 1 ], dataTable[ i, 2 ] ] <-
          resid[ i ]
-   }
-
-   ## efficiency estimates of missing observations: convert NaNs to NAs
-   if( ncol( returnObj$effic ) > 1 ) {
-      returnObj$effic[ is.na( returnObj$effic ) &
-         is.na( returnObj$resid ) ] <- NA
    }
 
    # check if the maximum number of iterations has been reached
@@ -384,22 +378,11 @@ sfa <- function(
    } else {
       returnObj$gridParam <- NULL
    }
-   if( modelType == 1 && timeEffect == FALSE ) {
-      returnObj$effic <- returnObj$effic[ , 1, drop = FALSE ]
-   }
-   # assign row names and column names to efficiency estimates
+   # assign row names and column names to residuals
    if( "plm.dim" %in% class( data ) ) {
-      rownames( returnObj$effic ) <- levels( data[[ 1 ]] )
-      if( modelType == 1 && timeEffect == FALSE ) {
-         colnames( returnObj$effic ) <- "efficiency"
-      } else {
-         colnames( returnObj$effic ) <- levels( data[[ 2 ]] )
-      }
       rownames( returnObj$resid ) <- levels( data[[ 1 ]] )
       colnames( returnObj$resid ) <- levels( data[[ 2 ]] )
    } else {
-      rownames( returnObj$effic ) <- obsNames
-      colnames( returnObj$effic ) <- "efficiency"
       rownames( returnObj$resid ) <- obsNames
       colnames( returnObj$resid ) <- "residuals"
    }
@@ -440,5 +423,6 @@ sfa <- function(
    returnObj$call <- match.call()
 
    class( returnObj ) <- "frontier"
+   returnObj$effic <- efficiencies( returnObj )
    return( returnObj )
 }
