@@ -52099,10 +52099,6 @@ attr(,"class")
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
 > ## cross-section data, error components frontier
-> a1n <- sfa( log( output ) ~ log( capital ) + log( labour ),
-+    data = front41Data, logDepVar = FALSE )
-> all.equal( a1n[-c(3,27,35)], a1[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sa1, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -52229,10 +52225,6 @@ F_60    0.88328
 0.94187 0.94976 0.95624 0.89792 0.93127 0.91320 0.87788 0.88164 0.95166 0.88328 
 > 
 > ## cross-section data, error components frontier, truncNorm
-> a2n <- sfa( log( output ) ~ log( capital ) + log( labour ),
-+    data = front41Data, truncNorm = TRUE, logDepVar = FALSE )
-> all.equal( a2n[-c(3,27,35)], a2[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( a2, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -52360,10 +52352,6 @@ F_60    0.91100
 0.95464 0.96048 0.96522 0.92300 0.94733 0.93442 0.89855 0.90743 0.96175 0.91100 
 > 
 > ## cross-section data, efficiency effects frontier
-> aa1n <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
-+    data = front41Data, logDepVar = FALSE )
-> all.equal( aa1n[-c(3,27,35)], aa1[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Saa1, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -52491,10 +52479,6 @@ F_60    0.90864
 0.95227 0.95959 0.96475 0.91830 0.94434 0.93196 0.90045 0.90553 0.96192 0.90864 
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
-> aa2n <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo,
-+    data = front41Data, logDepVar = FALSE )
-> all.equal( aa2n[-c(3,27,35)], aa2[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( aa2, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -52623,13 +52607,6 @@ F_60    0.91620
 0.95578 0.96230 0.96698 0.92529 0.94879 0.93760 0.90526 0.91278 0.96432 0.91620 
 > 
 > ## cross-section rice data, error components cost frontier
-> dd1n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhil, ineffDecrease = FALSE, logDepVar = FALSE )
-Warning message:
-In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
-  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( dd1n[-c(3,27,35)], dd1[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sdd1, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -53095,14 +53072,6 @@ mean efficiency: 1.0001
 1.0001 1.0001 1.0001 
 > 
 > ## cross-section rice data, error components cost frontier, truncNorm
-> dd2n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE,
-+    logDepVar = FALSE )
-Warning message:
-In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
-  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( dd2n[-c(3,27,35)], dd2[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( dd2, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -53569,11 +53538,6 @@ mean efficiency: 1.0008
 1.0008 1.0007 1.0007 
 > 
 > ## cross-section rice data, efficiency effects cost frontier
-> dd5n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
-+    EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE,
-+    logDepVar = FALSE )
-> all.equal( dd5n[-c(3,27,35)], dd5[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sdd5, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -54041,11 +54005,6 @@ mean efficiency: 1.0084
 1.0169 1.0001 1.0048 
 > 
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
-> dd6n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
-+    EDYRS + BANRAT, data = riceProdPhil, ineffDecrease = FALSE,
-+    logDepVar = FALSE )
-> all.equal( dd6n[-c(3,27,35)], dd6[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( dd6, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -54514,10 +54473,6 @@ mean efficiency: 1.2261
 1.2097 1.1884 1.2000 
 > 
 > ## panel data, error components frontier
-> b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    data = riceProdPhilPanel, logDepVar = FALSE )
-> all.equal( b1n[-c(3,27,35)], b1[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sb1, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -54704,10 +54659,6 @@ F_43   0.805965
  0.805965  0.805965  0.805965  0.805965  0.805965  0.805965  0.805965  0.805965 
 > 
 > ## panel data, error components frontier, truncNorm
-> b2n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    data = riceProdPhilPanel, truncNorm = TRUE, logDepVar = FALSE )
-> all.equal( b2n[-c(3,27,35)], b2[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( b2, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -54895,10 +54846,6 @@ F_43   0.814851
  0.814851  0.814851  0.814851  0.814851  0.814851  0.814851  0.814851  0.814851 
 > 
 > ## panel data, error components frontier, timeEffect
-> b3n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    data = riceProdPhilPanel, timeEffect = TRUE, logDepVar = FALSE )
-> all.equal( b3n[-c(3,27,35)], b3[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( b3, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -55090,11 +55037,6 @@ F_43  0.725167  0.740890  0.755713  0.76969  0.78286  0.79529  0.80700  0.81804
  0.725167  0.740890  0.755713  0.769688  0.782864  0.795286  0.806997  0.818038 
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect
-> b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
-+    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,
-+    logDepVar = FALSE )
-> all.equal( b4n[-c(3,27,35)], b4[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( b4, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -55287,10 +55229,6 @@ F_43  0.727887  0.744942  0.76093  0.77591  0.78996  0.80312  0.81546  0.82702
  0.727887  0.744942  0.760927  0.775911  0.789955  0.803120  0.815459  0.827025 
 > 
 > ## panel data, efficiency effects frontier
-> b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
-+    EDYRS + BANRAT - 1, data = riceProdPhilPanel, logDepVar = FALSE )
-> all.equal( b5n[-c(3,27,35)], b5[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sb5, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -55557,10 +55495,6 @@ F_43  0.95376
    0.853161    0.953759 
 > 
 > ## panel data, efficiency effects frontier, zIntercept
-> b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
-+    EDYRS + BANRAT, data = riceProdPhilPanel, logDepVar = FALSE )
-> all.equal( b6n[-c(3,27,35)], b6[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( b6, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -55754,10 +55688,6 @@ F_43  0.406460  0.380506  0.764738 0.77519  0.91043 0.953685  0.86778  0.95577
  0.406460  0.380506  0.764738  0.775192  0.910429  0.953685  0.867784  0.955771 
 > 
 > ## panel rice data, error components cost frontier
-> d1n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhilPanel, ineffDecrease = FALSE, logDepVar = FALSE )
-> all.equal( d1n[-c(3,27,35)], d1[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sd1, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -55922,11 +55852,6 @@ F_43     1.0311
 1.0311 1.0311 1.0311 
 > 
 > ## panel rice data, error components cost frontier, truncNorm
-> d2n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
-+    logDepVar = FALSE )
-> all.equal( d2n[-c(3,27,35)], d2[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( d2, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56092,11 +56017,6 @@ F_43     1.0499
 1.0499 1.0499 1.0499 
 > 
 > ## panel rice data, error components cost frontier, timeEffect
-> d3n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE,
-+    logDepVar = FALSE )
-> all.equal( d3n[-c(3,27,35)], d3[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( d3, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56266,11 +56186,6 @@ F_43 1.0280 1.0284 1.0289 1.0294 1.0299 1.0304 1.0309 1.0314
 1.0304 1.0309 1.0314 
 > 
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
-> d4n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-+    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
-+    timeEffect = TRUE, logDepVar = FALSE )
-> all.equal( d4n[-c(3,27,35)], d4[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( d4, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56441,11 +56356,6 @@ F_43 1.0491 1.0497 1.0502 1.0508 1.0514 1.0520 1.0526 1.0532
 1.0520 1.0526 1.0532 
 > 
 > ## panel rice data, efficiency effects cost frontier
-> d5n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
-+    EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE,
-+    logDepVar = FALSE )
-> all.equal( d5n[-c(3,27,35)], d5[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( Sd5, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56616,11 +56526,6 @@ F_43 1.0014 1.0014 1.0000 1.0025 1.0013 1.0014 1.0013 1.0048
 1.0014 1.0013 1.0048 
 > 
 > ## panel rice data, efficiency effects cost frontier, zIntercept
-> d6n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
-+    EDYRS + BANRAT, data = riceProdPhilPanel, ineffDecrease = FALSE,
-+    logDepVar = FALSE )
-> all.equal( d6n[-c(3,27,35)], d6[-c(3,27,35)], check.attributes = FALSE )
-[1] TRUE
 > summary( d6, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56792,10 +56697,6 @@ F_43 1.2281 1.2399 1.2622 1.1747 1.2172 1.2322 1.1432 1.2063
 1.2322 1.1432 1.2063 
 > 
 > ## unbalanced panel data, error components frontier
-> b1un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
-+    logDepVar = FALSE )
-> all.equal( b1un[-c(3,27,35)], b1u[-c(3,27,35)] )
-[1] TRUE
 > summary( b1u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -56982,10 +56883,6 @@ F_43   0.806052
  0.806052  0.806052  0.806052  0.806052 
 > 
 > ## unbalanced panel data, error components frontier, truncNorm
-> b2un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
-+    truncNorm = TRUE, logDepVar = FALSE )
-> all.equal( b2un[-c(3,27,35)], b2u[-c(3,27,35)] )
-[1] TRUE
 > summary( b2u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -57173,10 +57070,6 @@ F_43   0.814443
  0.814443  0.814443  0.814443  0.814443 
 > 
 > ## unbalanced panel data, error components frontier, timeEffect
-> b3un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
-+    timeEffect = TRUE, logDepVar = FALSE )
-> all.equal( b3un[-c(3,27,35)], b3u[-c(3,27,35)] )
-[1] TRUE
 > summary( b3u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -57368,10 +57261,6 @@ F_43  0.725822  0.741389  0.756072  0.76992  0.78298  0.79531  0.80693  0.81789
  0.782984  0.795306  0.806927  0.817889 
 > 
 > ## unbalanced panel data, error components frontier, truncNorm, timeEffect
-> b4un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
-+    truncNorm = TRUE, timeEffect = TRUE, logDepVar = FALSE )
-> all.equal( b4un[-c(3,27,35)], b4u[-c(3,27,35)] )
-[1] TRUE
 > summary( b4u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -57564,10 +57453,6 @@ F_43  0.728665  0.745455  0.761206  0.77598  0.78984  0.80285  0.81505  0.82649
  0.789845  0.802849  0.815048  0.826493 
 > 
 > ## unbalanced panel data, efficiency effects frontier
-> b5un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
-+    data = riceProdPhilPanelUnb, logDepVar = FALSE )
-> all.equal( b5un[-c(3,27,35)], b5u[-c(3,27,35)] )
-[1] TRUE
 > summary( b5u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -57760,10 +57645,6 @@ F_43  0.400681  0.376929  0.74107 0.75414  0.90071 0.950920  0.85306  0.95342
  0.900709  0.950920  0.853063  0.953421 
 > 
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
-> b6un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
-+    data = riceProdPhilPanelUnb, logDepVar = FALSE )
-> all.equal( b6un[-c(3,27,35)], b6u[-c(3,27,35)] )
-[1] TRUE
 > summary( b6u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -57957,10 +57838,6 @@ F_43  0.406785  0.380789  0.763876 0.77563  0.91000 0.953267  0.86768  0.95544
  0.909997  0.953267  0.867677  0.955443 
 > 
 > ## unbalanced panel rice data, error components cost frontier
-> d1un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
-+    ineffDecrease = FALSE, logDepVar = FALSE )
-> all.equal( d1un[-c(3,27,35)], d1u[-c(3,27,35)] )
-[1] TRUE
 > summary( d1u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -58123,10 +58000,6 @@ F_43     1.0301
 1.0274 1.0274 1.0301 1.0301 1.0301 1.0301 1.0301 1.0301 1.0301 1.0301 
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
-> d2un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
-+    ineffDecrease = FALSE, truncNorm = TRUE, logDepVar = FALSE )
-> all.equal( d2un[-c(3,27,35)], d2u[-c(3,27,35)] )
-[1] TRUE
 > summary( d2u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -58290,10 +58163,6 @@ F_43     1.0498
 1.0474 1.0474 1.0498 1.0498 1.0498 1.0498 1.0498 1.0498 1.0498 1.0498 
 > 
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
-> d3un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
-+    ineffDecrease = FALSE, timeEffect = TRUE, logDepVar = FALSE )
-> all.equal( d3un[-c(3,27,35)], d3u[-c(3,27,35)] )
-[1] TRUE
 > summary( d3u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -58461,11 +58330,6 @@ F_43 1.0267 1.0272 1.0277 1.0282 1.0287 1.0292 1.0297 1.0303
 1.0275 1.0280 1.0267 1.0272 1.0277 1.0282 1.0287 1.0292 1.0297 1.0303 
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
-> d4un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
-+    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE,
-+    logDepVar = FALSE )
-> all.equal( d4un[-c(3,27,35)], d4u[-c(3,27,35)] )
-[1] TRUE
 > summary( d4u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -58634,10 +58498,6 @@ F_43 1.0524 1.0529 1.0534 1.0538 1.0543 1.0548 1.0553 1.0558
 1.0531 1.0536 1.0524 1.0529 1.0534 1.0538 1.0543 1.0548 1.0553 1.0558 
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier
-> d5un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
-+    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
-> all.equal( d5un[-c(3,27,35)], d5u[-c(3,27,35)] )
-[1] TRUE
 > summary( d5u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -58806,10 +58666,6 @@ F_43 1.0011 1.0011 1.0000 1.0018 1.0010 1.0010 1.0010 1.0034
 1.0001 1.0001 1.0011 1.0011 1.0000 1.0018 1.0010 1.0010 1.0010 1.0034 
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
-> d6un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
-+    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
-> all.equal( d6un[-c(3,27,35)], d6u[-c(3,27,35)] )
-[1] TRUE
 > summary( d6u, logDepVar = FALSE )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
