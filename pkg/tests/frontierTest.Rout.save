@@ -52103,6 +52103,55 @@ attr(,"class")
 +    data = front41Data, logDepVar = FALSE )
 > all.equal( a1n[-c(3,27,35)], a1[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( a1n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.2449     0.2136    1.15     0.26    
+log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
+log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
+sigmaSq        0.1140         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.447 
+
+estimates after the grid search
+                [,1]
+(Intercept)  0.58014
+log(capital) 0.28049
+log(labour)  0.53331
+sigmaSq      0.22067
+gamma        0.80000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.5616     0.2026    2.77   0.0076 ** 
+log(capital)   0.2811     0.0476    5.90  2.3e-07 ***
+log(labour)    0.5365     0.0453   11.86  < 2e-16 ***
+sigmaSq        0.2170     0.0639    3.40   0.0013 ** 
+gamma          0.7972     0.1364    5.84  2.9e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -17.027 
+
+LR test of the one-sided error = 2.8392 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 7 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.88387 
 > efficiencies( a1, logDepVar = FALSE )
      efficiency
 F_1     0.85617
@@ -52184,6 +52233,56 @@ F_60    0.88328
 +    data = front41Data, truncNorm = TRUE, logDepVar = FALSE )
 > all.equal( a2n[-c(3,27,35)], a2[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( a2n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.2449     0.2136    1.15     0.26    
+log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
+log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
+sigmaSq        0.1140         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.447 
+
+estimates after the grid search
+                [,1]
+(Intercept)  0.58014
+log(capital) 0.28049
+log(labour)  0.53331
+sigmaSq      0.22067
+gamma        0.80000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.4764     0.2141    2.22    0.030 *  
+log(capital)   0.2826     0.0479    5.91  2.4e-07 ***
+log(labour)    0.5404     0.0457   11.82  < 2e-16 ***
+sigmaSq        0.5478     0.6243    0.88    0.384    
+gamma          0.9081     0.1170    7.76  2.4e-10 ***
+mu            -1.4106     2.5990   -0.54    0.590    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -16.796 
+
+LR test of the one-sided error = 3.3023 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 19 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.90533 
 > efficiencies( a2, logDepVar = FALSE )
      efficiency
 F_1     0.88683
@@ -52265,6 +52364,56 @@ F_60    0.91100
 +    data = front41Data, logDepVar = FALSE )
 > all.equal( aa1n[-c(3,27,35)], aa1[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( aa1n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.2449     0.2136    1.15     0.26    
+log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
+log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
+sigmaSq        0.1140         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.447 
+
+estimates after the grid search
+                [,1]
+(Intercept)  0.58014
+log(capital) 0.28049
+log(labour)  0.53331
+sigmaSq      0.22067
+gamma        0.80000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.5368     0.2015    2.66    0.010 *  
+log(capital)   0.2686     0.0490    5.49  1.1e-06 ***
+log(labour)    0.5393     0.0447   12.07  < 2e-16 ***
+Z_firmNo      -0.0103     0.0127   -0.81    0.421    
+sigmaSq        0.2846     0.1208    2.36    0.022 *  
+gamma          0.8401     0.1100    7.63  3.8e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -16.382 
+
+LR test of the one-sided error = 4.1293 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 13 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.89322 
 > efficiencies( aa1, logDepVar = FALSE )
      efficiency
 F_1     0.85780
@@ -52346,6 +52495,57 @@ F_60    0.90864
 +    data = front41Data, logDepVar = FALSE )
 > all.equal( aa2n[-c(3,27,35)], aa2[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( aa2n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    0.2449     0.2136    1.15     0.26    
+log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
+log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
+sigmaSq        0.1140         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.447 
+
+estimates after the grid search
+                [,1]
+(Intercept)  0.58014
+log(capital) 0.28049
+log(labour)  0.53331
+sigmaSq      0.22067
+gamma        0.80000
+
+final maximum likelihood estimates
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     0.5087     0.2302    2.21  0.03147 *  
+log(capital)    0.2708     0.0494    5.48  1.2e-06 ***
+log(labour)     0.5404     0.0438   12.35  < 2e-16 ***
+Z_(Intercept)  -0.3986     2.5471   -0.16  0.87625    
+Z_firmNo       -0.0141     0.0316   -0.45  0.65686    
+sigmaSq         0.4071     0.8108    0.50  0.61773    
+gamma           0.8833     0.2203    4.01  0.00019 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -16.356 
+
+LR test of the one-sided error = 4.1824 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 22 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.90006 
 > efficiencies( aa2, logDepVar = FALSE )
      efficiency
 F_1     0.86827
@@ -52430,6 +52630,58 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( dd1n[-c(3,27,35)], dd1[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( dd1n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32e+00   2.91e-01   21.69   <2e-16 ***
+log(AREA)    9.54e-01   1.86e-02   51.16   <2e-16 ***
+log(LABORP)  5.07e-01   4.08e-02   12.43   <2e-16 ***
+log(NPKP)   -1.35e-03   7.06e-02   -0.02     0.98    
+sigmaSq      7.50e-02   6.05e-03   12.40   <2e-16 ***
+gamma        1.52e-05   6.15e-03  0.0025     1.00    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+LR test of the one-sided error = -1.7444e-06 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 40 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.0001 
 > efficiencies( dd1, logDepVar = FALSE )
     efficiency
 1       1.0001
@@ -52851,6 +53103,59 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > all.equal( dd2n[-c(3,27,35)], dd2[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( dd2n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.31478    0.25286   24.97   <2e-16 ***
+log(AREA)    0.95353    0.01936   49.25   <2e-16 ***
+log(LABORP)  0.50727    0.04178   12.14   <2e-16 ***
+log(NPKP)   -0.00126    0.07087   -0.02     0.99    
+sigmaSq      0.07525    0.00616   12.22   <2e-16 ***
+gamma        0.00450    0.05928    0.08     0.94    
+mu          -0.03681    0.15332   -0.24     0.81    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.624 
+
+LR test of the one-sided error = -0.0031903 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.0008 
 > efficiencies( dd2, logDepVar = FALSE )
     efficiency
 1       1.0007
@@ -53269,6 +53574,60 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
 +    logDepVar = FALSE )
 > all.equal( dd5n[-c(3,27,35)], dd5[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( dd5n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.23e+00   2.41e-01   25.81  < 2e-16 ***
+log(AREA)    9.63e-01   1.84e-02   52.46  < 2e-16 ***
+log(LABORP)  5.23e-01   4.02e-02   13.03  < 2e-16 ***
+log(NPKP)   -2.20e-02   6.95e-02   -0.32   0.7521    
+Z_EDYRS     -1.91e-02   5.77e-03   -3.32   0.0010 ** 
+Z_BANRAT     2.65e-01   6.60e-02    4.01  7.4e-05 ***
+sigmaSq      7.15e-02   5.45e-03   13.10  < 2e-16 ***
+gamma        1.56e-05   7.52e-05    0.21   0.8356    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -34.308 
+
+LR test of the one-sided error = 16.630 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 34 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.0084 
 > efficiencies( dd5, logDepVar = FALSE )
     efficiency
 1       1.0079
@@ -53687,6 +54046,61 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
 +    logDepVar = FALSE )
 > all.equal( dd6n[-c(3,27,35)], dd6[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( dd6n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    4.68771   44.56121    0.11  0.91628    
+log(AREA)      0.95870    0.01796   53.39  < 2e-16 ***
+log(LABORP)    0.51558    0.03934   13.11  < 2e-16 ***
+log(NPKP)     -0.01245    0.06566   -0.19  0.84966    
+Z_(Intercept)  1.51652   44.48926    0.03  0.97283    
+Z_EDYRS       -0.00175    0.00755   -0.23  0.81732    
+Z_BANRAT       0.16647    0.04926    3.38  0.00081 ***
+sigmaSq        0.07267    0.00539   13.49  < 2e-16 ***
+gamma          0.80586   20.15373    0.04  0.96813    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -37.151 
+
+LR test of the one-sided error = 10.944 
+with number of restrictions = 4 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 34 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.2261 
 > efficiencies( dd6, logDepVar = FALSE )
     efficiency
 1       1.2328
@@ -54104,6 +54518,58 @@ In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
 +    data = riceProdPhilPanel, logDepVar = FALSE )
 > all.equal( b1n[-c(3,27,35)], b1[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b1n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.47456
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.14581
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.8322     0.2752   -3.02   0.0027 ** 
+log(AREA)     0.4539     0.0638    7.11  6.8e-12 ***
+log(LABOR)    0.2889     0.0636    4.54  7.8e-06 ***
+log(NPK)      0.2275     0.0409    5.57  5.2e-08 ***
+sigmaSq       0.1554     0.0242    6.42  4.6e-10 ***
+gamma         0.4643     0.0880    5.27  2.4e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -86.43 
+
+LR test of the one-sided error = 36.953 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 11 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.6512 
 > efficiencies( b1, logDepVar = FALSE )
      efficiency
 F_01   0.861519
@@ -54242,6 +54708,59 @@ F_43   0.805965
 +    data = riceProdPhilPanel, truncNorm = TRUE, logDepVar = FALSE )
 > all.equal( b2n[-c(3,27,35)], b2[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b2n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.47456
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.14581
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.8289     0.2789   -2.97   0.0032 ** 
+log(AREA)     0.4546     0.0640    7.10  7.3e-12 ***
+log(LABOR)    0.2873     0.0627    4.58  6.4e-06 ***
+log(NPK)      0.2251     0.0406    5.54  6.1e-08 ***
+sigmaSq       0.2034     0.1747    1.16   0.2452    
+gamma         0.5905     0.3544    1.67   0.0967 .  
+mu           -0.2734     0.9632   -0.28   0.7767    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -86.343 
+
+LR test of the one-sided error = 37.128 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 19 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.81415 
 > efficiencies( b2, logDepVar = FALSE )
      efficiency
 F_01   0.869875
@@ -54380,6 +54899,63 @@ F_43   0.814851
 +    data = riceProdPhilPanel, timeEffect = TRUE, logDepVar = FALSE )
 > all.equal( b3n[-c(3,27,35)], b3[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b3n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.47456
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.14581
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.7539     0.2784   -2.71  0.00712 ** 
+log(AREA)     0.4749     0.0654    7.26  2.7e-12 ***
+log(LABOR)    0.3001     0.0639    4.69  3.9e-06 ***
+log(NPK)      0.1995     0.0426    4.68  4.2e-06 ***
+sigmaSq       0.1300     0.0218    5.97  6.0e-09 ***
+gamma         0.3696     0.1073    3.45  0.00064 ***
+time          0.0589     0.0310    1.90  0.05864 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -84.55 
+
+LR test of the one-sided error = 40.713 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 13 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76698 0.78031 0.79288 0.80473 0.81590 0.82643 0.83636 0.84572 
+
+mean efficiency: 0.80867 
 > efficiencies( b3, logDepVar = FALSE )
           1999      2000      2001     2002     2003     2004     2005     2006
 F_01  0.840887  0.849989  0.858571  0.86666  0.87429  0.88148  0.88826  0.89465
@@ -54519,6 +55095,64 @@ F_43  0.725167  0.740890  0.755713  0.76969  0.78286  0.79529  0.80700  0.81804
 +    logDepVar = FALSE )
 > all.equal( b4n[-c(3,27,35)], b4[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b4n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.47456
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.14581
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.7501     0.2790   -2.69   0.0075 ** 
+log(AREA)     0.4762     0.0651    7.31  1.9e-12 ***
+log(LABOR)    0.2985     0.0631    4.73  3.4e-06 ***
+log(NPK)      0.1961     0.0438    4.48  1.0e-05 ***
+sigmaSq       0.1722     0.1487    1.16   0.2477    
+gamma         0.5237     0.4123    1.27   0.2049    
+mu           -0.3173     1.0505   -0.30   0.7628    
+time          0.0647     0.0357    1.81   0.0705 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -84.407 
+
+LR test of the one-sided error = 41 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 20 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.77323 0.78745 0.80077 0.81325 0.82496 0.83593 0.84621 0.85585 
+
+mean efficiency: 0.8172 
 > efficiencies( b4, logDepVar = FALSE )
           1999      2000     2001     2002     2003     2004     2005     2006
 F_01  0.852580  0.861820  0.87048  0.87860  0.88621  0.89334  0.90002  0.90629
@@ -54657,6 +55291,64 @@ F_43  0.727887  0.744942  0.76093  0.77591  0.78996  0.80312  0.81546  0.82702
 +    EDYRS + BANRAT - 1, data = riceProdPhilPanel, logDepVar = FALSE )
 > all.equal( b5n[-c(3,27,35)], b5[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b5n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.30390
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.24151
+gamma        0.87000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.0086     0.2460   -4.10  5.2e-05 ***
+log(AREA)     0.3841     0.0593    6.48  3.3e-10 ***
+log(LABOR)    0.3190     0.0611    5.22  3.2e-07 ***
+log(NPK)      0.2604     0.0336    7.75  1.1e-13 ***
+Z_EDYRS      -0.0581     0.0854   -0.68    0.497    
+Z_BANRAT     -1.4056     0.8513   -1.65    0.100 .  
+sigmaSq       0.5974     0.2906    2.06    0.041 *  
+gamma         0.9449     0.0277   34.16  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -77.85 
+
+LR test of the one-sided error = 54.115 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 23 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+    1999     2000     2001     2002     2003     2004     2005     2006 
+ 0.75939  0.71164  0.78841  0.83521  0.71926 -1.75328  0.62838  0.85201 
+
+mean efficiency: 0.44263 
 > efficiencies( b5, logDepVar = FALSE )
           1999      2000      2001    2002     2003        2004     2005
 F_01  0.906547  0.870281  0.915973 0.87373  0.87249    0.731090  0.69139
@@ -54869,6 +55561,65 @@ F_43  0.95376
 +    EDYRS + BANRAT, data = riceProdPhilPanel, logDepVar = FALSE )
 > all.equal( b6n[-c(3,27,35)], b6[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( b6n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
+log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
+log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
+log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
+sigmaSq       0.1090         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.91 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.30390
+log(AREA)    0.32976
+log(LABOR)   0.38375
+log(NPK)     0.28292
+sigmaSq      0.24151
+gamma        0.87000
+
+final maximum likelihood estimates
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0518     0.2530   -4.16  4.1e-05 ***
+log(AREA)       0.3798     0.0600    6.33  7.8e-10 ***
+log(LABOR)      0.3210     0.0611    5.25  2.7e-07 ***
+log(NPK)        0.2638     0.0345    7.66  2.1e-13 ***
+Z_(Intercept)  -2.7465     8.4992   -0.32     0.75    
+Z_EDYRS        -0.0286     0.2160   -0.13     0.89    
+Z_BANRAT       -3.6355     8.0966   -0.45     0.65    
+sigmaSq         1.6666     3.6959    0.45     0.65    
+gamma           0.9788     0.0452   21.65  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -77.314 
+
+LR test of the one-sided error = 55.186 
+with number of restrictions = 4 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 47 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76809 0.72072 0.79865 0.84569 0.72746 0.83078 0.63165 0.85686 
+
+mean efficiency: 0.77249 
 > efficiencies( b6, logDepVar = FALSE )
           1999      2000      2001    2002     2003     2004     2005     2006
 F_01  0.912701  0.878749  0.921124 0.88195  0.88069 0.739684  0.69698  0.93406
@@ -55007,6 +55758,58 @@ F_43  0.406460  0.380506  0.764738 0.77519  0.91043 0.953685  0.86778  0.95577
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, logDepVar = FALSE )
 > all.equal( d1n[-c(3,27,35)], d1[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d1n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.1060900
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.1213777
+gamma        0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.7008     0.2068   27.57   <2e-16 ***
+log(AREA)     0.8040     0.0528   15.24   <2e-16 ***
+log(LABORP)   0.5061     0.0330   15.34   <2e-16 ***
+log(NPKP)     0.1002     0.0576    1.74   0.0828 .  
+sigmaSq       0.2721     0.0998    2.72   0.0068 ** 
+gamma         0.8408     0.0670   12.55   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -3.0556 
+
+LR test of the one-sided error = 79.135 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 19 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.0495 
 > efficiencies( d1, logDepVar = FALSE )
      efficiency
 F_01     1.0695
@@ -55124,6 +55927,59 @@ F_43     1.0311
 +    logDepVar = FALSE )
 > all.equal( d2n[-c(3,27,35)], d2[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d2n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.1060900
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.1213777
+gamma        0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.5899     0.2019   27.68  < 2e-16 ***
+log(AREA)     0.7853     0.0397   19.76  < 2e-16 ***
+log(LABORP)   0.4954     0.0351   14.10  < 2e-16 ***
+log(NPKP)     0.1101     0.0587    1.88    0.062 .  
+sigmaSq       0.1140     0.0169    6.74  6.8e-11 ***
+gamma         0.6079     0.0585   10.39  < 2e-16 ***
+mu            0.5265     0.0930    5.66  3.2e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 6.1579 
+
+LR test of the one-sided error = 97.561 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 11 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.0669 
 > efficiencies( d2, logDepVar = FALSE )
      efficiency
 F_01     1.0872
@@ -55241,6 +56097,63 @@ F_43     1.0499
 +    logDepVar = FALSE )
 > all.equal( d3n[-c(3,27,35)], d3[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d3n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.1060900
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.1213777
+gamma        0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.7114     0.2106   27.11   <2e-16 ***
+log(AREA)     0.8121     0.0443   18.32   <2e-16 ***
+log(LABORP)   0.5008     0.0334   14.97   <2e-16 ***
+log(NPKP)     0.1064     0.0582    1.83   0.0684 .  
+sigmaSq       0.2890     0.1004    2.88   0.0043 ** 
+gamma         0.8505     0.0596   14.27   <2e-16 ***
+time         -0.0164     0.0115   -1.43   0.1544    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -1.8734 
+
+LR test of the one-sided error = 81.499 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 21 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0457 1.0464 1.0472 1.0480 1.0488 1.0496 1.0504 1.0513 
+
+mean efficiency: 1.0484 
 > efficiencies( d3, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0637 1.0648 1.0659 1.0670 1.0681 1.0692 1.0703 1.0715
@@ -55358,6 +56271,64 @@ F_43 1.0280 1.0284 1.0289 1.0294 1.0299 1.0304 1.0309 1.0314
 +    timeEffect = TRUE, logDepVar = FALSE )
 > all.equal( d4n[-c(3,27,35)], d4[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d4n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.1060900
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.1213777
+gamma        0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.6016     0.2003   27.97  < 2e-16 ***
+log(AREA)     0.7881     0.0347   22.74  < 2e-16 ***
+log(LABORP)   0.4975     0.0350   14.22  < 2e-16 ***
+log(NPKP)     0.0975     0.0599    1.63     0.10    
+sigmaSq       0.1206     0.0191    6.33  8.0e-10 ***
+gamma         0.6570     0.0499   13.16  < 2e-16 ***
+mu            0.5630     0.0981    5.74  2.1e-08 ***
+time         -0.0115     0.0150   -0.77     0.44    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 7.86 
+
+LR test of the one-sided error = 100.97 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0657 1.0664 1.0672 1.0680 1.0687 1.0695 1.0703 1.0711 
+
+mean efficiency: 1.0684 
 > efficiencies( d4, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0849 1.0858 1.0868 1.0878 1.0888 1.0899 1.0909 1.0919
@@ -55475,6 +56446,64 @@ F_43 1.0491 1.0497 1.0502 1.0508 1.0514 1.0520 1.0526 1.0532
 +    logDepVar = FALSE )
 > all.equal( d5n[-c(3,27,35)], d5[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d5n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.23e+00   1.48e-01   42.25  < 2e-16 ***
+log(AREA)    9.63e-01   1.83e-02   52.67  < 2e-16 ***
+log(LABORP)  5.24e-01   3.60e-02   14.54  < 2e-16 ***
+log(NPKP)   -2.24e-02   5.62e-02   -0.40  0.69102    
+Z_EDYRS     -1.91e-02   4.99e-03   -3.83  0.00016 ***
+Z_BANRAT     2.64e-01   5.65e-02    4.68  4.2e-06 ***
+sigmaSq      7.14e-02   5.41e-03   13.20  < 2e-16 ***
+gamma        1.00e-08   6.22e-07    0.02  0.98719    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -34.296 
+
+LR test of the one-sided error = 16.653 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 32 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0077 1.0079 1.0080 1.0084 1.0084 1.0088 1.0087 1.0086 
+
+mean efficiency: 1.0083 
 > efficiencies( d5, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0079 1.0079 1.0078 1.0079 1.0078 1.0082 1.0081 1.0078
@@ -55592,6 +56621,65 @@ F_43 1.0014 1.0014 1.0000 1.0025 1.0013 1.0014 1.0013 1.0048
 +    logDepVar = FALSE )
 > all.equal( d6n[-c(3,27,35)], d6[-c(3,27,35)], check.attributes = FALSE )
 [1] TRUE
+> summary( d6n )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.32141    0.24654   25.64   <2e-16 ***
+log(AREA)    0.95386    0.01859   51.30   <2e-16 ***
+log(LABORP)  0.50725    0.04112   12.34   <2e-16 ***
+log(NPKP)   -0.00135    0.07102   -0.02     0.98    
+sigmaSq      0.07590         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.623 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  6.2717485
+log(AREA)    0.9538627
+log(LABORP)  0.5072528
+log(NPKP)   -0.0013522
+sigmaSq      0.0774811
+gamma        0.0500000
+
+final maximum likelihood estimates
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     4.64629  105.55805    0.04  0.96492    
+log(AREA)       0.95870    0.01777   53.94  < 2e-16 ***
+log(LABORP)     0.51558    0.03839   13.43  < 2e-16 ***
+log(NPKP)      -0.01246    0.06725   -0.19  0.85309    
+Z_(Intercept)   1.55797  105.48563    0.01  0.98822    
+Z_EDYRS        -0.00174    0.00755   -0.23  0.81747    
+Z_BANRAT        0.16647    0.04938    3.37  0.00084 ***
+sigmaSq         0.07267    0.00542   13.40  < 2e-16 ***
+gamma           0.82463   47.77852    0.02  0.98624    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -37.151 
+
+LR test of the one-sided error = 10.944 
+with number of restrictions = 4 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 36 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.2257 1.2233 1.2296 1.2410 1.2339 1.2448 1.2340 1.2337 
+
+mean efficiency: 1.2333 
 > efficiencies( d6, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.2398 1.2368 1.2415 1.2402 1.2484 1.2163 1.2404 1.2091
@@ -55708,6 +56796,58 @@ F_43 1.2281 1.2399 1.2622 1.1747 1.2172 1.2322 1.1432 1.2063
 +    logDepVar = FALSE )
 > all.equal( b1un[-c(3,27,35)], b1u[-c(3,27,35)] )
 [1] TRUE
+> summary( b1un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.48099
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.14707
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.8333     0.2790   -2.99    0.003 ** 
+lAREA         0.4542     0.0645    7.04  1.1e-11 ***
+lLABOR        0.2904     0.0643    4.51  8.8e-06 ***
+lNPK          0.2263     0.0412    5.49  8.0e-08 ***
+sigmaSq       0.1567     0.0246    6.38  6.1e-10 ***
+gamma         0.4636     0.0888    5.22  3.2e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -87.14 
+
+LR test of the one-sided error = 36.019 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 11 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency: 0.62485 
 > efficiencies( b1u, logDepVar = FALSE )
      efficiency
 F_01   0.851227
@@ -55846,6 +56986,59 @@ F_43   0.806052
 +    truncNorm = TRUE, logDepVar = FALSE )
 > all.equal( b2un[-c(3,27,35)], b2u[-c(3,27,35)] )
 [1] TRUE
+> summary( b2un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.48099
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.14707
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.8308     0.2816   -2.95   0.0034 ** 
+lAREA         0.4548     0.0651    6.99  1.6e-11 ***
+lLABOR        0.2889     0.0637    4.53  8.2e-06 ***
+lNPK          0.2242     0.0412    5.44  1.0e-07 ***
+sigmaSq       0.1993     0.1729    1.15   0.2499    
+gamma         0.5779     0.3676    1.57   0.1169    
+mu           -0.2425     0.9490   -0.26   0.7985    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -87.066 
+
+LR test of the one-sided error = 36.165 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 19 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency: 0.81317 
 > efficiencies( b2u, logDepVar = FALSE )
      efficiency
 F_01   0.858871
@@ -55984,6 +57177,63 @@ F_43   0.814443
 +    timeEffect = TRUE, logDepVar = FALSE )
 > all.equal( b3un[-c(3,27,35)], b3u[-c(3,27,35)] )
 [1] TRUE
+> summary( b3un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.48099
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.14707
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.7555     0.2796   -2.70  0.00725 ** 
+lAREA         0.4751     0.0659    7.21  3.7e-12 ***
+lLABOR        0.3015     0.0641    4.70  3.8e-06 ***
+lNPK          0.1985     0.0430    4.62  5.5e-06 ***
+sigmaSq       0.1313     0.0221    5.95  6.9e-09 ***
+gamma         0.3700     0.1078    3.43  0.00068 ***
+time          0.0585     0.0310    1.89  0.06007 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -85.282 
+
+LR test of the one-sided error = 39.733 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 13 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76653 0.77978 0.79099 0.80408 0.81405 0.82246 0.83347 0.84492 
+
+mean efficiency: 0.80694 
 > efficiencies( b3u, logDepVar = FALSE )
           1999      2000      2001     2002     2003     2004     2005     2006
 F_01  0.827497  0.837291        NA  0.85524       NA  0.87121  0.87853  0.88542
@@ -56122,6 +57372,64 @@ F_43  0.725822  0.741389  0.756072  0.76992  0.78298  0.79531  0.80693  0.81789
 +    truncNorm = TRUE, timeEffect = TRUE, logDepVar = FALSE )
 > all.equal( b4un[-c(3,27,35)], b4u[-c(3,27,35)] )
 [1] TRUE
+> summary( b4un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.48099
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.14707
+gamma        0.41000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.7528     0.2799   -2.69   0.0075 ** 
+lAREA         0.4762     0.0652    7.31  2.1e-12 ***
+lLABOR        0.2999     0.0631    4.76  2.9e-06 ***
+lNPK          0.1955     0.0438    4.47  1.1e-05 ***
+sigmaSq       0.1691     0.1369    1.23   0.2178    
+gamma         0.5103     0.3968    1.29   0.1993    
+mu           -0.2835     0.9608   -0.30   0.7681    
+time          0.0639     0.0351    1.82   0.0700 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -85.159 
+
+LR test of the one-sided error = 39.98 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 20 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.77251 0.78658 0.79841 0.81218 0.82259 0.83156 0.84278 0.85453 
+
+mean efficiency: 0.81504 
 > efficiencies( b4u, logDepVar = FALSE )
           1999      2000      2001     2002     2003     2004     2005     2006
 F_01  0.838396  0.848396        NA  0.86658       NA  0.88258  0.88984  0.89666
@@ -56260,6 +57568,64 @@ F_43  0.728665  0.745455  0.761206  0.77598  0.78984  0.80285  0.81505  0.82649
 +    data = riceProdPhilPanelUnb, logDepVar = FALSE )
 > all.equal( b5un[-c(3,27,35)], b5u[-c(3,27,35)] )
 [1] TRUE
+> summary( b5un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.30960
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.24360
+gamma        0.87000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.0302     0.2480   -4.15  4.2e-05 ***
+lAREA         0.3797     0.0598    6.35  7.2e-10 ***
+lLABOR        0.3214     0.0614    5.24  2.9e-07 ***
+lNPK          0.2634     0.0344    7.66  2.1e-13 ***
+Z_EDYRS      -0.0544     0.0827   -0.66    0.511    
+Z_BANRAT     -1.3590     0.7354   -1.85    0.065 .  
+sigmaSq       0.5854     0.2905    2.02    0.045 *  
+gamma         0.9434     0.0291   32.44  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -78.714 
+
+LR test of the one-sided error = 52.869 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 22 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.75886 0.71122 0.78496 0.83452 0.71519 0.81927 0.62045 0.85135 
+
+mean efficiency: 0.7623 
 > efficiencies( b5u, logDepVar = FALSE )
           1999      2000     2001    2002     2003     2004     2005     2006
 F_01  0.905468  0.868862       NA 0.87228       NA 0.730169  0.69009  0.92977
@@ -56398,6 +57764,65 @@ F_43  0.400681  0.376929  0.74107 0.75414  0.90071 0.950920  0.85306  0.95342
 +    data = riceProdPhilPanelUnb, logDepVar = FALSE )
 > all.equal( b6un[-c(3,27,35)], b6u[-c(3,27,35)] )
 [1] TRUE
+> summary( b6un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
+lAREA         0.3289     0.0629    5.23  3.0e-07 ***
+lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
+lNPK          0.2835     0.0403    7.04  1.1e-11 ***
+sigmaSq       0.1100         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -105.15 
+
+estimates after the grid search
+                [,1]
+(Intercept) -1.30960
+lAREA        0.32886
+lLABOR       0.38473
+lNPK         0.28351
+sigmaSq      0.24360
+gamma        0.87000
+
+final maximum likelihood estimates
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -1.0732     0.2533   -4.24  2.9e-05 ***
+lAREA           0.3754     0.0601    6.25  1.3e-09 ***
+lLABOR          0.3236     0.0625    5.18  3.9e-07 ***
+lNPK            0.2666     0.0347    7.69  1.7e-13 ***
+Z_(Intercept)  -2.5280     6.2743   -0.40     0.69    
+Z_EDYRS        -0.0223     0.2013   -0.11     0.91    
+Z_BANRAT       -3.3414     5.9203   -0.56     0.57    
+sigmaSq         1.5517     2.7117    0.57     0.57    
+gamma           0.9771     0.0390   25.04  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -78.198 
+
+LR test of the one-sided error = 53.901 
+with number of restrictions = 4 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 46 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76763 0.72041 0.79538 0.84503 0.72348 0.82798 0.62373 0.85622 
+
+mean efficiency: 0.7703 
 > efficiencies( b6u, logDepVar = FALSE )
           1999      2000      2001    2002     2003     2004     2005     2006
 F_01  0.911751  0.877489        NA 0.88067       NA 0.738888  0.69580  0.93338
@@ -56536,6 +57961,58 @@ F_43  0.406785  0.380789  0.763876 0.77563  0.91000 0.953267  0.86768  0.95544
 +    ineffDecrease = FALSE, logDepVar = FALSE )
 > all.equal( d1un[-c(3,27,35)], d1u[-c(3,27,35)] )
 [1] TRUE
+> summary( d1un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.0890711
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.1218742
+gamma       0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.7278     0.2143   26.73   <2e-16 ***
+lAREA         0.8091     0.0542   14.93   <2e-16 ***
+lLABORP       0.5018     0.0339   14.79   <2e-16 ***
+lNPKP         0.0989     0.0591    1.67   0.0951 .  
+sigmaSq       0.2635     0.0995    2.65   0.0085 ** 
+gamma         0.8335     0.0712   11.70   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -4.5128 
+
+LR test of the one-sided error = 76.617 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 20 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency: 1.0484 
 > efficiencies( d1u, logDepVar = FALSE )
      efficiency
 F_01     1.0626
@@ -56650,6 +58127,59 @@ F_43     1.0301
 +    ineffDecrease = FALSE, truncNorm = TRUE, logDepVar = FALSE )
 > all.equal( d2un[-c(3,27,35)], d2u[-c(3,27,35)] )
 [1] TRUE
+> summary( d2un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.0890711
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.1218742
+gamma       0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.6083     0.2035   27.55  < 2e-16 ***
+lAREA         0.7855     0.0400   19.66  < 2e-16 ***
+lLABORP       0.4921     0.0358   13.74  < 2e-16 ***
+lNPKP         0.1087     0.0591    1.84    0.067 .  
+sigmaSq       0.1139     0.0171    6.65  1.2e-10 ***
+gamma         0.6065     0.0589   10.29  < 2e-16 ***
+mu            0.5257     0.0949    5.54  6.1e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 4.7103 
+
+LR test of the one-sided error = 95.063 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 11 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency: 1.0666 
 > efficiencies( d2u, logDepVar = FALSE )
      efficiency
 F_01     1.0817
@@ -56764,6 +58294,63 @@ F_43     1.0498
 +    ineffDecrease = FALSE, timeEffect = TRUE, logDepVar = FALSE )
 > all.equal( d3un[-c(3,27,35)], d3u[-c(3,27,35)] )
 [1] TRUE
+> summary( d3un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.0890711
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.1218742
+gamma       0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   5.7422     0.2117   27.12   <2e-16 ***
+lAREA         0.8182     0.0516   15.87   <2e-16 ***
+lLABORP       0.4957     0.0339   14.64   <2e-16 ***
+lNPKP         0.1055     0.0589    1.79   0.0744 .  
+sigmaSq       0.2806     0.1018    2.76   0.0062 ** 
+gamma         0.8440     0.0641   13.17   <2e-16 ***
+time         -0.0179     0.0117   -1.54   0.1252    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -3.2021 
+
+LR test of the one-sided error = 79.238 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 21 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0443 1.0451 1.0456 1.0467 1.0472 1.0475 1.0496 1.0502 
+
+mean efficiency: 1.0470 
 > efficiencies( d3u, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0565 1.0575     NA 1.0596     NA 1.0618 1.0629 1.0640
@@ -56879,6 +58466,64 @@ F_43 1.0267 1.0272 1.0277 1.0282 1.0287 1.0292 1.0297 1.0303
 +    logDepVar = FALSE )
 > all.equal( d4un[-c(3,27,35)], d4u[-c(3,27,35)] )
 [1] TRUE
+> summary( d4un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.0890711
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.1218742
+gamma       0.6000000
+
+final maximum likelihood estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  5.60723    0.20432   27.44  < 2e-16 ***
+lAREA        0.77997    0.03723   20.95  < 2e-16 ***
+lLABORP      0.49148    0.03613   13.60  < 2e-16 ***
+lNPKP        0.09742    0.06002    1.62     0.11    
+sigmaSq      0.12121    0.01909    6.35  7.0e-10 ***
+gamma        0.66596    0.05161   12.90  < 2e-16 ***
+mu           0.56823    0.08842    6.43  4.5e-10 ***
+time        -0.00893    0.00814   -1.10     0.27    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 6.1845 
+
+LR test of the one-sided error = 98.011 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0690 1.0696 1.0699 1.0709 1.0711 1.0713 1.0730 1.0734 
+
+mean efficiency: 1.0710 
 > efficiencies( d4u, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0836 1.0844     NA 1.0859     NA 1.0875 1.0882 1.0890
@@ -56993,6 +58638,64 @@ F_43 1.0524 1.0529 1.0534 1.0538 1.0543 1.0548 1.0553 1.0558
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
 > all.equal( d5un[-c(3,27,35)], d5u[-c(3,27,35)] )
 [1] TRUE
+> summary( d5un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.2550681
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.0777980
+gamma       0.0500000
+
+final maximum likelihood estimates
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.25e+00   2.60e-01   24.03  < 2e-16 ***
+lAREA        9.64e-01   1.84e-02   52.45  < 2e-16 ***
+lLABORP      5.14e-01   4.30e-02   11.95  < 2e-16 ***
+lNPKP       -6.80e-03   6.79e-02   -0.10     0.92    
+Z_EDYRS     -1.32e-02   2.99e-03   -4.42  1.3e-05 ***
+Z_BANRAT     1.84e-01   4.66e-02    3.96  9.3e-05 ***
+sigmaSq      7.27e-02   5.32e-03   13.66  < 2e-16 ***
+gamma        8.62e-08   5.12e-05  0.0017     1.00    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -35.395 
+
+LR test of the one-sided error = 14.853 
+with number of restrictions = 3 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 20 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0054 1.0055 1.0057 1.0059 1.0059 1.0063 1.0062 1.0061 
+
+mean efficiency: 1.0059 
 > efficiencies( d5u, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0056 1.0057     NA 1.0057     NA 1.0059 1.0058 1.0056
@@ -57107,6 +58810,65 @@ F_43 1.0011 1.0011 1.0000 1.0018 1.0010 1.0010 1.0010 1.0034
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
 > all.equal( d6un[-c(3,27,35)], d6u[-c(3,27,35)] )
 [1] TRUE
+> summary( d6un )
+Stochastic Frontier Analysis with FRONTIER 4.1
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is not logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.30483    0.24829   25.39   <2e-16 ***
+lAREA        0.95297    0.01865   51.09   <2e-16 ***
+lLABORP      0.50878    0.04147   12.27   <2e-16 ***
+lNPKP        0.00186    0.07133    0.03     0.98    
+sigmaSq      0.07622         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -42.821 
+
+estimates after the grid search
+                 [,1]
+(Intercept) 6.2550681
+lAREA       0.9529681
+lLABORP     0.5087803
+lNPKP       0.0018561
+sigmaSq     0.0777980
+gamma       0.0500000
+
+final maximum likelihood estimates
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    6.19e+00   2.48e-01   25.03  < 2e-16 ***
+lAREA          9.64e-01   1.85e-02   52.10  < 2e-16 ***
+lLABORP        5.19e-01   4.09e-02   12.70  < 2e-16 ***
+lNPKP         -1.19e-02   7.07e-02   -0.17   0.8661    
+Z_(Intercept) -2.06e-01   7.67e-02   -2.69   0.0076 ** 
+Z_EDYRS        6.53e-03   7.18e-03    0.91   0.3634    
+Z_BANRAT       3.34e-01   7.28e-02    4.58  6.5e-06 ***
+sigmaSq        6.92e-02   4.27e-03   16.18  < 2e-16 ***
+gamma          1.68e-08   2.04e-05 0.00083   0.9993    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -35.879 
+
+LR test of the one-sided error = 13.885 
+with number of restrictions = 4 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 17 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 340 
+thus there are 4 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.0108 1.0111 1.0110 1.0117 1.0115 1.0126 1.0116 1.0128 
+
+mean efficiency: 1.0116 
 > efficiencies( d6u, logDepVar = FALSE )
        1999   2000   2001   2002   2003   2004   2005   2006
 F_01 1.0210 1.0211     NA 1.0211     NA 1.0218 1.0216 1.0208

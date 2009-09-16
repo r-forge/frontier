@@ -949,6 +949,7 @@ print.default( translogZvar )
 a1n <- sfa( log( output ) ~ log( capital ) + log( labour ),
    data = front41Data, logDepVar = FALSE )
 all.equal( a1n[-c(3,27,35)], a1[-c(3,27,35)], check.attributes = FALSE )
+summary( a1n )
 efficiencies( a1, logDepVar = FALSE )
 efficiencies( a1, asInData = TRUE, logDepVar = FALSE )
 
@@ -956,6 +957,7 @@ efficiencies( a1, asInData = TRUE, logDepVar = FALSE )
 a2n <- sfa( log( output ) ~ log( capital ) + log( labour ),
    data = front41Data, truncNorm = TRUE, logDepVar = FALSE )
 all.equal( a2n[-c(3,27,35)], a2[-c(3,27,35)], check.attributes = FALSE )
+summary( a2n )
 efficiencies( a2, logDepVar = FALSE )
 efficiencies( a2, asInData = TRUE, logDepVar = FALSE )
 
@@ -963,6 +965,7 @@ efficiencies( a2, asInData = TRUE, logDepVar = FALSE )
 aa1n <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
    data = front41Data, logDepVar = FALSE )
 all.equal( aa1n[-c(3,27,35)], aa1[-c(3,27,35)], check.attributes = FALSE )
+summary( aa1n )
 efficiencies( aa1, logDepVar = FALSE )
 efficiencies( aa1, asInData = TRUE, logDepVar = FALSE )
 
@@ -970,6 +973,7 @@ efficiencies( aa1, asInData = TRUE, logDepVar = FALSE )
 aa2n <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo,
    data = front41Data, logDepVar = FALSE )
 all.equal( aa2n[-c(3,27,35)], aa2[-c(3,27,35)], check.attributes = FALSE )
+summary( aa2n )
 efficiencies( aa2, logDepVar = FALSE )
 efficiencies( aa2, asInData = TRUE, logDepVar = FALSE )
 
@@ -977,6 +981,7 @@ efficiencies( aa2, asInData = TRUE, logDepVar = FALSE )
 dd1n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhil, ineffDecrease = FALSE, logDepVar = FALSE )
 all.equal( dd1n[-c(3,27,35)], dd1[-c(3,27,35)], check.attributes = FALSE )
+summary( dd1n )
 efficiencies( dd1, logDepVar = FALSE )
 efficiencies( dd1, asInData = TRUE, logDepVar = FALSE )
 
@@ -985,6 +990,7 @@ dd2n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE,
    logDepVar = FALSE )
 all.equal( dd2n[-c(3,27,35)], dd2[-c(3,27,35)], check.attributes = FALSE )
+summary( dd2n )
 efficiencies( dd2, logDepVar = FALSE )
 efficiencies( dd2, asInData = TRUE, logDepVar = FALSE )
 
@@ -993,6 +999,7 @@ dd5n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
    EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE,
    logDepVar = FALSE )
 all.equal( dd5n[-c(3,27,35)], dd5[-c(3,27,35)], check.attributes = FALSE )
+summary( dd5n )
 efficiencies( dd5, logDepVar = FALSE )
 efficiencies( dd5, asInData = TRUE, logDepVar = FALSE )
 
@@ -1001,6 +1008,7 @@ dd6n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
    EDYRS + BANRAT, data = riceProdPhil, ineffDecrease = FALSE,
    logDepVar = FALSE )
 all.equal( dd6n[-c(3,27,35)], dd6[-c(3,27,35)], check.attributes = FALSE )
+summary( dd6n )
 efficiencies( dd6, logDepVar = FALSE )
 efficiencies( dd6, asInData = TRUE , logDepVar = FALSE)
 
@@ -1008,6 +1016,7 @@ efficiencies( dd6, asInData = TRUE , logDepVar = FALSE)
 b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhilPanel, logDepVar = FALSE )
 all.equal( b1n[-c(3,27,35)], b1[-c(3,27,35)], check.attributes = FALSE )
+summary( b1n )
 efficiencies( b1, logDepVar = FALSE )
 efficiencies( b1, asInData = TRUE, logDepVar = FALSE )
 
@@ -1015,6 +1024,7 @@ efficiencies( b1, asInData = TRUE, logDepVar = FALSE )
 b2n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhilPanel, truncNorm = TRUE, logDepVar = FALSE )
 all.equal( b2n[-c(3,27,35)], b2[-c(3,27,35)], check.attributes = FALSE )
+summary( b2n )
 efficiencies( b2, logDepVar = FALSE )
 efficiencies( b2, asInData = TRUE, logDepVar = FALSE )
 
@@ -1022,6 +1032,7 @@ efficiencies( b2, asInData = TRUE, logDepVar = FALSE )
 b3n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhilPanel, timeEffect = TRUE, logDepVar = FALSE )
 all.equal( b3n[-c(3,27,35)], b3[-c(3,27,35)], check.attributes = FALSE )
+summary( b3n )
 efficiencies( b3, logDepVar = FALSE )
 efficiencies( b3, asInData = TRUE, logDepVar = FALSE )
 
@@ -1030,6 +1041,7 @@ b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,
    logDepVar = FALSE )
 all.equal( b4n[-c(3,27,35)], b4[-c(3,27,35)], check.attributes = FALSE )
+summary( b4n )
 efficiencies( b4, logDepVar = FALSE )
 efficiencies( b4, asInData = TRUE, logDepVar = FALSE )
 
@@ -1037,6 +1049,7 @@ efficiencies( b4, asInData = TRUE, logDepVar = FALSE )
 b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = riceProdPhilPanel, logDepVar = FALSE )
 all.equal( b5n[-c(3,27,35)], b5[-c(3,27,35)], check.attributes = FALSE )
+summary( b5n )
 efficiencies( b5, logDepVar = FALSE )
 efficiencies( b5, asInData = TRUE, logDepVar = FALSE )
 
@@ -1044,6 +1057,7 @@ efficiencies( b5, asInData = TRUE, logDepVar = FALSE )
 b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT, data = riceProdPhilPanel, logDepVar = FALSE )
 all.equal( b6n[-c(3,27,35)], b6[-c(3,27,35)], check.attributes = FALSE )
+summary( b6n )
 efficiencies( b6, logDepVar = FALSE )
 efficiencies( b6, asInData = TRUE, logDepVar = FALSE )
 
@@ -1051,6 +1065,7 @@ efficiencies( b6, asInData = TRUE, logDepVar = FALSE )
 d1n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, logDepVar = FALSE )
 all.equal( d1n[-c(3,27,35)], d1[-c(3,27,35)], check.attributes = FALSE )
+summary( d1n )
 efficiencies( d1, logDepVar = FALSE )
 efficiencies( d1, asInData = TRUE, logDepVar = FALSE )
 
@@ -1059,6 +1074,7 @@ d2n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
    logDepVar = FALSE )
 all.equal( d2n[-c(3,27,35)], d2[-c(3,27,35)], check.attributes = FALSE )
+summary( d2n )
 efficiencies( d2, logDepVar = FALSE )
 efficiencies( d2, asInData = TRUE, logDepVar = FALSE )
 
@@ -1067,6 +1083,7 @@ d3n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE,
    logDepVar = FALSE )
 all.equal( d3n[-c(3,27,35)], d3[-c(3,27,35)], check.attributes = FALSE )
+summary( d3n )
 efficiencies( d3, logDepVar = FALSE )
 efficiencies( d3, asInData = TRUE, logDepVar = FALSE )
 
@@ -1075,6 +1092,7 @@ d4n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
    timeEffect = TRUE, logDepVar = FALSE )
 all.equal( d4n[-c(3,27,35)], d4[-c(3,27,35)], check.attributes = FALSE )
+summary( d4n )
 efficiencies( d4, logDepVar = FALSE )
 efficiencies( d4, asInData = TRUE, logDepVar = FALSE )
 
@@ -1083,6 +1101,7 @@ d5n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
    EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE,
    logDepVar = FALSE )
 all.equal( d5n[-c(3,27,35)], d5[-c(3,27,35)], check.attributes = FALSE )
+summary( d5n )
 efficiencies( d5, logDepVar = FALSE )
 efficiencies( d5, asInData = TRUE, logDepVar = FALSE )
 
@@ -1091,6 +1110,7 @@ d6n <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
    EDYRS + BANRAT, data = riceProdPhilPanel, ineffDecrease = FALSE,
    logDepVar = FALSE )
 all.equal( d6n[-c(3,27,35)], d6[-c(3,27,35)], check.attributes = FALSE )
+summary( d6n )
 efficiencies( d6, logDepVar = FALSE )
 efficiencies( d6, asInData = TRUE, logDepVar = FALSE )
 
@@ -1098,6 +1118,7 @@ efficiencies( d6, asInData = TRUE, logDepVar = FALSE )
 b1un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    logDepVar = FALSE )
 all.equal( b1un[-c(3,27,35)], b1u[-c(3,27,35)] )
+summary( b1un )
 efficiencies( b1u, logDepVar = FALSE )
 efficiencies( b1u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1105,6 +1126,7 @@ efficiencies( b1u, asInData = TRUE, logDepVar = FALSE )
 b2un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    truncNorm = TRUE, logDepVar = FALSE )
 all.equal( b2un[-c(3,27,35)], b2u[-c(3,27,35)] )
+summary( b2un )
 efficiencies( b2u, logDepVar = FALSE )
 efficiencies( b2u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1112,6 +1134,7 @@ efficiencies( b2u, asInData = TRUE, logDepVar = FALSE )
 b3un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    timeEffect = TRUE, logDepVar = FALSE )
 all.equal( b3un[-c(3,27,35)], b3u[-c(3,27,35)] )
+summary( b3un )
 efficiencies( b3u, logDepVar = FALSE )
 efficiencies( b3u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1119,6 +1142,7 @@ efficiencies( b3u, asInData = TRUE, logDepVar = FALSE )
 b4un <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    truncNorm = TRUE, timeEffect = TRUE, logDepVar = FALSE )
 all.equal( b4un[-c(3,27,35)], b4u[-c(3,27,35)] )
+summary( b4un )
 efficiencies( b4u, logDepVar = FALSE )
 efficiencies( b4u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1126,6 +1150,7 @@ efficiencies( b4u, asInData = TRUE, logDepVar = FALSE )
 b5un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhilPanelUnb, logDepVar = FALSE )
 all.equal( b5un[-c(3,27,35)], b5u[-c(3,27,35)] )
+summary( b5un )
 efficiencies( b5u, logDepVar = FALSE )
 efficiencies( b5u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1133,6 +1158,7 @@ efficiencies( b5u, asInData = TRUE, logDepVar = FALSE )
 b6un <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhilPanelUnb, logDepVar = FALSE )
 all.equal( b6un[-c(3,27,35)], b6u[-c(3,27,35)] )
+summary( b6un )
 efficiencies( b6u, logDepVar = FALSE )
 efficiencies( b6u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1140,6 +1166,7 @@ efficiencies( b6u, asInData = TRUE, logDepVar = FALSE )
 d1un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, logDepVar = FALSE )
 all.equal( d1un[-c(3,27,35)], d1u[-c(3,27,35)] )
+summary( d1un )
 efficiencies( d1u, logDepVar = FALSE )
 efficiencies( d1u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1147,6 +1174,7 @@ efficiencies( d1u, asInData = TRUE, logDepVar = FALSE )
 d2un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, truncNorm = TRUE, logDepVar = FALSE )
 all.equal( d2un[-c(3,27,35)], d2u[-c(3,27,35)] )
+summary( d2un )
 efficiencies( d2u, logDepVar = FALSE )
 efficiencies( d2u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1154,6 +1182,7 @@ efficiencies( d2u, asInData = TRUE, logDepVar = FALSE )
 d3un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, timeEffect = TRUE, logDepVar = FALSE )
 all.equal( d3un[-c(3,27,35)], d3u[-c(3,27,35)] )
+summary( d3un )
 efficiencies( d3u, logDepVar = FALSE )
 efficiencies( d3u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1162,6 +1191,7 @@ d4un <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE,
    logDepVar = FALSE )
 all.equal( d4un[-c(3,27,35)], d4u[-c(3,27,35)] )
+summary( d4un )
 efficiencies( d4u, logDepVar = FALSE )
 efficiencies( d4u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1169,6 +1199,7 @@ efficiencies( d4u, asInData = TRUE, logDepVar = FALSE )
 d5un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
 all.equal( d5un[-c(3,27,35)], d5u[-c(3,27,35)] )
+summary( d5un )
 efficiencies( d5u, logDepVar = FALSE )
 efficiencies( d5u, asInData = TRUE, logDepVar = FALSE )
 
@@ -1176,6 +1207,7 @@ efficiencies( d5u, asInData = TRUE, logDepVar = FALSE )
 d6un <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, logDepVar = FALSE )
 all.equal( d6un[-c(3,27,35)], d6u[-c(3,27,35)] )
+summary( d6un )
 efficiencies( d6u, logDepVar = FALSE )
 efficiencies( d6u, asInData = TRUE, logDepVar = FALSE )
 
