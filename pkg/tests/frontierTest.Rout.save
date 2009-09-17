@@ -100,11 +100,11 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-34], sa1[-34], check.attributes = FALSE )
+> all.equal( Sa1[-33], sa1[-33], check.attributes = FALSE )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-34], a1[-34] )
+> all.equal( sa1[-33], a1[-33] )
 [1] TRUE
 > print( a1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -362,9 +362,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -596,7 +593,7 @@ attr(,"class")
 +    truncNorm = TRUE )
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-34], a2[-34] )
+> all.equal( sa2[-33], a2[-33] )
 [1] TRUE
 > print( a2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -862,9 +859,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -1105,7 +1099,7 @@ attr(,"class")
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-34], a5[-34] )
+> all.equal( sa5[-33], a5[-33] )
 [1] TRUE
 > print( a5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1281,9 +1275,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -1526,11 +1517,11 @@ attr(,"class")
 +    data = front41Data )
 > Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
 +    data = front41Data )
-> all.equal( Saa1[-34], saa1[-34], check.attributes = FALSE )
+> all.equal( Saa1[-33], saa1[-33], check.attributes = FALSE )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-34], aa1[-34] )
+> all.equal( saa1[-33], aa1[-33] )
 [1] TRUE
 > print( aa1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -1796,9 +1787,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -2038,7 +2026,7 @@ attr(,"class")
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-34], aa2[-34] )
+> all.equal( saa2[-33], aa2[-33] )
 [1] TRUE
 > print( aa2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2310,9 +2298,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -2557,7 +2542,7 @@ attr(,"class")
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-34], aa5[-34] )
+> all.equal( saa5[-33], aa5[-33] )
 [1] TRUE
 > print( aa5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -2740,9 +2725,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -2998,11 +2980,11 @@ attr(,"class")
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-34], sbb1[-34], check.attributes = FALSE )
+> all.equal( Sbb1[-33], sbb1[-33], check.attributes = FALSE )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-34], bb1[-34] )
+> all.equal( sbb1[-33], bb1[-33] )
 [1] TRUE
 > print( bb1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -3977,9 +3959,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -4788,7 +4767,7 @@ attr(,"class")
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-34], bb2[-34] )
+> all.equal( sbb2[-33], bb2[-33] )
 [1] TRUE
 > print( bb2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -5771,9 +5750,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -6585,12 +6561,12 @@ attr(,"class")
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-34], sbb5[-34], check.attributes = FALSE )
+> all.equal( Sbb5[-33], sbb5[-33], check.attributes = FALSE )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-34], bb5[-34] )
+> all.equal( sbb5[-33], bb5[-33] )
 [1] TRUE
 > print( bb5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -7577,9 +7553,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -8394,7 +8367,7 @@ attr(,"class")
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-34], bb6[-34] )
+> all.equal( sbb6[-33], bb6[-33] )
 [1] TRUE
 > print( bb6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -9401,9 +9374,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -10221,7 +10191,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-34], bb7[-34] )
+> all.equal( sbb7[-33], bb7[-33] )
 [1] TRUE
 > print( bb7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -10747,9 +10717,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -11569,7 +11536,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-34], bb8[-34] )
+> all.equal( sbb8[-33], bb8[-33] )
 [1] TRUE
 > print( bb8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -12105,9 +12072,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -12942,14 +12906,14 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 Warning message:
 In sfa(log(cost) ~ log(AREA) + log(LABORP) + log(NPKP), data = riceProdPhil,  :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( Sdd1[-34], sdd1[-34], check.attributes = FALSE )
+> all.equal( Sdd1[-33], sdd1[-33], check.attributes = FALSE )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( sdd1[-34], dd1[-34] )
+> all.equal( sdd1[-33], dd1[-33] )
 [1] TRUE
 > print( dd1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -13934,9 +13898,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -14750,7 +14711,7 @@ In sfa(lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhil, ineffDecrease = FAL
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
-> all.equal( sdd2[-34], dd2[-34] )
+> all.equal( sdd2[-33], dd2[-33] )
 [1] TRUE
 > print( dd2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -15743,9 +15704,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -16557,12 +16515,12 @@ attr(,"class")
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > Sdd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd5[-34], sdd5[-34], check.attributes = FALSE )
+> all.equal( Sdd5[-33], sdd5[-33], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
-> all.equal( sdd5[-34], dd5[-34] )
+> all.equal( sdd5[-33], dd5[-33] )
 [1] TRUE
 > print( dd5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -17559,9 +17517,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -18376,7 +18331,7 @@ attr(,"class")
 > dd6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sdd6[-34], dd6[-34] )
+> all.equal( sdd6[-33], dd6[-33] )
 [1] TRUE
 > print( dd6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -19331,9 +19286,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 344
 
@@ -20156,11 +20108,11 @@ attr(,"class")
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-34], sb1[-34], check.attributes = FALSE )
+> all.equal( Sb1[-33], sb1[-33], check.attributes = FALSE )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-34], b1[-34] )
+> all.equal( sb1[-33], b1[-33] )
 [1] TRUE
 > print( b1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -20595,9 +20547,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -21151,7 +21100,7 @@ attr(,"class")
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-34], b2[-34] )
+> all.equal( sb2[-33], b2[-33] )
 [1] TRUE
 > print( b2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -21578,9 +21527,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -22138,7 +22084,7 @@ attr(,"class")
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-34], b3[-34] )
+> all.equal( sb3[-33], b3[-33] )
 [1] TRUE
 > print( b3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -22569,9 +22515,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -23129,7 +23072,7 @@ attr(,"class")
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-34], b4[-34] )
+> all.equal( sb4[-33], b4[-33] )
 [1] TRUE
 > print( b4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -23564,9 +23507,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -24125,12 +24065,12 @@ attr(,"class")
 +    data = riceProdPhilPanel )
 > Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhilPanel )
-> all.equal( Sb5[-34], sb5[-34], check.attributes = FALSE )
+> all.equal( Sb5[-33], sb5[-33], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-34], b5[-34] )
+> all.equal( sb5[-33], b5[-33] )
 [1] TRUE
 > print( b5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -24565,9 +24505,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -25127,7 +25064,7 @@ attr(,"class")
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-34], b6[-34] )
+> all.equal( sb6[-33], b6[-33] )
 [1] TRUE
 > print( b6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -25582,9 +25519,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -26149,7 +26083,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-34], b7[-34] )
+> all.equal( sb7[-33], b7[-33] )
 [1] TRUE
 > print( b7 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -26387,9 +26321,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -26954,7 +26885,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-34], b8[-34] )
+> all.equal( sb8[-33], b8[-33] )
 [1] TRUE
 > print( b8 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -27197,9 +27128,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -27766,11 +27694,11 @@ attr(,"class")
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-34], sd1[-34], check.attributes = FALSE )
+> all.equal( Sd1[-33], sd1[-33], check.attributes = FALSE )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-34], d1[-34] )
+> all.equal( sd1[-33], d1[-33] )
 [1] TRUE
 > print( d1 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -28180,9 +28108,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -28734,7 +28659,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-34], d2[-34] )
+> all.equal( sd2[-33], d2[-33] )
 [1] TRUE
 > print( d2 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -29168,9 +29093,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -29726,7 +29648,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-34], d3[-34] )
+> all.equal( sd3[-33], d3[-33] )
 [1] TRUE
 > print( d3 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -30134,9 +30056,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -30693,7 +30612,7 @@ attr(,"class")
 > d4 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-34], d4[-34] )
+> all.equal( sd4[-33], d4[-33] )
 [1] TRUE
 > print( d4 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -31119,9 +31038,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -31680,12 +31596,12 @@ attr(,"class")
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
 > Sd5 <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd5[-34], sd5[-34], check.attributes = FALSE )
+> all.equal( Sd5[-33], sd5[-33], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
-> all.equal( sd5[-34], d5[-34] )
+> all.equal( sd5[-33], d5[-33] )
 [1] TRUE
 > print( d5 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -32111,9 +32027,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -32673,7 +32586,7 @@ attr(,"class")
 > d6 <- frontier( "lCost", xNames = c( "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sd6[-34], d6[-34] )
+> all.equal( sd6[-33], d6[-33] )
 [1] TRUE
 > print( d6 )
 Stochastic Frontier Analysis with FRONTIER 4.1
@@ -33035,9 +32948,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -33940,9 +33850,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -34859,9 +34766,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -35789,9 +35693,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 43
 
@@ -36716,9 +36617,6 @@ $modelType
 [1] 1
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -37663,9 +37561,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -38613,9 +38508,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 43
 
@@ -39532,9 +39424,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 43
 
@@ -40445,9 +40334,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -41368,9 +41254,6 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 43
 
@@ -42234,9 +42117,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -43115,9 +42995,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -44057,9 +43934,6 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
-
-$logDepVar
-[1] TRUE
 
 $nn
 [1] 43
@@ -45091,9 +44965,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -45830,9 +45701,6 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$logDepVar
-[1] TRUE
-
 $nn
 [1] 60
 
@@ -46562,9 +46430,6 @@ $modelType
 [1] 2
 
 $ineffDecrease
-[1] TRUE
-
-$logDepVar
 [1] TRUE
 
 $nn
@@ -53569,17 +53434,17 @@ F_43 1.0000 1.0000 1.0000 1.0008 1.0000 1.0000 1.0000 1.0037
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-34], a1[-34], check.attributes = FALSE )
+> all.equal( a1a[-33], a1[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-34], aa1[-34], check.attributes = FALSE )
+> all.equal( aa1a[-33], aa1[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-34], aa2[-34], check.attributes = FALSE )
+> all.equal( aa2a[-33], aa2[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > 
@@ -53599,7 +53464,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 Final maximum likelihood estimates
 (Intercept)     sigmaSq       gamma 
      3.3720      0.8798      0.9340 
-> all.equal( sa10[-34], a10[-34], check.attributes = FALSE )
+> all.equal( sa10[-33], a10[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
@@ -53613,7 +53478,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 Final maximum likelihood estimates
 (Intercept)   logLabour     sigmaSq       gamma 
     1.11574     0.52141     0.38541     0.88747 
-> all.equal( sa11[-34], a11[-34], check.attributes = FALSE )
+> all.equal( sa11[-33], a11[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
@@ -53629,7 +53494,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 Final maximum likelihood estimates
 (Intercept)    Z_firmNo     sigmaSq       gamma 
    3.316988   -0.014811    1.086937    0.935612 
-> all.equal( saa10[-34], aa10[-34] )
+> all.equal( saa10[-33], aa10[-33] )
 [1] TRUE
 > 
 > saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
@@ -53644,7 +53509,7 @@ Inefficiency decreases the endogenous variable (as in a production function)
 Final maximum likelihood estimates
 (Intercept)   logLabour    Z_firmNo     sigmaSq       gamma 
    1.022769    0.528435   -0.031723    0.654628    0.926464 
-> all.equal( saa11[-34], aa11[-34] )
+> all.equal( saa11[-33], aa11[-33] )
 [1] TRUE
 > 
 > 

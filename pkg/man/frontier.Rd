@@ -17,7 +17,7 @@
 
 \usage{
 sfa( formula, data = sys.frame( sys.parent() ),
-   ineffDecrease = TRUE,  logDepVar = TRUE, truncNorm = FALSE,
+   ineffDecrease = TRUE, truncNorm = FALSE,
    timeEffect = FALSE, startVal = NULL,
    tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
@@ -45,7 +45,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       if \code{FALSE},
       inefficiency increases the endogenous variable
       (e.g. for estimating a cost function).}
-   \item{logDepVar}{logical. Is the dependent variable logged.}
    \item{truncNorm}{logical. If \code{TRUE},
       the inefficiencies are assumed to have a truncated normal distribution
       (i.e. parameter \eqn{\mu}{mu} is added);
@@ -177,7 +176,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       A \sQuote{1} denotes an \sQuote{Error Components Frontier} (ECF);
       a \sQuote{2} denotes an \sQuote{Efficiency Effects Frontier} (EFF).}
    \item{ineffDecrease}{logical. Argument \code{ineffDecrease} (see above).}
-   \item{logDepVar}{logical. Argument \code{logDepVar} (see above).}
    \item{nn}{number of cross-sections.}
    \item{nt}{number of time periods.}
    \item{nob}{number of observations in total.}

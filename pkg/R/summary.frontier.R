@@ -1,5 +1,5 @@
 summary.frontier <- function( object, effic = FALSE,
-      logDepVar = object$logDepVar, ... ) {
+      logDepVar = TRUE, ... ) {
 
    # save variable 'logDepVar'
    object$logDepVar <- logDepVar

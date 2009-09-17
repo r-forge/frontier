@@ -10,7 +10,7 @@ returned by \code{\link{frontier}}.
 
 \usage{
 \method{summary}{frontier}( object, effic = FALSE,
-   logDepVar = object$logDepVar, \dots )
+   logDepVar = TRUE, \dots )
 \method{print}{summary.frontier}( x, effic = x$printEffic, \dots )
 }
 
@@ -32,6 +32,7 @@ returned by \code{\link{frontier}}.
       t values, and P values.}
    \item{mleParam}{matrix of ML estimates, their standard errors,
       t values, and P values.}
+   \item{logDepVar}{logical. Argument \code{logDepVar} (see above).}
    \item{printEffic}{argument \code{effic}.}
    \item{effic}{matrix. Efficiency estimates:
       each row corresponds to a cross-section;

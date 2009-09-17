@@ -1,6 +1,6 @@
 # efficiencies of frontier models
 efficiencies.frontier <- function( object, asInData = FALSE,
-      logDepVar = object$logDepVar, ... ) {
+      logDepVar = TRUE, ... ) {
 
    resid <- residuals( object )
    fitted <- - resid

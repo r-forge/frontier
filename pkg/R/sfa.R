@@ -1,7 +1,6 @@
 sfa <- function(
       formula, data = sys.frame( sys.parent() ),
       ineffDecrease = TRUE,
-      logDepVar = TRUE,
       truncNorm = FALSE,
       timeEffect = FALSE,
       startVal = NULL,
@@ -39,10 +38,6 @@ sfa <- function(
    # ineffDecrease (ipc)
    if( !is.logical( ineffDecrease ) || length( ineffDecrease ) != 1 ) {
       stop( "argument 'ineffDecrease' must be a single logical value" )
-   }
-   # logDepVar (il)
-   if( !is.logical( logDepVar ) ) {
-      stop( "argument 'logDepVar' must be logical" )
    }
    # truncNorm (mu)
    if( !is.logical( truncNorm ) ) {
@@ -263,7 +258,6 @@ sfa <- function(
    returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
-      logDepVar = as.integer( logDepVar ),
       nn = as.integer( nn ),
       nt = as.integer( nt ),
       nob = as.integer( nob ),
@@ -301,7 +295,6 @@ sfa <- function(
    returnObj$nColData <- NULL
    returnObj$nParamTotal <- NULL
    returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
-   returnObj$logDepVar <- as.logical( returnObj$logDepVar )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
    returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
    returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]

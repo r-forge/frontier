@@ -10,7 +10,7 @@
 
 \usage{
 \method{efficiencies}{frontier}( object, asInData = FALSE,
-   logDepVar = object$logDepVar, \dots )
+   logDepVar = TRUE, \dots )
 }
 
 \arguments{
