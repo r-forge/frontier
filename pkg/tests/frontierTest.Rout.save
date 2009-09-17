@@ -111,7 +111,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
@@ -604,7 +603,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
@@ -1114,7 +1112,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
@@ -1540,7 +1537,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)  logCapital   logLabour    Z_firmNo     sigmaSq       gamma 
@@ -2049,7 +2045,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
@@ -2569,7 +2564,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
@@ -3015,7 +3009,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -4802,7 +4795,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -6605,7 +6597,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
@@ -8410,7 +8401,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -10238,7 +10228,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -11587,7 +11576,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -12968,7 +12956,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -14770,7 +14757,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -16583,7 +16569,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
@@ -18398,7 +18383,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
@@ -20183,7 +20167,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -21175,7 +21158,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -22163,7 +22145,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -23155,7 +23136,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -24157,7 +24137,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
@@ -25155,7 +25134,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -26178,7 +26156,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -26984,7 +26961,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -27801,7 +27777,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -28766,7 +28741,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -29759,7 +29733,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -30727,7 +30700,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -31720,7 +31692,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
@@ -32709,7 +32680,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
@@ -33591,7 +33561,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -34524,7 +34493,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -35449,7 +35417,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -36378,7 +36345,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -37310,7 +37276,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
@@ -38258,7 +38223,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -39209,7 +39173,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -40121,7 +40084,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -41040,7 +41002,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -41963,7 +41924,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
@@ -42789,7 +42749,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
@@ -43715,7 +43674,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
-The dependent variable is logged
 
 Final maximum likelihood estimates
   (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
@@ -44662,7 +44620,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
        a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
@@ -45391,7 +45348,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
        a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
@@ -46135,7 +46091,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
         a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 
@@ -53640,7 +53595,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)     sigmaSq       gamma 
@@ -53655,7 +53609,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)   logLabour     sigmaSq       gamma 
@@ -53672,7 +53625,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)    Z_firmNo     sigmaSq       gamma 
@@ -53688,7 +53640,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
 (Intercept)   logLabour    Z_firmNo     sigmaSq       gamma 

@@ -111,7 +111,6 @@ Stochastic Frontier Analysis with FRONTIER 4.1
 
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
 
 Final maximum likelihood estimates
           a_0           a_1           a_2           a_3           a_t 
