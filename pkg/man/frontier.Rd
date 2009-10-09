@@ -26,7 +26,7 @@ sfa( formula, data = sys.frame( sys.parent() ),
 frontier( yName, xNames = NULL, zNames = NULL, data,
    zIntercept = FALSE, \dots )
 
-\method{print}{frontier}( x, \dots )
+\method{print}{frontier}( x, digits = NULL, \dots )
 }
 
 \arguments{
@@ -99,6 +99,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (only relevant for the \sQuote{Efficiency Effects Frontier}).}
    \item{x}{an object of class \code{frontier}
       (returned by the function \code{frontier}).}
+   \item{digits}{a non-null value for \sQuote{digits} specifies
+      the minimum number of significant digits to be printed in values.
+      The default, \code{NULL}, uses
+      \code{max(3,getOption("digits")-3)}.
+      Non-integer values will be rounded down, and only values greater
+      than or equal to 1 and no greater than 22 are accepted.}
    \item{\dots}{additional arguments of \code{frontier}
       are passed to \code{sfa};
       additional arguments of the \code{print} method

@@ -99,20 +99,17 @@ Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
 > print( estResultRay )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontierTranslogRay(yNames = c("qCrop", "qAnimal"), xNames = c("qLabor",      "land", "qVarInput"), data = germanFarms)
 
-Final maximum likelihood estimates
-          a_0           a_1           a_2           a_3           a_t 
--1.137420e+02 -6.049697e+01  8.795054e+01 -7.046872e+01  3.317314e+02 
-        b_1_1         b_1_2         b_1_3         b_1_t         b_2_2 
--2.535501e+01  1.212513e+01 -1.776231e+01  1.142893e+02 -6.713567e+00 
-        b_2_3         b_2_t         b_3_3         b_3_t         b_t_t 
--3.628969e+00 -3.570485e+01  1.658272e+01 -1.365753e+01 -1.338303e+02 
-      sigmaSq         gamma 
- 9.598228e-05  5.000000e-02 
+Maximum likelihood estimates
+       a_0         a_1         a_2         a_3         a_t       b_1_1  
+-1.137e+02  -6.050e+01   8.795e+01  -7.047e+01   3.317e+02  -2.536e+01  
+     b_1_2       b_1_3       b_1_t       b_2_2       b_2_3       b_2_t  
+ 1.213e+01  -1.776e+01   1.143e+02  -6.714e+00  -3.629e+00  -3.570e+01  
+     b_3_3       b_3_t       b_t_t     sigmaSq       gamma  
+ 1.658e+01  -1.366e+01  -1.338e+02   9.598e-05   5.000e-02  
 > summary( estResultRay )
 Stochastic Frontier Analysis with FRONTIER 4.1
 

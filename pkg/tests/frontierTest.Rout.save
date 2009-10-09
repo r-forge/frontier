@@ -99,14 +99,13 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > all.equal( sa1[-33], a1[-33] )
 [1] TRUE
 > print( a1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)  logCapital   logLabour     sigmaSq       gamma 
-    0.56162     0.28110     0.53648     0.21700     0.79721 
+Maximum likelihood estimates
+(Intercept)   logCapital    logLabour      sigmaSq        gamma  
+      0.562        0.281        0.536        0.217        0.797  
 > coef( a1, which = "start" )
 NULL
 > coef( a1, which = "ols" )
@@ -588,14 +587,13 @@ attr(,"class")
 > all.equal( sa2[-33], a2[-33] )
 [1] TRUE
 > print( a2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
-    0.47641     0.28259     0.54038     0.54776     0.90815    -1.41060 
+Maximum likelihood estimates
+(Intercept)   logCapital    logLabour      sigmaSq        gamma           mu  
+      0.476        0.283        0.540        0.548        0.908       -1.411  
 > coef( a2, which = "start" )
 NULL
 > coef( a2, which = "ols" )
@@ -1094,14 +1092,13 @@ attr(,"class")
 > all.equal( sa5[-33], a5[-33] )
 [1] TRUE
 > print( a5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data, truncNorm = TRUE, startVal = c(0.5, 0.3,          0.5, 0.5, 0.9, -1))
 
-Final maximum likelihood estimates
-(Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
-    0.47771     0.28386     0.53994     0.54913     0.90843    -1.41257 
+Maximum likelihood estimates
+(Intercept)   logCapital    logLabour      sigmaSq        gamma           mu  
+      0.478        0.284        0.540        0.549        0.908       -1.413  
 > coef( a5, which = "start" )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
         0.5         0.3         0.5         0.5         0.9        -1.0 
@@ -1516,14 +1513,13 @@ attr(,"class")
 > all.equal( saa1[-33], aa1[-33] )
 [1] TRUE
 > print( aa1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)  logCapital   logLabour    Z_firmNo     sigmaSq       gamma 
-   0.536808    0.268649    0.539341   -0.010282    0.284557    0.840089 
+Maximum likelihood estimates
+(Intercept)   logCapital    logLabour     Z_firmNo      sigmaSq        gamma  
+     0.5368       0.2686       0.5393      -0.0103       0.2846       0.8401  
 > coef( aa1, which = "start" )
 NULL
 > coef( aa1, which = "ols" )
@@ -2021,16 +2017,15 @@ attr(,"class")
 > all.equal( saa2[-33], aa2[-33] )
 [1] TRUE
 > print( aa2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data, zIntercept = TRUE)
 
-Final maximum likelihood estimates
-  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
-     0.508699      0.270835      0.540397     -0.398556     -0.014105 
-      sigmaSq         gamma 
-     0.407063      0.883283 
+Maximum likelihood estimates
+  (Intercept)     logCapital      logLabour  Z_(Intercept)       Z_firmNo  
+       0.5087         0.2708         0.5404        -0.3986        -0.0141  
+      sigmaSq          gamma  
+       0.4071         0.8833  
 > coef( aa2, which = "start" )
 NULL
 > coef( aa2, which = "ols" )
@@ -2537,16 +2532,15 @@ attr(,"class")
 > all.equal( saa5[-33], aa5[-33] )
 [1] TRUE
 > print( aa5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data, zIntercept = TRUE,      startVal = c(0.5, 0.3, 0.5, -0.4, -0.01, 0.4, 0.9))
 
-Final maximum likelihood estimates
-  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
-     0.508701      0.270836      0.540396     -0.398550     -0.014105 
-      sigmaSq         gamma 
-     0.407060      0.883282 
+Maximum likelihood estimates
+  (Intercept)     logCapital      logLabour  Z_(Intercept)       Z_firmNo  
+       0.5087         0.2708         0.5404        -0.3985        -0.0141  
+      sigmaSq          gamma  
+       0.4071         0.8833  
 > coef( aa5, which = "start" )
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
          0.50          0.30          0.50         -0.40         -0.01 
@@ -2979,14 +2973,13 @@ attr(,"class")
 > all.equal( sbb1[-33], bb1[-33] )
 [1] TRUE
 > print( bb1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -1.04324     0.35551     0.33330     0.27128     0.23863     0.88538 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -1.043        0.356        0.333        0.271        0.239        0.885  
 > coef( bb1, which = "start" )
 NULL
 > coef( bb1, which = "ols" )
@@ -4762,16 +4755,15 @@ attr(,"class")
 > all.equal( sbb2[-33], bb2[-33] )
 [1] TRUE
 > print( bb2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -1.13236     0.35418     0.33486     0.27440     0.66268     0.94974 
-         mu 
-   -1.58666 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -1.132        0.354        0.335        0.274        0.663        0.950  
+         mu  
+     -1.587  
 > coef( bb2, which = "start" )
 NULL
 > coef( bb2, which = "ols" )
@@ -6561,16 +6553,15 @@ attr(,"class")
 > all.equal( sbb5[-33], bb5[-33] )
 [1] TRUE
 > print( bb5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
-  -1.008580    0.384099    0.318983    0.260355   -0.058069   -1.405673 
-    sigmaSq       gamma 
-   0.597476    0.944931 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
+    -1.0086       0.3841       0.3190       0.2604      -0.0581      -1.4057  
+    sigmaSq        gamma  
+     0.5975       0.9449  
 > coef( bb5, which = "start" )
 NULL
 > coef( bb5, which = "ols" )
@@ -8362,16 +8353,15 @@ attr(,"class")
 > all.equal( sbb6[-33], bb6[-33] )
 [1] TRUE
 > print( bb6 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
-    -1.051760      0.379767      0.321029      0.263797     -2.746459 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-    -0.028610     -3.635528      1.666588      0.978799 
+Maximum likelihood estimates
+  (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
+      -1.0518         0.3798         0.3210         0.2638        -2.7465  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+      -0.0286        -3.6355         1.6666         0.9788  
 > coef( bb6, which = "start" )
 NULL
 > coef( bb6, which = "ols" )
@@ -10186,16 +10176,15 @@ attr(,"class")
 > all.equal( sbb7[-33], bb7[-33] )
 [1] TRUE
 > print( bb7 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil, truncNorm = TRUE, startVal = c(-1, 0.3,          0.3, 0.3, 0.2, 0.9, -0.01))
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -1.09146     0.35756     0.32562     0.27478     0.67650     0.95293 
-         mu 
-   -1.60582 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -1.091        0.358        0.326        0.275        0.677        0.953  
+         mu  
+     -1.606  
 > coef( bb7, which = "start" )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.00        0.30        0.30        0.30        0.20        0.90 
@@ -11531,16 +11520,15 @@ attr(,"class")
 > all.equal( sbb8[-33], bb8[-33] )
 [1] TRUE
 > print( bb8 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE,      startVal = c(-1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8))
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
-    -1.051771      0.379769      0.321030      0.263795     -2.747260 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-    -0.028600     -3.636439      1.666887      0.978802 
+Maximum likelihood estimates
+  (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
+      -1.0518         0.3798         0.3210         0.2638        -2.7473  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+      -0.0286        -3.6364         1.6669         0.9788  
 > coef( bb8, which = "start" )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.00          0.30          0.30          0.30         -0.20 
@@ -12908,14 +12896,13 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > all.equal( sdd1[-33], dd1[-33] )
 [1] TRUE
 > print( dd1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhil, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
- 6.3206e+00  9.5386e-01  5.0725e-01 -1.3533e-03  7.5014e-02  1.5246e-05 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+   6.32e+00     9.54e-01     5.07e-01    -1.35e-03     7.50e-02     1.52e-05  
 > coef( dd1, which = "start" )
 NULL
 > coef( dd1, which = "ols" )
@@ -14706,16 +14693,15 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > all.equal( sdd2[-33], dd2[-33] )
 [1] TRUE
 > print( dd2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-  6.3147807   0.9535295   0.5072728  -0.0012635   0.0752456   0.0045026 
-         mu 
- -0.0368130 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+    6.31478      0.95353      0.50727     -0.00126      0.07525      0.00450  
+         mu  
+   -0.03681  
 > coef( dd2, which = "start" )
 NULL
 > coef( dd2, which = "ols" )
@@ -16515,16 +16501,15 @@ attr(,"class")
 > all.equal( sdd5[-33], dd5[-33] )
 [1] TRUE
 > print( dd5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
- 6.2317e+00  9.6332e-01  5.2342e-01 -2.1965e-02 -1.9139e-02  2.6468e-01 
-    sigmaSq       gamma 
- 7.1454e-02  1.5611e-05 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      Z_EDYRS     Z_BANRAT  
+   6.23e+00     9.63e-01     5.23e-01    -2.20e-02    -1.91e-02     2.65e-01  
+    sigmaSq        gamma  
+   7.15e-02     1.56e-05  
 > coef( dd5, which = "start" )
 NULL
 > coef( dd5, which = "ols" )
@@ -18326,16 +18311,15 @@ attr(,"class")
 > all.equal( sdd6[-33], dd6[-33] )
 [1] TRUE
 > print( dd6 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE,      ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
-    4.6877089     0.9587043     0.5155780    -0.0124546     1.5165186 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-   -0.0017451     0.1664674     0.0726654     0.8058592 
+Maximum likelihood estimates
+  (Intercept)          lAREA        lLABORP          lNPKP  Z_(Intercept)  
+      4.68771        0.95870        0.51558       -0.01245        1.51652  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+     -0.00175        0.16647        0.07267        0.80586  
 > coef( dd6, which = "start" )
 NULL
 > coef( dd6, which = "ols" )
@@ -20107,14 +20091,13 @@ attr(,"class")
 > all.equal( sb1[-33], b1[-33] )
 [1] TRUE
 > print( b1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -0.83217     0.45390     0.28892     0.22754     0.15538     0.46431 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -0.832        0.454        0.289        0.228        0.155        0.464  
 > coef( b1, which = "start" )
 NULL
 > coef( b1, which = "ols" )
@@ -21095,16 +21078,15 @@ attr(,"class")
 > all.equal( sb2[-33], b2[-33] )
 [1] TRUE
 > print( b2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -0.82887     0.45457     0.28732     0.22512     0.20339     0.59048 
-         mu 
-   -0.27343 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -0.829        0.455        0.287        0.225        0.203        0.590  
+         mu  
+     -0.273  
 > coef( b2, which = "start" )
 NULL
 > coef( b2, which = "ols" )
@@ -22079,16 +22061,15 @@ attr(,"class")
 > all.equal( sb3[-33], b3[-33] )
 [1] TRUE
 > print( b3 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -0.75392     0.47492     0.30010     0.19946     0.12996     0.36963 
-       time 
-    0.05891 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+    -0.7539       0.4749       0.3001       0.1995       0.1300       0.3696  
+       time  
+     0.0589  
 > coef( b3, which = "start" )
 NULL
 > coef( b3, which = "ols" )
@@ -23067,16 +23048,15 @@ attr(,"class")
 > all.equal( sb4[-33], b4[-33] )
 [1] TRUE
 > print( b4 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-  -0.750149    0.476165    0.298471    0.196116    0.172162    0.523676 
-         mu        time 
-  -0.317324    0.064724 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+    -0.7501       0.4762       0.2985       0.1961       0.1722       0.5237  
+         mu         time  
+    -0.3173       0.0647  
 > coef( b4, which = "start" )
 NULL
 > coef( b4, which = "ols" )
@@ -24065,16 +24045,15 @@ attr(,"class")
 > all.equal( sb5[-33], b5[-33] )
 [1] TRUE
 > print( b5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
-  -1.008574    0.384100    0.318984    0.260353   -0.058064   -1.405594 
-    sigmaSq       gamma 
-   0.597449    0.944928 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
+    -1.0086       0.3841       0.3190       0.2604      -0.0581      -1.4056  
+    sigmaSq        gamma  
+     0.5974       0.9449  
 > coef( b5, which = "start" )
 NULL
 > coef( b5, which = "ols" )
@@ -25059,16 +25038,15 @@ attr(,"class")
 > all.equal( sb6[-33], b6[-33] )
 [1] TRUE
 > print( b6 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
-    -1.051760      0.379767      0.321029      0.263797     -2.746459 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-    -0.028610     -3.635528      1.666588      0.978799 
+Maximum likelihood estimates
+  (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
+      -1.0518         0.3798         0.3210         0.2638        -2.7465  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+      -0.0286        -3.6355         1.6666         0.9788  
 > coef( b6, which = "start" )
 NULL
 > coef( b6, which = "ols" )
@@ -26078,16 +26056,15 @@ attr(,"class")
 > all.equal( sb7[-33], b7[-33] )
 [1] TRUE
 > print( b7 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,      startVal = c(-1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-  -0.750149    0.476163    0.298471    0.196118    0.172147    0.523635 
-         mu        time 
-  -0.317216    0.064722 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+    -0.7501       0.4762       0.2985       0.1961       0.1721       0.5236  
+         mu         time  
+    -0.3172       0.0647  
 > coef( b7, which = "start" )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
        -1.0         0.3         0.3         0.3         0.2         0.5 
@@ -26880,16 +26857,15 @@ attr(,"class")
 > all.equal( sb8[-33], b8[-33] )
 [1] TRUE
 > print( b8 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE, startVal = c(-1, 0.3, 0.3, 0.3, -0.3,          -0.01, -0.4, 0.2, 0.8))
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
-    -1.051762      0.379766      0.321029      0.263797     -2.746339 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-    -0.028617     -3.635447      1.666552      0.978798 
+Maximum likelihood estimates
+  (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
+      -1.0518         0.3798         0.3210         0.2638        -2.7463  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+      -0.0286        -3.6354         1.6666         0.9788  
 > coef( b8, which = "start" )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.00          0.30          0.30          0.30         -0.30 
@@ -27693,14 +27669,13 @@ attr(,"class")
 > all.equal( sd1[-33], d1[-33] )
 [1] TRUE
 > print( d1 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhilPanel, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-    5.70082     0.80404     0.50607     0.10024     0.27208     0.84083 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+      5.701        0.804        0.506        0.100        0.272        0.841  
 > coef( d1, which = "start" )
 NULL
 > coef( d1, which = "ols" )
@@ -28654,16 +28629,15 @@ attr(,"class")
 > all.equal( sd2[-33], d2[-33] )
 [1] TRUE
 > print( d2 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-    5.58987     0.78535     0.49536     0.11013     0.11398     0.60792 
-         mu 
-    0.52647 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+      5.590        0.785        0.495        0.110        0.114        0.608  
+         mu  
+      0.526  
 > coef( d2, which = "start" )
 NULL
 > coef( d2, which = "ols" )
@@ -29643,16 +29617,15 @@ attr(,"class")
 > all.equal( sd3[-33], d3[-33] )
 [1] TRUE
 > print( d3 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-   5.711447    0.812081    0.500833    0.106406    0.288986    0.850451 
-       time 
-  -0.016417 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+     5.7114       0.8121       0.5008       0.1064       0.2890       0.8505  
+       time  
+    -0.0164  
 > coef( d3, which = "start" )
 NULL
 > coef( d3, which = "ols" )
@@ -30607,16 +30580,15 @@ attr(,"class")
 > all.equal( sd4[-33], d4[-33] )
 [1] TRUE
 > print( d4 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,      timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-   5.601632    0.788084    0.497547    0.097539    0.120625    0.656960 
-         mu        time 
-   0.563012   -0.011454 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+     5.6016       0.7881       0.4975       0.0975       0.1206       0.6570  
+         mu         time  
+     0.5630      -0.0115  
 > coef( d4, which = "start" )
 NULL
 > coef( d4, which = "ols" )
@@ -31596,16 +31568,15 @@ attr(,"class")
 > all.equal( sd5[-33], d5[-33] )
 [1] TRUE
 > print( d5 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
- 6.23266902  0.96333233  0.52355228 -0.02236116 -0.01910968  0.26400844 
-    sigmaSq       gamma 
- 0.07143155  0.00000001 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      Z_EDYRS     Z_BANRAT  
+   6.23e+00     9.63e-01     5.24e-01    -2.24e-02    -1.91e-02     2.64e-01  
+    sigmaSq        gamma  
+   7.14e-02     1.00e-08  
 > coef( d5, which = "start" )
 NULL
 > coef( d5, which = "ols" )
@@ -32581,16 +32552,15 @@ attr(,"class")
 > all.equal( sd6[-33], d6[-33] )
 [1] TRUE
 > print( d6 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+frontier(yName = "lCost", xNames = c("lAREA", "lLABORP", "lNPKP"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
-    4.6462856     0.9587047     0.5155761    -0.0124622     1.5579706 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-   -0.0017449     0.1664659     0.0726657     0.8246325 
+Maximum likelihood estimates
+  (Intercept)          lAREA        lLABORP          lNPKP  Z_(Intercept)  
+      4.64629        0.95870        0.51558       -0.01246        1.55797  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+     -0.00174        0.16647        0.07267        0.82463  
 > coef( d6, which = "start" )
 NULL
 > coef( d6, which = "ols" )
@@ -33459,14 +33429,13 @@ attr(,"class")
 > ## unbalanced panel data, error components frontier
 > b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
 > print( b1u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -0.83326     0.45425     0.29040     0.22634     0.15668     0.46357 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -0.833        0.454        0.290        0.226        0.157        0.464  
 > print( summary( b1u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -34388,16 +34357,15 @@ attr(,"class")
 > b2u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE )
 > print( b2u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-   -0.83083     0.45480     0.28888     0.22422     0.19929     0.57795 
-         mu 
-   -0.24250 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+     -0.831        0.455        0.289        0.224        0.199        0.578  
+         mu  
+     -0.243  
 > print( summary( b2u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -35309,16 +35277,15 @@ attr(,"class")
 > b3u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    timeEffect = TRUE )
 > print( b3u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-  -0.755493    0.475120    0.301514    0.198459    0.131268    0.369971 
-       time 
-   0.058452 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+    -0.7555       0.4751       0.3015       0.1985       0.1313       0.3700  
+       time  
+     0.0585  
 > print( summary( b3u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -36234,16 +36201,15 @@ attr(,"class")
 > b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE, timeEffect = TRUE )
 > print( b4u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      truncNorm = TRUE, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
-  -0.752785    0.476192    0.299938    0.195487    0.169064    0.510268 
-         mu        time 
-  -0.283498    0.063876 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
+    -0.7528       0.4762       0.2999       0.1955       0.1691       0.5103  
+         mu         time  
+    -0.2835       0.0639  
 > print( summary( b4u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -37162,16 +37128,15 @@ attr(,"class")
 > b5u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb )
 > print( b5u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT -      1, data = riceProdPhilPanelUnb)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
-  -1.030160    0.379687    0.321434    0.263395   -0.054445   -1.358994 
-    sigmaSq       gamma 
-   0.585411    0.943399 
+Maximum likelihood estimates
+(Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
+    -1.0302       0.3797       0.3214       0.2634      -0.0544      -1.3590  
+    sigmaSq        gamma  
+     0.5854       0.9434  
 > print( summary( b5u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -38106,16 +38071,15 @@ attr(,"class")
 > b6u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhilPanelUnb )
 > print( b6u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,      data = riceProdPhilPanelUnb)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
-    -1.073222      0.375413      0.323597      0.266649     -2.528008 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-    -0.022337     -3.341359      1.551735      0.977054 
+Maximum likelihood estimates
+  (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
+      -1.0732         0.3754         0.3236         0.2666        -2.5280  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+      -0.0223        -3.3414         1.5517         0.9771  
 > print( summary( b6u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -39053,14 +39017,13 @@ attr(,"class")
 > d1u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE )
 > print( d1u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-   5.727801    0.809088    0.501818    0.098945    0.263451    0.833506 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+      5.728        0.809        0.502        0.099        0.263        0.834  
 > print( summary( d1u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -39961,16 +39924,15 @@ attr(,"class")
 > d2u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > print( d2u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, truncNorm = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-    5.60826     0.78547     0.49215     0.10866     0.11390     0.60654 
-         mu 
-    0.52568 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+      5.608        0.785        0.492        0.109        0.114        0.607  
+         mu  
+      0.526  
 > print( summary( d2u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -40876,16 +40838,15 @@ attr(,"class")
 > d3u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > print( d3u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-   5.742186    0.818170    0.495654    0.105466    0.280586    0.844004 
-       time 
-  -0.017948 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+     5.7422       0.8182       0.4957       0.1055       0.2806       0.8440  
+       time  
+    -0.0179  
 > print( summary( d3u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -41795,16 +41756,15 @@ attr(,"class")
 > d4u <- sfa( lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
 > print( d4u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     sigmaSq       gamma 
-  5.6072274   0.7799664   0.4914763   0.0974164   0.1212117   0.6659575 
-         mu        time 
-  0.5682319  -0.0089303 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
+    5.60723      0.77997      0.49148      0.09742      0.12121      0.66596  
+         mu         time  
+    0.56823     -0.00893  
 > print( summary( d4u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -42617,16 +42577,15 @@ attr(,"class")
 > d5u <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
 > print( d5u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT -      1, data = riceProdPhilPanelUnb, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-(Intercept)       lAREA     lLABORP       lNPKP     Z_EDYRS    Z_BANRAT 
- 6.2458e+00  9.6394e-01  5.1355e-01 -6.7968e-03 -1.3199e-02  1.8413e-01 
-    sigmaSq       gamma 
- 7.2705e-02  8.6194e-08 
+Maximum likelihood estimates
+(Intercept)        lAREA      lLABORP        lNPKP      Z_EDYRS     Z_BANRAT  
+   6.25e+00     9.64e-01     5.14e-01    -6.80e-03    -1.32e-02     1.84e-01  
+    sigmaSq        gamma  
+   7.27e-02     8.62e-08  
 > print( summary( d5u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -43539,16 +43498,15 @@ attr(,"class")
 > d6u <- sfa( lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
 > print( d6u )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Call:
+sfa(formula = lCost ~ lAREA + lLABORP + lNPKP | EDYRS + BANRAT,      data = riceProdPhilPanelUnb, ineffDecrease = FALSE)
 
-Final maximum likelihood estimates
-  (Intercept)         lAREA       lLABORP         lNPKP Z_(Intercept) 
-   6.1945e+00    9.6410e-01    5.1886e-01   -1.1923e-02   -2.0589e-01 
-      Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
-   6.5338e-03    3.3393e-01    6.9163e-02    1.6830e-08 
+Maximum likelihood estimates
+  (Intercept)          lAREA        lLABORP          lNPKP  Z_(Intercept)  
+     6.19e+00       9.64e-01       5.19e-01      -1.19e-02      -2.06e-01  
+      Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
+     6.53e-03       3.34e-01       6.92e-02       1.68e-08  
 > print( summary( d6u ) )
 Stochastic Frontier Analysis with FRONTIER 4.1
 
@@ -44482,16 +44440,13 @@ attr(,"class")
 > translog <- frontierQuad( data = front41Data, yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ) )
 > print( translog )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data)
 
-Final maximum likelihood estimates
-       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2    sigmaSq 
- 0.8092797  0.3918691  0.3639215 -0.1832404  0.0050751  0.0576873  0.1893914 
-     gamma 
- 0.7623239 
+Maximum likelihood estimates
+     a_0       a_1       a_2     b_1_1     b_1_2     b_2_2   sigmaSq     gamma  
+ 0.80928   0.39187   0.36392  -0.18324   0.00508   0.05769   0.18939   0.76232  
 > coef( translog, which = "start" )
 NULL
 > coef( translog, which = "ols" )
@@ -45207,16 +45162,15 @@ attr(,"class")
 +    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
 +    data = front41Data )
 > print( translogShift )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      shifterNames = "firmNo", data = front41Data)
 
-Final maximum likelihood estimates
-       a_0        a_1        a_2      b_1_1      b_1_2      b_2_2        d_1 
- 0.6981902  0.3954495  0.3968769 -0.1923227  0.0016946  0.0492933  0.0022187 
-   sigmaSq      gamma 
- 0.1847059  0.7547768 
+Maximum likelihood estimates
+     a_0       a_1       a_2     b_1_1     b_1_2     b_2_2       d_1   sigmaSq  
+ 0.69819   0.39545   0.39688  -0.19232   0.00169   0.04929   0.00222   0.18471  
+   gamma  
+ 0.75478  
 > coef( translogShift, which = "start" )
 NULL
 > coef( translogShift, which = "ols" )
@@ -45947,16 +45901,15 @@ attr(,"class")
 +    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
 +    data = front41Data )
 > print( translogZvar )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data)
 
-Final maximum likelihood estimates
-        a_0         a_1         a_2       b_1_1       b_1_2       b_2_2 
- 0.75675407  0.40224466  0.37502474 -0.18436540  0.00026695  0.05697136 
-   Z_firmNo     sigmaSq       gamma 
--0.01022234  0.25193858  0.81948767 
+Maximum likelihood estimates
+      a_0        a_1        a_2      b_1_1      b_1_2      b_2_2   Z_firmNo  
+ 0.756754   0.402245   0.375025  -0.184365   0.000267   0.056971  -0.010222  
+  sigmaSq      gamma  
+ 0.251939   0.819488  
 > coef( translogZvar, which = "start" )
 NULL
 > coef( translogZvar, which = "ols" )
@@ -53448,28 +53401,26 @@ F_43 1.0000 1.0000 1.0000 1.0008 1.0000 1.0000 1.0000 1.0037
 > sa10 <- sfa( logOutput ~ 1, data = front41Data )
 > a10 <- frontier( "logOutput", NULL, data = front41Data )
 > print( sa10 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = logOutput ~ 1, data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)     sigmaSq       gamma 
-     3.3720      0.8798      0.9340 
+Maximum likelihood estimates
+(Intercept)      sigmaSq        gamma  
+      3.372        0.880        0.934  
 > all.equal( sa10[-33], a10[-33], check.attributes = FALSE )
 [1] TRUE
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
 > a11 <- frontier( "logOutput", "logLabour", data = front41Data )
 > print( sa11 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = logOutput ~ logLabour, data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)   logLabour     sigmaSq       gamma 
-    1.11574     0.52141     0.38541     0.88747 
+Maximum likelihood estimates
+(Intercept)    logLabour      sigmaSq        gamma  
+      1.116        0.521        0.385        0.887  
 > all.equal( sa11[-33], a11[-33], check.attributes = FALSE )
 [1] TRUE
 > 
@@ -53478,14 +53429,13 @@ Final maximum likelihood estimates
 > aa10 <- frontier( data = front41Data, "logOutput", NULL,
 +    zNames = "firmNo" )
 > print( saa10 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)    Z_firmNo     sigmaSq       gamma 
-   3.316988   -0.014811    1.086937    0.935612 
+Maximum likelihood estimates
+(Intercept)     Z_firmNo      sigmaSq        gamma  
+     3.3170      -0.0148       1.0869       0.9356  
 > all.equal( saa10[-33], aa10[-33] )
 [1] TRUE
 > 
@@ -53493,14 +53443,13 @@ Final maximum likelihood estimates
 > aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
 +    zNames = "firmNo" )
 > print( saa11 )
-Stochastic Frontier Analysis with FRONTIER 4.1
 
-Tech. Eff. Effects Frontier (see Battese & Coelli 1995)
-Inefficiency decreases the endogenous variable (as in a production function)
+Call:
+sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 
-Final maximum likelihood estimates
-(Intercept)   logLabour    Z_firmNo     sigmaSq       gamma 
-   1.022769    0.528435   -0.031723    0.654628    0.926464 
+Maximum likelihood estimates
+(Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
+     1.0228       0.5284      -0.0317       0.6546       0.9265  
 > all.equal( saa11[-33], aa11[-33] )
 [1] TRUE
 > 
