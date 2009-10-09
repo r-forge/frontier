@@ -144,8 +144,6 @@ gamma         0.0092520 -9.1555e-05 -1.6405e-04  6.7451e-03  1.8612e-02
 > logLik( a1 )
 [1] -17.027
 > print( summary( a1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -639,8 +637,6 @@ mu           6.75459757
 > logLik( a2 )
 [1] -16.796
 > print( summary( a2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -1144,8 +1140,6 @@ mu          10.732178
 > logLik( a5 )
 [1] -16.795
 > print( summary( a5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -1561,8 +1555,6 @@ Z_firmNo    -0.00056401
 sigmaSq      0.01045025
 gamma        0.01210714
 > print( summary( aa1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -2072,8 +2064,6 @@ Z_firmNo      -0.0224805 -0.0058406
 sigmaSq        0.6574709  0.1737847
 gamma          0.1737847  0.0485123
 > print( summary( aa2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -2589,8 +2579,6 @@ Z_firmNo      -0.0214739 -0.00558350
 sigmaSq        0.6217504  0.16441652
 gamma          0.1644165  0.04595412
 > print( summary( aa5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -3022,8 +3010,6 @@ lNPK        -0.00010812
 sigmaSq      0.00060951
 gamma        0.00113407
 > print( summary( bb1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -4811,8 +4797,6 @@ sigmaSq      7.6784e-03 -0.3222645
 gamma        6.9820e-04 -0.0260408
 mu          -2.6041e-02  1.1172608
 > print( summary( bb2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -6612,8 +6596,6 @@ Z_BANRAT     0.82099081 -2.4775e-01 -2.0282e-02
 sigmaSq     -0.24775166  9.5299e-02  8.3194e-03
 gamma       -0.02028199  8.3194e-03  8.4322e-04
 > print( summary( bb5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -8415,8 +8397,6 @@ Z_BANRAT       0.21138960  65.554614 -29.5489174 -3.5857e-01
 sigmaSq       -0.11519855 -29.548917  13.6594767  1.6641e-01
 gamma         -0.00149880  -0.358566   0.1664140  2.0433e-03
 > print( summary( bb6 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -10234,8 +10214,6 @@ sigmaSq      3.6407e-03 -0.1718551
 gamma        3.1760e-04 -0.0119646
 mu          -1.1965e-02  0.5781028
 > print( summary( bb7 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -11584,8 +11562,6 @@ Z_BANRAT       0.29256158  50.649907 -23.0820003 -0.28509993
 sigmaSq       -0.14611922 -23.082000  10.7414686  0.13264245
 gamma         -0.00179247  -0.285100   0.1326425  0.00164810
 > print( summary( bb8 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -12945,8 +12921,6 @@ lNPKP       -5.9755e-07
 sigmaSq     -3.7474e-07
 gamma        3.7814e-05
 > print( summary( dd1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -14749,8 +14723,6 @@ sigmaSq      0.00013377  0.00031936
 gamma        0.00351456  0.00249053
 mu           0.00249053  0.02350582
 > print( summary( dd2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -16560,8 +16532,6 @@ Z_BANRAT     4.3524e-03 -3.3879e-06  6.9399e-07
 sigmaSq     -3.3879e-06  2.9748e-05  3.7789e-08
 gamma        6.9399e-07  3.7789e-08  5.6524e-09
 > print( summary( dd5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -18373,8 +18343,6 @@ Z_BANRAT      -1.8462e-05  2.4261e-03  4.9392e-06  6.7968e-02
 sigmaSq       -2.8120e-07  4.9392e-06  2.9001e-05 -1.3967e-02
 gamma         -5.8212e-03  6.7968e-02 -1.3967e-02  4.0617e+02
 > print( summary( dd6 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -20144,8 +20112,6 @@ gamma        0.00774807
 > logLik( b1 )
 [1] -86.43
 > print( summary( b1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -21138,8 +21104,6 @@ mu          -0.3333166  0.9277085
 > logLik( b2 )
 [1] -86.343
 > print( summary( b2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -22121,8 +22085,6 @@ time        -2.2115e-03  0.00096403
 > logLik( b3 )
 [1] -84.55
 > print( summary( b3 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -23111,8 +23073,6 @@ time         0.0011999 -0.0091516  1.2726e-03
 > logLik( b4 )
 [1] -84.407
 > print( summary( b4 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -24108,8 +24068,6 @@ gamma       -0.0175408  0.00740002  7.6517e-04
 > logLik( b5 )
 [1] -77.85
 > print( summary( b5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -25104,8 +25062,6 @@ gamma         -0.00149882  -0.358565   0.1664138  2.0433e-03
 > logLik( b6 )
 [1] -77.314
 > print( summary( b6 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -26121,8 +26077,6 @@ time         0.0009377 -0.0084076  1.2527e-03
 > logLik( b7 )
 [1] -84.407
 > print( summary( b7 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -26925,8 +26879,6 @@ gamma         -0.00148396  -0.3269668   0.151852  1.8699e-03
 > logLik( b8 )
 [1] -77.314
 > print( summary( b8 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -27718,8 +27670,6 @@ lNPKP        0.00021342
 sigmaSq      0.00655269
 gamma        0.00448608
 > print( summary( d1 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -28685,8 +28635,6 @@ sigmaSq      8.8348e-04 -1.2363e-05
 gamma        3.4223e-03  4.1604e-04
 mu           4.1604e-04  8.6452e-03
 > print( summary( d2 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -29673,8 +29621,6 @@ sigmaSq      0.00583608  1.8112e-04
 gamma        0.00355376  1.2854e-04
 time         0.00012854  1.3231e-04
 > print( summary( d3 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -30639,8 +30585,6 @@ gamma        0.00249104  9.8124e-04 -2.9825e-04
 mu           0.00098124  9.6148e-03  6.5545e-05
 time        -0.00029825  6.5545e-05  2.2386e-04
 > print( summary( d4 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -31627,8 +31571,6 @@ Z_BANRAT     3.1870e-03  1.8161e-05  3.4173e-10
 sigmaSq      1.8161e-05  2.9265e-05 -2.9149e-12
 gamma        3.4173e-10 -2.9149e-12  3.8741e-13
 > print( summary( d5 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -32614,8 +32556,6 @@ Z_BANRAT      -1.9526e-05  2.4388e-03  2.3998e-06  5.0597e-02
 sigmaSq       -8.3578e-08  2.3998e-06  2.9410e-05 -2.0523e-02
 gamma         -5.9148e-03  5.0597e-02 -2.0523e-02  2.2828e+03
 > print( summary( d6 ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -33437,8 +33377,6 @@ Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
      -0.833        0.454        0.290        0.226        0.157        0.464  
 > print( summary( b1u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -34367,8 +34305,6 @@ Maximum likelihood estimates
          mu  
      -0.243  
 > print( summary( b2u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -35287,8 +35223,6 @@ Maximum likelihood estimates
        time  
      0.0585  
 > print( summary( b3u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -36211,8 +36145,6 @@ Maximum likelihood estimates
          mu         time  
     -0.2835       0.0639  
 > print( summary( b4u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -37138,8 +37070,6 @@ Maximum likelihood estimates
     sigmaSq        gamma  
      0.5854       0.9434  
 > print( summary( b5u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -38081,8 +38011,6 @@ Maximum likelihood estimates
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
       -0.0223        -3.3414         1.5517         0.9771  
 > print( summary( b6u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -39025,8 +38953,6 @@ Maximum likelihood estimates
 (Intercept)        lAREA      lLABORP        lNPKP      sigmaSq        gamma  
       5.728        0.809        0.502        0.099        0.263        0.834  
 > print( summary( d1u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -39934,8 +39860,6 @@ Maximum likelihood estimates
          mu  
       0.526  
 > print( summary( d2u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -40848,8 +40772,6 @@ Maximum likelihood estimates
        time  
     -0.0179  
 > print( summary( d3u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -41766,8 +41688,6 @@ Maximum likelihood estimates
          mu         time  
     0.56823     -0.00893  
 > print( summary( d4u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -42587,8 +42507,6 @@ Maximum likelihood estimates
     sigmaSq        gamma  
    7.27e-02     8.62e-08  
 > print( summary( d5u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -43508,8 +43426,6 @@ Maximum likelihood estimates
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
      6.53e-03       3.34e-01       6.92e-02       1.68e-08  
 > print( summary( d6u ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
@@ -44505,8 +44421,6 @@ gamma    0.00677140  0.02328330
 > logLik( translog )
 [1] -14.434
 > print( summary( translog ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -45235,8 +45149,6 @@ gamma   -1.1329e-05  6.7296e-03  2.4050e-02
 > logLik( translogShift )
 [1] -14.032
 > print( summary( translogShift ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -45971,8 +45883,6 @@ gamma    -6.8303e-04  0.01069633  0.01457515
 > logLik( translogZvar )
 [1] -13.746
 > print( summary( translogZvar ) )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -46632,8 +46542,6 @@ attr(,"class")
 > ## example data included in FRONTIER 4.1 (cross-section data)
 > ## cross-section data, error components frontier
 > summary( Sa1, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -46758,8 +46666,6 @@ F_60    0.88328
 > 
 > ## cross-section data, error components frontier, truncNorm
 > summary( a2, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -46885,8 +46791,6 @@ F_60    0.91100
 > 
 > ## cross-section data, efficiency effects frontier
 > summary( Saa1, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -47012,8 +46916,6 @@ F_60    0.90864
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > summary( aa2, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -47140,8 +47042,6 @@ F_60    0.91620
 > 
 > ## cross-section rice data, error components cost frontier
 > summary( Sdd1, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -47605,8 +47505,6 @@ mean efficiency: 1.0001
 > 
 > ## cross-section rice data, error components cost frontier, truncNorm
 > summary( dd2, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -48071,8 +47969,6 @@ mean efficiency: 1.0008
 > 
 > ## cross-section rice data, efficiency effects cost frontier
 > summary( Sdd5, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -48538,8 +48434,6 @@ mean efficiency: 1.0084
 > 
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
 > summary( dd6, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -49006,8 +48900,6 @@ mean efficiency: 1.2261
 > 
 > ## panel data, error components frontier
 > summary( Sb1, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -49192,8 +49084,6 @@ F_43   0.805965
 > 
 > ## panel data, error components frontier, truncNorm
 > summary( b2, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -49379,8 +49269,6 @@ F_43   0.814851
 > 
 > ## panel data, error components frontier, timeEffect
 > summary( b3, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -49570,8 +49458,6 @@ F_43  0.725167  0.740890  0.755713  0.76969  0.78286  0.79529  0.80700  0.81804
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect
 > summary( b4, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -49762,8 +49648,6 @@ F_43  0.727887  0.744942  0.76093  0.77591  0.78996  0.80312  0.81546  0.82702
 > 
 > ## panel data, efficiency effects frontier
 > summary( Sb5, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -50028,8 +49912,6 @@ F_43  0.95376
 > 
 > ## panel data, efficiency effects frontier, zIntercept
 > summary( b6, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -50221,8 +50103,6 @@ F_43  0.406460  0.380506  0.764738 0.77519  0.91043 0.953685  0.86778  0.95577
 > 
 > ## panel rice data, error components cost frontier
 > summary( Sd1, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -50385,8 +50265,6 @@ F_43     1.0311
 > 
 > ## panel rice data, error components cost frontier, truncNorm
 > summary( d2, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -50550,8 +50428,6 @@ F_43     1.0499
 > 
 > ## panel rice data, error components cost frontier, timeEffect
 > summary( d3, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -50719,8 +50595,6 @@ F_43 1.0280 1.0284 1.0289 1.0294 1.0299 1.0304 1.0309 1.0314
 > 
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
 > summary( d4, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -50889,8 +50763,6 @@ F_43 1.0491 1.0497 1.0502 1.0508 1.0514 1.0520 1.0526 1.0532
 > 
 > ## panel rice data, efficiency effects cost frontier
 > summary( Sd5, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -51059,8 +50931,6 @@ F_43 1.0014 1.0014 1.0000 1.0025 1.0013 1.0014 1.0013 1.0048
 > 
 > ## panel rice data, efficiency effects cost frontier, zIntercept
 > summary( d6, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -51230,8 +51100,6 @@ F_43 1.2281 1.2399 1.2622 1.1747 1.2172 1.2322 1.1432 1.2063
 > 
 > ## unbalanced panel data, error components frontier
 > summary( b1u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -51416,8 +51284,6 @@ F_43   0.806052
 > 
 > ## unbalanced panel data, error components frontier, truncNorm
 > summary( b2u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -51603,8 +51469,6 @@ F_43   0.814443
 > 
 > ## unbalanced panel data, error components frontier, timeEffect
 > summary( b3u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -51794,8 +51658,6 @@ F_43  0.725822  0.741389  0.756072  0.76992  0.78298  0.79531  0.80693  0.81789
 > 
 > ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 > summary( b4u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -51986,8 +51848,6 @@ F_43  0.728665  0.745455  0.761206  0.77598  0.78984  0.80285  0.81505  0.82649
 > 
 > ## unbalanced panel data, efficiency effects frontier
 > summary( b5u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -52178,8 +52038,6 @@ F_43  0.400681  0.376929  0.74107 0.75414  0.90071 0.950920  0.85306  0.95342
 > 
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > summary( b6u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -52371,8 +52229,6 @@ F_43  0.406785  0.380789  0.763876 0.77563  0.91000 0.953267  0.86768  0.95544
 > 
 > ## unbalanced panel rice data, error components cost frontier
 > summary( d1u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -52533,8 +52389,6 @@ F_43     1.0301
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
 > summary( d2u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -52696,8 +52550,6 @@ F_43     1.0498
 > 
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
 > summary( d3u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -52863,8 +52715,6 @@ F_43 1.0267 1.0272 1.0277 1.0282 1.0287 1.0292 1.0297 1.0303
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
 > summary( d4u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -53031,8 +52881,6 @@ F_43 1.0524 1.0529 1.0534 1.0538 1.0543 1.0548 1.0553 1.0558
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier
 > summary( d5u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
@@ -53199,8 +53047,6 @@ F_43 1.0011 1.0011 1.0000 1.0018 1.0010 1.0010 1.0010 1.0034
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
 > summary( d6u, logDepVar = FALSE )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged

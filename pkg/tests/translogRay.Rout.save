@@ -111,8 +111,6 @@ Maximum likelihood estimates
      b_3_3       b_3_t       b_t_t     sigmaSq       gamma  
  1.658e+01  -1.366e+01  -1.338e+02   9.598e-05   5.000e-02  
 > summary( estResultRay )
-Stochastic Frontier Analysis with FRONTIER 4.1
-
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
