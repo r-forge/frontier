@@ -276,8 +276,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    # Cost Frontier (with land as quasi-fixed input)
    riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
       riceProdPhil$NPK * riceProdPhil$NPKP
-   riceCost <- sfa( log( cost ) ~ log( AREA ) + log( LABORP ) + log( NPKP ),
-      data = riceProdPhil, ineffDecrease = FALSE )
+   riceCost <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP )
+      + log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
    summary( riceCost )
 
    ######################################################
