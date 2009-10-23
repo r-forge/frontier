@@ -232,6 +232,16 @@ sfa <- function(
       eta <- nZvars
    }
 
+   # OLS estimation
+   if( nXvars > 0 ) {
+      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
+   } else {
+      ols <- lm( dataTable[ , 3 ] ~ 1 )
+   }
+   olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
+   olsStdEr <- sqrt( diag( vcov( ols ) ) )
+   olsLogl  <- logLik( ols )[ 1 ]
+
    # adding column names to the data table
    colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
 
@@ -302,8 +312,9 @@ sfa <- function(
    returnObj$nParamTotal <- NULL
    returnObj$ineffDecrease <- as.logical( 2 - returnObj$ineffDecrease )
    returnObj$gridDouble <- as.logical( returnObj$gridDouble )
-   returnObj$olsParam <- returnObj$olsParam[ 1:( nb + 2 ) ]
-   returnObj$olsStdEr <- returnObj$olsStdEr[ 1:( nb + 1 ) ]
+   returnObj$olsParam <- olsParam
+   returnObj$olsStdEr <- olsStdEr
+   returnObj$olsLogl  <- olsLogl
 
    ## calculate residuals
    resid <- drop( dataTable[ , 3 ] -
