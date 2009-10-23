@@ -731,7 +731,11 @@ print.default( d6 )
 
 ## unbalanced panel data
 set.seed( 321 )
-riceProdPhilPanelUnb <- riceProdPhilPanel[ -c(3,5,111,222), ]
+riceProdPhilPanelUnb <- riceProdPhilPanel
+riceProdPhilPanelUnb[ 3, c( "PROD", "lPROD" ) ] <- NA
+riceProdPhilPanelUnb[ 5, c( "AREA", "lAREA" ) ] <- NA
+riceProdPhilPanelUnb[ 111, c( "LABOR", "lLABOR", "LABORP", "lLABORP" ) ] <- NA
+riceProdPhilPanelUnb[ 222, c( "NPK", "lNPK", "NPKP", "lNPKP" ) ] <- NA
 
 ## unbalanced panel data, error components frontier
 b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
