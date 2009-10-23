@@ -225,6 +225,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;
       each column corresponds to a time period.}
+   \item{validObs}{vector of logical values indicating which observations
+      of the provided data were used for the estimation,
+      i.e. do not have values that are not available (\code{NA}, \code{NaN})
+      or infinite (\code{Inf}).}
 }
 
 \references{

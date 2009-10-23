@@ -153,15 +153,10 @@ sfa <- function(
    if( "plm.dim" %in% class( data ) ) {
       dataTable <- matrix( as.integer( data[[ 1 ]] ), ncol = 1 )
       dataTable <- cbind( dataTable, as.integer( data[[ 2 ]] ) )
-      nn <- length( unique( data[[ 1 ]] ) )
-      nt <- length( unique( data[[ 2 ]] ) )
    } else {
       dataTable <- matrix( 1:length( yVec ), ncol = 1 )
       dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
-      nn <- nrow( xMat )
-      nt <- 1
    }
-   nob <- nrow( dataTable )
    nXvars <- length( xNames )
    nb <- nXvars
 
@@ -213,6 +208,16 @@ sfa <- function(
    }
    nZvars <- length( zNames )
 
+   # detect and remove observations with NAs, NaNs, and INFs
+   validObs <- rowSums( is.na( dataTable ) | is.infinite( dataTable ) ) == 0
+   dataTable <- dataTable[ validObs, ]
+   # number of (valid) observations
+   nob <- sum( validObs )
+   # number of cross-section units
+   nn <- length( unique( dataTable[ , 1 ] ) )
+   # number of time periods
+   nt <- length( unique( dataTable[ , 2 ] ) )
+
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
       mu <- truncNorm
@@ -242,7 +247,8 @@ sfa <- function(
    } else {
       obsNames <- NULL
    }
-   rownames( dataTable ) <- obsNames
+   rownames( dataTable ) <- obsNames[ validObs ]
+   names( validObs ) <- obsNames
 
    nParamTotal <- nb + 3 + mu + eta
    if( is.null( startVal ) ) {
@@ -301,12 +307,12 @@ sfa <- function(
 
    ## calculate residuals
    resid <- drop( dataTable[ , 3 ] -
-      cbind( rep( 1, nrow( dataTable ) ), xMat ) %*%
+      cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
       returnObj$mleParam[ 1:( nb + 1 ) ] )
    returnObj$resid <- matrix( NA, nrow = nn, ncol = nt )
    if( length( resid ) != nrow( dataTable ) ) {
       stop( "internal error: length of residuals is not equal to",
-         " the number of rows of the data table" )
+         " the number of rows of the data table (valid observations)" )
    }
    for( i in 1:length( resid ) ) {
       returnObj$resid[ dataTable[ i, 1 ], dataTable[ i, 2 ] ] <-
@@ -413,6 +419,7 @@ sfa <- function(
       names( returnObj$startVal ) <- paramNames
    }
    returnObj$call <- match.call()
+   returnObj$validObs <- validObs
 
    class( returnObj ) <- "frontier"
    return( returnObj )
