@@ -85,7 +85,6 @@ c       contains the main loop of this iterative program.
 	gx(i)=0.0  
 	gy(i)=0.0  
   98    continue   
-	call ols(ob,yy,xx)
 	if (igrid.eq.1) then   
 	call grid(x,y,yy,xx,ob,gb)  
       if (im.eq.1) call fun1(gb,fxs,yy,xx)
@@ -878,109 +877,6 @@ c       does a grid search across gamma
 	end
  
  
- 
-	subroutine invert(xx,n)
-c       finds the inverse of a given matrix.  
-	implicit double precision (a-h,o-z)
-	common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
-	dimension xx(n,n)   
-	dimension ipiv(:)
-	allocatable :: ipiv
-	allocate(ipiv(n))
-	do 1 i=1,n 
-   1    ipiv(i)=0   
-	do 11 i=1,n
-	amax=0.
-	do 5 j=1,n 
-	if(ipiv(j))2,2,5   
-   2    if(dabs(xx(j,j))-amax) 4,4,3
-   3    icol=j  
-	amax=dabs(xx(j,j)) 
-   4    continue
-   5    continue
-	ipiv(icol)=1   
-	if(amax-1.0/bignum)6,6,7   
-   6    write(6,*) 'singular matrix'
-	stop   
-   7    continue
-	amax=xx(icol,icol) 
-	xx(icol,icol)=1.0  
-	do 8 k=1,n 
-   8    xx(icol,k)=xx(icol,k)/amax  
-	do 11 j=1,n
-	if(j-icol)9,11,9   
-   9    amax=xx(j,icol) 
-	xx(j,icol)=0.  
-	do 10 k=1,n
-   10   xx(j,k)=xx(j,k)-xx(icol,k)*amax
-   11   continue   
-	deallocate(ipiv)
-	return 
-	end
- 
- 
-	subroutine ols(ob,yy,xx)
-c       calculates the ols estimates and their standard errors.       
-	implicit double precision (a-h,o-z)
-	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
-	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	dimension ob(n),yy(nn,nt),xx(nn,nt,nr)
-	dimension xpx(:,:),xpy(:),mx(:)
-	allocatable :: xpx,xpy,mx
-	allocate(xpx(nb,nb),xpy(nb),mx(nb))
-c       calculate x'x and x'y 
-	do 131 k=1,nb  
-	do 132 j=1,nb  
-	xpx(k,j)=0.0   
-	do 132 i=1,nn  
-	do 132 l=1,nt
-	if (xx(i,l,1).ne.0.0) xpx(k,j)=xpx(k,j)+xx(i,l,k)*xx(i,l,j)
-  132   continue   
-	xpy(k)=0.0 
-	do 131 i=1,nn  
-	do 131 l=1,nt
-	if (xx(i,l,1).ne.0.0) xpy(k)=xpy(k)+xx(i,l,k)*yy(i,l)
-  131   continue   
-c       determine correct scaling for x'x 
-	do 120 k=1,nb  
-	h=(1.0-dlog10(xpx(k,k)))/2.0   
-	if (h.lt.0.0) goto 121 
-	mx(k)=h
-	goto 120   
-  121   mx(k)=h-1 
-  120   continue  
-c       scale, invert and then scale back 
-	is=0   
-  123   is=is+1   
-	do 122 k=1,nb  
-	do 122 j=1,nb  
-	xpx(k,j)=xpx(k,j)*10.0**(mx(k)+mx(j))  
-  122   continue  
-	if (is.eq.1) then
-	call invert(xpx,nb)
-	goto 123   
-	endif  
-c       calculate b=inv(x'x)x'y   
-	do 133 k=1,nb  
-	ob(k)=0.0  
-	do 133 j=1,nb  
-	ob(k)=ob(k)+xpx(k,j)*xpy(j)
-  133   continue   
-	ss=0.0 
-	do 134 i=1,nn  
-	do 134 l=1,nt
-	if (xx(i,l,1).ne.0.0) then
-	ee=yy(i,l)   
-	do 135 k=1,nb  
-	ee=ee-xx(i,l,k)*ob(k)
-  135   continue   
-	ss=ss+ee**2
-	endif
-  134   continue   
-	ob(nb+1)=ss/dfloat(nob-nb)  
-	deallocate(xpx,xpy,mx)
-	return 
-	end
  
       double precision function dendis(a)
 c       calculates den(a) / dis(a)
