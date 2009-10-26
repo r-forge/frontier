@@ -5,7 +5,7 @@
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, bmuArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, olsLogl, gb, startLogl, y, h, fmleLogl,
+     $  nParamTotal, ob, gb, startLogl, y, h, fmleLogl,
      $  nIter )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
