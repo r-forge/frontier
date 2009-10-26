@@ -36,7 +36,6 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	dimension startVal(nStartVal)
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
-	dimension obse(nParamTotal)
 	dimension gb(nParamTotal)
 	dimension y(nParamTotal)
 	dimension h(nParamTotal,nParamTotal)
@@ -65,19 +64,19 @@ c       Hence, this programme can be run automatically (non-interactively) now.
 	nfunct=0   
 	ndrv=0 
 	call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, obse, gb, fxs, y, h )
+     $  nParamTotal, ob, gb, fxs, y, h )
       startLogl = -fxs
 	fmleLogl = -fx
 	nIter = iter
 	end
  
-	subroutine mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h)
+	subroutine mini(yy,xx,mm,sv,ob,gb,fxs,y,h)
 c       contains the main loop of this iterative program. 
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
 	dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
-	dimension ob(n),gb(n),obse(n),x(:),y(n),s(:)   
+	dimension ob(n),gb(n),x(:),y(n),s(:)
 	dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
 	allocatable :: x,s,delx,delg,gx,gy
 	allocate(x(n),s(n))
@@ -86,7 +85,7 @@ c       contains the main loop of this iterative program.
 	gx(i)=0.0  
 	gy(i)=0.0  
   98    continue   
-	call ols(ob,obse,yy,xx)  
+	call ols(ob,yy,xx)
 	if (igrid.eq.1) then   
 	call grid(x,y,yy,xx,ob,gb)  
       if (im.eq.1) call fun1(gb,fxs,yy,xx)
@@ -704,7 +703,7 @@ c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
  
 	subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, obse, gb, fxs, y, h )
+     $  nParamTotal, ob, gb, fxs, y, h )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
 	implicit double precision (a-h,o-z)
@@ -715,7 +714,6 @@ c       also reads data from a file.
 	dimension startVal(nStartVal)
 	dimension dataTable(nRowData,nColData)
 	dimension ob(nParamTotal)
-	dimension obse(nParamTotal)
 	dimension gb(nParamTotal)
 	dimension y(nParamTotal)
 	dimension h(nParamTotal,nParamTotal)
@@ -804,7 +802,7 @@ c       also reads data from a file.
 	stop  
 	end if
   149   continue   
-	call mini(yy,xx,mm,sv,ob,obse,gb,fxs,y,h)
+	call mini(yy,xx,mm,sv,ob,gb,fxs,y,h)
 	deallocate(yy,xx,mm,sv,xxd)
 	return 
 	end
@@ -921,12 +919,12 @@ c       finds the inverse of a given matrix.
 	end
  
  
-	subroutine ols(ob,obse,yy,xx)
+	subroutine ols(ob,yy,xx)
 c       calculates the ols estimates and their standard errors.       
 	implicit double precision (a-h,o-z)
 	common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
 	common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit   
-	dimension ob(n),obse(n),yy(nn,nt),xx(nn,nt,nr)
+	dimension ob(n),yy(nn,nt),xx(nn,nt,nr)
 	dimension xpx(:,:),xpy(:),mx(:)
 	allocatable :: xpx,xpy,mx
 	allocate(xpx(nb,nb),xpy(nb),mx(nb))
@@ -980,9 +978,6 @@ c       calculate b=inv(x'x)x'y
 	endif
   134   continue   
 	ob(nb+1)=ss/dfloat(nob-nb)  
-	do 136 k=1,nb  
-	obse(k)=(ob(nb+1)*xpx(k,k))**0.5   
-  136   continue   
 	deallocate(xpx,xpy,mx)
 	return 
 	end
