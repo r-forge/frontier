@@ -148,24 +148,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   0.5616     0.2026    2.77  0.00557 ** 
@@ -676,24 +658,6 @@ mu           6.75459758
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -1216,15 +1180,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-starting values provided by the user
-            [,1]
-(Intercept)  0.5
-logCapital   0.3
-logLabour    0.5
-sigmaSq      0.5
-gamma        0.9
-mu          -1.0
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   0.4777     0.2086    2.29    0.022 *  
@@ -1666,24 +1621,6 @@ gamma        0.01210715
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -2211,24 +2148,6 @@ gamma          0.1737848  0.0485123
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -2763,16 +2682,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-starting values provided by the user
-               [,1]
-(Intercept)    0.50
-logCapital     0.30
-logLabour      0.50
-Z_(Intercept) -0.40
-Z_firmNo      -0.01
-sigmaSq        0.40
-gamma          0.90
-
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
 (Intercept)     0.5087     0.2261    2.25    0.024 *  
@@ -3229,26 +3138,6 @@ gamma        0.00113407
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -5170,26 +5059,6 @@ mu          -2.6041e-02  1.1172608
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -7123,26 +6992,6 @@ gamma       -0.02028199  8.3194e-03  8.4322e-04
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -9078,26 +8927,6 @@ gamma         -0.00149882  -0.358566   0.1664141  0.00204327
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -11050,16 +10879,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-starting values provided by the user
-             [,1]
-(Intercept) -1.00
-lAREA        0.30
-lLABOR       0.30
-lNPK         0.30
-sigmaSq      0.20
-gamma        0.90
-mu          -0.01
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -1.0915     0.2349   -4.65  3.4e-06 ***
@@ -12551,18 +12370,6 @@ gamma         -0.00179247  -0.285100   0.1326425  0.00164810
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-starting values provided by the user
-               [,1]
-(Intercept)   -1.00
-lAREA          0.30
-lLABOR         0.30
-lNPK           0.30
-Z_(Intercept) -0.20
-Z_EDYRS       -0.01
-Z_BANRAT      -0.30
-sigmaSq        0.30
-gamma          0.80
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -14065,28 +13872,6 @@ gamma        2.4913e-03  0.03510855
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -16030,28 +15815,6 @@ mu          -0.02353944 -0.04355540  0.19888407
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -18006,28 +17769,6 @@ gamma       -7.0634e-02 -4.5000e-01  6.8109e-02  1.2632e-05
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -20002,28 +19743,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
-
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    5.91e+00   1.88e-01   31.53   <2e-16 ***
@@ -21978,26 +21697,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8322     0.2752   -3.02   0.0025 ** 
@@ -23124,26 +22823,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8289     0.2789   -2.97   0.0030 ** 
@@ -24258,26 +23937,6 @@ time        -2.2115e-03  0.00096403
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -25400,26 +25059,6 @@ time         0.0011999 -0.0091516  1.2726e-03
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -26550,26 +26189,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -1.0086     0.2460   -4.10  4.1e-05 ***
@@ -27697,26 +27316,6 @@ gamma         -0.00149880  -0.358566   0.1664140  2.0433e-03
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -28867,17 +28466,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-starting values provided by the user
-            [,1]
-(Intercept) -1.0
-lAREA        0.3
-lLABOR       0.3
-lNPK         0.3
-sigmaSq      0.2
-gamma        0.5
-mu          -0.3
-time         0.1
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.7501     0.2815   -2.67   0.0077 ** 
@@ -29823,18 +29411,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-starting values provided by the user
-               [,1]
-(Intercept)   -1.00
-lAREA          0.30
-lLABOR         0.30
-lNPK           0.30
-Z_(Intercept) -0.30
-Z_EDYRS       -0.01
-Z_BANRAT      -0.40
-sigmaSq        0.20
-gamma          0.80
-
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    -1.0518     0.2546   -4.13  3.6e-05 ***
@@ -30777,28 +30353,6 @@ gamma        1.8467e-03  0.01580330
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -31943,28 +31497,6 @@ mu          -2.0759e-04 -0.00133988  4.1698e-03
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -33113,28 +32645,6 @@ time        -3.7714e-05 -0.00008656  7.1928e-04
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -34292,28 +33802,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  5.73179    0.18931   30.28  < 2e-16 ***
@@ -35461,28 +34949,6 @@ gamma       -4.9722e-01 -3.7238e+00  5.1500e-01  4.6801e-04
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -36646,28 +36112,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
-
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    5.91e+00   1.84e-01   32.07   <2e-16 ***
@@ -37760,26 +37204,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8333     0.2790   -2.99   0.0028 ** 
@@ -38854,26 +38278,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8308     0.2814   -2.95   0.0032 ** 
@@ -39937,26 +39341,6 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -41025,26 +40409,6 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -42116,26 +41480,6 @@ Maximum likelihood estimates
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30960
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.24360
-gamma        0.87000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -43223,26 +42567,6 @@ Maximum likelihood estimates
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30960
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.24360
-gamma        0.87000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -44333,28 +43657,6 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -45447,28 +44749,6 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -46564,28 +45844,6 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -47686,28 +46944,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  5.75416    0.18904   30.44  < 2e-16 ***
@@ -48794,28 +48030,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.922297
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.066237
-gamma       0.460000
-
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.92025    0.18978   31.19   <2e-16 ***
@@ -49901,28 +49115,6 @@ Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.922297
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.066237
-gamma       0.460000
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -51070,30 +50262,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-        Estimate Std. Error t value Pr(>|t|)  
-a_0      0.55626    0.36338    1.53    0.132  
-a_1      0.37854    0.19384    1.95    0.056 .
-a_2      0.34780    0.21215    1.64    0.107  
-b_1_1   -0.18592    0.09034   -2.06    0.045 *
-b_1_2    0.00848    0.04523    0.19    0.852  
-b_2_2    0.06010    0.06985    0.86    0.393  
-sigmaSq  0.11037         NA      NA       NA  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -15.857 
-
-estimates after the grid search
-              [,1]
-a_0      0.8613911
-a_1      0.3785431
-a_2      0.3477993
-b_1_1   -0.1859180
-b_1_2    0.0084811
-b_2_2    0.0601000
-sigmaSq  0.1924378
-gamma    0.7600000
-
 final maximum likelihood estimates
         Estimate Std. Error z value Pr(>|z|)    
 a_0      0.80928    0.33558    2.41  0.01588 *  
@@ -51833,32 +51001,6 @@ gamma   -1.1882e-05  6.7178e-03  2.4043e-02
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-
-OLS estimates
-        Estimate Std. Error t value Pr(>|t|)  
-a_0      0.43980    0.38551    1.14    0.259  
-a_1      0.38151    0.19416    1.96    0.055 .
-a_2      0.38344    0.21600    1.78    0.082 .
-b_1_1   -0.19135    0.09067   -2.11    0.040 *
-b_1_2    0.00469    0.04549    0.10    0.918  
-b_2_2    0.05066    0.07071    0.72    0.477  
-d_1      0.00244    0.00267    0.92    0.364  
-sigmaSq  0.11070         NA      NA       NA  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -15.386 
-
-estimates after the grid search
-              [,1]
-a_0      0.7387180
-a_1      0.3815066
-a_2      0.3834425
-b_1_1   -0.1913548
-b_1_2    0.0046860
-b_2_2    0.0506553
-d_1      0.0024405
-sigmaSq  0.1871335
-gamma    0.7500000
 
 final maximum likelihood estimates
         Estimate Std. Error z value Pr(>|z|)    
@@ -52604,30 +51746,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 
-OLS estimates
-        Estimate Std. Error t value Pr(>|t|)  
-a_0      0.55626    0.36338    1.53    0.132  
-a_1      0.37854    0.19384    1.95    0.056 .
-a_2      0.34780    0.21215    1.64    0.107  
-b_1_1   -0.18592    0.09034   -2.06    0.045 *
-b_1_2    0.00848    0.04523    0.19    0.852  
-b_2_2    0.06010    0.06985    0.86    0.393  
-sigmaSq  0.11037         NA      NA       NA  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -15.857 
-
-estimates after the grid search
-              [,1]
-a_0      0.8613911
-a_1      0.3785431
-a_2      0.3477993
-b_1_1   -0.1859180
-b_1_2    0.0084811
-b_2_2    0.0601000
-sigmaSq  0.1924378
-gamma    0.7600000
-
 final maximum likelihood estimates
           Estimate Std. Error z value Pr(>|z|)    
 a_0       0.756754   0.324364    2.33    0.020 *  
@@ -53299,24 +52417,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    0.2449     0.2136    1.15     0.26    
-log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
-log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq        0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-                [,1]
-(Intercept)  0.58014
-log(capital) 0.28049
-log(labour)  0.53331
-sigmaSq      0.22067
-gamma        0.80000
-
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    0.5616     0.2026    2.77  0.00557 ** 
@@ -53422,24 +52522,6 @@ F_60    0.88328
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -53548,24 +52630,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    0.2449     0.2136    1.15     0.26    
-log(capital)   0.2805     0.0481    5.84  2.8e-07 ***
-log(labour)    0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq        0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-                [,1]
-(Intercept)  0.58014
-log(capital) 0.28049
-log(labour)  0.53331
-sigmaSq      0.22067
-gamma        0.80000
-
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    0.5368     0.2015    2.66   0.0077 ** 
@@ -53672,24 +52736,6 @@ F_60    0.90864
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   0.2449     0.2136    1.15     0.26    
-logCapital    0.2805     0.0481    5.84  2.8e-07 ***
-logLabour     0.5333     0.0515   10.36  1.3e-14 ***
-sigmaSq       0.1140         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -18.447 
-
-estimates after the grid search
-               [,1]
-(Intercept) 0.58014
-logCapital  0.28049
-logLabour   0.53331
-sigmaSq     0.22067
-gamma       0.80000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -53798,28 +52844,6 @@ F_60    0.91620
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-log(PROD)     0.4403     0.0307   14.35   <2e-16 ***
-log(AREA)     0.5221     0.0335   15.60   <2e-16 ***
-log(LABORP)   0.4181     0.0331   12.64   <2e-16 ***
-log(NPKP)     0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-log(PROD)   0.440303
-log(AREA)   0.522148
-log(LABORP) 0.418058
-log(NPKP)   0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -54264,28 +53288,6 @@ mean efficiency: 1.0178
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -54732,28 +53734,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-log(PROD)     0.4403     0.0307   14.35   <2e-16 ***
-log(AREA)     0.5221     0.0335   15.60   <2e-16 ***
-log(LABORP)   0.4181     0.0331   12.64   <2e-16 ***
-log(NPKP)     0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-log(PROD)   0.440303
-log(AREA)   0.522148
-log(LABORP) 0.418058
-log(NPKP)   0.060233
-sigmaSq     0.065990
-gamma       0.460000
-
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.92120    0.18876   31.37   <2e-16 ***
@@ -55199,28 +54179,6 @@ mean efficiency: 1.0100
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -55669,26 +54627,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
-log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
-log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-log(AREA)    0.32976
-log(LABOR)   0.38375
-log(NPK)     0.28292
-sigmaSq      0.14581
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8322     0.2752   -3.02   0.0025 ** 
@@ -55852,26 +54790,6 @@ F_43   0.805965
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56037,26 +54955,6 @@ F_43   0.814851
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56227,26 +55125,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.47456
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.14581
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.7501     0.2790   -2.69   0.0072 ** 
@@ -56416,26 +55294,6 @@ F_43  0.727887  0.744942  0.76093  0.77591  0.78996  0.80312  0.81546  0.82702
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-log(AREA)     0.3298     0.0624    5.28  2.3e-07 ***
-log(LABOR)    0.3837     0.0658    5.83  1.3e-08 ***
-log(NPK)      0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-log(AREA)    0.32976
-log(LABOR)   0.38375
-log(NPK)     0.28292
-sigmaSq      0.24151
-gamma        0.87000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56681,26 +55539,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6696     0.2487   -6.71  8.0e-11 ***
-lAREA         0.3298     0.0624    5.28  2.3e-07 ***
-lLABOR        0.3837     0.0658    5.83  1.3e-08 ***
-lNPK          0.2829     0.0399    7.09  8.0e-12 ***
-sigmaSq       0.1090         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -104.91 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30390
-lAREA        0.32976
-lLABOR       0.38375
-lNPK         0.28292
-sigmaSq      0.24151
-gamma        0.87000
-
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    -1.0518     0.2530   -4.16  3.2e-05 ***
@@ -56872,28 +55710,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-log(PROD)     0.4403     0.0307   14.35   <2e-16 ***
-log(AREA)     0.5221     0.0335   15.60   <2e-16 ***
-log(LABORP)   0.4181     0.0331   12.64   <2e-16 ***
-log(NPKP)     0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-log(PROD)   0.440303
-log(AREA)   0.522148
-log(LABORP) 0.418058
-log(NPKP)   0.060233
-sigmaSq     0.058603
-gamma       0.320000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.8024     0.1872   31.00  < 2e-16 ***
@@ -57036,28 +55852,6 @@ F_43     1.0109
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57202,28 +55996,6 @@ F_43     1.0229
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57372,28 +56144,6 @@ F_43 1.0086 1.0089 1.0092 1.0095 1.0099 1.0102 1.0106 1.0109
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.950007
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.058603
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57544,28 +56294,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-log(PROD)     0.4403     0.0307   14.35   <2e-16 ***
-log(AREA)     0.5221     0.0335   15.60   <2e-16 ***
-log(LABORP)   0.4181     0.0331   12.64   <2e-16 ***
-log(NPKP)     0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-log(PROD)   0.440303
-log(AREA)   0.522148
-log(LABORP) 0.418058
-log(NPKP)   0.060233
-sigmaSq     0.065990
-gamma       0.460000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.9194     0.1877   31.54   <2e-16 ***
@@ -57714,28 +56442,6 @@ F_43 1.0182 1.0245 1.0134 1.0073 1.0096 1.0072 1.0057 1.0063
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0593     0.1956   30.98   <2e-16 ***
-lPROD         0.4403     0.0307   14.35   <2e-16 ***
-lAREA         0.5221     0.0335   15.60   <2e-16 ***
-lLABORP       0.4181     0.0331   12.64   <2e-16 ***
-lNPKP         0.0602     0.0563    1.07     0.29    
-sigmaSq       0.0474         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 39.025 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.920257
-lPROD       0.440303
-lAREA       0.522148
-lLABORP     0.418058
-lNPKP       0.060233
-sigmaSq     0.065990
-gamma       0.460000
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -57886,26 +56592,6 @@ F_43 1.0188 1.0255 1.0138 1.0075 1.0098 1.0073 1.0057 1.0064
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -58071,26 +56757,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -0.8308     0.2814   -2.95   0.0032 ** 
@@ -58255,26 +56921,6 @@ F_43    0.81444
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -58444,26 +57090,6 @@ F_43  0.725822  0.741389  0.756072  0.76992  0.78298  0.79531  0.80693  0.81789
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.48099
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.14707
-gamma        0.41000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -58635,26 +57261,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30960
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.24360
-gamma        0.87000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  -1.0302     0.2480   -4.15  3.3e-05 ***
@@ -58824,26 +57430,6 @@ F_43  0.400681  0.376929  0.74107 0.75414  0.90071 0.950920  0.85306  0.95342
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  -1.6769     0.2508   -6.69  9.5e-11 ***
-lAREA         0.3289     0.0629    5.23  3.0e-07 ***
-lLABOR        0.3847     0.0662    5.82  1.4e-08 ***
-lNPK          0.2835     0.0403    7.04  1.1e-11 ***
-sigmaSq       0.1100         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: -105.15 
-
-estimates after the grid search
-                [,1]
-(Intercept) -1.30960
-lAREA        0.32886
-lLABOR       0.38473
-lNPK         0.28351
-sigmaSq      0.24360
-gamma        0.87000
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -59016,28 +57602,6 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
-
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.8260     0.1895   30.74  < 2e-16 ***
@@ -59180,28 +57744,6 @@ F_43     1.0107
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -59346,28 +57888,6 @@ F_43     1.0227
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -59516,28 +58036,6 @@ F_43 1.0082 1.0085 1.0089 1.0092 1.0096 1.0099 1.0103 1.0107
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.952102
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.058823
-gamma       0.320000
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -59688,28 +58186,6 @@ Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
 
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.922297
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.066237
-gamma       0.460000
-
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)   5.92025    0.18978   31.19   <2e-16 ***
@@ -59858,28 +58334,6 @@ F_43 1.0184 1.0249 1.0136 1.0074 1.0097 1.0073 1.0057 1.0063
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-
-OLS estimates
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   6.0616     0.1968   30.80   <2e-16 ***
-lPROD         0.4399     0.0308   14.27   <2e-16 ***
-lAREA         0.5216     0.0336   15.51   <2e-16 ***
-lLABORP       0.4175     0.0334   12.51   <2e-16 ***
-lNPKP         0.0602     0.0565    1.07     0.29    
-sigmaSq       0.0475         NA      NA       NA    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 37.935 
-
-estimates after the grid search
-                [,1]
-(Intercept) 5.922297
-lPROD       0.439924
-lAREA       0.521569
-lLABORP     0.417519
-lNPKP       0.060171
-sigmaSq     0.066237
-gamma       0.460000
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    

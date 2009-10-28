@@ -20,17 +20,6 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
       cat( "The dependent variable is not logged\n" )
    }
 
-   if( is.null( coef.frontier( x, which = "start" ) ) ) {
-      cat( "\nOLS estimates\n" )
-      printCoefmat( coef( x, which = "ols" ) )
-      cat( "log likelihood value:", x$olsLogl, "\n" )
-      cat( "\nestimates after the grid search\n" )
-      print( as.matrix( coef.frontier( x, which = "grid" ), ncol = 1 ) )
-   } else {
-      cat( "\nstarting values provided by the user\n" )
-      print( as.matrix( coef.frontier( x, which = "start" ), ncol = 1 ) )
-   }
-
    cat( "\nfinal maximum likelihood estimates\n" )
    printCoefmat( coef( x ) )
    cat( "log likelihood value:", x$mleLogl, "\n" )
