@@ -25,7 +25,7 @@ returned by \code{\link{frontier}}.
 }
 
 \value{
-   \code{summary.frontier} returns a list of class \code{summaryfrontier}
+   \code{summary.frontier} returns a list of class \code{summary.frontier}
    that is identical to an object returned by \code{\link{frontier}}
    with two modifications and (up to) four additional elements:
    \item{olsParam}{matrix of OLS estimates, their standard errors,
