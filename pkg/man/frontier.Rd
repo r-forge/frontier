@@ -205,6 +205,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{olsParam}{numeric vector. OLS estimates.}
    \item{olsStdEr}{numeric vector. Standard errors of OLS estimates.}
    \item{olsLogl}{numeric. Log likelihood value of OLS estimation.}
+   \item{olsResid}{numeric vector. Residuals of the OLS estimation.}
+   \item{olsSkewness}{numeric. Skewness of the residuals of the OLS estimation.}
+   \item{olsSkewnessOkay}{logical. Indicating if the residuals
+      of the OLS estimation have the expected skewness.}
    \item{gridParam}{numeric vector. Parameters obtained from the grid search
       (if no starting values were specified).}
    \item{gridLogl}{numeric. Log likelihood value of the parameters

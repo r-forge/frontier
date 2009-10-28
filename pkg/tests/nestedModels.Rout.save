@@ -101,7 +101,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 +    data = as.data.frame( riceProdPhil ) )
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb5ecf[-33], bb5ecf[-33] )
+> all.equal( sbb5ecf[-36], bb5ecf[-36] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -110,7 +110,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sbb5eef[-33], bb5eef[-33] )
+> all.equal( sbb5eef[-36], bb5eef[-36] )
 [1] TRUE
 > 
 > # Comparisons
@@ -133,7 +133,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = 0 )
-> all.equal( sbb6ecf[-33], bb6ecf[-33] )
+> all.equal( sbb6ecf[-36], bb6ecf[-36] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -142,7 +142,7 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
-> all.equal( sbb6eef[-33], bb6eef[-33] )
+> all.equal( sbb6eef[-36], bb6eef[-36] )
 [1] TRUE
 > 
 > # Comparisons
@@ -166,9 +166,9 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sb5eef[-33], b5eef[-33] )
+> all.equal( sb5eef[-36], b5eef[-36] )
 [1] TRUE
-> all.equal( b5eef[ -c( 3, 4, 16, 26, 33 ) ], bb5eef[ -c( 3, 4, 16, 26, 33 ) ] )
+> all.equal( b5eef[ -c( 3, 4, 16, 26, 36 ) ], bb5eef[ -c( 3, 4, 16, 26, 36 ) ] )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ) )
 [1] TRUE
@@ -193,9 +193,9 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > b6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = Inf )
-> all.equal( sb6ecf[-33], b6ecf[-33] )
+> all.equal( sb6ecf[-36], b6ecf[-36] )
 [1] TRUE
-> all.equal( b6ecf[-33], bb6ecf[-33] )
+> all.equal( b6ecf[-36], bb6ecf[-36] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -204,9 +204,9 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > b6eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
-> all.equal( sb6eef[-33], b6eef[-33] )
+> all.equal( sb6eef[-36], b6eef[-36] )
 [1] TRUE
-> all.equal( b6eef[ -c( 3, 4, 16, 26, 33 ) ], bb6eef[ -c( 3, 4, 16, 26, 33 ) ] )
+> all.equal( b6eef[ -c( 3, 4, 16, 26, 36 ) ], bb6eef[ -c( 3, 4, 16, 26, 36 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
 [1] "Mean relative difference: 0.0007793501"

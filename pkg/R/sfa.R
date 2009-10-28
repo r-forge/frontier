@@ -334,10 +334,10 @@ sfa <- function(
    }
 
    ## skewness of OLS residuals
-   olsResid <- residuals( ols )
-   olsSkewness <- skewness( olsResid )
-   olsSkewnessOkay <- olsSkewness * ( -1 )^ineffDecrease >= 0
-   if( !olsSkewnessOkay ) {
+   returnObj$olsResid <- residuals( ols )
+   returnObj$olsSkewness <- skewness( returnObj$olsResid )
+   returnObj$olsSkewnessOkay <- returnObj$olsSkewness * ( -1 )^ineffDecrease >= 0
+   if( !returnObj$olsSkewnessOkay ) {
       warning( "the residuals of the OLS estimates are ",
          ifelse( ineffDecrease, "right", "left" ), "-skewed;",
          " this might indicate that there is no inefficiency",

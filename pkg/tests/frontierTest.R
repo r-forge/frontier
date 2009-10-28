@@ -12,10 +12,10 @@ front41Data$firmNo     <- c( 1:nrow( front41Data ) )
 ## cross-section data, error components frontier
 sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-all.equal( Sa1[-33], sa1[-33], check.attributes = FALSE )
+all.equal( Sa1[-36], sa1[-36], check.attributes = FALSE )
 a1 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ) )
-all.equal( sa1[-33], a1[-33] )
+all.equal( sa1[-36], a1[-36] )
 print( a1 )
 coef( a1, which = "start" )
 coef( a1, which = "ols" )
@@ -39,7 +39,7 @@ sa2 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data,
    truncNorm = TRUE )
 a2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-all.equal( sa2[-33], a2[-33] )
+all.equal( sa2[-36], a2[-36] )
 print( a2 )
 coef( a2, which = "start" )
 coef( a2, which = "ols" )
@@ -63,7 +63,7 @@ sa5 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data,
 a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-all.equal( sa5[-33], a5[-33] )
+all.equal( sa5[-36], a5[-36] )
 print( a5 )
 coef( a5, which = "start" )
 coef( a5, which = "ols" )
@@ -84,10 +84,10 @@ saa1 <- sfa( logOutput ~ logCapital + logLabour | firmNo - 1,
    data = front41Data )
 Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
    data = front41Data )
-all.equal( Saa1[-33], saa1[-33], check.attributes = FALSE )
+all.equal( Saa1[-36], saa1[-36], check.attributes = FALSE )
 aa1 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-all.equal( saa1[-33], aa1[-33] )
+all.equal( saa1[-36], aa1[-36] )
 print( aa1 )
 coef( aa1, which = "start" )
 coef( aa1, which = "ols" )
@@ -108,7 +108,7 @@ saa2 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
    data = front41Data )
 aa2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-all.equal( saa2[-33], aa2[-33] )
+all.equal( saa2[-36], aa2[-36] )
 print( aa2 )
 coef( aa2, which = "start" )
 coef( aa2, which = "ols" )
@@ -130,7 +130,7 @@ saa5 <- sfa( logOutput ~ logCapital + logLabour | firmNo,
 aa5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-all.equal( saa5[-33], aa5[-33] )
+all.equal( saa5[-36], aa5[-36] )
 print( aa5 )
 coef( aa5, which = "start" )
 coef( aa5, which = "ols" )
@@ -156,10 +156,10 @@ riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
 sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhil )
-all.equal( Sbb1[-33], sbb1[-33], check.attributes = FALSE )
+all.equal( Sbb1[-36], sbb1[-36], check.attributes = FALSE )
 bb1 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-all.equal( sbb1[-33], bb1[-33] )
+all.equal( sbb1[-36], bb1[-36] )
 print( bb1 )
 coef( bb1, which = "start" )
 coef( bb1, which = "ols" )
@@ -181,7 +181,7 @@ sbb2 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil,
 bb2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE )
-all.equal( sbb2[-33], bb2[-33] )
+all.equal( sbb2[-36], bb2[-36] )
 print( bb2 )
 coef( bb2, which = "start" )
 coef( bb2, which = "ols" )
@@ -202,11 +202,11 @@ sbb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhil )
 Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = riceProdPhil )
-all.equal( Sbb5[-33], sbb5[-33], check.attributes = FALSE )
+all.equal( Sbb5[-36], sbb5[-36], check.attributes = FALSE )
 bb5 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
-all.equal( sbb5[-33], bb5[-33] )
+all.equal( sbb5[-36], bb5[-36] )
 print( bb5 )
 coef( bb5, which = "start" )
 coef( bb5, which = "ols" )
@@ -228,7 +228,7 @@ sbb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 bb6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-all.equal( sbb6[-33], bb6[-33] )
+all.equal( sbb6[-36], bb6[-36] )
 print( bb6 )
 coef( bb6, which = "start" )
 coef( bb6, which = "ols" )
@@ -251,7 +251,7 @@ bb7 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-all.equal( sbb7[-33], bb7[-33] )
+all.equal( sbb7[-36], bb7[-36] )
 print( bb7 )
 coef( bb7, which = "start" )
 coef( bb7, which = "ols" )
@@ -273,7 +273,7 @@ bb8 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-all.equal( sbb8[-33], bb8[-33] )
+all.equal( sbb8[-36], bb8[-36] )
 print( bb8 )
 coef( bb8, which = "start" )
 coef( bb8, which = "ols" )
@@ -300,10 +300,10 @@ sdd1 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhil,
    ineffDecrease = FALSE )
 Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-all.equal( Sdd1[-33], sdd1[-33], check.attributes = FALSE )
+all.equal( Sdd1[-36], sdd1[-36], check.attributes = FALSE )
 dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhil, ineffDecrease = FALSE )
-all.equal( sdd1[-33], dd1[-33] )
+all.equal( sdd1[-36], dd1[-36] )
 print( dd1 )
 coef( dd1, which = "start" )
 coef( dd1, which = "ols" )
@@ -324,7 +324,7 @@ sdd2 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhil,
    ineffDecrease = FALSE, truncNorm = TRUE )
 dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-all.equal( sdd2[-33], dd2[-33] )
+all.equal( sdd2[-36], dd2[-36] )
 print( dd2 )
 coef( dd2, which = "start" )
 coef( dd2, which = "ols" )
@@ -345,11 +345,11 @@ sdd5 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
    data = riceProdPhil, ineffDecrease = FALSE )
 Sdd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
-all.equal( Sdd5[-33], sdd5[-33], check.attributes = FALSE )
+all.equal( Sdd5[-36], sdd5[-36], check.attributes = FALSE )
 dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE )
-all.equal( sdd5[-33], dd5[-33] )
+all.equal( sdd5[-36], dd5[-36] )
 print( dd5 )
 coef( dd5, which = "start" )
 coef( dd5, which = "ols" )
@@ -371,7 +371,7 @@ sdd6 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 dd6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE, zIntercept = TRUE )
-all.equal( sdd6[-33], dd6[-33] )
+all.equal( sdd6[-36], dd6[-36] )
 print( dd6 )
 coef( dd6, which = "start" )
 coef( dd6, which = "ols" )
@@ -398,10 +398,10 @@ riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
 sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
 Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = riceProdPhilPanel )
-all.equal( Sb1[-33], sb1[-33], check.attributes = FALSE )
+all.equal( Sb1[-36], sb1[-36], check.attributes = FALSE )
 b1 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-all.equal( sb1[-33], b1[-33] )
+all.equal( sb1[-36], b1[-36] )
 print( b1 )
 coef( b1, which = "start" )
 coef( b1, which = "ols" )
@@ -425,7 +425,7 @@ sb2 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
 b2 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE )
-all.equal( sb2[-33], b2[-33] )
+all.equal( sb2[-36], b2[-36] )
 print( b2 )
 coef( b2, which = "start" )
 coef( b2, which = "ols" )
@@ -449,7 +449,7 @@ sb3 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
 b3 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    timeEffect = TRUE )
-all.equal( sb3[-33], b3[-33] )
+all.equal( sb3[-36], b3[-36] )
 print( b3 )
 coef( b3, which = "start" )
 coef( b3, which = "ols" )
@@ -473,7 +473,7 @@ sb4 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
 b4 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE )
-all.equal( sb4[-33], b4[-33] )
+all.equal( sb4[-36], b4[-36] )
 print( b4 )
 coef( b4, which = "start" )
 coef( b4, which = "ols" )
@@ -496,11 +496,11 @@ sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhilPanel )
 Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = riceProdPhilPanel )
-all.equal( Sb5[-33], sb5[-33], check.attributes = FALSE )
+all.equal( Sb5[-36], sb5[-36], check.attributes = FALSE )
 b5 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
-all.equal( sb5[-33], b5[-33] )
+all.equal( sb5[-36], b5[-36] )
 print( b5 )
 coef( b5, which = "start" )
 coef( b5, which = "ols" )
@@ -524,7 +524,7 @@ sb6 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 b6 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-all.equal( sb6[-33], b6[-33] )
+all.equal( sb6[-36], b6[-36] )
 print( b6 )
 coef( b6, which = "start" )
 coef( b6, which = "ols" )
@@ -550,7 +550,7 @@ b7 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-all.equal( sb7[-33], b7[-33] )
+all.equal( sb7[-36], b7[-36] )
 print( b7 )
 coef( b7, which = "start" )
 coef( b7, which = "ols" )
@@ -574,7 +574,7 @@ b8 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-all.equal( sb8[-33], b8[-33] )
+all.equal( sb8[-36], b8[-36] )
 print( b8 )
 coef( b8, which = "start" )
 coef( b8, which = "ols" )
@@ -597,10 +597,10 @@ sd1 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE )
 Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-all.equal( Sd1[-33], sd1[-33], check.attributes = FALSE )
+all.equal( Sd1[-36], sd1[-36], check.attributes = FALSE )
 d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE )
-all.equal( sd1[-33], d1[-33] )
+all.equal( sd1[-36], d1[-36] )
 print( d1 )
 coef( d1, which = "start" )
 coef( d1, which = "ols" )
@@ -621,7 +621,7 @@ sd2 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE, truncNorm = TRUE )
 d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-all.equal( sd2[-33], d2[-33] )
+all.equal( sd2[-36], d2[-36] )
 print( d2 )
 coef( d2, which = "start" )
 coef( d2, which = "ols" )
@@ -642,7 +642,7 @@ sd3 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
    ineffDecrease = FALSE, timeEffect = TRUE )
 d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-all.equal( sd3[-33], d3[-33] )
+all.equal( sd3[-36], d3[-36] )
 print( d3 )
 coef( d3, which = "start" )
 coef( d3, which = "ols" )
@@ -664,7 +664,7 @@ sd4 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
 d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
    timeEffect = TRUE )
-all.equal( sd4[-33], d4[-33] )
+all.equal( sd4[-36], d4[-36] )
 print( d4 )
 coef( d4, which = "start" )
 coef( d4, which = "ols" )
@@ -686,11 +686,11 @@ sd5 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 Sd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhilPanel,
    ineffDecrease = FALSE )
-all.equal( Sd5[-33], sd5[-33], check.attributes = FALSE )
+all.equal( Sd5[-36], sd5[-36], check.attributes = FALSE )
 d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE )
-all.equal( sd5[-33], d5[-33] )
+all.equal( sd5[-36], d5[-36] )
 print( d5 )
 coef( d5, which = "start" )
 coef( d5, which = "ols" )
@@ -712,7 +712,7 @@ sd6 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 d6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE, zIntercept = TRUE )
-all.equal( sd6[-33], d6[-33] )
+all.equal( sd6[-36], d6[-36] )
 print( d6 )
 coef( d6, which = "start" )
 coef( d6, which = "ols" )
@@ -1123,15 +1123,15 @@ z1 <- front41Data$firmNo
 
 ## cross-section data, error components frontier
 a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-all.equal( a1a[-33], a1[-33], check.attributes = FALSE )
+all.equal( a1a[-36], a1[-36], check.attributes = FALSE )
 
 ## cross-section data, efficiency effects frontier
 aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-all.equal( aa1a[-33], aa1[-33], check.attributes = FALSE )
+all.equal( aa1a[-36], aa1[-36], check.attributes = FALSE )
 
 ## cross-section data, efficiency effects frontier, zIntercept
 aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-all.equal( aa2a[-33], aa2[-33], check.attributes = FALSE )
+all.equal( aa2a[-36], aa2[-36], check.attributes = FALSE )
 
 
 ##############################################
@@ -1142,25 +1142,25 @@ all.equal( aa2a[-33], aa2[-33], check.attributes = FALSE )
 sa10 <- sfa( logOutput ~ 1, data = front41Data )
 a10 <- frontier( "logOutput", NULL, data = front41Data )
 print( sa10 )
-all.equal( sa10[-33], a10[-33], check.attributes = FALSE )
+all.equal( sa10[-36], a10[-36], check.attributes = FALSE )
 
 sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
 a11 <- frontier( "logOutput", "logLabour", data = front41Data )
 print( sa11 )
-all.equal( sa11[-33], a11[-33], check.attributes = FALSE )
+all.equal( sa11[-36], a11[-36], check.attributes = FALSE )
 
 ## cross-section data, efficiency effects frontier
 saa10 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
 aa10 <- frontier( data = front41Data, "logOutput", NULL,
    zNames = "firmNo" )
 print( saa10 )
-all.equal( saa10[-33], aa10[-33] )
+all.equal( saa10[-36], aa10[-36] )
 
 saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
 aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
    zNames = "firmNo" )
 print( saa11 )
-all.equal( saa11[-33], aa11[-33] )
+all.equal( saa11[-36], aa11[-36] )
 
 
 ##############################################
