@@ -95,11 +95,9 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > estResultRay <- frontierTranslogRay( yNames = c( "qCrop", "qAnimal" ),
 +    xNames = c( "qLabor", "land", "qVarInput" ),
 +    data = germanFarms )
-Warning messages:
-1: In sfa(formula = sfaFormula, data = data, ...) :
-  the residuals of the OLS estimates are right-skewed; this might indicate that there is no inefficiency or that the model is misspecified
-2: In sfa(formula = sfaFormula, data = data, ...) :
-  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the residuals of the OLS estimates are right-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 > print( estResultRay )
 
 Call:

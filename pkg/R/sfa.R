@@ -328,35 +328,51 @@ sfa <- function(
          resid[ i ]
    }
 
-   # check if the maximum number of iterations has been reached
-   if( maxit <= returnObj$nIter && maxit > 0 ) {
-      warning( "Maximum number of iterations reached" );
-   }
-
    ## skewness of OLS residuals
    returnObj$olsResid <- residuals( ols )
    returnObj$olsSkewness <- skewness( returnObj$olsResid )
    returnObj$olsSkewnessOkay <- returnObj$olsSkewness * ( -1 )^ineffDecrease >= 0
-   if( !returnObj$olsSkewnessOkay ) {
-      warning( "the residuals of the OLS estimates are ",
-         ifelse( ineffDecrease, "right", "left" ), "-skewed;",
-         " this might indicate that there is no inefficiency",
-         " or that the model is misspecified" )
-   }
 
-   # likelihood ratio test
+   ## likelihood ratio test
    returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
-   if( returnObj$lrTestVal < 0 ) {
-      warning( "the likelihood value of the ML estimation is less",
-         " than that obtained using ols --",
-         " please try again using different starting values" )
-   }
-
    # degrees of freedom of the likelihood ratio test
    if( returnObj$modelType == 1 ) {
       returnObj$lrTestDf <- truncNorm + timeEffect + 1
    } else {
       returnObj$lrTestDf <- zIntercept + nZvars + 1
+   }
+
+   ## warnings regarding wrong skewness, smaller logLik value, and no convergence
+   if( !returnObj$olsSkewnessOkay && returnObj$lrTestVal < 0 ) {
+      warning( "the residuals of the OLS estimates are ",
+         ifelse( ineffDecrease, "right", "left" ), "-skewed",
+         " and the likelihood value of the ML estimation is less",
+         " than that obtained using OLS;",
+         " this usually indicates that there is no inefficiency",
+         " or that the model is misspecified" )
+   } else if( !returnObj$olsSkewnessOkay ) {
+      warning( "the residuals of the OLS estimates are ",
+         ifelse( ineffDecrease, "right", "left" ), "-skewed;",
+         " this might indicate that there is no inefficiency",
+         " or that the model is misspecified" )
+   } else if( returnObj$lrTestVal < 0 && maxit <= returnObj$nIter && maxit > 0 ) {
+      warning( "the maximum number of iterations has been reached and",
+         " the likelihood value of the ML estimation is less",
+         " than that obtained using OLS;",
+         " please try again using different starting values and/or",
+         " increase the maximum number of iterations" )
+   } else if( returnObj$lrTestVal < 0 ) {
+      warning( "the likelihood value of the ML estimation is less",
+         " than that obtained using OLS;",
+         " this indicates that the likelihood maximization did not",
+         " converge to the global maximum or",
+         " that there is no inefficiency",
+         " (you could try again using different starting values)" )
+   }
+   if( returnObj$lrTestVal >= 0 && maxit <= returnObj$nIter && maxit > 0 ) {
+      warning( "the maximum number of iterations has been reached;",
+         " please try again using different starting values and/or",
+         " increase the maximum number of iterations" )
    }
 
    # mu: truncNorm, zIntercept
