@@ -1,0 +1,427 @@
+
+R version 2.9.2 (2009-08-24)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library( frontier )
+Loading required package: plm
+Loading required package: kinship
+Loading required package: survival
+Loading required package: splines
+Loading required package: nlme
+Loading required package: lattice
+[1] "kinship is loaded"
+Loading required package: Formula
+Loading required package: MASS
+Loading required package: sandwich
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 as.Date.numeric 
+
+Loading required package: micEcon
+Loading required package: systemfit
+Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+
+	The following object(s) are masked from package:stats :
+
+	 contr.helmert,
+	 contr.poly,
+	 contr.SAS,
+	 contr.sum,
+	 contr.treatment,
+	 xtabs 
+
+
+	The following object(s) are masked from package:base :
+
+	 rcond 
+
+Loading required package: car
+Loading required package: lmtest
+Loading required package: np
+Loading required package: boot
+
+Attaching package: 'boot'
+
+
+	The following object(s) are masked from package:car :
+
+	 logit 
+
+
+	The following object(s) are masked from package:lattice :
+
+	 melanoma 
+
+
+	The following object(s) are masked from package:survival :
+
+	 aml 
+
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
+> 
+> ## example data included in FRONTIER 4.1 (cross-section data)
+> data( front41Data )
+> data( riceProdPhil )
+> riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
++    riceProdPhil$NPK * riceProdPhil$NPKP
+> 
+> ###### left-skewed residuals but ineffDecrease = FALSE
+> ## front41Data
+> a1 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    ineffDecrease = FALSE, data = front41Data )
+> summary( a1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+OLS estimates
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)  0.244898   0.213603  1.1465    0.2565    
+log(capital) 0.280493   0.048067  5.8355 2.811e-07 ***
+log(labour)  0.533306   0.051499 10.3557 1.269e-14 ***
+sigmaSq      0.113985         NA      NA        NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.44684 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  0.1852311
+log(capital) 0.2804926
+log(labour)  0.5333064
+sigmaSq      0.1118458
+gamma        0.0500000
+
+final maximum likelihood estimates
+               Estimate Std. Error z value  Pr(>|z|)    
+(Intercept)  2.4341e-01 2.3253e-01  1.0468    0.2952    
+log(capital) 2.8049e-01 4.6725e-02  6.0030 1.937e-09 ***
+log(labour)  5.3331e-01 4.7642e-02 11.1940 < 2.2e-16 ***
+sigmaSq      1.0829e-01 1.9073e-02  5.6776 1.366e-08 ***
+gamma        3.1466e-05 1.1924e-02  0.0026    0.9979    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.44684 
+
+LR test of the one-sided error = 2.440001e-06 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 40 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.001475 
+> 
+> ## front41Data, truncNorm
+> a2 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    ineffDecrease = FALSE, truncNorm = TRUE, data = front41Data )
+Warning message:
+In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> summary( a2 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+OLS estimates
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)  0.244898   0.213603  1.1465    0.2565    
+log(capital) 0.280493   0.048067  5.8355 2.811e-07 ***
+log(labour)  0.533306   0.051499 10.3557 1.269e-14 ***
+sigmaSq      0.113985         NA      NA        NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.44684 
+
+estimates after the grid search
+                  [,1]
+(Intercept)  0.1852311
+log(capital) 0.2804926
+log(labour)  0.5333064
+sigmaSq      0.1118458
+gamma        0.0500000
+
+final maximum likelihood estimates
+               Estimate Std. Error z value  Pr(>|z|)    
+(Intercept)   0.2352850  0.3989503  0.5898    0.5554    
+log(capital)  0.2806616  0.0458909  6.1158 9.605e-10 ***
+log(labour)   0.5333579  0.0565884  9.4252 < 2.2e-16 ***
+sigmaSq       0.1088107  0.0253322  4.2953 1.744e-05 ***
+gamma         0.0057257  0.2257765  0.0254    0.9798    
+mu           -0.0499208  0.4947342 -0.1009    0.9196    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -18.44699 
+
+LR test of the one-sided error = -0.0003030354 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 60 
+number of time periods = 1 
+total number of observations = 60 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.009395 
+> 
+> ## riceProdPhil
+> b1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
++    ineffDecrease = FALSE, data = riceProdPhil )
+> summary( b1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+OLS estimates
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept) -1.669642   0.248698 -6.7135 8.011e-11 ***
+log(AREA)    0.329764   0.062397  5.2850 2.256e-07 ***
+log(LABOR)   0.383745   0.065811  5.8310 1.285e-08 ***
+log(NPK)     0.282921   0.039927  7.0859 8.048e-12 ***
+sigmaSq      0.109016         NA      NA        NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.9068 
+
+estimates after the grid search
+                  [,1]
+(Intercept) -1.7291612
+log(AREA)    0.3297636
+log(LABOR)   0.3837452
+log(NPK)     0.2829206
+sigmaSq      0.1112912
+gamma        0.0500000
+
+final maximum likelihood estimates
+               Estimate  Std. Error z value  Pr(>|z|)    
+(Intercept) -1.6705e+00  3.0386e-01 -5.4976 3.851e-08 ***
+log(AREA)    3.2976e-01  6.2442e-02  5.2811 1.284e-07 ***
+log(LABOR)   3.8375e-01  6.5522e-02  5.8567 4.721e-09 ***
+log(NPK)     2.8292e-01  3.9450e-02  7.1716 7.411e-13 ***
+sigmaSq      1.0775e-01  8.6907e-03 12.3982 < 2.2e-16 ***
+gamma        9.9327e-06  4.6559e-03  0.0021    0.9983    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.9068 
+
+LR test of the one-sided error = 1.559108e-05 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 47 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.000826 
+> 
+> ## riceProdPhil, truncNorm
+> b2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
++    ineffDecrease = FALSE, truncNorm = TRUE, data = riceProdPhil )
+Warning message:
+In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> summary( b2 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+OLS estimates
+             Estimate Std. Error t value  Pr(>|t|)    
+(Intercept) -1.669642   0.248698 -6.7135 8.011e-11 ***
+log(AREA)    0.329764   0.062397  5.2850 2.256e-07 ***
+log(LABOR)   0.383745   0.065811  5.8310 1.285e-08 ***
+log(NPK)     0.282921   0.039927  7.0859 8.048e-12 ***
+sigmaSq      0.109016         NA      NA        NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.9068 
+
+estimates after the grid search
+                  [,1]
+(Intercept) -1.7291612
+log(AREA)    0.3297636
+log(LABOR)   0.3837452
+log(NPK)     0.2829206
+sigmaSq      0.1112912
+gamma        0.0500000
+
+final maximum likelihood estimates
+              Estimate Std. Error z value  Pr(>|z|)    
+(Intercept) -1.6775088  0.2630026 -6.3783 1.791e-10 ***
+log(AREA)    0.3291913  0.0621172  5.2995 1.161e-07 ***
+log(LABOR)   0.3834639  0.0657841  5.8291 5.572e-09 ***
+log(NPK)     0.2831189  0.0388498  7.2875 3.157e-13 ***
+sigmaSq      0.1082674  0.0106018 10.2122 < 2.2e-16 ***
+gamma        0.0051624  0.0825598  0.0625    0.9501    
+mu          -0.0472828  0.1849685 -0.2556    0.7982    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -104.9087 
+
+LR test of the one-sided error = -0.003756951 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 1.008894 
+> 
+> 
+> ###### right-skewed residuals but ineffDecrease = TRUE
+> ## riceProdPhil
+> d1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
++    log( NPKP ), data = riceProdPhil )
+> summary( d1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6.059270   0.195589 30.9796   <2e-16 ***
+log(PROD)   0.440303   0.030681 14.3510   <2e-16 ***
+log(AREA)   0.522148   0.033477 15.5974   <2e-16 ***
+log(LABORP) 0.418058   0.033067 12.6428   <2e-16 ***
+log(NPKP)   0.060233   0.056259  1.0706   0.2851    
+sigmaSq     0.047353         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.02473 
+
+estimates after the grid search
+                  [,1]
+(Intercept) 6.09843959
+log(PROD)   0.44030302
+log(AREA)   0.52214830
+log(LABORP) 0.41805753
+log(NPKP)   0.06023288
+sigmaSq     0.04819903
+gamma       0.05000000
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept) 6.0603e+00 2.9225e-01 20.7367   <2e-16 ***
+log(PROD)   4.4030e-01 2.6156e-02 16.8335   <2e-16 ***
+log(AREA)   5.2216e-01 2.8570e-02 18.2766   <2e-16 ***
+log(LABORP) 4.1806e-01 3.2141e-02 13.0071   <2e-16 ***
+log(NPKP)   6.0228e-02 5.3126e-02  1.1337   0.2569    
+sigmaSq     4.6666e-02 3.7280e-03 12.5175   <2e-16 ***
+gamma       3.7678e-05 1.7624e-02  0.0021   0.9983    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.02474 
+
+LR test of the one-sided error = 1.564048e-05 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 52 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.9989429 
+> 
+> ## riceProdPhil, truncNorm
+> d2 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
++    log( NPKP ), truncNorm = TRUE, data = riceProdPhil )
+Warning message:
+In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP),  :
+  the likelihood value of the ML estimation is less than that obtained using ols -- please try again using different starting values
+> summary( d2 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+OLS estimates
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 6.059270   0.195589 30.9796   <2e-16 ***
+log(PROD)   0.440303   0.030681 14.3510   <2e-16 ***
+log(AREA)   0.522148   0.033477 15.5974   <2e-16 ***
+log(LABORP) 0.418058   0.033067 12.6428   <2e-16 ***
+log(NPKP)   0.060233   0.056259  1.0706   0.2851    
+sigmaSq     0.047353         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.02473 
+
+estimates after the grid search
+                  [,1]
+(Intercept) 6.09843959
+log(PROD)   0.44030302
+log(AREA)   0.52214830
+log(LABORP) 0.41805753
+log(NPKP)   0.06023288
+sigmaSq     0.04819903
+gamma       0.05000000
+
+final maximum likelihood estimates
+             Estimate Std. Error z value  Pr(>|z|)    
+(Intercept)  6.064279   0.250721 24.1874 < 2.2e-16 ***
+log(PROD)    0.440526   0.029790 14.7875 < 2.2e-16 ***
+log(AREA)    0.521931   0.032811 15.9073 < 2.2e-16 ***
+log(LABORP)  0.418311   0.031662 13.2119 < 2.2e-16 ***
+log(NPKP)    0.060449   0.059750  1.0117    0.3117    
+sigmaSq      0.047070   0.010190  4.6191 3.854e-06 ***
+gamma        0.007577   0.183960  0.0412    0.9671    
+mu          -0.037770   0.201138 -0.1878    0.8510    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.02398 
+
+LR test of the one-sided error = -0.001504727 
+with number of restrictions = 2 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 14 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 344 
+number of time periods = 1 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.9929969 
+> 
