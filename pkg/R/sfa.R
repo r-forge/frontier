@@ -333,6 +333,17 @@ sfa <- function(
       warning( "Maximum number of iterations reached" );
    }
 
+   ## skewness of OLS residuals
+   olsResid <- residuals( ols )
+   olsSkewness <- skewness( olsResid )
+   olsSkewnessOkay <- olsSkewness * ( -1 )^ineffDecrease >= 0
+   if( !olsSkewnessOkay ) {
+      warning( "the residuals of the OLS estimates are ",
+         ifelse( ineffDecrease, "right", "left" ), "-skewed;",
+         " this might indicate that there is no inefficiency",
+         " or that the model is misspecified" )
+   }
+
    # likelihood ratio test
    returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
    if( returnObj$lrTestVal < 0 ) {
