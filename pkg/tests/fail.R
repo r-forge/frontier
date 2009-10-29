@@ -9,9 +9,8 @@ try( sfa( log( output ) ~ log( capital7 ) + log( labour ),
    data = front41Data ) )
 
 ## nParamTotal > nObs
-try( a <- sfa( log( output ) ~ log( capital ) + log( labour ),
+try( sfa( log( output ) ~ log( capital ) + log( labour ),
    data = front41Data[ 1:4, ] ) )
-summary( a )
 
 ## nParamTotal >> nObs
 try( sfa( log( output ) ~ log( capital ) + log( labour ),

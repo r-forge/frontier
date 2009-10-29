@@ -261,6 +261,13 @@ sfa <- function(
    names( validObs ) <- obsNames
 
    nParamTotal <- nb + 3 + mu + eta
+   if( nParamTotal > nob ) {
+      stop( "the model cannot be estimated,",
+         " because the number of parameters (", nParamTotal,
+         ") is larger than the number of",
+         ifelse( sum( !validObs ) > 0, " valid", "" ),
+         " observations (", nob, ")" )
+   }
    if( is.null( startVal ) ) {
       startVal <- 0
    } else {

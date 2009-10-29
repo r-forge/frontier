@@ -90,54 +90,22 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 Error in eval(expr, envir, enclos) : object 'capital7' not found
 > 
 > ## nParamTotal > nObs
-> try( a <- sfa( log( output ) ~ log( capital ) + log( labour ),
+> try( sfa( log( output ) ~ log( capital ) + log( labour ),
 +    data = front41Data[ 1:4, ] ) )
-Warning message:
-In sfa(log(output) ~ log(capital) + log(labour), data = front41Data[1:4,  :
-  the residuals of the OLS estimates are right-skewed; this might indicate that there is no inefficiency or that the model is misspecified
-> summary( a )
-Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency decreases the endogenous variable (as in a production function)
-The dependent variable is logged
-
-final maximum likelihood estimates
-                Estimate  Std. Error z value  Pr(>|z|)    
-(Intercept)   7.7234e-01  9.8887e-01  0.7810    0.4348    
-log(capital) -1.2109e-01  1.7017e-01 -0.7116    0.4767    
-log(labour)   5.7048e-01  1.0747e-01  5.3083 1.107e-07 ***
-sigmaSq       6.8811e-03  4.8901e-03  1.4072    0.1594    
-gamma         1.4262e-05  7.9416e-02  0.0002    0.9999    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-log likelihood value: 4.282222 
-
-LR test of the one-sided error = 1.866387e-07 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
-
-number of iterations = 50 
-(maximum number of iterations set at: 1000 )
-
-number of cross-sections = 4 
-number of time periods = 1 
-total number of observations = 4 
-thus there are 0 observations not in the panel
-
-mean efficiency: 0.99975 
-Warning message:
-In pt(q, df, lower.tail, log.p) : NaNs produced
+Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data[1:4,  : 
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of observations (4)
 > 
 > ## nParamTotal >> nObs
 > try( sfa( log( output ) ~ log( capital ) + log( labour ),
 +    data = front41Data[ 1:2, ] ) )
 Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data[1:2,  : 
-  NA/NaN/Inf in foreign function call (arg 25)
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of observations (2)
 > 
 > ## nParamTotal > number of valid observations
 > try( sfa( log( output ) ~ log( capital ) + log( labour ) + log( firmNo - 56 ),
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(capital) + log(labour) + log(firmNo - 56),  : 
-  NA/NaN/Inf in foreign function call (arg 25)
+  the model cannot be estimated, because the number of parameters (6) is larger than the number of valid observations (4)
 In addition: Warning message:
 In log(firmNo - 56) : NaNs produced
 > 
