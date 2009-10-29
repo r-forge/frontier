@@ -1,0 +1,196 @@
+
+R version 2.9.2 (2009-08-24)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library( frontier )
+Loading required package: plm
+Loading required package: kinship
+Loading required package: survival
+Loading required package: splines
+Loading required package: nlme
+Loading required package: lattice
+[1] "kinship is loaded"
+Loading required package: Formula
+Loading required package: MASS
+Loading required package: sandwich
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 as.Date.numeric 
+
+Loading required package: micEcon
+Loading required package: systemfit
+Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+
+	The following object(s) are masked from package:stats :
+
+	 contr.helmert,
+	 contr.poly,
+	 contr.SAS,
+	 contr.sum,
+	 contr.treatment,
+	 xtabs 
+
+
+	The following object(s) are masked from package:base :
+
+	 rcond 
+
+Loading required package: car
+Loading required package: lmtest
+Loading required package: np
+Loading required package: boot
+
+Attaching package: 'boot'
+
+
+	The following object(s) are masked from package:car :
+
+	 logit 
+
+
+	The following object(s) are masked from package:lattice :
+
+	 melanoma 
+
+
+	The following object(s) are masked from package:survival :
+
+	 aml 
+
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
+> 
+> ## example data included in FRONTIER 4.1 (cross-section data)
+> data( front41Data )
+> front41Data$firmNo <- c( 1:nrow( front41Data ) )
+> 
+> ## non-existing variable
+> try( sfa( log( output ) ~ log( capital7 ) + log( labour ),
++    data = front41Data ) )
+Error in eval(expr, envir, enclos) : object 'capital7' not found
+> 
+> ## nParamTotal > nObs
+> try( a <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data[ 1:4, ] ) )
+Warning message:
+In sfa(log(output) ~ log(capital) + log(labour), data = front41Data[1:4,  :
+  the residuals of the OLS estimates are right-skewed; this might indicate that there is no inefficiency or that the model is misspecified
+> summary( a )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+                Estimate  Std. Error z value  Pr(>|z|)    
+(Intercept)   7.7234e-01  9.8887e-01  0.7810    0.4348    
+log(capital) -1.2109e-01  1.7017e-01 -0.7116    0.4767    
+log(labour)   5.7048e-01  1.0747e-01  5.3083 1.107e-07 ***
+sigmaSq       6.8811e-03  4.8901e-03  1.4072    0.1594    
+gamma         1.4262e-05  7.9416e-02  0.0002    0.9999    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 4.282222 
+
+LR test of the one-sided error = 1.866387e-07 
+with number of restrictions = 1 
+[note that this statistic has a mixed chi-square distribution]
+
+number of iterations = 50 
+(maximum number of iterations set at: 1000 )
+
+number of cross-sections = 4 
+number of time periods = 1 
+total number of observations = 4 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.99975 
+Warning message:
+In pt(q, df, lower.tail, log.p) : NaNs produced
+> 
+> ## nParamTotal >> nObs
+> try( sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data[ 1:2, ] ) )
+Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data[1:2,  : 
+  NA/NaN/Inf in foreign function call (arg 25)
+> 
+> ## nParamTotal > number of valid observations
+> try( sfa( log( output ) ~ log( capital ) + log( labour ) + log( firmNo - 56 ),
++    data = front41Data ) )
+Error in sfa(log(output) ~ log(capital) + log(labour) + log(firmNo - 56),  : 
+  NA/NaN/Inf in foreign function call (arg 25)
+In addition: Warning message:
+In log(firmNo - 56) : NaNs produced
+> 
+> ## the dependent variable has only infinite values
+> try( sfa( log( 0 * output ) ~ log( capital ) + log( labour ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning message:
+In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> ## the dependent variable has only NA values
+> try( sfa( log( -output ) ~ log( capital ) + log( labour ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning messages:
+1: In log(-output) : NaNs produced
+2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> ## one of the regressors has only infinite values
+> try( sfa( log( output ) ~ log( 0 * capital ) + log( labour ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning message:
+In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> ## one of the regressors has only NA values
+> try( sfa( log( output ) ~ log( capital ) + log( -labour ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning messages:
+1: In log(-labour) : NaNs produced
+2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> ## one of the regressors of the inefficiency term has only infinite values
+> try( sfa( log( output ) ~ log( capital ) + log( labour ) | log( 0 * firmNo ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning message:
+In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> ## one of the regressors of the inefficiency term has only NA values
+> try( sfa( log( output ) ~ log( capital ) + log( labour ) | log(-firmNo ),
++    data = front41Data ) )
+Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
+  0 (non-NA) cases
+In addition: Warning messages:
+1: In log(-firmNo) : NaNs produced
+2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+> 
+> 
+> 
