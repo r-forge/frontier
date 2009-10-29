@@ -162,13 +162,19 @@ sfa <- function(
 
    # endogenous variable
    dataTable <- cbind( dataTable, yVec )
-   dataTable <- cbind( dataTable, xMat )
+   if( sum( !is.na( yVec ) & is.finite( yVec ) ) == 0 ) {
+      stop( "the dependent variable has no valid observations" )
+   }
 
    # exogenous variables
+   dataTable <- cbind( dataTable, xMat )
    paramNames <- "(Intercept)";
    if( nXvars > 0 ) {
       for( i in 1:nXvars ) {
          paramNames <- c( paramNames, xNames[ i ] )
+         if( sum( !is.na( xMat[ , i ] ) & is.finite( xMat[ , i ] ) ) == 0 ) {
+            stop( "regressor '", xNames[ i ], "' has no valid observations" )
+         }
       }
    }
 
@@ -205,6 +211,14 @@ sfa <- function(
       }
       dataTable <- cbind( dataTable, zMat )
       zNames <- colnames( zMat )
+      if( length( zNames ) > 0 ) {
+         for( i in 1:length( zNames ) ) {
+            if( sum( !is.na( zMat[ , i ] ) & is.finite( zMat[ , i ] ) ) == 0 ) {
+               stop( "the regressor for the inefficiency term '", zNames[ i ],
+                  "' has no valid observations" )
+            }
+         }
+      }
    }
    nZvars <- length( zNames )
 

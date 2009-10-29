@@ -113,13 +113,13 @@ In log(firmNo - 56) : NaNs produced
 > try( sfa( log( 0 * output ) ~ log( capital ) + log( labour ),
 +    data = front41Data ) )
 Error in sfa(log(0 * output) ~ log(capital) + log(labour), data = front41Data) : 
-  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+  the dependent variable has no valid observations
 > 
 > ## the dependent variable has only NA values
 > try( sfa( log( -output ) ~ log( capital ) + log( labour ),
 +    data = front41Data ) )
 Error in sfa(log(-output) ~ log(capital) + log(labour), data = front41Data) : 
-  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+  the dependent variable has no valid observations
 In addition: Warning message:
 In log(-output) : NaNs produced
 > 
@@ -127,13 +127,13 @@ In log(-output) : NaNs produced
 > try( sfa( log( output ) ~ log( 0 * capital ) + log( labour ),
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(0 * capital) + log(labour), data = front41Data) : 
-  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+  regressor 'log(0 * capital)' has no valid observations
 > 
 > ## one of the regressors has only NA values
 > try( sfa( log( output ) ~ log( capital ) + log( -labour ),
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(capital) + log(-labour), data = front41Data) : 
-  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+  regressor 'log(-labour)' has no valid observations
 In addition: Warning message:
 In log(-labour) : NaNs produced
 > 
@@ -141,13 +141,13 @@ In log(-labour) : NaNs produced
 > try( sfa( log( output ) ~ log( capital ) + log( labour ) | log( 0 * firmNo ),
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(capital) + log(labour) | log(0 * firmNo),  : 
-  the model cannot be estimated, because the number of parameters (7) is larger than the number of valid observations (0)
+  the regressor for the inefficiency term 'log(0 * firmNo)' has no valid observations
 > 
 > ## one of the regressors of the inefficiency term has only NA values
 > try( sfa( log( output ) ~ log( capital ) + log( labour ) | log(-firmNo ),
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(capital) + log(labour) | log(-firmNo),  : 
-  the model cannot be estimated, because the number of parameters (7) is larger than the number of valid observations (0)
+  the regressor for the inefficiency term 'log(-firmNo)' has no valid observations
 In addition: Warning message:
 In log(-firmNo) : NaNs produced
 > 
