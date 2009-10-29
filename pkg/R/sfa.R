@@ -232,16 +232,6 @@ sfa <- function(
       eta <- nZvars
    }
 
-   # OLS estimation
-   if( nXvars > 0 ) {
-      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
-   } else {
-      ols <- lm( dataTable[ , 3 ] ~ 1 )
-   }
-   olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
-   olsStdEr <- sqrt( diag( vcov( ols ) ) )
-   olsLogl  <- logLik( ols )[ 1 ]
-
    # adding column names to the data table
    colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
 
@@ -277,6 +267,16 @@ sfa <- function(
             nParamTotal, " parameters)" )
       }
    }
+
+   # OLS estimation
+   if( nXvars > 0 ) {
+      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
+   } else {
+      ols <- lm( dataTable[ , 3 ] ~ 1 )
+   }
+   olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
+   olsStdEr <- sqrt( diag( vcov( ols ) ) )
+   olsLogl  <- logLik( ols )[ 1 ]
 
    returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),

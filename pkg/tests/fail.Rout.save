@@ -112,53 +112,44 @@ In log(firmNo - 56) : NaNs produced
 > ## the dependent variable has only infinite values
 > try( sfa( log( 0 * output ) ~ log( capital ) + log( labour ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning message:
-In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(0 * output) ~ log(capital) + log(labour), data = front41Data) : 
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
 > 
 > ## the dependent variable has only NA values
 > try( sfa( log( -output ) ~ log( capital ) + log( labour ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning messages:
-1: In log(-output) : NaNs produced
-2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(-output) ~ log(capital) + log(labour), data = front41Data) : 
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+In addition: Warning message:
+In log(-output) : NaNs produced
 > 
 > ## one of the regressors has only infinite values
 > try( sfa( log( output ) ~ log( 0 * capital ) + log( labour ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning message:
-In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(output) ~ log(0 * capital) + log(labour), data = front41Data) : 
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
 > 
 > ## one of the regressors has only NA values
 > try( sfa( log( output ) ~ log( capital ) + log( -labour ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning messages:
-1: In log(-labour) : NaNs produced
-2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(output) ~ log(capital) + log(-labour), data = front41Data) : 
+  the model cannot be estimated, because the number of parameters (5) is larger than the number of valid observations (0)
+In addition: Warning message:
+In log(-labour) : NaNs produced
 > 
 > ## one of the regressors of the inefficiency term has only infinite values
 > try( sfa( log( output ) ~ log( capital ) + log( labour ) | log( 0 * firmNo ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning message:
-In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(output) ~ log(capital) + log(labour) | log(0 * firmNo),  : 
+  the model cannot be estimated, because the number of parameters (7) is larger than the number of valid observations (0)
 > 
 > ## one of the regressors of the inefficiency term has only NA values
 > try( sfa( log( output ) ~ log( capital ) + log( labour ) | log(-firmNo ),
 +    data = front41Data ) )
-Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : 
-  0 (non-NA) cases
-In addition: Warning messages:
-1: In log(-firmNo) : NaNs produced
-2: In is.na(rows) : is.na() applied to non-(list or vector) of type 'NULL'
+Error in sfa(log(output) ~ log(capital) + log(labour) | log(-firmNo),  : 
+  the model cannot be estimated, because the number of parameters (7) is larger than the number of valid observations (0)
+In addition: Warning message:
+In log(-firmNo) : NaNs produced
 > 
 > 
 > 
