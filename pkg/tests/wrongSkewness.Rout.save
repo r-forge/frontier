@@ -116,10 +116,8 @@ with number of restrictions = 1
 number of iterations = 40 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 60 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 60 
-thus there are 0 observations not in the panel
 
 mean efficiency: 1.001475 
 > 
@@ -153,10 +151,8 @@ with number of restrictions = 2
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 60 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 60 
-thus there are 0 observations not in the panel
 
 mean efficiency: 1.009395 
 > 
@@ -190,10 +186,8 @@ with number of restrictions = 1
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 344 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 344 
-thus there are 0 observations not in the panel
 
 mean efficiency: 1.000826 
 > 
@@ -228,10 +222,8 @@ with number of restrictions = 2
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 344 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 344 
-thus there are 0 observations not in the panel
 
 mean efficiency: 1.008894 
 > 
@@ -268,10 +260,8 @@ with number of restrictions = 1
 number of iterations = 52 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 344 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 344 
-thus there are 0 observations not in the panel
 
 mean efficiency: 0.9989429 
 > 
@@ -307,10 +297,8 @@ with number of restrictions = 2
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 344 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 344 
-thus there are 0 observations not in the panel
 
 mean efficiency: 0.9929969 
 > 

@@ -145,10 +145,8 @@ with number of restrictions = 1
 number of iterations = 1 
 (maximum number of iterations set at: 1000 )
 
-number of cross-sections = 20 
-number of time periods = 1 
+cross-sectional data
 total number of observations = 20 
-thus there are 0 observations not in the panel
 
 mean efficiency: 0.9982547 
 > efficiencies( estResultRay )

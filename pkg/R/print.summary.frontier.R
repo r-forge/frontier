@@ -31,11 +31,17 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
    cat( "\nnumber of iterations =", x$nIter, "\n" )
    cat( "(maximum number of iterations set at:", x$maxit, ")\n" )
 
-   cat( "\nnumber of cross-sections =", x$nn, "\n" )
-   cat( "number of time periods =", x$nt, "\n" )
-   cat( "total number of observations =", x$nob, "\n" )
-   cat( "thus there are", x$nn * x$nt - x$nob,
-      "observations not in the panel\n" )
+   if( x$nt == 1 ) {
+      cat( "\ncross-sectional data\n" )
+      cat( "total number of observations =", x$nob, "\n" )
+   } else {
+      cat( "\npanel data\n" )
+      cat( "number of cross-sections =", x$nn, "\n" )
+      cat( "number of time periods =", x$nt, "\n" )
+      cat( "total number of observations =", x$nob, "\n" )
+      cat( "thus there are", x$nn * x$nt - x$nob,
+         "observations not in the panel\n" )
+   }
 
    if( effic ){
       cat( "\nefficiency estimates\n" )
