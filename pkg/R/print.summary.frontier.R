@@ -24,9 +24,9 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
    printCoefmat( coef( x ) )
    cat( "log likelihood value:", x$mleLogl, "\n" )
 
-   cat( "\nLR test of the one-sided error =", x$lrTestVal, "\n" )
-   cat( "with number of restrictions =", x$lrTestDf, "\n" )
-   cat( "[note that this statistic has a mixed chi-square distribution]\n" )
+   cat( "\nLR test of the one-sided error =", x$lrTestVal )
+   cat( ", DF =", x$lrTestDf )
+   cat( ", P-val =", x$lrTestPval, "\n" )
 
    cat( "\nnumber of iterations =", x$nIter, "\n" )
    cat( "(maximum number of iterations set at:", x$maxit, ")\n" )

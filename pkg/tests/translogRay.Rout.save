@@ -61,6 +61,7 @@ Attaching package: 'boot'
 	 aml 
 
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
+Loading required package: emdbook
 > 
 > ## preparing data
 > data( germanFarms )
@@ -120,9 +121,7 @@ gamma    5.0000e-02  1.0000e+00    0.0500 0.9601224
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 64.45507 
 
-LR test of the one-sided error = -0.006239353 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = -0.006239353, DF = 1, P-val = 0.5 
 
 number of iterations = 1 
 (maximum number of iterations set at: 1000 )
@@ -413,6 +412,9 @@ $lrTestVal
 
 $lrTestDf
 [1] 1
+
+$lrTestPval
+[1] 0.5
 
 $truncNorm
 [1] FALSE

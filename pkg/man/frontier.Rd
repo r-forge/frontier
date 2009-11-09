@@ -225,6 +225,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       (this statistic has a mixed chi-square distribution
       with \code{lrTestDf} degrees of freedom.}
    \item{lrTestDf}{numeric. Degrees of freedom of the LR test.}
+   \item{lrTestPval}{numeric. P-value of the LR test
+      (currently online if the degrees of freedom are equal to 1).}
    \item{nIter}{numeric. Number of iterations of the ML estimation.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;

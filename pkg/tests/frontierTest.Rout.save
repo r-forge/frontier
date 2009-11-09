@@ -61,6 +61,7 @@ Attaching package: 'boot'
 	 aml 
 
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
+Loading required package: emdbook
 > options( digits = 5 )
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
@@ -74,11 +75,11 @@ Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-36], sa1[-36], check.attributes = FALSE )
+> all.equal( Sa1[-37], sa1[-37], check.attributes = FALSE )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-36], a1[-36] )
+> all.equal( sa1[-37], a1[-37] )
 [1] TRUE
 > print( a1 )
 
@@ -141,9 +142,7 @@ gamma         0.7972     0.1364    5.84  5.1e-09 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 2.8392 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
 
 number of iterations = 7 
 (maximum number of iterations set at: 1000 )
@@ -546,6 +545,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 0.045994
+
 $truncNorm
 [1] FALSE
 
@@ -580,7 +582,7 @@ attr(,"class")
 +    truncNorm = TRUE )
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-36], a2[-36] )
+> all.equal( sa2[-37], a2[-37] )
 [1] TRUE
 > print( a2 )
 
@@ -651,9 +653,7 @@ mu           -1.4106     2.5990   -0.54    0.587
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
 
-LR test of the one-sided error = 3.3023 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 3.3023, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -1064,6 +1064,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -1099,7 +1102,7 @@ attr(,"class")
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-36], a5[-36] )
+> all.equal( sa5[-37], a5[-37] )
 [1] TRUE
 > print( a5 )
 
@@ -1170,9 +1173,7 @@ mu           -1.4126     3.2760   -0.43    0.666
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.795 
 
-LR test of the one-sided error = 3.304 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 3.304, DF = 2, P-val = NA 
 
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
@@ -1504,6 +1505,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -1539,11 +1543,11 @@ attr(,"class")
 +    data = front41Data )
 > Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
 +    data = front41Data )
-> all.equal( Saa1[-36], saa1[-36], check.attributes = FALSE )
+> all.equal( Saa1[-37], saa1[-37], check.attributes = FALSE )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-36], aa1[-36] )
+> all.equal( saa1[-37], aa1[-37] )
 [1] TRUE
 > print( aa1 )
 
@@ -1610,9 +1614,7 @@ gamma         0.8401     0.1100    7.63  2.3e-14 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
 
-LR test of the one-sided error = 4.1293 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.1293, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -2027,6 +2029,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -2061,7 +2066,7 @@ attr(,"class")
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-36], aa2[-36] )
+> all.equal( saa2[-37], aa2[-37] )
 [1] TRUE
 > print( aa2 )
 
@@ -2136,9 +2141,7 @@ gamma           0.8833     0.2203    4.01  6.1e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 4.1824 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.1824, DF = 3, P-val = NA 
 
 number of iterations = 22 
 (maximum number of iterations set at: 1000 )
@@ -2555,6 +2558,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -2590,7 +2596,7 @@ attr(,"class")
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-36], aa5[-36] )
+> all.equal( saa5[-37], aa5[-37] )
 [1] TRUE
 > print( aa5 )
 
@@ -2667,9 +2673,7 @@ gamma           0.8833     0.2144    4.12  3.8e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 4.1824 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.1824, DF = 3, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -3007,6 +3011,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -3049,11 +3056,11 @@ attr(,"class")
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-36], sbb1[-36], check.attributes = FALSE )
+> all.equal( Sbb1[-37], sbb1[-37], check.attributes = FALSE )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-36], bb1[-36] )
+> all.equal( sbb1[-37], bb1[-37] )
 [1] TRUE
 > print( bb1 )
 
@@ -3121,9 +3128,7 @@ gamma         0.8854     0.0337   26.29  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
 
-LR test of the one-sided error = 37.408 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
 
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
@@ -4894,6 +4899,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 4.7906e-10
+
 $truncNorm
 [1] FALSE
 
@@ -4965,7 +4973,7 @@ attr(,"class")
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-36], bb2[-36] )
+> all.equal( sbb2[-37], bb2[-37] )
 [1] TRUE
 > print( bb2 )
 
@@ -5041,9 +5049,7 @@ mu           -1.5867     1.0570   -1.50    0.133
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -82.23 
 
-LR test of the one-sided error = 45.354 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 45.354, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -6818,6 +6824,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -6888,12 +6897,12 @@ attr(,"class")
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-36], sbb5[-36], check.attributes = FALSE )
+> all.equal( Sbb5[-37], sbb5[-37], check.attributes = FALSE )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-36], bb5[-36] )
+> all.equal( sbb5[-37], bb5[-37] )
 [1] TRUE
 > print( bb5 )
 
@@ -6973,9 +6982,7 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
-LR test of the one-sided error = 54.115 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 54.115, DF = 3, P-val = NA 
 
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
@@ -8752,6 +8759,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -8823,7 +8833,7 @@ attr(,"class")
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-36], bb6[-36] )
+> all.equal( sbb6[-37], bb6[-37] )
 [1] TRUE
 > print( bb6 )
 
@@ -8907,9 +8917,7 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 55.186, DF = 4, P-val = NA 
 
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
@@ -10704,6 +10712,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -10776,7 +10787,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-36], bb7[-36] )
+> all.equal( sbb7[-37], bb7[-37] )
 [1] TRUE
 > print( bb7 )
 
@@ -10854,9 +10865,7 @@ mu           -1.6058     0.7603   -2.11   0.0347 *
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -82.224 
 
-LR test of the one-sided error = 45.366 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 45.366, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -12186,6 +12195,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -12260,7 +12272,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-36], bb8[-36] )
+> all.equal( sbb8[-37], bb8[-37] )
 [1] TRUE
 > print( bb8 )
 
@@ -12346,9 +12358,7 @@ gamma           0.9788     0.0406   24.11  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 55.186, DF = 4, P-val = NA 
 
 number of iterations = 41 
 (maximum number of iterations set at: 1000 )
@@ -13682,6 +13692,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -13761,11 +13774,11 @@ attr(,"class")
 +    ineffDecrease = FALSE )
 > Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd1[-36], sdd1[-36], check.attributes = FALSE )
+> all.equal( Sdd1[-37], sdd1[-37], check.attributes = FALSE )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1[-36], dd1[-36] )
+> all.equal( sdd1[-37], dd1[-37] )
 [1] TRUE
 > print( dd1 )
 
@@ -13844,9 +13857,7 @@ gamma         0.5303     0.1874    2.83   0.0047 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
 
-LR test of the one-sided error = 1.8117 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -15633,6 +15644,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 0.089153
+
 $truncNorm
 [1] FALSE
 
@@ -15703,7 +15717,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2[-36], dd2[-36] )
+> all.equal( sdd2[-37], dd2[-37] )
 [1] TRUE
 > print( dd2 )
 
@@ -15786,9 +15800,7 @@ mu           -0.6643     0.4460   -1.49   0.1363
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 40.966 
 
-LR test of the one-sided error = 3.8832 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 3.8832, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -17577,6 +17589,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -17647,12 +17662,12 @@ attr(,"class")
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > Sdd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd5[-36], sdd5[-36], check.attributes = FALSE )
+> all.equal( Sdd5[-37], sdd5[-37], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
-> all.equal( sdd5[-36], dd5[-36] )
+> all.equal( sdd5[-37], dd5[-37] )
 [1] TRUE
 > print( dd5 )
 
@@ -17739,9 +17754,7 @@ gamma        9.99e-01   2.99e-03  333.71   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.321 
 
-LR test of the one-sided error = 8.5926 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.5926, DF = 3, P-val = NA 
 
 number of iterations = 168 
 (maximum number of iterations set at: 1000 )
@@ -19548,6 +19561,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -19620,7 +19636,7 @@ attr(,"class")
 > dd6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sdd6[-36], dd6[-36] )
+> all.equal( sdd6[-37], dd6[-37] )
 [1] TRUE
 > print( dd6 )
 
@@ -19711,9 +19727,7 @@ gamma          9.99e-01   2.44e-03  408.49   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6284 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.6284, DF = 4, P-val = NA 
 
 number of iterations = 181 
 (maximum number of iterations set at: 1000 )
@@ -21506,6 +21520,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -21583,11 +21600,11 @@ attr(,"class")
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-36], sb1[-36], check.attributes = FALSE )
+> all.equal( Sb1[-37], sb1[-37], check.attributes = FALSE )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-36], b1[-36] )
+> all.equal( sb1[-37], b1[-37] )
 [1] TRUE
 > print( b1 )
 
@@ -21659,9 +21676,7 @@ gamma         0.4643     0.0880    5.27  1.3e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.43 
 
-LR test of the one-sided error = 36.953 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.953, DF = 1, P-val = 6.0511e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -22636,6 +22651,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 6.0511e-10
+
 $truncNorm
 [1] FALSE
 
@@ -22707,7 +22725,7 @@ attr(,"class")
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-36], b2[-36] )
+> all.equal( sb2[-37], b2[-37] )
 [1] TRUE
 > print( b2 )
 
@@ -22787,9 +22805,7 @@ mu           -0.2734     0.9632   -0.28   0.7765
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.343 
 
-LR test of the one-sided error = 37.128 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 37.128, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -23752,6 +23768,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -23823,7 +23842,7 @@ attr(,"class")
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-36], b3[-36] )
+> all.equal( sb3[-37], b3[-37] )
 [1] TRUE
 > print( b3 )
 
@@ -23903,9 +23922,7 @@ time          0.0589     0.0310    1.90  0.05779 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
 
-LR test of the one-sided error = 40.713 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 40.713, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -24872,6 +24889,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -24943,7 +24963,7 @@ attr(,"class")
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-36], b4[-36] )
+> all.equal( sb4[-37], b4[-37] )
 [1] TRUE
 > print( b4 )
 
@@ -25027,9 +25047,7 @@ time          0.0647     0.0357    1.81   0.0696 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
-LR test of the one-sided error = 41 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 41, DF = 3, P-val = NA 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -25998,6 +26016,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -26068,12 +26089,12 @@ attr(,"class")
 +    data = riceProdPhilPanel )
 > Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhilPanel )
-> all.equal( Sb5[-36], sb5[-36], check.attributes = FALSE )
+> all.equal( Sb5[-37], sb5[-37], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-36], b5[-36] )
+> all.equal( sb5[-37], b5[-37] )
 [1] TRUE
 > print( b5 )
 
@@ -26157,9 +26178,7 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
-LR test of the one-sided error = 54.115 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 54.115, DF = 3, P-val = NA 
 
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
@@ -27128,6 +27147,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -27199,7 +27221,7 @@ attr(,"class")
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-36], b6[-36] )
+> all.equal( sb6[-37], b6[-37] )
 [1] TRUE
 > print( b6 )
 
@@ -27287,9 +27309,7 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 55.186, DF = 4, P-val = NA 
 
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
@@ -28276,6 +28296,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -28350,7 +28373,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-36], b7[-36] )
+> all.equal( sb7[-37], b7[-37] )
 [1] TRUE
 > print( b7 )
 
@@ -28436,9 +28459,7 @@ time          0.0647     0.0355    1.82   0.0681 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
-LR test of the one-sided error = 41 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 41, DF = 3, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -29219,6 +29240,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -29293,7 +29317,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-36], b8[-36] )
+> all.equal( sb8[-37], b8[-37] )
 [1] TRUE
 > print( b8 )
 
@@ -29383,9 +29407,7 @@ gamma           0.9788     0.0432   22.64  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 55.186, DF = 4, P-val = NA 
 
 number of iterations = 49 
 (maximum number of iterations set at: 1000 )
@@ -30168,6 +30190,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -30242,11 +30267,11 @@ attr(,"class")
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-36], sd1[-36], check.attributes = FALSE )
+> all.equal( Sd1[-37], sd1[-37], check.attributes = FALSE )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-36], d1[-36] )
+> all.equal( sd1[-37], d1[-37] )
 [1] TRUE
 > print( d1 )
 
@@ -30325,9 +30350,7 @@ gamma         0.4828     0.1257    3.84  0.00012 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 49.366 
 
-LR test of the one-sided error = 20.683 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 20.683, DF = 1, P-val = 2.7104e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -31318,6 +31341,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 2.7104e-06
+
 $truncNorm
 [1] FALSE
 
@@ -31388,7 +31414,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-36], d2[-36] )
+> all.equal( sd2[-37], d2[-37] )
 [1] TRUE
 > print( d2 )
 
@@ -31471,9 +31497,7 @@ mu           0.24152    0.06457    3.74  0.00018 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 52.39 
 
-LR test of the one-sided error = 26.731 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 26.731, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -32466,6 +32490,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -32537,7 +32564,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-36], d3[-36] )
+> all.equal( sd3[-37], d3[-37] )
 [1] TRUE
 > print( d3 )
 
@@ -32620,9 +32647,7 @@ time         -0.0336     0.0268   -1.25    0.210
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.183 
 
-LR test of the one-sided error = 22.317 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 22.317, DF = 2, P-val = NA 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -33619,6 +33644,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -33691,7 +33719,7 @@ attr(,"class")
 > d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-36], d4[-36] )
+> all.equal( sd4[-37], d4[-37] )
 [1] TRUE
 > print( d4 )
 
@@ -33778,9 +33806,7 @@ time        -0.02707    0.01889   -1.43  0.15191
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 53.198 
 
-LR test of the one-sided error = 28.347 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 28.347, DF = 3, P-val = NA 
 
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )
@@ -34763,6 +34789,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -34835,12 +34864,12 @@ attr(,"class")
 > Sd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
-> all.equal( Sd5[-36], sd5[-36], check.attributes = FALSE )
+> all.equal( Sd5[-37], sd5[-37], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
-> all.equal( sd5[-36], d5[-36] )
+> all.equal( sd5[-37], d5[-37] )
 [1] TRUE
 > print( d5 )
 
@@ -34927,9 +34956,7 @@ gamma        9.98e-01   3.26e-03  306.51   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.320 
 
-LR test of the one-sided error = 8.5914 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.5914, DF = 3, P-val = NA 
 
 number of iterations = 166 
 (maximum number of iterations set at: 1000 )
@@ -35928,6 +35955,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -36000,7 +36030,7 @@ attr(,"class")
 > d6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sd6[-36], d6[-36] )
+> all.equal( sd6[-37], d6[-37] )
 [1] TRUE
 > print( d6 )
 
@@ -36091,9 +36121,7 @@ gamma          9.99e-01   2.48e-03  402.56   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6286 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.6286, DF = 4, P-val = NA 
 
 number of iterations = 179 
 (maximum number of iterations set at: 1000 )
@@ -37078,6 +37106,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -37180,9 +37211,7 @@ gamma         0.4636     0.0888    5.22  1.8e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.14 
 
-LR test of the one-sided error = 36.019 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.019, DF = 1, P-val = 9.771e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -38151,6 +38180,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 9.771e-10
+
 $truncNorm
 [1] FALSE
 
@@ -38256,9 +38288,7 @@ mu           -0.2425     0.9341   -0.26   0.7951
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.066 
 
-LR test of the one-sided error = 36.165 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.165, DF = 2, P-val = NA 
 
 number of iterations = 18 
 (maximum number of iterations set at: 1000 )
@@ -39215,6 +39245,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -39321,9 +39354,7 @@ time          0.0585     0.0310    1.89   0.0592 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.282 
 
-LR test of the one-sided error = 39.733 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 39.733, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -40284,6 +40315,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -40391,9 +40425,7 @@ time          0.0639     0.0351    1.82   0.0691 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.159 
 
-LR test of the one-sided error = 39.98 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 39.98, DF = 3, P-val = NA 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -41356,6 +41388,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -41463,9 +41498,7 @@ gamma         0.9434     0.0293   32.15  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.714 
 
-LR test of the one-sided error = 52.869 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 52.869, DF = 3, P-val = NA 
 
 number of iterations = 23 
 (maximum number of iterations set at: 1000 )
@@ -42444,6 +42477,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -42552,9 +42588,7 @@ gamma           0.9771     0.0444   22.02  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.198 
 
-LR test of the one-sided error = 53.901 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 53.901, DF = 4, P-val = NA 
 
 number of iterations = 46 
 (maximum number of iterations set at: 1000 )
@@ -43535,6 +43569,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -43641,9 +43678,7 @@ gamma         0.4703     0.1271    3.70  0.00022 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 47.502 
 
-LR test of the one-sided error = 19.133 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 19.133, DF = 1, P-val = 6.0957e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -44628,6 +44663,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 6.0957e-06
+
 $truncNorm
 [1] FALSE
 
@@ -44735,9 +44773,7 @@ mu           0.23937    0.08243    2.90   0.0037 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.482 
 
-LR test of the one-sided error = 25.095 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 25.095, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -45724,6 +45760,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -45831,9 +45870,7 @@ time         -0.0374     0.0284   -1.32    0.188
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 48.44 
 
-LR test of the one-sided error = 21.009 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 21.009, DF = 2, P-val = NA 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -46824,6 +46861,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -46932,9 +46972,7 @@ time        -0.02619    0.02079   -1.26   0.2079
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 51.37 
 
-LR test of the one-sided error = 26.869 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 26.869, DF = 3, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -47911,6 +47949,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] TRUE
 
@@ -48019,9 +48060,7 @@ gamma        9.98e-01   3.36e-03  296.76   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.422 
 
-LR test of the one-sided error = 8.9744 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.9744, DF = 3, P-val = NA 
 
 number of iterations = 177 
 (maximum number of iterations set at: 1000 )
@@ -48998,6 +49037,9 @@ $lrTestVal
 $lrTestDf
 [1] 3
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -49107,9 +49149,7 @@ gamma          9.98e-01   3.04e-03  328.89   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.425 
 
-LR test of the one-sided error = 8.9797 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.9797, DF = 4, P-val = NA 
 
 number of iterations = 184 
 (maximum number of iterations set at: 1000 )
@@ -50104,6 +50144,9 @@ $lrTestVal
 $lrTestDf
 [1] 4
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -50268,9 +50311,7 @@ gamma    0.76233    0.15273    4.99    6e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.434 
 
-LR test of the one-sided error = 2.8458 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 2.8458, DF = 1, P-val = 0.045806 
 
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
@@ -50878,6 +50919,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 0.045806
+
 $truncNorm
 [1] FALSE
 
@@ -51007,9 +51051,7 @@ gamma    0.75478    0.15506    4.87  1.1e-06 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.032 
 
-LR test of the one-sided error = 2.7085 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 2.7085, DF = 1, P-val = 0.049906 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -51623,6 +51665,9 @@ $lrTestVal
 $lrTestDf
 [1] 1
 
+$lrTestPval
+[1] 0.049906
+
 $truncNorm
 [1] FALSE
 
@@ -51749,9 +51794,7 @@ gamma     0.819488   0.120652    6.79  1.1e-11 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -13.746 
 
-LR test of the one-sided error = 4.2215 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.2215, DF = 2, P-val = NA 
 
 number of iterations = 17 
 (maximum number of iterations set at: 1000 )
@@ -52359,6 +52402,9 @@ $lrTestVal
 $lrTestDf
 [1] 2
 
+$lrTestPval
+[1] NA
+
 $truncNorm
 [1] FALSE
 
@@ -52414,9 +52460,7 @@ gamma          0.7972     0.1364    5.84  5.1e-09 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 2.8392 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
 
 number of iterations = 7 
 (maximum number of iterations set at: 1000 )
@@ -52519,9 +52563,7 @@ mu           -1.4106     2.5990   -0.54    0.587
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
 
-LR test of the one-sided error = 3.3023 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 3.3023, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -52624,9 +52666,7 @@ gamma          0.8401     0.1100    7.63  2.3e-14 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
 
-LR test of the one-sided error = 4.1293 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.1293, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -52730,9 +52770,7 @@ gamma           0.8833     0.2203    4.01  6.1e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 4.1824 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 4.1824, DF = 3, P-val = NA 
 
 number of iterations = 22 
 (maximum number of iterations set at: 1000 )
@@ -52836,9 +52874,7 @@ gamma         0.5303     0.1874    2.83   0.0047 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
 
-LR test of the one-sided error = 1.8117 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -53279,9 +53315,7 @@ mu           -0.6643     0.4460   -1.49   0.1363
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 40.966 
 
-LR test of the one-sided error = 3.8832 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 3.8832, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -53723,9 +53757,7 @@ gamma        9.99e-01   2.99e-03  333.71   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.321 
 
-LR test of the one-sided error = 8.5926 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.5926, DF = 3, P-val = NA 
 
 number of iterations = 168 
 (maximum number of iterations set at: 1000 )
@@ -54168,9 +54200,7 @@ gamma          9.99e-01   2.44e-03  408.49   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6284 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.6284, DF = 4, P-val = NA 
 
 number of iterations = 181 
 (maximum number of iterations set at: 1000 )
@@ -54609,9 +54639,7 @@ gamma         0.4643     0.0880    5.27  1.3e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.43 
 
-LR test of the one-sided error = 36.953 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.953, DF = 1, P-val = 6.0511e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -54775,9 +54803,7 @@ mu           -0.2734     0.9632   -0.28   0.7765
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.343 
 
-LR test of the one-sided error = 37.128 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 37.128, DF = 2, P-val = NA 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -54941,9 +54967,7 @@ time          0.0589     0.0310    1.90  0.05779 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
 
-LR test of the one-sided error = 40.713 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 40.713, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -55112,9 +55136,7 @@ time          0.0647     0.0357    1.81   0.0696 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
-LR test of the one-sided error = 41 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 41, DF = 3, P-val = NA 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -55283,9 +55305,7 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
-LR test of the one-sided error = 54.115 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 54.115, DF = 3, P-val = NA 
 
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
@@ -55529,9 +55549,7 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 55.186, DF = 4, P-val = NA 
 
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
@@ -55699,9 +55717,7 @@ gamma         0.4828     0.1257    3.84  0.00012 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 49.366 
 
-LR test of the one-sided error = 20.683 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 20.683, DF = 1, P-val = 2.7104e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -55844,9 +55860,7 @@ mu           0.24152    0.06457    3.74  0.00018 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 52.39 
 
-LR test of the one-sided error = 26.731 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 26.731, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -55989,9 +56003,7 @@ time         -0.0336     0.0268   -1.25    0.210
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.183 
 
-LR test of the one-sided error = 22.317 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 22.317, DF = 2, P-val = NA 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -56139,9 +56151,7 @@ time        -0.02707    0.01889   -1.43  0.15191
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 53.198 
 
-LR test of the one-sided error = 28.347 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 28.347, DF = 3, P-val = NA 
 
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )
@@ -56289,9 +56299,7 @@ gamma        9.98e-01   3.26e-03  306.51   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.320 
 
-LR test of the one-sided error = 8.5914 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.5914, DF = 3, P-val = NA 
 
 number of iterations = 166 
 (maximum number of iterations set at: 1000 )
@@ -56440,9 +56448,7 @@ gamma          9.99e-01   2.48e-03  402.56   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6286 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.6286, DF = 4, P-val = NA 
 
 number of iterations = 179 
 (maximum number of iterations set at: 1000 )
@@ -56587,9 +56593,7 @@ gamma         0.4636     0.0888    5.22  1.8e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.14 
 
-LR test of the one-sided error = 36.019 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.019, DF = 1, P-val = 9.771e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -56753,9 +56757,7 @@ mu           -0.2425     0.9341   -0.26   0.7951
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.066 
 
-LR test of the one-sided error = 36.165 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 36.165, DF = 2, P-val = NA 
 
 number of iterations = 18 
 (maximum number of iterations set at: 1000 )
@@ -56919,9 +56921,7 @@ time          0.0585     0.0310    1.89   0.0592 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.282 
 
-LR test of the one-sided error = 39.733 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 39.733, DF = 2, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -57090,9 +57090,7 @@ time          0.0639     0.0351    1.82   0.0691 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.159 
 
-LR test of the one-sided error = 39.98 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 39.98, DF = 3, P-val = NA 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -57261,9 +57259,7 @@ gamma         0.9434     0.0293   32.15  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.714 
 
-LR test of the one-sided error = 52.869 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 52.869, DF = 3, P-val = NA 
 
 number of iterations = 23 
 (maximum number of iterations set at: 1000 )
@@ -57433,9 +57429,7 @@ gamma           0.9771     0.0444   22.02  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.198 
 
-LR test of the one-sided error = 53.901 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 53.901, DF = 4, P-val = NA 
 
 number of iterations = 46 
 (maximum number of iterations set at: 1000 )
@@ -57603,9 +57597,7 @@ gamma         0.4703     0.1271    3.70  0.00022 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 47.502 
 
-LR test of the one-sided error = 19.133 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 19.133, DF = 1, P-val = 6.0957e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -57748,9 +57740,7 @@ mu           0.23937    0.08243    2.90   0.0037 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.482 
 
-LR test of the one-sided error = 25.095 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 25.095, DF = 2, P-val = NA 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -57893,9 +57883,7 @@ time         -0.0374     0.0284   -1.32    0.188
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 48.44 
 
-LR test of the one-sided error = 21.009 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 21.009, DF = 2, P-val = NA 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -58043,9 +58031,7 @@ time        -0.02619    0.02079   -1.26   0.2079
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 51.37 
 
-LR test of the one-sided error = 26.869 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 26.869, DF = 3, P-val = NA 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -58193,9 +58179,7 @@ gamma        9.98e-01   3.36e-03  296.76   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.422 
 
-LR test of the one-sided error = 8.9744 
-with number of restrictions = 3 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.9744, DF = 3, P-val = NA 
 
 number of iterations = 177 
 (maximum number of iterations set at: 1000 )
@@ -58344,9 +58328,7 @@ gamma          9.98e-01   3.04e-03  328.89   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.425 
 
-LR test of the one-sided error = 8.9797 
-with number of restrictions = 4 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 8.9797, DF = 4, P-val = NA 
 
 number of iterations = 184 
 (maximum number of iterations set at: 1000 )
@@ -58486,17 +58468,17 @@ F_43 1.0185 1.0250 1.0136 1.0074 1.0097 1.0073 1.0057 1.0064
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-36], a1[-36], check.attributes = FALSE )
+> all.equal( a1a[-37], a1[-37], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-36], aa1[-36], check.attributes = FALSE )
+> all.equal( aa1a[-37], aa1[-37], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-36], aa2[-36], check.attributes = FALSE )
+> all.equal( aa2a[-37], aa2[-37], check.attributes = FALSE )
 [1] TRUE
 > 
 > 
@@ -58515,7 +58497,7 @@ sfa(formula = logOutput ~ 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
       3.372        0.880        0.934  
-> all.equal( sa10[-36], a10[-36], check.attributes = FALSE )
+> all.equal( sa10[-37], a10[-37], check.attributes = FALSE )
 [1] TRUE
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
@@ -58528,7 +58510,7 @@ sfa(formula = logOutput ~ logLabour, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
       1.116        0.521        0.385        0.887  
-> all.equal( sa11[-36], a11[-36], check.attributes = FALSE )
+> all.equal( sa11[-37], a11[-37], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
@@ -58543,7 +58525,7 @@ sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
      3.3170      -0.0148       1.0869       0.9356  
-> all.equal( saa10[-36], aa10[-36] )
+> all.equal( saa10[-37], aa10[-37] )
 [1] TRUE
 > 
 > saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
@@ -58557,7 +58539,7 @@ sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
      1.0228       0.5284      -0.0317       0.6546       0.9265  
-> all.equal( saa11[-36], aa11[-36] )
+> all.equal( saa11[-37], aa11[-37] )
 [1] TRUE
 > 
 > 

@@ -61,6 +61,7 @@ Attaching package: 'boot'
 	 aml 
 
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
+Loading required package: emdbook
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
 > data( front41Data )
@@ -91,9 +92,7 @@ gamma        1.4013e-05 1.5175e-02  0.0009    0.9993
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.44684 
 
-LR test of the one-sided error = 2.747685e-06 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 2.747685e-06, DF = 1, P-val = 0.4993387 
 
 number of iterations = 50 
 (maximum number of iterations set at: 1000 )
@@ -126,9 +125,7 @@ mu           -0.0499208  0.4947342 -0.1009    0.9196
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.44699 
 
-LR test of the one-sided error = -0.0003030354 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = -0.0003030354, DF = 2, P-val = NA 
 
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
@@ -161,9 +158,7 @@ gamma        9.5576e-06  6.3316e-03  0.0015    0.9988
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.9068 
 
-LR test of the one-sided error = 1.575902e-05 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 1.575902e-05, DF = 1, P-val = 0.4984163 
 
 number of iterations = 46 
 (maximum number of iterations set at: 1000 )
@@ -197,9 +192,7 @@ mu          -0.0472828  0.1849685 -0.2556    0.7982
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.9087 
 
-LR test of the one-sided error = -0.003756951 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = -0.003756951, DF = 2, P-val = NA 
 
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
@@ -235,9 +228,7 @@ gamma       5.7736e-05 1.4198e-02  0.0041   0.9968
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.02474 
 
-LR test of the one-sided error = 1.481031e-05 
-with number of restrictions = 1 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = 1.481031e-05, DF = 1, P-val = 0.4984647 
 
 number of iterations = 60 
 (maximum number of iterations set at: 1000 )
@@ -272,9 +263,7 @@ mu          -0.037770   0.201138 -0.1878    0.8510
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.02398 
 
-LR test of the one-sided error = -0.001504727 
-with number of restrictions = 2 
-[note that this statistic has a mixed chi-square distribution]
+LR test of the one-sided error = -0.001504727, DF = 2, P-val = NA 
 
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )

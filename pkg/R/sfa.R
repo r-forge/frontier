@@ -362,6 +362,12 @@ sfa <- function(
    } else {
       returnObj$lrTestDf <- zIntercept + nZvars + 1
    }
+   if( returnObj$lrTestDf == 1 ) {
+      returnObj$lrTestPval <- 1 - pchibarsq( returnObj$lrTestVal,
+         returnObj$lrTestDf )
+   } else {
+      returnObj$lrTestPval <- NA
+   }
 
    ## warnings regarding wrong skewness, smaller logLik value, and no convergence
    if( !returnObj$olsSkewnessOkay && returnObj$lrTestVal < 0 ) {
