@@ -124,7 +124,7 @@ mu           -0.0499208  0.4947342 -0.1009    0.9196
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.44699 
 
-LR test of the one-sided error = -0.0003030354, DF = 2, P-val = NA 
+LR test of the one-sided error = -0.0003030354, DF = 2, P-val = 1 
 
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
@@ -191,7 +191,7 @@ mu          -0.0472828  0.1849685 -0.2556    0.7982
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.9087 
 
-LR test of the one-sided error = -0.003756951, DF = 2, P-val = NA 
+LR test of the one-sided error = -0.003756951, DF = 2, P-val = 1 
 
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
@@ -262,7 +262,7 @@ mu          -0.037770   0.201138 -0.1878    0.8510
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.02398 
 
-LR test of the one-sided error = -0.001504727, DF = 2, P-val = NA 
+LR test of the one-sided error = -0.001504727, DF = 2, P-val = 1 
 
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )

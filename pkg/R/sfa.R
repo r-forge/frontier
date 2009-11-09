@@ -366,8 +366,17 @@ sfa <- function(
       returnObj$lrTestPval <-
          0.5 * pchisq( returnObj$lrTestVal, 0, lower.tail = FALSE ) +
          0.5 * pchisq( returnObj$lrTestVal, 1, lower.tail = FALSE )
+   } else if( returnObj$lrTestDf > 1 ) {
+      returnObj$lrTestPval <-
+         0.25 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf - 2,
+            lower.tail = FALSE ) +
+         0.5 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf - 1,
+            lower.tail = FALSE ) +
+         0.25 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf,
+            lower.tail = FALSE )
    } else {
-      returnObj$lrTestPval <- NA
+      stop( "internal error: degrees of freedom of the LR test are",
+         " non-positive (", returnObj$lrTestDf, ")" )
    }
 
    ## warnings regarding wrong skewness, smaller logLik value, and no convergence
