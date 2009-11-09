@@ -363,8 +363,8 @@ sfa <- function(
       returnObj$lrTestDf <- zIntercept + nZvars + 1
    }
    if( returnObj$lrTestDf == 1 ) {
-      returnObj$lrTestPval <- 1 - pchibarsq( returnObj$lrTestVal,
-         returnObj$lrTestDf )
+      returnObj$lrTestPval <-
+         0.5 * pchisq( returnObj$lrTestVal, 1, lower.tail = FALSE )
    } else {
       returnObj$lrTestPval <- NA
    }
