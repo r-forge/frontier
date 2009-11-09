@@ -120,11 +120,11 @@ logLabour    -0.0080030  4.0108e-05  2.0477e-03 -4.7191e-05 -1.6405e-04
 sigmaSq       0.0040457 -2.9531e-05 -4.7191e-05  4.0844e-03  6.7451e-03
 gamma         0.0092520 -9.1555e-05 -1.6405e-04  6.7451e-03  1.8612e-02
 > logLik( a1, which = "ols" )
-[1] -18.447
+'log Lik.' -18.447 (df=4)
 > logLik( a1, which = "grid" )
-[1] -17.035
+'log Lik.' -17.035 (df=5)
 > logLik( a1 )
-[1] -17.027
+'log Lik.' -17.027 (df=5)
 > print( summary( a1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -632,9 +632,9 @@ sigmaSq     -1.59935087
 gamma       -0.29462474
 mu           6.75459757
 > logLik( a2, which = "ols" )
-[1] -18.447
+'log Lik.' -18.447 (df=4)
 > logLik( a2 )
-[1] -16.796
+'log Lik.' -16.796 (df=6)
 > print( summary( a2 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -1152,9 +1152,9 @@ sigmaSq     -2.531313
 gamma       -0.408368
 mu          10.732178
 > logLik( a5, which = "ols" )
-[1] -18.447
+'log Lik.' -18.447 (df=4)
 > logLik( a5 )
-[1] -16.795
+'log Lik.' -16.795 (df=6)
 > print( summary( a5 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -21655,9 +21655,9 @@ lNPK        -0.00052431
 sigmaSq      0.00186354
 gamma        0.00774807
 > logLik( b1, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b1 )
-[1] -86.43
+'log Lik.' -86.43 (df=6)
 > print( summary( b1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -22783,9 +22783,9 @@ sigmaSq      0.0616392 -0.1649300
 gamma        0.1256299 -0.3333166
 mu          -0.3333166  0.9277082
 > logLik( b2, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b2 )
-[1] -86.343
+'log Lik.' -86.343 (df=7)
 > print( summary( b2 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -23900,9 +23900,9 @@ sigmaSq      2.0707e-03 -0.00044655
 gamma        1.1506e-02 -0.00221151
 time        -2.2115e-03  0.00096403
 > logLik( b3, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b3 )
-[1] -84.55
+'log Lik.' -84.55 (df=7)
 > print( summary( b3 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -25024,9 +25024,9 @@ gamma        0.1700073 -0.4205337  1.1999e-03
 mu          -0.4205337  1.1035052 -9.1516e-03
 time         0.0011999 -0.0091516  1.2726e-03
 > logLik( b4, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b4 )
-[1] -84.407
+'log Lik.' -84.407 (df=8)
 > print( summary( b4 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -26155,9 +26155,9 @@ Z_BANRAT     0.82099079 -2.4775e-01 -2.0282e-02
 sigmaSq     -0.24775165  9.5299e-02  8.3194e-03
 gamma       -0.02028199  8.3194e-03  8.4322e-04
 > logLik( b5, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b5 )
-[1] -77.85
+'log Lik.' -77.85 (df=8)
 > print( summary( b5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -27285,9 +27285,9 @@ Z_BANRAT       0.21138935  65.554677 -29.5489409 -3.5857e-01
 sigmaSq       -0.11519840 -29.548941  13.6594851  1.6641e-01
 gamma         -0.00149880  -0.358566   0.1664141  2.0433e-03
 > logLik( b6, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b6 )
-[1] -77.314
+'log Lik.' -77.314 (df=9)
 > print( summary( b6 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -28436,9 +28436,9 @@ gamma        0.1764823 -0.4353585  1.0437e-03
 mu          -0.4353585  1.1375676 -8.7119e-03
 time         0.0010437 -0.0087119  1.2583e-03
 > logLik( b7, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b7 )
-[1] -84.407
+'log Lik.' -84.407 (df=8)
 > print( summary( b7 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -29383,9 +29383,9 @@ Z_BANRAT       0.21170110  59.6878477 -26.8750751 -3.2697e-01
 sigmaSq       -0.11564394 -26.8750751  12.4311878  1.5185e-01
 gamma         -0.00148396  -0.3269668   0.1518523  1.8699e-03
 > logLik( b8, which = "ols" )
-[1] -104.91
+'log Lik.' -104.91 (df=5)
 > logLik( b8 )
-[1] -77.314
+'log Lik.' -77.314 (df=9)
 > print( summary( b8 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -50288,9 +50288,9 @@ b_2_2   -0.00019306 -0.00074601
 sigmaSq  0.00323129  0.00677144
 gamma    0.00677144  0.02332741
 > logLik( translog, which = "ols" )
-[1] -15.857
+'log Lik.' -15.857 (df=7)
 > logLik( translog )
-[1] -14.434
+'log Lik.' -14.434 (df=8)
 > print( summary( translog ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -51027,9 +51027,9 @@ d_1      6.1130e-06 -3.9876e-06 -1.1882e-05
 sigmaSq -3.9876e-06  3.0804e-03  6.7178e-03
 gamma   -1.1882e-05  6.7178e-03  2.4043e-02
 > logLik( translogShift, which = "ols" )
-[1] -15.386
+'log Lik.' -15.386 (df=8)
 > logLik( translogShift )
-[1] -14.032
+'log Lik.' -14.032 (df=9)
 > print( summary( translogShift ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -51770,9 +51770,9 @@ Z_firmNo  3.9962e-06  1.5427e-04 -0.00100691 -0.00068564
 sigmaSq  -2.2410e-04 -1.0069e-03  0.01186768  0.01069907
 gamma    -3.9898e-04 -6.8564e-04  0.01069907  0.01455702
 > logLik( translogZvar, which = "ols" )
-[1] -15.857
+'log Lik.' -15.857 (df=7)
 > logLik( translogZvar )
-[1] -13.746
+'log Lik.' -13.746 (df=9)
 > print( summary( translogZvar ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -58549,291 +58549,291 @@ Maximum likelihood estimates
 > 
 > ## cross-section data, error components frontier
 > logLik( a1 )
-[1] -17.0272240
+'log Lik.' -17.0272240 (df=5)
 > logLik( a1, newParam = coef( a1 ) )
-[1] -17.0272240
+'log Lik.' -17.0272240 (df=5)
 > logLik( sa1, newParam = coef( sa1 ) )
-[1] -17.0272240
+'log Lik.' -17.0272240 (df=5)
 > logLik( Sa1, newParam = coef( a1 ) )
-[1] -17.0272240
+'log Lik.' -17.0272240 (df=5)
 > 
 > ## cross-section data, error components frontier, truncNorm
 > logLik( a2 )
-[1] -16.7956674
+'log Lik.' -16.7956674 (df=6)
 > logLik( a2, newParam = coef( a2 ) )
-[1] -16.7956674
+'log Lik.' -16.7956674 (df=6)
 > logLik( sa2, newParam = coef( sa2 ) )
-[1] -16.7956674
+'log Lik.' -16.7956674 (df=6)
 > 
 > ## cross-section data, error components frontier, truncNorm, starting values
 > logLik( a5 )
-[1] -16.7948264
+'log Lik.' -16.7948264 (df=6)
 > logLik( a5, newParam = coef( a5 ) )
-[1] -16.7948264
+'log Lik.' -16.7948264 (df=6)
 > logLik( sa5, newParam = coef( sa5 ) )
-[1] -16.7948264
+'log Lik.' -16.7948264 (df=6)
 > 
 > ## cross-section data, efficiency effects frontier
 > logLik( aa1 )
-[1] -16.3821693
+'log Lik.' -16.3821693 (df=6)
 > logLik( aa1, newParam = coef( aa1 ) )
-[1] -16.3821693
+'log Lik.' -16.3821693 (df=6)
 > logLik( saa1, newParam = coef( saa1 ) )
-[1] -16.3821693
+'log Lik.' -16.3821693 (df=6)
 > logLik( Saa1, newParam = coef( aa1 ) )
-[1] -16.3821693
+'log Lik.' -16.3821693 (df=6)
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > logLik( aa2 )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > logLik( aa2, newParam = coef( aa2 ) )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > logLik( saa2, newParam = coef( saa2 ) )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
 > logLik( aa5 )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > logLik( aa5, newParam = coef( aa5 ) )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > logLik( saa5, newParam = coef( saa5 ) )
-[1] -16.3556547
+'log Lik.' -16.3556547 (df=7)
 > 
 > 
 > ## data set of rice producers in the Philippines
 > 
 > ## cross-section rice data, error components frontier
 > logLik( bb1 )
-[1] -86.2026818
+'log Lik.' -86.2026818 (df=6)
 > logLik( bb1, newParam = coef( bb1 ) )
-[1] -86.2026818
+'log Lik.' -86.2026818 (df=6)
 > logLik( sbb1, newParam = coef( sbb1 ) )
-[1] -86.2026818
+'log Lik.' -86.2026818 (df=6)
 > logLik( Sbb1, newParam = coef( bb1 ) )
-[1] -86.2026818
+'log Lik.' -86.2026818 (df=6)
 > 
 > ## cross-section rice data, error components frontier, truncNorm
 > logLik( bb2 )
-[1] -82.2298049
+'log Lik.' -82.2298049 (df=7)
 > logLik( bb2, newParam = coef( bb2 ) )
-[1] -82.2298049
+'log Lik.' -82.2298049 (df=7)
 > logLik( sbb2, newParam = coef( sbb2 ) )
-[1] -82.2298049
+'log Lik.' -82.2298049 (df=7)
 > 
 > ## cross-section rice data, efficiency effects frontier
 > logLik( bb5 )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( bb5, newParam = coef( bb5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( sbb5, newParam = coef( sbb5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( Sbb5, newParam = coef( bb5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept
 > logLik( bb6 )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( bb6, newParam = coef( bb6 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( sbb6, newParam = coef( sbb6 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > 
 > ## cross-section rice data, error components frontier, truncNorm, starting values
 > logLik( bb7 )
-[1] -82.2236347
+'log Lik.' -82.2236347 (df=7)
 > logLik( bb7, newParam = coef( bb7 ) )
-[1] -82.2236347
+'log Lik.' -82.2236347 (df=7)
 > logLik( sbb7, newParam = coef( sbb7 ) )
-[1] -82.2236347
+'log Lik.' -82.2236347 (df=7)
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
 > logLik( bb8 )
-[1] -77.313626
+'log Lik.' -77.313626 (df=9)
 > logLik( bb8, newParam = coef( bb8 ) )
-[1] -77.313626
+'log Lik.' -77.313626 (df=9)
 > logLik( sbb8, newParam = coef( sbb8 ) )
-[1] -77.313626
+'log Lik.' -77.313626 (df=9)
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > ## cross-section rice data, error components cost frontier
 > logLik( dd1 )
-[1] 39.9305693
+'log Lik.' 39.9305693 (df=7)
 > logLik( dd1, newParam = coef( dd1 ) )
-[1] 39.9305693
+'log Lik.' 39.9305693 (df=7)
 > logLik( sdd1, newParam = coef( sdd1 ) )
-[1] 39.9305693
+'log Lik.' 39.9305693 (df=7)
 > logLik( Sdd1, newParam = coef( dd1 ) )
-[1] 39.9305693
+'log Lik.' 39.9305693 (df=7)
 > 
 > ## cross-section rice data, error components cost frontier, truncNorm
 > logLik( dd2 )
-[1] 40.9663076
+'log Lik.' 40.9663076 (df=8)
 > logLik( dd2, newParam = coef( dd2 ) )
-[1] 40.9663076
+'log Lik.' 40.9663076 (df=8)
 > logLik( sdd2, newParam = coef( sdd2 ) )
-[1] 40.9663076
+'log Lik.' 40.9663076 (df=8)
 > 
 > ## cross-section rice data, efficiency effects cost frontier
 > logLik( dd5 )
-[1] 43.3210099
+'log Lik.' 43.3210099 (df=9)
 > logLik( dd5, newParam = coef( dd5 ) )
-[1] 43.3210099
+'log Lik.' 43.3210099 (df=9)
 > logLik( sdd5, newParam = coef( sdd5 ) )
-[1] 43.3210099
+'log Lik.' 43.3210099 (df=9)
 > logLik( Sdd5, newParam = coef( dd5 ) )
-[1] 43.3210099
+'log Lik.' 43.3210099 (df=9)
 > 
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
 > logLik( dd6 )
-[1] 43.3389463
+'log Lik.' 43.3389463 (df=10)
 > logLik( dd6, newParam = coef( dd6 ) )
-[1] 43.3389463
+'log Lik.' 43.3389463 (df=10)
 > logLik( sdd6, newParam = coef( sdd6 ) )
-[1] 43.3389463
+'log Lik.' 43.3389463 (df=10)
 > 
 > 
 > ## panel data
 > 
 > ## panel data, error components frontier
 > logLik( b1 )
-[1] -86.4304195
+'log Lik.' -86.4304195 (df=6)
 > logLik( b1, newParam = coef( b1 ) )
-[1] -86.4304195
+'log Lik.' -86.4304195 (df=6)
 > logLik( sb1, newParam = coef( sb1 ) )
-[1] -86.4304195
+'log Lik.' -86.4304195 (df=6)
 > logLik( Sb1, newParam = coef( b1 ) )
-[1] -86.4304195
+'log Lik.' -86.4304195 (df=6)
 > 
 > ## panel data, error components frontier, truncNorm
 > logLik( b2 )
-[1] -86.3428632
+'log Lik.' -86.3428632 (df=7)
 > logLik( b2, newParam = coef( b2 ) )
-[1] -86.3428632
+'log Lik.' -86.3428632 (df=7)
 > logLik( sb2, newParam = coef( sb2 ) )
-[1] -86.3428632
+'log Lik.' -86.3428632 (df=7)
 > 
 > ## panel data, error components frontier, timeEffect
 > logLik( b3 )
-[1] -84.5503578
+'log Lik.' -84.5503578 (df=7)
 > logLik( b3, newParam = coef( b3 ) )
-[1] -84.5503578
+'log Lik.' -84.5503578 (df=7)
 > logLik( sb3, newParam = coef( sb3 ) )
-[1] -84.5503578
+'log Lik.' -84.5503578 (df=7)
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect
 > logLik( b4 )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > logLik( b4, newParam = coef( b4 ) )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > logLik( sb4, newParam = coef( sb4 ) )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > 
 > ## panel data, efficiency effects frontier
 > logLik( b5 )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( b5, newParam = coef( b5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( sb5, newParam = coef( sb5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > logLik( Sb5, newParam = coef( b5 ) )
-[1] -77.849544
+'log Lik.' -77.849544 (df=8)
 > 
 > ## panel data, efficiency effects frontier, zIntercept
 > logLik( b6 )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( b6, newParam = coef( b6 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( sb6, newParam = coef( sb6 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect, starting values
 > logLik( b7 )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > logLik( b7, newParam = coef( b7 ) )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > logLik( sb7, newParam = coef( sb7 ) )
-[1] -84.4067823
+'log Lik.' -84.4067823 (df=8)
 > 
 > ## panel data, efficiency effects frontier, zIntercept, starting values
 > logLik( b8 )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( b8, newParam = coef( b8 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > logLik( sb8, newParam = coef( sb8 ) )
-[1] -77.3136259
+'log Lik.' -77.3136259 (df=9)
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > ## panel rice data, error components cost frontier
 > logLik( d1 )
-[1] 49.3659884
+'log Lik.' 49.3659884 (df=7)
 > logLik( d1, newParam = coef( d1 ) )
-[1] 49.3659884
+'log Lik.' 49.3659884 (df=7)
 > logLik( sd1, newParam = coef( sd1 ) )
-[1] 49.3659884
+'log Lik.' 49.3659884 (df=7)
 > logLik( Sd1, newParam = coef( d1 ) )
-[1] 49.3659884
+'log Lik.' 49.3659884 (df=7)
 > 
 > ## panel rice data, error components cost frontier, truncNorm
 > logLik( d2 )
-[1] 52.3900727
+'log Lik.' 52.3900727 (df=8)
 > logLik( d2, newParam = coef( d2 ) )
-[1] 52.3900727
+'log Lik.' 52.3900727 (df=8)
 > logLik( sd2, newParam = coef( sd2 ) )
-[1] 52.3900727
+'log Lik.' 52.3900727 (df=8)
 > 
 > ## panel rice data, error components cost frontier, timeEffect
 > logLik( d3 )
-[1] 50.1834133
+'log Lik.' 50.1834133 (df=8)
 > logLik( d3, newParam = coef( d3 ) )
-[1] 50.1834133
+'log Lik.' 50.1834133 (df=8)
 > logLik( sd3, newParam = coef( sd3 ) )
-[1] 50.1834133
+'log Lik.' 50.1834133 (df=8)
 > 
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
 > logLik( d4 )
-[1] 53.1980579
+'log Lik.' 53.1980579 (df=9)
 > logLik( d4, newParam = coef( d4 ) )
-[1] 53.1980579
+'log Lik.' 53.1980579 (df=9)
 > logLik( sd4, newParam = coef( sd4 ) )
-[1] 53.1980579
+'log Lik.' 53.1980579 (df=9)
 > 
 > ## panel rice data, efficiency effects cost frontier
 > logLik( d5 )
-[1] 43.3204526
+'log Lik.' 43.3204526 (df=9)
 > logLik( d5, newParam = coef( d5 ) )
-[1] 43.3204526
+'log Lik.' 43.3204526 (df=9)
 > logLik( sd5, newParam = coef( sd5 ) )
-[1] 43.3204526
+'log Lik.' 43.3204526 (df=9)
 > logLik( Sd5, newParam = coef( d5 ) )
-[1] 43.3204526
+'log Lik.' 43.3204526 (df=9)
 > 
 > ## panel rice data, efficiency effects cost frontier, zIntercept
 > logLik( d6 )
-[1] 43.3390233
+'log Lik.' 43.3390233 (df=10)
 > logLik( d6, newParam = coef( d6 ) )
-[1] 43.3390233
+'log Lik.' 43.3390233 (df=10)
 > logLik( sd6, newParam = coef( sd6 ) )
-[1] 43.3390233
+'log Lik.' 43.3390233 (df=10)
 > 
 > 
 > ## translog frontiers
 > ## cross-section data, error components frontier, translog
 > logLik( translog )
-[1] -14.4342926
+'log Lik.' -14.4342926 (df=8)
 > logLik( translog, newParam = coef( translog ) )
-[1] -14.4342926
+'log Lik.' -14.4342926 (df=8)
 > 
 > ## cross-section data, error components frontier, translog, shifter
 > logLik( translogShift )
-[1] -14.0321663
+'log Lik.' -14.0321663 (df=9)
 > logLik( translogShift, newParam = coef( translogShift ) )
-[1] -14.0321663
+'log Lik.' -14.0321663 (df=9)
 > 
 > ## cross-section data, efficiency effects frontier, translog
 > logLik( translogZvar )
-[1] -13.7464626
+'log Lik.' -13.7464626 (df=9)
 > logLik( translogZvar, newParam = coef( translogZvar ) )
-[1] -13.7464626
+'log Lik.' -13.7464626 (df=9)
 > 
