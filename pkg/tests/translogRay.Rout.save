@@ -120,7 +120,7 @@ gamma    5.0000e-02  1.0000e+00    0.0500 0.9601224
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 64.45507 
 
-LR test of the one-sided error = -0.006239353, DF = 1, P-val = 0.5 
+LR test of the one-sided error = -0.006239353, DF = 1, P-val = 1 
 
 number of iterations = 1 
 (maximum number of iterations set at: 1000 )
@@ -413,7 +413,7 @@ $lrTestDf
 [1] 1
 
 $lrTestPval
-[1] 0.5
+[1] 1
 
 $truncNorm
 [1] FALSE

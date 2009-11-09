@@ -364,6 +364,7 @@ sfa <- function(
    }
    if( returnObj$lrTestDf == 1 ) {
       returnObj$lrTestPval <-
+         0.5 * pchisq( returnObj$lrTestVal, 0, lower.tail = FALSE ) +
          0.5 * pchisq( returnObj$lrTestVal, 1, lower.tail = FALSE )
    } else {
       returnObj$lrTestPval <- NA
