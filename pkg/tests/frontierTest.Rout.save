@@ -61,7 +61,6 @@ Attaching package: 'boot'
 	 aml 
 
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-3)
-Loading required package: emdbook
 > options( digits = 5 )
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
