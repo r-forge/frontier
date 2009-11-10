@@ -58837,3 +58837,223 @@ Maximum likelihood estimates
 > logLik( translogZvar, newParam = coef( translogZvar ) )
 'log Lik.' -13.7464626 (df=9)
 > 
+> 
+> ##############################################
+> ########   likelihood ratio tests   ##########
+> ##############################################
+> 
+> ## cross-section data, error components frontier
+> lrtest( a2, a1, a5 )
+Likelihood ratio test
+
+Model 1: a2
+Model 2: a1
+Model 3: a5
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   6 -16.79567                      
+2   5 -17.02722 -1 0.46311    0.49617
+3   6 -16.79483  1 0.46480    0.49539
+> lrtest( a1, a2, a5 )
+Likelihood ratio test
+
+Model 1: a1
+Model 2: a2
+Model 3: a5
+  #Df    LogLik Df   Chisq Pr(>Chisq)    
+1   5 -17.02722                          
+2   6 -16.79567  1 0.46311    0.49617    
+3   6 -16.79483  0 0.00168    < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> ## cross-section data, efficiency effects frontier
+> lrtest( aa2, aa1, aa5 )
+Likelihood ratio test
+
+Model 1: aa2
+Model 2: aa1
+Model 3: aa5
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   7 -16.35565                      
+2   6 -16.38217 -1 0.05303    0.81787
+3   7 -16.35565  1 0.05303    0.81787
+> lrtest( aa1, aa2, aa5 )
+Likelihood ratio test
+
+Model 1: aa1
+Model 2: aa2
+Model 3: aa5
+  #Df    LogLik Df       Chisq Pr(>Chisq)    
+1   6 -16.38217                              
+2   7 -16.35565  1     0.05303    0.81787    
+3   7 -16.35565  0 1.57968e-10    < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> ## cross-section data, ECM + EEF
+> try( lrtest( a2, a1, aa1 ) )
+Error in lrtest.frontier(a2, a1, aa1) : 
+  all models must be of the same type but model 'a2' is an 'Error Components Frontier' (ECF), while model 'aa1' is an 'Efficiency Effects Frontier' (EEF)
+> try( lrtest( aa2, a1, aa1 ) )
+Error in lrtest.frontier(aa2, a1, aa1) : 
+  all models must be of the same type but model 'aa2' is an 'Efficiency Effects Frontier' (EEF), while model 'a1' is an 'Error Components Frontier' (ECF)
+> 
+> 
+> ## data set of rice producers in the Philippines
+> ## cross-section rice data, error components frontier
+> lrtest( bb2, bb1, bb7 )
+Likelihood ratio test
+
+Model 1: bb2
+Model 2: bb1
+Model 3: bb7
+  #Df    LogLik Df   Chisq Pr(>Chisq)   
+1   7 -82.22980                         
+2   6 -86.20268 -1 7.94575  0.0048200 **
+3   7 -82.22363  1 7.95809  0.0047873 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> ## cross-section rice data, efficiency effects frontier
+> lrtest( bb6, bb5, bb8 )
+Likelihood ratio test
+
+Model 1: bb6
+Model 2: bb5
+Model 3: bb8
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   9 -77.31363                      
+2   8 -77.84954 -1 1.07184    0.30053
+3   9 -77.31363  1 1.07184    0.30053
+> 
+> 
+> ## Cost Frontier (with land as quasi-fixed input)
+> ## cross-section rice data, error components cost frontier
+> lrtest( dd1, dd2 )
+Likelihood ratio test
+
+Model 1: dd1
+Model 2: dd2
+  #Df   LogLik Df   Chisq Pr(>Chisq)
+1   7 39.93057                      
+2   8 40.96631  1 2.07148    0.15008
+> 
+> ## cross-section rice data, efficiency effects frontier
+> lrtest( dd5, dd6 )
+Likelihood ratio test
+
+Model 1: dd5
+Model 2: dd6
+  #Df   LogLik Df   Chisq Pr(>Chisq)
+1   9 43.32101                      
+2  10 43.33895  1 0.03587    0.84978
+> 
+> 
+> ## panel data
+> ## panel data, error components frontier
+> lrtest( b4, b3, b1, b7 )
+Likelihood ratio test
+
+Model 1: b4
+Model 2: b3
+Model 3: b1
+Model 4: b7
+  #Df    LogLik Df   Chisq Pr(>Chisq)  
+1   8 -84.40678                        
+2   7 -84.55036 -1 0.28715   0.592052  
+3   6 -86.43042 -1 3.76012   0.052489 .
+4   8 -84.40678  2 4.04727   0.132174  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> lrtest( b4, b2, b1 )
+Likelihood ratio test
+
+Model 1: b4
+Model 2: b2
+Model 3: b1
+  #Df    LogLik Df   Chisq Pr(>Chisq)  
+1   8 -84.40678                        
+2   7 -86.34286 -1 3.87216   0.049093 *
+3   6 -86.43042 -1 0.17511   0.675607  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> lrtest( b4, b1 )
+Likelihood ratio test
+
+Model 1: b4
+Model 2: b1
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   8 -84.40678                      
+2   6 -86.43042 -2 4.04727    0.13217
+> 
+> ## panel data, efficiency effects frontier
+> lrtest( b6, b5, b8 )
+Likelihood ratio test
+
+Model 1: b6
+Model 2: b5
+Model 3: b8
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   9 -77.31363                      
+2   8 -77.84954 -1 1.07184    0.30053
+3   9 -77.31363  1 1.07184    0.30053
+> 
+> 
+> ## Cost Frontier (with land as quasi-fixed input)
+> ## panel rice data, error components cost frontier
+> lrtest( d4, d3, d1 )
+Likelihood ratio test
+
+Model 1: d4
+Model 2: d3
+Model 3: d1
+  #Df   LogLik Df   Chisq Pr(>Chisq)  
+1   9 53.19806                        
+2   8 50.18341 -1 6.02929   0.014070 *
+3   7 49.36599 -1 1.63485   0.201034  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> lrtest( d4, d2, d1 )
+Likelihood ratio test
+
+Model 1: d4
+Model 2: d2
+Model 3: d1
+  #Df   LogLik Df   Chisq Pr(>Chisq)  
+1   9 53.19806                        
+2   8 52.39007 -1 1.61597   0.203655  
+3   7 49.36599 -1 6.04817   0.013921 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> lrtest( d4, d1 )
+Likelihood ratio test
+
+Model 1: d4
+Model 2: d1
+  #Df   LogLik Df   Chisq Pr(>Chisq)  
+1   9 53.19806                        
+2   7 49.36599 -2 7.66414   0.021665 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> ## panel rice data, efficiency effects cost frontier
+> lrtest( d6, d5 )
+Likelihood ratio test
+
+Model 1: d6
+Model 2: d5
+  #Df   LogLik Df   Chisq Pr(>Chisq)
+1  10 43.33902                      
+2   9 43.32045 -1 0.03714    0.84718
+> 
+> 
+> ## translog
+> lrtest( translogShift, translog )
+Likelihood ratio test
+
+Model 1: translogShift
+Model 2: translog
+  #Df    LogLik Df   Chisq Pr(>Chisq)
+1   9 -14.03217                      
+2   8 -14.43429 -1 0.80425    0.36982
+> 

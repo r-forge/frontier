@@ -1351,3 +1351,60 @@ logLik( translogShift, newParam = coef( translogShift ) )
 ## cross-section data, efficiency effects frontier, translog
 logLik( translogZvar )
 logLik( translogZvar, newParam = coef( translogZvar ) )
+
+
+##############################################
+########   likelihood ratio tests   ##########
+##############################################
+
+## cross-section data, error components frontier
+lrtest( a2, a1, a5 )
+lrtest( a1, a2, a5 )
+
+## cross-section data, efficiency effects frontier
+lrtest( aa2, aa1, aa5 )
+lrtest( aa1, aa2, aa5 )
+
+## cross-section data, ECM + EEF
+try( lrtest( a2, a1, aa1 ) )
+try( lrtest( aa2, a1, aa1 ) )
+
+
+## data set of rice producers in the Philippines
+## cross-section rice data, error components frontier
+lrtest( bb2, bb1, bb7 )
+
+## cross-section rice data, efficiency effects frontier
+lrtest( bb6, bb5, bb8 )
+
+
+## Cost Frontier (with land as quasi-fixed input)
+## cross-section rice data, error components cost frontier
+lrtest( dd1, dd2 )
+
+## cross-section rice data, efficiency effects frontier
+lrtest( dd5, dd6 )
+
+
+## panel data
+## panel data, error components frontier
+lrtest( b4, b3, b1, b7 )
+lrtest( b4, b2, b1 )
+lrtest( b4, b1 )
+
+## panel data, efficiency effects frontier
+lrtest( b6, b5, b8 )
+
+
+## Cost Frontier (with land as quasi-fixed input)
+## panel rice data, error components cost frontier
+lrtest( d4, d3, d1 )
+lrtest( d4, d2, d1 )
+lrtest( d4, d1 )
+
+## panel rice data, efficiency effects cost frontier
+lrtest( d6, d5 )
+
+
+## translog
+lrtest( translogShift, translog )
