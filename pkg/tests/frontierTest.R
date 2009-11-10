@@ -144,6 +144,11 @@ efficiencies( aa5 )
 efficiencies( aa5, asInData = TRUE )
 print.default( aa5 )
 
+## cross-section data, efficiency effects frontier, no Z vars
+aa9 <- sfa( log( output ) ~ log( capital ) + log( labour ) | - 1,
+   data = front41Data )
+summary( aa9 )
+
 
 ## data set of rice producers in the Philippines
 data( riceProdPhil )
@@ -287,6 +292,11 @@ efficiencies( bb8 )
 efficiencies( bb8, asInData = TRUE )
 print.default( bb8 )
 
+## cross-section rice data, efficiency effects frontier, no Z vars
+bb9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
+   data = riceProdPhil )
+summary( bb9 )
+
 
 ## Cost Frontier (with land as quasi-fixed input)
 riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
@@ -386,6 +396,11 @@ efficiencies( dd6, asInData = TRUE )
 residuals( dd6 )
 residuals( dd6, asInData = TRUE )
 print.default( dd6 )
+
+## cross-section rice data, efficiency effects cost frontier: no Z vars
+dd9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
+   log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
+summary( dd9 )
 
 
 ## panel data
@@ -590,6 +605,11 @@ efficiencies( b8 )
 efficiencies( b8, asInData = TRUE )
 print.default( b8 )
 
+## panel data, efficiency effects frontier: no Z vars
+b9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
+   data = riceProdPhilPanel )
+summary( b9 )
+
 
 ## Cost Frontier (with land as quasi-fixed input)
 ## panel rice data, error components cost frontier
@@ -727,6 +747,11 @@ efficiencies( d6, asInData = TRUE )
 residuals( d6 )
 residuals( d6, asInData = TRUE )
 print.default( d6 )
+
+## panel rice data, efficiency effects cost frontier: no Z vars
+d9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
+   log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
+summary( d9 )
 
 
 ## unbalanced panel data
@@ -1362,8 +1387,8 @@ lrtest( a2, a1, a5 )
 lrtest( a1, a2, a5 )
 
 ## cross-section data, efficiency effects frontier
-lrtest( aa2, aa1, aa5 )
-lrtest( aa1, aa2, aa5 )
+lrtest( aa2, aa1, aa9, aa2, aa5 )
+lrtest( aa9, aa1, aa2, aa5 )
 
 ## cross-section data, ECM + EEF
 try( lrtest( a2, a1, aa1 ) )
@@ -1375,7 +1400,7 @@ try( lrtest( aa2, a1, aa1 ) )
 lrtest( bb2, bb1, bb7 )
 
 ## cross-section rice data, efficiency effects frontier
-lrtest( bb6, bb5, bb8 )
+lrtest( bb6, bb5, bb9, bb6, bb8 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
@@ -1383,7 +1408,7 @@ lrtest( bb6, bb5, bb8 )
 lrtest( dd1, dd2 )
 
 ## cross-section rice data, efficiency effects frontier
-lrtest( dd5, dd6 )
+lrtest( dd6, dd5, dd9, dd6 )
 
 
 ## panel data
@@ -1393,7 +1418,7 @@ lrtest( b4, b2, b1 )
 lrtest( b4, b1 )
 
 ## panel data, efficiency effects frontier
-lrtest( b6, b5, b8 )
+lrtest( b6, b5, b9, b6, b8 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
@@ -1403,7 +1428,7 @@ lrtest( d4, d2, d1 )
 lrtest( d4, d1 )
 
 ## panel rice data, efficiency effects cost frontier
-lrtest( d6, d5 )
+lrtest( d6, d5, d9, d6 )
 
 
 ## translog

@@ -3043,6 +3043,35 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section data, efficiency effects frontier, no Z vars
+> aa9 <- sfa( log( output ) ~ log( capital ) + log( labour ) | - 1,
++    data = front41Data )
+> summary( aa9 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    0.5616     0.2026    2.77  0.00557 ** 
+log(capital)   0.2811     0.0476    5.90  3.6e-09 ***
+log(labour)    0.5365     0.0453   11.86  < 2e-16 ***
+sigmaSq        0.2170     0.0639    3.40  0.00069 ***
+gamma          0.7972     0.1364    5.84  5.1e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -17.027 
+
+LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
+
+number of iterations = 7 
+(maximum number of iterations set at: 1000 )
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.74057 
+> 
 > 
 > ## data set of rice producers in the Philippines
 > data( riceProdPhil )
@@ -13760,6 +13789,36 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 attr(,"class")
 [1] "frontier"
 > 
+> ## cross-section rice data, efficiency effects frontier, no Z vars
+> bb9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
++    data = riceProdPhil )
+> summary( bb9 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -1.0432     0.2571   -4.06  4.9e-05 ***
+log(AREA)     0.3555     0.0610    5.83  5.6e-09 ***
+log(LABOR)    0.3333     0.0635    5.25  1.5e-07 ***
+log(NPK)      0.2713     0.0353    7.68  1.5e-14 ***
+sigmaSq       0.2386     0.0260    9.17  < 2e-16 ***
+gamma         0.8854     0.0337   26.29  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -86.203 
+
+LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
+
+number of iterations = 10 
+(maximum number of iterations set at: 1000 )
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.72298 
+> 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
@@ -21587,6 +21646,37 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 
 attr(,"class")
 [1] "frontier"
+> 
+> ## cross-section rice data, efficiency effects cost frontier: no Z vars
+> dd9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
++    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
+> summary( dd9 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   5.8704     0.2014   29.15  < 2e-16 ***
+log(PROD)     0.4617     0.0344   13.42  < 2e-16 ***
+log(AREA)     0.5065     0.0351   14.44  < 2e-16 ***
+log(LABORP)   0.4138     0.0323   12.82  < 2e-16 ***
+log(NPKP)     0.0705     0.0543    1.30   0.1944    
+sigmaSq       0.0704     0.0144    4.88  1.1e-06 ***
+gamma         0.5303     0.1878    2.82   0.0047 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.931 
+
+LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 1.1745 
 > 
 > 
 > ## panel data
@@ -30259,6 +30349,43 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 attr(,"class")
 [1] "frontier"
 > 
+> ## panel data, efficiency effects frontier: no Z vars
+> b9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
++    data = riceProdPhilPanel )
+> summary( b9 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -1.0432     0.2571   -4.06  4.9e-05 ***
+log(AREA)     0.3555     0.0610    5.83  5.6e-09 ***
+log(LABOR)    0.3333     0.0635    5.25  1.5e-07 ***
+log(NPK)      0.2713     0.0353    7.68  1.5e-14 ***
+sigmaSq       0.2386     0.0260    9.17  < 2e-16 ***
+gamma         0.8854     0.0337   26.29  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -86.203 
+
+LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
+
+number of iterations = 10 
+(maximum number of iterations set at: 1000 )
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.70242 0.68633 0.77094 0.74934 0.69611 0.74420 0.63266 0.80183 
+
+mean efficiency: 0.72298 
+> 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > ## panel rice data, error components cost frontier
@@ -37173,6 +37300,44 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 
 attr(,"class")
 [1] "frontier"
+> 
+> ## panel rice data, efficiency effects cost frontier: no Z vars
+> d9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
++    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
+> summary( d9 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   5.8704     0.2014   29.15  < 2e-16 ***
+log(PROD)     0.4617     0.0344   13.42  < 2e-16 ***
+log(AREA)     0.5065     0.0351   14.44  < 2e-16 ***
+log(LABORP)   0.4138     0.0323   12.82  < 2e-16 ***
+log(NPKP)     0.0705     0.0543    1.30   0.1944    
+sigmaSq       0.0704     0.0144    4.88  1.1e-06 ***
+gamma         0.5303     0.1878    2.82   0.0047 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: 39.931 
+
+LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
+
+number of iterations = 12 
+(maximum number of iterations set at: 1000 )
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+  1999   2000   2001   2002   2003   2004   2005   2006 
+1.1629 1.1710 1.1493 1.1904 1.1884 1.1500 1.2125 1.1717 
+
+mean efficiency: 1.1745 
 > 
 > 
 > ## unbalanced panel data
@@ -58867,26 +59032,34 @@ Model 3: a5
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > ## cross-section data, efficiency effects frontier
-> lrtest( aa2, aa1, aa5 )
+> lrtest( aa2, aa1, aa9, aa2, aa5 )
 Likelihood ratio test
 
 Model 1: aa2
 Model 2: aa1
-Model 3: aa5
-  #Df    LogLik Df   Chisq Pr(>Chisq)
-1   7 -16.35565                      
-2   6 -16.38217 -1 0.05303    0.81787
-3   7 -16.35565  1 0.05303    0.81787
-> lrtest( aa1, aa2, aa5 )
+Model 3: aa9
+Model 4: aa2
+Model 5: aa5
+  #Df    LogLik Df       Chisq Pr(>Chisq)    
+1   7 -16.35565                              
+2   6 -16.38217 -1     0.05303    0.81787    
+3   5 -17.02722 -1     1.29011    0.25603    
+4   7 -16.35565  2     1.34314    0.51091    
+5   7 -16.35565  0 1.57968e-10    < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> lrtest( aa9, aa1, aa2, aa5 )
 Likelihood ratio test
 
-Model 1: aa1
-Model 2: aa2
-Model 3: aa5
+Model 1: aa9
+Model 2: aa1
+Model 3: aa2
+Model 4: aa5
   #Df    LogLik Df       Chisq Pr(>Chisq)    
-1   6 -16.38217                              
-2   7 -16.35565  1     0.05303    0.81787    
-3   7 -16.35565  0 1.57968e-10    < 2e-16 ***
+1   5 -17.02722                              
+2   6 -16.38217  1     1.29011    0.25603    
+3   7 -16.35565  1     0.05303    0.81787    
+4   7 -16.35565  0 1.57968e-10    < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
@@ -58915,16 +59088,22 @@ Model 3: bb7
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > ## cross-section rice data, efficiency effects frontier
-> lrtest( bb6, bb5, bb8 )
+> lrtest( bb6, bb5, bb9, bb6, bb8 )
 Likelihood ratio test
 
 Model 1: bb6
 Model 2: bb5
-Model 3: bb8
-  #Df    LogLik Df   Chisq Pr(>Chisq)
-1   9 -77.31363                      
-2   8 -77.84954 -1 1.07184    0.30053
-3   9 -77.31363  1 1.07184    0.30053
+Model 3: bb9
+Model 4: bb6
+Model 5: bb8
+  #Df    LogLik Df       Chisq Pr(>Chisq)    
+1   9 -77.31363                              
+2   8 -77.84954 -1     1.07184 0.30053103    
+3   6 -86.20268 -2    16.70628 0.00023566 ***
+4   9 -77.31363  3    17.77811 0.00048871 ***
+5   9 -77.31363  0 1.27797e-07 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -58939,14 +59118,20 @@ Model 2: dd2
 2   8 40.96631  1 2.07148    0.15008
 > 
 > ## cross-section rice data, efficiency effects frontier
-> lrtest( dd5, dd6 )
+> lrtest( dd6, dd5, dd9, dd6 )
 Likelihood ratio test
 
-Model 1: dd5
-Model 2: dd6
-  #Df   LogLik Df   Chisq Pr(>Chisq)
-1   9 43.32101                      
-2  10 43.33895  1 0.03587    0.84978
+Model 1: dd6
+Model 2: dd5
+Model 3: dd9
+Model 4: dd6
+  #Df   LogLik Df   Chisq Pr(>Chisq)  
+1  10 43.33895                        
+2   9 43.32101 -1 0.03587   0.849778  
+3   7 39.93057 -2 6.78088   0.033694 *
+4  10 43.33895  3 6.81675   0.077974 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## panel data
@@ -58987,16 +59172,22 @@ Model 2: b1
 2   6 -86.43042 -2 4.04727    0.13217
 > 
 > ## panel data, efficiency effects frontier
-> lrtest( b6, b5, b8 )
+> lrtest( b6, b5, b9, b6, b8 )
 Likelihood ratio test
 
 Model 1: b6
 Model 2: b5
-Model 3: b8
-  #Df    LogLik Df   Chisq Pr(>Chisq)
-1   9 -77.31363                      
-2   8 -77.84954 -1 1.07184    0.30053
-3   9 -77.31363  1 1.07184    0.30053
+Model 3: b9
+Model 4: b6
+Model 5: b8
+  #Df    LogLik Df       Chisq Pr(>Chisq)    
+1   9 -77.31363                              
+2   8 -77.84954 -1     1.07184 0.30053103    
+3   6 -86.20268 -2    16.70628 0.00023566 ***
+4   9 -77.31363  3    17.77811 0.00048871 ***
+5   9 -77.31363  0 2.44938e-09 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -59037,14 +59228,20 @@ Model 2: d1
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > ## panel rice data, efficiency effects cost frontier
-> lrtest( d6, d5 )
+> lrtest( d6, d5, d9, d6 )
 Likelihood ratio test
 
 Model 1: d6
 Model 2: d5
-  #Df   LogLik Df   Chisq Pr(>Chisq)
-1  10 43.33902                      
-2   9 43.32045 -1 0.03714    0.84718
+Model 3: d9
+Model 4: d6
+  #Df   LogLik Df   Chisq Pr(>Chisq)  
+1  10 43.33902                        
+2   9 43.32045 -1 0.03714   0.847177  
+3   7 39.93057 -2 6.77977   0.033713 *
+4  10 43.33902  3 6.81691   0.077968 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## translog
