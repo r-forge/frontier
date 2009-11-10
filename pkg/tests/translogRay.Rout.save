@@ -129,6 +129,14 @@ cross-sectional data
 total number of observations = 20 
 
 mean efficiency: 0.9982547 
+> lrtest( estResultRay )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df   Chisq Pr(>Chisq)
+1  16 64.458                      
+2  17 64.455  1 -0.0062          1
 > efficiencies( estResultRay )
    efficiency
 1   0.9982855

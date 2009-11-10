@@ -100,6 +100,14 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.000984 
+> lrtest( a1 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df  LogLik Df     Chisq Pr(>Chisq)
+1   4 -18.447                        
+2   5 -18.447  1 2.748e-06     0.4993
 > 
 > ## front41Data, truncNorm
 > a2 <- sfa( log( output ) ~ log( capital ) + log( labour ),
@@ -133,6 +141,14 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.009395 
+> lrtest( a2 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df  LogLik Df  Chisq Pr(>Chisq)
+1   4 -18.447                     
+2   6 -18.447  2 -3e-04          1
 > 
 > ## riceProdPhil
 > b1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
@@ -166,6 +182,14 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.000810 
+> lrtest( b1 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df  LogLik Df     Chisq Pr(>Chisq)
+1   5 -104.91                        
+2   6 -104.91  1 1.576e-05     0.4984
 > 
 > ## riceProdPhil, truncNorm
 > b2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
@@ -200,6 +224,14 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.008894 
+> lrtest( b2 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df  LogLik Df   Chisq Pr(>Chisq)
+1   5 -104.91                      
+2   7 -104.91  2 -0.0038          1
 > 
 > 
 > ###### right-skewed residuals but ineffDecrease = TRUE
@@ -236,6 +268,14 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.9986917 
+> lrtest( d1 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df     Chisq Pr(>Chisq)
+1   6 39.025                        
+2   7 39.025  1 1.481e-05     0.4985
 > 
 > ## riceProdPhil, truncNorm
 > d2 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
@@ -271,4 +311,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.9929969 
+> lrtest( d2 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df   Chisq Pr(>Chisq)
+1   6 39.025                      
+2   8 39.024  2 -0.0015          1
 > 
