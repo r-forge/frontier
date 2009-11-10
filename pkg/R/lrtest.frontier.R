@@ -10,6 +10,18 @@ lrtest.frontier <- function( object, ... ) {
    ## list of objects in ...
    objectList <- list( ... )
 
+   ## test if there are further objects in ...
+   if( length( objectList ) < 1 ){
+      stop( "at least one further argument ('...') must be provided" )
+   }
+
+   ## test if all objects are of class "frontier"
+   for( i in 1:length( objectList ) ) {
+      if( ! "frontier" %in% class( objectList[[ i ]] ) ){
+         stop( "all further arguments ('...') must be of class 'frontier'" )
+      }
+   }
+
    ## get and save the names of the models (objects)
    object$lrtest.frontier.name <- deparse( substitute( object ) )
    dotsNames <- as.list( thisCall )[ -1 ]
@@ -22,14 +34,8 @@ lrtest.frontier <- function( object, ... ) {
       return( object$lrtest.frontier.name )
    }
 
-   ## do some tests
-   if( length( objectList ) < 1 ){
-      stop( "at least one further argument ('...') must be provided" )
-   }
+   ## test if all models are of the same model type
    for( i in 1:length( objectList ) ) {
-      if( ! "frontier" %in% class( objectList[[ i ]] ) ){
-         stop( "all further arguments ('...') must be of class 'frontier'" )
-      }
       if( object$modelType != objectList[[ i ]]$modelType ){
          stop( "all models must be of the same type",
             " but model '", extractName( object ), "' is an",
