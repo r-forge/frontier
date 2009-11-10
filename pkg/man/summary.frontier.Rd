@@ -44,7 +44,10 @@ returned by \code{\link{frontier}}.
       without time effects).}
 }
 
-\author{Arne Henningsen}
+\author{Arne Henningsen \email{arne.henningsen@gmail.com}}
+
+\seealso{\code{\link{sfa}}, \code{\link{efficiencies.frontier}},
+   and \code{\link{lrtest.frontier}}.}
 
 \examples{
    # example included in FRONTIER 4.1 (cross-section data)

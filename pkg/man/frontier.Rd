@@ -255,9 +255,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       McGraw-Hill, New York.
 }
 
-\seealso{\code{\link{frontierQuad}} for quadratic/translog frontiers.}
+\seealso{\code{\link{frontierQuad}} for quadratic/translog frontiers,
+   \code{\link{summary.frontier}} for creating and printing summary results,
+   \code{\link{efficiencies.frontier}} for calculating efficiency estimates,
+   and \code{\link{lrtest.frontier}} for comparing models by LR tests.}
 
-\author{Tim Coelli and Arne Henningsen}
+\author{Tim Coelli and Arne Henningsen \email{arne.henningsen@gmail.com}}
 
 \examples{
    # example included in FRONTIER 4.1 (cross-section data)
