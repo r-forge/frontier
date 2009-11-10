@@ -5,7 +5,7 @@ Title: Stochastic Frontier Analysis
 Author: Tim Coelli, Arne Henningsen
 Maintainer: Arne Henningsen <arne.henningsen@googlemail.com>
 Depends: R (>= 2.0.0), plm (>= 1.0-1), micEcon (>= 0.5-16), Formula (>= 0.2-0)
-Imports: moments (>= 0.11)
+Imports: moments (>= 0.11), lmtest (>= 0.9-24)
 Description: Maximum Likelihood Estimation of
    Stochastic Frontier Production and Cost Functions.
    Two specifications are available:
