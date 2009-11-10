@@ -141,8 +141,6 @@ gamma         0.7972     0.1364    5.84  5.1e-09 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
-
 number of iterations = 7 
 (maximum number of iterations set at: 1000 )
 
@@ -661,8 +659,6 @@ mu           -1.4106     2.5990   -0.54    0.587
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
-
-LR test of the one-sided error = 3.3023, DF = 2, P-val = 0.082547 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -1192,8 +1188,6 @@ mu           -1.4126     3.2760   -0.43    0.666
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.795 
 
-LR test of the one-sided error = 3.304, DF = 2, P-val = 0.082471 
-
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
 
@@ -1642,8 +1636,6 @@ gamma         0.8401     0.1100    7.63  2.3e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
-
-LR test of the one-sided error = 4.1293, DF = 2, P-val = 0.052788 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -2179,8 +2171,6 @@ gamma           0.8833     0.2203    4.01  6.1e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
-
-LR test of the one-sided error = 4.1824, DF = 3, P-val = 0.13259 
 
 number of iterations = 22 
 (maximum number of iterations set at: 1000 )
@@ -2720,8 +2710,6 @@ gamma           0.8833     0.2144    4.12  3.8e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 4.1824, DF = 3, P-val = 0.13259 
-
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
 
@@ -3118,8 +3106,6 @@ gamma          0.7972     0.1364    5.84  5.1e-09 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
-
 number of iterations = 7 
 (maximum number of iterations set at: 1000 )
 
@@ -3221,8 +3207,6 @@ gamma         0.8854     0.0337   26.29  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
-
-LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
 
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
@@ -5152,8 +5136,6 @@ mu           -1.5867     1.0570   -1.50    0.133
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -82.23 
-
-LR test of the one-sided error = 45.354, DF = 2, P-val = 4.3657e-11 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -7095,8 +7077,6 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
-
-LR test of the one-sided error = 54.115, DF = 3, P-val = 3.5864e-12 
 
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
@@ -9040,8 +9020,6 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
-
-LR test of the one-sided error = 55.186, DF = 4, P-val = 1.0816e-11 
 
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
@@ -10999,8 +10977,6 @@ mu           -1.6058     0.7603   -2.11   0.0347 *
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -82.224 
 
-LR test of the one-sided error = 45.366, DF = 2, P-val = 4.3387e-11 
-
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
 
@@ -12502,8 +12478,6 @@ gamma           0.9788     0.0406   24.11  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186, DF = 4, P-val = 1.0816e-11 
-
 number of iterations = 41 
 (maximum number of iterations set at: 1000 )
 
@@ -13935,8 +13909,6 @@ gamma         0.8854     0.0337   26.29  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
 
-LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
-
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
 
@@ -14050,8 +14022,6 @@ gamma         0.5303     0.1874    2.83   0.0047 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
-
-LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -16003,8 +15973,6 @@ mu           -0.6643     0.4460   -1.49   0.1363
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 40.966 
-
-LR test of the one-sided error = 3.8832, DF = 2, P-val = 0.060256 
 
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
@@ -17967,8 +17935,6 @@ gamma        9.99e-01   2.99e-03  333.71   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.321 
-
-LR test of the one-sided error = 8.5926, DF = 3, P-val = 0.016460 
 
 number of iterations = 168 
 (maximum number of iterations set at: 1000 )
@@ -19951,8 +19917,6 @@ gamma          9.99e-01   2.44e-03  408.49   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6284, DF = 4, P-val = 0.038447 
-
 number of iterations = 181 
 (maximum number of iterations set at: 1000 )
 
@@ -21844,8 +21808,6 @@ gamma         0.5303     0.1878    2.82   0.0047 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
 
-LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
-
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
 
@@ -21950,8 +21912,6 @@ gamma         0.4643     0.0880    5.27  1.3e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.43 
-
-LR test of the one-sided error = 36.953, DF = 1, P-val = 6.0511e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -23090,8 +23050,6 @@ mu           -0.2734     0.9632   -0.28   0.7765
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.343 
 
-LR test of the one-sided error = 37.128, DF = 2, P-val = 2.7194e-09 
-
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
 
@@ -24216,8 +24174,6 @@ time          0.0589     0.0310    1.90  0.05779 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
-
-LR test of the one-sided error = 40.713, DF = 2, P-val = 4.4893e-10 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -25351,8 +25307,6 @@ time          0.0647     0.0357    1.81   0.0696 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
-
-LR test of the one-sided error = 41, DF = 3, P-val = 2.2978e-09 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -26493,8 +26447,6 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
 
-LR test of the one-sided error = 54.115, DF = 3, P-val = 3.5864e-12 
-
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
 
@@ -27633,8 +27585,6 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
-
-LR test of the one-sided error = 55.186, DF = 4, P-val = 1.0816e-11 
 
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
@@ -28794,8 +28744,6 @@ time          0.0647     0.0355    1.82   0.0681 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
-LR test of the one-sided error = 41, DF = 3, P-val = 2.2978e-09 
-
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
 
@@ -29752,8 +29700,6 @@ gamma           0.9788     0.0432   22.64  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186, DF = 4, P-val = 1.0816e-11 
-
 number of iterations = 49 
 (maximum number of iterations set at: 1000 )
 
@@ -30635,8 +30581,6 @@ gamma         0.8854     0.0337   26.29  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.203 
 
-LR test of the one-sided error = 37.408, DF = 1, P-val = 4.7906e-10 
-
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
 
@@ -30751,8 +30695,6 @@ gamma         0.4828     0.1257    3.84  0.00012 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 49.366 
-
-LR test of the one-sided error = 20.683, DF = 1, P-val = 2.7104e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -31908,8 +31850,6 @@ mu           0.24152    0.06457    3.74  0.00018 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 52.39 
-
-LR test of the one-sided error = 26.731, DF = 2, P-val = 5.0908e-07 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -33068,8 +33008,6 @@ time         -0.0336     0.0268   -1.25    0.210
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.183 
-
-LR test of the one-sided error = 22.317, DF = 2, P-val = 4.7183e-06 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -34238,8 +34176,6 @@ time        -0.02707    0.01889   -1.43  0.15191
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 53.198 
 
-LR test of the one-sided error = 28.347, DF = 3, P-val = 1.1429e-06 
-
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )
 
@@ -35397,8 +35333,6 @@ gamma        9.98e-01   3.26e-03  306.51   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.320 
-
-LR test of the one-sided error = 8.5914, DF = 3, P-val = 0.016469 
 
 number of iterations = 166 
 (maximum number of iterations set at: 1000 )
@@ -36573,8 +36507,6 @@ gamma          9.99e-01   2.48e-03  402.56   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6286, DF = 4, P-val = 0.038445 
-
 number of iterations = 179 
 (maximum number of iterations set at: 1000 )
 
@@ -37658,8 +37590,6 @@ gamma         0.5303     0.1878    2.82   0.0047 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
 
-LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
-
 number of iterations = 12 
 (maximum number of iterations set at: 1000 )
 
@@ -37720,8 +37650,6 @@ gamma         0.4636     0.0888    5.22  1.8e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.14 
-
-LR test of the one-sided error = 36.019, DF = 1, P-val = 9.771e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -38808,8 +38736,6 @@ mu           -0.2425     0.9341   -0.26   0.7951
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.066 
 
-LR test of the one-sided error = 36.165, DF = 2, P-val = 4.4129e-09 
-
 number of iterations = 18 
 (maximum number of iterations set at: 1000 )
 
@@ -39883,8 +39809,6 @@ time          0.0585     0.0310    1.89   0.0592 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.282 
-
-LR test of the one-sided error = 39.733, DF = 2, P-val = 7.3445e-10 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -40964,8 +40888,6 @@ time          0.0639     0.0351    1.82   0.0691 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.159 
-
-LR test of the one-sided error = 39.98, DF = 3, P-val = 3.7953e-09 
 
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
@@ -42047,8 +41969,6 @@ gamma         0.9434     0.0293   32.15  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.714 
-
-LR test of the one-sided error = 52.869, DF = 3, P-val = 6.63e-12 
 
 number of iterations = 23 
 (maximum number of iterations set at: 1000 )
@@ -43148,8 +43068,6 @@ gamma           0.9771     0.0444   22.02  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.198 
 
-LR test of the one-sided error = 53.901, DF = 4, P-val = 2.0181e-11 
-
 number of iterations = 46 
 (maximum number of iterations set at: 1000 )
 
@@ -44247,8 +44165,6 @@ gamma         0.4703     0.1271    3.70  0.00022 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 47.502 
-
-LR test of the one-sided error = 19.133, DF = 1, P-val = 6.0957e-06 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -45352,8 +45268,6 @@ mu           0.23937    0.08243    2.90   0.0037 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.482 
-
-LR test of the one-sided error = 25.095, DF = 2, P-val = 1.1615e-06 
 
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
@@ -46459,8 +46373,6 @@ time         -0.0374     0.0284   -1.32    0.188
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 48.44 
-
-LR test of the one-sided error = 21.009, DF = 2, P-val = 9.139e-06 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -47572,8 +47484,6 @@ time        -0.02619    0.02079   -1.26   0.2079
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 51.37 
 
-LR test of the one-sided error = 26.869, DF = 3, P-val = 2.3539e-06 
-
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
 
@@ -48669,8 +48579,6 @@ gamma        9.98e-01   3.36e-03  296.76   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.422 
-
-LR test of the one-sided error = 8.9744, DF = 3, P-val = 0.013719 
 
 number of iterations = 177 
 (maximum number of iterations set at: 1000 )
@@ -49768,8 +49676,6 @@ gamma          9.98e-01   3.04e-03  328.89   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.425 
-
-LR test of the one-sided error = 8.9797, DF = 4, P-val = 0.032989 
 
 number of iterations = 184 
 (maximum number of iterations set at: 1000 )
@@ -50941,8 +50847,6 @@ gamma    0.76233    0.15273    4.99    6e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.434 
 
-LR test of the one-sided error = 2.8458, DF = 1, P-val = 0.045806 
-
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
 
@@ -51690,8 +51594,6 @@ gamma    0.75478    0.15506    4.87  1.1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -14.032 
-
-LR test of the one-sided error = 2.7085, DF = 1, P-val = 0.049906 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -52444,8 +52346,6 @@ gamma     0.819488   0.120652    6.79  1.1e-11 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -13.746 
 
-LR test of the one-sided error = 4.2215, DF = 2, P-val = 0.050245 
-
 number of iterations = 17 
 (maximum number of iterations set at: 1000 )
 
@@ -53120,8 +53020,6 @@ gamma          0.7972     0.1364    5.84  5.1e-09 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -17.027 
 
-LR test of the one-sided error = 2.8392, DF = 1, P-val = 0.045994 
-
 number of iterations = 7 
 (maximum number of iterations set at: 1000 )
 
@@ -53223,8 +53121,6 @@ mu           -1.4106     2.5990   -0.54    0.587
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.796 
 
-LR test of the one-sided error = 3.3023, DF = 2, P-val = 0.082547 
-
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
 
@@ -53325,8 +53221,6 @@ gamma          0.8401     0.1100    7.63  2.3e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.382 
-
-LR test of the one-sided error = 4.1293, DF = 2, P-val = 0.052788 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -53430,8 +53324,6 @@ gamma           0.8833     0.2203    4.01  6.1e-05 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -16.356 
 
-LR test of the one-sided error = 4.1824, DF = 3, P-val = 0.13259 
-
 number of iterations = 22 
 (maximum number of iterations set at: 1000 )
 
@@ -53533,8 +53425,6 @@ gamma         0.5303     0.1874    2.83   0.0047 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.931 
-
-LR test of the one-sided error = 1.8117, DF = 1, P-val = 0.089153 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -53975,8 +53865,6 @@ mu           -0.6643     0.4460   -1.49   0.1363
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 40.966 
 
-LR test of the one-sided error = 3.8832, DF = 2, P-val = 0.060256 
-
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
 
@@ -54416,8 +54304,6 @@ gamma        9.99e-01   2.99e-03  333.71   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.321 
-
-LR test of the one-sided error = 8.5926, DF = 3, P-val = 0.016460 
 
 number of iterations = 168 
 (maximum number of iterations set at: 1000 )
@@ -54860,8 +54746,6 @@ gamma          9.99e-01   2.44e-03  408.49   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6284, DF = 4, P-val = 0.038447 
-
 number of iterations = 181 
 (maximum number of iterations set at: 1000 )
 
@@ -55299,8 +55183,6 @@ gamma         0.4643     0.0880    5.27  1.3e-07 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.43 
 
-LR test of the one-sided error = 36.953, DF = 1, P-val = 6.0511e-10 
-
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
 
@@ -55463,8 +55345,6 @@ mu           -0.2734     0.9632   -0.28   0.7765
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -86.343 
 
-LR test of the one-sided error = 37.128, DF = 2, P-val = 2.7194e-09 
-
 number of iterations = 19 
 (maximum number of iterations set at: 1000 )
 
@@ -55626,8 +55506,6 @@ time          0.0589     0.0310    1.90  0.05779 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.55 
-
-LR test of the one-sided error = 40.713, DF = 2, P-val = 4.4893e-10 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -55796,8 +55674,6 @@ time          0.0647     0.0357    1.81   0.0696 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -84.407 
 
-LR test of the one-sided error = 41, DF = 3, P-val = 2.2978e-09 
-
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
 
@@ -55964,8 +55840,6 @@ gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.85 
-
-LR test of the one-sided error = 54.115, DF = 3, P-val = 3.5864e-12 
 
 number of iterations = 24 
 (maximum number of iterations set at: 1000 )
@@ -56209,8 +56083,6 @@ gamma           0.9788     0.0452   21.65  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -77.314 
 
-LR test of the one-sided error = 55.186, DF = 4, P-val = 1.0816e-11 
-
 number of iterations = 47 
 (maximum number of iterations set at: 1000 )
 
@@ -56377,8 +56249,6 @@ gamma         0.4828     0.1257    3.84  0.00012 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 49.366 
 
-LR test of the one-sided error = 20.683, DF = 1, P-val = 2.7104e-06 
-
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
 
@@ -56520,8 +56390,6 @@ mu           0.24152    0.06457    3.74  0.00018 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 52.39 
 
-LR test of the one-sided error = 26.731, DF = 2, P-val = 5.0908e-07 
-
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
 
@@ -56662,8 +56530,6 @@ time         -0.0336     0.0268   -1.25    0.210
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.183 
-
-LR test of the one-sided error = 22.317, DF = 2, P-val = 4.7183e-06 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -56811,8 +56677,6 @@ time        -0.02707    0.01889   -1.43  0.15191
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 53.198 
 
-LR test of the one-sided error = 28.347, DF = 3, P-val = 1.1429e-06 
-
 number of iterations = 14 
 (maximum number of iterations set at: 1000 )
 
@@ -56958,8 +56822,6 @@ gamma        9.98e-01   3.26e-03  306.51   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.320 
-
-LR test of the one-sided error = 8.5914, DF = 3, P-val = 0.016469 
 
 number of iterations = 166 
 (maximum number of iterations set at: 1000 )
@@ -57108,8 +56970,6 @@ gamma          9.99e-01   2.48e-03  402.56   <2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 43.339 
 
-LR test of the one-sided error = 8.6286, DF = 4, P-val = 0.038445 
-
 number of iterations = 179 
 (maximum number of iterations set at: 1000 )
 
@@ -57252,8 +57112,6 @@ gamma         0.4636     0.0888    5.22  1.8e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.14 
-
-LR test of the one-sided error = 36.019, DF = 1, P-val = 9.771e-10 
 
 number of iterations = 11 
 (maximum number of iterations set at: 1000 )
@@ -57417,8 +57275,6 @@ mu           -0.2425     0.9341   -0.26   0.7951
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -87.066 
 
-LR test of the one-sided error = 36.165, DF = 2, P-val = 4.4129e-09 
-
 number of iterations = 18 
 (maximum number of iterations set at: 1000 )
 
@@ -57580,8 +57436,6 @@ time          0.0585     0.0310    1.89   0.0592 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.282 
-
-LR test of the one-sided error = 39.733, DF = 2, P-val = 7.3445e-10 
 
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
@@ -57750,8 +57604,6 @@ time          0.0639     0.0351    1.82   0.0691 .
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -85.159 
 
-LR test of the one-sided error = 39.98, DF = 3, P-val = 3.7953e-09 
-
 number of iterations = 20 
 (maximum number of iterations set at: 1000 )
 
@@ -57918,8 +57770,6 @@ gamma         0.9434     0.0293   32.15  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.714 
-
-LR test of the one-sided error = 52.869, DF = 3, P-val = 6.63e-12 
 
 number of iterations = 23 
 (maximum number of iterations set at: 1000 )
@@ -58089,8 +57939,6 @@ gamma           0.9771     0.0444   22.02  < 2e-16 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -78.198 
 
-LR test of the one-sided error = 53.901, DF = 4, P-val = 2.0181e-11 
-
 number of iterations = 46 
 (maximum number of iterations set at: 1000 )
 
@@ -58257,8 +58105,6 @@ gamma         0.4703     0.1271    3.70  0.00022 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 47.502 
 
-LR test of the one-sided error = 19.133, DF = 1, P-val = 6.0957e-06 
-
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
 
@@ -58400,8 +58246,6 @@ mu           0.23937    0.08243    2.90   0.0037 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 50.482 
 
-LR test of the one-sided error = 25.095, DF = 2, P-val = 1.1615e-06 
-
 number of iterations = 15 
 (maximum number of iterations set at: 1000 )
 
@@ -58542,8 +58386,6 @@ time         -0.0374     0.0284   -1.32    0.188
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 48.44 
-
-LR test of the one-sided error = 21.009, DF = 2, P-val = 9.139e-06 
 
 number of iterations = 16 
 (maximum number of iterations set at: 1000 )
@@ -58691,8 +58533,6 @@ time        -0.02619    0.02079   -1.26   0.2079
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 51.37 
 
-LR test of the one-sided error = 26.869, DF = 3, P-val = 2.3539e-06 
-
 number of iterations = 13 
 (maximum number of iterations set at: 1000 )
 
@@ -58838,8 +58678,6 @@ gamma        9.98e-01   3.36e-03  296.76   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.422 
-
-LR test of the one-sided error = 8.9744, DF = 3, P-val = 0.013719 
 
 number of iterations = 177 
 (maximum number of iterations set at: 1000 )
@@ -58987,8 +58825,6 @@ gamma          9.98e-01   3.04e-03  328.89   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 42.425 
-
-LR test of the one-sided error = 8.9797, DF = 4, P-val = 0.032989 
 
 number of iterations = 184 
 (maximum number of iterations set at: 1000 )
