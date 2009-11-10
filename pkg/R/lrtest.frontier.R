@@ -25,10 +25,29 @@ lrtest.frontier <- function( object, ... ) {
       # fill in #DF and log likelihood value of MLE estimation
       result[ 2, "#Df" ] <- attributes( mleLogLik )$df
       result[ 2, "LogLik" ] <- mleLogLik[ 1 ]
-      # fill in #DF of the test, test statistic, and P-value
-      result[ 2, "Df" ] <- object$lrTestDf
-      result[ 2, "Chisq" ] <- object$lrTestVal
-      result[ 2, "Pr(>Chisq)" ] <- object$lrTestPval
+      # #DF of the test
+      result[ 2, "Df" ] <- result[ 2, "#Df" ] - result[ 1, "#Df" ]
+      # test statistic
+      result[ 2, "Chisq" ] <- 2 *
+         ( result[ 2, "LogLik" ] - result[ 1, "LogLik" ] )
+      # P-value
+      if( result[ 2, "Df" ] == 1 ) {
+         result[ 2, "Pr(>Chisq)" ] <-
+            0.5 * pchisq( result[ 2, "Chisq" ], 0, lower.tail = FALSE ) +
+            0.5 * pchisq( result[ 2, "Chisq" ], 1, lower.tail = FALSE )
+      } else if( result[ 2, "Df" ] > 1 ) {
+         result[ 2, "Pr(>Chisq)" ] <-
+            0.25 * pchisq( result[ 2, "Chisq" ], result[ 2, "Df" ] - 2,
+               lower.tail = FALSE ) +
+            0.5 * pchisq( result[ 2, "Chisq" ], result[ 2, "Df" ] - 1,
+               lower.tail = FALSE ) +
+            0.25 * pchisq( result[ 2, "Chisq" ], result[ 2, "Df" ],
+               lower.tail = FALSE )
+      } else {
+         stop( "internal error: degrees of freedom of the LR test are",
+            " non-positive (", result[ 2, "Df" ], ")" )
+      }
+
       # add appropriate class
       class( result ) <- c( "anova", class( result ) )
       # add heading for this test
