@@ -380,6 +380,7 @@ sfa <- function(
    }
 
    ## warnings regarding wrong skewness, smaller logLik value, and no convergence
+   warnMaxit <- maxit <= returnObj$nIter && maxit > 0
    if( !returnObj$olsSkewnessOkay && returnObj$lrTestVal < 0 ) {
       warning( "the residuals of the OLS estimates are ",
          ifelse( ineffDecrease, "right", "left" ), "-skewed",
@@ -392,12 +393,13 @@ sfa <- function(
          ifelse( ineffDecrease, "right", "left" ), "-skewed;",
          " this might indicate that there is no inefficiency",
          " or that the model is misspecified" )
-   } else if( returnObj$lrTestVal < 0 && maxit <= returnObj$nIter && maxit > 0 ) {
+   } else if( returnObj$lrTestVal < 0 && warnMaxit ) {
       warning( "the maximum number of iterations has been reached and",
          " the likelihood value of the ML estimation is less",
          " than that obtained using OLS;",
          " please try again using different starting values and/or",
          " increase the maximum number of iterations" )
+      warnMaxit <- FALSE
    } else if( returnObj$lrTestVal < 0 ) {
       warning( "the likelihood value of the ML estimation is less",
          " than that obtained using OLS;",
@@ -406,7 +408,7 @@ sfa <- function(
          " that there is no inefficiency",
          " (you could try again using different starting values)" )
    }
-   if( returnObj$lrTestVal >= 0 && maxit <= returnObj$nIter && maxit > 0 ) {
+   if( warnMaxit ) {
       warning( "the maximum number of iterations has been reached;",
          " please try again using different starting values and/or",
          " increase the maximum number of iterations" )
