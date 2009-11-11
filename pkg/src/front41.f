@@ -120,7 +120,6 @@ c       contains the main loop of this iterative program.
    40   call search(x,y,s,gx,delx,yy,xx)
 	iter=iter+1   
 	if (iter.ge.maxit) then
-	write(6,*) 'maximum number of iterations reached'  
 	goto 70
 	endif  
    7    if(fy.gt.fx) goto 5 
