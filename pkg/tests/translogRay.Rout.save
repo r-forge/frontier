@@ -412,15 +412,6 @@ $olsSkewness
 $olsSkewnessOkay
 [1] FALSE
 
-$lrTestVal
-[1] -0.006239353
-
-$lrTestDf
-[1] 1
-
-$lrTestPval
-[1] 1
-
 $truncNorm
 [1] FALSE
 

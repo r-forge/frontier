@@ -354,34 +354,10 @@ sfa <- function(
    returnObj$olsSkewness <- skewness( returnObj$olsResid )
    returnObj$olsSkewnessOkay <- returnObj$olsSkewness * ( -1 )^ineffDecrease >= 0
 
-   ## likelihood ratio test
-   returnObj$lrTestVal <- 2 * (returnObj$mleLogl - returnObj$olsLogl )
-   # degrees of freedom of the likelihood ratio test
-   if( returnObj$modelType == 1 ) {
-      returnObj$lrTestDf <- truncNorm + timeEffect + 1
-   } else {
-      returnObj$lrTestDf <- zIntercept + nZvars + 1
-   }
-   if( returnObj$lrTestDf == 1 ) {
-      returnObj$lrTestPval <-
-         0.5 * pchisq( returnObj$lrTestVal, 0, lower.tail = FALSE ) +
-         0.5 * pchisq( returnObj$lrTestVal, 1, lower.tail = FALSE )
-   } else if( returnObj$lrTestDf > 1 ) {
-      returnObj$lrTestPval <-
-         0.25 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf - 2,
-            lower.tail = FALSE ) +
-         0.5 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf - 1,
-            lower.tail = FALSE ) +
-         0.25 * pchisq( returnObj$lrTestVal, returnObj$lrTestDf,
-            lower.tail = FALSE )
-   } else {
-      stop( "internal error: degrees of freedom of the LR test are",
-         " non-positive (", returnObj$lrTestDf, ")" )
-   }
 
    ## warnings regarding wrong skewness, smaller logLik value, and no convergence
    warnMaxit <- maxit <= returnObj$nIter && maxit > 0
-   if( !returnObj$olsSkewnessOkay && returnObj$lrTestVal < 0 ) {
+   if( !returnObj$olsSkewnessOkay && returnObj$mleLogl < returnObj$olsLogl ) {
       warning( "the residuals of the OLS estimates are ",
          ifelse( ineffDecrease, "right", "left" ), "-skewed",
          " and the likelihood value of the ML estimation is less",
@@ -393,14 +369,14 @@ sfa <- function(
          ifelse( ineffDecrease, "right", "left" ), "-skewed;",
          " this might indicate that there is no inefficiency",
          " or that the model is misspecified" )
-   } else if( returnObj$lrTestVal < 0 && warnMaxit ) {
+   } else if( returnObj$mleLogl < returnObj$olsLogl && warnMaxit ) {
       warning( "the maximum number of iterations has been reached and",
          " the likelihood value of the ML estimation is less",
          " than that obtained using OLS;",
          " please try again using different starting values and/or",
          " increase the maximum number of iterations" )
       warnMaxit <- FALSE
-   } else if( returnObj$lrTestVal < 0 ) {
+   } else if( returnObj$mleLogl < returnObj$olsLogl ) {
       warning( "the likelihood value of the ML estimation is less",
          " than that obtained using OLS;",
          " this indicates that the likelihood maximization did not",

@@ -221,11 +221,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{mleCov}{matrix. Covariance matrix of the parameters obtained
       from the OLS estimation.}
    \item{mleLogl}{numeric. Log likelihood value of the ML estimation.}
-   \item{lrTestVal}{LR test of the one-sided error
-      (this statistic has a mixed chi-square distribution
-      with \code{lrTestDf} degrees of freedom.}
-   \item{lrTestDf}{numeric. Degrees of freedom of the LR test.}
-   \item{lrTestPval}{numeric. P-value of the LR test.}
    \item{nIter}{numeric. Number of iterations of the ML estimation.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;
