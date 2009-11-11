@@ -153,8 +153,6 @@ sigmaSq       0.21847    0.99541  0.2195   0.8263
 gamma         0.80098    0.99760  0.8029   0.4220
 log likelihood value: -17.03291 
 
-LR test of the one-sided error = 2.827863, DF = 1, P-val = 0.04632079 
-
 number of iterations = 2 
 (maximum number of iterations set at: 2 )
 
@@ -182,8 +180,6 @@ log(labour)   0.50580    0.58085  0.8708   0.3839
 sigmaSq       0.97730    0.98320  0.9940   0.3202
 gamma         0.36130    0.90323  0.4000   0.6892
 log likelihood value: -56.03528 
-
-LR test of the one-sided error = -75.17688, DF = 1, P-val = 1 
 
 number of iterations = 2 
 (maximum number of iterations set at: 2 )
@@ -215,8 +211,6 @@ sigmaSq       0.11224    0.71844  0.1562   0.8759
 gamma         0.04848    0.98784  0.0491   0.9609
 log likelihood value: -18.46032 
 
-LR test of the one-sided error = -0.02695003, DF = 1, P-val = 1 
-
 number of iterations = 2 
 (maximum number of iterations set at: 2 )
 
@@ -246,8 +240,6 @@ gamma         1.0000e-08  2.8544e-06  0.0035   0.9972
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -162.9074 
-
-LR test of the one-sided error = -288.921, DF = 1, P-val = 1 
 
 number of iterations = 10 
 (maximum number of iterations set at: 1000 )
