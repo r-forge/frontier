@@ -143,6 +143,7 @@ In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
+convergence NOT achieved after 2 iterations
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)
@@ -152,9 +153,6 @@ log(labour)   0.53294    0.40183  1.3263   0.1847
 sigmaSq       0.21847    0.99541  0.2195   0.8263
 gamma         0.80098    0.99760  0.8029   0.4220
 log likelihood value: -17.03291 
-
-number of iterations = 2 
-(maximum number of iterations set at: 2 )
 
 cross-sectional data
 total number of observations = 60 
@@ -171,6 +169,7 @@ In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
+convergence NOT achieved after 2 iterations
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)
@@ -180,9 +179,6 @@ log(labour)   0.50580    0.58085  0.8708   0.3839
 sigmaSq       0.97730    0.98320  0.9940   0.3202
 gamma         0.36130    0.90323  0.4000   0.6892
 log likelihood value: -56.03528 
-
-number of iterations = 2 
-(maximum number of iterations set at: 2 )
 
 cross-sectional data
 total number of observations = 60 
@@ -201,6 +197,7 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
+convergence NOT achieved after 2 iterations
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)
@@ -210,9 +207,6 @@ log(labour)   0.53357    0.76527  0.6972   0.4857
 sigmaSq       0.11224    0.71844  0.1562   0.8759
 gamma         0.04848    0.98784  0.0491   0.9609
 log likelihood value: -18.46032 
-
-number of iterations = 2 
-(maximum number of iterations set at: 2 )
 
 cross-sectional data
 total number of observations = 60 
@@ -229,6 +223,7 @@ In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
+convergence achieved after 10 iterations
 
 final maximum likelihood estimates
                 Estimate  Std. Error z value Pr(>|z|)    
@@ -240,9 +235,6 @@ gamma         1.0000e-08  2.8544e-06  0.0035   0.9972
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -162.9074 
-
-number of iterations = 10 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 60 

@@ -79,6 +79,7 @@ In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
+convergence achieved after 50 iterations
 
 final maximum likelihood estimates
                Estimate Std. Error z value  Pr(>|z|)    
@@ -90,9 +91,6 @@ gamma        1.4013e-05 1.5175e-02  0.0009    0.9993
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.44684 
-
-number of iterations = 50 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 60 
@@ -117,6 +115,7 @@ In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
+convergence achieved after 12 iterations
 
 final maximum likelihood estimates
                Estimate Std. Error z value  Pr(>|z|)    
@@ -129,9 +128,6 @@ mu           -0.0499208  0.4947342 -0.1009    0.9196
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.44699 
-
-number of iterations = 12 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 60 
@@ -156,6 +152,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
+convergence achieved after 46 iterations
 
 final maximum likelihood estimates
                Estimate  Std. Error z value  Pr(>|z|)    
@@ -168,9 +165,6 @@ gamma        9.5576e-06  6.3316e-03  0.0015    0.9988
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.9068 
-
-number of iterations = 46 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 344 
@@ -195,6 +189,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
+convergence achieved after 12 iterations
 
 final maximum likelihood estimates
               Estimate Std. Error z value  Pr(>|z|)    
@@ -208,9 +203,6 @@ mu          -0.0472828  0.1849685 -0.2556    0.7982
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.9087 
-
-number of iterations = 12 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 344 
@@ -237,6 +229,7 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP),  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
+convergence achieved after 60 iterations
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -250,9 +243,6 @@ gamma       5.7736e-05 1.4198e-02  0.0041   0.9968
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.02474 
-
-number of iterations = 60 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 344 
@@ -277,6 +267,7 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP),  :
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
+convergence achieved after 14 iterations
 
 final maximum likelihood estimates
              Estimate Std. Error z value  Pr(>|z|)    
@@ -291,9 +282,6 @@ mu          -0.037770   0.201138 -0.1878    0.8510
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.02398 
-
-number of iterations = 14 
-(maximum number of iterations set at: 1000 )
 
 cross-sectional data
 total number of observations = 344 

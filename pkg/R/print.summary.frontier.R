@@ -19,13 +19,15 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
    } else {
       cat( "The dependent variable is not logged\n" )
    }
+   if( x$nIter < x$maxit ) {
+      cat( "convergence achieved after", x$nIter, "iterations\n" )
+   } else {
+      cat( "convergence NOT achieved after", x$nIter, "iterations\n" )
+   }
 
    cat( "\nfinal maximum likelihood estimates\n" )
    printCoefmat( coef( x ) )
    cat( "log likelihood value:", x$mleLogl, "\n" )
-
-   cat( "\nnumber of iterations =", x$nIter, "\n" )
-   cat( "(maximum number of iterations set at:", x$maxit, ")\n" )
 
    if( x$nt == 1 ) {
       cat( "\ncross-sectional data\n" )
