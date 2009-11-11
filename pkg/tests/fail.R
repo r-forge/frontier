@@ -44,4 +44,22 @@ try( sfa( log( output ) ~ log( capital ) + log( labour ) | log( 0 * firmNo ),
 try( sfa( log( output ) ~ log( capital ) + log( labour ) | log(-firmNo ),
    data = front41Data ) )
 
+## no convergence
+a1 <- sfa( log( output ) ~ log( capital ) + log( labour ),
+   data = front41Data, maxit = 2 )
+summary( a1 )
 
+## no convergence, L(MLE) < L(OLS)
+a2 <- sfa( log( output ) ~ log( capital ) + log( labour ),
+   data = front41Data, maxit = 2, start = c( 1, 0, 0, 1, 0.5 ) )
+summary( a2 )
+
+## no convergence, L(MLE) < L(OLS), wrong skewness
+a3 <- sfa( log( output ) ~ log( capital ) + log( labour ),
+   data = front41Data, maxit = 2, ineffDecrease = FALSE )
+summary( a3 )
+
+## L(MLE) < L(OLS)
+a4 <- sfa( log( output ) ~ log( capital ) + log( labour ),
+   data = front41Data, start = c( 1, 0, 0, 1, 0.999995 ) )
+summary( a4 )

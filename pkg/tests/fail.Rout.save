@@ -133,5 +133,130 @@ Error in sfa(log(output) ~ log(capital) + log(labour) | log(-firmNo),  :
 In addition: Warning message:
 In log(-firmNo) : NaNs produced
 > 
+> ## no convergence
+> a1 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data, maxit = 2 )
+Warning message:
+In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the maximum number of iterations has been reached; please try again using different starting values and/or increase the maximum number of iterations
+> summary( a1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)   0.57926    0.97370  0.5949   0.5519
+log(capital)  0.27989    0.95104  0.2943   0.7685
+log(labour)   0.53294    0.40183  1.3263   0.1847
+sigmaSq       0.21847    0.99541  0.2195   0.8263
+gamma         0.80098    0.99760  0.8029   0.4220
+log likelihood value: -17.03291 
+
+LR test of the one-sided error = 2.827863, DF = 1, P-val = 0.04632079 
+
+number of iterations = 2 
+(maximum number of iterations set at: 2 )
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.7391901 
 > 
+> ## no convergence, L(MLE) < L(OLS)
+> a2 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data, maxit = 2, start = c( 1, 0, 0, 1, 0.5 ) )
+Warning message:
+In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the maximum number of iterations has been reached and the likelihood value of the ML estimation is less than that obtained using OLS; please try again using different starting values and/or increase the maximum number of iterations
+> summary( a2 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)   1.12166    0.97915  1.1455   0.2520
+log(capital)  0.20130    0.96013  0.2097   0.8339
+log(labour)   0.50580    0.58085  0.8708   0.3839
+sigmaSq       0.97730    0.98320  0.9940   0.3202
+gamma         0.36130    0.90323  0.4000   0.6892
+log likelihood value: -56.03528 
+
+LR test of the one-sided error = -75.17688, DF = 1, P-val = 1 
+
+number of iterations = 2 
+(maximum number of iterations set at: 2 )
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.648431 
 > 
+> ## no convergence, L(MLE) < L(OLS), wrong skewness
+> a3 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data, maxit = 2, ineffDecrease = FALSE )
+Warning messages:
+1: In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
+2: In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the maximum number of iterations has been reached; please try again using different starting values and/or increase the maximum number of iterations
+> summary( a3 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function
+The dependent variable is logged
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)   0.18532    0.98590  0.1880   0.8509
+log(capital)  0.28057    0.97569  0.2876   0.7737
+log(labour)   0.53357    0.76527  0.6972   0.4857
+sigmaSq       0.11224    0.71844  0.1562   0.8759
+gamma         0.04848    0.98784  0.0491   0.9609
+log likelihood value: -18.46032 
+
+LR test of the one-sided error = -0.02695003, DF = 1, P-val = 1 
+
+number of iterations = 2 
+(maximum number of iterations set at: 2 )
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 1.061667 
+> 
+> ## L(MLE) < L(OLS)
+> a4 <- sfa( log( output ) ~ log( capital ) + log( labour ),
++    data = front41Data, start = c( 1, 0, 0, 1, 0.999995 ) )
+Warning message:
+In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the likelihood value of the ML estimation is less than that obtained using OLS; this indicates that the likelihood maximization did not converge to the global maximum or that there is no inefficiency (you could try again using different starting values)
+> summary( a4 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+
+final maximum likelihood estimates
+                Estimate  Std. Error z value Pr(>|z|)    
+(Intercept)  -5.5210e+00  3.7061e+00 -1.4897   0.1363    
+log(capital)  6.6312e-01  8.9159e-01  0.7437   0.4570    
+log(labour)   1.4994e+00  9.3547e-01  1.6028   0.1090    
+sigmaSq       3.2841e+01  2.6564e+00 12.3628   <2e-16 ***
+gamma         1.0000e-08  2.8544e-06  0.0035   0.9972    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -162.9074 
+
+LR test of the one-sided error = -288.921, DF = 1, P-val = 1 
+
+number of iterations = 10 
+(maximum number of iterations set at: 1000 )
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.999543 
+> 
+ maximum number of iterations reached
+ maximum number of iterations reached
+ maximum number of iterations reached
