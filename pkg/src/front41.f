@@ -367,7 +367,7 @@ c       determines the step length (t) using a unidimensional search.
    99   continue   
 	goto 33
   325   if(ntol.ne.0.and.iprint.eq.1) write(6,3000) ntol  
- 3000   format(1x,'tolerance reduced',i1,'time(s)')   
+ 3000   format(1x,'tolerance reduced ',i2,' time(s)')
   326   if(fy.lt.fx) return   
 	do 101 i=1,n   
 	if(s(i).ne.-gx(i)) return  
@@ -375,7 +375,7 @@ c       determines the step length (t) using a unidimensional search.
 	write(6,5000)  
  5000   format(' search failed on gradient step, termination')
 	return 
-   33   if(ntol.eq.5) goto 34  
+   33   if(ntol.eq.10) goto 34
 	iexit=0
 	ntol=ntol+1
 	ftol=ftol/10.  
