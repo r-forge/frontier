@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -30,6 +30,13 @@ Loading required package: zoo
 Loading required package: micEcon
 Loading required package: systemfit
 Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following object(s) are masked from 'package:base':
+
+    det
+
 Loading required package: car
 Loading required package: lmtest
 Loading required package: np
@@ -37,20 +44,17 @@ Loading required package: boot
 
 Attaching package: 'boot'
 
+The following object(s) are masked from 'package:car':
 
-	The following object(s) are masked from package:car :
+    logit
 
-	 logit 
+The following object(s) are masked from 'package:lattice':
 
+    melanoma
 
-	The following object(s) are masked from package:lattice :
+The following object(s) are masked from 'package:survival':
 
-	 melanoma 
-
-
-	The following object(s) are masked from package:survival :
-
-	 aml 
+    aml
 
 Loading required package: cubature
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-7)
@@ -124,10 +128,10 @@ Loading required package: miscTools
 > # Comparisons
 > rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
-[1,]   -1.145231 0.3539752 0.3344151 0.2728684 25.04219 0.9985631 -91.97841
-[2,]   -1.144160 0.3540077 0.3343342 0.2728599 14.17584 0.9974693 -51.62613
+[1,]   -1.144454 0.3540003 0.3343596 0.2728686 14.67986 0.9975543 -53.52347
+[2,]   -1.144442 0.3540016 0.3343550 0.2728636 15.69587 0.9977124 -57.27907
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ) )
-[1] "Mean relative difference: 0.0006332687"
+[1] "Mean relative difference: 3.584463e-05"
 > 
 > 
 > ############ panel data ###############
@@ -185,18 +189,18 @@ Loading required package: miscTools
 > all.equal( b6eef[ -c( 3, 4, 16, 26, 34 ) ], bb6eef[ -c( 3, 4, 16, 26, 34 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
-[1] "Mean relative difference: 0.0006332687"
+[1] "Mean relative difference: 3.584463e-05"
 > all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ) )
-[1] "Mean relative difference: 0.002192908"
+[1] "Mean relative difference: 0.0001004992"
 > 
 > # Comparisons
 > rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
-[1,]   -1.145231 0.3539752 0.3344151 0.2728684 25.04219 0.9985631 -91.97841
-[2,]   -1.144160 0.3540077 0.3343342 0.2728599 14.17584 0.9974693 -51.62613
+[1,]   -1.144454 0.3540003 0.3343596 0.2728686 14.67986 0.9975543 -53.52347
+[2,]   -1.144442 0.3540016 0.3343550 0.2728636 15.69587 0.9977124 -57.27907
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
-[1] "Mean relative difference: 0.0006332687"
+[1] "Mean relative difference: 3.584463e-05"
 > all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ) )
-[1] "Mean relative difference: 0.002192908"
+[1] "Mean relative difference: 0.0001004992"
 > 
 > 

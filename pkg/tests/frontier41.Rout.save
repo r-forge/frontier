@@ -1,6 +1,6 @@
 
-R version 2.10.1 (2009-12-14)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -30,6 +30,13 @@ Loading required package: zoo
 Loading required package: micEcon
 Loading required package: systemfit
 Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following object(s) are masked from 'package:base':
+
+    det
+
 Loading required package: car
 Loading required package: lmtest
 Loading required package: np
@@ -37,20 +44,17 @@ Loading required package: boot
 
 Attaching package: 'boot'
 
+The following object(s) are masked from 'package:car':
 
-	The following object(s) are masked from package:car :
+    logit
 
-	 logit 
+The following object(s) are masked from 'package:lattice':
 
+    melanoma
 
-	The following object(s) are masked from package:lattice :
+The following object(s) are masked from 'package:survival':
 
-	 melanoma 
-
-
-	The following object(s) are masked from package:survival :
-
-	 aml 
+    aml
 
 Loading required package: cubature
 Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-7)
