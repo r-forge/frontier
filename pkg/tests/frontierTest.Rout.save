@@ -28,25 +28,10 @@ Loading required package: MASS
 Loading required package: sandwich
 Loading required package: zoo
 Loading required package: micEcon
-Loading required package: systemfit
-Loading required package: Matrix
-
-Attaching package: 'Matrix'
-
-The following object(s) are masked from 'package:base':
-
-    det
-
-Loading required package: car
-Loading required package: lmtest
 Loading required package: np
 Loading required package: boot
 
 Attaching package: 'boot'
-
-The following object(s) are masked from 'package:car':
-
-    logit
 
 The following object(s) are masked from 'package:lattice':
 
@@ -57,8 +42,9 @@ The following object(s) are masked from 'package:survival':
     aml
 
 Loading required package: cubature
-Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-7)
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-8)
 Loading required package: miscTools
+Loading required package: lmtest
 > options( digits = 5 )
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
@@ -51007,9 +50993,6 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
 
-$quadHalf
-[1] TRUE
-
 attr(,"class")
 [1] "frontierQuad" "frontier"    
 > 
@@ -51750,9 +51733,6 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
 
-$quadHalf
-[1] TRUE
-
 attr(,"class")
 [1] "frontierQuad" "frontier"    
 > 
@@ -52483,9 +52463,6 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
-
-$quadHalf
-[1] TRUE
 
 attr(,"class")
 [1] "frontierQuad" "frontier"    
