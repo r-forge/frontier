@@ -282,7 +282,12 @@ c       determines the step length (t) using a unidimensional search.
    2    y(i)=x(i)+d*s(i)
 	if (im.eq.1) call fun1(y,f,yy,xx) 
 	if (im.eq.2) call fun2(y,f,yy,xx) 
-	k=k+1  
+      if (f.ne.f) then
+      write(6,2505)
+ 2505 format(' function value in search procedure is NaN')
+      return
+      endif
+	k=k+1
 	if(f-fa) 5,3,6 
    3    do 4 i=1,n  
    4    y(i)=x(i)+da*s(i)   
@@ -348,7 +353,7 @@ c       determines the step length (t) using a unidimensional search.
    20   fc=f   
 	dc=d   
    21   a=fa*(db-dc)+fb*(dc-da)+fc*(da-db) 
-	if(a) 22,30,22 
+	if(a) 22,30,22
    22   d=0.5*((db*db-dc*dc)*fa+(dc*dc-da*da)*fb+(da*da-db*db)*fc)/a   
 	if((da-d)*(d-dc)) 13,13,23 
    23   do 24 i=1,n
