@@ -324,7 +324,8 @@ sfa <- function(
       mleParam = as.double( rep( 0, nParamTotal ) ),
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
-      nIter = as.integer( 0 ) )
+      nIter = as.integer( 0 ),
+      code = as.integer( 0 ) )
    returnObj$nStartVal <- NULL
    returnObj$nRowData <- NULL
    returnObj$nColData <- NULL
