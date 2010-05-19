@@ -80,7 +80,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 1 iterations
+iteration failed:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value of the initial parameters
 
 final maximum likelihood estimates
            Estimate  Std. Error   z value  Pr(>|z|)    

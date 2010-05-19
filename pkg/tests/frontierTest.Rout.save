@@ -113,7 +113,9 @@ gamma         0.0092520 -9.1555e-05 -1.6405e-04  6.7451e-03  1.8612e-02
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 7 iterations
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -623,7 +625,9 @@ mu           6.75459757
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -1143,7 +1147,9 @@ mu          10.732178
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 10 iterations
+Iterative ML estimation terminated after 10 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -1584,7 +1590,9 @@ gamma        0.01210715
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -2110,7 +2118,9 @@ gamma          0.1737847  0.0485123
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 22 iterations
+Iterative ML estimation terminated after 22 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -2640,7 +2650,9 @@ gamma          0.1644165  0.04595411
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -3030,7 +3042,9 @@ attr(,"class")
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 7 iterations
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -3129,7 +3143,9 @@ gamma        0.00113407
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 10 iterations
+Iterative ML estimation terminated after 10 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -5049,7 +5065,9 @@ mu          -2.6041e-02  1.1172608
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -6981,7 +6999,9 @@ gamma       -0.02028199  8.3194e-03  8.4322e-04
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 24 iterations
+Iterative ML estimation terminated after 24 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -8915,7 +8935,9 @@ gamma         -0.00149880  -0.358565   0.1664136  2.0433e-03
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 47 iterations
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -10865,7 +10887,9 @@ mu          -1.1965e-02  0.5781028
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -12356,7 +12380,9 @@ gamma         -0.00179250  -0.285096   0.1326407  0.00164808
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 41 iterations
+Iterative ML estimation terminated after 41 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -13782,7 +13808,9 @@ attr(,"class")
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 10 iterations
+Iterative ML estimation terminated after 10 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -13893,7 +13921,9 @@ gamma        2.4913e-03  0.03510855
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -15835,7 +15865,9 @@ mu          -0.02353944 -0.04355540  0.19888407
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -17788,7 +17820,9 @@ gamma         -0.34789    -2.38588  3.4709e-01  1.4292e-04
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 124 iterations
+Iterative ML estimation terminated after 124 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -19760,7 +19794,9 @@ gamma           -6.9503e-02 -7.8333e-02 -4.8889e-01  8.5909e-02  1.6868e-05
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 145 iterations
+Iterative ML estimation terminated after 145 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -21646,7 +21682,9 @@ attr(,"class")
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 12 iterations
+Iterative ML estimation terminated after 12 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -21750,7 +21788,9 @@ gamma        0.00774807
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -22878,7 +22918,9 @@ mu          -0.3333165  0.9277079
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -23995,7 +24037,9 @@ time        -2.2115e-03  0.00096403
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -25119,7 +25163,9 @@ time         0.0011999 -0.0091516  1.2726e-03
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 20 iterations
+Iterative ML estimation terminated after 20 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -26250,7 +26296,9 @@ gamma       -0.02028199  8.3194e-03  8.4322e-04
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 24 iterations
+Iterative ML estimation terminated after 24 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -27380,7 +27428,9 @@ gamma         -0.00149880  -0.358567   0.1664145  2.0433e-03
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 47 iterations
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -28531,7 +28581,9 @@ time         0.0010437 -0.0087119  1.2583e-03
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -29478,7 +29530,9 @@ gamma         -0.00148396  -0.3269668   0.151852  1.8699e-03
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 49 iterations
+Iterative ML estimation terminated after 49 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -30354,7 +30408,9 @@ attr(,"class")
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 10 iterations
+Iterative ML estimation terminated after 10 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -30466,7 +30522,9 @@ gamma        1.8467e-03  0.01580330
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -31612,7 +31670,9 @@ mu          -2.0759e-04 -0.00133988  4.1698e-03
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -32762,7 +32822,9 @@ time        -3.7714e-05 -0.00008656  7.1928e-04
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 16 iterations
+Iterative ML estimation terminated after 16 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -33920,7 +33982,9 @@ time        -2.5754e-05 -0.00023412  8.4389e-05  3.5692e-04
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 14 iterations
+Iterative ML estimation terminated after 14 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -35070,7 +35134,9 @@ gamma         -0.079121    -0.52875  7.8215e-02  1.8574e-05
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 130 iterations
+Iterative ML estimation terminated after 130 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -36234,7 +36300,9 @@ gamma             -0.042362   -0.054461    -0.33567  5.8914e-02  8.7329e-06
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 163 iterations
+Iterative ML estimation terminated after 163 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -37312,7 +37380,9 @@ attr(,"class")
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -37372,7 +37442,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -38448,7 +38520,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 18 iterations
+Iterative ML estimation terminated after 18 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -39514,7 +39588,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -40584,7 +40660,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 20 iterations
+Iterative ML estimation terminated after 20 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -41657,7 +41735,9 @@ Maximum likelihood estimates
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 22 iterations
+Iterative ML estimation terminated after 22 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -42746,7 +42826,9 @@ Maximum likelihood estimates
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 47 iterations
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -43838,7 +43920,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -44932,7 +45016,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -46029,7 +46115,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -47130,7 +47218,9 @@ Maximum likelihood estimates
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -48218,7 +48308,9 @@ Maximum likelihood estimates
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 141 iterations
+Iterative ML estimation terminated after 141 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -49306,7 +49398,9 @@ Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is logged
-convergence achieved after 139 iterations
+Iterative ML estimation terminated after 139 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -50470,7 +50564,9 @@ gamma    0.00677144  0.02332741
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 10 iterations
+Iterative ML estimation terminated after 10 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
         Estimate Std. Error z value Pr(>|z|)    
@@ -51206,7 +51302,9 @@ gamma   -1.1882e-05  6.7178e-03  2.4043e-02
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
         Estimate Std. Error z value Pr(>|z|)    
@@ -51946,7 +52044,9 @@ gamma    -3.9898e-04 -6.8564e-04  0.01069907  0.01455702
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-convergence achieved after 17 iterations
+Iterative ML estimation terminated after 17 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
           Estimate Std. Error z value Pr(>|z|)    
@@ -52613,7 +52713,9 @@ attr(,"class")
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 7 iterations
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -52711,7 +52813,9 @@ F_60    0.88328
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -52810,7 +52914,9 @@ F_60    0.91100
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -52909,7 +53015,9 @@ F_60    0.90864
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 22 iterations
+Iterative ML estimation terminated after 22 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -53009,7 +53117,9 @@ F_60    0.91620
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -53445,7 +53555,9 @@ mean efficiency: 1.0178
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -53882,7 +53994,9 @@ mean efficiency: 1.0142
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 124 iterations
+Iterative ML estimation terminated after 124 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -54320,7 +54434,9 @@ mean efficiency: 1.0100
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 145 iterations
+Iterative ML estimation terminated after 145 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -54759,7 +54875,9 @@ mean efficiency: 1.0105
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -54918,7 +55036,9 @@ F_43   0.805965
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 19 iterations
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -55078,7 +55198,9 @@ F_43   0.814851
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -55242,7 +55364,9 @@ F_43  0.725167  0.740890  0.755713  0.76969  0.78286  0.79529  0.80700  0.81804
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 20 iterations
+Iterative ML estimation terminated after 20 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -55407,7 +55531,9 @@ F_43  0.727887  0.744942  0.76093  0.77591  0.78996  0.80312  0.81546  0.82702
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 24 iterations
+Iterative ML estimation terminated after 24 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -55646,7 +55772,9 @@ F_43  0.95376
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 47 iterations
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -55812,7 +55940,9 @@ F_43  0.406460  0.380506  0.764738 0.77519  0.91043 0.953685  0.86778  0.95577
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -55950,7 +56080,9 @@ F_43     1.0109
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56089,7 +56221,9 @@ F_43     1.0229
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 16 iterations
+Iterative ML estimation terminated after 16 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56232,7 +56366,9 @@ F_43 1.0086 1.0089 1.0092 1.0095 1.0099 1.0102 1.0106 1.0109
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 14 iterations
+Iterative ML estimation terminated after 14 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56376,7 +56512,9 @@ F_43 1.0198 1.0204 1.0209 1.0215 1.0221 1.0227 1.0233 1.0240
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 130 iterations
+Iterative ML estimation terminated after 130 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -56520,7 +56658,9 @@ F_43 1.0181 1.0243 1.0134 1.0073 1.0096 1.0072 1.0056 1.0063
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 163 iterations
+Iterative ML estimation terminated after 163 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
@@ -56665,7 +56805,9 @@ F_43 1.0189 1.0256 1.0138 1.0075 1.0098 1.0073 1.0057 1.0064
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 11 iterations
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56824,7 +56966,9 @@ F_43   0.806052
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 18 iterations
+Iterative ML estimation terminated after 18 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -56984,7 +57128,9 @@ F_43    0.81444
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57148,7 +57294,9 @@ F_43  0.725822  0.741389  0.756072  0.76992  0.78298  0.79531  0.80693  0.81789
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 20 iterations
+Iterative ML estimation terminated after 20 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57313,7 +57461,9 @@ F_43  0.728665  0.745455  0.761206  0.77598  0.78984  0.80285  0.81505  0.82649
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 22 iterations
+Iterative ML estimation terminated after 22 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57478,7 +57628,9 @@ F_43  0.400681  0.376929  0.74107 0.75414  0.90071 0.950920  0.85306  0.95342
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
-convergence achieved after 47 iterations
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
@@ -57644,7 +57796,9 @@ F_43  0.406787  0.380791  0.76388 0.77564  0.91000 0.95327  0.86768  0.95544
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57782,7 +57936,9 @@ F_43     1.0107
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -57921,7 +58077,9 @@ F_43     1.0227
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 15 iterations
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -58064,7 +58222,9 @@ F_43 1.0082 1.0085 1.0089 1.0092 1.0096 1.0099 1.0103 1.0107
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 13 iterations
+Iterative ML estimation terminated after 13 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -58208,7 +58368,9 @@ F_43 1.0201 1.0206 1.0212 1.0217 1.0223 1.0229 1.0235 1.0241
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 141 iterations
+Iterative ML estimation terminated after 141 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
@@ -58352,7 +58514,9 @@ F_43 1.0184 1.0249 1.0136 1.0074 1.0097 1.0073 1.0057 1.0063
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function
 The dependent variable is not logged
-convergence achieved after 139 iterations
+Iterative ML estimation terminated after 139 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
                Estimate Std. Error z value Pr(>|z|)    
