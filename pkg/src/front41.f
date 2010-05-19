@@ -119,7 +119,8 @@ c       contains the main loop of this iterative program.
  2100   format(' gradient step')  
 	do 30 i=1,n
    30   s(i)=-gx(i)
-   40   call search(x,y,s,gx,delx,yy,xx)
+   40 icode=0
+      call search(x,y,s,gx,delx,yy,xx)
 	iter=iter+1   
 	if (iter.ge.maxit) then
       icode=10
@@ -129,8 +130,8 @@ c       contains the main loop of this iterative program.
 	if (im.eq.1) call der1(y,gy,yy,xx)
 	if (im.eq.2) call der2(y,gy,yy,xx) 
 	call convrg(ipass,x,y) 
-	if (ipass.eq.1.) goto 70   
-	if (iprint.ne.0) then 
+	if (ipass.eq.1.) goto 70
+	if (iprint.ne.0) then
 	printcon=float(iter)/float(iprint)-float(iter/iprint)
 	if (printcon.eq.0.0) then   
 	write(6,301) iter,nfunct,-fy   
@@ -150,7 +151,7 @@ c       contains the main loop of this iterative program.
 	do 60 i=1,n
 	s(i)=0.0   
 	do 60 j=1,n
-   60   s(i)=s(i)-h(i,j)*gy(j) 
+   60   s(i)=s(i)-h(i,j)*gy(j)
 	goto 40
    70   continue  
 	if (iprint.ne.0) write(6,301) iter,nfunct,-fy
@@ -187,7 +188,7 @@ c       a specified tolerance.
    30   if(dabs(x(i)-y(i)).gt.xtol) goto 60 
    40   continue
 	ipass=1
-      icode=1
+      if (icode.eq.0) icode=1
 	return 
    60   ipass=2
 	return
@@ -378,6 +379,7 @@ c       determines the step length (t) using a unidimensional search.
   101   continue  
 	write(6,5000)  
  5000   format(' search failed on gradient step, termination')
+      icode=6
 	return 
    33   if(ntol.eq.10) goto 34
 	iexit=0
@@ -385,7 +387,8 @@ c       determines the step length (t) using a unidimensional search.
 	ftol=ftol/10.  
 	goto 12
   34    if(iprint.ne.0) write(6,2000)   
- 2000   format(' pt better than entering pt cannot be found') 
+ 2000   format(' pt better than entering pt cannot be found')
+      icode=5
 	return 
 	end
  

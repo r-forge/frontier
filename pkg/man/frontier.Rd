@@ -223,7 +223,12 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{mleLogl}{numeric. Log likelihood value of the ML estimation.}
    \item{nIter}{numeric. Number of iterations of the ML estimation.}
    \item{code}{integer indication the reason for determination:
-      \code{1} = convergence achieved;
+      \code{1} = log likelihood values and parameters
+         of two successive iterations are within the tolerance limits;
+      \code{5} = cannot find a parameter vector that results
+         in a log-likelihood value larger than
+         the log-likelihood value obtained in the previous step;
+      \code{6} = search failed on gradient step;
       \code{10} = maximum number of iterations reached.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;

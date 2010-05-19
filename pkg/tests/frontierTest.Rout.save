@@ -952,7 +952,7 @@ $nIter
 [1] 19
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)  logCapital   logLabour 
@@ -1393,7 +1393,7 @@ $nIter
 [1] 10
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)  logCapital   logLabour 
@@ -11748,7 +11748,7 @@ $nIter
 [1] 15
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
@@ -17162,7 +17162,7 @@ $nIter
 [1] 19
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -21093,7 +21093,7 @@ $nIter
 [1] 145
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -23651,7 +23651,7 @@ $nIter
 [1] 19
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
@@ -33554,7 +33554,7 @@ $nIter
 [1] 16
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -34699,7 +34699,7 @@ $nIter
 [1] 14
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -35865,7 +35865,7 @@ $nIter
 [1] 130
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -39217,7 +39217,7 @@ $nIter
 [1] 18
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
@@ -47905,7 +47905,7 @@ $nIter
 [1] 13
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -48993,7 +48993,7 @@ $nIter
 [1] 141
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -50100,7 +50100,7 @@ $nIter
 [1] 139
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
@@ -50998,7 +50998,7 @@ $nIter
 [1] 10
 
 $code
-[1] 1
+[1] 5
 
 $olsStdEr
      a_0      a_1      a_2    b_1_1    b_1_2    b_2_2 
