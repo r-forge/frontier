@@ -222,6 +222,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       from the OLS estimation.}
    \item{mleLogl}{numeric. Log likelihood value of the ML estimation.}
    \item{nIter}{numeric. Number of iterations of the ML estimation.}
+   \item{code}{integer indication the reason for determination:
+      \code{1} = convergence achieved;
+      \code{10} = maximum number of iterations reached.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;
       each column corresponds to a time period.}
