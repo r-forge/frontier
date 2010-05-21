@@ -86,8 +86,9 @@ c       contains the main loop of this iterative program.
 	do 98 i=1,n   
 	gx(i)=0.0  
 	gy(i)=0.0  
-  98    continue   
-	if (igrid.eq.1) then   
+  98    continue
+      nrestart=0
+  107 if ((igrid.eq.1).and.(nrestart.eq.0)) then
 	call grid(x,y,yy,xx,ob,gb)  
       if (im.eq.1) call fun1(gb,fxs,yy,xx)
       if (im.eq.2) call fun2(gb,fxs,yy,xx)
@@ -130,7 +131,19 @@ c       contains the main loop of this iterative program.
 	if (im.eq.1) call der1(y,gy,yy,xx)
 	if (im.eq.2) call der2(y,gy,yy,xx) 
 	call convrg(ipass,x,y) 
-	if (ipass.eq.1.) goto 70
+	if (ipass.eq.1.) then
+      if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.10)) then
+      write(6,109)
+  109 format('restarting with starting values multiplied by 0.999')
+      do 108 i=1,n
+      sv(i)=x(i)*0.999
+  108 continue
+      nrestart=nrestart+1
+      goto 107
+      else
+      goto 70
+      endif
+      endif
 	if (iprint.ne.0) then
 	printcon=float(iter)/float(iprint)-float(iter/iprint)
 	if (printcon.eq.0.0) then   
