@@ -67,7 +67,7 @@ Loading required package: lmtest
 +    data = as.data.frame( riceProdPhil ) )
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb5ecf[-35], bb5ecf[-35] )
+> all.equal( sbb5ecf[-38], bb5ecf[-38] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -76,7 +76,7 @@ Loading required package: lmtest
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sbb5eef[-35], bb5eef[-35] )
+> all.equal( sbb5eef[-38], bb5eef[-38] )
 [1] TRUE
 > 
 > # Comparisons
@@ -99,7 +99,7 @@ Loading required package: lmtest
 > bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = 0 )
-> all.equal( sbb6ecf[-35], bb6ecf[-35] )
+> all.equal( sbb6ecf[-38], bb6ecf[-38] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -108,7 +108,7 @@ Loading required package: lmtest
 > bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
-> all.equal( sbb6eef[-35], bb6eef[-35] )
+> all.equal( sbb6eef[-38], bb6eef[-38] )
 [1] TRUE
 > 
 > # Comparisons
@@ -132,9 +132,9 @@ Loading required package: lmtest
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sb5eef[-35], b5eef[-35] )
+> all.equal( sb5eef[-38], b5eef[-38] )
 [1] TRUE
-> all.equal( b5eef[ -c( 3, 4, 16, 27, 35 ) ], bb5eef[ -c( 3, 4, 16, 27, 35 ) ] )
+> all.equal( b5eef[ -c( 3, 4, 19, 30, 38 ) ], bb5eef[ -c( 3, 4, 19, 30, 38 ) ] )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ) )
 [1] TRUE
@@ -159,9 +159,9 @@ Loading required package: lmtest
 > b6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = Inf )
-> all.equal( sb6ecf[-35], b6ecf[-35] )
+> all.equal( sb6ecf[-38], b6ecf[-38] )
 [1] TRUE
-> all.equal( b6ecf[-35], bb6ecf[-35] )
+> all.equal( b6ecf[-38], bb6ecf[-38] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -170,9 +170,9 @@ Loading required package: lmtest
 > b6eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
-> all.equal( sb6eef[-35], b6eef[-35] )
+> all.equal( sb6eef[-38], b6eef[-38] )
 [1] TRUE
-> all.equal( b6eef[ -c( 3, 4, 16, 27, 35 ) ], bb6eef[ -c( 3, 4, 16, 27, 35 ) ] )
+> all.equal( b6eef[ -c( 3, 4, 19, 30, 38 ) ], bb6eef[ -c( 3, 4, 19, 30, 38 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
 [1] "Mean relative difference: 3.584463e-05"

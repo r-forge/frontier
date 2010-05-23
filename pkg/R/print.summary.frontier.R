@@ -47,6 +47,10 @@ print.summary.frontier <- function( x, effic = x$printEffic, ... ) {
          cat( "unknown return code:", x$code, "\n" )
       }
    }
+   if( x$nRestart != 0 ) {
+      cat( "Multiplied the initial values", x$nRestart, "time(s) by",
+         x$restartFactor, "before the search procedure could start\n" )
+   }
 
    cat( "\nfinal maximum likelihood estimates\n" )
    printCoefmat( coef( x ) )

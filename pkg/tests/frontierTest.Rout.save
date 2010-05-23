@@ -58,11 +58,11 @@ Loading required package: lmtest
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-35], sa1[-35], check.attributes = FALSE )
+> all.equal( Sa1[-38], sa1[-38], check.attributes = FALSE )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-35], a1[-35] )
+> all.equal( sa1[-38], a1[-38] )
 [1] TRUE
 > print( a1 )
 
@@ -342,6 +342,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t logOutput logCapital logLabour
 F_1   1 1   2.54772   2.242410  3.559169
@@ -567,7 +576,7 @@ attr(,"class")
 +    truncNorm = TRUE )
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-35], a2[-35] )
+> all.equal( sa2[-38], a2[-38] )
 [1] TRUE
 > print( a2 )
 
@@ -855,6 +864,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t logOutput logCapital logLabour
 F_1   1 1   2.54772   2.242410  3.559169
@@ -1089,7 +1107,7 @@ attr(,"class")
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-35], a5[-35] )
+> all.equal( sa5[-38], a5[-38] )
 [1] TRUE
 > print( a5 )
 
@@ -1297,6 +1315,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
@@ -1532,11 +1559,11 @@ attr(,"class")
 +    data = front41Data )
 > Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
 +    data = front41Data )
-> all.equal( Saa1[-35], saa1[-35], check.attributes = FALSE )
+> all.equal( Saa1[-38], saa1[-38], check.attributes = FALSE )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-35], aa1[-35] )
+> all.equal( saa1[-38], aa1[-38] )
 [1] TRUE
 > print( aa1 )
 
@@ -1824,6 +1851,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t logOutput logCapital logLabour firmNo
 F_1   1 1   2.54772   2.242410  3.559169      1
@@ -2057,7 +2093,7 @@ attr(,"class")
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-35], aa2[-35] )
+> all.equal( saa2[-38], aa2[-38] )
 [1] TRUE
 > print( aa2 )
 
@@ -2349,6 +2385,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t logOutput logCapital logLabour firmNo
 F_1   1 1   2.54772   2.242410  3.559169      1
@@ -2587,7 +2632,7 @@ attr(,"class")
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-35], aa5[-35] )
+> all.equal( saa5[-38], aa5[-38] )
 [1] TRUE
 > print( aa5 )
 
@@ -2799,6 +2844,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
@@ -3084,11 +3138,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-35], sbb1[-35], check.attributes = FALSE )
+> all.equal( Sbb1[-38], sbb1[-38], check.attributes = FALSE )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-35], bb1[-35] )
+> all.equal( sbb1[-38], bb1[-38] )
 [1] TRUE
 > print( bb1 )
 
@@ -4083,6 +4137,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t      lPROD    lAREA lLABOR   lNPK
 1     1 1  2.0630581  0.91629 5.0814 5.3351
@@ -5003,7 +5066,7 @@ attr(,"class")
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-35], bb2[-35] )
+> all.equal( sbb2[-38], bb2[-38] )
 [1] TRUE
 > print( bb2 )
 
@@ -6006,6 +6069,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t      lPROD    lAREA lLABOR   lNPK
 1     1 1  2.0630581  0.91629 5.0814 5.3351
@@ -6929,12 +7001,12 @@ attr(,"class")
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-35], sbb5[-35], check.attributes = FALSE )
+> all.equal( Sbb5[-38], sbb5[-38], check.attributes = FALSE )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-35], bb5[-35] )
+> all.equal( sbb5[-38], bb5[-38] )
 [1] TRUE
 > print( bb5 )
 
@@ -7941,6 +8013,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
 1     1 1  2.0630581  0.91629 5.0814 5.3351    10   1.00
@@ -8867,7 +8948,7 @@ attr(,"class")
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-35], bb6[-35] )
+> all.equal( sbb6[-38], bb6[-38] )
 [1] TRUE
 > print( bb6 )
 
@@ -9894,6 +9975,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
 1     1 1  2.0630581  0.91629 5.0814 5.3351    10   1.00
@@ -10823,7 +10913,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-35], bb7[-35] )
+> all.equal( sbb7[-38], bb7[-38] )
 [1] TRUE
 > print( bb7 )
 
@@ -11380,6 +11470,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -12310,7 +12409,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-35], bb8[-35] )
+> all.equal( sbb8[-38], bb8[-38] )
 [1] TRUE
 > print( bb8 )
 
@@ -12875,6 +12974,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -13852,11 +13960,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd1[-35], sdd1[-35], check.attributes = FALSE )
+> all.equal( Sdd1[-38], sdd1[-38], check.attributes = FALSE )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1[-35], dd1[-35] )
+> all.equal( sdd1[-38], dd1[-38] )
 [1] TRUE
 > print( dd1 )
 
@@ -14856,6 +14964,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t   lCost      lPROD    lAREA lLABORP  lNPKP
 1     1 1  9.5166  2.0630581  0.91629  4.1932 2.6442
@@ -15797,7 +15914,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2[-35], dd2[-35] )
+> all.equal( sdd2[-38], dd2[-38] )
 [1] TRUE
 > print( dd2 )
 
@@ -16801,6 +16918,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t   lCost      lPROD    lAREA lLABORP  lNPKP
 1     1 1  9.5166  2.0630581  0.91629  4.1932 2.6442
@@ -17744,12 +17870,12 @@ attr(,"class")
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > Sdd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd5[-35], sdd5[-35], check.attributes = FALSE )
+> all.equal( Sdd5[-38], sdd5[-38], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
-> all.equal( sdd5[-35], dd5[-35] )
+> all.equal( sdd5[-38], dd5[-38] )
 [1] TRUE
 > print( dd5 )
 
@@ -18773,6 +18899,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
 1     1 1  9.5166  2.0630581  0.91629  4.1932 2.6442    10   1.00
@@ -19720,7 +19855,7 @@ attr(,"class")
 > dd6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sdd6[-35], dd6[-35] )
+> all.equal( sdd6[-38], dd6[-38] )
 [1] TRUE
 > print( dd6 )
 
@@ -20732,6 +20867,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
      id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
 1     1 1  9.5166  2.0630581  0.91629  4.1932 2.6442    10   1.00
@@ -21725,11 +21869,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-35], sb1[-35], check.attributes = FALSE )
+> all.equal( Sb1[-38], sb1[-38], check.attributes = FALSE )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-35], b1[-35] )
+> all.equal( sb1[-38], b1[-38] )
 [1] TRUE
 > print( b1 )
 
@@ -22188,6 +22332,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -22852,7 +23005,7 @@ attr(,"class")
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-35], b2[-35] )
+> all.equal( sb2[-38], b2[-38] )
 [1] TRUE
 > print( b2 )
 
@@ -23303,6 +23456,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -23971,7 +24133,7 @@ attr(,"class")
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-35], b3[-35] )
+> all.equal( sb3[-38], b3[-38] )
 [1] TRUE
 > print( b3 )
 
@@ -24426,6 +24588,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -25094,7 +25265,7 @@ attr(,"class")
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-35], b4[-35] )
+> all.equal( sb4[-38], b4[-38] )
 [1] TRUE
 > print( b4 )
 
@@ -25553,6 +25724,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -26222,12 +26402,12 @@ attr(,"class")
 +    data = riceProdPhilPanel )
 > Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhilPanel )
-> all.equal( Sb5[-35], sb5[-35], check.attributes = FALSE )
+> all.equal( Sb5[-38], sb5[-38], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-35], b5[-35] )
+> all.equal( sb5[-38], b5[-38] )
 [1] TRUE
 > print( b5 )
 
@@ -26686,6 +26866,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
@@ -27356,7 +27545,7 @@ attr(,"class")
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-35], b6[-35] )
+> all.equal( sb6[-38], b6[-38] )
 [1] TRUE
 > print( b6 )
 
@@ -27835,6 +28024,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
@@ -28510,7 +28708,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-35], b7[-35] )
+> all.equal( sb7[-38], b7[-38] )
 [1] TRUE
 > print( b7 )
 
@@ -28781,6 +28979,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -29456,7 +29663,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-35], b8[-35] )
+> all.equal( sb8[-38], b8[-38] )
 [1] TRUE
 > print( b8 )
 
@@ -29731,6 +29938,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $startVal
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
@@ -30453,11 +30669,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-35], sd1[-35], check.attributes = FALSE )
+> all.equal( Sd1[-38], sd1[-38], check.attributes = FALSE )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-35], d1[-35] )
+> all.equal( sd1[-38], d1[-38] )
 [1] TRUE
 > print( d1 )
 
@@ -30917,6 +31133,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -31602,7 +31827,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-35], d2[-35] )
+> all.equal( sd2[-38], d2[-38] )
 [1] TRUE
 > print( d2 )
 
@@ -32066,6 +32291,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -32754,7 +32988,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-35], d3[-35] )
+> all.equal( sd3[-38], d3[-38] )
 [1] TRUE
 > print( d3 )
 
@@ -33222,6 +33456,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -33911,7 +34154,7 @@ attr(,"class")
 > d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-35], d4[-35] )
+> all.equal( sd4[-38], d4[-38] )
 [1] TRUE
 > print( d4 )
 
@@ -34367,6 +34610,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -35058,12 +35310,12 @@ attr(,"class")
 > Sd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
-> all.equal( Sd5[-35], sd5[-35], check.attributes = FALSE )
+> all.equal( Sd5[-38], sd5[-38], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
-> all.equal( sd5[-35], d5[-35] )
+> all.equal( sd5[-38], d5[-38] )
 [1] TRUE
 > print( d5 )
 
@@ -35535,6 +35787,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
@@ -36226,7 +36487,7 @@ attr(,"class")
 > d6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
-> all.equal( sd6[-35], d6[-35] )
+> all.equal( sd6[-38], d6[-38] )
 [1] TRUE
 > print( d6 )
 
@@ -36686,6 +36947,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
@@ -37843,6 +38113,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
 1    1 1  2.0630581  0.91629 5.0814 5.3351
@@ -38905,6 +39184,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -39978,6 +40266,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
 1    1 1  2.0630581  0.91629 5.0814 5.3351
@@ -41050,6 +41347,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK
@@ -42141,6 +42447,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
@@ -43234,6 +43549,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
     id t      lPROD    lAREA lLABOR   lNPK EDYRS BANRAT
 1    1 1  2.0630581  0.91629 5.0814 5.3351    10   1.00
@@ -44315,6 +44639,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -45412,6 +45745,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -46516,6 +46858,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
 1    1 1  9.5166  2.0630581  0.91629  4.1932 2.6442
@@ -47603,6 +47954,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP
@@ -48693,6 +49053,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
@@ -49800,6 +50169,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
     id t   lCost      lPROD    lAREA lLABORP  lNPKP EDYRS BANRAT
@@ -50985,6 +51363,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
    id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2
 1   1 1 2.54772  2.242410 3.559169 2.5142021  7.98112  6.3338431
@@ -51726,6 +52113,15 @@ $maxit
 $muBound
 [1] 2
 
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
 $dataTable
    id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2 d_1
 1   1 1 2.54772  2.242410 3.559169 2.5142021  7.98112  6.3338431   1
@@ -52463,6 +52859,15 @@ $maxit
 
 $muBound
 [1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
 
 $dataTable
    id t       y       a_1      a_2     b_1_1    b_1_2      b_2_2 delta_1
@@ -58669,17 +59074,17 @@ F_43 1.0185 1.0250 1.0136 1.0074 1.0097 1.0073 1.0057 1.0064
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-35], a1[-35], check.attributes = FALSE )
+> all.equal( a1a[-38], a1[-38], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-35], aa1[-35], check.attributes = FALSE )
+> all.equal( aa1a[-38], aa1[-38], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-35], aa2[-35], check.attributes = FALSE )
+> all.equal( aa2a[-38], aa2[-38], check.attributes = FALSE )
 [1] TRUE
 > 
 > 
@@ -58698,7 +59103,7 @@ sfa(formula = logOutput ~ 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
       3.372        0.880        0.934  
-> all.equal( sa10[-35], a10[-35], check.attributes = FALSE )
+> all.equal( sa10[-38], a10[-38], check.attributes = FALSE )
 [1] TRUE
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
@@ -58711,7 +59116,7 @@ sfa(formula = logOutput ~ logLabour, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
       1.116        0.521        0.385        0.887  
-> all.equal( sa11[-35], a11[-35], check.attributes = FALSE )
+> all.equal( sa11[-38], a11[-38], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier
@@ -58726,7 +59131,7 @@ sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
      3.3170      -0.0148       1.0869       0.9356  
-> all.equal( saa10[-35], aa10[-35] )
+> all.equal( saa10[-38], aa10[-38] )
 [1] TRUE
 > 
 > saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
@@ -58740,7 +59145,7 @@ sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
      1.0228       0.5284      -0.0317       0.6546       0.9265  
-> all.equal( saa11[-35], aa11[-35] )
+> all.equal( saa11[-38], aa11[-38] )
 [1] TRUE
 > 
 > 
