@@ -42,7 +42,7 @@ The following object(s) are masked from 'package:survival':
     aml
 
 Loading required package: cubature
-Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-8)
+Nonparametric Kernel Methods for Mixed Datatypes (version 0.30-9)
 Loading required package: miscTools
 Loading required package: lmtest
 > options( digits = 5 )
