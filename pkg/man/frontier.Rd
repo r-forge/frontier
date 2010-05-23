@@ -198,6 +198,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \item{gridDouble}{logical. Argument \code{gridDouble} (see above).}
    \item{gridSize}{numeric. Argument \code{gridSize} (see above).}
    \item{maxit}{numeric.  Argument \code{maxit} (see above).}
+   \item{muBound}{numeric.  Argument \code{muBound} (see above).}
    \item{startVal}{numeric vector. Argument \code{startVal}
       (only if specified by user).}
    \item{call}{the matched call.}
