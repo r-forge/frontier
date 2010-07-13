@@ -255,6 +255,14 @@ sfa <- function(
       dataTable[ , 1 ] <- 1:nn
    }
 
+   # check consistency of firm numbers
+   if( min( dataTable[ , 1 ] ) != 1 ) {
+      stop( "internal error: the smallest firm number must be one" )
+   }
+   if( max( dataTable[ , 1 ] ) > nn ) {
+      stop( "internal error: a firm number is larger than the number of firms" )
+   }
+
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
       mu <- truncNorm
