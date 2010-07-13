@@ -250,6 +250,11 @@ sfa <- function(
    # number of time periods
    nt <- length( unique( dataTable[ , 2 ] ) )
 
+   # make sure that the cross-section units are numbered continously
+   if( ! "plm.dim" %in% class( data ) ) {
+      dataTable[ , 1 ] <- 1:nn
+   }
+
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {
       mu <- truncNorm
@@ -454,7 +459,7 @@ sfa <- function(
       rownames( returnObj$resid ) <- levels( data[[ 1 ]] )
       colnames( returnObj$resid ) <- levels( data[[ 2 ]] )
    } else {
-      rownames( returnObj$resid ) <- obsNames
+      rownames( returnObj$resid ) <- obsNames[ validObs ]
       colnames( returnObj$resid ) <- "residuals"
    }
    if( modelType == 2 ) {
