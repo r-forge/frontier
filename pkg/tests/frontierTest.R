@@ -157,6 +157,23 @@ summary( aa9 )
 lrtest( aa9 )
 
 
+## cross-section data with NAs and infinit values
+naData <- front41Data
+naData$output[3] <- NA
+naData$capital[5] <- 0
+naData$labour[9] <- 0
+naData$firmNo[14] <- NA
+
+## cross-section data with NAs, error components frontier
+San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
+summary( San1 )
+
+## cross-section data with NAs, efficiency effects frontier
+Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
+   data = naData )
+summary( Saan1 )
+
+
 ## data set of rice producers in the Philippines
 data( riceProdPhil )
 riceProdPhil$lPROD  <- log( riceProdPhil$PROD )

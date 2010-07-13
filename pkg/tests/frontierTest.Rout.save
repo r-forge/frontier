@@ -3127,6 +3127,68 @@ Model 2: Efficiency Effects Frontier (EEF)
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
+> ## cross-section data with NAs and infinit values
+> naData <- front41Data
+> naData$output[3] <- NA
+> naData$capital[5] <- 0
+> naData$labour[9] <- 0
+> naData$firmNo[14] <- NA
+> 
+> ## cross-section data with NAs, error components frontier
+> San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
+> summary( San1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    0.5598     0.2062    2.71  0.00663 ** 
+log(capital)   0.2881     0.0487    5.91  3.4e-09 ***
+log(labour)    0.5372     0.0461   11.64  < 2e-16 ***
+sigmaSq        0.2283     0.0683    3.34  0.00083 ***
+gamma          0.8063     0.1341    6.01  1.8e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -17.215 
+
+cross-sectional data
+total number of observations = 57 
+
+mean efficiency: 0.73415 
+> 
+> ## cross-section data with NAs, efficiency effects frontier
+> Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
++    data = naData )
+> summary( Saan1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 14 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    0.5479     0.2022    2.71   0.0067 ** 
+log(capital)   0.2771     0.0509    5.45  5.1e-08 ***
+log(labour)    0.5369     0.0452   11.89  < 2e-16 ***
+Z_firmNo      -0.0118     0.0154   -0.77   0.4429    
+sigmaSq        0.3160     0.1477    2.14   0.0324 *  
+gamma          0.8580     0.1013    8.47  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+log likelihood value: -16.193 
+
+cross-sectional data
+total number of observations = 56 
+
+mean efficiency: 0.75779 
+> 
+> 
 > ## data set of rice producers in the Philippines
 > data( riceProdPhil )
 > riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
