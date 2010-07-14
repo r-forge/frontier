@@ -958,6 +958,63 @@ residuals( d6u, asInData = TRUE )
 print.default( d6u )
 
 
+## unbalanced panel data with firms that have NAs in all time periods
+naPanelData <- riceProdPhilPanelUnb
+naPanelData[ naPanelData$farm == "F_21", "PROD" ] <- NA
+naPanelData[ naPanelData$farm == "F_23", "AREA" ] <- NA
+naPanelData[ naPanelData$farm == "F_26", "LABOR" ] <- NA
+naPanelData[ naPanelData$farm == "F_30", "NPK" ] <- NA
+naPanelData[ naPanelData$farm == "F_35", "EDYRS" ] <- NA
+
+## panel data with NA firms, error components frontier
+b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+   data = naPanelData )
+print( b1n )
+summary( b1n )
+lrtest( b1n )
+efficiencies( b1n )
+efficiencies( b1n, asInData = TRUE )
+residuals( b1n )
+residuals( b1n, asInData = TRUE )
+print.default( b1n )
+
+## panel data with NA firms, error components frontier, truncNorm, timeEffect
+b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+   data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
+print( b4n )
+summary( b4n )
+lrtest( b4n )
+efficiencies( b4n )
+efficiencies( b4n, asInData = TRUE )
+residuals( b4n )
+residuals( b4n, asInData = TRUE )
+print.default( b4n )
+
+## panel data with NA firms, efficiency effects frontier
+b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT - 1, data = naPanelData )
+print( b5n )
+summary( b5n )
+lrtest( b5n )
+efficiencies( b5n )
+efficiencies( b5n, asInData = TRUE )
+residuals( b5n )
+residuals( b5n, asInData = TRUE )
+print.default( b5n )
+
+## panel data with NA firms, efficiency effects frontier, zIntercept
+b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT, data = naPanelData )
+print( b6n )
+summary( b6n )
+lrtest( b6n )
+efficiencies( b6n )
+efficiencies( b6n, asInData = TRUE )
+residuals( b6n )
+residuals( b6n, asInData = TRUE )
+print.default( b6n )
+
+
 ## translog frontiers
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
