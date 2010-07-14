@@ -245,17 +245,23 @@ sfa <- function(
    dataTable <- dataTable[ validObs, ]
    # number of (valid) observations
    nob <- sum( validObs )
-   # number of cross-section units
-   nn <- length( unique( dataTable[ , 1 ] ) )
    # number of time periods
    nt <- length( unique( dataTable[ , 2 ] ) )
 
    # make sure that the cross-section units are numbered continously
-   if( ! "plm.dim" %in% class( data ) ) {
-      dataTable[ , 1 ] <- 1:nn
+   firmId <- unique( dataTable[ , 1 ] )
+   # number of cross-section units
+   nn <- length( firmId )
+   firmNo <- rep( NA, nrow( dataTable ) )
+   for( i in 1:nn ) {
+      firmNo[ dataTable[ , 1 ] == firmId[ i ] ] <- i
    }
+   dataTable[ , 1 ] <- firmNo
 
    # check consistency of firm numbers
+   if( any( is.na( dataTable[ , 1 ] ) ) ) {
+      stop( "internal error: at least one firm number is NA" )
+   }
    if( min( dataTable[ , 1 ] ) != 1 ) {
       stop( "internal error: the smallest firm number must be one" )
    }
@@ -464,7 +470,7 @@ sfa <- function(
    }
    # assign row names and column names to residuals
    if( "plm.dim" %in% class( data ) ) {
-      rownames( returnObj$resid ) <- levels( data[[ 1 ]] )
+      rownames( returnObj$resid ) <- levels( data[[ 1 ]] )[ firmId ]
       colnames( returnObj$resid ) <- levels( data[[ 2 ]] )
    } else {
       rownames( returnObj$resid ) <- obsNames[ validObs ]
