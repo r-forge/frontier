@@ -1015,6 +1015,61 @@ residuals( b6n, asInData = TRUE )
 print.default( b6n )
 
 
+## unbalanced panel data with time periods that have NAs for all firms
+naTimePanelData <- riceProdPhilPanelUnb
+naTimePanelData[ naTimePanelData$year == 2001, "PROD" ] <- NA
+naTimePanelData[ naTimePanelData$year == 2004, "AREA" ] <- NA
+naTimePanelData[ naTimePanelData$year == 1999, "EDYRS" ] <- NA
+
+## panel data with NA years, error components frontier
+b1t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+   data = naTimePanelData )
+print( b1t )
+summary( b1t )
+lrtest( b1t )
+efficiencies( b1t )
+efficiencies( b1t, asInData = TRUE )
+residuals( b1t )
+residuals( b1t, asInData = TRUE )
+print.default( b1t )
+
+## panel data with NA years, error components frontier, truncNorm, timeEffect
+b4t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+   data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
+print( b4t )
+summary( b4t )
+lrtest( b4t )
+efficiencies( b4t )
+efficiencies( b4t, asInData = TRUE )
+residuals( b4t )
+residuals( b4t, asInData = TRUE )
+print.default( b4t )
+
+## panel data with NA years, efficiency effects frontier
+b5t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT - 1, data = naTimePanelData )
+print( b5t )
+summary( b5t )
+lrtest( b5t )
+efficiencies( b5t )
+efficiencies( b5t, asInData = TRUE )
+residuals( b5t )
+residuals( b5t, asInData = TRUE )
+print.default( b5t )
+
+## panel data with NA years, efficiency effects frontier, zIntercept
+b6t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   EDYRS + BANRAT, data = naTimePanelData )
+print( b6t )
+summary( b6t )
+lrtest( b6t )
+efficiencies( b6t )
+efficiencies( b6t, asInData = TRUE )
+residuals( b6t )
+residuals( b6t, asInData = TRUE )
+print.default( b6t )
+
+
 ## translog frontiers
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
