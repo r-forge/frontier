@@ -50,9 +50,9 @@ efficiencies.frontier <- function( object, asInData = FALSE,
          ncol = object$nt^object$timeEffect )
       if( logDepVar ) {
          for( j in 1:ncol( result ) ) {
-            result[ , j ] <- (
-               pnorm( - dir * sigmaStar * etaStar[j] + muStar / sigmaStar ) /
-               pnorm( muStar / sigmaStar ) ) *
+            result[ , j ] <- exp(
+               pnorm( - dir * sigmaStar * etaStar[j] + muStar / sigmaStar, 
+                  log.p = TRUE ) - pnorm( muStar / sigmaStar, log.p = TRUE ) ) *
                exp( - dir * muStar * etaStar[j] + 0.5 * sigmaStarSq * etaStar[j]^2 )
          }
       } else {
@@ -98,8 +98,8 @@ efficiencies.frontier <- function( object, asInData = FALSE,
       sigmaBar <- sqrt( sigmaBarSq )
       muBar <- ( 1 - gamma ) * zDeltaMat - dir * gamma * resid
       if( logDepVar ) {
-         result <- ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
-               pnorm( muBar / sigmaBar ) ) *
+         result <- exp( pnorm( - dir * sigmaBar + muBar / sigmaBar, log.p = TRUE ) -
+               pnorm( muBar / sigmaBar, log.p = TRUE ) ) *
                exp( - dir * muBar + 0.5 * sigmaBarSq )
       } else {
          result <- 1 - dir * ( muBar + sigmaBar *
