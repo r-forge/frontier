@@ -1,8 +1,11 @@
-#LyX 1.6.2 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
-\textclass article
+\textclass scrartcl
+\begin_preamble
+\usepackage{lmodern}
+\end_preamble
 \use_default_options true
 \language english
 \inputencoding auto
@@ -16,11 +19,12 @@
 \font_tt_scale 100
 
 \graphics default
-\paperfontsize default
+\paperfontsize 12
+\spacing single
 \use_hyperref false
-\papersize default
+\papersize a4paper
 \use_geometry false
-\use_amsmath 1
+\use_amsmath 2
 \use_esint 1
 \cite_engine basic
 \use_bibtopic false
@@ -35,6 +39,7 @@
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
+\author "" 
 \author "" 
 \end_header
 
@@ -89,6 +94,17 @@ TE_{it} & = & \frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\
 \bar{\mu}_{it} & = & \left(1-\gamma\right)\: z_{it}'\delta-\kappa\:\gamma\:\epsilon_{it}\\
 \bar{\sigma}^{2} & = & \gamma\:\left(1-\gamma\right)\:\sigma^{2}\\
 \bar{\sigma} & = & \sqrt{\bar{\sigma}^{2}}\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula \begin{eqnarray*}
+\frac{\partial TE_{it}}{\partial z_{kit}} & = & \frac{\partial TE_{it}}{\partial\bar{\mu}_{it}}\:\frac{\partial\bar{\mu}_{it}}{\partial z_{kit}}\\
+ & = & \left(1-\gamma\right)\delta_{k}\left(\frac{\phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\bar{\sigma}\:\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}\:\exp\left(-\kappa\:\bar{\mu}_{it}+\frac{1}{2}\bar{\sigma}^{2}\right)\right.\\
+ &  & -\frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\:\phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\bar{\sigma}\:\left(\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\right)^{2}}\:\exp\left(-\kappa\:\bar{\mu}_{it}+\frac{1}{2}\bar{\sigma}^{2}\right)\\
+ &  & \left.-\kappa\:\frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}\:\exp\left(-\kappa\:\bar{\mu}_{it}+\frac{1}{2}\bar{\sigma}^{2}\right)\right)\\
+\\ & = & \frac{\left(1-\gamma\right)\delta_{k}\exp\left(-\kappa\:\bar{\mu}_{it}+\frac{1}{2}\bar{\sigma}^{2}\right)}{\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}\\
+ &  & \left(\frac{\phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\bar{\sigma}}-\frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\:\phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\bar{\sigma}\:\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}-\kappa\:\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)\right)\end{eqnarray*}
 
 \end_inset
 
