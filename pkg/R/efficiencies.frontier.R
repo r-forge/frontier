@@ -1,6 +1,6 @@
 # efficiencies of frontier models
 efficiencies.frontier <- function( object, asInData = FALSE,
-      logDepVar = TRUE, farrell = TRUE, ... ) {
+      logDepVar = TRUE, farrell = TRUE, margEff = FALSE, ... ) {
 
    resid <- residuals( object )
    fitted <- - resid
@@ -18,6 +18,12 @@ efficiencies.frontier <- function( object, asInData = FALSE,
       dir <- -1
    }
    if( object$modelType == 1 ) {
+      if( margEff ) {
+         warning( "cannot calculate marginal effects of z variables",
+            " for an error components frontier,",
+            " because this model does not have z variables" )
+         margEff <- FALSE
+      }
       if( object$timeEffect ) {
          eta <- coef( object )[ "time" ]
          etaStar <- exp( - eta * ( 1:object$nt - object$nt ) )
@@ -101,11 +107,43 @@ efficiencies.frontier <- function( object, asInData = FALSE,
          result <- exp( pnorm( - dir * sigmaBar + muBar / sigmaBar, log.p = TRUE ) -
                pnorm( muBar / sigmaBar, log.p = TRUE ) ) *
                exp( - dir * muBar + 0.5 * sigmaBarSq )
+            
+         if( margEff ) {
+            if( nz < 1 ) {
+               warning( "cannot calculate marginal effects of z variables",
+                  " for a model that does not have z variables" )
+               margEff <- FALSE
+            } else {
+               margEffectsBase <- ( dnorm( - dir * sigmaBar + muBar / sigmaBar ) /
+                  ( sigmaBar * pnorm( muBar / sigmaBar ) ) *
+                  exp( - dir * muBar + 0.5 * sigmaBarSq ) +
+                  pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
+                  pnorm( muBar / sigmaBar ) *
+                  exp( - dir * muBar + 0.5 * sigmaBarSq ) * ( - dir ) -
+                  ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
+                  pnorm( muBar / sigmaBar )^2 ) *
+                  ( dnorm( muBar / sigmaBar ) / sigmaBar ) *
+                  exp( - dir * muBar + 0.5 * sigmaBarSq ) ) *
+                  ( 1 - gamma )
+               margEffects <- array( NA, 
+                  c( nrow( margEffectsBase ), ncol( margEffectsBase ), nz ) )
+               for( i in 1:nz ) {
+                  margEffects[ , , i ] <- margEffectsBase *
+                     coef( object )[ object$nb + object$zIntercept + 1 + i  ]
+               }
+            }
+         }
       } else {
          result <- 1 - dir * ( muBar + sigmaBar *
             exp( dnorm( muBar / sigmaBar, log = TRUE ) -
                pnorm( muBar / sigmaBar, log = TRUE ) ) ) /
             fitted
+         if( margEff ) {
+            warning( "calculation of marginal effects of z variables",
+               " has not been implemented for models with non-logged",
+               " dependent variables yet" )
+            margEff <- FALSE
+         }
       }
    } else {
       stop( "internal error: unknow model type '",
@@ -125,8 +163,20 @@ efficiencies.frontier <- function( object, asInData = FALSE,
       colnames( result ) <- "efficiency"
    }
 
+   if( margEff ) {
+      dimnames( margEffects ) <- list( rownames( resid ),
+         if( ncol( result ) > 1 ){ colnames( resid ) } else { "efficiency" },
+         names( coef( object ) )[ ( object$nb + object$zIntercept + 2 ):( 
+            object$nb + object$zIntercept + 1 + nz ) ] )
+   }
+
    if( xor( dir == -1, !farrell ) ) {
       result <- 1 / result
+      if( margEff ) {
+         for( k in 1:nz ) {
+            margEffects[ , , k ] <- -margEffects[ , , k ] * result^2
+         }
+      }
    }
 
    if( asInData ) {
@@ -141,6 +191,24 @@ efficiencies.frontier <- function( object, asInData = FALSE,
       }
       result <- effic
       names( result ) <- names( object$validObs )
+      if( margEff ) {
+         margEffects2 <- matrix( NA, nrow = length( object$validObs ), ncol = nz )
+         for( i in 1:nrow( object$dataTable ) ) {
+            for( k in 1:nz ) { 
+               margEffects2[ object$validObs, k ][ i ] <- 
+                  margEffects[ object$dataTable[ i , 1 ],
+                  min( object$dataTable[ i , 2 ], ncol( result ) ), k ]
+            }
+         }
+         rownames( margEffects2 ) <- names( object$validObs )
+         colnames( margEffects2 ) <- dimnames( margEffects )[[ 3 ]]
+         margEffects <- margEffects2
+      }
    }
+
+   if( margEff ) {
+      attr( result, "margEff" ) <- margEffects
+   }
+
    return( result )
 }

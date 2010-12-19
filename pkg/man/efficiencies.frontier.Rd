@@ -10,7 +10,7 @@
 
 \usage{
 \method{efficiencies}{frontier}( object, asInData = FALSE,
-   logDepVar = TRUE, farrell = TRUE, \dots )
+   logDepVar = TRUE, farrell = TRUE, margEff = FALSE, \dots )
 }
 
 \arguments{
@@ -28,6 +28,12 @@
       or equal to one.
       The conversion between the two efficiency measures is done by taking
       the inverse.}
+   \item{margEff}{logical. If \code{TRUE}, the marginal effects
+      of the \eqn{z} variables (of an Efficiency Effects Frontier, EEF)
+      on the efficienc measure are returned as an \sQuote{attribute} 
+      to the returned object (i.e. the efficiency estimates).
+      Currently, this feature is implemented only for models 
+      with logged dependent variables.}
    \item{\dots}{currently ignored.}
 }
 
@@ -43,6 +49,23 @@
    where the efficiency estimates are in the same order
    as the corresponding observations in the data set
    used for the estimation.
+   
+   If argument \code{margEff} is \code{TRUE},
+   and the model is an Efficiency Effects Frontier (EFF) 
+   with \eqn{z} variables,
+   and the dependent variable is logged,
+   the returned efficiency estimates have an attribute \code{"margEff"}
+   that contains the marginal effects of the \eqn{z} variables
+   on the efficiency measure.
+   If argument \code{asInData} is \code{FALSE},
+   this attribute is a 3-dimensional array,
+   where the first dimension represents the individual firm,
+   the second deminsion represents the time period,
+   and the third dimension represents the \eqn{z} variables.
+   In contrast, if argument \code{asInData} is \code{TRUE},
+   this attribute is a matrix,
+   where the rows represent the observations
+   and the columns represent the \eqn{z} variables.
 }
 
 \author{Arne Henningsen \email{arne.henningsen@gmail.com}}

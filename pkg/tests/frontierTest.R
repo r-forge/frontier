@@ -30,7 +30,7 @@ logLik( a1 )
 print( summary( a1 ) )
 print( summary( a1, farrell = FALSE ) )
 lrtest( a1 )
-efficiencies( a1 )
+efficiencies( a1, margEff = TRUE )
 efficiencies( a1, asInData = TRUE )
 efficiencies( a1, farrell = FALSE )
 efficiencies( a1, asInData = TRUE, farrell = FALSE )
@@ -105,10 +105,21 @@ vcov( aa1 )
 print( summary( aa1 ) )
 print( summary( aa1, farrell = FALSE ) )
 lrtest( aa1 )
-efficiencies( aa1 )
-efficiencies( aa1, asInData = TRUE )
-efficiencies( aa1, farrell = FALSE )
-efficiencies( aa1, asInData = TRUE, farrell = FALSE )
+print( aa1eff <- efficiencies( aa1, margEff = TRUE ) )
+print( aa1effD <- efficiencies( aa1, asInData = TRUE, margEff = TRUE ) ) 
+print( aa1effF <- efficiencies( aa1, farrell = FALSE, margEff = TRUE ) )
+print( aa1effDF <- efficiencies( aa1, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+aa1m <- aa1
+aa1m$dataTable[ , "firmNo" ] <- aa1m$dataTable[ , "firmNo" ] + 1e-6
+all.equal( attr( aa1eff, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( aa1m ) - aa1eff )[ , 1 ] / 1e-6 )
+all.equal( attr( aa1effD, "margEff" )[ , 1 ], 
+   c( efficiencies( aa1m, asInData = TRUE ) - aa1effD ) / 1e-6 )
+all.equal( attr( aa1effF, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( aa1m, farrell = FALSE ) - aa1effF )[ , 1 ] / 1e-6 )
+all.equal( attr( aa1effDF, "margEff" )[ , 1 ],
+   c( efficiencies( aa1m, asInData = TRUE, farrell = FALSE ) - aa1effDF ) / 1e-6 )
 residuals( aa1 )
 residuals( aa1, asInData = TRUE )
 print.default( aa1 )
@@ -281,10 +292,31 @@ vcov( bb6 )
 print( summary( bb6 ) )
 print( summary( bb6, farrell = FALSE ) )
 lrtest( bb6 )
-efficiencies( bb6 )
-efficiencies( bb6, asInData = TRUE )
-efficiencies( bb6, farrell = FALSE )
-efficiencies( bb6, asInData = TRUE, farrell = FALSE )
+print( bb6eff <- efficiencies( bb6, margEff = TRUE ) )
+print( bb6effD <- efficiencies( bb6, asInData = TRUE, margEff = TRUE ) )
+print( bb6effF <- efficiencies( bb6, farrell = FALSE, margEff = TRUE ) )
+print( bb6effDF <- efficiencies( bb6, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+bb6m1 <- bb6
+bb6m1$dataTable[ , "EDYRS" ] <- bb6m1$dataTable[ , "EDYRS" ] + 1e-6
+all.equal( attr( bb6eff, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( bb6m1 ) - bb6eff )[ , 1 ] / 1e-6 )
+all.equal( attr( bb6effD, "margEff" )[ , 1 ], 
+   c( efficiencies( bb6m1, asInData = TRUE ) - bb6effD ) / 1e-6 )
+all.equal( attr( bb6effF, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( bb6m1, farrell = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
+all.equal( attr( bb6effDF, "margEff" )[ , 1 ],
+   c( efficiencies( bb6m1, asInData = TRUE, farrell = FALSE ) - bb6effDF ) / 1e-6 )
+bb6m2 <- bb6
+bb6m2$dataTable[ , "BANRAT" ] <- bb6m2$dataTable[ , "BANRAT" ] + 1e-6
+all.equal( attr( bb6eff, "margEff" )[ , 1, 2 ], 
+   ( efficiencies( bb6m2 ) - bb6eff )[ , 1 ] / 1e-6 )
+all.equal( attr( bb6effD, "margEff" )[ , 2 ], 
+   c( efficiencies( bb6m2, asInData = TRUE ) - bb6effD ) / 1e-6 )
+all.equal( attr( bb6effF, "margEff" )[ , 1, 2 ], 
+   ( efficiencies( bb6m2, farrell = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
+all.equal( attr( bb6effDF, "margEff" )[ , 2 ],
+   c( efficiencies( bb6m2, asInData = TRUE, farrell = FALSE ) - bb6effDF ) / 1e-6 )
 residuals( bb6 )
 residuals( bb6, asInData = TRUE )
 print.default( bb6 )
@@ -419,10 +451,31 @@ vcov( dd5 )
 print( summary( dd5 ) )
 print( summary( dd5, farrell = FALSE ) )
 lrtest( dd5 )
-efficiencies( dd5 )
-efficiencies( dd5, asInData = TRUE )
-efficiencies( dd5, farrell = FALSE )
-efficiencies( dd5, asInData = TRUE, farrell = FALSE )
+print( dd5eff <- efficiencies( dd5, margEff = TRUE ) )
+print( dd5effD <- efficiencies( dd5, asInData = TRUE, margEff = TRUE ) )
+print( dd5effF <- efficiencies( dd5, farrell = FALSE, margEff = TRUE ) )
+print( dd5effDF <- efficiencies( dd5, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+dd5m1 <- dd5
+dd5m1$dataTable[ , "EDYRS" ] <- dd5m1$dataTable[ , "EDYRS" ] + 1e-6
+all.equal( attr( dd5eff, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( dd5m1 ) - dd5eff )[ , 1 ] / 1e-6 )
+all.equal( attr( dd5effD, "margEff" )[ , 1 ], 
+   c( efficiencies( dd5m1, asInData = TRUE ) - dd5effD ) / 1e-6 )
+all.equal( attr( dd5effF, "margEff" )[ , 1, 1 ], 
+   ( efficiencies( dd5m1, farrell = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
+all.equal( attr( dd5effDF, "margEff" )[ , 1 ],
+   c( efficiencies( dd5m1, asInData = TRUE, farrell = FALSE ) - dd5effDF ) / 1e-6 )
+dd5m2 <- dd5
+dd5m2$dataTable[ , "BANRAT" ] <- dd5m2$dataTable[ , "BANRAT" ] + 1e-6
+all.equal( attr( dd5eff, "margEff" )[ , 1, 2 ], 
+   ( efficiencies( dd5m2 ) - dd5eff )[ , 1 ] / 1e-6 )
+all.equal( attr( dd5effD, "margEff" )[ , 2 ], 
+   c( efficiencies( dd5m2, asInData = TRUE ) - dd5effD ) / 1e-6 )
+all.equal( attr( dd5effF, "margEff" )[ , 1, 2 ], 
+   ( efficiencies( dd5m2, farrell = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
+all.equal( attr( dd5effDF, "margEff" )[ , 2 ],
+   c( efficiencies( dd5m2, asInData = TRUE, farrell = FALSE ) - dd5effDF ) / 1e-6 )
 residuals( dd5 )
 residuals( dd5, asInData = TRUE )
 print.default( dd5 )
@@ -590,10 +643,31 @@ logLik( b5 )
 print( summary( b5 ) )
 print( summary( b5, farrell = FALSE ) )
 lrtest( b5 )
-efficiencies( b5 )
-efficiencies( b5, asInData = TRUE )
-efficiencies( b5, farrell = FALSE )
-efficiencies( b5, asInData = TRUE, farrell = FALSE )
+print( b5eff <- efficiencies( b5, margEff = TRUE ) )
+print( b5effD <- efficiencies( b5, asInData = TRUE , margEff = TRUE) )
+print( b5effF <- efficiencies( b5, farrell = FALSE, margEff = TRUE ) )
+print( b5effDF <- efficiencies( b5, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+b5m1 <- b5
+b5m1$dataTable[ , "EDYRS" ] <- b5m1$dataTable[ , "EDYRS" ] + 1e-6
+all.equal( attr( b5eff, "margEff" )[ , , 1 ], 
+   ( efficiencies( b5m1 ) - b5eff )[ , ] / 1e-6 )
+all.equal( attr( b5effD, "margEff" )[ , 1 ], 
+   c( efficiencies( b5m1, asInData = TRUE ) - b5effD ) / 1e-6 )
+all.equal( attr( b5effF, "margEff" )[ , , 1 ], 
+   ( efficiencies( b5m1, farrell = FALSE ) - b5effF )[ ,  ] / 1e-6 )
+all.equal( attr( b5effDF, "margEff" )[ , 1 ],
+   c( efficiencies( b5m1, asInData = TRUE, farrell = FALSE ) - b5effDF ) / 1e-6 )
+b5m2 <- b5
+b5m2$dataTable[ , "BANRAT" ] <- b5m2$dataTable[ , "BANRAT" ] + 1e-6
+all.equal( attr( b5eff, "margEff" )[ , , 2 ], 
+   ( efficiencies( b5m2 ) - b5eff )[ , ] / 1e-6 )
+all.equal( attr( b5effD, "margEff" )[ , 2 ], 
+   c( efficiencies( b5m2, asInData = TRUE ) - b5effD ) / 1e-6 )
+all.equal( attr( b5effF, "margEff" )[ , , 2 ], 
+   ( efficiencies( b5m2, farrell = FALSE ) - b5effF )[ , ] / 1e-6 )
+all.equal( attr( b5effDF, "margEff" )[ , 2 ],
+   c( efficiencies( b5m2, asInData = TRUE, farrell = FALSE ) - b5effDF ) / 1e-6 )
 residuals( b5 )
 residuals( b5, asInData = TRUE )
 print.default( b5 )
@@ -798,10 +872,31 @@ vcov( d5 )
 print( summary( d5 ) )
 print( summary( d5, farrell = FALSE ) )
 lrtest( d5 )
-efficiencies( d5 )
-efficiencies( d5, asInData = TRUE )
-efficiencies( d5, farrell = FALSE )
-efficiencies( d5, asInData = TRUE, farrell = FALSE )
+print( d5eff <- efficiencies( d5, margEff = TRUE ) )
+print( d5effD <- efficiencies( d5, asInData = TRUE, margEff = TRUE ) )
+print( d5effF <- efficiencies( d5, farrell = FALSE, margEff = TRUE ) )
+print( d5effDF <- efficiencies( d5, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+d5m1 <- d5
+d5m1$dataTable[ , "EDYRS" ] <- d5m1$dataTable[ , "EDYRS" ] + 1e-6
+all.equal( attr( d5eff, "margEff" )[ , , 1 ], 
+   ( efficiencies( d5m1 ) - d5eff )[ , ] / 1e-6 )
+all.equal( attr( d5effD, "margEff" )[ , 1 ], 
+   c( efficiencies( d5m1, asInData = TRUE ) - d5effD ) / 1e-6 )
+all.equal( attr( d5effF, "margEff" )[ , , 1 ], 
+   ( efficiencies( d5m1, farrell = FALSE ) - d5effF )[ ,  ] / 1e-6 )
+all.equal( attr( d5effDF, "margEff" )[ , 1 ],
+   c( efficiencies( d5m1, asInData = TRUE, farrell = FALSE ) - d5effDF ) / 1e-6 )
+d5m2 <- d5
+d5m2$dataTable[ , "BANRAT" ] <- d5m2$dataTable[ , "BANRAT" ] + 1e-6
+all.equal( attr( d5eff, "margEff" )[ , , 2 ], 
+   ( efficiencies( d5m2 ) - d5eff )[ , ] / 1e-6 )
+all.equal( attr( d5effD, "margEff" )[ , 2 ], 
+   c( efficiencies( d5m2, asInData = TRUE ) - d5effD ) / 1e-6 )
+all.equal( attr( d5effF, "margEff" )[ , , 2 ], 
+   ( efficiencies( d5m2, farrell = FALSE ) - d5effF )[ , ] / 1e-6 )
+all.equal( attr( d5effDF, "margEff" )[ , 2 ],
+   c( efficiencies( d5m2, asInData = TRUE, farrell = FALSE ) - d5effDF ) / 1e-6 )
 residuals( d5 )
 residuals( d5, asInData = TRUE )
 print.default( d5 )
@@ -913,10 +1008,31 @@ print( b6u )
 print( summary( b6u ) )
 print( summary( b6u, farrell = FALSE ) )
 lrtest( b6u )
-efficiencies( b6u )
-efficiencies( b6u, asInData = TRUE )
-efficiencies( b6u, farrell = FALSE )
-efficiencies( b6u, asInData = TRUE, farrell = FALSE )
+print( b6ueff <- efficiencies( b6u, margEff = TRUE ) )
+print( b6ueffD <- efficiencies( b6u, asInData = TRUE, margEff = TRUE ) )
+print( b6ueffF <- efficiencies( b6u, farrell = FALSE, margEff = TRUE ) )
+print( b6ueffDF <- efficiencies( b6u, asInData = TRUE, farrell = FALSE, 
+   margEff = TRUE ) )
+b6um1 <- b6u
+b6um1$dataTable[ , "EDYRS" ] <- b6um1$dataTable[ , "EDYRS" ] + 1e-6
+all.equal( attr( b6ueff, "margEff" )[ , , 1 ], 
+   ( efficiencies( b6um1 ) - b6ueff )[ , ] / 1e-6 )
+all.equal( attr( b6ueffD, "margEff" )[ , 1 ], 
+   c( efficiencies( b6um1, asInData = TRUE ) - b6ueffD ) / 1e-6 )
+all.equal( attr( b6ueffF, "margEff" )[ , , 1 ], 
+   ( efficiencies( b6um1, farrell = FALSE ) - b6ueffF )[ ,  ] / 1e-6 )
+all.equal( attr( b6ueffDF, "margEff" )[ , 1 ],
+   c( efficiencies( b6um1, asInData = TRUE, farrell = FALSE ) - b6ueffDF ) / 1e-6 )
+b6um2 <- b6u
+b6um2$dataTable[ , "BANRAT" ] <- b6um2$dataTable[ , "BANRAT" ] + 1e-6
+all.equal( attr( b6ueff, "margEff" )[ , , 2 ], 
+   ( efficiencies( b6um2 ) - b6ueff )[ , ] / 1e-6 )
+all.equal( attr( b6ueffD, "margEff" )[ , 2 ], 
+   c( efficiencies( b6um2, asInData = TRUE ) - b6ueffD ) / 1e-6 )
+all.equal( attr( b6ueffF, "margEff" )[ , , 2 ], 
+   ( efficiencies( b6um2, farrell = FALSE ) - b6ueffF )[ , ] / 1e-6 )
+all.equal( attr( b6ueffDF, "margEff" )[ , 2 ],
+   c( efficiencies( b6um2, asInData = TRUE, farrell = FALSE ) - b6ueffDF ) / 1e-6 )
 residuals( b6u )
 residuals( b6u, asInData = TRUE )
 print.default( b6u )
@@ -1184,10 +1300,10 @@ logLik( translogZvar )
 print( summary( translogZvar ) )
 print( summary( translogZvar, farrell = FALSE ) )
 lrtest( translogZvar )
-efficiencies( translogZvar )
-efficiencies( translogZvar, asInData = TRUE )
-efficiencies( translogZvar, farrell = FALSE )
-efficiencies( translogZvar, asInData = TRUE, farrell = FALSE )
+efficiencies( translogZvar, margEff = TRUE )
+efficiencies( translogZvar, asInData = TRUE, margEff = TRUE )
+efficiencies( translogZvar, farrell = FALSE, margEff = TRUE )
+efficiencies( translogZvar, asInData = TRUE, farrell = FALSE, margEff = TRUE )
 residuals( translogZvar )
 residuals( translogZvar, asInData = TRUE )
 translogZvarEla <- elas( translogZvar )
@@ -1218,7 +1334,7 @@ efficiencies( a2, asInData = TRUE, logDepVar = FALSE )
 ## cross-section data, efficiency effects frontier
 summary( Saa1, logDepVar = FALSE )
 summary( Saa1, logDepVar = FALSE, farrell = FALSE )
-efficiencies( aa1, logDepVar = FALSE )
+efficiencies( aa1, logDepVar = FALSE, margEff = TRUE )
 efficiencies( aa1, asInData = TRUE, logDepVar = FALSE )
 efficiencies( aa1, logDepVar = FALSE, farrell = FALSE )
 efficiencies( aa1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE )
