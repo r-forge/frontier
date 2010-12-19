@@ -10,7 +10,7 @@
 
 \usage{
 \method{efficiencies}{frontier}( object, asInData = FALSE,
-   logDepVar = TRUE, \dots )
+   logDepVar = TRUE, farrell = TRUE, \dots )
 }
 
 \arguments{
@@ -22,6 +22,12 @@
       used for the estimation
       (see section \sQuote{value} below).}
    \item{logDepVar}{logical. Is the dependent variable logged?}
+   \item{farrell}{logical. If \code{TRUE}, Farrel-type efficiencies
+      that have values between 0 and 1 are returned.
+      If \code{FALSE}, the returned efficiencies have values larger than 
+      or equal to one.
+      The conversion between the two efficiency measures is done by taking
+      the inverse.}
    \item{\dots}{currently ignored.}
 }
 

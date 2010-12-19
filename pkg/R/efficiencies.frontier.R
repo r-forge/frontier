@@ -1,6 +1,6 @@
 # efficiencies of frontier models
 efficiencies.frontier <- function( object, asInData = FALSE,
-      logDepVar = TRUE, ... ) {
+      logDepVar = TRUE, farrell = TRUE, ... ) {
 
    resid <- residuals( object )
    fitted <- - resid
@@ -123,6 +123,10 @@ efficiencies.frontier <- function( object, asInData = FALSE,
       colnames( result ) <- colnames( resid )
    } else {
       colnames( result ) <- "efficiency"
+   }
+
+   if( xor( dir == -1, !farrell ) ) {
+      result <- 1 / result
    }
 
    if( asInData ) {
