@@ -114,16 +114,17 @@ efficiencies.frontier <- function( object, asInData = FALSE,
                   " for a model that does not have z variables" )
                margEff <- FALSE
             } else {
-               margEffectsBase <- ( dnorm( - dir * sigmaBar + muBar / sigmaBar ) /
-                  ( sigmaBar * pnorm( muBar / sigmaBar ) ) *
+               margEffectsBase <- ( ( exp( 
+                     dnorm( - dir * sigmaBar + muBar / sigmaBar, log = TRUE ) -
+                     pnorm( muBar / sigmaBar, log.p = TRUE ) ) / sigmaBar ) *
                   exp( - dir * muBar + 0.5 * sigmaBarSq ) +
-                  pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
-                  pnorm( muBar / sigmaBar ) *
+                  exp( pnorm( - dir * sigmaBar + muBar / sigmaBar, log.p = TRUE ) -
+                     pnorm( muBar / sigmaBar, log.p = TRUE ) ) *
                   exp( - dir * muBar + 0.5 * sigmaBarSq ) * ( - dir ) -
-                  ( pnorm( - dir * sigmaBar + muBar / sigmaBar ) /
-                  pnorm( muBar / sigmaBar )^2 ) *
-                  ( dnorm( muBar / sigmaBar ) / sigmaBar ) *
-                  exp( - dir * muBar + 0.5 * sigmaBarSq ) ) *
+                  exp( dnorm( muBar / sigmaBar, log = TRUE ) +
+                     pnorm( - dir * sigmaBar + muBar / sigmaBar, log.p = TRUE ) -
+                     2 * pnorm( muBar / sigmaBar, log.p = TRUE ) ) *
+                  ( exp( - dir * muBar + 0.5 * sigmaBarSq ) / sigmaBar ) ) *
                   ( 1 - gamma )
                margEffects <- array( NA, 
                   c( nrow( margEffectsBase ), ncol( margEffectsBase ), nz ) )
