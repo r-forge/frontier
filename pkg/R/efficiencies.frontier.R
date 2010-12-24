@@ -12,11 +12,17 @@ efficiencies.frontier <- function( object, asInData = FALSE,
    sigmaSq <- coef( object )[ "sigmaSq" ]
    gamma <- coef( object )[ "gamma" ]
    lambda <- sqrt( gamma / ( 1 - gamma ) )
-   if( object$ineffDecrease ) {
+   if( farrell ) {
       dir <- 1
    } else {
       dir <- -1
    }
+   
+   if( object$ineffDecrease != farrell ) {
+      resid <- -resid
+      fitted <- -fitted
+   }
+   
    if( object$modelType == 1 ) {
       if( margEff ) {
          warning( "cannot calculate marginal effects of z variables",
@@ -62,17 +68,23 @@ efficiencies.frontier <- function( object, asInData = FALSE,
                exp( - dir * muStar * etaStar[j] + 0.5 * sigmaStarSq * etaStar[j]^2 )
          }
       } else {
-         fittedStar <- rep( NA, object$nn )
-         tInd <- rep( NA, object$nn )
-         for( i in 1:object$nn ) {
-            fittedStar[ i ] <- sum( fitted[ i, ], na.rm = TRUE )
-            tInd[ i ] <- sum( !is.na( resid[ i, ] ) )
-         }
-         for( j in 1:ncol( result ) ) {
-            result[ , j ] <- 1 - dir * etaStar[ j ] * ( muStar + sigmaStar *
-               exp( dnorm( muStar / sigmaStar, log = TRUE ) -
-                  pnorm( muStar / sigmaStar, log = TRUE ) ) ) /
-               ( fittedStar / tInd )
+         if( object$ineffDecrease == farrell ) {
+            fittedStar <- rep( NA, object$nn )
+            tInd <- rep( NA, object$nn )
+            for( i in 1:object$nn ) {
+               fittedStar[ i ] <- sum( fitted[ i, ], na.rm = TRUE )
+               tInd[ i ] <- sum( !is.na( resid[ i, ] ) )
+            }
+            for( j in 1:ncol( result ) ) {
+               result[ , j ] <- 1 - dir * etaStar[ j ] * ( muStar + sigmaStar *
+                  exp( dnorm( muStar / sigmaStar, log = TRUE ) -
+                     pnorm( muStar / sigmaStar, log = TRUE ) ) ) /
+                  ( fittedStar / tInd )
+            }
+         } else {
+            warning( "currently, the efficiency estimates based on models",
+               " with non-logged dependent variable can be calculated only",
+               " if 'ineffDecrease' is equal to 'farrell'" )
          }
       }
       # set efficiency estimates of missing observations to NA
@@ -135,10 +147,17 @@ efficiencies.frontier <- function( object, asInData = FALSE,
             }
          }
       } else {
-         result <- 1 - dir * ( muBar + sigmaBar *
-            exp( dnorm( muBar / sigmaBar, log = TRUE ) -
-               pnorm( muBar / sigmaBar, log = TRUE ) ) ) /
-            fitted
+         if( object$ineffDecrease == farrell ) {
+            result <- 1 - dir * ( muBar + sigmaBar *
+               exp( dnorm( muBar / sigmaBar, log = TRUE ) -
+                  pnorm( muBar / sigmaBar, log = TRUE ) ) ) /
+               fitted
+         } else {
+            result <- matrix( NA, nrow = nrow( fitted ), ncol = ncol( fitted ) )
+            warning( "currently, the efficiency estimates based on models",
+               " with non-logged dependent variable can be calculated only",
+               " if 'ineffDecrease' is equal to 'farrell'" )
+         }
          if( margEff ) {
             warning( "calculation of marginal effects of z variables",
                " has not been implemented for models with non-logged",
@@ -151,7 +170,7 @@ efficiencies.frontier <- function( object, asInData = FALSE,
          object$modelType, "'" )
    }
 
-   if( object$ineffDecrease ) {
+   if( farrell ) {
       result[ result > 1 ] <- 1
    } else {
       result[ result < 1 ] <- 1
@@ -169,15 +188,6 @@ efficiencies.frontier <- function( object, asInData = FALSE,
          if( ncol( result ) > 1 ){ colnames( resid ) } else { "efficiency" },
          names( coef( object ) )[ ( object$nb + object$zIntercept + 2 ):( 
             object$nb + object$zIntercept + 1 + nz ) ] )
-   }
-
-   if( xor( dir == -1, !farrell ) ) {
-      result <- 1 / result
-      if( margEff ) {
-         for( k in 1:nz ) {
-            margEffects[ , , k ] <- -margEffects[ , , k ] * result^2
-         }
-      }
    }
 
    if( asInData ) {
