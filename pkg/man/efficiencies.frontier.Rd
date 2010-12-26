@@ -25,12 +25,10 @@
    \item{farrell}{logical. If \code{TRUE}, Farrel-type efficiencies
       that have values between 0 and 1 are returned.
       If \code{FALSE}, the returned efficiencies have values larger than 
-      or equal to one.
-      The conversion between the two efficiency measures is done by taking
-      the inverse.}
+      or equal to one.}
    \item{margEff}{logical. If \code{TRUE}, the marginal effects
       of the \eqn{z} variables (of an Efficiency Effects Frontier, EEF)
-      on the efficienc measure are returned as an \sQuote{attribute} 
+      on the efficiency measure are returned as an \sQuote{attribute} 
       to the returned object (i.e. the efficiency estimates).
       Currently, this feature is implemented only for models 
       with logged dependent variables.}
