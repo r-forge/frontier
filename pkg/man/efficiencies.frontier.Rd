@@ -30,6 +30,9 @@
       of the \eqn{z} variables (of an Efficiency Effects Frontier, EEF)
       on the efficiency measure are returned as an \sQuote{attribute} 
       to the returned object (i.e. the efficiency estimates).
+      These marginal effects are calculated by the formula derived in
+      Olsen and Henningsen (2011),
+      which was slightly adjusted for the differing model specifications.
       Currently, this feature is implemented only for models 
       with logged dependent variables.}
    \item{\dots}{currently ignored.}
@@ -64,6 +67,13 @@
    this attribute is a matrix,
    where the rows represent the observations
    and the columns represent the \eqn{z} variables.
+}
+
+
+\references{
+   Olsen, Jakob V. and Arne Henningsen (2011):
+   Investment Utilisation and Farm Efficiency in Danish Agriculture.
+   Knowledge Centre for Agriculture, Agro Food Park, Aarhus, Denmark.
 }
 
 \author{Arne Henningsen \email{arne.henningsen@gmail.com}}
