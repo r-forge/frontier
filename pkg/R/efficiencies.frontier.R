@@ -78,7 +78,7 @@ efficiencies.frontier <- function( object, asInData = FALSE,
             for( j in 1:ncol( result ) ) {
                result[ , j ] <- 1 - dir * etaStar[ j ] * ( muStar + sigmaStar *
                   exp( dnorm( muStar / sigmaStar, log = TRUE ) -
-                     pnorm( muStar / sigmaStar, log = TRUE ) ) ) /
+                     pnorm( muStar / sigmaStar, log.p = TRUE ) ) ) /
                   ( fittedStar / tInd )
             }
          } else {
@@ -150,7 +150,7 @@ efficiencies.frontier <- function( object, asInData = FALSE,
          if( object$ineffDecrease == farrell ) {
             result <- 1 - dir * ( muBar + sigmaBar *
                exp( dnorm( muBar / sigmaBar, log = TRUE ) -
-                  pnorm( muBar / sigmaBar, log = TRUE ) ) ) /
+                  pnorm( muBar / sigmaBar, log.p = TRUE ) ) ) /
                fitted
          } else {
             result <- matrix( NA, nrow = nrow( fitted ), ncol = ncol( fitted ) )
