@@ -117,11 +117,11 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > 
 > # Comparisons
 > rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )
-     (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
-[1,]   -1.144454 0.3540003 0.3343596 0.2728686 14.67986 0.9975543 -53.52347
-[2,]   -1.144442 0.3540016 0.3343550 0.2728636 15.69587 0.9977124 -57.27907
+     (Intercept)    lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
+[1,]   -1.144621 0.353968 0.3343644 0.2728852 16.29753 0.9977963 -59.51317
+[2,]   -1.145025 0.353982 0.3344024 0.2728637 21.60905 0.9983359 -79.23243
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ) )
-[1] "Mean relative difference: 3.584463e-05"
+[1] "Mean relative difference: 0.0003003621"
 > 
 > 
 > ############ panel data ###############
@@ -179,18 +179,18 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > all.equal( b6eef[ -c( 3, 4, 19, 30, 38 ) ], bb6eef[ -c( 3, 4, 19, 30, 38 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
-[1] "Mean relative difference: 3.584463e-05"
+[1] "Mean relative difference: 0.0003003621"
 > all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ) )
-[1] "Mean relative difference: 0.0001004992"
+[1] "Mean relative difference: 0.001061498"
 > 
 > # Comparisons
 > rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
-     (Intercept)     lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
-[1,]   -1.144454 0.3540003 0.3343596 0.2728686 14.67986 0.9975543 -53.52347
-[2,]   -1.144442 0.3540016 0.3343550 0.2728636 15.69587 0.9977124 -57.27907
+     (Intercept)    lAREA    lLABOR      lNPK  sigmaSq     gamma        mu
+[1,]   -1.144621 0.353968 0.3343644 0.2728852 16.29753 0.9977963 -59.51317
+[2,]   -1.145025 0.353982 0.3344024 0.2728637 21.60905 0.9983359 -79.23243
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
-[1] "Mean relative difference: 3.584463e-05"
+[1] "Mean relative difference: 0.0003003621"
 > all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ) )
-[1] "Mean relative difference: 0.0001004992"
+[1] "Mean relative difference: 0.001061498"
 > 
 > 
