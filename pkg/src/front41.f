@@ -111,19 +111,20 @@ c       contains the main loop of this iterative program.
       iter=0 
       if (im.eq.1) call der1(x,gx,yy,xx) 
       if (im.eq.2) call der2(x,gx,yy,xx) 
-      if (iprint.ne.0) write(6,*)
-      if (iprint.ne.0) write(6,301) iter,nfunct,-fy   
-      nc=1   
-  305 if (iprint.ne.0) write(6,302) (y(i),i=nc,min(n,nc+4))   
-      nc=nc+5
-      if(nc.le.n) goto 305   
+      if (iprint.ne.0) then 
+      call intpr( 'iteration', -1, iter, 1 )
+      call intpr( 'function evaluations', -1, nfunct, 1 )
+      call dblepr( 'log-likelihood value', -1, -fy, 1 )   
+      call dblepr( 'parameters', -1, y, n )
+      endif
       if (maxit.eq.0) goto 70
    5    do 20 i=1,n 
       do 10 j=1,n
    10   h(i,j)=0.0 
    20   h(i,i)=1.0 
-      if(iprint.ne.0) write(6,2100)  
- 2100   format(' gradient step')  
+      if(iprint.ne.0) then
+      call intpr( 'gradient step', -1, 0, 0 )
+      endif
       do 30 i=1,n
    30   s(i)=-gx(i)
    40 icode=0
@@ -153,11 +154,10 @@ c       contains the main loop of this iterative program.
       if (iprint.ne.0) then
       printcon=float(iter)/float(iprint)-float(iter/iprint)
       if (printcon.eq.0.0) then   
-      write(6,301) iter,nfunct,-fy   
-      nc=1   
-  304   write(6,302) (y(i),i=nc,min(n,nc+4))   
-      nc=nc+5
-      if(nc.le.n) goto 304   
+      call intpr( 'iteration', -1, iter, 1 )
+      call intpr( 'function evaluations', -1, nfunct, 1 )
+      call dblepr( 'log-likelihood value', -1, -fy, 1 )   
+      call dblepr( 'parameters', -1, y, n )
       endif
       endif  
       do 50 i=1,n
@@ -173,13 +173,12 @@ c       contains the main loop of this iterative program.
    60   s(i)=s(i)-h(i,j)*gy(j)
       goto 40
    70   continue  
-      if (iprint.ne.0) write(6,301) iter,nfunct,-fy
-      nc=1   
-  303 if (iprint.ne.0)  write(6,302) (y(i),i=nc,min(n,nc+4))   
-      nc=nc+5
-      if(nc.le.n) goto 303   
-  301   format(' iteration = ',i5,'  func evals =',i7,'  llf =',e16.8) 
-  302   format(4x,5e15.8)  
+      if (iprint.ne.0) then 
+      call intpr( 'iteration', -1, iter, 1 )
+      call intpr( 'function evaluations', -1, nfunct, 1 )
+      call dblepr( 'log-likelihood value', -1, -fy, 1 )
+      call dblepr( 'parameters', -1, y, n )
+      endif
       deallocate(x,s,delx,delg,gx,gy)
       return 
       end
@@ -314,8 +313,10 @@ c       determines the step length (t) using a unidimensional search.
    3    do 4 i=1,n  
    4    y(i)=x(i)+da*s(i)   
       fy=fa  
-      if(iprint.ne.0) write(6,2100)  
- 2100   format(' search failed. fn val indep of search direction')
+      if(iprint.ne.0) then
+      call intpr( 'search failed. fn val indep of search direction',
+     $  -1, 0, 0 )
+      endif
       goto 326   
    5    fc=fb   
       fb=fa  
@@ -354,8 +355,10 @@ c       determines the step length (t) using a unidimensional search.
    14   y(i)=x(i)+db*s(i)  
       fy=fb  
       if(iexit.eq.1) goto 32 
-      if(iprint.ne.0) write(6,2500)  
- 2500   format(' search failed. loc of min limited by rounding')  
+      if(iprint.ne.0) then
+      call intpr( 'search failed. loc of min limited by rounding',
+     $ -1, 0, 0 )
+      endif
       goto 325   
    15   if(f-fb) 16,13,17  
    16   fc=fb  
@@ -398,8 +401,9 @@ c       determines the step length (t) using a unidimensional search.
       if(y(i).ne.x(i)) goto 325  
    99   continue   
       goto 33
-  325   if(ntol.ne.0.and.iprint.eq.1) write(6,3000) ntol  
- 3000   format(1x,'tolerance reduced ',i2,' time(s)')
+  325   if(ntol.ne.0.and.iprint.eq.1) then
+      call intpr( 'tolerance reduced so many time(s):', -1, ntol, 1 )
+      endif
   326   if(fy.lt.fx) return   
       do 101 i=1,n   
       if(s(i).ne.-gx(i)) return  
@@ -413,8 +417,10 @@ c       determines the step length (t) using a unidimensional search.
       ntol=ntol+1
       ftol=ftol/10.  
       goto 12
-  34    if(iprint.ne.0) write(6,2000)   
- 2000   format(' pt better than entering pt cannot be found')
+  34    if(iprint.ne.0) then
+      call intpr( 'pt better than entering pt cannot be found', 
+     $  -1, 0, 0 )
+      endif
       icode=5
       return 
       end
