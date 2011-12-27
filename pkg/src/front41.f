@@ -255,7 +255,7 @@ c       calculates the direction matrix (p).
   134   continue   
       c=c/(hgxx*gxx)**0.5
       if(dabs(c).lt.1.0/bignum) then
-      write(6,*) 'ill-conditioned eta'   
+      call intpr( 'ill-conditioned eta', -1, 0, 0 )
       do 136 i=1,n   
       do 137 j=1,n   
   137   h(i,j)=0.0
@@ -304,8 +304,8 @@ c       determines the step length (t) using a unidimensional search.
       if (im.eq.1) call fun1(y,f,yy,xx) 
       if (im.eq.2) call fun2(y,f,yy,xx) 
       if (f.ne.f) then
-      write(6,2505)
- 2505 format(' function value in search procedure is NaN')
+      call intpr( 'function value in search procedure is NaN', 
+     $   -1, 0, 0 )
       return
       endif
       k=k+1
@@ -408,8 +408,8 @@ c       determines the step length (t) using a unidimensional search.
       do 101 i=1,n   
       if(s(i).ne.-gx(i)) return  
   101   continue  
-      write(6,5000)  
- 5000   format(' search failed on gradient step, termination')
+      call intpr( 'search failed on gradient step, termination',
+     $  -1, 0, 0 )
       icode=6
       return 
    33   if(ntol.eq.10) goto 34
@@ -765,8 +765,10 @@ c       also reads data from a file.
       igrid=1
       nz=0
       if ((nn*nt).lt.nob) then   
-      write(6,*) ' the total number of obsns exceeds the product of'    
-      write(6,*) ' the number of firms by the number of years - bye!'   
+      call intpr( 'the total number of obsns exceeds the product of',
+     $  -1, 0, 0 )
+      call intpr( 'the number of firms by the number of years - bye!',
+     $  -1, 0, 0 )
       stop  
       end if
       if (im.eq.1) then
@@ -782,8 +784,10 @@ c       also reads data from a file.
       n=nr+2
       endif
       if (n.ne.nParamTotal) then
-      write(6,*) 'internal error: calculated variable ''n'''
-      write(6,*) 'is not equal to argument ''nParamTotal'''
+      call intpr( 'internal error: calculated variable ''n''',
+     $  -1, 0, 0 )
+      call intpr( 'is not equal to argument ''nParamTotal''', 
+     $ -1, 0, 0 )
       stop
       endif
       allocate (sv(n))
@@ -793,7 +797,7 @@ c       also reads data from a file.
       sv(i)=startVal(i)
   148   continue  
       else if (nStartVal.gt.1) then
-      write(6,*) 'wrong number of starting values'
+      call intpr( 'wrong number of starting values', -1, 0, 0 )
       stop
       endif
       allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
@@ -826,23 +830,25 @@ c       also reads data from a file.
       endif
       endif
       if (i.lt.1) then  
-      write(6,*) ' error - a firm number is < 1'    
+      call intpr( 'error - a firm number is < 1', -1, 0, 0 )
       stop  
       else if (i.gt.nn) then 
-      write(6,*) ' error - a firm number is > number of firms'
+      call intpr( 'error - a firm number is > number of firms', 
+     $  -1, 0, 0 )
       stop  
       else if (l.lt.1) then  
-      write(6,*) ' error - a period number is < 1'  
+      call intpr( 'error - a period number is < 1', -1, 0, 0 )
       stop  
       else if (l.gt.nt) then 
-      write(6,*) ' error - a period number is > number of periods' 
+      call intpr( 'error - a period number is > number of periods',
+     $  -1, 0, 0 )
       stop  
       end if
   134   continue   
       do 149 i=1,nn   
       if (mm(i).eq.0) then  
-      write(6,66) i   
-   66   format(' error - there are no observations on firm ',i6)
+      call intpr( 'error - there are no observations on firm',
+     $  -1, i, 1 )
       stop  
       end if
   149   continue   
