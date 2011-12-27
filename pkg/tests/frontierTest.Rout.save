@@ -670,10 +670,10 @@ attr(,"class")
 > 
 > ## cross-section data, error components frontier, truncNorm
 > sa2 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data,
-+    truncNorm = TRUE )
++    truncNorm = TRUE, printIter = 4 )
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-38], a2[-38] )
+> all.equal( sa2[-c(7,38)], a2[-c(7,38)] )
 [1] TRUE
 > print( a2 )
 
@@ -1655,8 +1655,8 @@ attr(,"class")
 > saa1 <- sfa( logOutput ~ logCapital + logLabour | firmNo - 1,
 +    data = front41Data )
 > Saa1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
-+    data = front41Data )
-> all.equal( Saa1[-38], saa1[-38], check.attributes = FALSE )
++    data = front41Data, printIter = 3 )
+> all.equal( Saa1[-c(7,38)], saa1[-c(7,38)], check.attributes = FALSE )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
@@ -28383,14 +28383,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
 > 
 > ## panel data, error components frontier
-> sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel )
+> sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
++    printIter = 2 )
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-38], sb1[-38], check.attributes = FALSE )
+> all.equal( Sb1[-c(7,38)], sb1[-c(7,38)], check.attributes = FALSE )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-38], b1[-38] )
+> all.equal( sb1[-c(7,38)], b1[-c(7,38)] )
 [1] TRUE
 > print( b1 )
 
@@ -33055,8 +33056,8 @@ attr(,"class")
 > sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanel )
 > Sb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
-+    EDYRS + BANRAT - 1, data = riceProdPhilPanel )
-> all.equal( Sb5[-38], sb5[-38], check.attributes = FALSE )
++    EDYRS + BANRAT - 1, data = riceProdPhilPanel, printIter = 5 )
+> all.equal( Sb5[-c(7,38)], sb5[-c(7,38)], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
@@ -80275,3 +80276,88 @@ Model 2: translog
 1   9 -14.03217                      
 2   8 -14.43429 -1 0.80425    0.36982
 > 
+
+ iteration =     0  func evals =     21  llf = -0.17034849E+02
+     0.58014200E+00 0.28049258E+00 0.53330635E+00 0.22067406E+00 0.80000000E+00
+     0.00000000E+00
+ gradient step
+ iteration =     4  func evals =     43  llf = -0.16977687E+02
+     0.50954068E+00 0.28316817E+00 0.54292590E+00 0.23594138E+00 0.80001134E+00
+    -0.10937191E+00
+ iteration =     8  func evals =     81  llf = -0.16861104E+02
+     0.50068332E+00 0.28277680E+00 0.53924576E+00 0.32091640E+00 0.84478098E+00
+    -0.46605777E+00
+ iteration =    12  func evals =    166  llf = -0.16811229E+02
+     0.49018633E+00 0.28211563E+00 0.53837366E+00 0.43964113E+00 0.88619379E+00
+    -0.96854497E+00
+ iteration =    16  func evals =    251  llf = -0.16795743E+02
+     0.47576037E+00 0.28264286E+00 0.54052057E+00 0.54598170E+00 0.90791020E+00
+    -0.14081227E+01
+ pt better than entering pt cannot be found
+ iteration =    19  func evals =    284  llf = -0.16795667E+02
+     0.47640574E+00 0.28259309E+00 0.54038498E+00 0.54775839E+00 0.90814619E+00
+    -0.14105952E+01
+
+ iteration =     0  func evals =     21  llf = -0.17034849E+02
+     0.58014200E+00 0.28049258E+00 0.53330635E+00 0.00000000E+00 0.22067406E+00
+     0.80000000E+00
+ gradient step
+ iteration =     3  func evals =     34  llf = -0.16516928E+02
+     0.57441145E+00 0.26906553E+00 0.52755266E+00-0.61805510E-02 0.24665353E+00
+     0.79496377E+00
+ iteration =     6  func evals =     43  llf = -0.16433630E+02
+     0.53476477E+00 0.27145209E+00 0.53933245E+00-0.70050335E-02 0.26345133E+00
+     0.82883052E+00
+ iteration =     9  func evals =    104  llf = -0.16382174E+02
+     0.53675186E+00 0.26864513E+00 0.53935847E+00-0.10262555E-01 0.28445524E+00
+     0.84014301E+00
+ iteration =    12  func evals =    164  llf = -0.16382169E+02
+     0.53680796E+00 0.26864910E+00 0.53934066E+00-0.10281566E-01 0.28455728E+00
+     0.84008850E+00
+ search failed. loc of min limited by rounding
+ iteration =    13  func evals =    167  llf = -0.16382169E+02
+     0.53680796E+00 0.26864910E+00 0.53934066E+00-0.10281566E-01 0.28455728E+00
+     0.84008850E+00
+
+ iteration =     0  func evals =     21  llf = -0.89227840E+02
+    -0.14745590E+01 0.32976359E+00 0.38374520E+00 0.28292059E+00 0.14580617E+00
+     0.41000000E+00
+ gradient step
+ iteration =     2  func evals =     32  llf = -0.89013323E+02
+    -0.14574949E+01 0.31994055E+00 0.39215775E+00 0.27142661E+00 0.14171680E+00
+     0.40667529E+00
+ iteration =     4  func evals =     40  llf = -0.88656866E+02
+    -0.14046746E+01 0.34031415E+00 0.40963754E+00 0.24233056E+00 0.14253321E+00
+     0.39778010E+00
+ iteration =     6  func evals =     50  llf = -0.86470210E+02
+    -0.85917128E+00 0.45034758E+00 0.29158300E+00 0.22979702E+00 0.14956417E+00
+     0.45047425E+00
+ iteration =     8  func evals =     90  llf = -0.86430434E+02
+    -0.83152020E+00 0.45399226E+00 0.28884354E+00 0.22749160E+00 0.15534752E+00
+     0.46436285E+00
+ iteration =    10  func evals =    129  llf = -0.86430420E+02
+    -0.83216857E+00 0.45389704E+00 0.28892370E+00 0.22754385E+00 0.15537695E+00
+     0.46431167E+00
+ iteration =    11  func evals =    134  llf = -0.86430420E+02
+    -0.83216857E+00 0.45389704E+00 0.28892370E+00 0.22754385E+00 0.15537695E+00
+     0.46431167E+00
+
+ iteration =     0  func evals =     21  llf = -0.88206795E+02
+    -0.13039045E+01 0.32976359E+00 0.38374520E+00 0.28292059E+00 0.00000000E+00
+     0.00000000E+00 0.24151279E+00 0.87000000E+00
+ gradient step
+ iteration =     5  func evals =     42  llf = -0.83764287E+02
+    -0.12797985E+01 0.32556835E+00 0.37526832E+00 0.27251954E+00-0.31098451E-01
+    -0.12254977E+00 0.30566685E+00 0.88897986E+00
+ iteration =    10  func evals =     98  llf = -0.78636867E+02
+    -0.10501268E+01 0.37345169E+00 0.32654740E+00 0.26592260E+00-0.27007016E-02
+    -0.77239225E+00 0.37138234E+00 0.90907784E+00
+ iteration =    15  func evals =    203  llf = -0.77860368E+02
+    -0.10073582E+01 0.38355267E+00 0.31936294E+00 0.26030427E+00-0.48947675E-01
+    -0.13311197E+01 0.56463562E+00 0.94243753E+00
+ iteration =    20  func evals =    308  llf = -0.77849546E+02
+    -0.10087631E+01 0.38404291E+00 0.31903221E+00 0.26035264E+00-0.58169959E-01
+    -0.14058976E+01 0.59771130E+00 0.94494432E+00
+ iteration =    24  func evals =    374  llf = -0.77849544E+02
+    -0.10085799E+01 0.38409910E+00 0.31898324E+00 0.26035460E+00-0.58068926E-01
+    -0.14056729E+01 0.59747574E+00 0.94493064E+00
