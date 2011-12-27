@@ -1,8 +1,8 @@
 
-R version 2.12.2 (2011-02-25)
+R version 2.14.1 (2011-12-22)
 Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
-Platform: i486-pc-linux-gnu (32-bit)
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -20,37 +20,33 @@ Type 'q()' to quit R.
 > 
 > library( "frontier" )
 Loading required package: plm
-Loading required package: kinship
-Loading required package: survival
-Loading required package: splines
+Loading required package: bdsmatrix
+
+Attaching package: 'bdsmatrix'
+
+The following object(s) are masked from 'package:base':
+
+    backsolve
+
 Loading required package: nlme
-Loading required package: lattice
-[1] "kinship is loaded"
 Loading required package: Formula
 Loading required package: MASS
 Loading required package: sandwich
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 Loading required package: micEcon
-Loading required package: np
-Loading required package: boot
-
-Attaching package: 'boot'
-
-The following object(s) are masked from 'package:lattice':
-
-    melanoma
-
-The following object(s) are masked from 'package:survival':
-
-    aml
-
-Loading required package: cubature
-Nonparametric Kernel Methods for Mixed Datatypes (version 0.40-3)
 Loading required package: miscTools
 Loading required package: lmtest
 > library( "fdrtool" )  # for function rhalfnorm
 > library( "MCMCpack" )  # for function rdirichlet
 Loading required package: coda
+Loading required package: lattice
 ##
 ## Markov Chain Monte Carlo Package (MCMCpack)
 ## Copyright (C) 2003-2011 Andrew D. Martin, Kevin M. Quinn, and Jong Hee Park
@@ -3002,29 +2998,29 @@ b_t2_t2  1.779925e-04 -8.722751e-04 -5.900050e-04  0.0012638739 -7.096725e-04
 sigmaSq  8.250866e-06  1.398961e-04  6.298796e-05  0.0001204026 -3.411637e-05
 gamma   -3.994355e-05  4.130631e-04  1.020567e-04  0.0003285896 -3.765245e-05
               b_t2_t2       sigmaSq         gamma
-a_0     -2.274620e-03  7.381903e-04  2.171149e-03
-a_1     -6.417297e-04 -5.396070e-05 -1.652408e-04
-a_2      2.207486e-03 -1.760713e-05 -1.414691e-04
-a_3      3.706136e-03 -2.848463e-04 -6.525835e-04
-a_t1     2.049439e-03 -4.237131e-04 -1.502873e-03
-a_t2    -1.432958e-02 -6.284261e-05 -6.268595e-05
-b_1_1    4.617947e-04 -1.924753e-05 -1.429356e-05
-b_1_2   -2.198450e-05 -3.198148e-06 -2.392048e-05
-b_1_3   -6.398869e-04  2.214424e-05  3.967868e-05
-b_1_t1   4.256470e-04 -1.969402e-05 -8.063953e-06
-b_1_t2   8.869496e-04  6.716811e-05  1.506426e-04
-b_2_2    3.630946e-04 -1.316182e-05 -4.811565e-05
-b_2_3   -6.077238e-04  1.450651e-05  7.074282e-05
-b_2_t1  -8.923315e-04  2.621248e-05  1.180389e-04
-b_2_t2  -3.774677e-04 -3.656445e-05 -7.662417e-05
-b_3_3    1.779925e-04  8.250866e-06 -3.994355e-05
-b_3_t1  -8.722751e-04  1.398961e-04  4.130631e-04
-b_3_t2  -5.900050e-04  6.298796e-05  1.020567e-04
-b_t1_t1  1.263874e-03  1.204026e-04  3.285896e-04
-b_t1_t2 -7.096725e-04 -3.411637e-05 -3.765245e-05
-b_t2_t2  1.822909e-02 -1.598535e-04 -4.165155e-04
-sigmaSq -1.598535e-04  4.546563e-05  6.361657e-05
-gamma   -4.165155e-04  6.361657e-05  1.524458e-04
+a_0     -0.0022746203  7.381903e-04  2.171149e-03
+a_1     -0.0006417297 -5.396070e-05 -1.652408e-04
+a_2      0.0022074857 -1.760713e-05 -1.414691e-04
+a_3      0.0037061358 -2.848463e-04 -6.525835e-04
+a_t1     0.0020494389 -4.237131e-04 -1.502873e-03
+a_t2    -0.0143295791 -6.284261e-05 -6.268595e-05
+b_1_1    0.0004617947 -1.924753e-05 -1.429356e-05
+b_1_2   -0.0000219845 -3.198148e-06 -2.392048e-05
+b_1_3   -0.0006398869  2.214424e-05  3.967868e-05
+b_1_t1   0.0004256470 -1.969402e-05 -8.063953e-06
+b_1_t2   0.0008869496  6.716811e-05  1.506426e-04
+b_2_2    0.0003630946 -1.316182e-05 -4.811565e-05
+b_2_3   -0.0006077238  1.450651e-05  7.074282e-05
+b_2_t1  -0.0008923315  2.621248e-05  1.180389e-04
+b_2_t2  -0.0003774677 -3.656445e-05 -7.662417e-05
+b_3_3    0.0001779925  8.250866e-06 -3.994355e-05
+b_3_t1  -0.0008722751  1.398961e-04  4.130631e-04
+b_3_t2  -0.0005900050  6.298796e-05  1.020567e-04
+b_t1_t1  0.0012638739  1.204026e-04  3.285896e-04
+b_t1_t2 -0.0007096725 -3.411637e-05 -3.765245e-05
+b_t2_t2  0.0182290898 -1.598535e-04 -4.165155e-04
+sigmaSq -0.0001598535  4.546563e-05  6.361657e-05
+gamma   -0.0004165155  6.361657e-05  1.524458e-04
 
 $mleLogl
 [1] 241.3279
