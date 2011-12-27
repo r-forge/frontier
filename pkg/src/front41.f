@@ -769,7 +769,8 @@ c       also reads data from a file.
      $  -1, 0, 0 )
       call intpr( 'the number of firms by the number of years - bye!',
      $  -1, 0, 0 )
-      stop  
+      icode=101
+      return  
       end if
       if (im.eq.1) then
       nb=nb+1
@@ -788,7 +789,8 @@ c       also reads data from a file.
      $  -1, 0, 0 )
       call intpr( 'is not equal to argument ''nParamTotal''', 
      $ -1, 0, 0 )
-      stop
+      icode=102
+      return
       endif
       allocate (sv(n))
       if (nStartVal.eq.n) then
@@ -798,7 +800,8 @@ c       also reads data from a file.
   148   continue  
       else if (nStartVal.gt.1) then
       call intpr( 'wrong number of starting values', -1, 0, 0 )
-      stop
+      icode=103
+      return
       endif
       allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
       do 135 i=1,nn
@@ -831,25 +834,30 @@ c       also reads data from a file.
       endif
       if (i.lt.1) then  
       call intpr( 'error - a firm number is < 1', -1, 0, 0 )
-      stop  
+      icode=104 
+      return
       else if (i.gt.nn) then 
       call intpr( 'error - a firm number is > number of firms', 
      $  -1, 0, 0 )
-      stop  
+      icode=105
+      return
       else if (l.lt.1) then  
       call intpr( 'error - a period number is < 1', -1, 0, 0 )
-      stop  
+      icode=106
+      return
       else if (l.gt.nt) then 
       call intpr( 'error - a period number is > number of periods',
      $  -1, 0, 0 )
-      stop  
+      icode=107
+      return
       end if
   134   continue   
       do 149 i=1,nn   
       if (mm(i).eq.0) then  
       call intpr( 'error - there are no observations on firm',
      $  -1, i, 1 )
-      stop  
+      icode=108
+      return
       end if
   149   continue   
       call mini(yy,xx,mm,sv,ob,gb,fxs,y,h)
