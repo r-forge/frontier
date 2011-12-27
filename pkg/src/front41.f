@@ -139,8 +139,8 @@ c       contains the main loop of this iterative program.
       call convrg(ipass,x,y) 
       if (ipass.eq.1.) then
       if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.10)) then
-      write(6,109) frestart
-  109 format('restarting with starting values multiplied by',e16.8)
+      call dblepr( 'restarting with starting values multiplied by',
+     $  -1, frestart, 1 )
       do 108 i=1,n
       sv(i)=x(i)*frestart
   108 continue

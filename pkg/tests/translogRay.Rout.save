@@ -57,6 +57,8 @@ Loading required package: lmtest
 > estResultRay <- frontierTranslogRay( yNames = c( "qCrop", "qAnimal" ),
 +    xNames = c( "qLabor", "land", "qVarInput" ),
 +    data = germanFarms )
+restarting with starting values multiplied by
+[1] 0.999
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the residuals of the OLS estimates are right-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
@@ -482,4 +484,3 @@ $theta_1
 attr(,"class")
 [1] "frontierTranslogRay" "frontierQuad"        "frontier"           
 > 
-restarting with starting values multiplied by  0.99900000E+00
