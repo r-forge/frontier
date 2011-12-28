@@ -426,14 +426,14 @@ c       determines the step length (t) using a unidimensional search.
       return 
       end
  
-      subroutine check(b,xx)
+      subroutine check(b)
 c       checks if params are out of bounds & adjusts if required. 
       implicit double precision (a-h,o-z)
       common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
-      dimension b(n),xx(nn,nt,nr)
+      dimension b(n)
       n1=nr+1
       n2=nr+2
       bi=dsqrt(bignum) 
@@ -458,7 +458,7 @@ c       error components model.
      $  mrestart,frestart,nrestart
       data pi/3.1415926/ 
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
-      call check(b,xx)  
+      call check(b)  
       a=dble(0) 
       f=dfloat(nn)    
       fnt=dfloat(nt)
@@ -524,7 +524,7 @@ c       of the log-likelihood function of the error components model.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr) 
-      call check(b,xx)  
+      call check(b)  
       f=dfloat(nn)    
       ftot=dfloat(nob) 
       fnt=dfloat(nt)  
@@ -660,7 +660,7 @@ c       TE effects model.
      $  mrestart,frestart,nrestart
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       data pi/3.1415926/ 
-      call check(b,xx)  
+      call check(b)  
       s2=b(nr+1) 
       g=b(nr+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
@@ -701,7 +701,7 @@ c       of the log-likelihood function of the TE effects model.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
-      call check(b,xx)  
+      call check(b)  
       s2=b(nr+1) 
       g=b(nr+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
