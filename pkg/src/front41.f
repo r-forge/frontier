@@ -152,7 +152,7 @@ c       contains the main loop of this iterative program.
       endif
       endif
       if (iprint.ne.0) then
-      printcon=float(iter)/float(iprint)-float(iter/iprint)
+      printcon=dble(iter)/dble(iprint)-dble(iter/iprint)
       if (printcon.eq.dble(0)) then   
       call intpr( 'iteration', -1, iter, 1 )
       call intpr( 'function evaluations', -1, nfunct, 1 )
@@ -887,7 +887,7 @@ c       does a grid search across gamma
       n2=nr+2
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
-      var=ob(nb+1)*float(nob-nb)/float(nob)
+      var=ob(nb+1)*dble(nob-nb)/dble(nob)
       b0=ob(1)   
       do 131 i=1,nb+1
       y(i)=ob(i) 
