@@ -42,7 +42,8 @@ c       Hence, this programme can be run automatically (non-interactively) now.
       dimension h(nParamTotal,nParamTotal)
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/two/fx,fy
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
 
       im=imArg
@@ -81,7 +82,8 @@ c       Hence, this programme can be run automatically (non-interactively) now.
       subroutine mini(yy,xx,sv,ob,gb,fxs,y,h)
 c       contains the main loop of this iterative program. 
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension yy(nn,nt),xx(nn,nt,nr),sv(n)
@@ -189,7 +191,7 @@ c       the program is halted when the proportional change in the log-
 c       likelihood and in each of the parameters is no greater than   
 c       a specified tolerance.
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
@@ -269,7 +271,8 @@ c       calculates the direction matrix (p).
 c       unidimensional search (coggin) to determine optimal step length
 c       determines the step length (t) using a unidimensional search. 
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
@@ -429,7 +432,7 @@ c       determines the step length (t) using a unidimensional search.
       subroutine check(b)
 c       checks if params are out of bounds & adjusts if required. 
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
@@ -453,7 +456,7 @@ c       checks if params are out of bounds & adjusts if required.
 c       calculates the negative of the log-likelihood function of the
 c       error components model.
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       data pi/3.1415926/ 
@@ -520,7 +523,7 @@ c       error components model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the error components model.
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr) 
@@ -655,7 +658,7 @@ c       of the log-likelihood function of the error components model.
 c       calculates the negative of the log-likelihood function of the
 c       TE effects model.
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
@@ -697,7 +700,7 @@ c       TE effects model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the TE effects model.   
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
@@ -757,7 +760,7 @@ c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
@@ -876,7 +879,8 @@ c       also reads data from a file.
       subroutine grid(x,y,yy,xx,ob,gb)
 c       does a grid search across gamma
       implicit double precision (a-h,o-z)
-      common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
+      common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
