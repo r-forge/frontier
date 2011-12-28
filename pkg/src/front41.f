@@ -253,7 +253,7 @@ c       calculates the direction matrix (p).
       do 134 i=1,n   
       c=c+hgx(i)*gx(i)   
   134   continue   
-      c=c/(hgxx*gxx)**0.5
+      c=c/(hgxx*gxx)**dble(0.5)
       if(dabs(c).lt.dble(1)/bignum) then
       call intpr( 'ill-conditioned eta', -1, 0, 0 )
       do 136 i=1,n   
@@ -345,7 +345,7 @@ c       determines the step length (t) using a unidimensional search.
       fc=fb  
       fb=fa  
       fa=f   
-   10   d=0.5*(da+db)  
+   10   d=dble(0.5)*(da+db)  
       do 11 i=1,n
    11   y(i)=x(i)+d*s(i)   
       if (im.eq.1) call fun1(y,f,yy,xx) 
@@ -474,11 +474,11 @@ c       error components model.
       endif
       sc=1.
       if (ipc.eq.2) sc=-1.
-      a=0.5*ftot*(dlog(dble(2)*pi)+dlog(s2))    
-      a=a+0.5*(ftot-f)*dlog(dble(1)-g)    
-      z=u/(s2*g)**0.5
+      a=dble(0.5)*ftot*(dlog(dble(2)*pi)+dlog(s2))    
+      a=a+dble(0.5)*(ftot-f)*dlog(dble(1)-g)    
+      z=u/(s2*g)**dble(0.5)
       a=a+f*dislog(z)
-      a=a+0.5*f*z**2  
+      a=a+dble(0.5)*f*z**2  
       a2=dble(0)
       do 132 i=1,nn   
       epr=dble(0)    
@@ -496,7 +496,7 @@ c       error components model.
       if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
   101   continue   
       zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
-      a=a+0.5*dlog(dble(1)+(epe-dble(1))*g)   
+      a=a+dble(0.5)*dlog(dble(1)+(epe-dble(1))*g)   
       a=a-dislog(zi)
       do 133 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
@@ -507,9 +507,9 @@ c       error components model.
       a2=a2+ee**2 
       end if
  133    continue    
-      a=a-0.5*zi**2   
+      a=a-dble(0.5)*zi**2   
  132    continue    
-      a=a+0.5*a2/((dble(1)-g)*s2) 
+      a=a+dble(0.5)*a2/((dble(1)-g)*s2) 
       nfunct=nfunct+1 
       return
       end   
@@ -547,11 +547,11 @@ c       of the log-likelihood function of the error components model.
       endif
       sc=1.
       if (ipc.eq.2) sc=-1.
-      z=u/(s2*g)**0.5
+      z=u/(s2*g)**dble(0.5)
       do 106 j=1,n        
       gx(j)=dble(0)
  106    continue
-      gx(n1)=0.5*ftot/s2-0.5*f*(dendis(z)+z)*z/s2
+      gx(n1)=dble(0.5)*ftot/s2-dble(0.5)*f*(dendis(z)+z)*z/s2
       gx(n2)=-.5*(ftot-f)/(1.-g)-.5*f*(dendis(z)+z)*z/g
       
       do 105 i=1,nn
@@ -598,19 +598,19 @@ c       of the log-likelihood function of the error components model.
       ss=ss+ee**2 
       endif
  138    continue
-      gx(n1)=gx(n1)-0.5*ss/((dble(1)-g)*s2**2)   
+      gx(n1)=gx(n1)-dble(0.5)*ss/((dble(1)-g)*s2**2)   
       
-      gx(n2)=gx(n2)+0.5*ss/((dble(1)-g)**2*s2)   
-      gx(n2)=gx(n2)+0.5*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)  
+      gx(n2)=gx(n2)+dble(0.5)*ss/((dble(1)-g)**2*s2)   
+      gx(n2)=gx(n2)+dble(0.5)*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)  
       d=g*(1.-g)*(dble(1)+(epe-dble(1))*g) 
       dzi=-(u+sc*epr)*d   
-      c=0.5*(u*(dble(1)-g)-sc*g*epr) 
+      c=dble(0.5)*(u*(dble(1)-g)-sc*g*epr) 
       dzi=dzi-c*((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-3.0*g))  
-      dzi=dzi/(d**1.5*s2**0.5)    
+      dzi=dzi/(d**1.5*s2**dble(0.5))    
       gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
   
       if (nmu.eq.1) then  
-      gx(n3)=gx(n3)+1./(s2*g)**0.5*(dendis(z)+z)
+      gx(n3)=gx(n3)+1./(s2*g)**dble(0.5)*(dendis(z)+z)
       d=(dendis(zi)+zi)*(1.-g)
       gx(n3)=gx(n3)-d/(g*(1.-g)*s2*(1.+(epe-1.)*g))**.5  
       end if
@@ -632,7 +632,7 @@ c       of the log-likelihood function of the error components model.
       dd=(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g)) 
       d=d*g*dd*sc
       c=u*(dble(1)-g)-sc*g*epr  
-      c=c*0.5*g**2*(dble(1)-g)*s2*de    
+      c=c*dble(0.5)*g**2*(dble(1)-g)*s2*de    
       dzi=(d-c)/dd**1.5    
       gx(n4)=gx(n4)-(dendis(zi)+zi)*dzi
       gx(n4)=gx(n4)+g/dble(2)*de/(dble(1)+(epe-dble(1))*g)   
@@ -656,7 +656,7 @@ c       TE effects model.
       call check(b,xx)  
       s2=b(nr+1) 
       g=b(nr+2)  
-      ss=(g*(1.-g)*s2)**0.5  
+      ss=(g*(1.-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       a=0.   
@@ -675,10 +675,10 @@ c       TE effects model.
    12   continue   
       endif  
       us=(1.-g)*zd-sc*g*ee  
-      d=zd/(g*s2)**0.5   
+      d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
-      a=a-0.5*dlog(2.*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
-     +  -0.5*(ee+sc*zd)**2/s2 
+      a=a-dble(0.5)*dlog(2.*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
+     +  -dble(0.5)*(ee+sc*zd)**2/s2 
       endif
    10   continue   
       a=-a   
@@ -697,7 +697,7 @@ c       of the log-likelihood function of the TE effects model.
       call check(b,xx)  
       s2=b(nr+1) 
       g=b(nr+2)  
-      ss=(g*(1.-g)*s2)**0.5  
+      ss=(g*(1.-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       do 9 j=1,n 
@@ -718,7 +718,7 @@ c       of the log-likelihood function of the TE effects model.
    12   continue   
       endif  
       us=(1.-g)*zd-sc*g*ee  
-      d=zd/(g*s2)**0.5   
+      d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
       do 13 j=1,nb   
       gx(j)=gx(j)+xx(i,l,j)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
@@ -726,14 +726,14 @@ c       of the log-likelihood function of the TE effects model.
       if (nz.ne.0) then  
       do 14 j=nb+1,nr
       gx(j)=gx(j)-xx(i,l,j)*((sc*ee+zd)/s2+dendis(d)/(g*s2)
-     +  **0.5-dendis(ds)*(1.-g)/ss)
+     +  **dble(0.5)-dendis(ds)*(1.-g)/ss)
    14   continue   
       endif  
-      gx(nr+1)=gx(nr+1)-0.5/s2*(1.-(dendis(d)*d-dendis(ds)
+      gx(nr+1)=gx(nr+1)-dble(0.5)/s2*(1.-(dendis(d)*d-dendis(ds)
      +  *ds)-(ee+sc*zd)**2/s2)
-      gx(nr+2)=gx(nr+2)+0.5*(dendis(d)*d/g-dendis(ds)
+      gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)
      +  /ss*(zd/g+sc*ee/(1.-g)))
-c       gx(nr+2)=gx(nr+2)+0.5*(dendis(d)*d/g-dendis(ds)*
+c       gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
 c    +  (2.*(ee+zd)/ss+ds*(1.-2.*g)/(g*(1.-g))))
       endif
    10   continue   
@@ -896,7 +896,7 @@ c       does a grid search across gamma
       y6=y6b+(j-1)*gridno
       y(n2)=y6   
       y(n1)=var/(1.-2.*y(n2)/pi) 
-      c=(y(n2)*y(n1)*2/pi)**0.5  
+      c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
       y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
@@ -916,7 +916,7 @@ c       does a grid search across gamma
       y6=bb1+(j-1)*bb3
       y(n2)=y6   
       y(n1)=var/(1.-2.*y(n2)/pi) 
-      c=(y(n2)*y(n1)*2/pi)**0.5  
+      c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
       y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
