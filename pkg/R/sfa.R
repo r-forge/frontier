@@ -289,6 +289,16 @@ sfa <- function(
          " than the number of time periods" )
    }
 
+   # check for double entries for firm/period combinations
+   for( i in 1:nn ) {
+      for( j in 1:nt ) {
+         if( sum( dataTable[ , 1 ] == i & dataTable[ , 2 ] == j ) > 1 ){
+            stop( "more than one observation for firm '", firmId[ i ],
+               "' in period '", timeId[ j ], "'" )
+         }
+      }
+   }
+
 
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {

@@ -246,10 +246,8 @@ Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 > rd <- rbind( rd, rd[ 11, ] )
 > rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
 > try( sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd ) )
-the total number of obsns exceeds the product of
-the number of firms by the number of years - bye!
 Error in sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), data = rd) : 
-  the total number of observations exceeds the product of the number of firms by the number of years
+  more than one observation for firm '11' in period '1'
 > 
 > ## non-positive firm number (works now)
 > rd <- riceProdPhil
