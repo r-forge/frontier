@@ -94,7 +94,8 @@ c       contains the main loop of this iterative program.
       allocate(delx(n),delg(n),gx(n),gy(n))
       do 98 i=1,n   
       gx(i)=dble(0)  
-      gy(i)=dble(0)  
+      gy(i)=dble(0)
+      delx(i)=dble(0)  
   98    continue
   107 if ((igrid.eq.1).and.(nrestart.eq.0)) then
       call grid(x,y,yy,xx,ob,gb)  
