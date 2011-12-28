@@ -139,7 +139,7 @@ c       contains the main loop of this iterative program.
       if (im.eq.2) call der2(y,gy,yy,xx) 
       call convrg(ipass,x,y) 
       if (ipass.eq.1.) then
-      if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.10)) then
+      if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.mrestart)) then
       call dblepr( 'restarting with starting values multiplied by',
      $  -1, frestart, 1 )
       do 108 i=1,n
