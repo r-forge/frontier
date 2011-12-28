@@ -91,8 +91,8 @@ c       contains the main loop of this iterative program.
       allocate(x(n),s(n))
       allocate(delx(n),delg(n),gx(n),gy(n))
       do 98 i=1,n   
-      gx(i)=0.0  
-      gy(i)=0.0  
+      gx(i)=dble(0)  
+      gy(i)=dble(0)  
   98    continue
   107 if ((igrid.eq.1).and.(nrestart.eq.0)) then
       call grid(x,y,yy,xx,ob,gb)  
@@ -120,8 +120,8 @@ c       contains the main loop of this iterative program.
       if (maxit.eq.0) goto 70
    5    do 20 i=1,n 
       do 10 j=1,n
-   10   h(i,j)=0.0 
-   20   h(i,i)=1.0 
+   10   h(i,j)=dble(0) 
+   20   h(i,i)=dble(1) 
       if(iprint.ne.0) then
       call intpr( 'gradient step', -1, 0, 0 )
       endif
@@ -153,7 +153,7 @@ c       contains the main loop of this iterative program.
       endif
       if (iprint.ne.0) then
       printcon=float(iter)/float(iprint)-float(iter/iprint)
-      if (printcon.eq.0.0) then   
+      if (printcon.eq.dble(0)) then   
       call intpr( 'iteration', -1, iter, 1 )
       call intpr( 'function evaluations', -1, nfunct, 1 )
       call dblepr( 'log-likelihood value', -1, -fy, 1 )   
@@ -168,7 +168,7 @@ c       contains the main loop of this iterative program.
       fx=fy  
       call eta(h,delx,delg,gx)
       do 60 i=1,n
-      s(i)=0.0   
+      s(i)=dble(0)   
       do 60 j=1,n
    60   s(i)=s(i)-h(i,j)*gy(j)
       goto 40
@@ -223,11 +223,11 @@ c       calculates the direction matrix (p).
       dimension hdg(:),dgh(:),hgx(:)  
       allocatable :: hdg,dgh,hgx
       allocate(hdg(n),dgh(n),hgx(n))
-      dxdg=0.0   
-      dghdg=0.0  
+      dxdg=dble(0)   
+      dghdg=dble(0)  
       do 20 i=1,n
-      hdg(i)=0.0 
-      dgh(i)=0.0 
+      hdg(i)=dble(0) 
+      dgh(i)=dble(0) 
       do 10 j=1,n
       hdg(i)=hdg(i)-h(i,j)*delg(j)   
    10   dgh(i)=dgh(i)+delg(j)*h(j,i)   
@@ -239,7 +239,7 @@ c       calculates the direction matrix (p).
       do 117 i=1,n   
   117   h(i,i)=dabs(h(i,i))
       do 132 i=1,n   
-      hgx(i)=0.0 
+      hgx(i)=dble(0) 
       do 132 j=1,n   
       hgx(i)=hgx(i)+h(i,j)*gx(j) 
   132   continue   
@@ -254,11 +254,11 @@ c       calculates the direction matrix (p).
       c=c+hgx(i)*gx(i)   
   134   continue   
       c=c/(hgxx*gxx)**0.5
-      if(dabs(c).lt.1.0/bignum) then
+      if(dabs(c).lt.dble(1)/bignum) then
       call intpr( 'ill-conditioned eta', -1, 0, 0 )
       do 136 i=1,n   
       do 137 j=1,n   
-  137   h(i,j)=0.0
+  137   h(i,j)=dble(0)
   136   h(i,i)=delx(i)/gx(i)  
       endif  
       deallocate(hdg,dgh,hgx)
@@ -282,16 +282,16 @@ c       determines the step length (t) using a unidimensional search.
       fa=fx  
       fb=fx  
       fc=fx  
-      da=0.0 
-      db=0.0 
-      dc=0.0 
+      da=dble(0) 
+      db=dble(0) 
+      dc=dble(0) 
       k=-2   
       m=0
       step=step1 
       d=step 
       if(indic.eq.2.or.iter.eq.0) goto 1 
-      dxnorm=0.0 
-      snorm=0.0  
+      dxnorm=dble(0) 
+      snorm=dble(0)  
       do 102 i=1,n   
       dxnorm=dxnorm+delx(i)*delx(i)  
   102   snorm=snorm+s(i)*s(i) 
@@ -386,9 +386,9 @@ c       determines the step length (t) using a unidimensional search.
       if (im.eq.1) call fun1(y,f,yy,xx) 
       if (im.eq.2) call fun2(y,f,yy,xx) 
       if(dabs(fb)-ftol2) 25,25,26
-   25   a=1.0  
+   25   a=dble(1)  
       goto 27
-   26   a=1.0/fb   
+   26   a=dble(1)/fb   
    27   if((dabs(fb-f)*a)-ftol) 28,28,12   
    28   iexit=1
       if(f-fb) 29,13,13  
@@ -436,11 +436,11 @@ c       checks if params are out of bounds & adjusts if required.
       n1=nr+1
       n2=nr+2
       bi=dsqrt(bignum) 
-      if(b(n1).le.0.0) b(n1)=1.0/bi  
-      if(b(n2).le.1.0/bi) b(n2)=1.0/bi   
-      if(b(n2).ge.1.0-1.0/bi) b(n2)=1.0-1.0/bi   
+      if(b(n1).le.dble(0)) b(n1)=dble(1)/bi  
+      if(b(n2).le.dble(1)/bi) b(n2)=dble(1)/bi   
+      if(b(n2).ge.dble(1)-dble(1)/bi) b(n2)=dble(1)-dble(1)/bi   
       bound=bmu*dsqrt(b(n1)*b(n2))
-      if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.0.0)) then
+      if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.dble(0))) then
       n3=nr+3
       if(b(n3).gt.bound) b(n3)=bound
       if(b(n3).lt.-bound) b(n3)=-bound
@@ -458,14 +458,14 @@ c       error components model.
       data pi/3.1415926/ 
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b,xx)  
-      a=0.0 
+      a=dble(0) 
       f=dfloat(nn)    
       fnt=dfloat(nt)
       ftot=dfloat(nob) 
       s2=b(nb+1)
       g=b(nb+2)
-      u=0.0
-      e=0.0
+      u=dble(0)
+      e=dble(0)
       if (nmu.eq.1) then 
       u=b(nb+3)
       if (neta.eq.1) e=b(nb+4)
@@ -475,15 +475,15 @@ c       error components model.
       sc=1.
       if (ipc.eq.2) sc=-1.
       a=0.5*ftot*(dlog(2.0*pi)+dlog(s2))    
-      a=a+0.5*(ftot-f)*dlog(1.0-g)    
+      a=a+0.5*(ftot-f)*dlog(dble(1)-g)    
       z=u/(s2*g)**0.5
       a=a+f*dislog(z)
       a=a+0.5*f*z**2  
-      a2=0.0
+      a2=dble(0)
       do 132 i=1,nn   
-      epr=0.0    
+      epr=dble(0)    
       do 103 l=1,nt   
-      if (xx(i,l,1).ne.0.0) then
+      if (xx(i,l,1).ne.dble(0)) then
       ee=yy(i,l)  
       do 102 j=1,nb   
       ee=ee-b(j)*xx(i,l,j)   
@@ -491,15 +491,15 @@ c       error components model.
       epr=epr+ee*dexp(-e*(dfloat(l)-fnt))   
       end if
   103   continue   
-      epe=0.0
+      epe=dble(0)
       do 101 l=1,nt   
-      if (xx(i,l,1).ne.0.0) epe=epe+dexp(-2.0*e*(dfloat(l)-fnt))    
+      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-2.0*e*(dfloat(l)-fnt))    
   101   continue   
       zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
-      a=a+0.5*dlog(1.0+(epe-1.0)*g)   
+      a=a+0.5*dlog(dble(1)+(epe-dble(1))*g)   
       a=a-dislog(zi)
       do 133 l=1,nt   
-      if (xx(i,l,1).ne.0.0) then
+      if (xx(i,l,1).ne.dble(0)) then
       ee=yy(i,l)  
       do 134 j=1,nb   
       ee=ee-b(j)*xx(i,l,j)   
@@ -509,7 +509,7 @@ c       error components model.
  133    continue    
       a=a-0.5*zi**2   
  132    continue    
-      a=a+0.5*a2/((1.0-g)*s2) 
+      a=a+0.5*a2/((dble(1)-g)*s2) 
       nfunct=nfunct+1 
       return
       end   
@@ -530,8 +530,8 @@ c       of the log-likelihood function of the error components model.
       n2=nr+2
       s2=b(n1)
       g=b(n2)
-      u=0.0
-      e=0.0
+      u=dble(0)
+      e=dble(0)
       if (nmu.eq.1) then 
       n3=nr+3
       u=b(n3)
@@ -549,16 +549,16 @@ c       of the log-likelihood function of the error components model.
       if (ipc.eq.2) sc=-1.
       z=u/(s2*g)**0.5
       do 106 j=1,n        
-      gx(j)=0.0
+      gx(j)=dble(0)
  106    continue
       gx(n1)=0.5*ftot/s2-0.5*f*(dendis(z)+z)*z/s2
       gx(n2)=-.5*(ftot-f)/(1.-g)-.5*f*(dendis(z)+z)*z/g
       
       do 105 i=1,nn
-      epr=0.0    
-      epe=0.0
+      epr=dble(0)    
+      epe=dble(0)
       do 103 l=1,nt   
-      if (xx(i,l,1).ne.0.0) then
+      if (xx(i,l,1).ne.dble(0)) then
       ee=yy(i,l)  
       do 102 j=1,nb   
       ee=ee-b(j)*xx(i,l,j)   
@@ -571,7 +571,7 @@ c       of the log-likelihood function of the error components model.
       
       do 132 j=1,nb   
       do 134 l=1,nt   
-      if(xx(i,l,1).ne.0.0) then
+      if(xx(i,l,1).ne.dble(0)) then
       ee=yy(i,l)  
       do 135 k=1,nb   
       ee=ee-xx(i,l,k)*b(k)   
@@ -579,18 +579,18 @@ c       of the log-likelihood function of the error components model.
       gx(j)=gx(j)-xx(i,l,j)*ee/(s2*(1.-g))
       endif
  134    continue    
-      xpe=0.0
+      xpe=dble(0)
       do 146 l=1,nt
       if(xx(i,l,1).ne.0.0)xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
-      gx(j)=gx(j)-d/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5   
+      gx(j)=gx(j)-d/(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**0.5   
  132    continue    
       
       gx(n1)=gx(n1)+.5*(dendis(zi)+zi)*zi/s2
-      ss=0.0
+      ss=dble(0)
       do 138 l=1,nt   
-      if(xx(i,l,1).ne.0.0) then
+      if(xx(i,l,1).ne.dble(0)) then
       ee=yy(i,l)  
       do 139 j=1,nb   
       ee=ee-xx(i,l,j)*b(j)   
@@ -598,14 +598,14 @@ c       of the log-likelihood function of the error components model.
       ss=ss+ee**2 
       endif
  138    continue
-      gx(n1)=gx(n1)-0.5*ss/((1.0-g)*s2**2)   
+      gx(n1)=gx(n1)-0.5*ss/((dble(1)-g)*s2**2)   
       
-      gx(n2)=gx(n2)+0.5*ss/((1.0-g)**2*s2)   
-      gx(n2)=gx(n2)+0.5*(epe-1.0)/(1.0+(epe-1.0)*g)  
-      d=g*(1.-g)*(1.0+(epe-1.0)*g) 
+      gx(n2)=gx(n2)+0.5*ss/((dble(1)-g)**2*s2)   
+      gx(n2)=gx(n2)+0.5*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)  
+      d=g*(1.-g)*(dble(1)+(epe-dble(1))*g) 
       dzi=-(u+sc*epr)*d   
-      c=0.5*(u*(1.0-g)-sc*g*epr) 
-      dzi=dzi-c*((1.0-2.0*g)+(epe-1.0)*g*(2.0-3.0*g))  
+      c=0.5*(u*(dble(1)-g)-sc*g*epr) 
+      dzi=dzi-c*((dble(1)-2.0*g)+(epe-dble(1))*g*(2.0-3.0*g))  
       dzi=dzi/(d**1.5*s2**0.5)    
       gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
   
@@ -616,8 +616,8 @@ c       of the log-likelihood function of the error components model.
       end if
   
       if (neta.eq.1) then 
-      de=0.0
-      d=0.0 
+      de=dble(0)
+      d=dble(0) 
       do 152 l=1,nt   
       if (xx(i,l,1).eq.1) then  
       t=dfloat(l)
@@ -629,13 +629,13 @@ c       of the log-likelihood function of the error components model.
       d=d+(t-fnt)*dexp(-e*(t-fnt))*ee
       end if
   152   continue   
-      dd=(g*(1.0-g)*s2*(1.0+(epe-1.0)*g)) 
+      dd=(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g)) 
       d=d*g*dd*sc
-      c=u*(1.0-g)-sc*g*epr  
-      c=c*0.5*g**2*(1.0-g)*s2*de    
+      c=u*(dble(1)-g)-sc*g*epr  
+      c=c*0.5*g**2*(dble(1)-g)*s2*de    
       dzi=(d-c)/dd**1.5    
       gx(n4)=gx(n4)-(dendis(zi)+zi)*dzi
-      gx(n4)=gx(n4)+g/2.0*de/(1.0+(epe-1.0)*g)   
+      gx(n4)=gx(n4)+g/2.0*de/(dble(1)+(epe-dble(1))*g)   
       end if
   105   continue
   
@@ -657,12 +657,12 @@ c       TE effects model.
       s2=b(nr+1) 
       g=b(nr+2)  
       ss=(g*(1.-g)*s2)**0.5  
-      sc=1.0
-      if (ipc.eq.2) sc=-1.0
+      sc=dble(1)
+      if (ipc.eq.2) sc=-dble(1)
       a=0.   
       do 10 i=1,nn   
       do 10 l=1,nt
-      if (xx(i,l,1).ne.0.0) then
+      if (xx(i,l,1).ne.dble(0)) then
       xb=0.  
       do 11 j=1,nb   
       xb=xb+xx(i,l,j)*b(j) 
@@ -698,14 +698,14 @@ c       of the log-likelihood function of the TE effects model.
       s2=b(nr+1) 
       g=b(nr+2)  
       ss=(g*(1.-g)*s2)**0.5  
-      sc=1.0
-      if (ipc.eq.2) sc=-1.0
+      sc=dble(1)
+      if (ipc.eq.2) sc=-dble(1)
       do 9 j=1,n 
       gx(j)=0.   
    9    continue   
       do 10 i=1,nn   
       do 10 l=1,nt
-      if (xx(i,l,1).ne.0.0) then
+      if (xx(i,l,1).ne.dble(0)) then
       xb=0.  
       do 11 j=1,nb   
       xb=xb+xx(i,l,j)*b(j) 
@@ -807,7 +807,7 @@ c       also reads data from a file.
       do 135 i=1,nn
       mm(i)=0
       do 135 l=1,nt
-      xx(i,l,1)=0.0
+      xx(i,l,1)=dble(0)
   135   continue
       do 134 k=1,nob  
       ndat=nr
@@ -819,13 +819,13 @@ c       also reads data from a file.
       i=int(fii)   
       l=int(ftt)   
       mm(i)=mm(i)+1
-      xx(i,l,1)=1.0
+      xx(i,l,1)=dble(1)
       yy(i,l)=yyd
       do 136 j=2,nb
       xx(i,l,j)=xxd(j)
   136   continue
       if ((im.eq.2).and.(nz.gt.0)) then
-      if (nmu.eq.1) xx(i,l,nb+1)=1.0
+      if (nmu.eq.1) xx(i,l,nb+1)=dble(1)
       if ((nz-nmu).gt.0) then
       do 154 j=nb+nmu+1,nr
       xx(i,l,j)=xxd(j-nmu)
@@ -878,8 +878,8 @@ c       does a grid search across gamma
       data pi/3.1415926/ 
       n1=nr+1
       n2=nr+2
-      sc=1.0
-      if (ipc.eq.2) sc=-1.0
+      sc=dble(1)
+      if (ipc.eq.2) sc=-dble(1)
       var=ob(nb+1)*float(nob-nb)/float(nob)
       b0=ob(1)   
       do 131 i=1,nb+1
