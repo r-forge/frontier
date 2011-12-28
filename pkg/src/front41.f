@@ -134,7 +134,7 @@ c       contains the main loop of this iterative program.
       icode=10
       goto 70
       endif  
-   7    if(fy.gt.fx) goto 5
+      if(fy.gt.fx) goto 5
       if (im.eq.1) call der1(y,gy,yy,xx)
       if (im.eq.2) call der2(y,gy,yy,xx) 
       call convrg(ipass,x,y) 
