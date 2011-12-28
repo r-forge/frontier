@@ -379,7 +379,8 @@ c       determines the step length (t) using a unidimensional search.
       dc=d   
    21   a=fa*(db-dc)+fb*(dc-da)+fc*(da-db) 
       if(a) 22,30,22
-   22   d=0.5*((db*db-dc*dc)*fa+(dc*dc-da*da)*fb+(da*da-db*db)*fc)/a   
+   22   d=dble(0.5)*
+     $  ((db*db-dc*dc)*fa+(dc*dc-da*da)*fb+(da*da-db*db)*fc)/a   
       if((da-d)*(d-dc)) 13,13,23 
    23   do 24 i=1,n
    24   y(i)=x(i)+d*s(i)   
@@ -495,7 +496,8 @@ c       error components model.
       do 101 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
   101   continue   
-      zi=(u*(dble(1)-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
+      zi=(u*(dble(1)-g)-sc*g*epr)/
+     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
       a=a+dble(0.5)*dlog(dble(1)+(epe-dble(1))*g)   
       a=a-dislog(zi)
       do 133 l=1,nt   
@@ -552,7 +554,8 @@ c       of the log-likelihood function of the error components model.
       gx(j)=dble(0)
  106    continue
       gx(n1)=dble(0.5)*ftot/s2-dble(0.5)*f*(dendis(z)+z)*z/s2
-      gx(n2)=-dble(0.5)*(ftot-f)/(dble(1)-g)-.5*f*(dendis(z)+z)*z/g
+      gx(n2)=-dble(0.5)*(ftot-f)/(dble(1)-g)-
+     $  dble(0.5)*f*(dendis(z)+z)*z/g
       
       do 105 i=1,nn
       epr=dble(0)    
@@ -567,7 +570,8 @@ c       of the log-likelihood function of the error components model.
       epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
       end if
   103   continue   
-      zi=(u*(dble(1)-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
+      zi=(u*(dble(1)-g)-sc*g*epr)/
+     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
       
       do 132 j=1,nb   
       do 134 l=1,nt   
@@ -584,7 +588,8 @@ c       of the log-likelihood function of the error components model.
       if(xx(i,l,1).ne.dble(0))xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
-      gx(j)=gx(j)-d/(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**0.5   
+      gx(j)=gx(j)-d/
+     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)   
  132    continue    
       
       gx(n1)=gx(n1)+dble(0.5)*(dendis(zi)+zi)*zi/s2
@@ -605,7 +610,8 @@ c       of the log-likelihood function of the error components model.
       d=g*(dble(1)-g)*(dble(1)+(epe-dble(1))*g) 
       dzi=-(u+sc*epr)*d   
       c=dble(0.5)*(u*(dble(1)-g)-sc*g*epr) 
-      dzi=dzi-c*((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-3.0*g))  
+      dzi=dzi-c*
+     $  ((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-dble(3)*g))  
       dzi=dzi/(d**dble(1.5)*s2**dble(0.5))    
       gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
   
@@ -677,8 +683,8 @@ c       TE effects model.
       us=(dble(1)-g)*zd-sc*g*ee  
       d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
-      a=a-dble(0.5)*dlog(dble(2)*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
-     +  -dble(0.5)*(ee+sc*zd)**2/s2 
+      a=a-dble(0.5)*dlog(dble(2)*pi)-dble(0.5)*dlog(s2)-
+     $  (dislog(d)-dislog(ds))-dble(0.5)*(ee+sc*zd)**2/s2 
       endif
    10   continue   
       a=-a   
