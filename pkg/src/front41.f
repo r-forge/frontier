@@ -243,13 +243,13 @@ c       calculates the direction matrix (p).
       do 132 j=1,n   
       hgx(i)=hgx(i)+h(i,j)*gx(j) 
   132   continue   
-      hgxx=0.
-      gxx=0. 
+      hgxx=dble(0)
+      gxx=dble(0) 
       do 133 i=1,n   
       hgxx=hgxx+hgx(i)**2
       gxx=gxx+gx(i)**2   
   133   continue   
-      c=0.   
+      c=dble(0)   
       do 134 i=1,n   
       c=c+hgx(i)*gx(i)   
   134   continue   
@@ -416,7 +416,7 @@ c       determines the step length (t) using a unidimensional search.
    33   if(ntol.eq.10) goto 34
       iexit=0
       ntol=ntol+1
-      ftol=ftol/10.  
+      ftol=ftol/dble(10)  
       goto 12
   34    if(iprint.ne.0) then
       call intpr( 'pt better than entering pt cannot be found', 
@@ -618,7 +618,8 @@ c       of the log-likelihood function of the error components model.
       if (nmu.eq.1) then  
       gx(n3)=gx(n3)+dble(1)/(s2*g)**dble(0.5)*(dendis(z)+z)
       d=(dendis(zi)+zi)*(dble(1)-g)
-      gx(n3)=gx(n3)-d/(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**.5  
+      gx(n3)=gx(n3)-d/
+     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5) 
       end if
   
       if (neta.eq.1) then 
@@ -665,16 +666,16 @@ c       TE effects model.
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
-      a=0.   
+      a=dble(0)   
       do 10 i=1,nn   
       do 10 l=1,nt
       if (xx(i,l,1).ne.dble(0)) then
-      xb=0.  
+      xb=dble(0)  
       do 11 j=1,nb   
       xb=xb+xx(i,l,j)*b(j) 
    11   continue   
       ee=(yy(i,l)-xb)
-      zd=0.  
+      zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=nb+1,nr
       zd=zd+xx(i,l,j)*b(j) 
@@ -707,17 +708,17 @@ c       of the log-likelihood function of the TE effects model.
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       do 9 j=1,n 
-      gx(j)=0.   
+      gx(j)=dble(0)   
    9    continue   
       do 10 i=1,nn   
       do 10 l=1,nt
       if (xx(i,l,1).ne.dble(0)) then
-      xb=0.  
+      xb=dble(0)  
       do 11 j=1,nb   
       xb=xb+xx(i,l,j)*b(j) 
    11   continue   
       ee=(yy(i,l)-xb)
-      zd=0.  
+      zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=nb+1,nr
       zd=zd+xx(i,l,j)*b(j) 
@@ -892,7 +893,7 @@ c       does a grid search across gamma
       y(i)=ob(i) 
   131   continue   
       do 132 i=nb+1,nr   
-      y(i)=0.
+      y(i)=dble(0)
   132   continue   
       fx=bignum  
       y6b=gridno 
