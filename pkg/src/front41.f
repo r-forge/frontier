@@ -552,7 +552,7 @@ c       of the log-likelihood function of the error components model.
       gx(j)=dble(0)
  106    continue
       gx(n1)=dble(0.5)*ftot/s2-dble(0.5)*f*(dendis(z)+z)*z/s2
-      gx(n2)=-.5*(ftot-f)/(dble(1)-g)-.5*f*(dendis(z)+z)*z/g
+      gx(n2)=-dble(0.5)*(ftot-f)/(dble(1)-g)-.5*f*(dendis(z)+z)*z/g
       
       do 105 i=1,nn
       epr=dble(0)    
@@ -587,7 +587,7 @@ c       of the log-likelihood function of the error components model.
       gx(j)=gx(j)-d/(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**0.5   
  132    continue    
       
-      gx(n1)=gx(n1)+.5*(dendis(zi)+zi)*zi/s2
+      gx(n1)=gx(n1)+dble(0.5)*(dendis(zi)+zi)*zi/s2
       ss=dble(0)
       do 138 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
@@ -677,7 +677,7 @@ c       TE effects model.
       us=(dble(1)-g)*zd-sc*g*ee  
       d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
-      a=a-dble(0.5)*dlog(2.*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
+      a=a-dble(0.5)*dlog(dble(2)*pi)-0.5*dlog(s2)-(dislog(d)-dislog(ds))
      +  -dble(0.5)*(ee+sc*zd)**2/s2 
       endif
    10   continue   
@@ -734,7 +734,7 @@ c       of the log-likelihood function of the TE effects model.
       gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)
      +  /ss*(zd/g+sc*ee/(dble(1)-g)))
 c       gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
-c    +  (2.*(ee+zd)/ss+ds*(dble(1)-2.*g)/(g*(dble(1)-g))))
+c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
       endif
    10   continue   
       do 15 j=1,n
@@ -895,7 +895,7 @@ c       does a grid search across gamma
       do 137 j=1,nloop
       y6=y6b+(j-1)*gridno
       y(n2)=y6   
-      y(n1)=var/(dble(1)-2.*y(n2)/pi) 
+      y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
       y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
@@ -915,7 +915,7 @@ c       does a grid search across gamma
       do 140 j=1,nloop
       y6=bb1+(j-1)*bb3
       y(n2)=y6   
-      y(n1)=var/(dble(1)-2.*y(n2)/pi) 
+      y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
       y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
