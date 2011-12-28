@@ -459,9 +459,9 @@ c       error components model.
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)  
       a=dble(0) 
-      f=dfloat(nn)    
-      fnt=dfloat(nt)
-      ftot=dfloat(nob) 
+      f=dble(nn)    
+      fnt=dble(nt)
+      ftot=dble(nob) 
       s2=b(nb+1)
       g=b(nb+2)
       u=dble(0)
@@ -488,12 +488,12 @@ c       error components model.
       do 102 j=1,nb   
       ee=ee-b(j)*xx(i,l,j)   
   102   continue   
-      epr=epr+ee*dexp(-e*(dfloat(l)-fnt))   
+      epr=epr+ee*dexp(-e*(dble(l)-fnt))   
       end if
   103   continue   
       epe=dble(0)
       do 101 l=1,nt   
-      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
+      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))    
   101   continue   
       zi=(u*(dble(1)-g)-sc*g*epr)/
      $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
@@ -523,9 +523,9 @@ c       of the log-likelihood function of the error components model.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr) 
       call check(b)  
-      f=dfloat(nn)    
-      ftot=dfloat(nob) 
-      fnt=dfloat(nt)  
+      f=dble(nn)    
+      ftot=dble(nob) 
+      fnt=dble(nt)  
       n1=nr+1
       n2=nr+2
       s2=b(n1)
@@ -564,8 +564,8 @@ c       of the log-likelihood function of the error components model.
       do 102 j=1,nb   
       ee=ee-b(j)*xx(i,l,j)   
   102   continue   
-      epr=epr+ee*dexp(-e*(dfloat(l)-fnt))   
-      epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
+      epr=epr+ee*dexp(-e*(dble(l)-fnt))   
+      epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))    
       end if
   103   continue   
       zi=(u*(dble(1)-g)-sc*g*epr)/
@@ -583,7 +583,7 @@ c       of the log-likelihood function of the error components model.
  134    continue    
       xpe=dble(0)
       do 146 l=1,nt
-      if(xx(i,l,1).ne.dble(0))xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
+      if(xx(i,l,1).ne.dble(0))xpe=xpe+xx(i,l,j)*dexp(-e*(dble(l)-fnt))
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
       gx(j)=gx(j)-d/
@@ -625,7 +625,7 @@ c       of the log-likelihood function of the error components model.
       d=dble(0) 
       do 152 l=1,nt   
       if (xx(i,l,1).eq.1) then  
-      t=dfloat(l)
+      t=dble(l)
       de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))    
       ee=yy(i,l)  
       do 153 j=1,nb   
