@@ -324,7 +324,7 @@ c       determines the step length (t) using a unidimensional search.
       dc=db  
       db=da  
       da=d   
-      d=2.0*d+step   
+      d=dble(2)*d+step   
       goto 1 
    6    if(k) 7,8,9 
    7    fb=f
@@ -474,7 +474,7 @@ c       error components model.
       endif
       sc=1.
       if (ipc.eq.2) sc=-1.
-      a=0.5*ftot*(dlog(2.0*pi)+dlog(s2))    
+      a=0.5*ftot*(dlog(dble(2)*pi)+dlog(s2))    
       a=a+0.5*(ftot-f)*dlog(dble(1)-g)    
       z=u/(s2*g)**0.5
       a=a+f*dislog(z)
@@ -493,7 +493,7 @@ c       error components model.
   103   continue   
       epe=dble(0)
       do 101 l=1,nt   
-      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-2.0*e*(dfloat(l)-fnt))    
+      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
   101   continue   
       zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
       a=a+0.5*dlog(dble(1)+(epe-dble(1))*g)   
@@ -564,7 +564,7 @@ c       of the log-likelihood function of the error components model.
       ee=ee-b(j)*xx(i,l,j)   
   102   continue   
       epr=epr+ee*dexp(-e*(dfloat(l)-fnt))   
-      epe=epe+dexp(-2.0*e*(dfloat(l)-fnt))    
+      epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
       end if
   103   continue   
       zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
@@ -605,7 +605,7 @@ c       of the log-likelihood function of the error components model.
       d=g*(1.-g)*(dble(1)+(epe-dble(1))*g) 
       dzi=-(u+sc*epr)*d   
       c=0.5*(u*(dble(1)-g)-sc*g*epr) 
-      dzi=dzi-c*((dble(1)-2.0*g)+(epe-dble(1))*g*(2.0-3.0*g))  
+      dzi=dzi-c*((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-3.0*g))  
       dzi=dzi/(d**1.5*s2**0.5)    
       gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
   
@@ -621,7 +621,7 @@ c       of the log-likelihood function of the error components model.
       do 152 l=1,nt   
       if (xx(i,l,1).eq.1) then  
       t=dfloat(l)
-      de=de-2.0*(t-fnt)*dexp(-2.0*e*(t-fnt))    
+      de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))    
       ee=yy(i,l)  
       do 153 j=1,nb   
       ee=ee-xx(i,l,j)*b(j)   
@@ -635,7 +635,7 @@ c       of the log-likelihood function of the error components model.
       c=c*0.5*g**2*(dble(1)-g)*s2*de    
       dzi=(d-c)/dd**1.5    
       gx(n4)=gx(n4)-(dendis(zi)+zi)*dzi
-      gx(n4)=gx(n4)+g/2.0*de/(dble(1)+(epe-dble(1))*g)   
+      gx(n4)=gx(n4)+g/dble(2)*de/(dble(1)+(epe-dble(1))*g)   
       end if
   105   continue
   
@@ -908,8 +908,8 @@ c       does a grid search across gamma
       end if 
   137   continue   
       if(igrid2.eq.1) then   
-      bb1=x(n2)-gridno/2.0   
-      bb2=x(n2)+gridno/2.0   
+      bb1=x(n2)-gridno/dble(2)   
+      bb2=x(n2)+gridno/dble(2)   
       bb3=gridno/10.0 
       nloop=ceiling((bb2-bb1+bb3)/bb3)
       do 140 j=1,nloop
