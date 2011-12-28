@@ -817,8 +817,6 @@ c       also reads data from a file.
       xx(i,l,1)=dble(0)
   135   continue
       do 134 k=1,nob  
-      ndat=nr
-      if(im.eq.2) ndat=nr-nmu
       fii=dataTable(k,1)
       ftt=dataTable(k,2)
       yyd=dataTable(k,3)
