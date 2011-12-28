@@ -78,13 +78,13 @@ c       Hence, this programme can be run automatically (non-interactively) now.
       nrestartArg = nrestart
       end
  
-      subroutine mini(yy,xx,mm,sv,ob,gb,fxs,y,h)
+      subroutine mini(yy,xx,sv,ob,gb,fxs,y,h)
 c       contains the main loop of this iterative program. 
       implicit double precision (a-h,o-z)
       common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
-      dimension yy(nn,nt),xx(nn,nt,nr),mm(nn),sv(n)
+      dimension yy(nn,nt),xx(nn,nt,nr),sv(n)
       dimension ob(n),gb(n),x(:),y(n),s(:)
       dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
       allocatable :: x,s,delx,delg,gx,gy
@@ -867,7 +867,7 @@ c       also reads data from a file.
       return
       end if
   149   continue   
-      call mini(yy,xx,mm,sv,ob,gb,fxs,y,h)
+      call mini(yy,xx,sv,ob,gb,fxs,y,h)
       deallocate(yy,xx,mm,sv,xxd)
       return 
       end
