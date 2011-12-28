@@ -278,7 +278,7 @@ c       determines the step length (t) using a unidimensional search.
       iexit=0
       ntol=0 
       ftol=tol2  
-      ftol2=ftol/100.0   
+      ftol2=ftol/dble(100)   
       fa=fx  
       fb=fx  
       fc=fx  
@@ -495,7 +495,7 @@ c       error components model.
       do 101 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
   101   continue   
-      zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
+      zi=(u*(dble(1)-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
       a=a+dble(0.5)*dlog(dble(1)+(epe-dble(1))*g)   
       a=a-dislog(zi)
       do 133 l=1,nt   
@@ -567,7 +567,7 @@ c       of the log-likelihood function of the error components model.
       epe=epe+dexp(-dble(2)*e*(dfloat(l)-fnt))    
       end if
   103   continue   
-      zi=(u*(1.0-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
+      zi=(u*(dble(1)-g)-sc*g*epr)/(g*(1.0-g)*s2*(1.0+(epe-1.0)*g))**0.5
       
       do 132 j=1,nb   
       do 134 l=1,nt   
@@ -581,7 +581,7 @@ c       of the log-likelihood function of the error components model.
  134    continue    
       xpe=dble(0)
       do 146 l=1,nt
-      if(xx(i,l,1).ne.0.0)xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
+      if(xx(i,l,1).ne.dble(0))xpe=xpe+xx(i,l,j)*dexp(-e*(dfloat(l)-fnt))
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
       gx(j)=gx(j)-d/(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**0.5   
@@ -890,7 +890,7 @@ c       does a grid search across gamma
   132   continue   
       fx=bignum  
       y6b=gridno 
-      y6t=1.0-gridno 
+      y6t=dble(1)-gridno 
       nloop=ceiling((y6t-y6b+gridno)/gridno)
       do 137 j=1,nloop
       y6=y6b+(j-1)*gridno
@@ -910,7 +910,7 @@ c       does a grid search across gamma
       if(igrid2.eq.1) then   
       bb1=x(n2)-gridno/dble(2)   
       bb2=x(n2)+gridno/dble(2)   
-      bb3=gridno/10.0 
+      bb3=gridno/dble(10) 
       nloop=ceiling((bb2-bb1+bb3)/bb3)
       do 140 j=1,nloop
       y6=bb1+(j-1)*bb3
