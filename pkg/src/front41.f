@@ -760,7 +760,6 @@ c       also reads data from a file.
       common/one/fx,fy,nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode,
      $  mrestart,frestart,nrestart
-      character chst
       dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
