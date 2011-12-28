@@ -822,7 +822,9 @@ c       also reads data from a file.
       fii=dataTable(k,1)
       ftt=dataTable(k,2)
       yyd=dataTable(k,3)
-      xxd(2:)=dataTable(k,4:)
+      do 143 i=2,nr
+      xxd(i)=dataTable(k,2+i)
+  143 continue
       i=int(fii)   
       l=int(ftt)   
       mm(i)=mm(i)+1
