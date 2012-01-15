@@ -177,7 +177,7 @@ Warning messages:
   the maximum number of iterations has been reached; please try again using different starting values and/or increase the maximum number of iterations
 > summary( a3, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 2 iterations:
 maximum number of iterations reached

@@ -17643,7 +17643,7 @@ sigmaSq      2.0580e-04  0.00249130
 gamma        2.4913e-03  0.03510855
 > print( summary( dd1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
 log likelihood values and parameters of two successive iterations
@@ -17668,7 +17668,7 @@ total number of observations = 344
 mean efficiency: 0.86317 
 > print( summary( dd1, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
 log likelihood values and parameters of two successive iterations
@@ -20038,7 +20038,7 @@ gamma        0.00544431  0.01148390 -0.04355540
 mu          -0.02353944 -0.04355540  0.19888407
 > print( summary( dd2, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 19 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -22002,7 +22002,7 @@ sigmaSq     -577.787099 -3779.28874  5.6612e+02  1.0876e-01
 gamma         -0.111003    -0.72606  1.0876e-01  2.0930e-05
 > print( summary( dd5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 141 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -22029,7 +22029,7 @@ total number of observations = 344
 mean efficiency: 0.92075 
 > print( summary( dd5, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 141 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -26544,7 +26544,7 @@ sigmaSq         -275.070694 -360.140925 -2210.43099  3.8858e+02  6.5251e-02
 gamma             -0.046183   -0.060477    -0.37118  6.5251e-02  1.0984e-05
 > print( summary( dd6, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 144 iterations:
 log likelihood values and parameters of two successive iterations
@@ -28441,7 +28441,7 @@ attr(,"class")
 +    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
 > summary( dd9, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
 log likelihood values and parameters of two successive iterations
@@ -38831,7 +38831,7 @@ sigmaSq      2.4671e-04  0.00184671
 gamma        1.8467e-03  0.01580330
 > print( summary( d1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -38859,7 +38859,7 @@ thus there are 0 observations not in the panel
 mean efficiency: 0.8594 
 > print( summary( d1, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -40132,7 +40132,7 @@ gamma        6.7912e-04  0.01053982 -1.3399e-03
 mu          -2.0759e-04 -0.00133988  4.1698e-03
 > print( summary( d2, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 15 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -41293,7 +41293,7 @@ gamma        1.9961e-03  1.3617e-02 -8.6559e-05
 time        -3.7714e-05 -8.6559e-05  7.1928e-04
 > print( summary( d3, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 16 iterations:
 log likelihood values and parameters of two successive iterations
@@ -42462,7 +42462,7 @@ mu          -2.4078e-04 -0.00166412  5.4404e-03  8.4389e-05
 time        -2.5754e-05 -0.00023412  8.4389e-05  3.5692e-04
 > print( summary( d4, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 14 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -43623,7 +43623,7 @@ sigmaSq     -629.626680 -4267.17045  6.2543e+02  2.0121e-01
 gamma         -0.202563    -1.37283  2.0121e-01  6.4749e-05
 > print( summary( d5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 122 iterations:
 log likelihood values and parameters of two successive iterations
@@ -43657,7 +43657,7 @@ mean efficiency of each year
 mean efficiency: 0.92063 
 > print( summary( d5, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 122 iterations:
 log likelihood values and parameters of two successive iterations
@@ -46035,7 +46035,7 @@ sigmaSq         -993.091264 -1.1633e+03 -7.3204e+03  1.2762e+03  1.3320e-01
 gamma             -0.103646 -1.2141e-01 -7.6401e-01  1.3320e-01  1.3905e-05
 > print( summary( d6, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 166 iterations:
 log likelihood values and parameters of two successive iterations
@@ -47124,7 +47124,7 @@ attr(,"class")
 +    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 > summary( d9, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
 log likelihood values and parameters of two successive iterations
@@ -55092,7 +55092,7 @@ Maximum likelihood estimates
      0.4703  
 > print( summary( d1u ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -55120,7 +55120,7 @@ thus there are 4 observations not in the panel
 mean efficiency: 0.86203 
 > print( summary( d1u, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -56341,7 +56341,7 @@ Maximum likelihood estimates
      0.2817       0.2394  
 > print( summary( d2u, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 15 iterations:
 log likelihood values and parameters of two successive iterations
@@ -57449,7 +57449,7 @@ Maximum likelihood estimates
      0.5283      -0.0374  
 > print( summary( d3u, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 16 iterations:
 log likelihood values and parameters of two successive iterations
@@ -58561,7 +58561,7 @@ Maximum likelihood estimates
      0.3131       0.2592      -0.0262  
 > print( summary( d4u, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 13 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -59660,7 +59660,7 @@ Maximum likelihood estimates
    -66.9957      10.7696       0.9966  
 > print( summary( d5u ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 135 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -59694,7 +59694,7 @@ mean efficiency of each year
 mean efficiency: 0.91901 
 > print( summary( d5u, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 135 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -60925,7 +60925,7 @@ Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma
        7.7390       -19.2541       -99.5633        17.2188         0.9978  
 > print( summary( d6u, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 162 iterations:
 log likelihood values and parameters of two successive iterations
@@ -72977,7 +72977,7 @@ F_60    0.91620
 > ## cross-section rice data, error components cost frontier
 > summary( Sdd1, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 11 iterations:
 log likelihood values and parameters of two successive iterations
@@ -73415,7 +73415,7 @@ mean efficiency: 1.0178
 > ## cross-section rice data, error components cost frontier, truncNorm
 > summary( dd2, logDepVar = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 19 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -73444,7 +73444,7 @@ In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
 > summary( dd2, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 19 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -74272,7 +74272,7 @@ In efficiencies.frontier(dd2, asInData = TRUE, logDepVar = FALSE) :
 > ## cross-section rice data, efficiency effects cost frontier
 > summary( Sdd5, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 141 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -74712,7 +74712,7 @@ mean efficiency: 1.01
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
 > summary( dd6, logDepVar = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 144 iterations:
 log likelihood values and parameters of two successive iterations
@@ -74743,7 +74743,7 @@ In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
 > summary( dd6, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 144 iterations:
 log likelihood values and parameters of two successive iterations
@@ -76887,7 +76887,7 @@ In efficiencies.frontier(b6, asInData = TRUE, logDepVar = FALSE,  :
 > ## panel rice data, error components cost frontier
 > summary( Sd1, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -77027,7 +77027,7 @@ F_43     1.0109
 > ## panel rice data, error components cost frontier, truncNorm
 > summary( d2, logDepVar = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 15 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -77059,7 +77059,7 @@ In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
 > summary( d2, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 15 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -77288,7 +77288,7 @@ F_43     1.0229
 > ## panel rice data, error components cost frontier, timeEffect
 > summary( d3, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 16 iterations:
 log likelihood values and parameters of two successive iterations
@@ -77433,7 +77433,7 @@ F_43 1.0086 1.0089 1.0092 1.0095 1.0099 1.0102 1.0106 1.0109
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
 > summary( d4, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 14 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -77579,7 +77579,7 @@ F_43 1.0198 1.0204 1.0209 1.0215 1.0221 1.0227 1.0233 1.0240
 > ## panel rice data, efficiency effects cost frontier
 > summary( Sd5, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 122 iterations:
 log likelihood values and parameters of two successive iterations
@@ -77725,7 +77725,7 @@ F_43 1.0181 1.0244 1.0134 1.0073 1.0096 1.0072 1.0056 1.0063
 > ## panel rice data, efficiency effects cost frontier, zIntercept
 > summary( d6, logDepVar = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 166 iterations:
 log likelihood values and parameters of two successive iterations
@@ -77763,7 +77763,7 @@ In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
 > summary( d6, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 166 iterations:
 log likelihood values and parameters of two successive iterations
@@ -78989,7 +78989,7 @@ F_43  0.406787  0.380791  0.763883 0.77564  0.91000 0.953268  0.86768  0.95544
 > ## unbalanced panel rice data, error components cost frontier
 > summary( d1u, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 13 iterations:
 log likelihood values and parameters of two successive iterations
@@ -79129,7 +79129,7 @@ F_43     1.0107
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
 > summary( d2u, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 15 iterations:
 log likelihood values and parameters of two successive iterations
@@ -79270,7 +79270,7 @@ F_43     1.0227
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
 > summary( d3u, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 16 iterations:
 log likelihood values and parameters of two successive iterations
@@ -79415,7 +79415,7 @@ F_43 1.0082 1.0085 1.0089 1.0092 1.0096 1.0099 1.0103 1.0107
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
 > summary( d4u, logDepVar = FALSE, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 13 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -79561,7 +79561,7 @@ F_43 1.0201 1.0206 1.0212 1.0217 1.0223 1.0229 1.0235 1.0241
 > ## unbalanced panel rice data, efficiency effects cost frontier
 > summary( d5u, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 135 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -79707,7 +79707,7 @@ F_43 1.0185 1.0250 1.0136 1.0074 1.0097 1.0073 1.0057 1.0064
 > ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
 > summary( d6u, logDepVar = FALSE, farrell = FALSE )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
 Iterative ML estimation terminated after 162 iterations:
 log likelihood values and parameters of two successive iterations

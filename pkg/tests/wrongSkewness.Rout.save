@@ -57,7 +57,7 @@ In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
   the residuals of the OLS estimates are left-skewed; this might indicate that there is no inefficiency or that the model is misspecified
 > summary( a1, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 53 iterations:
 log likelihood values and parameters of two successive iterations
@@ -95,7 +95,7 @@ In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
   the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 > summary( a2, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 12 iterations:
 cannot find a parameter vector that results in a log-likelihood value
@@ -134,7 +134,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
   the residuals of the OLS estimates are left-skewed; this might indicate that there is no inefficiency or that the model is misspecified
 > summary( b1, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 50 iterations:
 log likelihood values and parameters of two successive iterations
@@ -173,7 +173,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
   the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 > summary( b2, farrell = FALSE )
 Error Components Frontier (see Battese & Coelli 1992)
-Inefficiency increases the endogenous variable (as in a cost function
+Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
 Iterative ML estimation terminated after 12 iterations:
 cannot find a parameter vector that results in a log-likelihood value
