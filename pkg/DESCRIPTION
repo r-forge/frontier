@@ -1,6 +1,6 @@
 Package: frontier
-Version: 0.997-5
-Date: 2011-12-28
+Version: 0.997-6
+Date: 2012-01-15
 Title: Stochastic Frontier Analysis
 Author: Tim Coelli, Arne Henningsen
 Maintainer: Arne Henningsen <arne.henningsen@gmail.com>
