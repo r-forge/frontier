@@ -18,26 +18,16 @@
          <a href="http://www.r-project.org">R</a>
       </h2>
     </div>
+
     <h3>
        News
     </h3>
     <ul>
-      <li><strong>December 2008:</strong><br />
-        Functions for writing input files for and reading output files
-        of <a href="http://www.uq.edu.au/economics/cepa/frontier.htm">
-        FRONTIER 4.1</a>
-        (&quot;front41WriteInput&quot; and &quot;front41ReadOutput&quot;)
-        have been moved from the
-        <a href="http://r-forge.r-project.org/projects/micecon/">
-        micEcon package</a> to this package.
-      </li>
-      <li><strong>October 19, 2008</strong><br />
-        The frontier package is developed on
-        <a href="http://R-Forge.R-Project.org/">R-Forge</a> now.
-        Its summary page is available
-        <a href="http://r-forge.r-project.org/projects/frontier/">here</a>.
-      </li>
+      <li><a href="https://r-forge.r-project.org/news/?group_id=275">News</a>
+        about the frontier project are available at the 
+        <a href="http://r-forge.r-project.org/projects/frontier/">project's R-Forge site</a>.</li>
     </ul>
+
     <h3>
        What is frontier?
     </h3>
@@ -58,7 +48,8 @@
         influenced by a number of variables (Battese and Coelli, 1995).
       </li>
       <li>
-        <strong>frontier</strong> includes the Fortran source code of
+        <strong>frontier</strong> includes an improved version 
+        of the Fortran source code of
         <a href="http://www.uq.edu.au/economics/cepa/coelli.htm">
         Tim Coelli</a>'s software
         <a href="http://www.uq.edu.au/economics/cepa/frontier.htm">
@@ -87,18 +78,39 @@
            <a href="http://www.uq.edu.au/economics/cepa/frontier.htm">
            FRONTIER 4.1</a> (function &quot;front41ReadOutput&quot;)
         </li>
-        <li>Note:
-           A <a href="front41.html">modified version of Tim Coelli's
-           FRONTIER 4.1 software</a>
-           that can be used non-interactively has been developed within
-           this project.
-           This non-interactive version can be conveniently called from within R
-           using the &quot;system&quot; command
-          (see example in documentation of &quot;front41WriteInput&quot;).
-        </li>
       </ul>
       </li>
     </ul>
+
+    <h3>
+       What are the differences between
+       <a href="http://www.uq.edu.au/economics/cepa/frontier.htm">FRONTIER 4.1</a>
+       and the R package frontier?
+    </h3>
+    <ul>
+      <li>FRONTIER 4.1 is a stand-alone software,
+        while the R package frontier is an add-on package to the software R.</li>
+      <li>FRONTIER 4.1 only runs under MS-Windows,
+        while the R package frontier runs under all major operating systems.</li>
+      <li>Running FRONTIER 4.1 requires the preparation of an instruction file and
+        a data file and possibly the modification of a file with settings,
+        while the R package frontier has a much simpler user interface.</li>
+      <li>The coefficients and efficiencies estimated by the R package frontier
+        are directly available for further calculations.</li>
+      <li>The Fortran code in FRONTIER 4.1 includes a bug
+        that in specific circumstances can result in wrong estimates,
+        while this bug has been fixed in the R package frontier.</li>
+      <li>The Fortran code in the R package frontier
+        has been optimised for numerical stability
+        so that the estimates are numerically more stable.</li>
+      <li>The user can control more details of the estimation procedure
+        and the calculation of the efficiency estimates
+        when using the R package frontier.</li>
+      <li>The R package frontier can calculate the marginal effects
+        of the &quot;z variable&quot; on the efficiency estimates
+        when using the efficiency effects model of Battese and Coelli (1995).</li>
+    </ul>
+
     <h3>
        Who has written frontier?
     </h3>
@@ -110,9 +122,9 @@
       </li>
       <li>
         <a href="http://www.arne-henningsen.name">
-        Arne Henningsen</a> has written the R interface and
-        has modified the Fortran code
-        so that it can be used in this R package.
+        Arne Henningsen</a> has improved the Fortran code,
+        included it into an R package,
+        and has written the R interface.
       </li>
     </ul>
     <h3>
@@ -138,8 +150,8 @@
         <ul>
           <li>You can <strong>download</strong> the source code
             and binaries for MacOS X and MS-Windows from
-            <a href="http://r-forge.r-project.org/projects/frontier/">
-            http://r-forge.r-project.org/projects/frontier/</a>.
+            <a href="http://r-forge.r-project.org/R/?group_id=275">
+            http://r-forge.r-project.org/R/?group_id=275</a>.
           </li>
           <li>You can <strong>install</strong> the package by typing
             at the R prompt (if you have internet access):
@@ -157,21 +169,15 @@
             GNU General Public License (GPL)</a>
       </li>
     </ul>
+
     <h3>
-       How can I contact you? 
+       Where can I ask questions, report bugs, or suggest new features?
     </h3>
     <ul>
-      <li>
-         You can contact Arne via email:
-         <a href="mailto:arne(dot)henningsen(at)googlemail(dot)com">
-         arne(dot)henningsen(at)googlemail(dot)com</a>.
-      </li>
-      <li>
-         Take a look at Arne's homepage:
-         <a href="http://www.arne-henningsen.name">
-         http://www.arne-henningsen.name</a>
-      </li>
+      <li> Please use a forum or &quot;tracker&quot; at the 
+        <a href="http://r-forge.r-project.org/projects/frontier/">project's R-Forge site</a>.</li>
     </ul>
+
     <p>
        &nbsp; 
     </p>
@@ -182,7 +188,7 @@
        &nbsp; 
     </p>
     <div align="center">
-       Last Update: 10 January 2009
+       Last Update: 29 January 2012
     </div>
   </body>
 </html>
