@@ -96,18 +96,30 @@ In efficiencies.frontier(sbb5eef, margEff = TRUE) :
 > # Error Components Frontier (ECF)
 > sbb6ecf <- sfa( lPROD ~ lAREA + lLABOR + lNPK,
 +    data = as.data.frame( riceProdPhil ), truncNorm = TRUE, muBound = 0 )
+Warning message:
+In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > bb6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = 0 )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sbb6ecf[-38], bb6ecf[-38] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
 > sbb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 +    data = as.data.frame( riceProdPhil ) )
+Warning message:
+In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = as.data.frame(riceProdPhil)) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > bb6eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sbb6eef[-38], bb6eef[-38] )
 [1] TRUE
 > tmp <- efficiencies( sbb6eef, margEff = TRUE )
@@ -160,9 +172,15 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > # Error Components Frontier (ECF)
 > sb6ecf <- sfa( lPROD ~ lAREA + lLABOR + lNPK,
 +    data = as.data.frame( riceProdPhil ), truncNorm = TRUE, muBound = Inf )
+Warning message:
+In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > b6ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, muBound = Inf )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sb6ecf[-38], b6ecf[-38] )
 [1] TRUE
 > all.equal( b6ecf[-38], bb6ecf[-38] )
@@ -171,9 +189,15 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > # Efficiency Effects Frontier (EEF)
 > sb6eef <- sfa( lPROD ~ lAREA + lLABOR + lNPK | 1,
 +    data = riceProdPhil )
+Warning message:
+In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = riceProdPhil) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > b6eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zIntercept = TRUE, zNames = NA )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sb6eef[-38], b6eef[-38] )
 [1] TRUE
 > all.equal( b6eef[ -c( 3, 4, 19, 30, 38 ) ], bb6eef[ -c( 3, 4, 19, 30, 38 ) ] )

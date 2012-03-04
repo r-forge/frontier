@@ -59,9 +59,11 @@ Loading required package: lmtest
 +    data = germanFarms )
 restarting with starting values multiplied by
 [1] 0.999
-Warning message:
-In sfa(formula = sfaFormula, data = data, ...) :
+Warning messages:
+1: In sfa(formula = sfaFormula, data = data, ...) :
   the residuals of the OLS estimates are right-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
+2: In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > print( estResultRay )
 
 Call:

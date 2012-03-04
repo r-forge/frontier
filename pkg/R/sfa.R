@@ -571,6 +571,16 @@ sfa <- function(
    returnObj$call <- match.call()
    returnObj$validObs <- validObs
 
+   if( ( returnObj$mleParam[ "gamma" ] < 0.01 || 
+      returnObj$mleParam[ "gamma" ] > 0.99 ) && maxit > 0 ) {
+      warning( "the parameter 'gamma' is close to the boundary",
+               " of the parameter space [0,1]:",
+               " this can cause convergence problems and",
+               " can negatively affect the validity and reliability",
+               " of statistical tests",
+               " and might be caused by model misspecification" )
+   }
+   
    class( returnObj ) <- "frontier"
    return( returnObj )
 }

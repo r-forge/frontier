@@ -199,9 +199,11 @@ mean efficiency: 1.061667
 > ## L(MLE) < L(OLS)
 > a4 <- sfa( log( output ) ~ log( capital ) + log( labour ),
 +    data = front41Data, start = c( 1, 0, 0, 1, 0.999995 ) )
-Warning message:
-In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+Warning messages:
+1: In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
   the likelihood value of the ML estimation is less than that obtained using OLS; this indicates that the likelihood maximization did not converge to the global maximum or that there is no inefficiency (you could try again using different starting values)
+2: In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > summary( a4 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)

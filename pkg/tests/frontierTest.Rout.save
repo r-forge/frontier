@@ -21925,13 +21925,22 @@ attr(,"class")
 > ## cross-section rice data, efficiency effects cost frontier
 > sdd5 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhil, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > Sdd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+Warning message:
+In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( Sdd5[-38], sdd5[-38], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd5[-38], dd5[-38] )
 [1] TRUE
 > print( dd5 )
@@ -26468,9 +26477,15 @@ attr(,"class")
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
 > sdd6 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhil, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > dd6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd6[-38], dd6[-38] )
 [1] TRUE
 > print( dd6 )
@@ -43545,14 +43560,23 @@ attr(,"class")
 > ## panel rice data, efficiency effects cost frontier
 > sd5 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > Sd5 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | EDYRS + BANRAT - 1, data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
+Warning message:
+In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( Sd5[-38], sd5[-38], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd5[-38], d5[-38] )
 [1] TRUE
 > print( d5 )
@@ -45959,9 +45983,15 @@ attr(,"class")
 > ## panel rice data, efficiency effects cost frontier, zIntercept
 > sd6 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > d6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
 +    ineffDecrease = FALSE, zIntercept = TRUE )
+Warning message:
+In sfa(formula = sfaFormula, data = data, ...) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd6[-38], d6[-38] )
 [1] TRUE
 > print( d6 )
@@ -59631,6 +59661,9 @@ attr(,"class")
 > ## unbalanced panel rice data, efficiency effects cost frontier
 > d5u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > print( d5u, farrell = FALSE )
 
 Call:
@@ -60896,6 +60929,9 @@ attr(,"class")
 > ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
 > d6u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > print( d6u )
 
 Call:
@@ -68766,6 +68802,9 @@ attr(,"class")
 > ## panel data with NA years, efficiency effects frontier, zIntercept
 > b6t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT, data = naTimePanelData )
+Warning message:
+In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) | EDYRS + BANRAT,  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > print( b6t )
 
 Call:
