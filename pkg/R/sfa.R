@@ -580,6 +580,11 @@ sfa <- function(
                " of statistical tests",
                " and might be caused by model misspecification" )
    }
+
+   if( !semidefiniteness( returnObj$mleCov ) ) {
+      warning( "the covariance matrix of the maximum likelihood estimates",
+         " is not positive semidefinite" )
+   }
    
    class( returnObj ) <- "frontier"
    return( returnObj )
