@@ -1,5 +1,5 @@
 
-R version 2.14.2 (2012-02-29)
+R version 2.15.0 (2012-03-30)
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -80492,3 +80492,6 @@ Model 2: translog
 1   9 -14.03217                      
 2   8 -14.43429 -1 0.80425    0.36982
 > 
+> proc.time()
+   user  system elapsed 
+ 19.625   0.608  20.239 

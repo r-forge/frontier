@@ -1,5 +1,5 @@
 
-R version 2.14.2 (2012-02-29)
+R version 2.15.0 (2012-03-30)
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -300,3 +300,6 @@ Model 2: Error Components Frontier (ECF)
 1   6 39.025                      
 2   8 39.024  2 -0.0015          1
 > 
+> proc.time()
+   user  system elapsed 
+  1.200   0.040   1.233 
