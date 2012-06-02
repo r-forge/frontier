@@ -105,6 +105,8 @@ gamma         0.0092520 -9.1555e-05 -1.6405e-04  6.7451e-03  1.8612e-02
 'log Lik.' -17.035 (df=5)
 > logLik( a1 )
 'log Lik.' -17.027 (df=5)
+> nobs( a1 )
+[1] 60
 > print( summary( a1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -777,6 +779,8 @@ mu           6.75459757
 'log Lik.' -18.447 (df=4)
 > logLik( a2 )
 'log Lik.' -16.796 (df=6)
+> nobs( a2 )
+[1] 60
 > print( summary( a2 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -1308,6 +1312,8 @@ mu          10.732178
 'log Lik.' -18.447 (df=4)
 > logLik( a5 )
 'log Lik.' -16.795 (df=6)
+> nobs( a5 )
+[1] 60
 > print( summary( a5 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -1809,6 +1815,8 @@ logLabour   -0.00012872
 Z_firmNo    -0.00056401
 sigmaSq      0.01045025
 gamma        0.01210715
+> nobs( aa1 )
+[1] 60
 > print( summary( aa1 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -2714,6 +2722,8 @@ Z_(Intercept) -2.0185056 -0.5234737
 Z_firmNo      -0.0224805 -0.0058406
 sigmaSq        0.6574709  0.1737847
 gamma          0.1737847  0.0485123
+> nobs( aa2 )
+[1] 60
 > print( summary( aa2 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -3255,6 +3265,8 @@ Z_(Intercept) -1.9070999 -0.49464749
 Z_firmNo      -0.0214739 -0.00558350
 sigmaSq        0.6217503  0.16441649
 gamma          0.1644165  0.04595411
+> nobs( aa5 )
+[1] 60
 > print( summary( aa5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -3679,6 +3691,8 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.74057 
+> nobs( aa9 )
+[1] 60
 > lrtest( aa9 )
 Likelihood ratio test
 
@@ -3723,6 +3737,8 @@ cross-sectional data
 total number of observations = 57 
 
 mean efficiency: 0.73415 
+> nobs( San1 )
+[1] 57
 > 
 > ## cross-section data with NAs, efficiency effects frontier
 > Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
@@ -3751,7 +3767,8 @@ cross-sectional data
 total number of observations = 56 
 
 mean efficiency: 0.75779 
-> 
+> nobs( Saan1 )
+[1] 56
 > 
 > ## data set of rice producers in the Philippines
 > data( riceProdPhil )
@@ -3819,6 +3836,8 @@ lLABOR      -0.00032451
 lNPK        -0.00010812
 sigmaSq      0.00060951
 gamma        0.00113407
+> nobs( bb1 )
+[1] 344
 > print( summary( bb1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -5750,6 +5769,8 @@ lNPK         4.0205e-05 -0.0048634
 sigmaSq      7.6784e-03 -0.3222645
 gamma        6.9820e-04 -0.0260408
 mu          -2.6041e-02  1.1172608
+> nobs( bb2 )
+[1] 344
 > print( summary( bb2 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -8129,6 +8150,8 @@ Z_EDYRS      0.05250759 -2.4284e-02 -2.0656e-03
 Z_BANRAT     0.82099080 -2.4775e-01 -2.0282e-02
 sigmaSq     -0.24775166  9.5299e-02  8.3194e-03
 gamma       -0.02028199  8.3194e-03  8.4322e-04
+> nobs( bb5 )
+[1] 344
 > print( summary( bb5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -10074,6 +10097,8 @@ Z_EDYRS        0.04558995   0.209905  -0.1135175 -1.4644e-03
 Z_BANRAT       0.20990487  65.928304 -29.7151649 -3.6042e-01
 sigmaSq       -0.11351751 -29.715165  13.7324648  1.6721e-01
 gamma         -0.00146442  -0.360417   0.1672120  2.0518e-03
+> nobs( bb6 )
+[1] 344
 > print( summary( bb6 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -14588,6 +14613,8 @@ lNPK         5.4449e-05 -0.0038649
 sigmaSq      3.6407e-03 -0.1718551
 gamma        3.1760e-04 -0.0119646
 mu          -1.1965e-02  0.5781028
+> nobs( bb7 )
+[1] 344
 > print( summary( bb7 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -16090,6 +16117,8 @@ Z_EDYRS        0.04426655   0.274905  -0.1385886 -0.00170358
 Z_BANRAT       0.27490487  59.495160 -27.0029993 -0.33052951
 sigmaSq       -0.13858862 -27.002999  12.4791467  0.15277810
 gamma         -0.00170358  -0.330530   0.1527781  0.00188141
+> nobs( bb8 )
+[1] 344
 > print( summary( bb8 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -17551,6 +17580,8 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72298 
+> nobs( bb9 )
+[1] 344
 > lrtest( bb9 )
 Likelihood ratio test
 
@@ -17640,6 +17671,8 @@ lLABORP     -4.0663e-05 -0.00057036
 lNPKP        9.2734e-05  0.00129762
 sigmaSq      2.0580e-04  0.00249130
 gamma        2.4913e-03  0.03510855
+> nobs( dd1 )
+[1] 344
 > print( summary( dd1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -20035,6 +20068,8 @@ lNPKP        0.00034761  0.00069049 -0.00114340
 sigmaSq      0.00285888  0.00544431 -0.02353944
 gamma        0.00544431  0.01148390 -0.04355540
 mu          -0.02353944 -0.04355540  0.19888407
+> nobs( dd2 )
+[1] 344
 > print( summary( dd2, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -22008,6 +22043,8 @@ Z_EDYRS      5.4238e+02  3.8043e+03 -5.4570e+02 -3.4136e-01
 Z_BANRAT     3.8043e+03  2.6683e+04 -3.8276e+03 -2.3943e+00
 sigmaSq     -5.4570e+02 -3.8276e+03  5.4905e+02  3.4346e-01
 gamma       -3.4136e-01 -2.3943e+00  3.4346e-01  2.1490e-04
+> nobs( dd5 )
+[1] 344
 > print( summary( dd5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -26556,6 +26593,8 @@ Z_EDYRS          9.7795e+01  9.4037e+01  6.0875e+02 -1.0590e+02 -4.0915e-02
 Z_BANRAT         6.3313e+02  6.0875e+02  3.9409e+03 -6.8558e+02 -2.6488e-01
 sigmaSq         -1.1015e+02 -1.0590e+02 -6.8558e+02  1.1927e+02  4.6080e-02
 gamma           -4.2568e-02 -4.0915e-02 -2.6488e-01  4.6080e-02  1.7817e-05
+> nobs( dd6 )
+[1] 344
 > print( summary( dd6, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -28478,6 +28517,8 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1745 
+> nobs( dd9 )
+[1] 344
 > lrtest( dd9 )
 Likelihood ratio test
 
@@ -28617,6 +28658,8 @@ gamma        0.00774807
 'log Lik.' -104.91 (df=5)
 > logLik( b1 )
 'log Lik.' -86.43 (df=6)
+> nobs( b1 )
+[1] 344
 > print( summary( b1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -29893,6 +29936,8 @@ mu          -0.3333163  0.9277073
 'log Lik.' -104.91 (df=5)
 > logLik( b2 )
 'log Lik.' -86.343 (df=7)
+> nobs( b2 )
+[1] 344
 > print( summary( b2 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -31021,6 +31066,8 @@ time        -2.2115e-03  0.00096403
 'log Lik.' -104.91 (df=5)
 > logLik( b3 )
 'log Lik.' -84.55 (df=7)
+> nobs( b3 )
+[1] 344
 > print( summary( b3 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -32156,6 +32203,8 @@ time         0.0011999 -0.0091516  1.2726e-03
 'log Lik.' -104.91 (df=5)
 > logLik( b4 )
 'log Lik.' -84.407 (df=8)
+> nobs( b4 )
+[1] 344
 > print( summary( b4 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -33351,6 +33400,8 @@ gamma       -0.02028199  8.3194e-03  8.4322e-04
 'log Lik.' -104.91 (df=5)
 > logLik( b5 )
 'log Lik.' -77.85 (df=8)
+> nobs( b5 )
+[1] 344
 > print( summary( b5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -35722,6 +35773,8 @@ gamma         -0.00149876  -0.358568   0.166415  2.0433e-03
 'log Lik.' -104.91 (df=5)
 > logLik( b6 )
 'log Lik.' -77.314 (df=9)
+> nobs( b6 )
+[1] 344
 > print( summary( b6 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -36884,6 +36937,8 @@ time         0.0010437 -0.0087119  1.2583e-03
 'log Lik.' -104.91 (df=5)
 > logLik( b7 )
 'log Lik.' -84.407 (df=8)
+> nobs( b7 )
+[1] 344
 > print( summary( b7 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -37842,6 +37897,8 @@ gamma         -0.00148397  -0.3269667   0.1518523  1.8699e-03
 'log Lik.' -104.91 (df=5)
 > logLik( b8 )
 'log Lik.' -77.314 (df=9)
+> nobs( b8 )
+[1] 344
 > print( summary( b8 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -38760,6 +38817,8 @@ mean efficiency of each year
 0.70242 0.68633 0.77094 0.74934 0.69611 0.74420 0.63266 0.80183 
 
 mean efficiency: 0.72298 
+> nobs( b9 )
+[1] 344
 > lrtest( b9 )
 Likelihood ratio test
 
@@ -38843,6 +38902,8 @@ lLABORP      6.3965e-05  0.00054866
 lNPKP        7.5926e-05  0.00066877
 sigmaSq      2.4671e-04  0.00184671
 gamma        1.8467e-03  0.01580330
+> nobs( d1 )
+[1] 344
 > print( summary( d1 ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -40144,6 +40205,8 @@ lNPKP        1.2665e-05  0.00031707  1.5973e-04
 sigmaSq      6.4825e-05  0.00067912 -2.0759e-04
 gamma        6.7912e-04  0.01053982 -1.3399e-03
 mu          -2.0759e-04 -0.00133988  4.1698e-03
+> nobs( d2 )
+[1] 344
 > print( summary( d2, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -41305,6 +41368,8 @@ lNPKP        9.8560e-05  6.6926e-04 -5.8439e-05
 sigmaSq      3.3095e-04  1.9961e-03 -3.7714e-05
 gamma        1.9961e-03  1.3617e-02 -8.6559e-05
 time        -3.7714e-05 -8.6559e-05  7.1928e-04
+> nobs( d3 )
+[1] 344
 > print( summary( d3, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -42474,6 +42539,8 @@ sigmaSq      9.0713e-05  0.00089875 -2.4078e-04 -2.5754e-05
 gamma        8.9875e-04  0.01196918 -1.6641e-03 -2.3412e-04
 mu          -2.4078e-04 -0.00166412  5.4404e-03  8.4389e-05
 time        -2.5754e-05 -0.00023412  8.4389e-05  3.5692e-04
+> nobs( d4 )
+[1] 344
 > print( summary( d4, farrell = FALSE ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -43644,6 +43711,8 @@ Z_EDYRS      94.379481  486.11473  -84.194628 -6.5742e-02
 Z_BANRAT    486.114730 3282.25057 -479.889253 -3.7699e-01
 sigmaSq     -84.194628 -479.88925   77.854713  6.0927e-02
 gamma        -0.065742   -0.37699    0.060927  4.7777e-05
+> nobs( d5 )
+[1] 344
 > print( summary( d5 ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -46062,6 +46131,8 @@ Z_EDYRS          7.6993e+02  8.6900e+02  5.3489e+03 -9.4825e+02 -1.2391e-01
 Z_BANRAT         4.7391e+03  5.3489e+03  3.2923e+04 -5.8366e+03 -7.6271e-01
 sigmaSq         -8.4014e+02 -9.4825e+02 -5.8366e+03  1.0347e+03  1.3521e-01
 gamma           -1.0979e-01 -1.2391e-01 -7.6271e-01  1.3521e-01  1.7672e-05
+> nobs( d6 )
+[1] 344
 > print( summary( d6, farrell = FALSE ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -47183,6 +47254,8 @@ mean efficiency of each year
 1.1629 1.1710 1.1493 1.1904 1.1884 1.1499 1.2125 1.1717 
 
 mean efficiency: 1.1745 
+> nobs( d9 )
+[1] 344
 > lrtest( d9 )
 Likelihood ratio test
 
@@ -47240,6 +47313,8 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.81812 
+> nobs( b1u )
+[1] 340
 > lrtest( b1u )
 Likelihood ratio test
 
@@ -48328,6 +48403,8 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.82987 
+> nobs( b2u )
+[1] 340
 > lrtest( b2u )
 Likelihood ratio test
 
@@ -49409,6 +49486,8 @@ mean efficiency of each year
 0.78424 0.79438 0.80623 0.81352 0.82445 0.82847 0.83888 0.84747 
 
 mean efficiency: 0.81712 
+> nobs( b3u )
+[1] 340
 > lrtest( b3u )
 Likelihood ratio test
 
@@ -50524,6 +50603,8 @@ mean efficiency of each year
 1.3072 1.2838 1.2597 1.2430 1.2228 1.2126 1.1952 1.1801 
 
 mean efficiency: 1.2382 
+> nobs( b4u )
+[1] 340
 > lrtest( b4u )
 Likelihood ratio test
 
@@ -51718,6 +51799,8 @@ mean efficiency of each year
 0.74687 0.73404 0.81640 0.79651 0.74731 0.79221 0.68164 0.83650 
 
 mean efficiency: 0.76905 
+> nobs( b5u )
+[1] 340
 > lrtest( b5u )
 Likelihood ratio test
 
@@ -52853,6 +52936,8 @@ mean efficiency of each year
 1.4417 1.4618 1.2421 1.2861 1.3932 1.3098 1.5551 1.3378 
 
 mean efficiency: 1.3785 
+> nobs( b6u )
+[1] 340
 > lrtest( b6u )
 Likelihood ratio test
 
@@ -55159,6 +55244,8 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.172 
+> nobs( d1u )
+[1] 340
 > lrtest( d1u )
 Likelihood ratio test
 
@@ -56381,6 +56468,8 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.2895 
+> nobs( d2u )
+[1] 340
 > lrtest( d2u )
 Likelihood ratio test
 
@@ -57493,6 +57582,8 @@ mean efficiency of each year
 1.1459 1.1521 1.1565 1.1652 1.1700 1.1748 1.1900 1.1954 
 
 mean efficiency: 1.1687 
+> nobs( d3u )
+[1] 340
 > lrtest( d3u )
 Likelihood ratio test
 
@@ -58606,6 +58697,8 @@ mean efficiency of each year
 1.2621 1.2701 1.2758 1.2870 1.2931 1.3002 1.3173 1.3243 
 
 mean efficiency: 1.2912 
+> nobs( d4u )
+[1] 340
 > lrtest( d4u )
 Likelihood ratio test
 
@@ -59742,6 +59835,8 @@ mean efficiency of each year
 1.0943 1.1016 1.0809 1.0987 1.1023 1.1000 1.1214 1.0938 
 
 mean efficiency: 1.0991 
+> nobs( d5u )
+[1] 340
 > lrtest( d5u )
 Likelihood ratio test
 
@@ -60977,6 +61072,8 @@ mean efficiency of each year
 1.0943 1.1017 1.0811 1.0988 1.1024 1.1001 1.1217 1.0940 
 
 mean efficiency: 1.0992 
+> nobs( d6u )
+[1] 340
 > lrtest( d6u )
 Likelihood ratio test
 
@@ -62078,6 +62175,8 @@ total number of observations = 308
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.8139 
+> nobs( b1n )
+[1] 308
 > lrtest( b1n )
 Likelihood ratio test
 
@@ -63094,6 +63193,8 @@ mean efficiency of each year
 0.79352 0.80790 0.82353 0.83432 0.84813 0.85502 0.86772 0.87828 
 
 mean efficiency: 0.83842 
+> nobs( b4n )
+[1] 308
 > lrtest( b4n )
 Likelihood ratio test
 
@@ -64132,6 +64233,8 @@ mean efficiency of each year
 0.76006 0.74574 0.82030 0.81909 0.75188 0.79792 0.68468 0.85626 
 
 mean efficiency: 0.7797 
+> nobs( b5n )
+[1] 300
 > lrtest( b5n )
 Likelihood ratio test
 
@@ -65154,6 +65257,8 @@ mean efficiency of each year
 0.74848 0.73263 0.80769 0.80634 0.73822 0.78589 0.66982 0.84733 
 
 mean efficiency: 0.76727 
+> nobs( b6n )
+[1] 300
 > lrtest( b6n )
 Likelihood ratio test
 
@@ -66192,6 +66297,8 @@ total number of observations = 256
 thus there are 2 observations not in the panel
 
 mean efficiency: 0.82036 
+> nobs( b1t )
+[1] 256
 > lrtest( b1t )
 Likelihood ratio test
 
@@ -67086,6 +67193,8 @@ mean efficiency of each year
 0.79312 0.81064 0.82696 0.84265 0.85529 0.86912 
 
 mean efficiency: 0.83284 
+> nobs( b4t )
+[1] 256
 > lrtest( b4t )
 Likelihood ratio test
 
@@ -68002,6 +68111,8 @@ mean efficiency of each year
 0.72477 0.78678 0.73764 0.66888 0.82361 
 
 mean efficiency: 0.74876 
+> nobs( b5t )
+[1] 213
 > lrtest( b5t )
 Likelihood ratio test
 
@@ -68849,6 +68960,8 @@ mean efficiency of each year
 0.76605 0.82337 0.78006 0.71711 0.84811 
 
 mean efficiency: 0.7873 
+> nobs( b6t )
+[1] 213
 > lrtest( b6t )
 Likelihood ratio test
 
@@ -69734,6 +69847,8 @@ gamma    0.00677144  0.02332741
 'log Lik.' -15.857 (df=7)
 > logLik( translog )
 'log Lik.' -14.434 (df=8)
+> nobs( translog )
+[1] 60
 > print( summary( translog ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -70582,6 +70697,8 @@ gamma   -1.1329e-05  6.7296e-03  2.4050e-02
 'log Lik.' -15.386 (df=8)
 > logLik( translogShift )
 'log Lik.' -14.032 (df=9)
+> nobs( translogShift )
+[1] 60
 > print( summary( translogShift ) )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -71333,6 +71450,8 @@ gamma    -3.9898e-04 -6.8564e-04  0.01069907  0.01455702
 'log Lik.' -15.857 (df=7)
 > logLik( translogZvar )
 'log Lik.' -13.746 (df=9)
+> nobs( translogZvar )
+[1] 60
 > print( summary( translogZvar ) )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -79872,6 +79991,8 @@ F_43 1.0185 1.0251 1.0136 1.0074 1.0098 1.0073 1.0057 1.0064
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
 > all.equal( a1a[-38], a1[-38], check.attributes = FALSE )
 [1] TRUE
+> nobs( a1a )
+[1] 60
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
@@ -79901,6 +80022,8 @@ Maximum likelihood estimates
       3.372        0.880        0.934  
 > all.equal( sa10[-38], a10[-38], check.attributes = FALSE )
 [1] TRUE
+> nobs( sa10 )
+[1] 60
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
 > a11 <- frontier( "logOutput", "logLabour", data = front41Data )
@@ -79914,6 +80037,8 @@ Maximum likelihood estimates
       1.116        0.521        0.385        0.887  
 > all.equal( sa11[-38], a11[-38], check.attributes = FALSE )
 [1] TRUE
+> nobs( sa11 )
+[1] 60
 > 
 > ## cross-section data, efficiency effects frontier
 > saa10 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
@@ -79929,6 +80054,8 @@ Maximum likelihood estimates
      3.3170      -0.0148       1.0869       0.9356  
 > all.equal( saa10[-38], aa10[-38] )
 [1] TRUE
+> nobs( saa10 )
+[1] 60
 > 
 > saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
 > aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
@@ -79943,6 +80070,8 @@ Maximum likelihood estimates
      1.0228       0.5284      -0.0317       0.6546       0.9265  
 > all.equal( saa11[-38], aa11[-38] )
 [1] TRUE
+> nobs( saa11 )
+[1] 60
 > 
 > 
 > ##############################################
@@ -80494,4 +80623,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 19.625   0.608  20.239 
+ 19.633   0.560  20.197 
