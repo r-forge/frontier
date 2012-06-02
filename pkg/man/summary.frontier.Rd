@@ -54,7 +54,7 @@ returned by \code{\link{frontier}}.
       without time effects).}
 }
 
-\author{Arne Henningsen \email{arne.henningsen@gmail.com}}
+\author{Arne Henningsen}
 
 \seealso{\code{\link{sfa}}, \code{\link{efficiencies.frontier}},
    and \code{\link{lrtest.frontier}}.}

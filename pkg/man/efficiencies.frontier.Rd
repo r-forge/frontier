@@ -115,7 +115,7 @@
    Knowledge Centre for Agriculture, Agro Food Park, Aarhus, Denmark.
 }
 
-\author{Arne Henningsen \email{arne.henningsen@gmail.com}}
+\author{Arne Henningsen}
 
 \seealso{\code{\link{sfa}}, \code{\link{summary.frontier}},
    and \code{\link{efficiencies}}.}

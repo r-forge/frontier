@@ -282,7 +282,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    \code{\link{efficiencies.frontier}} for calculating efficiency estimates,
    and \code{\link{lrtest.frontier}} for comparing models by LR tests.}
 
-\author{Tim Coelli and Arne Henningsen \email{arne.henningsen@gmail.com}}
+\author{Tim Coelli and Arne Henningsen}
 
 \examples{
    # example included in FRONTIER 4.1 (cross-section data)
