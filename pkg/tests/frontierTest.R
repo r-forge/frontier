@@ -35,8 +35,8 @@ round( efficiencies( a1, margEff = TRUE ), 3 )
 round( efficiencies( a1, asInData = TRUE ), 3 )
 round( efficiencies( a1, farrell = FALSE ), 3 )
 round( efficiencies( a1, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( a1 )
-residuals( a1, asInData = TRUE )
+round( residuals( a1 ), 4 )
+round( residuals( a1, asInData = TRUE ), 4 )
 print.default( a1 )
 
 ## cross-section data, error components frontier, truncNorm
@@ -60,8 +60,8 @@ print( summary( a2 ) )
 lrtest( a2 )
 round( efficiencies( a2 ), 3 )
 round( efficiencies( a2, asInData = TRUE ), 3 )
-residuals( a2 )
-residuals( a2, asInData = TRUE )
+round( residuals( a2 ), 4 )
+round( residuals( a2, asInData = TRUE ), 4 )
 print.default( a2 )
 
 ## cross-section data, error components frontier, truncNorm, starting values
@@ -124,8 +124,8 @@ all.equal( attr( aa1effF, "margEff" )[ , 1, 1 ],
    ( efficiencies( aa1m, farrell = FALSE ) - aa1effF )[ , 1 ] / 1e-6 )
 all.equal( attr( aa1effDF, "margEff" )[ , 1 ],
    c( efficiencies( aa1m, asInData = TRUE, farrell = FALSE ) - aa1effDF ) / 1e-6 )
-residuals( aa1 )
-residuals( aa1, asInData = TRUE )
+round( residuals( aa1 ), 4 )
+round( residuals( aa1, asInData = TRUE ), 4 )
 print.default( aa1 )
 
 ## cross-section data, efficiency effects frontier, zIntercept
@@ -147,8 +147,8 @@ print( summary( aa2 ) )
 lrtest( aa2 )
 round( efficiencies( aa2 ), 3 )
 round( efficiencies( aa2, asInData = TRUE ), 3 )
-residuals( aa2 )
-residuals( aa2, asInData = TRUE )
+round( residuals( aa2 ), 4 )
+round( residuals( aa2, asInData = TRUE ), 4 )
 print.default( aa2 )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
@@ -227,8 +227,8 @@ print( summary( bb1 ) )
 lrtest( bb1 )
 round( efficiencies( bb1 ), 3 )
 round( efficiencies( bb1, asInData = TRUE ), 3 )
-residuals( bb1 )
-residuals( bb1, asInData = TRUE )
+round( residuals( bb1 ), 4 )
+round( residuals( bb1, asInData = TRUE ), 4 )
 print.default( bb1 )
 
 ## cross-section rice data, error components frontier, truncNorm
@@ -254,8 +254,8 @@ round( efficiencies( bb2 ), 3 )
 round( efficiencies( bb2, asInData = TRUE ), 3 )
 round( efficiencies( bb2, farrell = FALSE ), 3 )
 round( efficiencies( bb2, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( bb2 )
-residuals( bb2, asInData = TRUE )
+round( residuals( bb2 ), 4 )
+round( residuals( bb2, asInData = TRUE ), 4 )
 print.default( bb2 )
 
 ## cross-section rice data, efficiency effects frontier
@@ -281,8 +281,8 @@ print( summary( bb5 ) )
 lrtest( bb5 )
 round( efficiencies( bb5 ), 3 )
 round( efficiencies( bb5, asInData = TRUE ), 3 )
-residuals( bb5 )
-residuals( bb5, asInData = TRUE )
+round( residuals( bb5 ), 4 )
+round( residuals( bb5, asInData = TRUE ), 4 )
 print.default( bb5 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept
@@ -329,8 +329,8 @@ all.equal( attr( bb6effF, "margEff" )[ , 1, 2 ],
    ( efficiencies( bb6m2, farrell = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
 all.equal( attr( bb6effDF, "margEff" )[ , 2 ],
    c( efficiencies( bb6m2, asInData = TRUE, farrell = FALSE ) - bb6effDF ) / 1e-6 )
-residuals( bb6 )
-residuals( bb6, asInData = TRUE )
+round( residuals( bb6 ), 4 )
+round( residuals( bb6, asInData = TRUE ), 4 )
 print.default( bb6 )
 
 ## cross-section rice data, error components frontier, truncNorm, starting values
@@ -420,8 +420,8 @@ round( efficiencies( dd1 ), 3 )
 round( efficiencies( dd1, asInData = TRUE ), 3 )
 round( efficiencies( dd1, farrell = FALSE ), 3 )
 round( efficiencies( dd1, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( dd1 )
-residuals( dd1, asInData = TRUE )
+round( residuals( dd1 ), 4 )
+round( residuals( dd1, asInData = TRUE ), 4 )
 print.default( dd1 )
 
 ## cross-section rice data, error components cost frontier, truncNorm
@@ -443,8 +443,8 @@ print( summary( dd2, farrell = FALSE ) )
 lrtest( dd2 )
 round( efficiencies( dd2, farrell = FALSE ), 3 )
 round( efficiencies( dd2, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( dd2 )
-residuals( dd2, asInData = TRUE )
+round( residuals( dd2 ), 4 )
+round( residuals( dd2, asInData = TRUE ), 4 )
 print.default( dd2 )
 
 ## cross-section rice data, efficiency effects cost frontier
@@ -494,8 +494,8 @@ all.equal( attr( dd5effF, "margEff" )[ , 1, 2 ],
    ( efficiencies( dd5m2, farrell = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
 all.equal( attr( dd5effDF, "margEff" )[ , 2 ],
    c( efficiencies( dd5m2, asInData = TRUE, farrell = FALSE ) - dd5effDF ) / 1e-6 )
-residuals( dd5 )
-residuals( dd5, asInData = TRUE )
+round( residuals( dd5 ), 4 )
+round( residuals( dd5, asInData = TRUE ), 4 )
 print.default( dd5 )
 
 ## cross-section rice data, efficiency effects cost frontier, zIntercept
@@ -518,8 +518,8 @@ print( summary( dd6, farrell = FALSE ) )
 lrtest( dd6 )
 round( efficiencies( dd6, farrell = FALSE ), 3 )
 round( efficiencies( dd6, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( dd6 )
-residuals( dd6, asInData = TRUE )
+round( residuals( dd6 ), 4 )
+round( residuals( dd6, asInData = TRUE ), 4 )
 print.default( dd6 )
 
 ## cross-section rice data, efficiency effects cost frontier: no Z vars
@@ -563,8 +563,8 @@ round( efficiencies( b1 ), 3 )
 round( efficiencies( b1, asInData = TRUE ), 3 )
 round( efficiencies( b1, farrell = FALSE ), 3 )
 round( efficiencies( b1, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( b1 )
-residuals( b1, asInData = TRUE )
+round( residuals( b1 ), 4 )
+round( residuals( b1, asInData = TRUE ), 4 )
 print.default( b1 )
 
 ## panel data, error components frontier, truncNorm
@@ -589,8 +589,8 @@ print( summary( b2 ) )
 lrtest( b2 )
 round( efficiencies( b2 ), 3 )
 round( efficiencies( b2, asInData = TRUE ), 3 )
-residuals( b2 )
-residuals( b2, asInData = TRUE )
+round( residuals( b2 ), 4 )
+round( residuals( b2, asInData = TRUE ), 4 )
 print.default( b2 )
 
 ## panel data, error components frontier, timeEffect
@@ -615,8 +615,8 @@ print( summary( b3 ) )
 lrtest( b3 )
 round( efficiencies( b3 ), 3 )
 round( efficiencies( b3, asInData = TRUE ), 3 )
-residuals( b3 )
-residuals( b3, asInData = TRUE )
+round( residuals( b3 ), 4 )
+round( residuals( b3, asInData = TRUE ), 4 )
 print.default( b3 )
 
 ## panel data, error components frontier, truncNorm, timeEffect
@@ -641,8 +641,8 @@ print( summary( b4 ) )
 lrtest( b4 )
 round( efficiencies( b4 ), 3 )
 round( efficiencies( b4, asInData = TRUE ), 3 )
-residuals( b4 )
-residuals( b4, asInData = TRUE )
+round( residuals( b4 ), 4 )
+round( residuals( b4, asInData = TRUE ), 4 )
 print.default( b4 )
 
 ## panel data, efficiency effects frontier
@@ -694,8 +694,8 @@ all.equal( attr( b5effF, "margEff" )[ , , 2 ],
    ( efficiencies( b5m2, farrell = FALSE ) - b5effF )[ , ] / 1e-6 )
 all.equal( attr( b5effDF, "margEff" )[ , 2 ],
    c( efficiencies( b5m2, asInData = TRUE, farrell = FALSE ) - b5effDF ) / 1e-6 )
-residuals( b5 )
-residuals( b5, asInData = TRUE )
+round( residuals( b5 ), 4 )
+round( residuals( b5, asInData = TRUE ), 4 )
 print.default( b5 )
 
 ## panel data, efficiency effects frontier, zIntercept
@@ -720,8 +720,8 @@ print( summary( b6 ) )
 lrtest( b6 )
 round( efficiencies( b6 ), 3 )
 round( efficiencies( b6, asInData = TRUE ), 3 )
-residuals( b6 )
-residuals( b6, asInData = TRUE )
+round( residuals( b6 ), 4 )
+round( residuals( b6, asInData = TRUE ), 4 )
 print.default( b6 )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
@@ -810,8 +810,8 @@ round( efficiencies( d1 ), 3 )
 round( efficiencies( d1, asInData = TRUE ), 3 )
 round( efficiencies( d1, farrell = FALSE ), 3 )
 round( efficiencies( d1, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d1 )
-residuals( d1, asInData = TRUE )
+round( residuals( d1 ), 4 )
+round( residuals( d1, asInData = TRUE ), 4 )
 print.default( d1 )
 
 ## panel rice data, error components cost frontier, truncNorm
@@ -833,8 +833,8 @@ print( summary( d2, farrell = FALSE ) )
 lrtest( d2 )
 round( efficiencies( d2, farrell = FALSE ), 3 )
 round( efficiencies( d2, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d2 )
-residuals( d2, asInData = TRUE )
+round( residuals( d2 ), 4 )
+round( residuals( d2, asInData = TRUE ), 4 )
 print.default( d2 )
 
 ## panel rice data, error components cost frontier, timeEffect
@@ -856,8 +856,8 @@ print( summary( d3, farrell = FALSE ) )
 lrtest( d3 )
 round( efficiencies( d3, farrell = FALSE ), 3 )
 round( efficiencies( d3, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d3 )
-residuals( d3, asInData = TRUE )
+round( residuals( d3 ), 4 )
+round( residuals( d3, asInData = TRUE ), 4 )
 print.default( d3 )
 
 ## panel rice data, error components cost frontier, truncNorm, timeEffect
@@ -880,8 +880,8 @@ print( summary( d4, farrell = FALSE ) )
 lrtest( d4 )
 round( efficiencies( d4, farrell = FALSE ), 3 )
 round( efficiencies( d4, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d4 )
-residuals( d4, asInData = TRUE )
+round( residuals( d4 ), 4 )
+round( residuals( d4, asInData = TRUE ), 4 )
 print.default( d4 )
 
 ## panel rice data, efficiency effects cost frontier
@@ -932,8 +932,8 @@ all.equal( attr( d5effF, "margEff" )[ , , 2 ],
    ( efficiencies( d5m2, farrell = FALSE ) - d5effF )[ , ] / 1e-6 )
 all.equal( attr( d5effDF, "margEff" )[ , 2 ],
    c( efficiencies( d5m2, asInData = TRUE, farrell = FALSE ) - d5effDF ) / 1e-6 )
-residuals( d5 )
-residuals( d5, asInData = TRUE )
+round( residuals( d5 ), 4 )
+round( residuals( d5, asInData = TRUE ), 4 )
 print.default( d5 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
@@ -956,8 +956,8 @@ print( summary( d6, farrell = FALSE ) )
 lrtest( d6 )
 round( efficiencies( d6, farrell = FALSE ), 3 )
 round( efficiencies( d6, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d6 )
-residuals( d6, asInData = TRUE )
+round( residuals( d6 ), 4 )
+round( residuals( d6, asInData = TRUE ), 4 )
 print.default( d6 )
 
 ## panel rice data, efficiency effects cost frontier: no Z vars
@@ -984,8 +984,8 @@ nobs( b1u )
 lrtest( b1u )
 round( efficiencies( b1u ), 3 )
 round( efficiencies( b1u, asInData = TRUE ), 3 )
-residuals( b1u )
-residuals( b1u, asInData = TRUE )
+round( residuals( b1u ), 4 )
+round( residuals( b1u, asInData = TRUE ), 4 )
 print.default( b1u )
 
 ## unbalanced panel data, error components frontier, truncNorm
@@ -997,8 +997,8 @@ nobs( b2u )
 lrtest( b2u )
 round( efficiencies( b2u ), 3 )
 round( efficiencies( b2u, asInData = TRUE ), 3 )
-residuals( b2u )
-residuals( b2u, asInData = TRUE )
+round( residuals( b2u ), 4 )
+round( residuals( b2u, asInData = TRUE ), 4 )
 print.default( b2u )
 
 ## unbalanced panel data, error components frontier, timeEffect
@@ -1010,8 +1010,8 @@ nobs( b3u )
 lrtest( b3u )
 round( efficiencies( b3u ), 3 )
 round( efficiencies( b3u, asInData = TRUE ), 3 )
-residuals( b3u )
-residuals( b3u, asInData = TRUE )
+round( residuals( b3u ), 4 )
+round( residuals( b3u, asInData = TRUE ), 4 )
 print.default( b3u )
 
 ## unbalanced panel data, error components frontier, truncNorm, timeEffect
@@ -1026,8 +1026,8 @@ round( efficiencies( b4u ), 3 )
 round( efficiencies( b4u, asInData = TRUE ), 3 )
 round( efficiencies( b4u, farrell = FALSE ), 3 )
 round( efficiencies( b4u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( b4u )
-residuals( b4u, asInData = TRUE )
+round( residuals( b4u ), 4 )
+round( residuals( b4u, asInData = TRUE ), 4 )
 print.default( b4u )
 
 ## unbalanced panel data, efficiency effects frontier
@@ -1039,8 +1039,8 @@ nobs( b5u )
 lrtest( b5u )
 round( efficiencies( b5u ), 3 )
 round( efficiencies( b5u, asInData = TRUE ), 3 )
-residuals( b5u )
-residuals( b5u, asInData = TRUE )
+round( residuals( b5u ), 4 )
+round( residuals( b5u, asInData = TRUE ), 4 )
 print.default( b5u )
 
 ## unbalanced panel data, efficiency effects frontier, zIntercept
@@ -1076,8 +1076,8 @@ all.equal( attr( b6ueffF, "margEff" )[ , , 2 ],
    ( efficiencies( b6um2, farrell = FALSE ) - b6ueffF )[ , ] / 1e-6 )
 all.equal( attr( b6ueffDF, "margEff" )[ , 2 ],
    c( efficiencies( b6um2, asInData = TRUE, farrell = FALSE ) - b6ueffDF ) / 1e-6 )
-residuals( b6u )
-residuals( b6u, asInData = TRUE )
+round( residuals( b6u ), 4 )
+round( residuals( b6u, asInData = TRUE ), 4 )
 print.default( b6u )
 
 ## unbalanced panel rice data, error components cost frontier
@@ -1092,8 +1092,8 @@ round( efficiencies( d1u ), 3 )
 round( efficiencies( d1u, asInData = TRUE ), 3 )
 round( efficiencies( d1u, farrell = FALSE ), 3 )
 round( efficiencies( d1u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d1u )
-residuals( d1u, asInData = TRUE )
+round( residuals( d1u ), 4 )
+round( residuals( d1u, asInData = TRUE ), 4 )
 print.default( d1u )
 
 ## unbalanced panel rice data, error components cost frontier, truncNorm
@@ -1105,8 +1105,8 @@ nobs( d2u )
 lrtest( d2u )
 round( efficiencies( d2u, farrell = FALSE ), 3 )
 round( efficiencies( d2u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d2u )
-residuals( d2u, asInData = TRUE )
+round( residuals( d2u ), 4 )
+round( residuals( d2u, asInData = TRUE ), 4 )
 print.default( d2u )
 
 ## unbalanced panel rice data, error components cost frontier, timeEffect
@@ -1118,8 +1118,8 @@ nobs( d3u )
 lrtest( d3u )
 round( efficiencies( d3u, farrell = FALSE ), 3 )
 round( efficiencies( d3u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d3u )
-residuals( d3u, asInData = TRUE )
+round( residuals( d3u ), 4 )
+round( residuals( d3u, asInData = TRUE ), 4 )
 print.default( d3u )
 
 ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
@@ -1131,8 +1131,8 @@ nobs( d4u )
 lrtest( d4u )
 round( efficiencies( d4u, farrell = FALSE ), 3 )
 round( efficiencies( d4u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d4u )
-residuals( d4u, asInData = TRUE )
+round( residuals( d4u ), 4 )
+round( residuals( d4u, asInData = TRUE ), 4 )
 print.default( d4u )
 
 ## unbalanced panel rice data, efficiency effects cost frontier
@@ -1147,8 +1147,8 @@ round( efficiencies( d5u ), 3 )
 round( efficiencies( d5u, asInData = TRUE ), 3 )
 round( efficiencies( d5u, farrell = FALSE ), 3 )
 round( efficiencies( d5u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d5u )
-residuals( d5u, asInData = TRUE )
+round( residuals( d5u ), 4 )
+round( residuals( d5u, asInData = TRUE ), 4 )
 print.default( d5u )
 
 ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
@@ -1160,8 +1160,8 @@ nobs( d6u )
 lrtest( d6u )
 round( efficiencies( d6u, farrell = FALSE ), 3 )
 round( efficiencies( d6u, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( d6u )
-residuals( d6u, asInData = TRUE )
+round( residuals( d6u ), 4 )
+round( residuals( d6u, asInData = TRUE ), 4 )
 print.default( d6u )
 
 
@@ -1182,8 +1182,8 @@ nobs( b1n )
 lrtest( b1n )
 round( efficiencies( b1n ), 3 )
 round( efficiencies( b1n, asInData = TRUE ), 3 )
-residuals( b1n )
-residuals( b1n, asInData = TRUE )
+round( residuals( b1n ), 4 )
+round( residuals( b1n, asInData = TRUE ), 4 )
 print.default( b1n )
 
 ## panel data with NA firms, error components frontier, truncNorm, timeEffect
@@ -1195,8 +1195,8 @@ nobs( b4n )
 lrtest( b4n )
 round( efficiencies( b4n ), 3 )
 round( efficiencies( b4n, asInData = TRUE ), 3 )
-residuals( b4n )
-residuals( b4n, asInData = TRUE )
+round( residuals( b4n ), 4 )
+round( residuals( b4n, asInData = TRUE ), 4 )
 print.default( b4n )
 
 ## panel data with NA firms, efficiency effects frontier
@@ -1208,8 +1208,8 @@ nobs( b5n )
 lrtest( b5n )
 round( efficiencies( b5n ), 3 )
 round( efficiencies( b5n, asInData = TRUE ), 3 )
-residuals( b5n )
-residuals( b5n, asInData = TRUE )
+round( residuals( b5n ), 4 )
+round( residuals( b5n, asInData = TRUE ), 4 )
 print.default( b5n )
 
 ## panel data with NA firms, efficiency effects frontier, zIntercept
@@ -1221,8 +1221,8 @@ nobs( b6n )
 lrtest( b6n )
 round( efficiencies( b6n ), 3 )
 round( efficiencies( b6n, asInData = TRUE ), 3 )
-residuals( b6n )
-residuals( b6n, asInData = TRUE )
+round( residuals( b6n ), 4 )
+round( residuals( b6n, asInData = TRUE ), 4 )
 print.default( b6n )
 
 
@@ -1241,8 +1241,8 @@ nobs( b1t )
 lrtest( b1t )
 round( efficiencies( b1t ), 3 )
 round( efficiencies( b1t, asInData = TRUE ), 3 )
-residuals( b1t )
-residuals( b1t, asInData = TRUE )
+round( residuals( b1t ), 4 )
+round( residuals( b1t, asInData = TRUE ), 4 )
 print.default( b1t )
 
 ## panel data with NA years, error components frontier, truncNorm, timeEffect
@@ -1254,8 +1254,8 @@ nobs( b4t )
 lrtest( b4t )
 round( efficiencies( b4t ), 3 )
 round( efficiencies( b4t, asInData = TRUE ), 3 )
-residuals( b4t )
-residuals( b4t, asInData = TRUE )
+round( residuals( b4t ), 4 )
+round( residuals( b4t, asInData = TRUE ), 4 )
 print.default( b4t )
 
 ## panel data with NA years, efficiency effects frontier
@@ -1267,8 +1267,8 @@ nobs( b5t )
 lrtest( b5t )
 round( efficiencies( b5t ), 3 )
 round( efficiencies( b5t, asInData = TRUE ), 3 )
-residuals( b5t )
-residuals( b5t, asInData = TRUE )
+round( residuals( b5t ), 4 )
+round( residuals( b5t, asInData = TRUE ), 4 )
 print.default( b5t )
 
 ## panel data with NA years, efficiency effects frontier, zIntercept
@@ -1280,8 +1280,8 @@ nobs( b6t )
 lrtest( b6t )
 round( efficiencies( b6t ), 3 )
 round( efficiencies( b6t, asInData = TRUE ), 3 )
-residuals( b6t )
-residuals( b6t, asInData = TRUE )
+round( residuals( b6t ), 4 )
+round( residuals( b6t, asInData = TRUE ), 4 )
 print.default( b6t )
 
 
@@ -1307,8 +1307,8 @@ round( efficiencies( translog ), 3 )
 round( efficiencies( translog, asInData = TRUE ), 3 )
 round( efficiencies( translog, farrell = FALSE ), 3 )
 round( efficiencies( translog, asInData = TRUE, farrell = FALSE ), 3 )
-residuals( translog )
-residuals( translog, asInData = TRUE )
+round( residuals( translog ), 4 )
+round( residuals( translog, asInData = TRUE ), 4 )
 translogEla <- elas( translog )
 print( translogEla )
 attributes( translogEla )$variance
@@ -1334,8 +1334,8 @@ print( summary( translogShift ) )
 lrtest( translogShift )
 round( efficiencies( translogShift ), 3 )
 round( efficiencies( translogShift, asInData = TRUE ), 3 )
-residuals( translogShift )
-residuals( translogShift, asInData = TRUE )
+round( residuals( translogShift ), 4 )
+round( residuals( translogShift, asInData = TRUE ), 4 )
 translogShiftEla <- elas( translogShift )
 print( translogShiftEla )
 attributes( translogShiftEla )$variance
@@ -1364,8 +1364,8 @@ round( efficiencies( translogZvar, margEff = TRUE ), 3 )
 round( efficiencies( translogZvar, asInData = TRUE, margEff = TRUE ), 3 )
 round( efficiencies( translogZvar, farrell = FALSE, margEff = TRUE ), 3 )
 round( efficiencies( translogZvar, asInData = TRUE, farrell = FALSE, margEff = TRUE ), 3 )
-residuals( translogZvar )
-residuals( translogZvar, asInData = TRUE )
+round( residuals( translogZvar ), 4 )
+round( residuals( translogZvar, asInData = TRUE ), 4 )
 translogZvarEla <- elas( translogZvar )
 print( translogZvarEla ) 
 attributes( translogZvarEla )$variance
