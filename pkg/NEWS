@@ -9,6 +9,11 @@ on R-Forge.
 
 * further arguments to print.summary.frontier() are forwarded to printCoefmat()
 
+* if the likelihood value of the ML estimation is less than that obtained using 
+OLS, there is no longer a warning issued if argument maxit is set to 0
+
+* minor improvements of the examples in the documentation
+
 
             CHANGES IN VERSION 0.997-10  (2012-06-02)
 
