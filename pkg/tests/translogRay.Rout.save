@@ -1,5 +1,5 @@
 
-R version 2.15.0 (2012-03-30)
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -85,6 +85,7 @@ Iterative ML estimation terminated after 27 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 Multiplied the initial values 1 time(s) by 0.999 before the search procedure could start
+You could try to use different starting values or try to reduce the step size specified in argument 'searchStep'
 
 final maximum likelihood estimates
          Estimate Std. Error z value Pr(>|z|)    
@@ -460,4 +461,4 @@ attr(,"class")
 > 
 > proc.time()
    user  system elapsed 
-  0.864   0.036   0.899 
+  0.824   0.032   0.849 
