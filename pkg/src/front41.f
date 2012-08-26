@@ -485,11 +485,7 @@ c       error components model.
       epr=dble(0)    
       do 103 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)
-      do 102 j=1,nb   
-      xb=xb+b(j)*xx(i,l,j)   
-  102   continue
-      ee=yy(i,l)-xb
+      call resid(b,i,l,yy,xx,ee)
       epr=epr+ee*dexp(-e*(dble(l)-fnt))   
       end if
   103   continue   
@@ -503,11 +499,7 @@ c       error components model.
       a=a-dislog(zi)
       do 133 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)
-      do 134 j=1,nb   
-      xb=xb+b(j)*xx(i,l,j)   
- 134    continue    
-      ee=yy(i,l)-xb  
+      call resid(b,i,l,yy,xx,ee)
       a2=a2+ee**2 
       end if
  133    continue    
@@ -563,11 +555,7 @@ c       of the log-likelihood function of the error components model.
       epe=dble(0)
       do 103 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)
-      do 102 j=1,nb   
-      xb=xb+b(j)*xx(i,l,j)   
-  102   continue   
-      ee=yy(i,l)-xb  
+      call resid(b,i,l,yy,xx,ee)
       epr=epr+ee*dexp(-e*(dble(l)-fnt))   
       epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))    
       end if
@@ -578,11 +566,7 @@ c       of the log-likelihood function of the error components model.
       do 132 j=1,nb   
       do 134 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)
-      do 135 k=1,nb   
-      xb=xb+xx(i,l,k)*b(k)   
- 135    continue    
-      ee=yy(i,l)-xb  
+      call resid(b,i,l,yy,xx,ee)
       gx(j)=gx(j)-xx(i,l,j)*ee/(s2*(dble(1)-g))
       endif
  134    continue    
@@ -599,11 +583,7 @@ c       of the log-likelihood function of the error components model.
       ss=dble(0)
       do 138 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)
-      do 139 j=1,nb   
-      xb=xb+xx(i,l,j)*b(j)   
- 139    continue    
-      ee=yy(i,l)-xb
+      call resid(b,i,l,yy,xx,ee)
       ss=ss+ee**2 
       endif
  138    continue
@@ -633,11 +613,7 @@ c       of the log-likelihood function of the error components model.
       if (xx(i,l,1).eq.1) then  
       t=dble(l)
       de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))    
-      xb=dble(0)
-      do 153 j=1,nb   
-      xb=xb+xx(i,l,j)*b(j)   
-  153   continue   
-      ee=yy(i,l)-xb  
+      call resid(b,i,l,yy,xx,ee)
       d=d+(t-fnt)*dexp(-e*(t-fnt))*ee
       end if
   152   continue   
@@ -674,11 +650,7 @@ c       TE effects model.
       do 10 i=1,nn   
       do 10 l=1,nt
       if (xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)  
-      do 11 j=1,nb   
-      xb=xb+xx(i,l,j)*b(j) 
-   11   continue   
-      ee=(yy(i,l)-xb)
+      call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=nb+1,nr
@@ -716,11 +688,7 @@ c       of the log-likelihood function of the TE effects model.
       do 10 i=1,nn   
       do 10 l=1,nt
       if (xx(i,l,1).ne.dble(0)) then
-      xb=dble(0)  
-      do 11 j=1,nb   
-      xb=xb+xx(i,l,j)*b(j) 
-   11   continue   
-      ee=(yy(i,l)-xb)
+      call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=nb+1,nr
@@ -753,6 +721,21 @@ c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
       ndrv=ndrv+1
       return 
       end
+
+      subroutine resid(b,i,l,yy,xx,ee)
+c       calculates the residual for a single observation, 
+c       i.e. e = y - x ' b 
+      implicit double precision (a-h,o-z)
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,imult
+      common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      dimension b(n),yy(nn,nt),xx(nn,nt,nr)
+      xb=dble(0)
+      do 102 j=1,nb   
+      xb=xb+b(j)*xx(i,l,j)   
+  102   continue
+      ee=yy(i,l)-xb
+      return
+      end   
  
       subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
