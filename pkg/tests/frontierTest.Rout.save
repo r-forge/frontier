@@ -1,5 +1,5 @@
 
-R version 2.15.0 (2012-03-30)
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -54,11 +54,11 @@ Loading required package: lmtest
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-38], sa1[-38], check.attributes = FALSE )
+> all.equal( Sa1[-39], sa1[-39], check.attributes = FALSE )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-38], a1[-38] )
+> all.equal( sa1[-39], a1[-39] )
 [1] TRUE
 > print( a1 )
 
@@ -394,6 +394,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 60
 
@@ -717,7 +720,7 @@ parameters
 [1]  0.47641  0.28259  0.54038  0.54776  0.90815 -1.41060
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-c(7,38)], a2[-c(7,38)] )
+> all.equal( sa2[-c(8,39)], a2[-c(8,39)] )
 [1] TRUE
 > print( a2 )
 
@@ -954,6 +957,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -1237,7 +1243,7 @@ attr(,"class")
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-38], a5[-38] )
+> all.equal( sa5[-39], a5[-39] )
 [1] TRUE
 > print( a5 )
 
@@ -1399,6 +1405,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -1731,11 +1740,11 @@ log-likelihood value
 [1] -16.382
 parameters
 [1]  0.536808  0.268649  0.539341 -0.010282  0.284557  0.840089
-> all.equal( Saa1[-c(7,38)], saa1[-c(7,38)], check.attributes = FALSE )
+> all.equal( Saa1[-c(8,39)], saa1[-c(8,39)], check.attributes = FALSE )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-38], aa1[-38] )
+> all.equal( saa1[-39], aa1[-39] )
 [1] TRUE
 > print( aa1 )
 
@@ -2339,6 +2348,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 60
 
@@ -2620,7 +2632,7 @@ attr(,"class")
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-38], aa2[-38] )
+> all.equal( saa2[-39], aa2[-39] )
 [1] TRUE
 > print( aa2 )
 
@@ -2866,6 +2878,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -3153,7 +3168,7 @@ attr(,"class")
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-38], aa5[-38] )
+> all.equal( saa5[-39], aa5[-39] )
 [1] TRUE
 > print( aa5 )
 
@@ -3326,6 +3341,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -3726,11 +3744,11 @@ mean efficiency: 0.75779
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-38], sbb1[-38], check.attributes = FALSE )
+> all.equal( Sbb1[-39], sbb1[-39], check.attributes = FALSE )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-38], bb1[-38] )
+> all.equal( sbb1[-39], bb1[-39] )
 [1] TRUE
 > print( bb1 )
 
@@ -4634,6 +4652,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -5603,7 +5624,7 @@ attr(,"class")
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-38], bb2[-38] )
+> all.equal( sbb2[-39], bb2[-39] )
 [1] TRUE
 > print( bb2 )
 
@@ -6941,6 +6962,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 344
 
@@ -7912,12 +7936,12 @@ attr(,"class")
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-38], sbb5[-38], check.attributes = FALSE )
+> all.equal( Sbb5[-39], sbb5[-39], check.attributes = FALSE )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-38], bb5[-38] )
+> all.equal( sbb5[-39], bb5[-39] )
 [1] TRUE
 > print( bb5 )
 
@@ -8840,6 +8864,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -9815,7 +9842,7 @@ attr(,"class")
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-38], bb6[-38] )
+> all.equal( sbb6[-39], bb6[-39] )
 [1] TRUE
 > print( bb6 )
 
@@ -13312,6 +13339,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 344
 
@@ -14289,7 +14319,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-38], bb7[-38] )
+> all.equal( sbb7[-39], bb7[-39] )
 [1] TRUE
 > print( bb7 )
 
@@ -14785,6 +14815,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -15763,7 +15796,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-38], bb8[-38] )
+> all.equal( sbb8[-39], bb8[-39] )
 [1] TRUE
 > print( bb8 )
 
@@ -16275,6 +16308,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -17302,11 +17338,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd1[-38], sdd1[-38], check.attributes = FALSE )
+> all.equal( Sdd1[-39], sdd1[-39], check.attributes = FALSE )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1[-38], dd1[-38] )
+> all.equal( sdd1[-39], dd1[-39] )
 [1] TRUE
 > print( dd1 )
 
@@ -18647,6 +18683,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 344
 
@@ -19636,7 +19675,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2[-38], dd2[-38] )
+> all.equal( sdd2[-39], dd2[-39] )
 [1] TRUE
 > print( dd2 )
 
@@ -20562,6 +20601,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -21560,7 +21602,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sdd5[-38], sdd5[-38], check.attributes = FALSE )
+> all.equal( Sdd5[-39], sdd5[-39], check.attributes = FALSE )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -21568,7 +21610,7 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd5[-38], dd5[-38] )
+> all.equal( sdd5[-39], dd5[-39] )
 [1] TRUE
 > print( dd5 )
 
@@ -25068,6 +25110,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 344
 
@@ -26069,7 +26114,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd6[-38], dd6[-38] )
+> all.equal( sdd6[-39], dd6[-39] )
 [1] TRUE
 > print( dd6 )
 
@@ -27003,6 +27048,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 344
@@ -28105,11 +28153,11 @@ parameters
 [1] -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-c(7,38)], sb1[-c(7,38)], check.attributes = FALSE )
+> all.equal( Sb1[-c(8,39)], sb1[-c(8,39)], check.attributes = FALSE )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-c(7,38)], b1[-c(7,38)] )
+> all.equal( sb1[-c(8,39)], b1[-c(8,39)] )
 [1] TRUE
 > print( b1 )
 
@@ -28545,6 +28593,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -29257,7 +29308,7 @@ attr(,"class")
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-38], b2[-38] )
+> all.equal( sb2[-39], b2[-39] )
 [1] TRUE
 > print( b2 )
 
@@ -29573,6 +29624,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -30289,7 +30343,7 @@ attr(,"class")
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-38], b3[-38] )
+> all.equal( sb3[-39], b3[-39] )
 [1] TRUE
 > print( b3 )
 
@@ -30609,6 +30663,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -31325,7 +31382,7 @@ attr(,"class")
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-38], b4[-38] )
+> all.equal( sb4[-39], b4[-39] )
 [1] TRUE
 > print( b4 )
 
@@ -31657,6 +31714,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -32427,12 +32487,12 @@ log-likelihood value
 parameters
 [1] -1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405673  0.597476
 [8]  0.944931
-> all.equal( Sb5[-c(7,38)], sb5[-c(7,38)], check.attributes = FALSE )
+> all.equal( Sb5[-c(8,39)], sb5[-c(8,39)], check.attributes = FALSE )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-38], b5[-38] )
+> all.equal( sb5[-39], b5[-39] )
 [1] TRUE
 > print( b5 )
 
@@ -34011,6 +34071,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -34728,7 +34791,7 @@ attr(,"class")
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-38], b6[-38] )
+> all.equal( sb6[-39], b6[-39] )
 [1] TRUE
 > print( b6 )
 
@@ -35064,6 +35127,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -35787,7 +35853,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-38], b7[-38] )
+> all.equal( sb7[-39], b7[-39] )
 [1] TRUE
 > print( b7 )
 
@@ -36005,6 +36071,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -36728,7 +36797,7 @@ attr(,"class")
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-38], b8[-38] )
+> all.equal( sb8[-39], b8[-39] )
 [1] TRUE
 > print( b8 )
 
@@ -36950,6 +37019,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -37722,11 +37794,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-38], sd1[-38], check.attributes = FALSE )
+> all.equal( Sd1[-39], sd1[-39], check.attributes = FALSE )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-38], d1[-38] )
+> all.equal( sd1[-39], d1[-39] )
 [1] TRUE
 > print( d1 )
 
@@ -38169,6 +38241,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -38902,7 +38977,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-38], d2[-38] )
+> all.equal( sd2[-39], d2[-39] )
 [1] TRUE
 > print( d2 )
 
@@ -39229,6 +39304,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -39965,7 +40043,7 @@ attr(,"class")
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-38], d3[-38] )
+> all.equal( sd3[-39], d3[-39] )
 [1] TRUE
 > print( d3 )
 
@@ -40296,6 +40374,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -41033,7 +41114,7 @@ attr(,"class")
 > d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-38], d4[-38] )
+> all.equal( sd4[-39], d4[-39] )
 [1] TRUE
 > print( d4 )
 
@@ -41368,6 +41449,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -42113,7 +42197,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sd5[-38], sd5[-38], check.attributes = FALSE )
+> all.equal( Sd5[-39], sd5[-39], check.attributes = FALSE )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
@@ -42121,7 +42205,7 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd5[-38], d5[-38] )
+> all.equal( sd5[-39], d5[-39] )
 [1] TRUE
 > print( d5 )
 
@@ -43704,6 +43788,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -44448,7 +44535,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd6[-38], d6[-38] )
+> all.equal( sd6[-39], d6[-39] )
 [1] TRUE
 > print( d6 )
 
@@ -44787,6 +44874,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -45851,6 +45941,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -46834,6 +46927,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -47827,6 +47923,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -48955,6 +49054,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -49950,6 +50052,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -52195,6 +52300,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -53316,6 +53424,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -54323,6 +54434,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -55338,6 +55452,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -56352,6 +56469,9 @@ $modelType
 
 $ineffDecrease
 [1] FALSE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -57507,6 +57627,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -58528,6 +58651,9 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -59539,6 +59665,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 39
 
@@ -60470,6 +60599,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 39
@@ -61406,6 +61538,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 38
@@ -62345,6 +62480,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 38
@@ -63295,6 +63433,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -64144,6 +64285,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -65001,6 +65145,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 43
 
@@ -65803,6 +65950,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 43
@@ -66864,6 +67014,9 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
+$imult
+[1] 0
+
 $nn
 [1] 60
 
@@ -67605,6 +67758,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -68702,6 +68858,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 60
@@ -76015,19 +76174,19 @@ F_43 1.019 1.025 1.014 1.007 1.010 1.007 1.006 1.006
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-38], a1[-38], check.attributes = FALSE )
+> all.equal( a1a[-39], a1[-39], check.attributes = FALSE )
 [1] TRUE
 > nobs( a1a )
 [1] 60
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-38], aa1[-38], check.attributes = FALSE )
+> all.equal( aa1a[-39], aa1[-39], check.attributes = FALSE )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-38], aa2[-38], check.attributes = FALSE )
+> all.equal( aa2a[-39], aa2[-39], check.attributes = FALSE )
 [1] TRUE
 > 
 > 
@@ -76046,7 +76205,7 @@ sfa(formula = logOutput ~ 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
       3.372        0.880        0.934  
-> all.equal( sa10[-38], a10[-38], check.attributes = FALSE )
+> all.equal( sa10[-39], a10[-39], check.attributes = FALSE )
 [1] TRUE
 > nobs( sa10 )
 [1] 60
@@ -76061,7 +76220,7 @@ sfa(formula = logOutput ~ logLabour, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
       1.116        0.521        0.385        0.887  
-> all.equal( sa11[-38], a11[-38], check.attributes = FALSE )
+> all.equal( sa11[-39], a11[-39], check.attributes = FALSE )
 [1] TRUE
 > nobs( sa11 )
 [1] 60
@@ -76078,7 +76237,7 @@ sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
      3.3170      -0.0148       1.0869       0.9356  
-> all.equal( saa10[-38], aa10[-38] )
+> all.equal( saa10[-39], aa10[-39] )
 [1] TRUE
 > nobs( saa10 )
 [1] 60
@@ -76094,7 +76253,7 @@ sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
      1.0228       0.5284      -0.0317       0.6546       0.9265  
-> all.equal( saa11[-38], aa11[-38] )
+> all.equal( saa11[-39], aa11[-39] )
 [1] TRUE
 > nobs( saa11 )
 [1] 60
@@ -76649,4 +76808,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 19.921   0.520  20.447 
+ 20.901   0.644  21.561 

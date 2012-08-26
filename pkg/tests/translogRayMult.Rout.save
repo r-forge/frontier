@@ -1,5 +1,5 @@
 
-R version 2.15.0 (2012-03-30)
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -812,6 +812,9 @@ $modelType
 
 $ineffDecrease
 [1] TRUE
+
+$imult
+[1] 0
 
 $nn
 [1] 500
@@ -3473,4 +3476,4 @@ attr(,"class")
 > 
 > proc.time()
    user  system elapsed 
-  1.208   0.052   1.261 
+  1.172   0.036   1.192 

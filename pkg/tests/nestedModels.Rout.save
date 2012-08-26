@@ -1,5 +1,5 @@
 
-R version 2.15.0 (2012-03-30)
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -64,7 +64,7 @@ Loading required package: lmtest
 +    data = as.data.frame( riceProdPhil ) )
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb5ecf[-38], bb5ecf[-38] )
+> all.equal( sbb5ecf[-39], bb5ecf[-39] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -73,7 +73,7 @@ Loading required package: lmtest
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sbb5eef[-38], bb5eef[-38] )
+> all.equal( sbb5eef[-39], bb5eef[-39] )
 [1] TRUE
 > tmp <- efficiencies( sbb5eef, margEff = TRUE )
 Warning message:
@@ -106,7 +106,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6ecf[-38], bb6ecf[-38] )
+> all.equal( sbb6ecf[-39], bb6ecf[-39] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -121,7 +121,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = as.data.frame(riceProdPhil)) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6eef[-38], bb6eef[-38] )
+> all.equal( sbb6eef[-39], bb6eef[-39] )
 [1] TRUE
 > tmp <- efficiencies( sbb6eef, margEff = TRUE )
 Warning message:
@@ -149,9 +149,9 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sb5eef[-38], b5eef[-38] )
+> all.equal( sb5eef[-39], b5eef[-39] )
 [1] TRUE
-> all.equal( b5eef[ -c( 3, 4, 19, 30, 38 ) ], bb5eef[ -c( 3, 4, 19, 30, 38 ) ] )
+> all.equal( b5eef[ -c( 4, 5, 20, 31, 39 ) ], bb5eef[ -c( 4, 5, 20, 31, 39 ) ] )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ) )
 [1] TRUE
@@ -182,9 +182,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6ecf[-38], b6ecf[-38] )
+> all.equal( sb6ecf[-39], b6ecf[-39] )
 [1] TRUE
-> all.equal( b6ecf[-38], bb6ecf[-38] )
+> all.equal( b6ecf[-39], bb6ecf[-39] )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -199,9 +199,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = riceProdPhil) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6eef[-38], b6eef[-38] )
+> all.equal( sb6eef[-39], b6eef[-39] )
 [1] TRUE
-> all.equal( b6eef[ -c( 3, 4, 19, 30, 38 ) ], bb6eef[ -c( 3, 4, 19, 30, 38 ) ] )
+> all.equal( b6eef[ -c( 4, 5, 20, 31, 39 ) ], bb6eef[ -c( 4, 5, 20, 31, 39 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
 [1] "Mean relative difference: 0.00035528"
@@ -221,4 +221,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  4.052   0.024   4.076 
+  3.952   0.024   3.972 
