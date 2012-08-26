@@ -53,12 +53,15 @@ Error Component Frontier
 dependent variable is logged:
 \begin_inset Formula \begin{eqnarray*}
 TE_{it} & = & \frac{\Phi\left(-\kappa\:\tilde{\sigma}_{i}\:\tilde{\eta}_{t}+\frac{\tilde{\mu}_{i}}{\tilde{\sigma}_{i}}\right)}{\Phi\left(\frac{\tilde{\mu}_{i}}{\tilde{\sigma}_{i}}\right)}\:\exp\left(-\kappa\:\tilde{\mu}_{i}\:\tilde{\eta}_{t}+\frac{1}{2}\tilde{\sigma}_{i}^{2}\:\tilde{\eta}_{t}^{2}\right)\\
-\kappa & = & \begin{cases}
+\tau & = & \begin{cases}
 1 & \text{if inefficiency decreases the dep. variable}\\
 -1 & \text{if inefficiency increases the dep. variable}\end{cases}\\
+\kappa & = & \begin{cases}
+1 & \text{in case of Farrell efficincies }\left(0\leq TE\leq1\right)\\
+-1 & \text{otherwise }\left(TE\geq1\right)\end{cases}\\
 \tilde{\sigma}_{i}^{2} & = & \frac{\gamma\:\left(1-\gamma\right)\:\sigma^{2}}{1+\left(\tilde{t}_{i}-1\right)\gamma}\\
 \tilde{\sigma}_{i} & = & \sqrt{\tilde{\sigma}_{i}^{2}}\\
-\tilde{\mu}_{i} & = & \frac{\mu\:\left(1-\gamma\right)-\kappa\:\gamma\:\tilde{\epsilon}_{i}}{1+\left(\tilde{t}_{i}-1\right)\gamma}\\
+\tilde{\mu}_{i} & = & \frac{\mu\:\left(1-\gamma\right)-\tau\:\gamma\:\tilde{\epsilon}_{i}}{1+\left(\tilde{t}_{i}-1\right)\gamma}\\
 \tilde{\eta}_{t} & = & \exp\left(-\eta\:\left(t-T\right)\right)\\
 \tilde{\epsilon}_{i} & = & \sum_{t}\Delta_{it}\:\epsilon_{it}\:\tilde{\eta}_{t}\\
 \tilde{t}_{i} & = & \sum_{t}\Delta_{it}\:\tilde{\eta}_{t}^{2}\\
@@ -91,8 +94,8 @@ Efficiency Effects Frontier
 dependent variable logged
 \begin_inset Formula \begin{eqnarray*}
 TE_{it} & = & \frac{\Phi\left(-\kappa\,\bar{\sigma}+\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}{\Phi\left(\frac{\bar{\mu}_{it}}{\bar{\sigma}}\right)}\:\exp\left(-\kappa\:\bar{\mu}_{it}+\frac{1}{2}\bar{\sigma}^{2}\right)\\
-\bar{\mu}_{it} & = & \left(1-\gamma\right)\: z_{it}'\delta-\kappa\:\gamma\:\epsilon_{it}\\
-\bar{\sigma}^{2} & = & \gamma\:\left(1-\gamma\right)\:\sigma^{2}\\
+\bar{\mu}_{it} & = & \left(1-\gamma\right)\: z_{it}'\delta-\lambda\:\gamma\:\epsilon_{it}=\frac{\sigma_{v}^{2}\: z_{it}'\delta-\lambda\:\sigma_{u}^{2}\:\epsilon_{it}}{\sigma_{u}^{2}+\sigma_{v}^{2}}\\
+\bar{\sigma}^{2} & = & \gamma\:\left(1-\gamma\right)\:\sigma^{2}=\frac{\sigma_{u}^{2}\:\sigma_{v}^{2}}{\sigma_{u}^{2}+\sigma_{v}^{2}}\\
 \bar{\sigma} & = & \sqrt{\bar{\sigma}^{2}}\end{eqnarray*}
 
 \end_inset
