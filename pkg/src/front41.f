@@ -485,11 +485,11 @@ c       error components model.
       epr=dble(0)    
       do 103 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      yhat=dble(0)
+      xb=dble(0)
       do 102 j=1,nb   
-      yhat=yhat+b(j)*xx(i,l,j)   
+      xb=xb+b(j)*xx(i,l,j)   
   102   continue
-      ee=yy(i,l)-yhat
+      ee=yy(i,l)-xb
       epr=epr+ee*dexp(-e*(dble(l)-fnt))   
       end if
   103   continue   
@@ -503,11 +503,11 @@ c       error components model.
       a=a-dislog(zi)
       do 133 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      yhat=dble(0)
+      xb=dble(0)
       do 134 j=1,nb   
-      yhat=yhat+b(j)*xx(i,l,j)   
+      xb=xb+b(j)*xx(i,l,j)   
  134    continue    
-      ee=yy(i,l)-yhat  
+      ee=yy(i,l)-xb  
       a2=a2+ee**2 
       end if
  133    continue    
@@ -563,11 +563,11 @@ c       of the log-likelihood function of the error components model.
       epe=dble(0)
       do 103 l=1,nt   
       if (xx(i,l,1).ne.dble(0)) then
-      yhat=dble(0)
+      xb=dble(0)
       do 102 j=1,nb   
-      yhat=yhat+b(j)*xx(i,l,j)   
+      xb=xb+b(j)*xx(i,l,j)   
   102   continue   
-      ee=yy(i,l)-yhat  
+      ee=yy(i,l)-xb  
       epr=epr+ee*dexp(-e*(dble(l)-fnt))   
       epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))    
       end if
@@ -578,11 +578,11 @@ c       of the log-likelihood function of the error components model.
       do 132 j=1,nb   
       do 134 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
-      yhat=dble(0)
+      xb=dble(0)
       do 135 k=1,nb   
-      yhat=yhat+xx(i,l,k)*b(k)   
+      xb=xb+xx(i,l,k)*b(k)   
  135    continue    
-      ee=yy(i,l)-yhat  
+      ee=yy(i,l)-xb  
       gx(j)=gx(j)-xx(i,l,j)*ee/(s2*(dble(1)-g))
       endif
  134    continue    
@@ -599,11 +599,11 @@ c       of the log-likelihood function of the error components model.
       ss=dble(0)
       do 138 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
-      yhat=dble(0)
+      xb=dble(0)
       do 139 j=1,nb   
-      yhat=yhat+xx(i,l,j)*b(j)   
+      xb=xb+xx(i,l,j)*b(j)   
  139    continue    
-      ee=yy(i,l)-yhat
+      ee=yy(i,l)-xb
       ss=ss+ee**2 
       endif
  138    continue
@@ -633,11 +633,11 @@ c       of the log-likelihood function of the error components model.
       if (xx(i,l,1).eq.1) then  
       t=dble(l)
       de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))    
-      yhat=dble(0)
+      xb=dble(0)
       do 153 j=1,nb   
-      yhat=yhat+xx(i,l,j)*b(j)   
+      xb=xb+xx(i,l,j)*b(j)   
   153   continue   
-      ee=yy(i,l)-yhat  
+      ee=yy(i,l)-xb  
       d=d+(t-fnt)*dexp(-e*(t-fnt))*ee
       end if
   152   continue   
