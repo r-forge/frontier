@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -32,7 +33,7 @@
 \use_esint 1
 \use_mhchem 1
 \use_mathdots 1
-\cite_engine basic
+\cite_engine natbib_authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -99,6 +100,42 @@ with
 z & = & \frac{\mu}{\sqrt{\gamma\sigma_{S}^{2}}}\\
 z_{i}^{*} & = & \frac{\mu\left(1-\gamma\right)-\gamma\eta_{i}'\left(y_{i}-x_{i}\beta\right)}{\sqrt{\gamma\left(1-\gamma\right)\sigma_{S}^{2}\left[1+\gamma\left(\eta_{i}'\eta_{i}-1\right)\right]}}
 \end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Log-likelihood function according to 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p.~103"
+key "kumbhakar00"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\ln L & = & c-\frac{N\left(T-1\right)}{2}\ln\sigma_{v}^{2}-\frac{1}{2}\left(\sigma_{v}^{2}+T\sigma_{u}^{2}\right)\\
+ &  & +\sum_{i=1}^{N}\left[1-\Phi\left(\frac{\sigma_{u}^{2}\sum_{t=1}^{T}\varepsilon_{it}}{\sigma_{u}^{2}\:\sigma_{v}^{2}}\right)\right]\\
+ &  & -\frac{\sum_{i=1}^{N}\sum_{t=1}^{T}\varepsilon_{it}^{2}}{2\sigma_{v}^{2}}+\frac{1}{2}\sum_{i=1}^{N}\left(\frac{\sigma_{u}^{2}\sum_{t=1}^{T}\varepsilon_{it}}{\sigma_{u}^{2}\:\sigma_{v}^{2}}\right)^{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "agrarpol"
+options "erae"
 
 \end_inset
 
