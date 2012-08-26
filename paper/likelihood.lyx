@@ -1,0 +1,109 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Error Components Frontier
+\end_layout
+
+\begin_layout Standard
+Density function
+\begin_inset Formula 
+\begin{eqnarray*}
+f\left(e_{i}\right) & = & \frac{\left[1-\Phi\left(-\frac{\mu_{i}^{*}}{\sigma_{i}^{*}}\right)\right]\;\exp\left[-\frac{1}{2}\frac{e_{i}'e_{i}}{\sigma_{_{V}}^{2}}-\frac{1}{2}\frac{\mu^{2}}{\sigma^{2}}+\frac{1}{2}\frac{\mu_{i}^{*2}}{\sigma_{i}^{*2}}\right]}{\left(2\pi\right)^{\frac{T_{i}}{2}}\;\sigma_{V}^{T_{i}-1}\;\sqrt{\sigma_{V}^{2}+\eta_{i}'\eta\sigma^{2}}\;\left[1-\Phi\left(-\frac{\mu}{\sigma}\right)\right]}
+\end{eqnarray*}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{eqnarray*}
+\mu_{i}^{*} & = & \frac{\mu\sigma_{V}^{2}-\eta_{i}'e_{i}\sigma^{2}}{\sigma_{V}^{2}+\eta_{i}'\eta_{i}\sigma^{2}}\\
+\sigma_{i}^{*2} & = & \frac{\sigma^{2}\sigma_{V}^{2}}{\sigma_{V}^{2}+\eta_{i}'\eta_{i}\sigma^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+Log-Likelihood function
+\begin_inset Formula 
+\begin{eqnarray*}
+L\left(\theta;y\right) & = & -\frac{1}{2}\left(\sum_{i=1}^{N}T_{i}\right)\left(\ln\left(2\pi\right)+\ln\left(\sigma_{S}^{2}\right)\right)-\frac{1}{2}\sum_{i=1}^{N}\left(T_{i}-1\right)\ln\left(1-\gamma\right)\\
+ &  & -\frac{1}{2}\sum_{i=1}^{N}\ln\left[1+\left(\eta_{i}'\eta_{i}-1\right)\gamma\right]-N\;\ln\left[1-\Phi\left(-z\right)\right]-\frac{1}{2}Nz^{2}\\
+ &  & +\sum_{i=1}^{N}\ln\left[1-\Phi\left(-z_{i}^{*}\right)\right]+\frac{1}{2}\sum_{i=1}^{N}z_{i}^{*2}\\
+ &  & -\frac{1}{2}\sum_{i=1}^{N}\frac{\left(y_{i}-x_{i}\beta\right)'\left(y_{i}-x_{i}\beta\right)}{\left(1-\gamma\right)\sigma_{S}^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta & = & \left(\beta',\sigma_{S}^{2},\gamma,\mu,\eta\right)'\\
+z & = & \frac{\mu}{\sqrt{\gamma\sigma_{S}^{2}}}\\
+z_{i}^{*} & = & \frac{\mu\left(1-\gamma\right)-\gamma\eta_{i}'\left(y_{i}-x_{i}\beta\right)}{\sqrt{\gamma\left(1-\gamma\right)\sigma_{S}^{2}\left[1+\gamma\left(\eta_{i}'\eta_{i}-1\right)\right]}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
