@@ -98,7 +98,35 @@ with
 \begin{eqnarray*}
 \theta & = & \left(\beta',\sigma_{S}^{2},\gamma,\mu,\eta\right)'\\
 z & = & \frac{\mu}{\sqrt{\gamma\sigma_{S}^{2}}}\\
-z_{i}^{*} & = & \frac{\mu\left(1-\gamma\right)-\gamma\eta_{i}'\left(y_{i}-x_{i}\beta\right)}{\sqrt{\gamma\left(1-\gamma\right)\sigma_{S}^{2}\left[1+\gamma\left(\eta_{i}'\eta_{i}-1\right)\right]}}
+z_{i}^{*} & = & \frac{\mu\left(1-\gamma\right)-\gamma\eta_{i}'\left(y_{i}-x_{i}\beta\right)}{\sqrt{\gamma\left(1-\gamma\right)\sigma_{S}^{2}\left[1+\gamma\left(\eta_{i}'\eta_{i}-1\right)\right]}}\\
+\eta_{i} & = & \left(\exp\left(-\eta\left(1-T\right)\right),\ldots,\exp\left(-\eta\left(T-T\right)\right)\right)'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Log-Likelihood function as similar as possible to the Fortran code
+\begin_inset Formula 
+\begin{eqnarray*}
+-L\left(\theta;y\right) & = & \frac{1}{2}\left(\sum_{i=1}^{N}T_{i}\right)\left(\ln\left(2\pi\right)+\ln\left(\sigma_{S}^{2}\right)\right)+\frac{1}{2}\left(\left(\sum_{i=1}^{N}T_{i}\right)-N\right)\ln\left(1-\gamma\right)\\
+ &  & +N\;\ln\left[\Phi\left(z\right)\right]+\frac{1}{2}Nz^{2}+\frac{1}{2}\sum_{i=1}^{N}\ln\left[1+\left(EPE_{i}-1\right)\gamma\right]\\
+ &  & -\sum_{i=1}^{N}\ln\left[\Phi\left(z_{i}^{*}\right)\right]-\frac{1}{2}\sum_{i=1}^{N}z_{i}^{*2}\\
+ &  & +\frac{1}{2}\sum_{i=1}^{N}\frac{\sum_{t=1}^{T}\left(y_{it}-x_{it}\beta\right)^{2}}{\left(1-\gamma\right)\sigma_{S}^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta & = & \left(\beta',\sigma_{S}^{2},\gamma,\mu,\eta\right)'\\
+z & = & \frac{\mu}{\sqrt{\gamma\sigma_{S}^{2}}}\\
+z_{i}^{*} & = & \frac{\mu\left(1-\gamma\right)-\gamma\: EPR_{i}}{\sqrt{\gamma\left(1-\gamma\right)\sigma_{S}^{2}\left[1+\left(EPE_{i}-1\right)\gamma\right]}}\\
+EPR_{i} & = & \sum_{t=1}^{T}\left(y_{it}-x_{it}\beta\right)\exp\left(-\eta\left(t-T\right)\right)\\
+EPE_{i} & = & \sum_{t=1}^{T}\exp\left(-2\:\eta\left(t-T\right)\right)
 \end{eqnarray*}
 
 \end_inset
