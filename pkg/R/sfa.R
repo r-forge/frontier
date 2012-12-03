@@ -428,6 +428,11 @@ sfa <- function(
       stop( "a period number is > number of periods" )
    } else if( returnObj$code == 108 ) {
       stop( "there are no observations on at least one firm" )
+   } else if( returnObj$code == 109 ) {
+      stop( "internal error: 2 + nr - nmu * (im-1)",
+            " is not equal to argument 'nColData'.",
+            " Please contact the maintainer of the 'frontier' package",
+            " (arne.henningsen@gmail.com)" )
    } else if( returnObj$code > 100 ) {
       stop( "unknown error.",
          " Please contact the maintainer of the 'frontier' package",

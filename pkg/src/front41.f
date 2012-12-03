@@ -33,6 +33,11 @@ c       last update = 25/April/2008
 c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
+c
+c       nb = number of coefficients of the frontier model (slopes + 1)
+c       nz = number of coefficients (slopes + possibly intercept) 
+c            of the inefficiency model
+c       nr = nb + nz
       implicit double precision (a-h,o-z)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
@@ -794,17 +799,23 @@ c       also reads data from a file.
       icode=103
       return
       endif
-      allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr))
+      allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr-nmu*(im-1)))
       do 135 i=1,nn
       mm(i)=0
       do 135 l=1,nt
       xx(i,l,1)=dble(0)
   135   continue
+      if ((2+nr-nmu*(im-1)).ne.nColData) then
+      call intpr( 'internal error: 2 + nr - nmu * (im-1)',-1, 0, 0 )
+      call intpr( 'is not equal to argument ''nColData''',-1, 0, 0 )
+      icode=109
+      return
+      endif
       do 134 k=1,nob  
       fii=dataTable(k,1)
       ftt=dataTable(k,2)
       yyd=dataTable(k,3)
-      do 143 i=2,nr
+      do 143 i=2,(nr-nmu*(im-1))
       xxd(i)=dataTable(k,2+i)
   143 continue
       i=int(fii)   
