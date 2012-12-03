@@ -1,5 +1,5 @@
 
-R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -62,17 +62,17 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
-Iterative ML estimation terminated after 53 iterations:
+Iterative ML estimation terminated after 47 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
-(Intercept)  2.44e-01   7.27e-01    0.34     0.74    
-log(capital) 2.80e-01   4.65e-02    6.03  1.6e-09 ***
-log(labour)  5.33e-01   4.63e-02   11.52  < 2e-16 ***
-sigmaSq      1.08e-01   1.81e-02    5.97  2.3e-09 ***
-gamma        1.01e-05   1.82e-02    0.00     1.00    
+(Intercept)  2.44e-01   5.52e-01    0.44     0.66    
+log(capital) 2.80e-01   4.70e-02    5.97  2.4e-09 ***
+log(labour)  5.33e-01   4.89e-02   10.90  < 2e-16 ***
+sigmaSq      1.08e-01   1.92e-02    5.64  1.7e-08 ***
+gamma        1.38e-05   1.51e-02    0.00     1.00    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -18.447 
@@ -80,7 +80,7 @@ log likelihood value: -18.447
 cross-sectional data
 total number of observations = 60 
 
-mean efficiency: 1.0008 
+mean efficiency: 1.001 
 > lrtest( a1 )
 Likelihood ratio test
 
@@ -143,18 +143,18 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
-Iterative ML estimation terminated after 45 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+Iterative ML estimation terminated after 46 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -1.67e+00   3.19e-01   -5.24  1.6e-07 ***
-log(AREA)    3.30e-01   6.18e-02    5.34  9.5e-08 ***
-log(LABOR)   3.84e-01   6.53e-02    5.88  4.2e-09 ***
-log(NPK)     2.83e-01   3.94e-02    7.18  6.8e-13 ***
-sigmaSq      1.08e-01   8.47e-03   12.72  < 2e-16 ***
-gamma        1.06e-05   5.47e-03    0.00        1    
+(Intercept) -1.67e+00   3.05e-01   -5.47  4.5e-08 ***
+log(AREA)    3.30e-01   6.18e-02    5.34  9.3e-08 ***
+log(LABOR)   3.84e-01   6.53e-02    5.88  4.1e-09 ***
+log(NPK)     2.83e-01   3.94e-02    7.18  7.0e-13 ***
+sigmaSq      1.08e-01   7.88e-03   13.67  < 2e-16 ***
+gamma        1.17e-05   4.88e-03    0.00        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: -104.91 
@@ -228,19 +228,19 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 61 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+Iterative ML estimation terminated after 52 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
-(Intercept) 6.06e+00   2.81e-01   21.60   <2e-16 ***
-log(PROD)   4.40e-01   2.97e-02   14.84   <2e-16 ***
-log(AREA)   5.22e-01   3.24e-02   16.14   <2e-16 ***
-log(LABORP) 4.18e-01   3.30e-02   12.66   <2e-16 ***
-log(NPKP)   6.02e-02   5.42e-02    1.11     0.27    
-sigmaSq     4.67e-02   3.73e-03   12.50   <2e-16 ***
-gamma       6.09e-05   2.08e-02    0.00     1.00    
+(Intercept) 6.06e+00   2.29e-01   26.45   <2e-16 ***
+log(PROD)   4.40e-01   2.59e-02   17.02   <2e-16 ***
+log(AREA)   5.22e-01   2.81e-02   18.59   <2e-16 ***
+log(LABORP) 4.18e-01   3.19e-02   13.10   <2e-16 ***
+log(NPKP)   6.02e-02   5.19e-02    1.16     0.25    
+sigmaSq     4.67e-02   3.72e-03   12.55   <2e-16 ***
+gamma       6.21e-05   1.76e-02    0.00     1.00    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 log likelihood value: 39.025 
@@ -248,7 +248,7 @@ log likelihood value: 39.025
 cross-sectional data
 total number of observations = 344 
 
-mean efficiency: 0.99866 
+mean efficiency: 0.99864 
 > lrtest( d1 )
 Likelihood ratio test
 
@@ -303,4 +303,4 @@ Model 2: Error Components Frontier (ECF)
 > 
 > proc.time()
    user  system elapsed 
-  1.312   0.040   1.346 
+  1.212   0.028   1.226 

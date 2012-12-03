@@ -1,5 +1,5 @@
 
-R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
 Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-pc-linux-gnu (64-bit)
@@ -131,10 +131,10 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > # Comparisons
 > rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)   lAREA  lLABOR    lNPK sigmaSq   gamma      mu
-[1,]     -1.1445 0.35399 0.33437 0.27286  15.772 0.99772 -57.564
+[1,]     -1.1446 0.35400 0.33437 0.27286  17.734 0.99797 -64.845
 [2,]     -1.1450 0.35398 0.33440 0.27287  22.364 0.99839 -82.029
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ) )
-[1] "Mean relative difference: 0.00034772"
+[1] "Mean relative difference: 0.00022517"
 > 
 > 
 > ############ panel data ###############
@@ -204,21 +204,21 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > all.equal( b6eef[ -c( 4, 5, 20, 31, 39 ) ], bb6eef[ -c( 4, 5, 20, 31, 39 ) ] )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ) )
-[1] "Mean relative difference: 0.00034772"
+[1] "Mean relative difference: 0.00022517"
 > all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ) )
-[1] "Mean relative difference: 0.0011938"
+[1] "Mean relative difference: 0.00079257"
 > 
 > # Comparisons
 > rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] )
      (Intercept)   lAREA  lLABOR    lNPK sigmaSq   gamma      mu
-[1,]     -1.1445 0.35399 0.33437 0.27286  15.772 0.99772 -57.564
+[1,]     -1.1446 0.35400 0.33437 0.27286  17.734 0.99797 -64.845
 [2,]     -1.1450 0.35398 0.33440 0.27287  22.364 0.99839 -82.029
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ) )
-[1] "Mean relative difference: 0.00034772"
+[1] "Mean relative difference: 0.00022517"
 > all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ) )
-[1] "Mean relative difference: 0.0011938"
+[1] "Mean relative difference: 0.00079257"
 > 
 > 
 > proc.time()
    user  system elapsed 
-  3.908   0.020   3.916 
+  3.764   0.032   3.789 
