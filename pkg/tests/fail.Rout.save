@@ -40,6 +40,12 @@ The following object is masked from 'package:base':
 Loading required package: micEcon
 Loading required package: miscTools
 Loading required package: lmtest
+
+Please cite the 'frontier' package as:
+Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.0-0. http://CRAN.R-Project.org/package=frontier.
+
+If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
+https://r-forge.r-project.org/projects/frontier/
 > options( digits = 5 )
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
@@ -661,4 +667,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-   1.76    0.02    1.77 
+  1.724   0.052   1.766 
