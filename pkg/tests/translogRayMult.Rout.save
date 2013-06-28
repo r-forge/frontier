@@ -1,7 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -24,7 +23,7 @@ Loading required package: bdsmatrix
 
 Attaching package: 'bdsmatrix'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     backsolve
 
@@ -36,7 +35,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -49,7 +48,7 @@ Loading required package: coda
 Loading required package: lattice
 ##
 ## Markov Chain Monte Carlo Package (MCMCpack)
-## Copyright (C) 2003-2012 Andrew D. Martin, Kevin M. Quinn, and Jong Hee Park
+## Copyright (C) 2003-2013 Andrew D. Martin, Kevin M. Quinn, and Jong Hee Park
 ##
 ## Support provided by the U.S. National Science Foundation
 ## (Grants SES-0350646 and SES-0350613)
@@ -163,9 +162,6 @@ $breaks
 
 $counts
  [1]   2   0   4  18  50  89 118 110  77  26   6
-
-$intensities
- [1]  0.2  0.0  0.4  1.8  5.0  8.9 11.8 11.0  7.7  2.6  0.6
 
 $density
  [1]  0.2  0.0  0.4  1.8  5.0  8.9 11.8 11.0  7.7  2.6  0.6
@@ -296,7 +292,7 @@ b_t2_t2 -0.011969   0.135015   -0.09   0.9294
 sigmaSq  0.080960   0.006743   12.01   <2e-16 ***
 gamma    0.996203   0.012347   80.68   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 241.33 
 
 cross-sectional data
@@ -3476,4 +3472,4 @@ attr(,"class")
 > 
 > proc.time()
    user  system elapsed 
-  1.132   0.048   1.185 
+  1.592   0.068   1.658 

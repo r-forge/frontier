@@ -1,7 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -22,7 +21,7 @@ Loading required package: bdsmatrix
 
 Attaching package: 'bdsmatrix'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     backsolve
 
@@ -34,7 +33,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -123,7 +122,7 @@ logLabour     0.5365     0.0453   11.86  < 2e-16 ***
 sigmaSq       0.2170     0.0639    3.40  0.00069 ***
 gamma         0.7972     0.1364    5.84  5.1e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
 
 cross-sectional data
@@ -146,7 +145,7 @@ logLabour     0.5365     0.0453   11.86  < 2e-16 ***
 sigmaSq       0.2170     0.0639    3.40  0.00069 ***
 gamma         0.7972     0.1364    5.84  5.1e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
 
 cross-sectional data
@@ -162,7 +161,7 @@ Model 2: Error Components Frontier (ECF)
 1   4  -18.4                      
 2   5  -17.0  1  2.84      0.046 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( a1, margEff = TRUE ), 3 )
      efficiency
 F_1       0.651
@@ -786,7 +785,7 @@ sigmaSq       0.5478     0.6243    0.88    0.380
 gamma         0.9081     0.1170    7.76  8.2e-15 ***
 mu           -1.4106     2.5990   -0.54    0.587    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.796 
 
 cross-sectional data
@@ -802,7 +801,7 @@ Model 2: Error Components Frontier (ECF)
 1   4  -18.4                      
 2   6  -16.8  2   3.3      0.083 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( a2 ), 3 )
      efficiency
 F_1       0.722
@@ -1309,7 +1308,7 @@ sigmaSq       0.5491     0.7843    0.70    0.484
 gamma         0.9084     0.1425    6.37  1.8e-10 ***
 mu           -1.4126     3.2760   -0.43    0.666    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.795 
 
 cross-sectional data
@@ -1325,7 +1324,7 @@ Model 2: Error Components Frontier (ECF)
 1   4  -18.4                      
 2   6  -16.8  2   3.3      0.082 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( a5 ), 3 )
      efficiency
 F_1       0.720
@@ -1806,7 +1805,7 @@ Z_firmNo     -0.0103     0.0127   -0.81   0.4178
 sigmaSq       0.2846     0.1208    2.36   0.0185 *  
 gamma         0.8401     0.1100    7.63  2.3e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.382 
 
 cross-sectional data
@@ -1830,7 +1829,7 @@ Z_firmNo     -0.0103     0.0127   -0.81   0.4178
 sigmaSq       0.2846     0.1208    2.36   0.0185 *  
 gamma         0.8401     0.1100    7.63  2.3e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.382 
 
 cross-sectional data
@@ -1846,7 +1845,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   4  -18.4                      
 2   6  -16.4  2  4.13      0.053 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( aa1eff <- efficiencies( aa1, margEff = TRUE ) )
      efficiency
 F_1     0.65861
@@ -2709,7 +2708,7 @@ Z_firmNo       -0.0141     0.0316   -0.45    0.655
 sigmaSq         0.4071     0.8108    0.50    0.616    
 gamma           0.8833     0.2203    4.01  6.1e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.356 
 
 cross-sectional data
@@ -3247,7 +3246,7 @@ Z_firmNo       -0.0141     0.0310   -0.45    0.649
 sigmaSq         0.4071     0.7885    0.52    0.606    
 gamma           0.8833     0.2144    4.12  3.8e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.356 
 
 cross-sectional data
@@ -3647,7 +3646,7 @@ log(labour)    0.5365     0.0453   11.86  < 2e-16 ***
 sigmaSq        0.2170     0.0639    3.40  0.00069 ***
 gamma          0.7972     0.1364    5.84  5.1e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
 
 cross-sectional data
@@ -3665,7 +3664,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   4  -18.4                      
 2   5  -17.0  1  2.84      0.046 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## cross-section data with NAs and infinit values
@@ -3693,7 +3692,7 @@ log(labour)    0.5371     0.0461   11.64  < 2e-16 ***
 sigmaSq        0.2283     0.0683    3.34  0.00083 ***
 gamma          0.8063     0.1341    6.01  1.8e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.215 
 
 cross-sectional data
@@ -3723,7 +3722,7 @@ Z_firmNo      -0.0118     0.0154   -0.77   0.4429
 sigmaSq        0.3160     0.1477    2.14   0.0324 *  
 gamma          0.8580     0.1013    8.47  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.193 
 
 cross-sectional data
@@ -3811,7 +3810,7 @@ lNPK          0.2713     0.0352    7.70  1.4e-14 ***
 sigmaSq       0.2386     0.0268    8.92  < 2e-16 ***
 gamma         0.8854     0.0355   24.91  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.203 
 
 cross-sectional data
@@ -3827,7 +3826,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   6  -86.2  1  37.4    4.8e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( bb1 ), 3 )
     efficiency
 1        0.729
@@ -5694,7 +5693,7 @@ sigmaSq       0.6627     0.3060    2.17     0.03 *
 gamma         0.9497     0.0264   35.94  < 2e-16 ***
 mu           -1.5867     1.0570   -1.50     0.13    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -82.23 
 
 cross-sectional data
@@ -5719,7 +5718,7 @@ sigmaSq       0.6627     0.3060    2.17     0.03 *
 gamma         0.9497     0.0264   35.94  < 2e-16 ***
 mu           -1.5867     1.0570   -1.50     0.13    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -82.23 
 
 cross-sectional data
@@ -5735,7 +5734,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   7  -82.2  2  45.4    4.4e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( bb2 ), 3 )
     efficiency
 1        0.792
@@ -8023,7 +8022,7 @@ Z_BANRAT     -1.4057     0.9061   -1.55    0.121
 sigmaSq       0.5975     0.3087    1.94    0.053 .  
 gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.85 
 
 cross-sectional data
@@ -8039,7 +8038,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   8  -77.8  3  54.1    3.6e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( bb5 ), 3 )
     efficiency
 1        0.810
@@ -9928,7 +9927,7 @@ Z_BANRAT       -3.6350     8.1196   -0.45     0.65
 sigmaSq         1.6663     3.7057    0.45     0.65    
 gamma           0.9788     0.0453   21.61  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 cross-sectional data
@@ -9955,7 +9954,7 @@ Z_BANRAT       -3.6350     8.1196   -0.45     0.65
 sigmaSq         1.6663     3.7057    0.45     0.65    
 gamma           0.9788     0.0453   21.61  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 cross-sectional data
@@ -9971,7 +9970,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   9  -77.3  4  55.2    1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( bb6eff <- efficiencies( bb6, margEff = TRUE ) )
     efficiency
 1      0.82291
@@ -14391,7 +14390,7 @@ sigmaSq       0.6765     0.2283    2.96    0.003 **
 gamma         0.9529     0.0178   53.47  < 2e-16 ***
 mu           -1.6058     0.7603   -2.11    0.035 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -82.224 
 
 cross-sectional data
@@ -14407,7 +14406,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   7  -82.2  2  45.4    4.3e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( bb7 ), 3 )
     efficiency
 1        0.791
@@ -15884,7 +15883,7 @@ Z_BANRAT       -3.6357     7.7133   -0.47     0.64
 sigmaSq         1.6666     3.5326    0.47     0.64    
 gamma           0.9788     0.0434   22.57  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 cross-sectional data
@@ -15900,7 +15899,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   9  -77.3  4  55.2    1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( bb8 ), 3 )
     efficiency
 1        0.823
@@ -17305,7 +17304,7 @@ log(NPK)      0.2713     0.0353    7.68  1.5e-14 ***
 sigmaSq       0.2386     0.0260    9.17  < 2e-16 ***
 gamma         0.8854     0.0337   26.29  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.203 
 
 cross-sectional data
@@ -17323,7 +17322,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   6  -86.2  1  37.4    4.8e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -17415,7 +17414,7 @@ lNPKP         0.0705     0.0542    1.30   0.1936
 sigmaSq       0.0704     0.0143    4.91  9.3e-07 ***
 gamma         0.5303     0.1874    2.83   0.0047 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
 
 cross-sectional data
@@ -17440,7 +17439,7 @@ lNPKP         0.0705     0.0542    1.30   0.1936
 sigmaSq       0.0704     0.0143    4.91  9.3e-07 ***
 gamma         0.5303     0.1874    2.83   0.0047 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
 
 cross-sectional data
@@ -17456,7 +17455,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   39.0                      
 2   7   39.9  1  1.81      0.089 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( dd1 ), 3 )
     efficiency
 1        0.831
@@ -19760,7 +19759,7 @@ sigmaSq       0.1436     0.0535    2.69   0.0072 **
 gamma         0.7682     0.1072    7.17  7.6e-13 ***
 mu           -0.6643     0.4460   -1.49   0.1363    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 40.966 
 
 cross-sectional data
@@ -19776,7 +19775,7 @@ Model 2: Error Components Frontier (ECF)
 1   6     39                      
 2   8     41  2  3.88       0.06 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( dd2, farrell = FALSE ), 3 )
     efficiency
 1        1.170
@@ -21699,7 +21698,7 @@ Z_BANRAT    -50.2047   163.3495   -0.31     0.76
 sigmaSq       7.8488    23.4318    0.33     0.74    
 gamma         0.9952     0.0147   67.89   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.307 
 
 cross-sectional data
@@ -21726,7 +21725,7 @@ Z_BANRAT    -50.2047   163.3495   -0.31     0.76
 sigmaSq       7.8488    23.4318    0.33     0.74    
 gamma         0.9952     0.0147   67.89   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.307 
 
 cross-sectional data
@@ -21742,7 +21741,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2   9   43.3  3  8.56      0.017 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( dd5eff <- efficiencies( dd5, margEff = TRUE ) )
     efficiency
 1      0.93188
@@ -26207,7 +26206,7 @@ Z_BANRAT      -56.22267   62.77636   -0.90     0.37
 sigmaSq        10.02698   10.92099    0.92     0.36    
 gamma           0.99634    0.00422  236.04   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.335 
 
 cross-sectional data
@@ -26223,7 +26222,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2  10   43.3  4  8.62      0.039 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( dd6, farrell = FALSE ), 3 )
     efficiency
 1        1.085
@@ -28064,7 +28063,7 @@ log(NPKP)     0.0705     0.0542    1.30   0.1936
 sigmaSq       0.0704     0.0143    4.91  9.3e-07 ***
 gamma         0.5303     0.1874    2.83   0.0047 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
 
 cross-sectional data
@@ -28082,7 +28081,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2   7   39.9  1  1.81      0.089 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## panel data
@@ -28224,7 +28223,7 @@ lNPK          0.2275     0.0409    5.57  2.6e-08 ***
 sigmaSq       0.1554     0.0242    6.42  1.4e-10 ***
 gamma         0.4643     0.0880    5.27  1.3e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.43 
 
 panel data
@@ -28251,7 +28250,7 @@ lNPK          0.2275     0.0409    5.57  2.6e-08 ***
 sigmaSq       0.1554     0.0242    6.42  1.4e-10 ***
 gamma         0.4643     0.0880    5.27  1.3e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.43 
 
 panel data
@@ -28270,7 +28269,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   6  -86.4  1    37    6.1e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b1 ), 3 )
      efficiency
 F_01      0.735
@@ -29382,7 +29381,7 @@ sigmaSq       0.2034     0.1747    1.16    0.244
 gamma         0.5905     0.3544    1.67    0.096 .  
 mu           -0.2734     0.9632   -0.28    0.776    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.343 
 
 panel data
@@ -29401,7 +29400,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   7  -86.3  2  37.1    2.7e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b2 ), 3 )
      efficiency
 F_01      0.751
@@ -30417,7 +30416,7 @@ sigmaSq       0.1300     0.0218    5.97  2.4e-09 ***
 gamma         0.3696     0.1073    3.45  0.00057 ***
 time          0.0589     0.0310    1.90  0.05779 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.55 
 
 panel data
@@ -30440,7 +30439,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   7  -84.6  2  40.7    4.5e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b3 ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.704 0.718 0.731 0.744 0.757 0.769 0.780 0.791
@@ -31468,7 +31467,7 @@ gamma         0.5237     0.4123    1.27   0.2041
 mu           -0.3173     1.0505   -0.30   0.7626    
 time          0.0647     0.0357    1.81   0.0696 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.407 
 
 panel data
@@ -31491,7 +31490,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   8  -84.4  3    41    2.3e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b4 ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.725 0.740 0.753 0.767 0.779 0.791 0.803 0.814
@@ -32578,7 +32577,7 @@ Z_BANRAT     -1.4057     0.9061   -1.55    0.121
 sigmaSq       0.5975     0.3087    1.94    0.053 .  
 gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.85 
 
 panel data
@@ -32611,7 +32610,7 @@ Z_BANRAT     -1.4057     0.9061   -1.55    0.121
 sigmaSq       0.5975     0.3087    1.94    0.053 .  
 gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.85 
 
 panel data
@@ -32634,7 +32633,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   8  -77.8  3  54.1    3.6e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( b5eff <- efficiencies( b5, margEff = TRUE ) )
         1999    2000    2001    2002    2003    2004    2005    2006
 F_01 0.81002 0.74199 0.82072 0.74720 0.74118 0.55203 0.49000 0.86825
@@ -34881,7 +34880,7 @@ Z_BANRAT       -3.6355     8.0966   -0.45     0.65
 sigmaSq         1.6666     3.6959    0.45     0.65    
 gamma           0.9788     0.0452   21.65  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 panel data
@@ -34904,7 +34903,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   9  -77.3  4  55.2    1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b6 ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.823 0.759 0.832 0.764 0.758 0.567 0.500 0.876
@@ -35941,7 +35940,7 @@ gamma         0.5237     0.4201    1.25   0.2126
 mu           -0.3173     1.0666   -0.30   0.7661    
 time          0.0647     0.0355    1.82   0.0681 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.407 
 
 panel data
@@ -35964,7 +35963,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -104.9                        
 2   8  -84.4  3    41    2.3e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b7 ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.725 0.740 0.753 0.767 0.779 0.791 0.803 0.814
@@ -36889,7 +36888,7 @@ Z_BANRAT       -3.6354     7.7258   -0.47     0.64
 sigmaSq         1.6666     3.5258    0.47     0.64    
 gamma           0.9788     0.0432   22.64  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 panel data
@@ -36912,7 +36911,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   9  -77.3  4  55.2    1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b8 ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.823 0.759 0.832 0.764 0.758 0.567 0.500 0.876
@@ -37760,7 +37759,7 @@ log(NPK)      0.2713     0.0353    7.68  1.5e-14 ***
 sigmaSq       0.2386     0.0260    9.17  < 2e-16 ***
 gamma         0.8854     0.0337   26.29  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.203 
 
 panel data
@@ -37785,7 +37784,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -104.9                        
 2   6  -86.2  1  37.4    4.8e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -37871,7 +37870,7 @@ lNPKP         0.0918     0.0533    1.72  0.08516 .
 sigmaSq       0.0728     0.0157    4.64  3.5e-06 ***
 gamma         0.4828     0.1257    3.84  0.00012 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 49.366 
 
 panel data
@@ -37899,7 +37898,7 @@ lNPKP         0.0918     0.0533    1.72  0.08516 .
 sigmaSq       0.0728     0.0157    4.64  3.5e-06 ***
 gamma         0.4828     0.1257    3.84  0.00012 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 49.366 
 
 panel data
@@ -37918,7 +37917,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   39.0                        
 2   7   49.4  1  20.7    2.7e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d1 ), 3 )
      efficiency
 F_01      0.757
@@ -39062,7 +39061,7 @@ sigmaSq      0.05087    0.00805    6.32  2.7e-10 ***
 gamma        0.28670    0.10266    2.79  0.00523 ** 
 mu           0.24152    0.06457    3.74  0.00018 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 52.39 
 
 panel data
@@ -39081,7 +39080,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   39.0                        
 2   8   52.4  2  26.7    5.1e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d2, farrell = FALSE ), 3 )
      efficiency
 F_01      1.458
@@ -40128,7 +40127,7 @@ sigmaSq       0.0809     0.0182    4.45  8.8e-06 ***
 gamma         0.5355     0.1167    4.59  4.5e-06 ***
 time         -0.0336     0.0268   -1.25    0.210    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 50.183 
 
 panel data
@@ -40151,7 +40150,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   39.0                        
 2   8   50.2  2  22.3    4.7e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d3, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.276 1.286 1.298 1.309 1.321 1.334 1.348 1.361
@@ -41203,7 +41202,7 @@ gamma        0.32161    0.10940    2.94  0.00329 **
 mu           0.26372    0.07376    3.58  0.00035 ***
 time        -0.02707    0.01889   -1.43  0.15191    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 53.198 
 
 panel data
@@ -41226,7 +41225,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   39.0                        
 2   9   53.2  3  28.4    1.1e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d4, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.404 1.417 1.431 1.445 1.459 1.475 1.491 1.507
@@ -42294,7 +42293,7 @@ Z_BANRAT    -43.57884   57.29093   -0.76     0.45
 sigmaSq       7.11577    8.82353    0.81     0.42    
 gamma         0.99476    0.00691  143.92   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.309 
 
 panel data
@@ -42328,7 +42327,7 @@ Z_BANRAT    -43.57884   57.29093   -0.76     0.45
 sigmaSq       7.11577    8.82353    0.81     0.42    
 gamma         0.99476    0.00691  143.92   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.309 
 
 panel data
@@ -42351,7 +42350,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2   9   43.3  3  8.57      0.017 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( d5eff <- efficiencies( d5, margEff = TRUE ) )
         1999    2000    2001    2002    2003    2004    2005    2006
 F_01 0.93193 0.93323 0.93304 0.93090 0.91387 0.94281 0.91341 0.95026
@@ -44628,7 +44627,7 @@ Z_BANRAT      -96.0982   181.4475   -0.53     0.60
 sigmaSq        17.1831    32.1670    0.53     0.59    
 gamma           0.9979     0.0042  237.37   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.338 
 
 panel data
@@ -44651,7 +44650,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2  10   43.3  4  8.63      0.038 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d6, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.084 1.082 1.083 1.086 1.112 1.069 1.113 1.058
@@ -45633,7 +45632,7 @@ log(NPKP)     0.0705     0.0542    1.30   0.1936
 sigmaSq       0.0704     0.0143    4.91  9.3e-07 ***
 gamma         0.5303     0.1874    2.83   0.0047 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
 
 panel data
@@ -45658,7 +45657,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   39.0                      
 2   7   39.9  1  1.81      0.089 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## unbalanced panel data
@@ -45696,7 +45695,7 @@ lNPK          0.2263     0.0412    5.49  4.0e-08 ***
 sigmaSq       0.1567     0.0246    6.38  1.8e-10 ***
 gamma         0.4636     0.0888    5.22  1.8e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -87.139 
 
 panel data
@@ -45717,7 +45716,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -105.1                        
 2   6  -87.1  1    36    9.8e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b1u ), 3 )
      efficiency
 F_01      0.722
@@ -46683,7 +46682,7 @@ sigmaSq       0.1993     0.1718    1.16   0.2461
 gamma         0.5780     0.3663    1.58   0.1146    
 mu           -0.2425     0.9341   -0.26   0.7951    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -87.066 
 
 panel data
@@ -46704,7 +46703,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -105.1                        
 2   7  -87.1  2  36.2    4.4e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b2u ), 3 )
      efficiency
 F_01      0.737
@@ -47675,7 +47674,7 @@ sigmaSq       0.1313     0.0221    5.95  2.7e-09 ***
 gamma         0.3700     0.1078    3.43   0.0006 ***
 time          0.0585     0.0310    1.89   0.0592 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -85.282 
 
 panel data
@@ -47700,7 +47699,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -105.1                        
 2   7  -85.3  2  39.7    7.3e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b3u ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.688 0.702    NA 0.729    NA 0.755 0.767 0.778
@@ -48672,7 +48671,7 @@ gamma         0.5103     0.3968    1.29   0.1984
 mu           -0.2835     0.9608   -0.30   0.7679    
 time          0.0639     0.0351    1.82   0.0691 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -85.159 
 
 panel data
@@ -48705,7 +48704,7 @@ gamma         0.5103     0.3968    1.29   0.1984
 mu           -0.2835     0.9608   -0.30   0.7679    
 time          0.0639     0.0351    1.82   0.0691 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -85.159 
 
 panel data
@@ -48730,7 +48729,7 @@ Model 2: Error Components Frontier (ECF)
 1   5 -105.1                        
 2   8  -85.2  3    40    3.8e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b4u ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.707 0.722    NA 0.750    NA 0.776 0.788 0.800
@@ -49804,7 +49803,7 @@ Z_BANRAT     -1.3590     0.7354   -1.85    0.065 .
 sigmaSq       0.5854     0.2905    2.02    0.044 *  
 gamma         0.9434     0.0291   32.44  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -78.714 
 
 panel data
@@ -49829,7 +49828,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -105.1                        
 2   8  -78.7  3  52.9    6.6e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b5u ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.808 0.739    NA 0.744    NA 0.551 0.488 0.867
@@ -50804,7 +50803,7 @@ Z_BANRAT       -3.3433     6.6217   -0.50     0.61
 sigmaSq         1.5527     3.0640    0.51     0.61    
 gamma           0.9771     0.0438   22.32  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -78.198 
 
 panel data
@@ -50838,7 +50837,7 @@ Z_BANRAT       -3.3433     6.6217   -0.50     0.61
 sigmaSq         1.5527     3.0640    0.51     0.61    
 gamma           0.9771     0.0438   22.32  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -78.198 
 
 panel data
@@ -50863,7 +50862,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5 -105.1                        
 2   9  -78.2  4  53.9      2e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( b6ueff <- efficiencies( b6u, margEff = TRUE ) )
         1999    2000    2001    2002    2003    2004    2005    2006
 F_01 0.82101 0.75643      NA 0.76118      NA 0.56534 0.49795 0.87428
@@ -53051,7 +53050,7 @@ lNPKP         0.0896     0.0539    1.66  0.09661 .
 sigmaSq       0.0719     0.0152    4.72  2.4e-06 ***
 gamma         0.4703     0.1271    3.70  0.00022 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 47.502 
 
 panel data
@@ -53079,7 +53078,7 @@ lNPKP         0.0896     0.0539    1.66  0.09661 .
 sigmaSq       0.0719     0.0152    4.72  2.4e-06 ***
 gamma         0.4703     0.1271    3.70  0.00022 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 47.502 
 
 panel data
@@ -53100,7 +53099,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   37.9                        
 2   7   47.5  1  19.1    6.1e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d1u ), 3 )
      efficiency
 F_01      0.789
@@ -54190,7 +54189,7 @@ sigmaSq      0.05085    0.00673    7.55  4.2e-14 ***
 gamma        0.28168    0.10421    2.70   0.0069 ** 
 mu           0.23937    0.08243    2.90   0.0037 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 50.482 
 
 panel data
@@ -54211,7 +54210,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   37.9                        
 2   8   50.5  2  25.1    1.2e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d2u, farrell = FALSE ), 3 )
      efficiency
 F_01      1.411
@@ -55203,7 +55202,7 @@ sigmaSq       0.0805     0.0180    4.48  7.3e-06 ***
 gamma         0.5283     0.1175    4.50  6.9e-06 ***
 time         -0.0374     0.0284   -1.32    0.188    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 48.44 
 
 panel data
@@ -55228,7 +55227,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   37.9                        
 2   8   48.4  2    21    9.1e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d3u, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.224 1.234    NA 1.254    NA 1.277 1.289 1.302
@@ -56221,7 +56220,7 @@ gamma        0.31310    0.10341    3.03   0.0025 **
 mu           0.25915    0.05623    4.61  4.0e-06 ***
 time        -0.02619    0.02079   -1.26   0.2079    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 51.37 
 
 panel data
@@ -56246,7 +56245,7 @@ Model 2: Error Components Frontier (ECF)
 1   6   37.9                        
 2   9   51.4  3  26.9    2.4e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d4u, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.363 1.375    NA 1.399    NA 1.424 1.438 1.452
@@ -57244,7 +57243,7 @@ Z_BANRAT    -59.78196  147.98669   -0.40     0.69
 sigmaSq       9.65725   22.46205    0.43     0.67    
 gamma         0.99615    0.00924  107.81   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 42.418 
 
 panel data
@@ -57278,7 +57277,7 @@ Z_BANRAT    -59.78196  147.98669   -0.40     0.69
 sigmaSq       9.65725   22.46205    0.43     0.67    
 gamma         0.99615    0.00924  107.81   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 42.418 
 
 panel data
@@ -57303,7 +57302,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   37.9                      
 2   9   42.4  3  8.97      0.014 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d5u ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.930 0.932    NA 0.929    NA 0.942 0.911 0.949
@@ -58402,7 +58401,7 @@ Z_BANRAT      -93.68022  116.50420   -0.80  0.42134
 sigmaSq        16.24830   20.92501    0.78  0.43745    
 gamma           0.99772    0.00303  329.08  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 42.421 
 
 panel data
@@ -58427,7 +58426,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   6   37.9                      
 2  10   42.4  4  8.97      0.033 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( d6u, farrell = FALSE ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 1.079 1.077    NA 1.080    NA 1.065 1.104 1.055
@@ -59428,7 +59427,7 @@ log(NPK)      0.2249     0.0407    5.52  3.3e-08 ***
 sigmaSq       0.1541     0.0265    5.81  6.2e-09 ***
 gamma         0.5099     0.0890    5.73  1.0e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -64.902 
 
 panel data
@@ -59449,7 +59448,7 @@ Model 2: Error Components Frontier (ECF)
 1   5  -86.1                        
 2   6  -64.9  1  42.5    3.6e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b1n ), 3 )
      efficiency
 F_01      0.710
@@ -60359,7 +60358,7 @@ gamma         0.6579     0.1767    3.72  0.00020 ***
 mu           -0.7464     0.8503   -0.88  0.38001    
 time          0.0892     0.0289    3.09  0.00202 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -60.348 
 
 panel data
@@ -60384,7 +60383,7 @@ Model 2: Error Components Frontier (ECF)
 1   5  -86.1                        
 2   8  -60.3  3  51.6    1.2e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b4n ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.703 0.724    NA 0.763    NA 0.797 0.812 0.826
@@ -61300,7 +61299,7 @@ Z_BANRAT     -1.6554     1.3983   -1.18  0.23649
 sigmaSq       0.7358     0.5235    1.41  0.15991    
 gamma         0.9518     0.0336   28.32  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -65.438 
 
 panel data
@@ -61325,7 +61324,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5  -85.8                        
 2   8  -65.4  3  40.7    2.6e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b5n ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.826 0.761    NA 0.765    NA 0.571 0.507 0.872
@@ -62242,7 +62241,7 @@ Z_BANRAT       -0.9721     0.6518   -1.49   0.1359
 sigmaSq         0.4003     0.2455    1.63   0.1030    
 gamma           0.9159     0.0499   18.35  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -64.94 
 
 panel data
@@ -62267,7 +62266,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5  -85.8                        
 2   9  -64.9  4  41.7    7.2e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b6n ), 3 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 0.815 0.748    NA 0.752    NA 0.561 0.501 0.866
@@ -63188,7 +63187,7 @@ log(NPK)      0.2376     0.0517    4.59  4.3e-06 ***
 sigmaSq       0.1662     0.0269    6.18  6.2e-10 ***
 gamma         0.4230     0.1011    4.18  2.9e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -83.056 
 
 panel data
@@ -63209,7 +63208,7 @@ Model 2: Error Components Frontier (ECF)
 1   5  -92.1                        
 2   6  -83.1  1    18    1.1e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b1t ), 3 )
      efficiency
 F_01      0.776
@@ -64037,7 +64036,7 @@ gamma         0.4263     0.4191    1.02  0.30902
 mu           -0.2212     0.9140   -0.24  0.80876    
 time          0.1073     0.0580    1.85  0.06438 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -80.906 
 
 panel data
@@ -64062,7 +64061,7 @@ Model 2: Error Components Frontier (ECF)
 1   5  -92.1                        
 2   8  -80.9  3  22.3    2.2e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b4t ), 3 )
       1999  2000  2002  2003  2005  2006
 F_01 0.762 0.783 0.802    NA 0.836 0.851
@@ -64896,7 +64895,7 @@ Z_BANRAT    -0.82866    0.55115   -1.50  0.13271
 sigmaSq      0.42992    0.17362    2.48  0.01328 *  
 gamma        0.91338    0.03895   23.45  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -62.531 
 
 panel data
@@ -64921,7 +64920,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5  -75.9                        
 2   8  -62.5  3  26.7    2.6e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b5t ), 3 )
       2000  2002  2003  2005  2006
 F_01 0.714 0.716    NA 0.472 0.846
@@ -65702,7 +65701,7 @@ Z_BANRAT      -14.5379    81.7478   -0.18     0.86
 sigmaSq         8.8048    47.0281    0.19     0.85    
 gamma           0.9949     0.0269   37.02  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -61.331 
 
 panel data
@@ -65727,7 +65726,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   5  -75.9                        
 2   9  -61.3  4  29.1    3.1e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( b6t ), 3 )
       2000  2002  2003  2005  2006
 F_01 0.764 0.766    NA 0.509 0.869
@@ -66556,7 +66555,7 @@ b_2_2    0.05769    0.05958    0.97  0.33296
 sigmaSq  0.18939    0.05690    3.33  0.00087 ***
 gamma    0.76232    0.15259    5.00  5.9e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -14.434 
 
 cross-sectional data
@@ -66582,7 +66581,7 @@ b_2_2    0.05769    0.05958    0.97  0.33296
 sigmaSq  0.18939    0.05690    3.33  0.00087 ***
 gamma    0.76232    0.15259    5.00  5.9e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -14.434 
 
 cross-sectional data
@@ -66598,7 +66597,7 @@ Model 2: Error Components Frontier (ECF)
 1   7  -15.9                      
 2   8  -14.4  1  2.85      0.046 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( translog ), 3 )
    efficiency
 1       0.741
@@ -67400,7 +67399,7 @@ d_1      0.00222    0.00247    0.90  0.36952
 sigmaSq  0.18471    0.05550    3.33  0.00087 ***
 gamma    0.75478    0.15506    4.87  1.1e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -14.032 
 
 cross-sectional data
@@ -67416,7 +67415,7 @@ Model 2: Error Components Frontier (ECF)
 1   8  -15.4                      
 2   9  -14.0  1  2.71       0.05 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( translogShift ), 3 )
    efficiency
 1       0.778
@@ -68146,7 +68145,7 @@ Z_firmNo -0.010222   0.012421   -0.82    0.411
 sigmaSq   0.251938   0.108939    2.31    0.021 *  
 gamma     0.819488   0.120652    6.79  1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -13.746 
 
 cross-sectional data
@@ -68173,7 +68172,7 @@ Z_firmNo -0.010222   0.012421   -0.82    0.411
 sigmaSq   0.251938   0.108939    2.31    0.021 *  
 gamma     0.819488   0.120652    6.79  1.1e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -13.746 
 
 cross-sectional data
@@ -68189,7 +68188,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 1   7  -15.9                      
 2   9  -13.8  2  4.22       0.05 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > round( efficiencies( translogZvar, margEff = TRUE ), 3 )
    efficiency
 1       0.744
@@ -69171,7 +69170,7 @@ log(labour)    0.5365     0.0453   11.86  < 2e-16 ***
 sigmaSq        0.2170     0.0639    3.40  0.00069 ***
 gamma          0.7972     0.1364    5.84  5.1e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
 
 cross-sectional data
@@ -69194,7 +69193,7 @@ log(labour)    0.5365     0.0453   11.86  < 2e-16 ***
 sigmaSq        0.2170     0.0639    3.40  0.00069 ***
 gamma          0.7972     0.1364    5.84  5.1e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
 
 cross-sectional data
@@ -69373,7 +69372,7 @@ sigmaSq       0.5478     0.6243    0.88    0.380
 gamma         0.9081     0.1170    7.76  8.2e-15 ***
 mu           -1.4106     2.5990   -0.54    0.587    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.796 
 
 cross-sectional data
@@ -69472,7 +69471,7 @@ Z_firmNo      -0.0103     0.0127   -0.81   0.4178
 sigmaSq        0.2846     0.1208    2.36   0.0185 *  
 gamma          0.8401     0.1100    7.63  2.3e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.382 
 
 cross-sectional data
@@ -69496,7 +69495,7 @@ Z_firmNo      -0.0103     0.0127   -0.81   0.4178
 sigmaSq        0.2846     0.1208    2.36   0.0185 *  
 gamma          0.8401     0.1100    7.63  2.3e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.382 
 
 cross-sectional data
@@ -69679,7 +69678,7 @@ Z_firmNo       -0.0141     0.0316   -0.45    0.655
 sigmaSq         0.4071     0.8108    0.50    0.616    
 gamma           0.8833     0.2203    4.01  6.1e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.356 
 
 cross-sectional data
@@ -69779,7 +69778,7 @@ log(NPKP)     0.0705     0.0542    1.30   0.1936
 sigmaSq       0.0704     0.0143    4.91  9.3e-07 ***
 gamma         0.5303     0.1874    2.83   0.0047 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
 
 cross-sectional data
@@ -70208,7 +70207,7 @@ sigmaSq       0.1436     0.0535    2.69   0.0072 **
 gamma         0.7682     0.1072    7.17  7.6e-13 ***
 mu           -0.6643     0.4460   -1.49   0.1363    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 40.966 
 
 cross-sectional data
@@ -70237,7 +70236,7 @@ sigmaSq       0.1436     0.0535    2.69   0.0072 **
 gamma         0.7682     0.1072    7.17  7.6e-13 ***
 mu           -0.6643     0.4460   -1.49   0.1363    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 40.966 
 
 cross-sectional data
@@ -71056,7 +71055,7 @@ Z_BANRAT    -50.2047   163.3495   -0.31     0.76
 sigmaSq       7.8488    23.4318    0.33     0.74    
 gamma         0.9952     0.0147   67.89   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.307 
 
 cross-sectional data
@@ -71487,7 +71486,7 @@ Z_BANRAT      -56.22267   62.77636   -0.90     0.37
 sigmaSq        10.02698   10.92099    0.92     0.36    
 gamma           0.99634    0.00422  236.04   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.335 
 
 cross-sectional data
@@ -71518,7 +71517,7 @@ Z_BANRAT      -56.22267   62.77636   -0.90     0.37
 sigmaSq        10.02698   10.92099    0.92     0.36    
 gamma           0.99634    0.00422  236.04   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.335 
 
 cross-sectional data
@@ -72334,7 +72333,7 @@ log(NPK)      0.2275     0.0409    5.57  2.6e-08 ***
 sigmaSq       0.1554     0.0242    6.42  1.4e-10 ***
 gamma         0.4643     0.0880    5.27  1.3e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.43 
 
 panel data
@@ -72474,7 +72473,7 @@ sigmaSq       0.2034     0.1747    1.16    0.244
 gamma         0.5905     0.3544    1.67    0.096 .  
 mu           -0.2734     0.9632   -0.28    0.776    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.343 
 
 panel data
@@ -72614,7 +72613,7 @@ sigmaSq       0.1300     0.0218    5.97  2.4e-09 ***
 gamma         0.3696     0.1073    3.45  0.00057 ***
 time          0.0589     0.0310    1.90  0.05779 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.55 
 
 panel data
@@ -72759,7 +72758,7 @@ gamma         0.5237     0.4123    1.27   0.2041
 mu           -0.3173     1.0505   -0.30   0.7626    
 time          0.0647     0.0357    1.81   0.0696 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.407 
 
 panel data
@@ -72792,7 +72791,7 @@ gamma         0.5237     0.4123    1.27   0.2041
 mu           -0.3173     1.0505   -0.30   0.7626    
 time          0.0647     0.0357    1.81   0.0696 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.407 
 
 panel data
@@ -73028,7 +73027,7 @@ Z_BANRAT     -1.4057     0.9061   -1.55    0.121
 sigmaSq       0.5975     0.3087    1.94    0.053 .  
 gamma         0.9449     0.0290   32.54  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.85 
 
 panel data
@@ -73196,7 +73195,7 @@ Z_BANRAT       -3.6355     8.0966   -0.45     0.65
 sigmaSq         1.6666     3.6959    0.45     0.65    
 gamma           0.9788     0.0452   21.65  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 panel data
@@ -73230,7 +73229,7 @@ Z_BANRAT       -3.6355     8.0966   -0.45     0.65
 sigmaSq         1.6666     3.6959    0.45     0.65    
 gamma           0.9788     0.0452   21.65  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
 
 panel data
@@ -73465,7 +73464,7 @@ log(NPKP)     0.0918     0.0533    1.72  0.08516 .
 sigmaSq       0.0728     0.0157    4.64  3.5e-06 ***
 gamma         0.4828     0.1257    3.84  0.00012 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 49.366 
 
 panel data
@@ -73596,7 +73595,7 @@ sigmaSq      0.05087    0.00805    6.32  2.7e-10 ***
 gamma        0.28670    0.10266    2.79  0.00523 ** 
 mu           0.24152    0.06457    3.74  0.00018 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 52.39 
 
 panel data
@@ -73628,7 +73627,7 @@ sigmaSq      0.05087    0.00805    6.32  2.7e-10 ***
 gamma        0.28670    0.10266    2.79  0.00523 ** 
 mu           0.24152    0.06457    3.74  0.00018 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 52.39 
 
 panel data
@@ -73847,7 +73846,7 @@ sigmaSq       0.0809     0.0182    4.45  8.8e-06 ***
 gamma         0.5355     0.1167    4.59  4.5e-06 ***
 time         -0.0336     0.0268   -1.25    0.210    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 50.183 
 
 panel data
@@ -73983,7 +73982,7 @@ gamma        0.32161    0.10940    2.94  0.00329 **
 mu           0.26372    0.07376    3.58  0.00035 ***
 time        -0.02707    0.01889   -1.43  0.15191    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 53.198 
 
 panel data
@@ -74119,7 +74118,7 @@ Z_BANRAT    -43.57884   57.29093   -0.76     0.45
 sigmaSq       7.11577    8.82353    0.81     0.42    
 gamma         0.99476    0.00691  143.92   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.309 
 
 panel data
@@ -74256,7 +74255,7 @@ Z_BANRAT      -96.0982   181.4475   -0.53     0.60
 sigmaSq        17.1831    32.1670    0.53     0.59    
 gamma           0.9979     0.0042  237.37   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.338 
 
 panel data
@@ -74294,7 +74293,7 @@ Z_BANRAT      -96.0982   181.4475   -0.53     0.60
 sigmaSq        17.1831    32.1670    0.53     0.59    
 gamma           0.9979     0.0042  237.37   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 43.338 
 
 panel data
@@ -74515,7 +74514,7 @@ lNPK          0.2263     0.0412    5.49  4.0e-08 ***
 sigmaSq       0.1567     0.0246    6.38  1.8e-10 ***
 gamma         0.4636     0.0888    5.22  1.8e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -87.139 
 
 panel data
@@ -74655,7 +74654,7 @@ sigmaSq       0.1993     0.1718    1.16   0.2461
 gamma         0.5780     0.3663    1.58   0.1146    
 mu           -0.2425     0.9341   -0.26   0.7951    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -87.066 
 
 panel data
@@ -74795,7 +74794,7 @@ sigmaSq       0.1313     0.0221    5.95  2.7e-09 ***
 gamma         0.3700     0.1078    3.43   0.0006 ***
 time          0.0585     0.0310    1.89   0.0592 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -85.282 
 
 panel data
@@ -74940,7 +74939,7 @@ gamma         0.5103     0.3968    1.29   0.1984
 mu           -0.2835     0.9608   -0.30   0.7679    
 time          0.0639     0.0351    1.82   0.0691 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -85.159 
 
 panel data
@@ -75085,7 +75084,7 @@ Z_BANRAT     -1.3590     0.7354   -1.85    0.065 .
 sigmaSq       0.5854     0.2905    2.02    0.044 *  
 gamma         0.9434     0.0291   32.44  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -78.714 
 
 panel data
@@ -75231,7 +75230,7 @@ Z_BANRAT       -3.3433     6.6217   -0.50     0.61
 sigmaSq         1.5527     3.0640    0.51     0.61    
 gamma           0.9771     0.0438   22.32  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -78.198 
 
 panel data
@@ -75375,7 +75374,7 @@ lNPKP         0.0896     0.0539    1.66  0.09661 .
 sigmaSq       0.0719     0.0152    4.72  2.4e-06 ***
 gamma         0.4703     0.1271    3.70  0.00022 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 47.502 
 
 panel data
@@ -75506,7 +75505,7 @@ sigmaSq      0.05085    0.00673    7.55  4.2e-14 ***
 gamma        0.28168    0.10421    2.70   0.0069 ** 
 mu           0.23937    0.08243    2.90   0.0037 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 50.482 
 
 panel data
@@ -75637,7 +75636,7 @@ sigmaSq       0.0805     0.0180    4.48  7.3e-06 ***
 gamma         0.5283     0.1175    4.50  6.9e-06 ***
 time         -0.0374     0.0284   -1.32    0.188    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 48.44 
 
 panel data
@@ -75773,7 +75772,7 @@ gamma        0.31310    0.10341    3.03   0.0025 **
 mu           0.25915    0.05623    4.61  4.0e-06 ***
 time        -0.02619    0.02079   -1.26   0.2079    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 51.37 
 
 panel data
@@ -75909,7 +75908,7 @@ Z_BANRAT    -59.78196  147.98669   -0.40     0.69
 sigmaSq       9.65725   22.46205    0.43     0.67    
 gamma         0.99615    0.00924  107.81   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 42.418 
 
 panel data
@@ -76046,7 +76045,7 @@ Z_BANRAT      -93.68022  116.50420   -0.80  0.42134
 sigmaSq        16.24830   20.92501    0.78  0.43745    
 gamma           0.99772    0.00303  329.08  < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 42.421 
 
 panel data
@@ -76581,7 +76580,7 @@ Model 3: a5
 2   6 -16.79567  1 0.46311    0.49617    
 3   6 -16.79483  0 0.00168    < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## cross-section data, efficiency effects frontier
 > lrtest( aa2, aa1, aa9, aa2, aa5 )
@@ -76599,7 +76598,7 @@ Model 5: aa5
 4   7 -16.35565  2 1.34314    0.51091    
 5   7 -16.35565  0 0.00000    < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > lrtest( aa9, aa1, aa2, aa5 )
 Likelihood ratio test
 
@@ -76613,7 +76612,7 @@ Model 4: aa5
 3   7 -16.35565  1 0.05303    0.81787    
 4   7 -16.35565  0 0.00000    < 2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## cross-section data, ECM + EEF
 > try( lrtest( a2, a1, aa1 ) )
@@ -76637,7 +76636,7 @@ Model 3: bb7
 2   6 -86.20268 -1 7.94575  0.0048200 **
 3   7 -82.22363  1 7.95809  0.0047873 **
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## cross-section rice data, efficiency effects frontier
 > lrtest( bb6, bb5, bb9, bb6, bb8 )
@@ -76655,7 +76654,7 @@ Model 5: bb8
 4   9 -77.31363  3 17.77811 0.00048871 ***
 5   9 -77.31363  0  0.00000 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -76683,7 +76682,7 @@ Model 4: dd6
 3   7 39.93057 -2 6.75249   0.034176 *
 4  10 43.33472  3 6.80830   0.078266 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## panel data
@@ -76701,7 +76700,7 @@ Model 4: b7
 3   6 -86.43042 -1 3.76012   0.052489 .
 4   8 -84.40678  2 4.04727   0.132174  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > lrtest( b4, b2, b1 )
 Likelihood ratio test
 
@@ -76713,7 +76712,7 @@ Model 3: b1
 2   7 -86.34286 -1 3.87216   0.049093 *
 3   6 -86.43042 -1 0.17511   0.675607  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > lrtest( b4, b1 )
 Likelihood ratio test
 
@@ -76739,7 +76738,7 @@ Model 5: b8
 4   9 -77.31363  3 17.77811 0.00048871 ***
 5   9 -77.31363  0  0.00000 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
@@ -76755,7 +76754,7 @@ Model 3: d1
 2   8 50.18341 -1 6.02929    0.01407 *
 3   7 49.36599 -1 1.63485    0.20103  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > lrtest( d4, d2, d1 )
 Likelihood ratio test
 
@@ -76767,7 +76766,7 @@ Model 3: d1
 2   8 52.39007 -1 1.61597   0.203655  
 3   7 49.36599 -1 6.04817   0.013921 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > lrtest( d4, d1 )
 Likelihood ratio test
 
@@ -76777,7 +76776,7 @@ Model 2: d1
 1   9 53.19806                        
 2   7 49.36599 -2 7.66414   0.021665 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## panel rice data, efficiency effects cost frontier
 > lrtest( d6, d5, d9, d6 )
@@ -76793,7 +76792,7 @@ Model 4: d6
 3   7 39.93057 -2 6.75631   0.034110 *
 4  10 43.33757  3 6.81401   0.078068 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## translog
@@ -76808,4 +76807,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 19.297   0.520  19.822 
+ 28.724   0.904  29.646 

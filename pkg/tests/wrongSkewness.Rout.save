@@ -1,7 +1,6 @@
 
-R version 2.15.2 (2012-10-26) -- "Trick or Treat"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -22,7 +21,7 @@ Loading required package: bdsmatrix
 
 Attaching package: 'bdsmatrix'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     backsolve
 
@@ -34,7 +33,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following object is masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -74,7 +73,7 @@ log(labour)  5.33e-01   4.89e-02   10.90  < 2e-16 ***
 sigmaSq      1.08e-01   1.92e-02    5.64  1.7e-08 ***
 gamma        1.38e-05   1.51e-02    0.00     1.00    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -18.447 
 
 cross-sectional data
@@ -115,7 +114,7 @@ sigmaSq       0.10881    0.02533    4.30  1.7e-05 ***
 gamma         0.00573    0.22578    0.03     0.98    
 mu           -0.04992    0.49473   -0.10     0.92    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -18.447 
 
 cross-sectional data
@@ -156,7 +155,7 @@ log(NPK)     2.83e-01   3.94e-02    7.18  7.0e-13 ***
 sigmaSq      1.08e-01   7.88e-03   13.67  < 2e-16 ***
 gamma        1.17e-05   4.88e-03    0.00        1    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -104.91 
 
 cross-sectional data
@@ -198,7 +197,7 @@ sigmaSq      0.10827    0.01060   10.21  < 2e-16 ***
 gamma        0.00516    0.08256    0.06     0.95    
 mu          -0.04728    0.18497   -0.26     0.80    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -104.91 
 
 cross-sectional data
@@ -242,7 +241,7 @@ log(NPKP)   6.02e-02   5.19e-02    1.16     0.25
 sigmaSq     4.67e-02   3.72e-03   12.55   <2e-16 ***
 gamma       6.21e-05   1.76e-02    0.00     1.00    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.025 
 
 cross-sectional data
@@ -285,7 +284,7 @@ sigmaSq      0.04707    0.01019    4.62  3.9e-06 ***
 gamma        0.00758    0.18396    0.04     0.97    
 mu          -0.03777    0.20114   -0.19     0.85    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.024 
 
 cross-sectional data
@@ -303,4 +302,4 @@ Model 2: Error Components Frontier (ECF)
 > 
 > proc.time()
    user  system elapsed 
-  1.212   0.028   1.226 
+  1.708   0.036   1.733 
