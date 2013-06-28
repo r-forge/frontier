@@ -1,2 +1,4 @@
 ^\.Rproj\.user$
 pkg.Rproj
+^.*\.Rproj$
+^\.svn$
