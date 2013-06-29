@@ -162,7 +162,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.74057 
-> print( summary( a1, farrell = FALSE ), digits = 1 )
+> print( summary( a1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -269,7 +269,7 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 0.88 0.42 0.35 0.89 0.84 0.68 0.67 0.84 0.76 0.68 0.80 0.89 0.74 0.73 0.85 0.79 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 0.67 0.51 0.84 0.85 0.86 0.76 0.82 0.76 0.87 0.66 0.86 0.71 
-> printME( efficiencies( a1, farrell = FALSE ) )
+> printME( efficiencies( a1, minusU = FALSE ) )
      efficiency
 F_1        1.59
 F_2        1.23
@@ -331,7 +331,7 @@ F_57       1.16
 F_58       1.55
 F_59       1.18
 F_60       1.45
-> printME( efficiencies( a1, asInData = TRUE, farrell = FALSE ) )
+> printME( efficiencies( a1, asInData = TRUE, minusU = FALSE ) )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
 1.59 1.23 1.42 1.37 1.49 1.32 1.83 1.39 1.20 1.35 1.90 1.07 2.31 1.67 1.16 1.88 
 F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
@@ -1805,7 +1805,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.76241 
-> print( summary( aa1, farrell = FALSE ), digits = 1 )
+> print( summary( aa1, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -2037,7 +2037,7 @@ F_57    3e-04
 F_58    9e-04
 F_59    4e-04
 F_60    8e-04
-> printME( aa1effF <- efficiencies( aa1, farrell = FALSE, margEff = TRUE ) )
+> printME( aa1effF <- efficiencies( aa1, minusU = FALSE, margEff = TRUE ) )
      efficiency
 F_1        1.57
 F_2        1.22
@@ -2164,7 +2164,7 @@ F_58    -0.0019
 F_59    -0.0005
 F_60    -0.0016
 
-> printME( aa1effDF <- efficiencies( aa1, asInData = TRUE, farrell = FALSE, 
+> printME( aa1effDF <- efficiencies( aa1, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
 1.57 1.22 1.41 1.36 1.47 1.32 1.88 1.37 1.20 1.35 1.88 1.07 2.29 1.63 1.16 1.86 
@@ -2245,10 +2245,10 @@ F_60  -0.0016
 +    c( efficiencies( aa1m, asInData = TRUE ) - aa1effD ) / 1e-6 )
 [1] "Mean relative difference: 1.6591e-07"
 > all.equal( attr( aa1effF, "margEff" )[ , 1, 1 ], 
-+    ( efficiencies( aa1m, farrell = FALSE ) - aa1effF )[ , 1 ] / 1e-6 )
++    ( efficiencies( aa1m, minusU = FALSE ) - aa1effF )[ , 1 ] / 1e-6 )
 [1] "Mean relative difference: 1.2847e-07"
 > all.equal( attr( aa1effDF, "margEff" )[ , 1 ],
-+    c( efficiencies( aa1m, asInData = TRUE, farrell = FALSE ) - aa1effDF ) / 1e-6 )
++    c( efficiencies( aa1m, asInData = TRUE, minusU = FALSE ) - aa1effDF ) / 1e-6 )
 [1] "Mean relative difference: 1.2847e-07"
 > round( residuals( aa1 ), 3 )
      residuals
@@ -5597,7 +5597,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.76998 
-> print( summary( bb2, farrell = FALSE ), digits = 1 )
+> print( summary( bb2, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -6023,7 +6023,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 0.88 0.81 0.79 0.81 0.49 0.92 0.88 0.89 0.89 0.87 0.14 0.95 0.96 0.91 0.55 0.91 
  337  338  339  340  341  342  343  344 
 0.88 0.84 0.94 0.77 0.84 0.94 0.88 0.92 
-> round( efficiencies( bb2, farrell = FALSE ), 2 )
+> round( efficiencies( bb2, minusU = FALSE ), 2 )
     efficiency
 1         1.29
 2         1.31
@@ -6369,7 +6369,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 342       1.07
 343       1.15
 344       1.09
-> round( efficiencies( bb2, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( bb2, asInData = TRUE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.29 1.31 1.24 1.15 1.20 1.14 1.16 1.18 1.24 1.34 2.56 1.13 1.22 1.28 1.37 1.94 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -9709,7 +9709,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.78493 
-> print( summary( bb6, farrell = FALSE ), digits = 1 )
+> print( summary( bb6, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -11180,7 +11180,7 @@ margEff
 342   1e-04   0.0067
 343   1e-04   0.0184
 344   1e-04   0.0104
-> printME( bb6effF <- efficiencies( bb6, farrell = FALSE, margEff = TRUE ) )
+> printME( bb6effF <- efficiencies( bb6, minusU = FALSE, margEff = TRUE ) )
     efficiency
 1         1.24
 2         1.26
@@ -12223,7 +12223,7 @@ margEff
 343    -0.0263
 344    -0.0137
 
-> printME( bb6effDF <- efficiencies( bb6, asInData = TRUE, farrell = FALSE, 
+> printME( bb6effDF <- efficiencies( bb6, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.24 1.26 1.23 1.15 1.18 1.12 1.14 1.15 1.23 1.29 2.63 1.13 1.18 1.25 1.30 1.88 
@@ -12624,10 +12624,10 @@ margEff
 +    c( efficiencies( bb6m1, asInData = TRUE ) - bb6effD ) / 1e-6 )
 [1] "Mean relative difference: 5.9e-07"
 > all.equal( attr( bb6effF, "margEff" )[ , 1, 1 ], 
-+    ( efficiencies( bb6m1, farrell = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
++    ( efficiencies( bb6m1, minusU = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
 [1] "Mean relative difference: 4.565e-07"
 > all.equal( attr( bb6effDF, "margEff" )[ , 1 ],
-+    c( efficiencies( bb6m1, asInData = TRUE, farrell = FALSE ) - bb6effDF ) / 1e-6 )
++    c( efficiencies( bb6m1, asInData = TRUE, minusU = FALSE ) - bb6effDF ) / 1e-6 )
 [1] "Mean relative difference: 4.565e-07"
 > bb6m2 <- bb6
 > bb6m2$dataTable[ , "BANRAT" ] <- bb6m2$dataTable[ , "BANRAT" ] + 1e-6
@@ -12638,10 +12638,10 @@ margEff
 +    c( efficiencies( bb6m2, asInData = TRUE ) - bb6effD ) / 1e-6 )
 [1] "Mean relative difference: 6.6475e-08"
 > all.equal( attr( bb6effF, "margEff" )[ , 1, 2 ], 
-+    ( efficiencies( bb6m2, farrell = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
++    ( efficiencies( bb6m2, minusU = FALSE ) - bb6effF )[ , 1 ] / 1e-6 )
 [1] "Mean relative difference: 8.3883e-08"
 > all.equal( attr( bb6effDF, "margEff" )[ , 2 ],
-+    c( efficiencies( bb6m2, asInData = TRUE, farrell = FALSE ) - bb6effDF ) / 1e-6 )
++    c( efficiencies( bb6m2, asInData = TRUE, minusU = FALSE ) - bb6effDF ) / 1e-6 )
 [1] "Mean relative difference: 8.3883e-08"
 > round( residuals( bb6 ), 3 )
     residuals
@@ -17008,7 +17008,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.86317 
-> print( summary( dd1, farrell = FALSE ), digits = 1 )
+> print( summary( dd1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -17434,7 +17434,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 0.84 0.84 0.85 0.82 0.76 0.90 0.87 0.89 0.81 0.92 0.72 0.95 0.90 0.89 0.84 0.87 
  337  338  339  340  341  342  343  344 
 0.90 0.86 0.91 0.91 0.89 0.92 0.91 0.92 
-> round( efficiencies( dd1, farrell = FALSE ), 2 )
+> round( efficiencies( dd1, minusU = FALSE ), 2 )
     efficiency
 1         1.22
 2         1.19
@@ -17780,7 +17780,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 342       1.09
 343       1.11
 344       1.10
-> round( efficiencies( dd1, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( dd1, asInData = TRUE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.22 1.19 1.16 1.10 1.10 1.12 1.20 1.14 1.17 1.16 1.32 1.12 1.16 1.12 1.11 1.22 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -19232,7 +19232,7 @@ gamma           -0.0018  0.0006 -0.0004 -0.0002  0.0007  0.0054  0.0115 -0.0436
 mu               0.0008 -0.0012  0.0009  0.0003 -0.0011 -0.0235 -0.0436  0.1989
 > nobs( dd2 )
 [1] 344
-> print( summary( dd2, farrell = FALSE ), digits = 1 )
+> print( summary( dd2, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -19268,7 +19268,7 @@ Model 2: Error Components Frontier (ECF)
 2   8     41  2  3.88       0.06 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( dd2, farrell = FALSE ), 2 )
+> round( efficiencies( dd2, minusU = FALSE ), 2 )
     efficiency
 1         1.17
 2         1.14
@@ -19614,7 +19614,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 342       1.07
 343       1.08
 344       1.07
-> round( efficiencies( dd2, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( dd2, asInData = TRUE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.17 1.14 1.12 1.08 1.07 1.09 1.15 1.11 1.13 1.12 1.27 1.09 1.12 1.09 1.09 1.17 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -21120,7 +21120,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.92044 
-> print( summary( dd5, farrell = FALSE ), digits = 1 )
+> print( summary( dd5, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -22591,7 +22591,7 @@ margEff
 342  0.0021   0.0132
 343  0.0021   0.0132
 344  0.0027   0.0172
-> printME( dd5effF <- efficiencies( dd5, farrell = FALSE, margEff = TRUE ) )
+> printME( dd5effF <- efficiencies( dd5, minusU = FALSE, margEff = TRUE ) )
     efficiency
 1         1.08
 2         1.09
@@ -23634,7 +23634,7 @@ margEff
 343    -0.0158
 344    -0.0211
 
-> printME( dd5effDF <- efficiencies( dd5, asInData = TRUE, farrell = FALSE, 
+> printME( dd5effDF <- efficiencies( dd5, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.08 1.09 1.07 1.07 1.06 1.05 1.07 1.07 1.08 1.08 1.30 1.09 1.06 1.05 1.06 1.12 
@@ -24035,10 +24035,10 @@ margEff
 +    c( efficiencies( dd5m1, asInData = TRUE ) - dd5effD ) / 1e-6 )
 [1] "Mean relative difference: 1.1781e-07"
 > all.equal( attr( dd5effF, "margEff" )[ , 1, 1 ], 
-+    ( efficiencies( dd5m1, farrell = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
++    ( efficiencies( dd5m1, minusU = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
 [1] "Mean relative difference: 9.6961e-08"
 > all.equal( attr( dd5effDF, "margEff" )[ , 1 ],
-+    c( efficiencies( dd5m1, asInData = TRUE, farrell = FALSE ) - dd5effDF ) / 1e-6 )
++    c( efficiencies( dd5m1, asInData = TRUE, minusU = FALSE ) - dd5effDF ) / 1e-6 )
 [1] "Mean relative difference: 9.6961e-08"
 > dd5m2 <- dd5
 > dd5m2$dataTable[ , "BANRAT" ] <- dd5m2$dataTable[ , "BANRAT" ] + 1e-6
@@ -24049,10 +24049,10 @@ margEff
 +    c( efficiencies( dd5m2, asInData = TRUE ) - dd5effD ) / 1e-6 )
 [1] "Mean relative difference: 2.9575e-07"
 > all.equal( attr( dd5effF, "margEff" )[ , 1, 2 ], 
-+    ( efficiencies( dd5m2, farrell = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
++    ( efficiencies( dd5m2, minusU = FALSE ) - dd5effF )[ , 1 ] / 1e-6 )
 [1] "Mean relative difference: 3.5014e-07"
 > all.equal( attr( dd5effDF, "margEff" )[ , 2 ],
-+    c( efficiencies( dd5m2, asInData = TRUE, farrell = FALSE ) - dd5effDF ) / 1e-6 )
++    c( efficiencies( dd5m2, asInData = TRUE, minusU = FALSE ) - dd5effDF ) / 1e-6 )
 [1] "Mean relative difference: 3.5014e-07"
 > round( residuals( dd5 ), 3 )
     residuals
@@ -25496,7 +25496,7 @@ sigmaSq       -105.9029 -685.5777  119.2681  0.0461
 gamma           -0.0409   -0.2649    0.0461  0.0000
 > nobs( dd6 )
 [1] 344
-> print( summary( dd6, farrell = FALSE ), digits = 1 )
+> print( summary( dd6, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -25534,7 +25534,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 2  10   43.3  4  8.62      0.039 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( dd6, farrell = FALSE ), 2 )
+> round( efficiencies( dd6, minusU = FALSE ), 2 )
     efficiency
 1         1.09
 2         1.10
@@ -25880,7 +25880,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 342       1.05
 343       1.06
 344       1.06
-> round( efficiencies( dd6, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( dd6, asInData = TRUE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.09 1.10 1.07 1.07 1.06 1.05 1.08 1.07 1.08 1.09 1.30 1.09 1.07 1.06 1.06 1.13 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -27288,7 +27288,7 @@ class
 > ## cross-section rice data, efficiency effects cost frontier: no Z vars
 > dd9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
-> print( summary( dd9, farrell = FALSE ), digits = 1 )
+> print( summary( dd9, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -27476,7 +27476,7 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.8188 
-> print( summary( b1, farrell = FALSE ), digits = 1 )
+> print( summary( b1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -27603,7 +27603,7 @@ F_43       0.72
 0.94 0.94 0.94 0.94 0.94 0.94 0.94 0.94 0.90 0.90 0.90 0.90 0.90 0.90 0.90 0.90 
   43   86  129  172  215  258  301  344 
 0.72 0.72 0.72 0.72 0.72 0.72 0.72 0.72 
-> round( efficiencies( b1, farrell = FALSE ), 2 )
+> round( efficiencies( b1, minusU = FALSE ), 2 )
      efficiency
 F_01       1.37
 F_02       1.07
@@ -27648,7 +27648,7 @@ F_40       1.51
 F_41       1.07
 F_42       1.12
 F_43       1.39
-> round( efficiencies( b1, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.37 1.37 1.37 1.37 1.37 1.37 1.37 1.37 1.07 1.07 1.07 1.07 1.07 1.07 1.07 1.07 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -31399,7 +31399,7 @@ mean efficiency of each year
 0.74782 0.73499 0.81753 0.79751 0.74817 0.79462 0.68791 0.83753 
 
 mean efficiency: 0.77076 
-> print( summary( b5, farrell = FALSE ), digits = 1 )
+> print( summary( b5, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -31973,7 +31973,7 @@ margEff
 258  0.0006   0.0137
 301  0.0016   0.0378
 344  0.0005   0.0124
-> printME( b5effF <- efficiencies( b5, farrell = FALSE, margEff = TRUE ) )
+> printME( b5effF <- efficiencies( b5, minusU = FALSE, margEff = TRUE ) )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.26 1.38 1.24 1.37 1.38 1.87 2.11 1.17
 F_02 1.30 1.19 1.17 1.11 1.12 1.10 1.26 1.07
@@ -32113,7 +32113,7 @@ F_41 -0.0497 -0.0182 -0.0194 -0.0232 -0.0879 -0.0105 -0.0591 -0.0097
 F_42 -0.0113 -0.0220 -0.0269 -0.0535 -0.0929 -0.0686 -0.0882 -0.0310
 F_43 -0.2253 -0.2443 -0.1035 -0.1132 -0.0510 -0.0183 -0.0649 -0.0164
 
-> printME( b5effDF <- efficiencies( b5, asInData = TRUE, farrell = FALSE, 
+> printME( b5effDF <- efficiencies( b5, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.26 1.38 1.24 1.37 1.38 1.87 2.11 1.17 1.30 1.19 1.17 1.11 1.12 1.10 1.26 1.07 
@@ -32514,10 +32514,10 @@ margEff
 +    c( efficiencies( b5m1, asInData = TRUE ) - b5effD ) / 1e-6 )
 [1] "Mean relative difference: 8.3476e-08"
 > all.equal( attr( b5effF, "margEff" )[ , , 1 ], 
-+    ( efficiencies( b5m1, farrell = FALSE ) - b5effF )[ ,  ] / 1e-6 )
++    ( efficiencies( b5m1, minusU = FALSE ) - b5effF )[ ,  ] / 1e-6 )
 [1] "Mean relative difference: 6.0892e-08"
 > all.equal( attr( b5effDF, "margEff" )[ , 1 ],
-+    c( efficiencies( b5m1, asInData = TRUE, farrell = FALSE ) - b5effDF ) / 1e-6 )
++    c( efficiencies( b5m1, asInData = TRUE, minusU = FALSE ) - b5effDF ) / 1e-6 )
 [1] "Mean relative difference: 6.0892e-08"
 > b5m2 <- b5
 > b5m2$dataTable[ , "BANRAT" ] <- b5m2$dataTable[ , "BANRAT" ] + 1e-6
@@ -32528,10 +32528,10 @@ margEff
 +    c( efficiencies( b5m2, asInData = TRUE ) - b5effD ) / 1e-6 )
 [1] "Mean relative difference: 6.68e-08"
 > all.equal( attr( b5effF, "margEff" )[ , , 2 ], 
-+    ( efficiencies( b5m2, farrell = FALSE ) - b5effF )[ , ] / 1e-6 )
++    ( efficiencies( b5m2, minusU = FALSE ) - b5effF )[ , ] / 1e-6 )
 [1] "Mean relative difference: 8.2409e-08"
 > all.equal( attr( b5effDF, "margEff" )[ , 2 ],
-+    c( efficiencies( b5m2, asInData = TRUE, farrell = FALSE ) - b5effDF ) / 1e-6 )
++    c( efficiencies( b5m2, asInData = TRUE, minusU = FALSE ) - b5effDF ) / 1e-6 )
 [1] "Mean relative difference: 8.2409e-08"
 > round( residuals( b5 ), 3 )
        1999   2000   2001   2002   2003   2004   2005   2006
@@ -36086,7 +36086,7 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.8594 
-> print( summary( d1, farrell = FALSE ), digits = 1 )
+> print( summary( d1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -36214,7 +36214,7 @@ F_43       0.91
 0.97 0.97 0.97 0.97 0.97 0.97 0.97 0.97 0.96 0.96 0.96 0.96 0.96 0.96 0.96 0.96 
   43   86  129  172  215  258  301  344 
 0.91 0.91 0.91 0.91 0.91 0.91 0.91 0.91 
-> round( efficiencies( d1, farrell = FALSE ), 2 )
+> round( efficiencies( d1, minusU = FALSE ), 2 )
      efficiency
 F_01       1.33
 F_02       1.16
@@ -36259,7 +36259,7 @@ F_40       1.33
 F_41       1.03
 F_42       1.04
 F_43       1.10
-> round( efficiencies( d1, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d1, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.33 1.33 1.33 1.33 1.33 1.33 1.33 1.33 1.16 1.16 1.16 1.16 1.16 1.16 1.16 1.16 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -37109,7 +37109,7 @@ gamma           -0.0010 -0.0006 -0.0004  0.0003  0.0003   7e-04  0.0105 -0.0013
 mu              -0.0028 -0.0007  0.0000  0.0001  0.0002  -2e-04 -0.0013  0.0042
 > nobs( d2 )
 [1] 344
-> print( summary( d2, farrell = FALSE ), digits = 1 )
+> print( summary( d2, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -37148,7 +37148,7 @@ Model 2: Error Components Frontier (ECF)
 2   8   52.4  2  26.7    5.1e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d2, farrell = FALSE ), 2 )
+> round( efficiencies( d2, minusU = FALSE ), 2 )
      efficiency
 F_01       1.46
 F_02       1.31
@@ -37193,7 +37193,7 @@ F_40       1.45
 F_41       1.08
 F_42       1.12
 F_43       1.22
-> round( efficiencies( d2, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d2, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.46 1.46 1.46 1.46 1.46 1.46 1.46 1.46 1.31 1.31 1.31 1.31 1.31 1.31 1.31 1.31 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -38045,7 +38045,7 @@ gamma           -0.0045 -0.0014 -0.0004  0.0004  0.0007   2e-03  0.0136 -1e-04
 time            -0.0005 -0.0001 -0.0001  0.0001 -0.0001   0e+00 -0.0001  7e-04
 > nobs( d3 )
 [1] 344
-> print( summary( d3, farrell = FALSE ), digits = 1 )
+> print( summary( d3, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -38088,7 +38088,7 @@ Model 2: Error Components Frontier (ECF)
 2   8   50.2  2  22.3    4.7e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d3, farrell = FALSE ), 2 )
+> round( efficiencies( d3, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.28 1.29 1.30 1.31 1.32 1.33 1.35 1.36
 F_02 1.13 1.14 1.14 1.15 1.15 1.16 1.16 1.17
@@ -38133,7 +38133,7 @@ F_40 1.28 1.29 1.30 1.31 1.32 1.33 1.35 1.36
 F_41 1.03 1.03 1.03 1.03 1.03 1.03 1.04 1.04
 F_42 1.04 1.04 1.04 1.05 1.05 1.05 1.05 1.05
 F_43 1.08 1.08 1.08 1.09 1.09 1.09 1.10 1.10
-> round( efficiencies( d3, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d3, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.28 1.29 1.30 1.31 1.32 1.33 1.35 1.36 1.13 1.14 1.14 1.15 1.15 1.16 1.16 1.17 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -38998,7 +38998,7 @@ mu           1e-04
 time         4e-04
 > nobs( d4 )
 [1] 344
-> print( summary( d4, farrell = FALSE ), digits = 1 )
+> print( summary( d4, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -39042,7 +39042,7 @@ Model 2: Error Components Frontier (ECF)
 2   9   53.2  3  28.4    1.1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d4, farrell = FALSE ), 2 )
+> round( efficiencies( d4, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.40 1.42 1.43 1.44 1.46 1.47 1.49 1.51
 F_02 1.27 1.28 1.29 1.30 1.31 1.32 1.33 1.34
@@ -39087,7 +39087,7 @@ F_40 1.40 1.41 1.42 1.44 1.45 1.46 1.48 1.50
 F_41 1.07 1.08 1.08 1.08 1.08 1.08 1.09 1.09
 F_42 1.12 1.12 1.12 1.13 1.13 1.13 1.14 1.14
 F_43 1.19 1.19 1.20 1.20 1.21 1.22 1.22 1.23
-> round( efficiencies( d4, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d4, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.40 1.42 1.43 1.44 1.46 1.47 1.49 1.51 1.27 1.28 1.29 1.30 1.31 1.32 1.33 1.34 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -40011,7 +40011,7 @@ mean efficiency of each year
 0.92307 0.91884 0.93119 0.91832 0.91700 0.92729 0.90521 0.92325 
 
 mean efficiency: 0.92052 
-> print( summary( d5, farrell = FALSE ), digits = 1 )
+> print( summary( d5, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -40586,7 +40586,7 @@ margEff
 258  0.0034   0.0196
 301  0.0022   0.0131
 344  0.0028   0.0164
-> printME( d5effF <- efficiencies( d5, farrell = FALSE, margEff = TRUE ) )
+> printME( d5effF <- efficiencies( d5, minusU = FALSE, margEff = TRUE ) )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.08 1.08 1.08 1.08 1.10 1.06 1.10 1.05
 F_02 1.09 1.06 1.09 1.10 1.09 1.07 1.08 1.06
@@ -40726,7 +40726,7 @@ F_41 -0.0287 -0.0206 -0.0164 -0.0195 -0.0138 -0.0100 -0.0181 -0.0153
 F_42 -0.0084 -0.0113 -0.0129 -0.0126 -0.0280 -0.0221 -0.0195 -0.0150
 F_43 -0.0958 -0.1466 -0.0611 -0.0243 -0.0416 -0.0246 -0.0158 -0.0202
 
-> printME( d5effDF <- efficiencies( d5, asInData = TRUE, farrell = FALSE, 
+> printME( d5effDF <- efficiencies( d5, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.08 1.08 1.08 1.08 1.10 1.06 1.10 1.05 1.09 1.06 1.09 1.10 1.09 1.07 1.08 1.06 
@@ -41127,10 +41127,10 @@ margEff
 +    c( efficiencies( d5m1, asInData = TRUE ) - d5effD ) / 1e-6 )
 [1] "Mean relative difference: 1.0921e-07"
 > all.equal( attr( d5effF, "margEff" )[ , , 1 ], 
-+    ( efficiencies( d5m1, farrell = FALSE ) - d5effF )[ ,  ] / 1e-6 )
++    ( efficiencies( d5m1, minusU = FALSE ) - d5effF )[ ,  ] / 1e-6 )
 [1] "Mean relative difference: 9.6872e-08"
 > all.equal( attr( d5effDF, "margEff" )[ , 1 ],
-+    c( efficiencies( d5m1, asInData = TRUE, farrell = FALSE ) - d5effDF ) / 1e-6 )
++    c( efficiencies( d5m1, asInData = TRUE, minusU = FALSE ) - d5effDF ) / 1e-6 )
 [1] "Mean relative difference: 9.6872e-08"
 > d5m2 <- d5
 > d5m2$dataTable[ , "BANRAT" ] <- d5m2$dataTable[ , "BANRAT" ] + 1e-6
@@ -41141,10 +41141,10 @@ margEff
 +    c( efficiencies( d5m2, asInData = TRUE ) - d5effD ) / 1e-6 )
 [1] "Mean relative difference: 2.8454e-07"
 > all.equal( attr( d5effF, "margEff" )[ , , 2 ], 
-+    ( efficiencies( d5m2, farrell = FALSE ) - d5effF )[ , ] / 1e-6 )
++    ( efficiencies( d5m2, minusU = FALSE ) - d5effF )[ , ] / 1e-6 )
 [1] "Mean relative difference: 3.3586e-07"
 > all.equal( attr( d5effDF, "margEff" )[ , 2 ],
-+    c( efficiencies( d5m2, asInData = TRUE, farrell = FALSE ) - d5effDF ) / 1e-6 )
++    c( efficiencies( d5m2, asInData = TRUE, minusU = FALSE ) - d5effDF ) / 1e-6 )
 [1] "Mean relative difference: 3.3586e-07"
 > round( residuals( d5 ), 3 )
        1999   2000   2001   2002   2003   2004   2005   2006
@@ -41986,7 +41986,7 @@ sigmaSq       -948.2469 -5836.6265  1034.7187  0.1352
 gamma           -0.1239    -0.7627     0.1352  0.0000
 > nobs( d6 )
 [1] 344
-> print( summary( d6, farrell = FALSE ), digits = 1 )
+> print( summary( d6, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -42031,7 +42031,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 2  10   43.3  4  8.63      0.038 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d6, farrell = FALSE ), 2 )
+> round( efficiencies( d6, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.08 1.08 1.08 1.09 1.11 1.07 1.11 1.06
 F_02 1.10 1.06 1.09 1.11 1.09 1.07 1.08 1.06
@@ -42076,7 +42076,7 @@ F_40 1.15 1.13 1.10 1.13 1.18 1.13 1.13 1.07
 F_41 1.08 1.06 1.06 1.06 1.05 1.04 1.06 1.05
 F_42 1.04 1.05 1.05 1.05 1.08 1.07 1.06 1.05
 F_43 1.17 1.24 1.12 1.07 1.10 1.07 1.05 1.06
-> round( efficiencies( d6, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d6, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.08 1.08 1.08 1.09 1.11 1.07 1.11 1.06 1.10 1.06 1.09 1.11 1.09 1.07 1.08 1.06 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -42882,7 +42882,7 @@ class
 > ## panel rice data, efficiency effects cost frontier: no Z vars
 > d9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
-> print( summary( d9, farrell = FALSE ), digits = 1 )
+> print( summary( d9, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -45642,7 +45642,7 @@ mean efficiency of each year
 0.79873 0.80906 0.82094 0.82847 0.83931 0.84368 0.85381 0.86243 
 
 mean efficiency: 0.83197 
-> print( summary( b4u, farrell = FALSE ), digits = 1 )
+> print( summary( b4u, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -45777,7 +45777,7 @@ F_43 0.64 0.66 0.67 0.69 0.71 0.72 0.74 0.75
 0.92 0.93 0.93 0.94 0.94 0.94 0.95 0.95 0.90 0.91 0.91 0.92 0.92 0.93 0.93 0.94 
   43   86  129  172  215  258  301  344 
 0.64 0.66 0.67 0.69 0.71 0.72 0.74 0.75 
-> round( efficiencies( b4u, farrell = FALSE ), 2 )
+> round( efficiencies( b4u, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.44 1.41   NA 1.35   NA 1.30 1.28 1.26
 F_02 1.08 1.08 1.07 1.07 1.06 1.06 1.06 1.05
@@ -45822,7 +45822,7 @@ F_40 1.64 1.59 1.54 1.50 1.46 1.43 1.40 1.37
 F_41 1.09 1.08 1.07 1.07 1.07 1.06 1.06 1.05
 F_42 1.11 1.11 1.10 1.09 1.09 1.08 1.08 1.07
 F_43 1.59 1.54 1.50 1.46 1.43 1.40 1.37 1.34
-> round( efficiencies( b4u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( b4u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.44 1.41   NA 1.35   NA 1.30 1.28 1.26 1.08 1.08 1.07 1.07 1.06 1.06 1.06 1.05 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -47563,7 +47563,7 @@ mean efficiency of each year
 0.76112 0.74976 0.83021 0.81099 0.76341 0.80584 0.69916 0.84573 
 
 mean efficiency: 0.78338 
-> print( summary( b6u, farrell = FALSE ), digits = 1 )
+> print( summary( b6u, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -48140,7 +48140,7 @@ margEff
 258   1e-04   0.0115
 301   2e-04   0.0318
 344   1e-04   0.0104
-> printME( b6ueffF <- efficiencies( b6u, farrell = FALSE, margEff = TRUE ) )
+> printME( b6ueffF <- efficiencies( b6u, minusU = FALSE, margEff = TRUE ) )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.24 1.36   NA 1.35   NA 1.83 2.08 1.16
 F_02 1.27 1.17 1.16 1.10 1.11 1.10 1.23 1.07
@@ -48280,7 +48280,7 @@ F_41 -0.0407 -0.0152 -0.0162 -0.0188 -0.0740 -0.0089 -0.0476 -0.0083
 F_42 -0.0099 -0.0188 -0.0229 -0.0449 -0.0824 -0.0598 -0.0778 -0.0265
 F_43 -0.2186 -0.2380 -0.0916 -0.1013 -0.0413 -0.0153 -0.0527 -0.0137
 
-> printME( b6ueffDF <- efficiencies( b6u, asInData = TRUE, farrell = FALSE, 
+> printME( b6ueffDF <- efficiencies( b6u, asInData = TRUE, minusU = FALSE, 
 +    margEff = TRUE ) )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.24 1.36   NA 1.35   NA 1.83 2.08 1.16 1.27 1.17 1.16 1.10 1.11 1.10 1.23 1.07 
@@ -48681,10 +48681,10 @@ margEff
 +    c( efficiencies( b6um1, asInData = TRUE ) - b6ueffD ) / 1e-6 )
 [1] "Mean relative difference: 6.8227e-07"
 > all.equal( attr( b6ueffF, "margEff" )[ , , 1 ], 
-+    ( efficiencies( b6um1, farrell = FALSE ) - b6ueffF )[ ,  ] / 1e-6 )
++    ( efficiencies( b6um1, minusU = FALSE ) - b6ueffF )[ ,  ] / 1e-6 )
 [1] "Mean relative difference: 4.4742e-07"
 > all.equal( attr( b6ueffDF, "margEff" )[ , 1 ],
-+    c( efficiencies( b6um1, asInData = TRUE, farrell = FALSE ) - b6ueffDF ) / 1e-6 )
++    c( efficiencies( b6um1, asInData = TRUE, minusU = FALSE ) - b6ueffDF ) / 1e-6 )
 [1] "Mean relative difference: 4.4742e-07"
 > b6um2 <- b6u
 > b6um2$dataTable[ , "BANRAT" ] <- b6um2$dataTable[ , "BANRAT" ] + 1e-6
@@ -48695,10 +48695,10 @@ margEff
 +    c( efficiencies( b6um2, asInData = TRUE ) - b6ueffD ) / 1e-6 )
 [1] "Mean relative difference: 6.6929e-08"
 > all.equal( attr( b6ueffF, "margEff" )[ , , 2 ], 
-+    ( efficiencies( b6um2, farrell = FALSE ) - b6ueffF )[ , ] / 1e-6 )
++    ( efficiencies( b6um2, minusU = FALSE ) - b6ueffF )[ , ] / 1e-6 )
 [1] "Mean relative difference: 8.267e-08"
 > all.equal( attr( b6ueffDF, "margEff" )[ , 2 ],
-+    c( efficiencies( b6um2, asInData = TRUE, farrell = FALSE ) - b6ueffDF ) / 1e-6 )
++    c( efficiencies( b6um2, asInData = TRUE, minusU = FALSE ) - b6ueffDF ) / 1e-6 )
 [1] "Mean relative difference: 8.267e-08"
 > round( residuals( b6u ), 3 )
        1999   2000   2001   2002   2003   2004   2005   2006
@@ -49498,7 +49498,7 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.86203 
-> print( summary( d1u, farrell = FALSE ), digits = 1 )
+> print( summary( d1u, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -49628,7 +49628,7 @@ F_43       0.91
 0.97 0.97 0.97 0.97 0.97 0.97 0.97 0.97 0.96 0.96 0.96 0.96 0.96 0.96 0.96 0.96 
   43   86  129  172  215  258  301  344 
 0.91 0.91 0.91 0.91 0.91 0.91 0.91 0.91 
-> round( efficiencies( d1u, farrell = FALSE ), 2 )
+> round( efficiencies( d1u, minusU = FALSE ), 2 )
      efficiency
 F_01       1.27
 F_02       1.15
@@ -49673,7 +49673,7 @@ F_40       1.32
 F_41       1.03
 F_42       1.04
 F_43       1.10
-> round( efficiencies( d1u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d1u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.27 1.27   NA 1.27   NA 1.27 1.27 1.27 1.15 1.15 1.15 1.15 1.15 1.15 1.15 1.15 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -50478,7 +50478,7 @@ Maximum likelihood estimates
      5.7456       0.3569       0.5492       0.4400       0.0936       0.0509  
       gamma           mu  
      0.2817       0.2394  
-> print( summary( d2u, farrell = FALSE ), digits = 1 )
+> print( summary( d2u, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -50519,7 +50519,7 @@ Model 2: Error Components Frontier (ECF)
 2   8   50.5  2  25.1    1.2e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d2u, farrell = FALSE ), 2 )
+> round( efficiencies( d2u, minusU = FALSE ), 2 )
      efficiency
 F_01       1.41
 F_02       1.31
@@ -50564,7 +50564,7 @@ F_40       1.45
 F_41       1.08
 F_42       1.12
 F_43       1.22
-> round( efficiencies( d2u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d2u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.41 1.41   NA 1.41   NA 1.41 1.41 1.41 1.31 1.31 1.31 1.31 1.31 1.31 1.31 1.31 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -51370,7 +51370,7 @@ Maximum likelihood estimates
      5.8323       0.3707       0.5595       0.4347       0.0957       0.0805  
       gamma         time  
      0.5283      -0.0374  
-> print( summary( d3u, farrell = FALSE ), digits = 1 )
+> print( summary( d3u, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -51415,7 +51415,7 @@ Model 2: Error Components Frontier (ECF)
 2   8   48.4  2    21    9.1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d3u, farrell = FALSE ), 2 )
+> round( efficiencies( d3u, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.22 1.23   NA 1.25   NA 1.28 1.29 1.30
 F_02 1.12 1.13 1.13 1.14 1.15 1.15 1.16 1.17
@@ -51460,7 +51460,7 @@ F_40 1.27 1.28 1.29 1.30 1.31 1.33 1.34 1.36
 F_41 1.03 1.03 1.03 1.03 1.03 1.03 1.04 1.04
 F_42 1.04 1.04 1.04 1.05 1.05 1.05 1.05 1.05
 F_43 1.08 1.08 1.08 1.08 1.09 1.09 1.10 1.10
-> round( efficiencies( d3u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d3u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.22 1.23   NA 1.25   NA 1.28 1.29 1.30 1.12 1.13 1.13 1.14 1.15 1.15 1.16 1.17 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -52266,7 +52266,7 @@ Maximum likelihood estimates
      5.7542       0.3568       0.5489       0.4349       0.0972       0.0536  
       gamma           mu         time  
      0.3131       0.2592      -0.0262  
-> print( summary( d4u, farrell = FALSE ), digits = 1 )
+> print( summary( d4u, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -52312,7 +52312,7 @@ Model 2: Error Components Frontier (ECF)
 2   9   51.4  3  26.9    2.4e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d4u, farrell = FALSE ), 2 )
+> round( efficiencies( d4u, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.36 1.37   NA 1.40   NA 1.42 1.44 1.45
 F_02 1.27 1.28 1.29 1.30 1.31 1.32 1.33 1.34
@@ -52357,7 +52357,7 @@ F_40 1.40 1.41 1.42 1.44 1.45 1.46 1.48 1.49
 F_41 1.08 1.08 1.08 1.08 1.08 1.09 1.09 1.09
 F_42 1.12 1.12 1.13 1.13 1.13 1.14 1.14 1.15
 F_43 1.19 1.20 1.20 1.21 1.21 1.22 1.23 1.23
-> round( efficiencies( d4u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d4u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.36 1.37   NA 1.40   NA 1.42 1.44 1.45 1.27 1.28 1.29 1.30 1.31 1.32 1.33 1.34 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -53167,7 +53167,7 @@ class
 Warning message:
 In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( d5u, farrell = FALSE )
+> print( d5u, minusU = FALSE )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS +      BANRAT - 1, data = riceProdPhilPanelUnb, ineffDecrease = FALSE)
@@ -53211,7 +53211,7 @@ mean efficiency of each year
 0.92165 0.91730 0.92997 0.91668 0.91542 0.92638 0.90199 0.92177 
 
 mean efficiency: 0.9189 
-> print( summary( d5u, farrell = FALSE ), digits = 1 )
+> print( summary( d5u, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -53347,7 +53347,7 @@ F_43 0.87 0.82 0.90 0.94 0.92 0.94 0.95 0.94
 0.93 0.94 0.95 0.95 0.95 0.96 0.95 0.95 0.96 0.96 0.96 0.96 0.93 0.94 0.94 0.95 
   43   86  129  172  215  258  301  344 
 0.87 0.82 0.90 0.94 0.92 0.94 0.95 0.94 
-> round( efficiencies( d5u, farrell = FALSE ), 2 )
+> round( efficiencies( d5u, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.08 1.08   NA 1.08   NA 1.07 1.11 1.06
 F_02 1.10 1.06 1.09 1.10 1.09 1.07 1.08 1.06
@@ -53392,7 +53392,7 @@ F_40 1.15 1.13 1.10 1.13 1.18 1.13 1.12 1.07
 F_41 1.08 1.06 1.06 1.06 1.05 1.04 1.06 1.05
 F_42 1.04 1.05 1.05 1.05 1.08 1.07 1.06 1.05
 F_43 1.17 1.24 1.12 1.07 1.10 1.07 1.05 1.06
-> round( efficiencies( d5u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d5u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.08 1.08   NA 1.08   NA 1.07 1.11 1.06 1.10 1.06 1.09 1.10 1.09 1.07 1.08 1.06 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -54212,7 +54212,7 @@ Maximum likelihood estimates
        5.9195         0.4621         0.5079         0.4129         0.0769  
 Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
        8.0563       -18.2897       -93.6802        16.2483         0.9977  
-> print( summary( d6u, farrell = FALSE ), digits = 1 )
+> print( summary( d6u, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -54259,7 +54259,7 @@ Model 2: Efficiency Effects Frontier (EEF)
 2  10   42.4  4  8.97      0.033 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> round( efficiencies( d6u, farrell = FALSE ), 2 )
+> round( efficiencies( d6u, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.08 1.08   NA 1.08   NA 1.06 1.10 1.06
 F_02 1.10 1.06 1.09 1.10 1.09 1.07 1.08 1.06
@@ -54304,7 +54304,7 @@ F_40 1.15 1.13 1.10 1.13 1.18 1.13 1.12 1.07
 F_41 1.08 1.06 1.06 1.06 1.05 1.04 1.06 1.05
 F_42 1.04 1.04 1.05 1.05 1.07 1.07 1.06 1.05
 F_43 1.17 1.24 1.12 1.07 1.10 1.07 1.05 1.06
-> round( efficiencies( d6u, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( d6u, asInData = TRUE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.08 1.08   NA 1.08   NA 1.06 1.10 1.06 1.10 1.06 1.09 1.10 1.09 1.07 1.08 1.06 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -61686,7 +61686,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.75939 
-> print( summary( translog, farrell = FALSE ), digits = 1 )
+> print( summary( translog, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -61793,7 +61793,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 0.87 0.47 0.35 0.89 0.85 0.75 0.65 0.87 0.81 0.74 0.80 0.90 0.72 0.74 0.86 0.85 
   49   50   51   52   53   54   55   56   57   58   59   60 
 0.69 0.60 0.83 0.88 0.88 0.75 0.79 0.78 0.85 0.72 0.88 0.74 
-> round( efficiencies( translog, farrell = FALSE ), 2 )
+> round( efficiencies( translog, minusU = FALSE ), 2 )
    efficiency
 1        1.39
 2        1.24
@@ -61855,7 +61855,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 58       1.42
 59       1.15
 60       1.40
-> round( efficiencies( translog, asInData = TRUE, farrell = FALSE ), 2 )
+> round( efficiencies( translog, asInData = TRUE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.39 1.24 1.43 1.34 1.33 1.36 1.45 1.36 1.22 1.39 1.87 1.07 2.09 1.49 1.11 1.94 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -63211,7 +63211,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77999 
-> print( summary( translogZvar, farrell = FALSE ), digits = 1 )
+> print( summary( translogZvar, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
@@ -63446,7 +63446,7 @@ margEff
 58   0.0009
 59   0.0003
 60   0.0009
-> printME( efficiencies( translogZvar, farrell = FALSE, margEff = TRUE ) )
+> printME( efficiencies( translogZvar, minusU = FALSE, margEff = TRUE ) )
    efficiency
 1        1.38
 2        1.23
@@ -63573,7 +63573,7 @@ margEff
 59    -0.0005
 60    -0.0015
 
-> printME( efficiencies( translogZvar, asInData = TRUE, farrell = FALSE, margEff = TRUE ) )
+> printME( efficiencies( translogZvar, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.38 1.23 1.42 1.33 1.32 1.36 1.48 1.35 1.21 1.39 1.87 1.07 2.10 1.47 1.10 1.94 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -64224,7 +64224,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.88387 
-> print( summary( Sa1, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Sa1, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -64248,7 +64248,7 @@ total number of observations = 60
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( a1, logDepVar = FALSE ), 2 )
      efficiency
@@ -64321,7 +64321,7 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 0.95 0.74 0.68 0.96 0.95 0.87 0.86 0.93 0.90 0.88 0.93 0.96 0.91 0.89 0.95 0.92 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 0.87 0.79 0.94 0.95 0.96 0.90 0.93 0.91 0.88 0.88 0.95 0.88 
-> round( efficiencies( a1, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( a1, logDepVar = FALSE, minusU = FALSE ), 2 )
      efficiency
 F_1          NA
 F_2          NA
@@ -64384,9 +64384,9 @@ F_58         NA
 F_59         NA
 F_60         NA
 Warning message:
-In efficiencies.frontier(a1, logDepVar = FALSE, farrell = FALSE) :
+In efficiencies.frontier(a1, logDepVar = FALSE, minusU = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( a1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( a1, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
 F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
@@ -64521,7 +64521,7 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.89322 
-> print( summary( Saa1, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Saa1, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -64546,7 +64546,7 @@ total number of observations = 60
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > printME( efficiencies( aa1, logDepVar = FALSE, margEff = TRUE ) )
      efficiency
@@ -64622,7 +64622,7 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 0.96 0.75 0.68 0.97 0.96 0.89 0.88 0.94 0.92 0.90 0.94 0.96 0.92 0.91 0.96 0.93 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 0.89 0.81 0.95 0.96 0.96 0.92 0.94 0.93 0.90 0.91 0.96 0.91 
-> printME( efficiencies( aa1, logDepVar = FALSE, farrell = FALSE ) )
+> printME( efficiencies( aa1, logDepVar = FALSE, minusU = FALSE ) )
      efficiency
 F_1          NA
 F_2          NA
@@ -64685,9 +64685,9 @@ F_58         NA
 F_59         NA
 F_60         NA
 Warning message:
-In efficiencies.frontier(aa1, logDepVar = FALSE, farrell = FALSE) :
+In efficiencies.frontier(aa1, logDepVar = FALSE, minusU = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> printME( efficiencies( aa1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ) )
+> printME( efficiencies( aa1, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ) )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
 F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
@@ -64799,7 +64799,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 0.90 0.82 0.96 0.96 0.97 0.93 0.95 0.94 0.91 0.91 0.96 0.92 
 > 
 > ## cross-section rice data, error components cost frontier
-> print( summary( Sdd1, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Sdd1, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -64824,7 +64824,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.0178 
-> round( efficiencies( dd1, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd1, logDepVar = FALSE, minusU = FALSE ), 2 )
     efficiency
 1         1.02
 2         1.02
@@ -65170,7 +65170,7 @@ mean efficiency: 1.0178
 342       1.01
 343       1.01
 344       1.01
-> round( efficiencies( dd1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd1, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.02 1.02 1.01 1.01 1.01 1.01 1.02 1.01 1.02 1.02 1.04 1.02 1.02 1.01 1.01 1.03 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -65244,9 +65244,9 @@ total number of observations = 344
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> print( summary( dd2, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( dd2, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -65661,7 +65661,7 @@ In efficiencies.frontier(dd2, logDepVar = FALSE) :
 Warning message:
 In efficiencies.frontier(dd2, asInData = TRUE, logDepVar = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( dd2, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd2, logDepVar = FALSE, minusU = FALSE ), 2 )
     efficiency
 1         1.02
 2         1.01
@@ -66007,7 +66007,7 @@ In efficiencies.frontier(dd2, asInData = TRUE, logDepVar = FALSE) :
 342       1.01
 343       1.01
 344       1.01
-> round( efficiencies( dd2, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd2, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.02 1.01 1.01 1.01 1.01 1.01 1.02 1.01 1.01 1.01 1.03 1.01 1.01 1.01 1.01 1.02 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -66054,7 +66054,7 @@ In efficiencies.frontier(dd2, asInData = TRUE, logDepVar = FALSE) :
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
 > 
 > ## cross-section rice data, efficiency effects cost frontier
-> print( summary( Sdd5, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Sdd5, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -66081,7 +66081,7 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.0101 
-> round( efficiencies( dd5, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd5, logDepVar = FALSE, minusU = FALSE ), 2 )
     efficiency
 1         1.01
 2         1.01
@@ -66427,7 +66427,7 @@ mean efficiency: 1.0101
 342       1.01
 343       1.01
 344       1.01
-> round( efficiencies( dd5, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd5, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.03 1.01 1.01 1.01 1.01 1.01 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -66503,9 +66503,9 @@ total number of observations = 344
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> print( summary( dd6, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( dd6, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -66922,7 +66922,7 @@ In efficiencies.frontier(dd6, logDepVar = FALSE) :
 Warning message:
 In efficiencies.frontier(dd6, asInData = TRUE, logDepVar = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( dd6, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd6, logDepVar = FALSE, minusU = FALSE ), 2 )
     efficiency
 1         1.01
 2         1.01
@@ -67268,7 +67268,7 @@ In efficiencies.frontier(dd6, asInData = TRUE, logDepVar = FALSE) :
 342       1.01
 343       1.01
 344       1.01
-> round( efficiencies( dd6, asInData = TRUE , logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( dd6, asInData = TRUE , logDepVar = FALSE, minusU = FALSE ), 2 )
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.03 1.01 1.01 1.01 1.01 1.02 
   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -67741,7 +67741,7 @@ mean efficiency of each year
 0.77323 0.78745 0.80077 0.81325 0.82496 0.83593 0.84621 0.85585 
 
 mean efficiency: 0.81721 
-> print( summary( b4, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( b4, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -67775,7 +67775,7 @@ mean efficiency of each year
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b4, logDepVar = FALSE ), 2 )
       1999  2000  2001  2002  2003  2004  2005  2006
@@ -67877,7 +67877,7 @@ F_43  0.73  0.74  0.76  0.78  0.79  0.80  0.82  0.83
  0.96  0.96  0.96  0.95  0.95  0.95  0.96  0.96  0.96  0.96  0.97  0.73  0.74 
   129   172   215   258   301   344 
  0.76  0.78  0.79  0.80  0.82  0.83 
-> round( efficiencies( b4, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( b4, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01   NA   NA   NA   NA   NA   NA   NA   NA
 F_02   NA   NA   NA   NA   NA   NA   NA   NA
@@ -67923,9 +67923,9 @@ F_41   NA   NA   NA   NA   NA   NA   NA   NA
 F_42   NA   NA   NA   NA   NA   NA   NA   NA
 F_43   NA   NA   NA   NA   NA   NA   NA   NA
 Warning message:
-In efficiencies.frontier(b4, logDepVar = FALSE, farrell = FALSE) :
+In efficiencies.frontier(b4, logDepVar = FALSE, minusU = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( b4, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( b4, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
 175 218 261 304   4  47  90 133 176 219 262 305   5  48  91 134 177 220 263 306 
@@ -68152,7 +68152,7 @@ mean efficiency of each year
 0.76809 0.72072 0.79865 0.84569 0.72746 0.83078 0.63165 0.85686 
 
 mean efficiency: 0.77249 
-> print( summary( b6, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( b6, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is not logged
@@ -68187,7 +68187,7 @@ mean efficiency of each year
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b6, logDepVar = FALSE ), 2 )
       1999  2000  2001 2002  2003 2004  2005  2006
@@ -68289,7 +68289,7 @@ F_43  0.41  0.38  0.76 0.78  0.91 0.95  0.87  0.96
  0.95  0.85  0.95  0.96  0.95  0.94  0.90  0.82  0.90  0.86  0.94  0.41  0.38 
   129   172   215   258   301   344 
  0.76  0.78  0.91  0.95  0.87  0.96 
-> round( efficiencies( b6, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( b6, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01   NA   NA   NA   NA   NA   NA   NA   NA
 F_02   NA   NA   NA   NA   NA   NA   NA   NA
@@ -68335,9 +68335,9 @@ F_41   NA   NA   NA   NA   NA   NA   NA   NA
 F_42   NA   NA   NA   NA   NA   NA   NA   NA
 F_43   NA   NA   NA   NA   NA   NA   NA   NA
 Warning message:
-In efficiencies.frontier(b6, logDepVar = FALSE, farrell = FALSE) :
+In efficiencies.frontier(b6, logDepVar = FALSE, minusU = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( b6, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( b6, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
 175 218 261 304   4  47  90 133 176 219 262 305   5  48  91 134 177 220 263 306 
@@ -68379,7 +68379,7 @@ In efficiencies.frontier(b6, asInData = TRUE, logDepVar = FALSE,  :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > 
 > ## panel rice data, error components cost frontier
-> print( summary( Sd1, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Sd1, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -68407,7 +68407,7 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.0177 
-> round( efficiencies( d1, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d1, logDepVar = FALSE, minusU = FALSE ), 2 )
      efficiency
 F_01       1.03
 F_02       1.01
@@ -68452,7 +68452,7 @@ F_40       1.03
 F_41       1.00
 F_42       1.00
 F_43       1.01
-> round( efficiencies( d1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d1, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -68529,9 +68529,9 @@ thus there are 0 observations not in the panel
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> print( summary( d2, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d2, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -68648,7 +68648,7 @@ In efficiencies.frontier(d2, logDepVar = FALSE) :
 Warning message:
 In efficiencies.frontier(d2, asInData = TRUE, logDepVar = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( d2, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d2, logDepVar = FALSE, minusU = FALSE ), 2 )
      efficiency
 F_01       1.04
 F_02       1.03
@@ -68693,7 +68693,7 @@ F_40       1.04
 F_41       1.01
 F_42       1.01
 F_43       1.02
-> round( efficiencies( d2, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d2, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.04 1.04 1.04 1.04 1.04 1.04 1.04 1.04 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -68740,7 +68740,7 @@ F_43       1.02
 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02 
 > 
 > ## panel rice data, error components cost frontier, timeEffect
-> print( summary( d3, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d3, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -68773,7 +68773,7 @@ mean efficiency of each year
 1.0155 1.0161 1.0166 1.0172 1.0178 1.0184 1.0190 1.0197 
 
 mean efficiency: 1.0175 
-> round( efficiencies( d3, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d3, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.02 1.02
@@ -68818,7 +68818,7 @@ F_40 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.04
 F_41 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
 F_42 1.00 1.00 1.00 1.00 1.00 1.01 1.01 1.01
 F_43 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d3, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d3, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.01 1.01 1.01 1.01 1.01 1.01 1.02 1.02 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -68865,7 +68865,7 @@ F_43 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
 > 
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
-> print( summary( d4, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d4, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -68899,7 +68899,7 @@ mean efficiency of each year
 1.0259 1.0266 1.0274 1.0281 1.0289 1.0297 1.0305 1.0313 
 
 mean efficiency: 1.0285 
-> round( efficiencies( d4, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d4, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.04 1.04 1.04 1.04 1.04 1.04 1.04 1.05
 F_02 1.02 1.03 1.03 1.03 1.03 1.03 1.03 1.03
@@ -68944,7 +68944,7 @@ F_40 1.04 1.04 1.04 1.04 1.04 1.04 1.05 1.05
 F_41 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_42 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_43 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02
-> round( efficiencies( d4, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d4, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.04 1.04 1.04 1.04 1.04 1.04 1.04 1.05 1.02 1.03 1.03 1.03 1.03 1.03 1.03 1.03 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -68991,7 +68991,7 @@ F_43 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02
 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02 
 > 
 > ## panel rice data, efficiency effects cost frontier
-> print( summary( Sd5, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( Sd5, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -69025,7 +69025,7 @@ mean efficiency of each year
 1.0097 1.0105 1.0084 1.0100 1.0104 1.0097 1.0121 1.0095 
 
 mean efficiency: 1.01 
-> round( efficiencies( d5, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d5, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
@@ -69070,7 +69070,7 @@ F_40 1.01 1.01 1.01 1.01 1.02 1.01 1.01 1.01
 F_41 1.01 1.01 1.01 1.01 1.01 1.00 1.01 1.01
 F_42 1.00 1.00 1.00 1.00 1.01 1.01 1.01 1.01
 F_43 1.02 1.02 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d5, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d5, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -69153,9 +69153,9 @@ mean efficiency of each year
 
 mean efficiency: NA 
 Warning message:
-In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
+In efficiencies.frontier(object, logDepVar = logDepVar, minusU = minusU) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> print( summary( d6, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d6, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -69278,7 +69278,7 @@ In efficiencies.frontier(d6, logDepVar = FALSE) :
 Warning message:
 In efficiencies.frontier(d6, asInData = TRUE, logDepVar = FALSE) :
   currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
-> round( efficiencies( d6, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d6, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
@@ -69323,7 +69323,7 @@ F_40 1.02 1.01 1.01 1.01 1.02 1.01 1.01 1.01
 F_41 1.01 1.01 1.01 1.01 1.01 1.00 1.01 1.01
 F_42 1.00 1.00 1.01 1.01 1.01 1.01 1.01 1.01
 F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d6, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d6, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70169,7 +70169,7 @@ F_43  0.41  0.38  0.76 0.78  0.91 0.95  0.87  0.96
  0.76  0.78  0.91  0.95  0.87  0.96 
 > 
 > ## unbalanced panel rice data, error components cost frontier
-> print( summary( d1u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d1u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70197,7 +70197,7 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.0173 
-> round( efficiencies( d1u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d1u, logDepVar = FALSE, minusU = FALSE ), 2 )
      efficiency
 F_01       1.03
 F_02       1.01
@@ -70242,7 +70242,7 @@ F_40       1.03
 F_41       1.00
 F_42       1.00
 F_43       1.01
-> round( efficiencies( d1u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d1u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.03 1.03   NA 1.03   NA 1.03 1.03 1.03 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70289,7 +70289,7 @@ F_43       1.01
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
-> print( summary( d2u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d2u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70318,7 +70318,7 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.0283 
-> round( efficiencies( d2u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d2u, logDepVar = FALSE, minusU = FALSE ), 2 )
      efficiency
 F_01       1.04
 F_02       1.03
@@ -70363,7 +70363,7 @@ F_40       1.04
 F_41       1.01
 F_42       1.01
 F_43       1.02
-> round( efficiencies( d2u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d2u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.04 1.04   NA 1.04   NA 1.04 1.04 1.04 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70410,7 +70410,7 @@ F_43       1.02
 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02 
 > 
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
-> print( summary( d3u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d3u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70443,7 +70443,7 @@ mean efficiency of each year
 1.0150 1.0155 1.0159 1.0167 1.0172 1.0176 1.0190 1.0195 
 
 mean efficiency: 1.017 
-> round( efficiencies( d3u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d3u, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.02 1.02   NA 1.02   NA 1.03 1.03 1.03
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.02
@@ -70488,7 +70488,7 @@ F_40 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03
 F_41 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
 F_42 1.00 1.00 1.00 1.00 1.00 1.01 1.01 1.01
 F_43 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d3u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d3u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.02 1.02   NA 1.02   NA 1.03 1.03 1.03 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.02 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70535,7 +70535,7 @@ F_43 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
 > 
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
-> print( summary( d4u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d4u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70569,7 +70569,7 @@ mean efficiency of each year
 1.0260 1.0267 1.0272 1.0282 1.0287 1.0293 1.0307 1.0313 
 
 mean efficiency: 1.0285 
-> round( efficiencies( d4u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d4u, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.03 1.04   NA 1.04   NA 1.04 1.04 1.04
 F_02 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03
@@ -70614,7 +70614,7 @@ F_40 1.04 1.04 1.04 1.04 1.04 1.04 1.05 1.05
 F_41 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_42 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
 F_43 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02
-> round( efficiencies( d4u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d4u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.03 1.04   NA 1.04   NA 1.04 1.04 1.04 1.03 1.03 1.03 1.03 1.03 1.03 1.03 1.03 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70661,7 +70661,7 @@ F_43 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02
 1.02 1.02 1.02 1.02 1.02 1.02 1.02 1.02 
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier
-> print( summary( d5u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d5u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70695,7 +70695,7 @@ mean efficiency of each year
 1.0099 1.0107 1.0086 1.0102 1.0107 1.0098 1.0126 1.0097 
 
 mean efficiency: 1.0103 
-> round( efficiencies( d5u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d5u, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.01 1.01   NA 1.01   NA 1.01 1.01 1.01
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
@@ -70740,7 +70740,7 @@ F_40 1.01 1.01 1.01 1.01 1.02 1.01 1.01 1.01
 F_41 1.01 1.01 1.01 1.01 1.01 1.00 1.01 1.01
 F_42 1.00 1.00 1.01 1.00 1.01 1.01 1.01 1.01
 F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d5u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d5u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.01 1.01   NA 1.01   NA 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -70787,7 +70787,7 @@ F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01 
 > 
 > ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
-> print( summary( d6u, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
+> print( summary( d6u, logDepVar = FALSE, minusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is not logged
@@ -70822,7 +70822,7 @@ mean efficiency of each year
 1.0099 1.0107 1.0086 1.0102 1.0107 1.0098 1.0126 1.0097 
 
 mean efficiency: 1.0103 
-> round( efficiencies( d6u, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d6u, logDepVar = FALSE, minusU = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.01 1.01   NA 1.01   NA 1.01 1.01 1.01
 F_02 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
@@ -70867,7 +70867,7 @@ F_40 1.02 1.01 1.01 1.01 1.02 1.01 1.01 1.01
 F_41 1.01 1.01 1.01 1.01 1.01 1.00 1.01 1.01
 F_42 1.00 1.00 1.00 1.00 1.01 1.01 1.01 1.01
 F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
-> round( efficiencies( d6u, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
+> round( efficiencies( d6u, asInData = TRUE, logDepVar = FALSE, minusU = FALSE ), 2 )
    1   44   87  130  173  216  259  302    2   45   88  131  174  217  260  303 
 1.01 1.01   NA 1.01   NA 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 
    3   46   89  132  175  218  261  304    4   47   90  133  176  219  262  305 
@@ -71560,4 +71560,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 28.496   0.848  29.372 
+ 28.748   0.876  29.647 

@@ -11,25 +11,25 @@ riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
 ## front41Data
 a1 <- sfa( log( output ) ~ log( capital ) + log( labour ),
    ineffDecrease = FALSE, data = front41Data )
-print( summary( a1, farrell = FALSE ), digits = 1 )
+print( summary( a1, minusU = FALSE ), digits = 1 )
 lrtest( a1 )
 
 ## front41Data, truncNorm
 a2 <- sfa( log( output ) ~ log( capital ) + log( labour ),
    ineffDecrease = FALSE, truncNorm = TRUE, data = front41Data )
-print( summary( a2, farrell = FALSE ), digits = 1 )
+print( summary( a2, minusU = FALSE ), digits = 1 )
 lrtest( a2 )
 
 ## riceProdPhil
 b1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    ineffDecrease = FALSE, data = riceProdPhil )
-print( summary( b1, farrell = FALSE ), digits = 1 )
+print( summary( b1, minusU = FALSE ), digits = 1 )
 lrtest( b1 )
 
 ## riceProdPhil, truncNorm
 b2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    ineffDecrease = FALSE, truncNorm = TRUE, data = riceProdPhil )
-print( summary( b2, farrell = FALSE ), digits = 1 )
+print( summary( b2, minusU = FALSE ), digits = 1 )
 lrtest( b2 )
 
 

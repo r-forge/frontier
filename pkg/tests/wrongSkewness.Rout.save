@@ -63,7 +63,7 @@ Warning messages:
   the residuals of the OLS estimates are left-skewed; this might indicate that there is no inefficiency or that the model is misspecified
 2: In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( summary( a1, farrell = FALSE ), digits = 1 )
+> print( summary( a1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -103,7 +103,7 @@ Warning messages:
   the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 2: In sfa(log(output) ~ log(capital) + log(labour), ineffDecrease = FALSE,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( summary( a2, farrell = FALSE ), digits = 1 )
+> print( summary( a2, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -144,7 +144,7 @@ Warning messages:
   the residuals of the OLS estimates are left-skewed; this might indicate that there is no inefficiency or that the model is misspecified
 2: In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( summary( b1, farrell = FALSE ), digits = 1 )
+> print( summary( b1, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -185,7 +185,7 @@ Warning messages:
   the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 2: In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), ineffDecrease = FALSE,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( summary( b2, farrell = FALSE ), digits = 1 )
+> print( summary( b2, minusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -308,4 +308,4 @@ Model 2: Error Components Frontier (ECF)
 > 
 > proc.time()
    user  system elapsed 
-  1.676   0.052   1.726 
+  1.684   0.056   1.728 
