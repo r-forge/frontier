@@ -64249,7 +64249,7 @@ total number of observations = 60
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( a1, logDepVar = FALSE ), 2 )
      efficiency
 F_1        0.86
@@ -64385,7 +64385,7 @@ F_59         NA
 F_60         NA
 Warning message:
 In efficiencies.frontier(a1, logDepVar = FALSE, farrell = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( a1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
@@ -64397,7 +64397,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
 Warning message:
 In efficiencies.frontier(a1, asInData = TRUE, logDepVar = FALSE,  :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > 
 > ## cross-section data, error components frontier, truncNorm
 > print( summary( a2, logDepVar = FALSE ), digits = 1 )
@@ -64547,7 +64547,7 @@ total number of observations = 60
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > printME( efficiencies( aa1, logDepVar = FALSE, margEff = TRUE ) )
      efficiency
 F_1        0.86
@@ -64686,7 +64686,7 @@ F_59         NA
 F_60         NA
 Warning message:
 In efficiencies.frontier(aa1, logDepVar = FALSE, farrell = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > printME( efficiencies( aa1, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ) )
  F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
@@ -64698,7 +64698,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
 Warning message:
 In efficiencies.frontier(aa1, asInData = TRUE, logDepVar = FALSE,  :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > print( summary( aa2, logDepVar = FALSE ), digits = 1 )
@@ -65245,7 +65245,7 @@ total number of observations = 344
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > print( summary( dd2, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -65620,7 +65620,7 @@ mean efficiency: 1.0142
 344         NA
 Warning message:
 In efficiencies.frontier(dd2, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( dd2, asInData = TRUE, logDepVar = FALSE ), 2 )
   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -65660,7 +65660,7 @@ In efficiencies.frontier(dd2, logDepVar = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(dd2, asInData = TRUE, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( dd2, logDepVar = FALSE, farrell = FALSE ), 2 )
     efficiency
 1         1.02
@@ -66504,7 +66504,7 @@ total number of observations = 344
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > print( summary( dd6, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -66881,7 +66881,7 @@ mean efficiency: 1.0105
 344         NA
 Warning message:
 In efficiencies.frontier(dd6, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( dd6, asInData = TRUE , logDepVar = FALSE ), 2 )
   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -66921,7 +66921,7 @@ In efficiencies.frontier(dd6, logDepVar = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(dd6, asInData = TRUE, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( dd6, logDepVar = FALSE, farrell = FALSE ), 2 )
     efficiency
 1         1.01
@@ -67776,7 +67776,7 @@ mean efficiency of each year
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b4, logDepVar = FALSE ), 2 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01  0.85  0.86  0.87  0.88  0.89  0.89  0.90  0.91
@@ -67924,7 +67924,7 @@ F_42   NA   NA   NA   NA   NA   NA   NA   NA
 F_43   NA   NA   NA   NA   NA   NA   NA   NA
 Warning message:
 In efficiencies.frontier(b4, logDepVar = FALSE, farrell = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b4, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -67964,7 +67964,7 @@ In efficiencies.frontier(b4, logDepVar = FALSE, farrell = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(b4, asInData = TRUE, logDepVar = FALSE,  :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > 
 > ## panel data, efficiency effects frontier
 > print( summary( Sb5, logDepVar = FALSE ), digits = 1 )
@@ -68188,7 +68188,7 @@ mean efficiency of each year
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b6, logDepVar = FALSE ), 2 )
       1999  2000  2001 2002  2003 2004  2005  2006
 F_01  0.91  0.88  0.92 0.88  0.88 0.74  0.70  0.93
@@ -68336,7 +68336,7 @@ F_42   NA   NA   NA   NA   NA   NA   NA   NA
 F_43   NA   NA   NA   NA   NA   NA   NA   NA
 Warning message:
 In efficiencies.frontier(b6, logDepVar = FALSE, farrell = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( b6, asInData = TRUE, logDepVar = FALSE, farrell = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -68376,7 +68376,7 @@ In efficiencies.frontier(b6, logDepVar = FALSE, farrell = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(b6, asInData = TRUE, logDepVar = FALSE,  :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > 
 > ## panel rice data, error components cost frontier
 > print( summary( Sd1, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
@@ -68530,7 +68530,7 @@ thus there are 0 observations not in the panel
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > print( summary( d2, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -68607,7 +68607,7 @@ F_42         NA
 F_43         NA
 Warning message:
 In efficiencies.frontier(d2, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( d2, asInData = TRUE, logDepVar = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -68647,7 +68647,7 @@ In efficiencies.frontier(d2, logDepVar = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(d2, asInData = TRUE, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( d2, logDepVar = FALSE, farrell = FALSE ), 2 )
      efficiency
 F_01       1.04
@@ -69154,7 +69154,7 @@ mean efficiency of each year
 mean efficiency: NA 
 Warning message:
 In efficiencies.frontier(object, logDepVar = logDepVar, farrell = farrell) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > print( summary( d6, logDepVar = FALSE, farrell = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -69237,7 +69237,7 @@ F_42   NA   NA   NA   NA   NA   NA   NA   NA
 F_43   NA   NA   NA   NA   NA   NA   NA   NA
 Warning message:
 In efficiencies.frontier(d6, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( d6, asInData = TRUE, logDepVar = FALSE ), 2 )
   1  44  87 130 173 216 259 302   2  45  88 131 174 217 260 303   3  46  89 132 
  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
@@ -69277,7 +69277,7 @@ In efficiencies.frontier(d6, logDepVar = FALSE) :
  NA  NA  NA  NA 
 Warning message:
 In efficiencies.frontier(d6, asInData = TRUE, logDepVar = FALSE) :
-  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'farrell'
+  currently, the efficiency estimates based on models with non-logged dependent variable can be calculated only if 'ineffDecrease' is equal to 'minusU'
 > round( efficiencies( d6, logDepVar = FALSE, farrell = FALSE ), 2 )
      1999 2000 2001 2002 2003 2004 2005 2006
 F_01 1.01 1.01 1.01 1.01 1.01 1.01 1.01 1.01
@@ -71560,4 +71560,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 28.700   0.932  29.655 
+ 28.496   0.848  29.372 
