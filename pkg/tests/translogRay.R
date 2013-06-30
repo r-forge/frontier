@@ -4,9 +4,9 @@ options( digits = 5 )
 printAll <- function( x ) {
    for( n in names( x ) ) {
       cat( "$", n, "\n", sep = "" )
-      if( n %in% c( "olsParam", "gridParam", "mleParam", "olsStdEr" ) ) {
+      if( n %in% c( "olsParam", "gridParam", "mleParam", "olsStdEr", "mleCov" ) ) {
          print( round( x[[ n ]], 2 ) )
-      } else if( n %in% c( "mleCov", "resid", "olsResid" ) ) {
+      } else if( n %in% c( "resid", "olsResid" ) ) {
          print( round( x[[ n ]], 3 ) )
       } else {
          print( x[[ n ]] )
