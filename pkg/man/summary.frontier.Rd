@@ -10,7 +10,7 @@ returned by \code{\link{frontier}}.
 
 \usage{
 \method{summary}{frontier}( object, effic = FALSE,
-   logDepVar = TRUE, minusU = farrell, farrell = TRUE, \dots )
+   logDepVar = TRUE, effMinusU = farrell, farrell = TRUE, \dots )
 \method{print}{summary.frontier}( x, effic = x$printEffic, \dots )
 }
 
@@ -21,8 +21,12 @@ returned by \code{\link{frontier}}.
       (returned by the function \code{summary.frontier}).}
    \item{effic}{logical. Print the individual efficiency estimates?}
    \item{logDepVar}{logical. Is the dependent variable logged?}
-   \item{minusU}{logical. See documentation of 
-      \code{\link{efficiencies.frontier}}.}
+   \item{effMinusU}{logical. If \code{TRUE} (the default), 
+      the efficiencies are calculated by E[exp(-u)].
+      If \code{FALSE}, 
+      the efficiencies are calculated by E[exp(u)].
+      For details, see documentation of argument \code{minusU} 
+      of \code{\link{efficiencies.frontier}}.}
    \item{farrell}{logical. This argument is only kept for backward compatibility
       and will be removed in the future.}
    \item{\dots}{further arguments to the \code{summary} method 

@@ -181,7 +181,7 @@ Warning messages:
   the residuals of the OLS estimates are left-skewed and the likelihood value of the ML estimation is less than that obtained using OLS; this usually indicates that there is no inefficiency or that the model is misspecified
 2: In sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
   the maximum number of iterations has been reached; please try again using different starting values and/or increase the maximum number of iterations
-> print( summary( a3, minusU = FALSE ), digits = 1 )
+> print( summary( a3, effMinusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
@@ -667,4 +667,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  1.812   0.024   1.829 
+  1.316   0.028   1.343 

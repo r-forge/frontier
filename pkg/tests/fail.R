@@ -58,7 +58,7 @@ print( summary( a2 ), digits = 2 )
 ## no convergence, L(MLE) < L(OLS), wrong skewness
 a3 <- sfa( log( output ) ~ log( capital ) + log( labour ),
    data = front41Data, maxit = 2, ineffDecrease = FALSE )
-print( summary( a3, minusU = FALSE ), digits = 1 )
+print( summary( a3, effMinusU = FALSE ), digits = 1 )
 
 ## L(MLE) < L(OLS)
 a4 <- sfa( log( output ) ~ log( capital ) + log( labour ),
