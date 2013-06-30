@@ -129,12 +129,12 @@ logCapital         0.00          0      0.00    0.00  0.00
 logLabour         -0.01          0      0.00    0.00  0.00
 sigmaSq            0.00          0      0.00    0.00  0.01
 gamma              0.01          0      0.00    0.01  0.02
-> logLik( a1, which = "ols" )
-'log Lik.' -18.447 (df=4)
-> logLik( a1, which = "grid" )
-'log Lik.' -17.035 (df=5)
-> logLik( a1 )
-'log Lik.' -17.027 (df=5)
+> print( logLik( a1, which = "ols" ), digits = 4 )
+'log Lik.' -18.45 (df=4)
+> print( logLik( a1, which = "grid" ), digits = 4 )
+'log Lik.' -17.03 (df=5)
+> print( logLik( a1 ), digits = 4 )
+'log Lik.' -17.03 (df=5)
 > nobs( a1 )
 [1] 60
 > print( summary( a1 ), digits = 1 )
@@ -738,14 +738,14 @@ parameters
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
 > all.equal( sa2[-c(8,39)], a2[-c(8,39)], tol = 1e-4 )
 [1] TRUE
-> print( a2 )
+> print( a2, digits = 1 )
 
 Call:
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data, truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)   logCapital    logLabour      sigmaSq        gamma           mu  
-      0.476        0.283        0.540        0.548        0.908       -1.411  
+        0.5          0.3          0.5          0.5          0.9         -1.4  
 > coef( a2, which = "start" )
 NULL
 > round( coef( a2, which = "ols" ), 2 )
@@ -779,10 +779,10 @@ logLabour         -0.01          0      0.00    0.00  0.00 -0.01
 sigmaSq           -0.03          0      0.00    0.39  0.07 -1.60
 gamma              0.00          0      0.00    0.07  0.01 -0.29
 mu                 0.16          0     -0.01   -1.60 -0.29  6.75
-> logLik( a2, which = "ols" )
-'log Lik.' -18.447 (df=4)
-> logLik( a2 )
-'log Lik.' -16.796 (df=6)
+> print( logLik( a2, which = "ols" ), digits = 4 )
+'log Lik.' -18.45 (df=4)
+> print( logLik( a2 ), digits = 4 )
+'log Lik.' -16.8 (df=6)
 > nobs( a2 )
 [1] 60
 > print( summary( a2 ), digits = 1 )
@@ -1242,14 +1242,14 @@ class
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 > all.equal( sa5[-39], a5[-39], tol = 1e-4 )
 [1] TRUE
-> print( a5 )
+> print( a5, digits = 1 )
 
 Call:
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data, truncNorm = TRUE, startVal = c(0.5, 0.3,          0.5, 0.5, 0.9, -1))
 
 Maximum likelihood estimates
 (Intercept)   logCapital    logLabour      sigmaSq        gamma           mu  
-      0.478        0.284        0.540        0.549        0.908       -1.413  
+        0.5          0.3          0.5          0.5          0.9         -1.4  
 > coef( a5, which = "start" )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
         0.5         0.3         0.5         0.5         0.9        -1.0 
@@ -1283,10 +1283,10 @@ logLabour         -0.01       0.00      0.00    0.00  0.00 -0.01
 sigmaSq           -0.05       0.00      0.00    0.62  0.10 -2.53
 gamma              0.00       0.00      0.00    0.10  0.02 -0.41
 mu                 0.24      -0.01     -0.01   -2.53 -0.41 10.73
-> logLik( a5, which = "ols" )
-'log Lik.' -18.447 (df=4)
-> logLik( a5 )
-'log Lik.' -16.795 (df=6)
+> print( logLik( a5, which = "ols" ), digits = 4 )
+'log Lik.' -18.45 (df=4)
+> print( logLik( a5 ), digits = 4 )
+'log Lik.' -16.79 (df=6)
 > nobs( a5 )
 [1] 60
 > print( summary( a5 ), digits = 1 )
@@ -1726,14 +1726,14 @@ parameters
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
 > all.equal( saa1[-39], aa1[-39], tol = 1e-4 )
 [1] TRUE
-> print( aa1 )
+> print( aa1, digits = 1 )
 
 Call:
 frontier(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data)
 
 Maximum likelihood estimates
 (Intercept)   logCapital    logLabour     Z_firmNo      sigmaSq        gamma  
-     0.5368       0.2686       0.5393      -0.0103       0.2846       0.8401  
+       0.54         0.27         0.54        -0.01         0.28         0.84  
 > coef( aa1, which = "start" )
 NULL
 > round( coef( aa1, which = "ols" ), 2 )
@@ -3684,14 +3684,14 @@ mean efficiency: 0.75779
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 > all.equal( sbb1[-39], bb1[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb1 )
+> print( bb1, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -1.043        0.356        0.333        0.271        0.239        0.885  
+       -1.0          0.4          0.3          0.3          0.2          0.9  
 > coef( bb1, which = "start" )
 NULL
 > round( coef( bb1, which = "ols" ), 2 )
@@ -5481,16 +5481,16 @@ class
 +    truncNorm = TRUE )
 > all.equal( sbb2[-39], bb2[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb2 )
+> print( bb2, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil, truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -1.132        0.354        0.335        0.274        0.663        0.950  
+       -1.1          0.4          0.3          0.3          0.7          0.9  
          mu  
-     -1.587  
+       -1.6  
 > coef( bb2, which = "start" )
 NULL
 > round( coef( bb2, which = "ols" ), 2 )
@@ -7708,16 +7708,16 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ) )
 > all.equal( sbb5[-39], bb5[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb5 )
+> print( bb5, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
-    -1.0086       0.3841       0.3190       0.2604      -0.0581      -1.4057  
+      -1.01         0.38         0.32         0.26        -0.06        -1.41  
     sigmaSq        gamma  
-     0.5975       0.9449  
+       0.60         0.94  
 > coef( bb5, which = "start" )
 NULL
 > round( coef( bb5, which = "ols" ), 2 )
@@ -9519,16 +9519,16 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 > all.equal( sbb6[-39], bb6[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb6 )
+> print( bb6, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE)
 
 Maximum likelihood estimates
   (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
-      -1.0518         0.3798         0.3210         0.2638        -2.7460  
+        -1.05           0.38           0.32           0.26          -2.75  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-      -0.0286        -3.6350         1.6663         0.9788  
+        -0.03          -3.63           1.67           0.98  
 > coef( bb6, which = "start" )
 NULL
 > round( coef( bb6, which = "ols" ), 2 )
@@ -13890,16 +13890,16 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
 > all.equal( sbb7[-39], bb7[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb7 )
+> print( bb7, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhil, truncNorm = TRUE, startVal = c(-1, 0.3,          0.3, 0.3, 0.2, 0.9, -0.01))
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -1.091        0.358        0.326        0.275        0.677        0.953  
+       -1.1          0.4          0.3          0.3          0.7          1.0  
          mu  
-     -1.606  
+       -1.6  
 > coef( bb7, which = "start" )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.00        0.30        0.30        0.30        0.20        0.90 
@@ -15303,16 +15303,16 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 > all.equal( sbb8[-39], bb8[-39], tol = 1e-4 )
 [1] TRUE
-> print( bb8 )
+> print( bb8, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhil, zIntercept = TRUE,      startVal = c(-1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8))
 
 Maximum likelihood estimates
   (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
-      -1.0518         0.3798         0.3210         0.2638        -2.7466  
+        -1.05           0.38           0.32           0.26          -2.75  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-      -0.0286        -3.6357         1.6666         0.9788  
+        -0.03          -3.64           1.67           0.98  
 > coef( bb8, which = "start" )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.00          0.30          0.30          0.30         -0.20 
@@ -16793,16 +16793,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > all.equal( sdd1[-39], dd1[-39], tol = 1e-4 )
 [1] TRUE
-> print( dd1 )
+> print( dd1, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhil, ineffDecrease = FALSE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8704       0.4617       0.5065       0.4138       0.0705       0.0704  
+       5.87         0.46         0.51         0.41         0.07         0.07  
       gamma  
-     0.5303  
+       0.53  
 > coef( dd1, which = "start" )
 NULL
 > round( coef( dd1, which = "ols" ), 2 )
@@ -19020,16 +19020,16 @@ class
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
 > all.equal( sdd2[-39], dd2[-39], tol = 1e-4 )
 [1] TRUE
-> print( dd2 )
+> print( dd2, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8939       0.4659       0.5034       0.4136       0.0722       0.1436  
+       5.89         0.47         0.50         0.41         0.07         0.14  
       gamma           mu  
-     0.7682      -0.6643  
+       0.77        -0.66  
 > coef( dd2, which = "start" )
 NULL
 > round( coef( dd2, which = "ols" ), 2 )
@@ -20849,16 +20849,16 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd5[-39], dd5[-39], tol = 1e-4 )
 [1] TRUE
-> print( dd5 )
+> print( dd5, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), zNames = c("EDYRS", "BANRAT"), data = riceProdPhil,      ineffDecrease = FALSE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      Z_EDYRS  
-     5.9198       0.4631       0.5079       0.4133       0.0766      -7.9910  
+       5.92         0.46         0.51         0.41         0.08        -7.99  
    Z_BANRAT      sigmaSq        gamma  
-   -50.2047       7.8488       0.9952  
+     -50.20         7.85         1.00  
 > coef( dd5, which = "start" )
 NULL
 > round( coef( dd5, which = "ols" ), 2 )
@@ -25231,16 +25231,16 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd6[-39], dd6[-39], tol = 1e-4 )
 [1] TRUE
-> print( dd6 )
+> print( dd6, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), zNames = c("EDYRS", "BANRAT"), data = riceProdPhil,      zIntercept = TRUE, ineffDecrease = FALSE)
 
 Maximum likelihood estimates
   (Intercept)          lPROD          lAREA        lLABORP          lNPKP  
-       5.9128         0.4642         0.5066         0.4134         0.0772  
+         5.91           0.46           0.51           0.41           0.08  
 Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-     -11.0504        -8.6513       -56.2227        10.0270         0.9963  
+       -11.05          -8.65         -56.22          10.03           1.00  
 > coef( dd6, which = "start" )
 NULL
 > round( coef( dd6, which = "ols" ), 2 )
@@ -27186,14 +27186,14 @@ parameters
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 > all.equal( sb1[-c(8,39)], b1[-c(8,39)], tol = 1e-4 )
 [1] TRUE
-> print( b1 )
+> print( b1, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -0.832        0.454        0.289        0.228        0.155        0.464  
+       -0.8          0.5          0.3          0.2          0.2          0.5  
 > coef( b1, which = "start" )
 NULL
 > round( coef( b1, which = "ols" ), 2 )
@@ -27228,9 +27228,9 @@ lLABOR            -0.01  0.00   0.00    0       0  0.00
 lNPK               0.00  0.00   0.00    0       0  0.00
 sigmaSq            0.00  0.00   0.00    0       0  0.00
 gamma              0.01  0.00   0.00    0       0  0.01
-> logLik( b1, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b1 )
+> print( logLik( b1, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b1 ), digits = 4 )
 'log Lik.' -86.43 (df=6)
 > nobs( b1 )
 [1] 344
@@ -28204,16 +28204,16 @@ class
 +    truncNorm = TRUE )
 > all.equal( sb2[-39], b2[-39], tol = 1e-4 )
 [1] TRUE
-> print( b2 )
+> print( b2, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -0.829        0.455        0.287        0.225        0.203        0.590  
+       -0.8          0.5          0.3          0.2          0.2          0.6  
          mu  
-     -0.273  
+       -0.3  
 > coef( b2, which = "start" )
 NULL
 > round( coef( b2, which = "ols" ), 2 )
@@ -28252,10 +28252,10 @@ lNPK               0.00  0.00   0.00    0    0.00  0.00  0.00
 sigmaSq            0.01  0.00   0.00    0    0.03  0.06 -0.16
 gamma              0.01  0.00   0.00    0    0.06  0.13 -0.33
 mu                -0.02 -0.01   0.01    0   -0.16 -0.33  0.93
-> logLik( b2, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b2 )
-'log Lik.' -86.343 (df=7)
+> print( logLik( b2, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b2 ), digits = 4 )
+'log Lik.' -86.34 (df=7)
 > nobs( b2 )
 [1] 344
 > print( summary( b2 ), digits = 1 )
@@ -29115,16 +29115,16 @@ class
 +    timeEffect = TRUE )
 > all.equal( sb3[-39], b3[-39], tol = 1e-4 )
 [1] TRUE
-> print( b3 )
+> print( b3, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-    -0.7539       0.4749       0.3001       0.1995       0.1300       0.3696  
+      -0.75         0.47         0.30         0.20         0.13         0.37  
        time  
-     0.0589  
+       0.06  
 > coef( b3, which = "start" )
 NULL
 > round( coef( b3, which = "ols" ), 2 )
@@ -29163,9 +29163,9 @@ lNPK              -0.01  0.00   0.00  0.00       0  0.00    0
 sigmaSq            0.00  0.00   0.00  0.00       0  0.00    0
 gamma              0.01  0.00   0.00  0.00       0  0.01    0
 time               0.00  0.00   0.00  0.00       0  0.00    0
-> logLik( b3, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b3 )
+> print( logLik( b3, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b3 ), digits = 4 )
 'log Lik.' -84.55 (df=7)
 > nobs( b3 )
 [1] 344
@@ -30030,16 +30030,16 @@ class
 +    truncNorm = TRUE, timeEffect = TRUE )
 > all.equal( sb4[-39], b4[-39], tol = 1e-4 )
 [1] TRUE
-> print( b4 )
+> print( b4, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-    -0.7501       0.4762       0.2985       0.1961       0.1722       0.5237  
+      -0.75         0.48         0.30         0.20         0.17         0.52  
          mu         time  
-    -0.3173       0.0647  
+      -0.32         0.06  
 > coef( b4, which = "start" )
 NULL
 > round( coef( b4, which = "ols" ), 2 )
@@ -30080,10 +30080,10 @@ sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.15  0.00
 gamma              0.01  0.00   0.00  0.00    0.06  0.17 -0.42  0.00
 mu                -0.01  0.00   0.00  0.00   -0.15 -0.42  1.10 -0.01
 time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00
-> logLik( b4, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b4 )
-'log Lik.' -84.407 (df=8)
+> print( logLik( b4, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b4 ), digits = 4 )
+'log Lik.' -84.41 (df=8)
 > nobs( b4 )
 [1] 344
 > print( summary( b4 ), digits = 1 )
@@ -31006,16 +31006,16 @@ parameters
 +    zNames = c( "EDYRS", "BANRAT" ) )
 > all.equal( sb5[-39], b5[-39], tol = 1e-4 )
 [1] TRUE
-> print( b5 )
+> print( b5, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
-    -1.0086       0.3841       0.3190       0.2604      -0.0581      -1.4057  
+      -1.01         0.38         0.32         0.26        -0.06        -1.41  
     sigmaSq        gamma  
-     0.5975       0.9449  
+       0.60         0.94  
 > coef( b5, which = "start" )
 NULL
 > round( coef( b5, which = "ols" ), 2 )
@@ -31056,9 +31056,9 @@ Z_EDYRS            0.00  0.00   0.00    0    0.01     0.05   -0.02  0.00
 Z_BANRAT           0.00  0.00   0.00    0    0.05     0.82   -0.25 -0.02
 sigmaSq            0.00  0.00   0.00    0   -0.02    -0.25    0.10  0.01
 gamma              0.00  0.00   0.00    0    0.00    -0.02    0.01  0.00
-> logLik( b5, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b5 )
+> print( logLik( b5, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b5 ), digits = 4 )
 'log Lik.' -77.85 (df=8)
 > nobs( b5 )
 [1] 344
@@ -32961,16 +32961,16 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 > all.equal( sb6[-39], b6[-39], tol = 1e-4 )
 [1] TRUE
-> print( b6 )
+> print( b6, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE)
 
 Maximum likelihood estimates
   (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
-      -1.0518         0.3798         0.3210         0.2638        -2.7465  
+        -1.05           0.38           0.32           0.26          -2.75  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-      -0.0286        -3.6355         1.6666         0.9788  
+        -0.03          -3.64           1.67           0.98  
 > coef( b6, which = "start" )
 NULL
 > round( coef( b6, which = "ols" ), 2 )
@@ -33023,10 +33023,10 @@ Z_EDYRS         -0.12  0.00
 Z_BANRAT       -29.55 -0.36
 sigmaSq         13.66  0.17
 gamma            0.17  0.00
-> logLik( b6, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b6 )
-'log Lik.' -77.314 (df=9)
+> print( logLik( b6, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b6 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > nobs( b6 )
 [1] 344
 > print( summary( b6 ), digits = 1 )
@@ -33907,16 +33907,16 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 > all.equal( sb7[-39], b7[-39], tol = 1e-4 )
 [1] TRUE
-> print( b7 )
+> print( b7, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,      startVal = c(-1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1))
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-    -0.7502       0.4762       0.2985       0.1961       0.1722       0.5237  
+      -0.75         0.48         0.30         0.20         0.17         0.52  
          mu         time  
-    -0.3173       0.0647  
+      -0.32         0.06  
 > coef( b7, which = "start" )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
        -1.0         0.3         0.3         0.3         0.2         0.5 
@@ -33959,10 +33959,10 @@ sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.16  0.00
 gamma              0.01  0.00   0.00  0.00    0.06  0.18 -0.44  0.00
 mu                -0.01  0.00   0.00  0.01   -0.16 -0.44  1.14 -0.01
 time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00
-> logLik( b7, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b7 )
-'log Lik.' -84.407 (df=8)
+> print( logLik( b7, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b7 ), digits = 4 )
+'log Lik.' -84.41 (df=8)
 > nobs( b7 )
 [1] 344
 > print( summary( b7 ), digits = 1 )
@@ -34733,16 +34733,16 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 > all.equal( sb8[-39], b8[-39], tol = 1e-4 )
 [1] TRUE
-> print( b8 )
+> print( b8, digits = 1 )
 
 Call:
 frontier(yName = "lPROD", xNames = c("lAREA", "lLABOR", "lNPK"),      zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE, startVal = c(-1, 0.3, 0.3, 0.3, -0.3,          -0.01, -0.4, 0.2, 0.8))
 
 Maximum likelihood estimates
   (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
-      -1.0518         0.3798         0.3210         0.2638        -2.7463  
+        -1.05           0.38           0.32           0.26          -2.75  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-      -0.0286        -3.6354         1.6666         0.9788  
+        -0.03          -3.64           1.67           0.98  
 > coef( b8, which = "start" )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.00          0.30          0.30          0.30         -0.30 
@@ -34797,10 +34797,10 @@ Z_EDYRS         -0.12  0.00
 Z_BANRAT       -26.88 -0.33
 sigmaSq         12.43  0.15
 gamma            0.15  0.00
-> logLik( b8, which = "ols" )
-'log Lik.' -104.91 (df=5)
-> logLik( b8 )
-'log Lik.' -77.314 (df=9)
+> print( logLik( b8, which = "ols" ), digits = 4 )
+'log Lik.' -104.9 (df=5)
+> print( logLik( b8 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > nobs( b8 )
 [1] 344
 > print( summary( b8 ), digits = 1 )
@@ -35634,16 +35634,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
 > all.equal( sd1[-39], d1[-39], tol = 1e-4 )
 [1] TRUE
-> print( d1 )
+> print( d1, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhilPanel, ineffDecrease = FALSE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8024       0.3718       0.5531       0.4435       0.0918       0.0728  
+       5.80         0.37         0.55         0.44         0.09         0.07  
       gamma  
-     0.4828  
+       0.48  
 > coef( d1, which = "start" )
 NULL
 > round( coef( d1, which = "ols" ), 2 )
@@ -36663,16 +36663,16 @@ class
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
 > all.equal( sd2[-39], d2[-39], tol = 1e-4 )
 [1] TRUE
-> print( d2 )
+> print( d2, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhilPanel, ineffDecrease = FALSE,      truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.7243       0.3579       0.5474       0.4436       0.0954       0.0509  
+       5.72         0.36         0.55         0.44         0.10         0.05  
       gamma           mu  
-     0.2867       0.2415  
+       0.29         0.24  
 > coef( d2, which = "start" )
 NULL
 > round( coef( d2, which = "ols" ), 2 )
@@ -37579,16 +37579,16 @@ class
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
 > all.equal( sd3[-39], d3[-39], tol = 1e-4 )
 [1] TRUE
-> print( d3 )
+> print( d3, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhilPanel, ineffDecrease = FALSE,      timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8059       0.3701       0.5581       0.4395       0.0974       0.0809  
+       5.81         0.37         0.56         0.44         0.10         0.08  
       gamma         time  
-     0.5355      -0.0336  
+       0.54        -0.03  
 > coef( d3, which = "start" )
 NULL
 > round( coef( d3, which = "ols" ), 2 )
@@ -38500,16 +38500,16 @@ class
 +    timeEffect = TRUE )
 > all.equal( sd4[-39], d4[-39], tol = 1e-4 )
 [1] TRUE
-> print( d4 )
+> print( d4, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), data = riceProdPhilPanel, ineffDecrease = FALSE,      truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.7318       0.3561       0.5497       0.4402       0.0983       0.0541  
+       5.73         0.36         0.55         0.44         0.10         0.05  
       gamma           mu         time  
-     0.3216       0.2637      -0.0271  
+       0.32         0.26        -0.03  
 > coef( d4, which = "start" )
 NULL
 > round( coef( d4, which = "ols" ), 2 )
@@ -39439,16 +39439,16 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd5[-39], d5[-39], tol = 1e-4 )
 [1] TRUE
-> print( d5 )
+> print( d5, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      ineffDecrease = FALSE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      Z_EDYRS  
-     5.9191       0.4629       0.5081       0.4135       0.0768      -7.4396  
+       5.92         0.46         0.51         0.41         0.08        -7.44  
    Z_BANRAT      sigmaSq        gamma  
-   -43.5788       7.1158       0.9948  
+     -43.58         7.12         0.99  
 > coef( d5, which = "start" )
 NULL
 > round( coef( d5, which = "ols" ), 2 )
@@ -41427,16 +41427,16 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd6[-39], d6[-39], tol = 1e-4 )
 [1] TRUE
-> print( d6 )
+> print( d6, digits = 1 )
 
 Call:
 frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"), zNames = c("EDYRS", "BANRAT"), data = riceProdPhilPanel,      zIntercept = TRUE, ineffDecrease = FALSE)
 
 Maximum likelihood estimates
   (Intercept)          lPROD          lAREA        lLABORP          lNPKP  
-       5.9137         0.4639         0.5071         0.4134         0.0771  
+        6e+00          5e-01          5e-01          4e-01          8e-02  
 Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-     -14.5594       -15.5878       -96.0982        17.1831         0.9979  
+       -1e+01         -2e+01         -1e+02          2e+01          1e+00  
 > coef( d6, which = "start" )
 NULL
 > round( coef( d6, which = "ols" ), 2 )
@@ -42429,14 +42429,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## unbalanced panel data, error components frontier
 > b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
-> print( b1u )
+> print( b1u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -0.833        0.454        0.290        0.226        0.157        0.464  
+       -0.8          0.5          0.3          0.2          0.2          0.5  
 > print( summary( b1u ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -43292,16 +43292,16 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm
 > b2u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE )
-> print( b2u )
+> print( b2u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-     -0.831        0.455        0.289        0.224        0.199        0.578  
+       -0.8          0.5          0.3          0.2          0.2          0.6  
          mu  
-     -0.243  
+       -0.2  
 > print( summary( b2u ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -44162,16 +44162,16 @@ class
 > ## unbalanced panel data, error components frontier, timeEffect
 > b3u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    timeEffect = TRUE )
-> print( b3u )
+> print( b3u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-    -0.7555       0.4751       0.3015       0.1985       0.1313       0.3700  
+      -0.76         0.48         0.30         0.20         0.13         0.37  
        time  
-     0.0585  
+       0.06  
 > print( summary( b3u ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -45036,16 +45036,16 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 > b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE, timeEffect = TRUE )
-> print( b4u )
+> print( b4u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,      truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      sigmaSq        gamma  
-    -0.7528       0.4762       0.2999       0.1955       0.1691       0.5103  
+      -0.75         0.48         0.30         0.20         0.17         0.51  
          mu         time  
-    -0.2835       0.0639  
+      -0.28         0.06  
 > print( summary( b4u ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -46035,16 +46035,16 @@ class
 > ## unbalanced panel data, efficiency effects frontier
 > b5u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb )
-> print( b5u )
+> print( b5u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT -      1, data = riceProdPhilPanelUnb)
 
 Maximum likelihood estimates
 (Intercept)        lAREA       lLABOR         lNPK      Z_EDYRS     Z_BANRAT  
-    -1.0302       0.3797       0.3214       0.2634      -0.0544      -1.3590  
+      -1.03         0.38         0.32         0.26        -0.05        -1.36  
     sigmaSq        gamma  
-     0.5854       0.9434  
+       0.59         0.94  
 > print( summary( b5u ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -46911,16 +46911,16 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > b6u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhilPanelUnb )
-> print( b6u )
+> print( b6u, digits = 1 )
 
 Call:
 sfa(formula = lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,      data = riceProdPhilPanelUnb)
 
 Maximum likelihood estimates
   (Intercept)          lAREA         lLABOR           lNPK  Z_(Intercept)  
-      -1.0732         0.3754         0.3236         0.2667        -2.5303  
+        -1.07           0.38           0.32           0.27          -2.53  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-      -0.0223        -3.3433         1.5527         0.9771  
+        -0.02          -3.34           1.55           0.98  
 > print( summary( b6u ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -48836,16 +48836,16 @@ class
 > ## unbalanced panel rice data, error components cost frontier
 > d1u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE )
-> print( d1u )
+> print( d1u, digits = 1 )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8260       0.3727       0.5539       0.4395       0.0896       0.0719  
+       5.83         0.37         0.55         0.44         0.09         0.07  
       gamma  
-     0.4703  
+       0.47  
 > print( summary( d1u ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -49826,16 +49826,16 @@ class
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
 > d2u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE )
-> print( d2u )
+> print( d2u, digits = 1 )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, truncNorm = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.7456       0.3569       0.5492       0.4400       0.0936       0.0509  
+       5.75         0.36         0.55         0.44         0.09         0.05  
       gamma           mu  
-     0.2817       0.2394  
+       0.28         0.24  
 > print( summary( d2u, effMinusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -50700,16 +50700,16 @@ class
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
 > d3u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, timeEffect = TRUE )
-> print( d3u )
+> print( d3u, digits = 1 )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.8323       0.3707       0.5595       0.4347       0.0957       0.0805  
+       5.83         0.37         0.56         0.43         0.10         0.08  
       gamma         time  
-     0.5283      -0.0374  
+       0.53        -0.04  
 > print( summary( d3u, effMinusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -51578,16 +51578,16 @@ class
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
 > d4u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
-> print( d4u )
+> print( d4u, digits = 1 )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,      ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      sigmaSq  
-     5.7542       0.3568       0.5489       0.4349       0.0972       0.0536  
+       5.75         0.36         0.55         0.43         0.10         0.05  
       gamma           mu         time  
-     0.3131       0.2592      -0.0262  
+       0.31         0.26        -0.03  
 > print( summary( d4u, effMinusU = FALSE ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -53478,16 +53478,16 @@ class
 Warning message:
 In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( d6u )
+> print( d6u, digits = 1 )
 
 Call:
 sfa(formula = lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS +      BANRAT, data = riceProdPhilPanelUnb, ineffDecrease = FALSE)
 
 Maximum likelihood estimates
   (Intercept)          lPROD          lAREA        lLABORP          lNPKP  
-       5.9195         0.4621         0.5079         0.4129         0.0769  
+         5.92           0.46           0.51           0.41           0.08  
 Z_(Intercept)        Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-       8.0563       -18.2897       -93.6802        16.2483         0.9977  
+         8.06         -18.29         -93.68          16.25           1.00  
 > print( summary( d6u, effMinusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -54380,14 +54380,14 @@ class
 > ## panel data with NA firms, error components frontier
 > b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naPanelData )
-> print( b1n )
+> print( b1n, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),      data = naPanelData)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      sigmaSq        gamma  
-     -0.516        0.503        0.219        0.225        0.154        0.510  
+       -0.5          0.5          0.2          0.2          0.2          0.5  
 > print( summary( b1n ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -55194,16 +55194,16 @@ class
 > ## panel data with NA firms, error components frontier, truncNorm, timeEffect
 > b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
-> print( b4n )
+> print( b4n, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),      data = naPanelData, truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      sigmaSq        gamma  
-    -0.4441       0.5158       0.2428       0.1815       0.2117       0.6579  
+      -0.44         0.52         0.24         0.18         0.21         0.66  
          mu         time  
-    -0.7464       0.0892  
+      -0.75         0.09  
 > print( summary( b4n ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -56020,16 +56020,16 @@ class
 > ## panel data with NA firms, efficiency effects frontier
 > b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = naPanelData )
-> print( b5n )
+> print( b5n, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) |      EDYRS + BANRAT - 1, data = naPanelData)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      Z_EDYRS     Z_BANRAT  
-     -0.891        0.405        0.287        0.262       -0.124       -1.655  
+       -0.9          0.4          0.3          0.3         -0.1         -1.7  
     sigmaSq        gamma  
-      0.736        0.952  
+        0.7          1.0  
 > print( summary( b5n ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -56844,16 +56844,16 @@ class
 > ## panel data with NA firms, efficiency effects frontier, zIntercept
 > b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT, data = naPanelData )
-> print( b6n )
+> print( b6n, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) |      EDYRS + BANRAT, data = naPanelData)
 
 Maximum likelihood estimates
   (Intercept)      log(AREA)     log(LABOR)       log(NPK)  Z_(Intercept)  
-       -0.855          0.407          0.286          0.259          0.660  
+         -0.9            0.4            0.3            0.3            0.7  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-       -0.101         -0.972          0.400          0.916  
+         -0.1           -1.0            0.4            0.9  
 > print( summary( b6n ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -57678,14 +57678,14 @@ class
 > ## panel data with NA years, error components frontier
 > b1t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naTimePanelData )
-> print( b1t )
+> print( b1t, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),      data = naTimePanelData)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      sigmaSq        gamma  
-     -1.146        0.402        0.349        0.238        0.166        0.423  
+       -1.1          0.4          0.3          0.2          0.2          0.4  
 > print( summary( b1t ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -58444,16 +58444,16 @@ class
 > ## panel data with NA years, error components frontier, truncNorm, timeEffect
 > b4t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
-> print( b4t )
+> print( b4t, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),      data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      sigmaSq        gamma  
-     -1.095        0.420        0.373        0.200        0.163        0.426  
+       -1.1          0.4          0.4          0.2          0.2          0.4  
          mu         time  
-     -0.221        0.107  
+       -0.2          0.1  
 > print( summary( b4t ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -59222,16 +59222,16 @@ class
 > ## panel data with NA years, efficiency effects frontier
 > b5t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = naTimePanelData )
-> print( b5t )
+> print( b5t, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) |      EDYRS + BANRAT - 1, data = naTimePanelData)
 
 Maximum likelihood estimates
 (Intercept)    log(AREA)   log(LABOR)     log(NPK)      Z_EDYRS     Z_BANRAT  
-   -1.15142      0.34870      0.31578      0.29890     -0.00657     -0.82866  
+     -1.151        0.349        0.316        0.299       -0.007       -0.829  
     sigmaSq        gamma  
-    0.42992      0.91338  
+      0.430        0.913  
 > print( summary( b5t ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -59963,16 +59963,16 @@ class
 Warning message:
 In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) | EDYRS + BANRAT,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> print( b6t )
+> print( b6t, digits = 1 )
 
 Call:
 sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) |      EDYRS + BANRAT, data = naTimePanelData)
 
 Maximum likelihood estimates
   (Intercept)      log(AREA)     log(LABOR)       log(NPK)  Z_(Intercept)  
-       -1.220          0.346          0.319          0.300        -29.817  
+         -1.2            0.3            0.3            0.3          -29.8  
       Z_EDYRS       Z_BANRAT        sigmaSq          gamma  
-        1.109        -14.538          8.805          0.995  
+          1.1          -14.5            8.8            1.0  
 > print( summary( b6t ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -60706,14 +60706,14 @@ class
 > ## cross-section data, error components frontier, translog
 > translog <- frontierQuad( data = front41Data, yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ) )
-> print( translog )
+> print( translog, digits = 1 )
 
 Call:
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data)
 
 Maximum likelihood estimates
-     a_0       a_1       a_2     b_1_1     b_1_2     b_2_2   sigmaSq     gamma  
- 0.80928   0.39187   0.36392  -0.18324   0.00508   0.05769   0.18939   0.76232  
+    a_0      a_1      a_2    b_1_1    b_1_2    b_2_2  sigmaSq    gamma  
+  0.809    0.392    0.364   -0.183    0.005    0.058    0.189    0.762  
 > coef( translog, which = "start" )
 NULL
 > round( coef( translog, which = "ols" ), 2 )
@@ -60754,10 +60754,10 @@ b_1_2    0.01 -0.01  0.00  0.00  0.00  0.00    0.00  0.00
 b_2_2    0.01  0.00 -0.01  0.00  0.00  0.00    0.00  0.00
 sigmaSq  0.00  0.00  0.00  0.00  0.00  0.00    0.00  0.01
 gamma    0.00  0.00  0.00  0.00  0.00  0.00    0.01  0.02
-> logLik( translog, which = "ols" )
-'log Lik.' -15.857 (df=7)
-> logLik( translog )
-'log Lik.' -14.434 (df=8)
+> print( logLik( translog, which = "ols" ), digits = 4 )
+'log Lik.' -15.86 (df=7)
+> print( logLik( translog ), digits = 4 )
+'log Lik.' -14.43 (df=8)
 > nobs( translog )
 [1] 60
 > print( summary( translog ), digits = 1 )
@@ -61038,192 +61038,192 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
    53    54    55    56    57    58    59    60 
  0.05 -0.35 -0.26 -0.29 -0.07 -0.42  0.05 -0.39 
 > translogEla <- elas( translog )
-> print( translogEla )
-    logCapital logLabour
-1  -0.00096808   0.58062
-2   0.13259365   0.62252
-3   0.11633165   0.63164
-4   0.11749664   0.57826
-5   0.01199219   0.56688
-6   0.40311564   0.62520
-7   0.66338672   0.62149
-8   0.07598939   0.62756
-9   0.25388238   0.57941
-10  0.40079631   0.61834
-11  0.17732005   0.49990
-12  0.15668478   0.60227
-13  0.03318832   0.62207
-14  0.03633627   0.55839
-15  0.60862241   0.59965
-16  0.24951288   0.60822
-17  0.03405967   0.60986
-18  0.21813705   0.61650
-19  0.23353218   0.61309
-20  0.14858952   0.60489
-21  0.23524511   0.62707
-22  0.24468907   0.56618
-23  0.22448591   0.63112
-24  0.56090401   0.56640
-25  0.62837061   0.62026
-26  0.19820050   0.63309
-27  0.06416598   0.62660
-28  0.13918330   0.59701
-29  0.32340665   0.54475
-30  0.42831294   0.57436
-31  0.06753619   0.46958
-32  0.53143475   0.41350
-33  0.28794021   0.58231
-34  0.02844399   0.61832
-35  0.15742321   0.62202
-36  0.11799368   0.62331
-37  0.06027200   0.63878
-38  0.02083958   0.59135
-39  0.24450501   0.60452
-40  0.06105226   0.54050
-41  0.04810082   0.56328
-42  0.02982054   0.60073
-43  0.12353994   0.63039
-44  0.06006247   0.57066
-45  0.15227752   0.63440
-46  0.13248120   0.57945
-47  0.05235118   0.63310
-48 -0.00473251   0.56974
-49  0.12160032   0.59765
-50  0.00185019   0.58947
-51  0.21811810   0.60837
-52  0.02975703   0.61167
-53  0.01945611   0.63706
-54  0.18480788   0.58197
-55  0.29467908   0.61902
-56  0.07935540   0.61342
-57  0.03080085   0.37800
-58  0.00534187   0.63296
-59  0.03548138   0.61089
-60  0.09473289   0.59127
-> attributes( translogEla )$variance
+> round( translogEla, 2 )
    logCapital logLabour
-1    0.056346  0.049933
-2    0.046825  0.060665
-3    0.050015  0.064515
-4    0.041664  0.046266
-5    0.052769  0.045741
-6    0.037386  0.060716
-7    0.055964  0.065696
-8    0.053632  0.063787
-9    0.032467  0.044994
-10   0.036250  0.058124
-11   0.030413  0.029642
-12   0.041464  0.053039
-13   0.058001  0.062793
-14   0.048534  0.042900
-15   0.046610  0.056169
-16   0.036555  0.054120
-17   0.055805  0.058302
-18   0.039426  0.057289
-19   0.038056  0.055933
-20   0.042534  0.054050
-21   0.040280  0.061128
-22   0.031360  0.041451
-23   0.041556  0.062797
-24   0.038408  0.045108
-25   0.051568  0.063969
-26   0.043498  0.063837
-27   0.054862  0.063703
-28   0.042181  0.051585
-29   0.027301  0.036358
-30   0.031218  0.044410
-31   0.039635  0.028971
-32   0.034745  0.030416
-33   0.031685  0.045736
-34   0.057985  0.061525
-35   0.044569  0.060067
-36   0.048359  0.061237
-37   0.057620  0.068689
-38   0.054743  0.052512
-39   0.036224  0.052879
-40   0.043741  0.038258
-41   0.047575  0.043801
-42   0.054922  0.055289
-43   0.049078  0.063879
-44   0.046964  0.045422
-45   0.047203  0.064983
-46   0.040410  0.046334
-47   0.057523  0.066576
-48   0.055510  0.047012
-49   0.043897  0.052106
-50   0.057158  0.052501
-51   0.038145  0.054392
-52   0.056678  0.059065
-53   0.062668  0.069119
-54   0.036552  0.046298
-55   0.036693  0.057850
-56   0.050793  0.058401
-57   0.047707  0.033939
-58   0.063899  0.067885
-59   0.055785  0.058625
-60   0.045707  0.050609
-> attributes( translogEla )$stdDev
+1        0.00      0.58
+2        0.13      0.62
+3        0.12      0.63
+4        0.12      0.58
+5        0.01      0.57
+6        0.40      0.63
+7        0.66      0.62
+8        0.08      0.63
+9        0.25      0.58
+10       0.40      0.62
+11       0.18      0.50
+12       0.16      0.60
+13       0.03      0.62
+14       0.04      0.56
+15       0.61      0.60
+16       0.25      0.61
+17       0.03      0.61
+18       0.22      0.62
+19       0.23      0.61
+20       0.15      0.60
+21       0.24      0.63
+22       0.24      0.57
+23       0.22      0.63
+24       0.56      0.57
+25       0.63      0.62
+26       0.20      0.63
+27       0.06      0.63
+28       0.14      0.60
+29       0.32      0.54
+30       0.43      0.57
+31       0.07      0.47
+32       0.53      0.41
+33       0.29      0.58
+34       0.03      0.62
+35       0.16      0.62
+36       0.12      0.62
+37       0.06      0.64
+38       0.02      0.59
+39       0.24      0.60
+40       0.06      0.54
+41       0.05      0.56
+42       0.03      0.60
+43       0.12      0.63
+44       0.06      0.57
+45       0.15      0.63
+46       0.13      0.58
+47       0.05      0.63
+48       0.00      0.57
+49       0.12      0.60
+50       0.00      0.59
+51       0.22      0.61
+52       0.03      0.61
+53       0.02      0.64
+54       0.18      0.58
+55       0.29      0.62
+56       0.08      0.61
+57       0.03      0.38
+58       0.01      0.63
+59       0.04      0.61
+60       0.09      0.59
+> round( attributes( translogEla )$variance, 2 )
    logCapital logLabour
-1     0.23737   0.22346
-2     0.21639   0.24630
-3     0.22364   0.25400
-4     0.20412   0.21509
-5     0.22972   0.21387
-6     0.19336   0.24641
-7     0.23657   0.25631
-8     0.23158   0.25256
-9     0.18019   0.21212
-10    0.19039   0.24109
-11    0.17439   0.17217
-12    0.20363   0.23030
-13    0.24083   0.25059
-14    0.22031   0.20712
-15    0.21589   0.23700
-16    0.19119   0.23264
-17    0.23623   0.24146
-18    0.19856   0.23935
-19    0.19508   0.23650
-20    0.20624   0.23249
-21    0.20070   0.24724
-22    0.17709   0.20359
-23    0.20385   0.25059
-24    0.19598   0.21239
-25    0.22709   0.25292
-26    0.20856   0.25266
-27    0.23423   0.25239
-28    0.20538   0.22712
-29    0.16523   0.19068
-30    0.17669   0.21074
-31    0.19909   0.17021
-32    0.18640   0.17440
-33    0.17800   0.21386
-34    0.24080   0.24804
-35    0.21111   0.24509
-36    0.21991   0.24746
-37    0.24004   0.26209
-38    0.23397   0.22916
-39    0.19033   0.22996
-40    0.20914   0.19560
-41    0.21812   0.20929
-42    0.23435   0.23514
-43    0.22154   0.25274
-44    0.21671   0.21312
-45    0.21726   0.25492
-46    0.20102   0.21525
-47    0.23984   0.25802
-48    0.23561   0.21682
-49    0.20952   0.22827
-50    0.23908   0.22913
-51    0.19531   0.23322
-52    0.23807   0.24303
-53    0.25034   0.26291
-54    0.19119   0.21517
-55    0.19156   0.24052
-56    0.22537   0.24166
-57    0.21842   0.18423
-58    0.25278   0.26055
-59    0.23619   0.24213
-60    0.21379   0.22496
+1        0.06      0.05
+2        0.05      0.06
+3        0.05      0.06
+4        0.04      0.05
+5        0.05      0.05
+6        0.04      0.06
+7        0.06      0.07
+8        0.05      0.06
+9        0.03      0.04
+10       0.04      0.06
+11       0.03      0.03
+12       0.04      0.05
+13       0.06      0.06
+14       0.05      0.04
+15       0.05      0.06
+16       0.04      0.05
+17       0.06      0.06
+18       0.04      0.06
+19       0.04      0.06
+20       0.04      0.05
+21       0.04      0.06
+22       0.03      0.04
+23       0.04      0.06
+24       0.04      0.05
+25       0.05      0.06
+26       0.04      0.06
+27       0.05      0.06
+28       0.04      0.05
+29       0.03      0.04
+30       0.03      0.04
+31       0.04      0.03
+32       0.03      0.03
+33       0.03      0.05
+34       0.06      0.06
+35       0.04      0.06
+36       0.05      0.06
+37       0.06      0.07
+38       0.05      0.05
+39       0.04      0.05
+40       0.04      0.04
+41       0.05      0.04
+42       0.05      0.06
+43       0.05      0.06
+44       0.05      0.05
+45       0.05      0.06
+46       0.04      0.05
+47       0.06      0.07
+48       0.06      0.05
+49       0.04      0.05
+50       0.06      0.05
+51       0.04      0.05
+52       0.06      0.06
+53       0.06      0.07
+54       0.04      0.05
+55       0.04      0.06
+56       0.05      0.06
+57       0.05      0.03
+58       0.06      0.07
+59       0.06      0.06
+60       0.05      0.05
+> round( attributes( translogEla )$stdDev, 2 )
+   logCapital logLabour
+1        0.24      0.22
+2        0.22      0.25
+3        0.22      0.25
+4        0.20      0.22
+5        0.23      0.21
+6        0.19      0.25
+7        0.24      0.26
+8        0.23      0.25
+9        0.18      0.21
+10       0.19      0.24
+11       0.17      0.17
+12       0.20      0.23
+13       0.24      0.25
+14       0.22      0.21
+15       0.22      0.24
+16       0.19      0.23
+17       0.24      0.24
+18       0.20      0.24
+19       0.20      0.24
+20       0.21      0.23
+21       0.20      0.25
+22       0.18      0.20
+23       0.20      0.25
+24       0.20      0.21
+25       0.23      0.25
+26       0.21      0.25
+27       0.23      0.25
+28       0.21      0.23
+29       0.17      0.19
+30       0.18      0.21
+31       0.20      0.17
+32       0.19      0.17
+33       0.18      0.21
+34       0.24      0.25
+35       0.21      0.25
+36       0.22      0.25
+37       0.24      0.26
+38       0.23      0.23
+39       0.19      0.23
+40       0.21      0.20
+41       0.22      0.21
+42       0.23      0.24
+43       0.22      0.25
+44       0.22      0.21
+45       0.22      0.25
+46       0.20      0.22
+47       0.24      0.26
+48       0.24      0.22
+49       0.21      0.23
+50       0.24      0.23
+51       0.20      0.23
+52       0.24      0.24
+53       0.25      0.26
+54       0.19      0.22
+55       0.19      0.24
+56       0.23      0.24
+57       0.22      0.18
+58       0.25      0.26
+59       0.24      0.24
+60       0.21      0.22
 > printAll( translog )
 $modelType
 [1] 1
@@ -61501,16 +61501,16 @@ class
 > translogShift <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
 +    data = front41Data )
-> print( translogShift )
+> print( translogShift, digits = 1 )
 
 Call:
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      shifterNames = "firmNo", data = front41Data)
 
 Maximum likelihood estimates
-     a_0       a_1       a_2     b_1_1     b_1_2     b_2_2       d_1   sigmaSq  
- 0.69819   0.39545   0.39688  -0.19232   0.00169   0.04929   0.00222   0.18471  
-   gamma  
- 0.75478  
+    a_0      a_1      a_2    b_1_1    b_1_2    b_2_2      d_1  sigmaSq  
+  0.698    0.395    0.397   -0.192    0.002    0.049    0.002    0.185  
+  gamma  
+  0.755  
 > coef( translogShift, which = "start" )
 NULL
 > round( coef( translogShift, which = "ols" ), 2 )
@@ -61554,10 +61554,10 @@ b_2_2    0.01  0.00 -0.01  0.00  0.00  0.00   0    0.00  0.00
 d_1      0.00  0.00  0.00  0.00  0.00  0.00   0    0.00  0.00
 sigmaSq  0.00  0.00  0.00  0.00  0.00  0.00   0    0.00  0.01
 gamma    0.00  0.00  0.00  0.00  0.00  0.00   0    0.01  0.02
-> logLik( translogShift, which = "ols" )
-'log Lik.' -15.386 (df=8)
-> logLik( translogShift )
-'log Lik.' -14.032 (df=9)
+> print( logLik( translogShift, which = "ols" ), digits = 4 )
+'log Lik.' -15.39 (df=8)
+> print( logLik( translogShift ), digits = 4 )
+'log Lik.' -14.03 (df=9)
 > nobs( translogShift )
 [1] 60
 > print( summary( translogShift ), digits = 1 )
@@ -61742,68 +61742,68 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
    53    54    55    56    57    58    59    60 
  0.03 -0.41 -0.33 -0.33 -0.07 -0.45  0.01 -0.45 
 > translogShiftEla <- elas( translogShift )
-> print( translogShiftEla )
-    logCapital logLabour
-1  -0.02978645   0.57612
-2   0.10753101   0.61379
-3   0.08991829   0.62134
-4   0.09449242   0.57581
-5  -0.01534334   0.56459
-6   0.39082263   0.61998
-7   0.66377552   0.62055
-8   0.04790272   0.61728
-9   0.23732864   0.57876
-10  0.38882386   0.61408
-11  0.16209975   0.50982
-12  0.13404636   0.59686
-13  0.00339973   0.61197
-14  0.01069900   0.55769
-15  0.60776369   0.60113
-16  0.23094062   0.60327
-17  0.00507948   0.60157
-18  0.19754365   0.60989
-19  0.21388978   0.60719
-20  0.12539947   0.59898
-21  0.21480602   0.61915
-22  0.22852693   0.56734
-23  0.20327769   0.62245
-24  0.55985177   0.57208
-25  0.62716150   0.61900
-26  0.17561119   0.62376
-27  0.03557421   0.61629
-28  0.11603826   0.59212
-29  0.31235560   0.55019
-30  0.42041926   0.57696
-31  0.04897010   0.48237
-32  0.53857903   0.44119
-33  0.27283340   0.58172
-34 -0.00133625   0.60871
-35  0.13357917   0.61373
-36  0.09218324   0.61425
-37  0.03072903   0.62662
-38 -0.00760979   0.58559
-39  0.22592556   0.60004
-40  0.03772074   0.54278
-41  0.02271864   0.56203
-42  0.00121107   0.59373
-43  0.09754989   0.62037
-44  0.03478895   0.56850
-45  0.12740961   0.62422
-46  0.11011876   0.57704
-47  0.02278622   0.62166
-48 -0.03304727   0.56678
-49  0.09757414   0.59242
-50 -0.02738908   0.58371
-51  0.19803480   0.60295
-52  0.00045774   0.60305
-53 -0.01193138   0.62457
-54  0.16478976   0.57995
-55  0.27758861   0.61313
-56  0.05231836   0.60526
-57  0.01623179   0.40369
-58 -0.02646312   0.62087
-59  0.00650489   0.60247
-60  0.06982272   0.58658
+> print( translogShiftEla, digits = 1 )
+   logCapital logLabour
+1      -3e-02       0.6
+2       1e-01       0.6
+3       9e-02       0.6
+4       9e-02       0.6
+5      -2e-02       0.6
+6       4e-01       0.6
+7       7e-01       0.6
+8       5e-02       0.6
+9       2e-01       0.6
+10      4e-01       0.6
+11      2e-01       0.5
+12      1e-01       0.6
+13      3e-03       0.6
+14      1e-02       0.6
+15      6e-01       0.6
+16      2e-01       0.6
+17      5e-03       0.6
+18      2e-01       0.6
+19      2e-01       0.6
+20      1e-01       0.6
+21      2e-01       0.6
+22      2e-01       0.6
+23      2e-01       0.6
+24      6e-01       0.6
+25      6e-01       0.6
+26      2e-01       0.6
+27      4e-02       0.6
+28      1e-01       0.6
+29      3e-01       0.6
+30      4e-01       0.6
+31      5e-02       0.5
+32      5e-01       0.4
+33      3e-01       0.6
+34     -1e-03       0.6
+35      1e-01       0.6
+36      9e-02       0.6
+37      3e-02       0.6
+38     -8e-03       0.6
+39      2e-01       0.6
+40      4e-02       0.5
+41      2e-02       0.6
+42      1e-03       0.6
+43      1e-01       0.6
+44      3e-02       0.6
+45      1e-01       0.6
+46      1e-01       0.6
+47      2e-02       0.6
+48     -3e-02       0.6
+49      1e-01       0.6
+50     -3e-02       0.6
+51      2e-01       0.6
+52      5e-04       0.6
+53     -1e-02       0.6
+54      2e-01       0.6
+55      3e-01       0.6
+56      5e-02       0.6
+57      2e-02       0.4
+58     -3e-02       0.6
+59      7e-03       0.6
+60      7e-02       0.6
 > attributes( translogShiftEla )$variance
    logCapital logLabour
 1    0.056640  0.050678
@@ -62206,16 +62206,16 @@ class
 > translogZvar <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
 +    data = front41Data )
-> print( translogZvar )
+> print( translogZvar, digits = 1 )
 
 Call:
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data)
 
 Maximum likelihood estimates
-      a_0        a_1        a_2      b_1_1      b_1_2      b_2_2   Z_firmNo  
- 0.756754   0.402245   0.375027  -0.184365   0.000266   0.056971  -0.010222  
-  sigmaSq      gamma  
- 0.251938   0.819488  
+     a_0       a_1       a_2     b_1_1     b_1_2     b_2_2  Z_firmNo   sigmaSq  
+   8e-01     4e-01     4e-01    -2e-01     3e-04     6e-02    -1e-02     3e-01  
+   gamma  
+   8e-01  
 > coef( translogZvar, which = "start" )
 NULL
 > round( coef( translogZvar, which = "ols" ), 2 )
@@ -62260,10 +62260,10 @@ b_2_2     0.01  0.00 -0.01  0.00  0.00  0.00        0    0.00  0.00
 Z_firmNo  0.00  0.00  0.00  0.00  0.00  0.00        0    0.00  0.00
 sigmaSq   0.00  0.00  0.00  0.00  0.00  0.00        0    0.01  0.01
 gamma     0.00  0.00  0.00  0.00  0.00  0.00        0    0.01  0.01
-> logLik( translogZvar, which = "ols" )
-'log Lik.' -15.857 (df=7)
-> logLik( translogZvar )
-'log Lik.' -13.746 (df=9)
+> print( logLik( translogZvar, which = "ols" ), digits = 4 )
+'log Lik.' -15.86 (df=7)
+> print( logLik( translogZvar ), digits = 4 )
+'log Lik.' -13.75 (df=9)
 > nobs( translogZvar )
 [1] 60
 > print( summary( translogZvar ), digits = 1 )
@@ -70017,14 +70017,14 @@ F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
 > ## cross-section data, error components frontier
 > sa10 <- sfa( logOutput ~ 1, data = front41Data )
 > a10 <- frontier( "logOutput", NULL, data = front41Data )
-> print( sa10 )
+> print( sa10, digits = 1 )
 
 Call:
 sfa(formula = logOutput ~ 1, data = front41Data)
 
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
-      3.372        0.880        0.934  
+        3.4          0.9          0.9  
 > all.equal( sa10[-39], a10[-39], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa10 )
@@ -70032,14 +70032,14 @@ Maximum likelihood estimates
 > 
 > sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
 > a11 <- frontier( "logOutput", "logLabour", data = front41Data )
-> print( sa11 )
+> print( sa11, digits = 1 )
 
 Call:
 sfa(formula = logOutput ~ logLabour, data = front41Data)
 
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
-      1.116        0.521        0.385        0.887  
+        1.1          0.5          0.4          0.9  
 > all.equal( sa11[-39], a11[-39], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa11 )
@@ -70049,14 +70049,14 @@ Maximum likelihood estimates
 > saa10 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
 > aa10 <- frontier( data = front41Data, "logOutput", NULL,
 +    zNames = "firmNo" )
-> print( saa10 )
+> print( saa10, digits = 1 )
 
 Call:
 sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
-     3.3170      -0.0148       1.0869       0.9356  
+       3.32        -0.01         1.09         0.94  
 > all.equal( saa10[-39], aa10[-39], tol = 1e-4 )
 [1] TRUE
 > nobs( saa10 )
@@ -70065,14 +70065,14 @@ Maximum likelihood estimates
 > saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
 > aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
 +    zNames = "firmNo" )
-> print( saa11 )
+> print( saa11, digits = 1 )
 
 Call:
 sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
-     1.0228       0.5284      -0.0317       0.6546       0.9265  
+       1.02         0.53        -0.03         0.65         0.93  
 > all.equal( saa11[-39], aa11[-39], tol = 1e-4 )
 [1] TRUE
 > nobs( saa11 )
@@ -70085,294 +70085,294 @@ Maximum likelihood estimates
 > options( digits = 9 )
 > 
 > ## cross-section data, error components frontier
-> logLik( a1 )
-'log Lik.' -17.027224 (df=5)
-> logLik( a1, newParam = coef( a1 ) )
-'log Lik.' -17.027224 (df=5)
-> logLik( sa1, newParam = coef( sa1 ) )
-'log Lik.' -17.027224 (df=5)
-> logLik( Sa1, newParam = coef( a1 ) )
-'log Lik.' -17.027224 (df=5)
+> print( logLik( a1 ), digits = 4 )
+'log Lik.' -17.03 (df=5)
+> print( logLik( a1, newParam = coef( a1 ) ), digits = 4 )
+'log Lik.' -17.03 (df=5)
+> print( logLik( sa1, newParam = coef( sa1 ) ), digits = 4 )
+'log Lik.' -17.03 (df=5)
+> print( logLik( Sa1, newParam = coef( a1 ) ), digits = 4 )
+'log Lik.' -17.03 (df=5)
 > 
 > ## cross-section data, error components frontier, truncNorm
-> logLik( a2 )
-'log Lik.' -16.7956674 (df=6)
-> logLik( a2, newParam = coef( a2 ) )
-'log Lik.' -16.7956674 (df=6)
-> logLik( sa2, newParam = coef( sa2 ) )
-'log Lik.' -16.7956674 (df=6)
+> print( logLik( a2 ), digits = 4 )
+'log Lik.' -16.8 (df=6)
+> print( logLik( a2, newParam = coef( a2 ) ), digits = 4 )
+'log Lik.' -16.8 (df=6)
+> print( logLik( sa2, newParam = coef( sa2 ) ), digits = 4 )
+'log Lik.' -16.8 (df=6)
 > 
 > ## cross-section data, error components frontier, truncNorm, starting values
-> logLik( a5 )
-'log Lik.' -16.7948264 (df=6)
-> logLik( a5, newParam = coef( a5 ) )
-'log Lik.' -16.7948264 (df=6)
-> logLik( sa5, newParam = coef( sa5 ) )
-'log Lik.' -16.7948264 (df=6)
+> print( logLik( a5 ), digits = 4 )
+'log Lik.' -16.79 (df=6)
+> print( logLik( a5, newParam = coef( a5 ) ), digits = 4 )
+'log Lik.' -16.79 (df=6)
+> print( logLik( sa5, newParam = coef( sa5 ) ), digits = 4 )
+'log Lik.' -16.79 (df=6)
 > 
 > ## cross-section data, efficiency effects frontier
-> logLik( aa1 )
-'log Lik.' -16.3821693 (df=6)
-> logLik( aa1, newParam = coef( aa1 ) )
-'log Lik.' -16.3821693 (df=6)
-> logLik( saa1, newParam = coef( saa1 ) )
-'log Lik.' -16.3821693 (df=6)
-> logLik( Saa1, newParam = coef( aa1 ) )
-'log Lik.' -16.3821693 (df=6)
+> print( logLik( aa1 ), digits = 4 )
+'log Lik.' -16.38 (df=6)
+> print( logLik( aa1, newParam = coef( aa1 ) ), digits = 4 )
+'log Lik.' -16.38 (df=6)
+> print( logLik( saa1, newParam = coef( saa1 ) ), digits = 4 )
+'log Lik.' -16.38 (df=6)
+> print( logLik( Saa1, newParam = coef( aa1 ) ), digits = 4 )
+'log Lik.' -16.38 (df=6)
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
-> logLik( aa2 )
-'log Lik.' -16.3556547 (df=7)
-> logLik( aa2, newParam = coef( aa2 ) )
-'log Lik.' -16.3556547 (df=7)
-> logLik( saa2, newParam = coef( saa2 ) )
-'log Lik.' -16.3556547 (df=7)
+> print( logLik( aa2 ), digits = 4 )
+'log Lik.' -16.36 (df=7)
+> print( logLik( aa2, newParam = coef( aa2 ) ), digits = 4 )
+'log Lik.' -16.36 (df=7)
+> print( logLik( saa2, newParam = coef( saa2 ) ), digits = 4 )
+'log Lik.' -16.36 (df=7)
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept, starting values
-> logLik( aa5 )
-'log Lik.' -16.3556547 (df=7)
-> logLik( aa5, newParam = coef( aa5 ) )
-'log Lik.' -16.3556547 (df=7)
-> logLik( saa5, newParam = coef( saa5 ) )
-'log Lik.' -16.3556547 (df=7)
+> print( logLik( aa5 ), digits = 4 )
+'log Lik.' -16.36 (df=7)
+> print( logLik( aa5, newParam = coef( aa5 ) ), digits = 4 )
+'log Lik.' -16.36 (df=7)
+> print( logLik( saa5, newParam = coef( saa5 ) ), digits = 4 )
+'log Lik.' -16.36 (df=7)
 > 
 > 
 > ## data set of rice producers in the Philippines
 > 
 > ## cross-section rice data, error components frontier
-> logLik( bb1 )
-'log Lik.' -86.2026819 (df=6)
-> logLik( bb1, newParam = coef( bb1 ) )
-'log Lik.' -86.2026819 (df=6)
-> logLik( sbb1, newParam = coef( sbb1 ) )
-'log Lik.' -86.2026819 (df=6)
-> logLik( Sbb1, newParam = coef( bb1 ) )
-'log Lik.' -86.2026819 (df=6)
+> print( logLik( bb1 ), digits = 4 )
+'log Lik.' -86.2 (df=6)
+> print( logLik( bb1, newParam = coef( bb1 ) ), digits = 4 )
+'log Lik.' -86.2 (df=6)
+> print( logLik( sbb1, newParam = coef( sbb1 ) ), digits = 4 )
+'log Lik.' -86.2 (df=6)
+> print( logLik( Sbb1, newParam = coef( bb1 ) ), digits = 4 )
+'log Lik.' -86.2 (df=6)
 > 
 > ## cross-section rice data, error components frontier, truncNorm
-> logLik( bb2 )
-'log Lik.' -82.2298049 (df=7)
-> logLik( bb2, newParam = coef( bb2 ) )
-'log Lik.' -82.2298049 (df=7)
-> logLik( sbb2, newParam = coef( sbb2 ) )
-'log Lik.' -82.2298049 (df=7)
+> print( logLik( bb2 ), digits = 4 )
+'log Lik.' -82.23 (df=7)
+> print( logLik( bb2, newParam = coef( bb2 ) ), digits = 4 )
+'log Lik.' -82.23 (df=7)
+> print( logLik( sbb2, newParam = coef( sbb2 ) ), digits = 4 )
+'log Lik.' -82.23 (df=7)
 > 
 > ## cross-section rice data, efficiency effects frontier
-> logLik( bb5 )
-'log Lik.' -77.8495441 (df=8)
-> logLik( bb5, newParam = coef( bb5 ) )
-'log Lik.' -77.8495441 (df=8)
-> logLik( sbb5, newParam = coef( sbb5 ) )
-'log Lik.' -77.8495441 (df=8)
-> logLik( Sbb5, newParam = coef( bb5 ) )
-'log Lik.' -77.8495441 (df=8)
+> print( logLik( bb5 ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( bb5, newParam = coef( bb5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( sbb5, newParam = coef( sbb5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( Sbb5, newParam = coef( bb5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept
-> logLik( bb6 )
-'log Lik.' -77.3136259 (df=9)
-> logLik( bb6, newParam = coef( bb6 ) )
-'log Lik.' -77.3136259 (df=9)
-> logLik( sbb6, newParam = coef( sbb6 ) )
-'log Lik.' -77.3136259 (df=9)
+> print( logLik( bb6 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( bb6, newParam = coef( bb6 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( sbb6, newParam = coef( sbb6 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > 
 > ## cross-section rice data, error components frontier, truncNorm, starting values
-> logLik( bb7 )
-'log Lik.' -82.2236347 (df=7)
-> logLik( bb7, newParam = coef( bb7 ) )
-'log Lik.' -82.2236347 (df=7)
-> logLik( sbb7, newParam = coef( sbb7 ) )
-'log Lik.' -82.2236347 (df=7)
+> print( logLik( bb7 ), digits = 4 )
+'log Lik.' -82.22 (df=7)
+> print( logLik( bb7, newParam = coef( bb7 ) ), digits = 4 )
+'log Lik.' -82.22 (df=7)
+> print( logLik( sbb7, newParam = coef( sbb7 ) ), digits = 4 )
+'log Lik.' -82.22 (df=7)
 > 
 > ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
-> logLik( bb8 )
-'log Lik.' -77.3136259 (df=9)
-> logLik( bb8, newParam = coef( bb8 ) )
-'log Lik.' -77.3136259 (df=9)
-> logLik( sbb8, newParam = coef( sbb8 ) )
-'log Lik.' -77.3136259 (df=9)
+> print( logLik( bb8 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( bb8, newParam = coef( bb8 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( sbb8, newParam = coef( sbb8 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > ## cross-section rice data, error components cost frontier
-> logLik( dd1 )
-'log Lik.' 39.9305693 (df=7)
-> logLik( dd1, newParam = coef( dd1 ) )
-'log Lik.' 39.9305693 (df=7)
-> logLik( sdd1, newParam = coef( sdd1 ) )
-'log Lik.' 39.9305693 (df=7)
-> logLik( Sdd1, newParam = coef( dd1 ) )
-'log Lik.' 39.9305693 (df=7)
+> print( logLik( dd1 ), digits = 4 )
+'log Lik.' 39.93 (df=7)
+> print( logLik( dd1, newParam = coef( dd1 ) ), digits = 4 )
+'log Lik.' 39.93 (df=7)
+> print( logLik( sdd1, newParam = coef( sdd1 ) ), digits = 4 )
+'log Lik.' 39.93 (df=7)
+> print( logLik( Sdd1, newParam = coef( dd1 ) ), digits = 4 )
+'log Lik.' 39.93 (df=7)
 > 
 > ## cross-section rice data, error components cost frontier, truncNorm
-> logLik( dd2 )
-'log Lik.' 40.9663076 (df=8)
-> logLik( dd2, newParam = coef( dd2 ) )
-'log Lik.' 40.9663076 (df=8)
-> logLik( sdd2, newParam = coef( sdd2 ) )
-'log Lik.' 40.9663076 (df=8)
+> print( logLik( dd2 ), digits = 4 )
+'log Lik.' 40.97 (df=8)
+> print( logLik( dd2, newParam = coef( dd2 ) ), digits = 4 )
+'log Lik.' 40.97 (df=8)
+> print( logLik( sdd2, newParam = coef( sdd2 ) ), digits = 4 )
+'log Lik.' 40.97 (df=8)
 > 
 > ## cross-section rice data, efficiency effects cost frontier
-> logLik( dd5 )
-'log Lik.' 43.3068154 (df=9)
-> logLik( dd5, newParam = coef( dd5 ) )
-'log Lik.' 43.3068154 (df=9)
-> logLik( sdd5, newParam = coef( sdd5 ) )
-'log Lik.' 43.3068154 (df=9)
-> logLik( Sdd5, newParam = coef( dd5 ) )
-'log Lik.' 43.3068154 (df=9)
+> print( logLik( dd5 ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( dd5, newParam = coef( dd5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( sdd5, newParam = coef( sdd5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( Sdd5, newParam = coef( dd5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
 > 
 > ## cross-section rice data, efficiency effects cost frontier, zIntercept
-> logLik( dd6 )
-'log Lik.' 43.3347169 (df=10)
-> logLik( dd6, newParam = coef( dd6 ) )
-'log Lik.' 43.3347169 (df=10)
-> logLik( sdd6, newParam = coef( sdd6 ) )
-'log Lik.' 43.3347169 (df=10)
+> print( logLik( dd6 ), digits = 4 )
+'log Lik.' 43.33 (df=10)
+> print( logLik( dd6, newParam = coef( dd6 ) ), digits = 4 )
+'log Lik.' 43.33 (df=10)
+> print( logLik( sdd6, newParam = coef( sdd6 ) ), digits = 4 )
+'log Lik.' 43.33 (df=10)
 > 
 > 
 > ## panel data
 > 
 > ## panel data, error components frontier
-> logLik( b1 )
-'log Lik.' -86.4304195 (df=6)
-> logLik( b1, newParam = coef( b1 ) )
-'log Lik.' -86.4304195 (df=6)
-> logLik( sb1, newParam = coef( sb1 ) )
-'log Lik.' -86.4304195 (df=6)
-> logLik( Sb1, newParam = coef( b1 ) )
-'log Lik.' -86.4304195 (df=6)
+> print( logLik( b1 ), digits = 4 )
+'log Lik.' -86.43 (df=6)
+> print( logLik( b1, newParam = coef( b1 ) ), digits = 4 )
+'log Lik.' -86.43 (df=6)
+> print( logLik( sb1, newParam = coef( sb1 ) ), digits = 4 )
+'log Lik.' -86.43 (df=6)
+> print( logLik( Sb1, newParam = coef( b1 ) ), digits = 4 )
+'log Lik.' -86.43 (df=6)
 > 
 > ## panel data, error components frontier, truncNorm
-> logLik( b2 )
-'log Lik.' -86.3428632 (df=7)
-> logLik( b2, newParam = coef( b2 ) )
-'log Lik.' -86.3428632 (df=7)
-> logLik( sb2, newParam = coef( sb2 ) )
-'log Lik.' -86.3428632 (df=7)
+> print( logLik( b2 ), digits = 4 )
+'log Lik.' -86.34 (df=7)
+> print( logLik( b2, newParam = coef( b2 ) ), digits = 4 )
+'log Lik.' -86.34 (df=7)
+> print( logLik( sb2, newParam = coef( sb2 ) ), digits = 4 )
+'log Lik.' -86.34 (df=7)
 > 
 > ## panel data, error components frontier, timeEffect
-> logLik( b3 )
-'log Lik.' -84.5503578 (df=7)
-> logLik( b3, newParam = coef( b3 ) )
-'log Lik.' -84.5503578 (df=7)
-> logLik( sb3, newParam = coef( sb3 ) )
-'log Lik.' -84.5503578 (df=7)
+> print( logLik( b3 ), digits = 4 )
+'log Lik.' -84.55 (df=7)
+> print( logLik( b3, newParam = coef( b3 ) ), digits = 4 )
+'log Lik.' -84.55 (df=7)
+> print( logLik( sb3, newParam = coef( sb3 ) ), digits = 4 )
+'log Lik.' -84.55 (df=7)
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect
-> logLik( b4 )
-'log Lik.' -84.4067823 (df=8)
-> logLik( b4, newParam = coef( b4 ) )
-'log Lik.' -84.4067823 (df=8)
-> logLik( sb4, newParam = coef( sb4 ) )
-'log Lik.' -84.4067823 (df=8)
+> print( logLik( b4 ), digits = 4 )
+'log Lik.' -84.41 (df=8)
+> print( logLik( b4, newParam = coef( b4 ) ), digits = 4 )
+'log Lik.' -84.41 (df=8)
+> print( logLik( sb4, newParam = coef( sb4 ) ), digits = 4 )
+'log Lik.' -84.41 (df=8)
 > 
 > ## panel data, efficiency effects frontier
-> logLik( b5 )
-'log Lik.' -77.8495441 (df=8)
-> logLik( b5, newParam = coef( b5 ) )
-'log Lik.' -77.8495441 (df=8)
-> logLik( sb5, newParam = coef( sb5 ) )
-'log Lik.' -77.8495441 (df=8)
-> logLik( Sb5, newParam = coef( b5 ) )
-'log Lik.' -77.8495441 (df=8)
+> print( logLik( b5 ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( b5, newParam = coef( b5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( sb5, newParam = coef( sb5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
+> print( logLik( Sb5, newParam = coef( b5 ) ), digits = 4 )
+'log Lik.' -77.85 (df=8)
 > 
 > ## panel data, efficiency effects frontier, zIntercept
-> logLik( b6 )
-'log Lik.' -77.3136259 (df=9)
-> logLik( b6, newParam = coef( b6 ) )
-'log Lik.' -77.3136259 (df=9)
-> logLik( sb6, newParam = coef( sb6 ) )
-'log Lik.' -77.3136259 (df=9)
+> print( logLik( b6 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( b6, newParam = coef( b6 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( sb6, newParam = coef( sb6 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > 
 > ## panel data, error components frontier, truncNorm, timeEffect, starting values
-> logLik( b7 )
-'log Lik.' -84.4067823 (df=8)
-> logLik( b7, newParam = coef( b7 ) )
-'log Lik.' -84.4067823 (df=8)
-> logLik( sb7, newParam = coef( sb7 ) )
-'log Lik.' -84.4067823 (df=8)
+> print( logLik( b7 ), digits = 4 )
+'log Lik.' -84.41 (df=8)
+> print( logLik( b7, newParam = coef( b7 ) ), digits = 4 )
+'log Lik.' -84.41 (df=8)
+> print( logLik( sb7, newParam = coef( sb7 ) ), digits = 4 )
+'log Lik.' -84.41 (df=8)
 > 
 > ## panel data, efficiency effects frontier, zIntercept, starting values
-> logLik( b8 )
-'log Lik.' -77.3136259 (df=9)
-> logLik( b8, newParam = coef( b8 ) )
-'log Lik.' -77.3136259 (df=9)
-> logLik( sb8, newParam = coef( sb8 ) )
-'log Lik.' -77.3136259 (df=9)
+> print( logLik( b8 ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( b8, newParam = coef( b8 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
+> print( logLik( sb8, newParam = coef( sb8 ) ), digits = 4 )
+'log Lik.' -77.31 (df=9)
 > 
 > 
 > ## Cost Frontier (with land as quasi-fixed input)
 > ## panel rice data, error components cost frontier
-> logLik( d1 )
-'log Lik.' 49.3659884 (df=7)
-> logLik( d1, newParam = coef( d1 ) )
-'log Lik.' 49.3659884 (df=7)
-> logLik( sd1, newParam = coef( sd1 ) )
-'log Lik.' 49.3659884 (df=7)
-> logLik( Sd1, newParam = coef( d1 ) )
-'log Lik.' 49.3659884 (df=7)
+> print( logLik( d1 ), digits = 4 )
+'log Lik.' 49.37 (df=7)
+> print( logLik( d1, newParam = coef( d1 ) ), digits = 4 )
+'log Lik.' 49.37 (df=7)
+> print( logLik( sd1, newParam = coef( sd1 ) ), digits = 4 )
+'log Lik.' 49.37 (df=7)
+> print( logLik( Sd1, newParam = coef( d1 ) ), digits = 4 )
+'log Lik.' 49.37 (df=7)
 > 
 > ## panel rice data, error components cost frontier, truncNorm
-> logLik( d2 )
-'log Lik.' 52.3900727 (df=8)
-> logLik( d2, newParam = coef( d2 ) )
-'log Lik.' 52.3900727 (df=8)
-> logLik( sd2, newParam = coef( sd2 ) )
-'log Lik.' 52.3900727 (df=8)
+> print( logLik( d2 ), digits = 4 )
+'log Lik.' 52.39 (df=8)
+> print( logLik( d2, newParam = coef( d2 ) ), digits = 4 )
+'log Lik.' 52.39 (df=8)
+> print( logLik( sd2, newParam = coef( sd2 ) ), digits = 4 )
+'log Lik.' 52.39 (df=8)
 > 
 > ## panel rice data, error components cost frontier, timeEffect
-> logLik( d3 )
-'log Lik.' 50.1834133 (df=8)
-> logLik( d3, newParam = coef( d3 ) )
-'log Lik.' 50.1834133 (df=8)
-> logLik( sd3, newParam = coef( sd3 ) )
-'log Lik.' 50.1834133 (df=8)
+> print( logLik( d3 ), digits = 4 )
+'log Lik.' 50.18 (df=8)
+> print( logLik( d3, newParam = coef( d3 ) ), digits = 4 )
+'log Lik.' 50.18 (df=8)
+> print( logLik( sd3, newParam = coef( sd3 ) ), digits = 4 )
+'log Lik.' 50.18 (df=8)
 > 
 > ## panel rice data, error components cost frontier, truncNorm, timeEffect
-> logLik( d4 )
-'log Lik.' 53.1980579 (df=9)
-> logLik( d4, newParam = coef( d4 ) )
-'log Lik.' 53.1980579 (df=9)
-> logLik( sd4, newParam = coef( sd4 ) )
-'log Lik.' 53.1980579 (df=9)
+> print( logLik( d4 ), digits = 4 )
+'log Lik.' 53.2 (df=9)
+> print( logLik( d4, newParam = coef( d4 ) ), digits = 4 )
+'log Lik.' 53.2 (df=9)
+> print( logLik( sd4, newParam = coef( sd4 ) ), digits = 4 )
+'log Lik.' 53.2 (df=9)
 > 
 > ## panel rice data, efficiency effects cost frontier
-> logLik( d5 )
-'log Lik.' 43.3087241 (df=9)
-> logLik( d5, newParam = coef( d5 ) )
-'log Lik.' 43.3087241 (df=9)
-> logLik( sd5, newParam = coef( sd5 ) )
-'log Lik.' 43.3087241 (df=9)
-> logLik( Sd5, newParam = coef( d5 ) )
-'log Lik.' 43.3087241 (df=9)
+> print( logLik( d5 ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( d5, newParam = coef( d5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( sd5, newParam = coef( sd5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
+> print( logLik( Sd5, newParam = coef( d5 ) ), digits = 4 )
+'log Lik.' 43.31 (df=9)
 > 
 > ## panel rice data, efficiency effects cost frontier, zIntercept
-> logLik( d6 )
-'log Lik.' 43.3375729 (df=10)
-> logLik( d6, newParam = coef( d6 ) )
-'log Lik.' 43.3375729 (df=10)
-> logLik( sd6, newParam = coef( sd6 ) )
-'log Lik.' 43.3375729 (df=10)
+> print( logLik( d6 ), digits = 4 )
+'log Lik.' 43.34 (df=10)
+> print( logLik( d6, newParam = coef( d6 ) ), digits = 4 )
+'log Lik.' 43.34 (df=10)
+> print( logLik( sd6, newParam = coef( sd6 ) ), digits = 4 )
+'log Lik.' 43.34 (df=10)
 > 
 > 
 > ## translog frontiers
 > ## cross-section data, error components frontier, translog
-> logLik( translog )
-'log Lik.' -14.4342926 (df=8)
-> logLik( translog, newParam = coef( translog ) )
-'log Lik.' -14.4342926 (df=8)
+> print( logLik( translog ), digits = 4 )
+'log Lik.' -14.43 (df=8)
+> print( logLik( translog, newParam = coef( translog ) ), digits = 4 )
+'log Lik.' -14.43 (df=8)
 > 
 > ## cross-section data, error components frontier, translog, shifter
-> logLik( translogShift )
-'log Lik.' -14.0321663 (df=9)
-> logLik( translogShift, newParam = coef( translogShift ) )
-'log Lik.' -14.0321663 (df=9)
+> print( logLik( translogShift ), digits = 4 )
+'log Lik.' -14.03 (df=9)
+> print( logLik( translogShift, newParam = coef( translogShift ) ), digits = 4 )
+'log Lik.' -14.03 (df=9)
 > 
 > ## cross-section data, efficiency effects frontier, translog
-> logLik( translogZvar )
-'log Lik.' -13.7464626 (df=9)
-> logLik( translogZvar, newParam = coef( translogZvar ) )
-'log Lik.' -13.7464626 (df=9)
+> print( logLik( translogZvar ), digits = 4 )
+'log Lik.' -13.75 (df=9)
+> print( logLik( translogZvar, newParam = coef( translogZvar ) ), digits = 4 )
+'log Lik.' -13.75 (df=9)
 > 
 > 
 > ##############################################
@@ -70628,4 +70628,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 21.556   0.612  22.204 
+ 21.228   0.644  21.921 

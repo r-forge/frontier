@@ -49,9 +49,9 @@ round( coef( a1 ), 2 )
 round( coef( summary( a1 ), which = "ols" ), 2 )
 round( coef( summary( a1 ) ), 2 )
 round( vcov( a1 ), 2 )
-logLik( a1, which = "ols" )
-logLik( a1, which = "grid" )
-logLik( a1 )
+print( logLik( a1, which = "ols" ), digits = 4 )
+print( logLik( a1, which = "grid" ), digits = 4 )
+print( logLik( a1 ), digits = 4 )
 nobs( a1 )
 print( summary( a1 ), digits = 1 )
 print( summary( a1, effMinusU = FALSE ), digits = 1 )
@@ -70,7 +70,7 @@ sa2 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data,
 a2 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE )
 all.equal( sa2[-c(8,39)], a2[-c(8,39)], tol = 1e-4 )
-print( a2 )
+print( a2, digits = 1 )
 coef( a2, which = "start" )
 round( coef( a2, which = "ols" ), 2 )
 round( coef( a2, which = "grid" ), 2 )
@@ -78,8 +78,8 @@ round( coef( a2 ), 2 )
 round( coef( summary( a2 ), which = "ols" ), 2 )
 round( coef( summary( a2 ) ), 2 )
 round( vcov( a2 ), 2 )
-logLik( a2, which = "ols" )
-logLik( a2 )
+print( logLik( a2, which = "ols" ), digits = 4 )
+print( logLik( a2 ), digits = 4 )
 nobs( a2 )
 print( summary( a2 ), digits = 1 )
 lrtest( a2 )
@@ -96,7 +96,7 @@ a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 all.equal( sa5[-39], a5[-39], tol = 1e-4 )
-print( a5 )
+print( a5, digits = 1 )
 coef( a5, which = "start" )
 round( coef( a5, which = "ols" ), 2 )
 coef( a5, which = "grid" )
@@ -104,8 +104,8 @@ round( coef( a5 ), 2 )
 round( coef( summary( a5 ), which = "ols" ), 2 )
 round( coef( summary( a5 ) ), 2 )
 round( vcov( a5 ), 2 )
-logLik( a5, which = "ols" )
-logLik( a5 )
+print( logLik( a5, which = "ols" ), digits = 4 )
+print( logLik( a5 ), digits = 4 )
 nobs( a5 )
 print( summary( a5 ), digits = 1 )
 lrtest( a5 )
@@ -122,7 +122,7 @@ all.equal( Saa1[-c(8,39)], saa1[-c(8,39)], check.attributes = FALSE, tol = 1e-4 
 aa1 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo" )
 all.equal( saa1[-39], aa1[-39], tol = 1e-4 )
-print( aa1 )
+print( aa1, digits = 1 )
 coef( aa1, which = "start" )
 round( coef( aa1, which = "ols" ), 2 )
 round( coef( aa1, which = "grid" ), 2 )
@@ -240,7 +240,7 @@ all.equal( Sbb1[-39], sbb1[-39], check.attributes = FALSE, tol = 1e-4 )
 bb1 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 all.equal( sbb1[-39], bb1[-39], tol = 1e-4 )
-print( bb1 )
+print( bb1, digits = 1 )
 coef( bb1, which = "start" )
 round( coef( bb1, which = "ols" ), 2 )
 round( coef( bb1, which = "grid" ), 2 )
@@ -264,7 +264,7 @@ bb2 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE )
 all.equal( sbb2[-39], bb2[-39], tol = 1e-4 )
-print( bb2 )
+print( bb2, digits = 1 )
 coef( bb2, which = "start" )
 round( coef( bb2, which = "ols" ), 2 )
 round( coef( bb2, which = "grid" ), 2 )
@@ -294,7 +294,7 @@ bb5 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 all.equal( sbb5[-39], bb5[-39], tol = 1e-4 )
-print( bb5 )
+print( bb5, digits = 1 )
 coef( bb5, which = "start" )
 round( coef( bb5, which = "ols" ), 2 )
 round( coef( bb5, which = "grid" ), 2 )
@@ -318,7 +318,7 @@ bb6 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 all.equal( sbb6[-39], bb6[-39], tol = 1e-4 )
-print( bb6 )
+print( bb6, digits = 1 )
 coef( bb6, which = "start" )
 round( coef( bb6, which = "ols" ), 2 )
 round( coef( bb6, which = "grid" ), 2 )
@@ -369,7 +369,7 @@ bb7 <- frontier( data = riceProdPhil,
    truncNorm = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
 all.equal( sbb7[-39], bb7[-39], tol = 1e-4 )
-print( bb7 )
+print( bb7, digits = 1 )
 coef( bb7, which = "start" )
 round( coef( bb7, which = "ols" ), 2 )
 coef( bb7, which = "grid" )
@@ -393,7 +393,7 @@ bb8 <- frontier( data = riceProdPhil,
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 all.equal( sbb8[-39], bb8[-39], tol = 1e-4 )
-print( bb8 )
+print( bb8, digits = 1 )
 coef( bb8, which = "start" )
 round( coef( bb8, which = "ols" ), 2 )
 coef( bb8, which = "grid" )
@@ -432,7 +432,7 @@ all.equal( Sdd1[-39], sdd1[-39], check.attributes = FALSE, tol = 1e-4 )
 dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhil, ineffDecrease = FALSE )
 all.equal( sdd1[-39], dd1[-39], tol = 1e-4 )
-print( dd1 )
+print( dd1, digits = 1 )
 coef( dd1, which = "start" )
 round( coef( dd1, which = "ols" ), 2 )
 round( coef( dd1, which = "grid" ), 2 )
@@ -458,7 +458,7 @@ sdd2 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhil,
 dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
 all.equal( sdd2[-39], dd2[-39], tol = 1e-4 )
-print( dd2 )
+print( dd2, digits = 1 )
 coef( dd2, which = "start" )
 round( coef( dd2, which = "ols" ), 2 )
 round( coef( dd2, which = "grid" ), 2 )
@@ -485,7 +485,7 @@ dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE )
 all.equal( sdd5[-39], dd5[-39], tol = 1e-4 )
-print( dd5 )
+print( dd5, digits = 1 )
 coef( dd5, which = "start" )
 round( coef( dd5, which = "ols" ), 2 )
 round( coef( dd5, which = "grid" ), 2 )
@@ -535,7 +535,7 @@ dd6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
    ineffDecrease = FALSE, zIntercept = TRUE )
 all.equal( sdd6[-39], dd6[-39], tol = 1e-4 )
-print( dd6 )
+print( dd6, digits = 1 )
 coef( dd6, which = "start" )
 round( coef( dd6, which = "ols" ), 2 )
 round( coef( dd6, which = "grid" ), 2 )
@@ -575,7 +575,7 @@ all.equal( Sb1[-c(8,39)], sb1[-c(8,39)], check.attributes = FALSE, tol = 1e-4 )
 b1 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 all.equal( sb1[-c(8,39)], b1[-c(8,39)], tol = 1e-4 )
-print( b1 )
+print( b1, digits = 1 )
 coef( b1, which = "start" )
 round( coef( b1, which = "ols" ), 2 )
 round( coef( b1, which = "grid" ), 2 )
@@ -583,8 +583,8 @@ round( coef( b1 ), 2 )
 round( coef( summary( b1 ), which = "ols" ), 2 )
 round( coef( summary( b1 ) ), 2 )
 round( vcov( b1 ), 2 )
-logLik( b1, which = "ols" )
-logLik( b1 )
+print( logLik( b1, which = "ols" ), digits = 4 )
+print( logLik( b1 ), digits = 4 )
 nobs( b1 )
 print( summary( b1 ), digits = 1 )
 print( summary( b1, effMinusU = FALSE ), digits = 1 )
@@ -604,7 +604,7 @@ b2 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE )
 all.equal( sb2[-39], b2[-39], tol = 1e-4 )
-print( b2 )
+print( b2, digits = 1 )
 coef( b2, which = "start" )
 round( coef( b2, which = "ols" ), 2 )
 round( coef( b2, which = "grid" ), 2 )
@@ -612,8 +612,8 @@ round( coef( b2 ), 2 )
 round( coef( summary( b2 ), which = "ols" ), 2 )
 round( coef( summary( b2 ) ), 2 )
 round( vcov( b2 ), 2 )
-logLik( b2, which = "ols" )
-logLik( b2 )
+print( logLik( b2, which = "ols" ), digits = 4 )
+print( logLik( b2 ), digits = 4 )
 nobs( b2 )
 print( summary( b2 ), digits = 1 )
 lrtest( b2 )
@@ -630,7 +630,7 @@ b3 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    timeEffect = TRUE )
 all.equal( sb3[-39], b3[-39], tol = 1e-4 )
-print( b3 )
+print( b3, digits = 1 )
 coef( b3, which = "start" )
 round( coef( b3, which = "ols" ), 2 )
 round( coef( b3, which = "grid" ), 2 )
@@ -638,8 +638,8 @@ round( coef( b3 ), 2 )
 round( coef( summary( b3 ), which = "ols" ), 2 )
 round( coef( summary( b3 ) ), 2 )
 round( vcov( b3 ), 2 )
-logLik( b3, which = "ols" )
-logLik( b3 )
+print( logLik( b3, which = "ols" ), digits = 4 )
+print( logLik( b3 ), digits = 4 )
 nobs( b3 )
 print( summary( b3 ), digits = 1 )
 lrtest( b3 )
@@ -656,7 +656,7 @@ b4 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    truncNorm = TRUE, timeEffect = TRUE )
 all.equal( sb4[-39], b4[-39], tol = 1e-4 )
-print( b4 )
+print( b4, digits = 1 )
 coef( b4, which = "start" )
 round( coef( b4, which = "ols" ), 2 )
 round( coef( b4, which = "grid" ), 2 )
@@ -664,8 +664,8 @@ round( coef( b4 ), 2 )
 round( coef( summary( b4 ), which = "ols" ), 2 )
 round( coef( summary( b4 ) ), 2 )
 round( vcov( b4 ), 2 )
-logLik( b4, which = "ols" )
-logLik( b4 )
+print( logLik( b4, which = "ols" ), digits = 4 )
+print( logLik( b4 ), digits = 4 )
 nobs( b4 )
 print( summary( b4 ), digits = 1 )
 lrtest( b4 )
@@ -685,7 +685,7 @@ b5 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ) )
 all.equal( sb5[-39], b5[-39], tol = 1e-4 )
-print( b5 )
+print( b5, digits = 1 )
 coef( b5, which = "start" )
 round( coef( b5, which = "ols" ), 2 )
 round( coef( b5, which = "grid" ), 2 )
@@ -693,8 +693,8 @@ round( coef( b5 ), 2 )
 round( coef( summary( b5 ), which = "ols" ), 2 )
 round( coef( summary( b5 ) ), 2 )
 round( vcov( b5 ), 2 )
-logLik( b5, which = "ols" )
-logLik( b5 )
+print( logLik( b5, which = "ols" ), digits = 4 )
+print( logLik( b5 ), digits = 4 )
 nobs( b5 )
 print( summary( b5 ), digits = 1 )
 print( summary( b5, effMinusU = FALSE ), digits = 1 )
@@ -737,7 +737,7 @@ b6 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 all.equal( sb6[-39], b6[-39], tol = 1e-4 )
-print( b6 )
+print( b6, digits = 1 )
 coef( b6, which = "start" )
 round( coef( b6, which = "ols" ), 2 )
 round( coef( b6, which = "grid" ), 2 )
@@ -745,8 +745,8 @@ round( coef( b6 ), 2 )
 round( coef( summary( b6 ), which = "ols" ), 2 )
 round( coef( summary( b6 ) ), 2 )
 round( vcov( b6 ), 2 )
-logLik( b6, which = "ols" )
-logLik( b6 )
+print( logLik( b6, which = "ols" ), digits = 4 )
+print( logLik( b6 ), digits = 4 )
 nobs( b6 )
 print( summary( b6 ), digits = 1 )
 lrtest( b6 )
@@ -765,7 +765,7 @@ b7 <- frontier( data = riceProdPhilPanel,
    truncNorm = TRUE, timeEffect = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 all.equal( sb7[-39], b7[-39], tol = 1e-4 )
-print( b7 )
+print( b7, digits = 1 )
 coef( b7, which = "start" )
 round( coef( b7, which = "ols" ), 2 )
 coef( b7, which = "grid" )
@@ -773,8 +773,8 @@ round( coef( b7 ), 2 )
 round( coef( summary( b7 ), which = "ols" ), 2 )
 round( coef( summary( b7 ) ), 2 )
 round( vcov( b7 ), 2 )
-logLik( b7, which = "ols" )
-logLik( b7 )
+print( logLik( b7, which = "ols" ), digits = 4 )
+print( logLik( b7 ), digits = 4 )
 nobs( b7 )
 print( summary( b7 ), digits = 1 )
 lrtest( b7 )
@@ -791,7 +791,7 @@ b8 <- frontier( data = riceProdPhilPanel,
    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 all.equal( sb8[-39], b8[-39], tol = 1e-4 )
-print( b8 )
+print( b8, digits = 1 )
 coef( b8, which = "start" )
 round( coef( b8, which = "ols" ), 2 )
 coef( b8, which = "grid" )
@@ -799,8 +799,8 @@ round( coef( b8 ), 2 )
 round( coef( summary( b8 ), which = "ols" ), 2 )
 round( coef( summary( b8 ) ), 2 )
 round( vcov( b8 ), 2 )
-logLik( b8, which = "ols" )
-logLik( b8 )
+print( logLik( b8, which = "ols" ), digits = 4 )
+print( logLik( b8 ), digits = 4 )
 nobs( b8 )
 print( summary( b8 ), digits = 1 )
 lrtest( b8 )
@@ -826,7 +826,7 @@ all.equal( Sd1[-39], sd1[-39], check.attributes = FALSE, tol = 1e-4 )
 d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE )
 all.equal( sd1[-39], d1[-39], tol = 1e-4 )
-print( d1 )
+print( d1, digits = 1 )
 coef( d1, which = "start" )
 round( coef( d1, which = "ols" ), 2 )
 round( coef( d1, which = "grid" ), 2 )
@@ -852,7 +852,7 @@ sd2 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
 d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
 all.equal( sd2[-39], d2[-39], tol = 1e-4 )
-print( d2 )
+print( d2, digits = 1 )
 coef( d2, which = "start" )
 round( coef( d2, which = "ols" ), 2 )
 round( coef( d2, which = "grid" ), 2 )
@@ -875,7 +875,7 @@ sd3 <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanel,
 d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
 all.equal( sd3[-39], d3[-39], tol = 1e-4 )
-print( d3 )
+print( d3, digits = 1 )
 coef( d3, which = "start" )
 round( coef( d3, which = "ols" ), 2 )
 round( coef( d3, which = "grid" ), 2 )
@@ -899,7 +899,7 @@ d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
    timeEffect = TRUE )
 all.equal( sd4[-39], d4[-39], tol = 1e-4 )
-print( d4 )
+print( d4, digits = 1 )
 coef( d4, which = "start" )
 round( coef( d4, which = "ols" ), 2 )
 round( coef( d4, which = "grid" ), 2 )
@@ -927,7 +927,7 @@ d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE )
 all.equal( sd5[-39], d5[-39], tol = 1e-4 )
-print( d5 )
+print( d5, digits = 1 )
 coef( d5, which = "start" )
 round( coef( d5, which = "ols" ), 2 )
 round( coef( d5, which = "grid" ), 2 )
@@ -977,7 +977,7 @@ d6 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
    ineffDecrease = FALSE, zIntercept = TRUE )
 all.equal( sd6[-39], d6[-39], tol = 1e-4 )
-print( d6 )
+print( d6, digits = 1 )
 coef( d6, which = "start" )
 round( coef( d6, which = "ols" ), 2 )
 round( coef( d6, which = "grid" ), 2 )
@@ -1012,7 +1012,7 @@ riceProdPhilPanelUnb[ 222, c( "NPK", "lNPK", "NPKP", "lNPKP" ) ] <- NA
 
 ## unbalanced panel data, error components frontier
 b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
-print( b1u )
+print( b1u, digits = 1 )
 print( summary( b1u ), digits = 1 )
 nobs( b1u )
 lrtest( b1u )
@@ -1025,7 +1025,7 @@ printAll( b1u )
 ## unbalanced panel data, error components frontier, truncNorm
 b2u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    truncNorm = TRUE )
-print( b2u )
+print( b2u, digits = 1 )
 print( summary( b2u ), digits = 1 )
 nobs( b2u )
 lrtest( b2u )
@@ -1038,7 +1038,7 @@ printAll( b2u )
 ## unbalanced panel data, error components frontier, timeEffect
 b3u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    timeEffect = TRUE )
-print( b3u )
+print( b3u, digits = 1 )
 print( summary( b3u ), digits = 1 )
 nobs( b3u )
 lrtest( b3u )
@@ -1051,7 +1051,7 @@ printAll( b3u )
 ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    truncNorm = TRUE, timeEffect = TRUE )
-print( b4u )
+print( b4u, digits = 1 )
 print( summary( b4u ), digits = 1 )
 print( summary( b4u, effMinusU = FALSE ), digits = 1 )
 nobs( b4u )
@@ -1067,7 +1067,7 @@ printAll( b4u )
 ## unbalanced panel data, efficiency effects frontier
 b5u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
    data = riceProdPhilPanelUnb )
-print( b5u )
+print( b5u, digits = 1 )
 print( summary( b5u ), digits = 1 )
 nobs( b5u )
 lrtest( b5u )
@@ -1080,7 +1080,7 @@ printAll( b5u )
 ## unbalanced panel data, efficiency effects frontier, zIntercept
 b6u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
    data = riceProdPhilPanelUnb )
-print( b6u )
+print( b6u, digits = 1 )
 print( summary( b6u ), digits = 1 )
 print( summary( b6u, effMinusU = FALSE ), digits = 1 )
 nobs( b6u )
@@ -1119,7 +1119,7 @@ printAll( b6u )
 ## unbalanced panel rice data, error components cost frontier
 d1u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE )
-print( d1u )
+print( d1u, digits = 1 )
 print( summary( d1u ), digits = 1 )
 print( summary( d1u, effMinusU = FALSE ), digits = 1 )
 nobs( d1u )
@@ -1135,7 +1135,7 @@ printAll( d1u )
 ## unbalanced panel rice data, error components cost frontier, truncNorm
 d2u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, truncNorm = TRUE )
-print( d2u )
+print( d2u, digits = 1 )
 print( summary( d2u, effMinusU = FALSE ), digits = 1 )
 nobs( d2u )
 lrtest( d2u )
@@ -1148,7 +1148,7 @@ printAll( d2u )
 ## unbalanced panel rice data, error components cost frontier, timeEffect
 d3u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, timeEffect = TRUE )
-print( d3u )
+print( d3u, digits = 1 )
 print( summary( d3u, effMinusU = FALSE ), digits = 1 )
 nobs( d3u )
 lrtest( d3u )
@@ -1161,7 +1161,7 @@ printAll( d3u )
 ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
 d4u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
-print( d4u )
+print( d4u, digits = 1 )
 print( summary( d4u, effMinusU = FALSE ), digits = 1 )
 nobs( d4u )
 lrtest( d4u )
@@ -1190,7 +1190,7 @@ printAll( d5u )
 ## unbalanced panel rice data, efficiency effects cost frontier, zIntercept
 d6u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,
    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
-print( d6u )
+print( d6u, digits = 1 )
 print( summary( d6u, effMinusU = FALSE ), digits = 1 )
 nobs( d6u )
 lrtest( d6u )
@@ -1212,7 +1212,7 @@ naPanelData[ naPanelData$farm == "F_35", "EDYRS" ] <- NA
 ## panel data with NA firms, error components frontier
 b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = naPanelData )
-print( b1n )
+print( b1n, digits = 1 )
 print( summary( b1n ), digits = 1 )
 nobs( b1n )
 lrtest( b1n )
@@ -1225,7 +1225,7 @@ printAll( b1n )
 ## panel data with NA firms, error components frontier, truncNorm, timeEffect
 b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
-print( b4n )
+print( b4n, digits = 1 )
 print( summary( b4n ), digits = 1 )
 nobs( b4n )
 lrtest( b4n )
@@ -1238,7 +1238,7 @@ printAll( b4n )
 ## panel data with NA firms, efficiency effects frontier
 b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = naPanelData )
-print( b5n )
+print( b5n, digits = 1 )
 print( summary( b5n ), digits = 1 )
 nobs( b5n )
 lrtest( b5n )
@@ -1251,7 +1251,7 @@ printAll( b5n )
 ## panel data with NA firms, efficiency effects frontier, zIntercept
 b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT, data = naPanelData )
-print( b6n )
+print( b6n, digits = 1 )
 print( summary( b6n ), digits = 1 )
 nobs( b6n )
 lrtest( b6n )
@@ -1271,7 +1271,7 @@ naTimePanelData[ naTimePanelData$year == 1999, "EDYRS" ] <- NA
 ## panel data with NA years, error components frontier
 b1t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = naTimePanelData )
-print( b1t )
+print( b1t, digits = 1 )
 print( summary( b1t ), digits = 1 )
 nobs( b1t )
 lrtest( b1t )
@@ -1284,7 +1284,7 @@ printAll( b1t )
 ## panel data with NA years, error components frontier, truncNorm, timeEffect
 b4t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
-print( b4t )
+print( b4t, digits = 1 )
 print( summary( b4t ), digits = 1 )
 nobs( b4t )
 lrtest( b4t )
@@ -1297,7 +1297,7 @@ printAll( b4t )
 ## panel data with NA years, efficiency effects frontier
 b5t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = naTimePanelData )
-print( b5t )
+print( b5t, digits = 1 )
 print( summary( b5t ), digits = 1 )
 nobs( b5t )
 lrtest( b5t )
@@ -1310,7 +1310,7 @@ printAll( b5t )
 ## panel data with NA years, efficiency effects frontier, zIntercept
 b6t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT, data = naTimePanelData )
-print( b6t )
+print( b6t, digits = 1 )
 print( summary( b6t ), digits = 1 )
 nobs( b6t )
 lrtest( b6t )
@@ -1325,7 +1325,7 @@ printAll( b6t )
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ) )
-print( translog )
+print( translog, digits = 1 )
 coef( translog, which = "start" )
 round( coef( translog, which = "ols" ), 2 )
 round( coef( translog, which = "grid" ), 2 )
@@ -1333,8 +1333,8 @@ round( coef( translog ), 2 )
 round( coef( summary( translog ), which = "ols" ), 2 )
 round( coef( summary( translog ) ), 2 )
 round( vcov( translog ), 2 )
-logLik( translog, which = "ols" )
-logLik( translog )
+print( logLik( translog, which = "ols" ), digits = 4 )
+print( logLik( translog ), digits = 4 )
 nobs( translog )
 print( summary( translog ), digits = 1 )
 print( summary( translog, effMinusU = FALSE ), digits = 1 )
@@ -1346,16 +1346,16 @@ round( efficiencies( translog, asInData = TRUE, minusU = FALSE ), 2 )
 round( residuals( translog ), 2 )
 round( residuals( translog, asInData = TRUE ), 2 )
 translogEla <- elas( translog )
-print( translogEla )
-attributes( translogEla )$variance
-attributes( translogEla )$stdDev
+round( translogEla, 2 )
+round( attributes( translogEla )$variance, 2 )
+round( attributes( translogEla )$stdDev, 2 )
 printAll( translog )
 
 ## cross-section data, error components frontier, translog, shifter
 translogShift <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
    data = front41Data )
-print( translogShift )
+print( translogShift, digits = 1 )
 coef( translogShift, which = "start" )
 round( coef( translogShift, which = "ols" ), 2 )
 round( coef( translogShift, which = "grid" ), 2 )
@@ -1363,8 +1363,8 @@ round( coef( translogShift ), 2 )
 round( coef( summary( translogShift ), which = "ols" ), 2 )
 round( coef( summary( translogShift ) ), 2 )
 round( vcov( translogShift ), 2 )
-logLik( translogShift, which = "ols" )
-logLik( translogShift )
+print( logLik( translogShift, which = "ols" ), digits = 4 )
+print( logLik( translogShift ), digits = 4 )
 nobs( translogShift )
 print( summary( translogShift ), digits = 1 )
 lrtest( translogShift )
@@ -1373,7 +1373,7 @@ round( efficiencies( translogShift, asInData = TRUE ), 2 )
 round( residuals( translogShift ), 2 )
 round( residuals( translogShift, asInData = TRUE ), 2 )
 translogShiftEla <- elas( translogShift )
-print( translogShiftEla )
+print( translogShiftEla, digits = 1 )
 attributes( translogShiftEla )$variance
 attributes( translogShiftEla )$stdDev
 printAll( translogShift )
@@ -1382,7 +1382,7 @@ printAll( translogShift )
 translogZvar <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
    data = front41Data )
-print( translogZvar )
+print( translogZvar, digits = 1 )
 coef( translogZvar, which = "start" )
 round( coef( translogZvar, which = "ols" ), 2 )
 round( coef( translogZvar, which = "grid" ), 2 )
@@ -1390,8 +1390,8 @@ round( coef( translogZvar ), 2 )
 round( coef( summary( translogZvar ), which = "ols" ), 2 )
 round( coef( summary( translogZvar ) ), 2 )
 round( vcov( translogZvar ), 2 )
-logLik( translogZvar, which = "ols" )
-logLik( translogZvar )
+print( logLik( translogZvar, which = "ols" ), digits = 4 )
+print( logLik( translogZvar ), digits = 4 )
 nobs( translogZvar )
 print( summary( translogZvar ), digits = 1 )
 print( summary( translogZvar, effMinusU = FALSE ), digits = 1 )
@@ -1630,13 +1630,13 @@ all.equal( aa2a[-39], aa2[-39], check.attributes = FALSE, tol = 1e-4 )
 ## cross-section data, error components frontier
 sa10 <- sfa( logOutput ~ 1, data = front41Data )
 a10 <- frontier( "logOutput", NULL, data = front41Data )
-print( sa10 )
+print( sa10, digits = 1 )
 all.equal( sa10[-39], a10[-39], check.attributes = FALSE, tol = 1e-4 )
 nobs( sa10 )
 
 sa11 <- sfa( logOutput ~ logLabour, data = front41Data )
 a11 <- frontier( "logOutput", "logLabour", data = front41Data )
-print( sa11 )
+print( sa11, digits = 1 )
 all.equal( sa11[-39], a11[-39], check.attributes = FALSE, tol = 1e-4 )
 nobs( sa11 )
 
@@ -1644,14 +1644,14 @@ nobs( sa11 )
 saa10 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
 aa10 <- frontier( data = front41Data, "logOutput", NULL,
    zNames = "firmNo" )
-print( saa10 )
+print( saa10, digits = 1 )
 all.equal( saa10[-39], aa10[-39], tol = 1e-4 )
 nobs( saa10 )
 
 saa11 <- sfa( logOutput ~ logLabour | firmNo - 1, data = front41Data )
 aa11 <- frontier( data = front41Data, "logOutput", "logLabour",
    zNames = "firmNo" )
-print( saa11 )
+print( saa11, digits = 1 )
 all.equal( saa11[-39], aa11[-39], tol = 1e-4 )
 nobs( saa11 )
 
@@ -1662,188 +1662,188 @@ nobs( saa11 )
 options( digits = 9 )
 
 ## cross-section data, error components frontier
-logLik( a1 )
-logLik( a1, newParam = coef( a1 ) )
-logLik( sa1, newParam = coef( sa1 ) )
-logLik( Sa1, newParam = coef( a1 ) )
+print( logLik( a1 ), digits = 4 )
+print( logLik( a1, newParam = coef( a1 ) ), digits = 4 )
+print( logLik( sa1, newParam = coef( sa1 ) ), digits = 4 )
+print( logLik( Sa1, newParam = coef( a1 ) ), digits = 4 )
 
 ## cross-section data, error components frontier, truncNorm
-logLik( a2 )
-logLik( a2, newParam = coef( a2 ) )
-logLik( sa2, newParam = coef( sa2 ) )
+print( logLik( a2 ), digits = 4 )
+print( logLik( a2, newParam = coef( a2 ) ), digits = 4 )
+print( logLik( sa2, newParam = coef( sa2 ) ), digits = 4 )
 
 ## cross-section data, error components frontier, truncNorm, starting values
-logLik( a5 )
-logLik( a5, newParam = coef( a5 ) )
-logLik( sa5, newParam = coef( sa5 ) )
+print( logLik( a5 ), digits = 4 )
+print( logLik( a5, newParam = coef( a5 ) ), digits = 4 )
+print( logLik( sa5, newParam = coef( sa5 ) ), digits = 4 )
 
 ## cross-section data, efficiency effects frontier
-logLik( aa1 )
-logLik( aa1, newParam = coef( aa1 ) )
-logLik( saa1, newParam = coef( saa1 ) )
-logLik( Saa1, newParam = coef( aa1 ) )
+print( logLik( aa1 ), digits = 4 )
+print( logLik( aa1, newParam = coef( aa1 ) ), digits = 4 )
+print( logLik( saa1, newParam = coef( saa1 ) ), digits = 4 )
+print( logLik( Saa1, newParam = coef( aa1 ) ), digits = 4 )
 
 ## cross-section data, efficiency effects frontier, zIntercept
-logLik( aa2 )
-logLik( aa2, newParam = coef( aa2 ) )
-logLik( saa2, newParam = coef( saa2 ) )
+print( logLik( aa2 ), digits = 4 )
+print( logLik( aa2, newParam = coef( aa2 ) ), digits = 4 )
+print( logLik( saa2, newParam = coef( saa2 ) ), digits = 4 )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
-logLik( aa5 )
-logLik( aa5, newParam = coef( aa5 ) )
-logLik( saa5, newParam = coef( saa5 ) )
+print( logLik( aa5 ), digits = 4 )
+print( logLik( aa5, newParam = coef( aa5 ) ), digits = 4 )
+print( logLik( saa5, newParam = coef( saa5 ) ), digits = 4 )
 
 
 ## data set of rice producers in the Philippines
 
 ## cross-section rice data, error components frontier
-logLik( bb1 )
-logLik( bb1, newParam = coef( bb1 ) )
-logLik( sbb1, newParam = coef( sbb1 ) )
-logLik( Sbb1, newParam = coef( bb1 ) )
+print( logLik( bb1 ), digits = 4 )
+print( logLik( bb1, newParam = coef( bb1 ) ), digits = 4 )
+print( logLik( sbb1, newParam = coef( sbb1 ) ), digits = 4 )
+print( logLik( Sbb1, newParam = coef( bb1 ) ), digits = 4 )
 
 ## cross-section rice data, error components frontier, truncNorm
-logLik( bb2 )
-logLik( bb2, newParam = coef( bb2 ) )
-logLik( sbb2, newParam = coef( sbb2 ) )
+print( logLik( bb2 ), digits = 4 )
+print( logLik( bb2, newParam = coef( bb2 ) ), digits = 4 )
+print( logLik( sbb2, newParam = coef( sbb2 ) ), digits = 4 )
 
 ## cross-section rice data, efficiency effects frontier
-logLik( bb5 )
-logLik( bb5, newParam = coef( bb5 ) )
-logLik( sbb5, newParam = coef( sbb5 ) )
-logLik( Sbb5, newParam = coef( bb5 ) )
+print( logLik( bb5 ), digits = 4 )
+print( logLik( bb5, newParam = coef( bb5 ) ), digits = 4 )
+print( logLik( sbb5, newParam = coef( sbb5 ) ), digits = 4 )
+print( logLik( Sbb5, newParam = coef( bb5 ) ), digits = 4 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept
-logLik( bb6 )
-logLik( bb6, newParam = coef( bb6 ) )
-logLik( sbb6, newParam = coef( sbb6 ) )
+print( logLik( bb6 ), digits = 4 )
+print( logLik( bb6, newParam = coef( bb6 ) ), digits = 4 )
+print( logLik( sbb6, newParam = coef( sbb6 ) ), digits = 4 )
 
 ## cross-section rice data, error components frontier, truncNorm, starting values
-logLik( bb7 )
-logLik( bb7, newParam = coef( bb7 ) )
-logLik( sbb7, newParam = coef( sbb7 ) )
+print( logLik( bb7 ), digits = 4 )
+print( logLik( bb7, newParam = coef( bb7 ) ), digits = 4 )
+print( logLik( sbb7, newParam = coef( sbb7 ) ), digits = 4 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
-logLik( bb8 )
-logLik( bb8, newParam = coef( bb8 ) )
-logLik( sbb8, newParam = coef( sbb8 ) )
+print( logLik( bb8 ), digits = 4 )
+print( logLik( bb8, newParam = coef( bb8 ) ), digits = 4 )
+print( logLik( sbb8, newParam = coef( sbb8 ) ), digits = 4 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
 ## cross-section rice data, error components cost frontier
-logLik( dd1 )
-logLik( dd1, newParam = coef( dd1 ) )
-logLik( sdd1, newParam = coef( sdd1 ) )
-logLik( Sdd1, newParam = coef( dd1 ) )
+print( logLik( dd1 ), digits = 4 )
+print( logLik( dd1, newParam = coef( dd1 ) ), digits = 4 )
+print( logLik( sdd1, newParam = coef( sdd1 ) ), digits = 4 )
+print( logLik( Sdd1, newParam = coef( dd1 ) ), digits = 4 )
 
 ## cross-section rice data, error components cost frontier, truncNorm
-logLik( dd2 )
-logLik( dd2, newParam = coef( dd2 ) )
-logLik( sdd2, newParam = coef( sdd2 ) )
+print( logLik( dd2 ), digits = 4 )
+print( logLik( dd2, newParam = coef( dd2 ) ), digits = 4 )
+print( logLik( sdd2, newParam = coef( sdd2 ) ), digits = 4 )
 
 ## cross-section rice data, efficiency effects cost frontier
-logLik( dd5 )
-logLik( dd5, newParam = coef( dd5 ) )
-logLik( sdd5, newParam = coef( sdd5 ) )
-logLik( Sdd5, newParam = coef( dd5 ) )
+print( logLik( dd5 ), digits = 4 )
+print( logLik( dd5, newParam = coef( dd5 ) ), digits = 4 )
+print( logLik( sdd5, newParam = coef( sdd5 ) ), digits = 4 )
+print( logLik( Sdd5, newParam = coef( dd5 ) ), digits = 4 )
 
 ## cross-section rice data, efficiency effects cost frontier, zIntercept
-logLik( dd6 )
-logLik( dd6, newParam = coef( dd6 ) )
-logLik( sdd6, newParam = coef( sdd6 ) )
+print( logLik( dd6 ), digits = 4 )
+print( logLik( dd6, newParam = coef( dd6 ) ), digits = 4 )
+print( logLik( sdd6, newParam = coef( sdd6 ) ), digits = 4 )
 
 
 ## panel data
 
 ## panel data, error components frontier
-logLik( b1 )
-logLik( b1, newParam = coef( b1 ) )
-logLik( sb1, newParam = coef( sb1 ) )
-logLik( Sb1, newParam = coef( b1 ) )
+print( logLik( b1 ), digits = 4 )
+print( logLik( b1, newParam = coef( b1 ) ), digits = 4 )
+print( logLik( sb1, newParam = coef( sb1 ) ), digits = 4 )
+print( logLik( Sb1, newParam = coef( b1 ) ), digits = 4 )
 
 ## panel data, error components frontier, truncNorm
-logLik( b2 )
-logLik( b2, newParam = coef( b2 ) )
-logLik( sb2, newParam = coef( sb2 ) )
+print( logLik( b2 ), digits = 4 )
+print( logLik( b2, newParam = coef( b2 ) ), digits = 4 )
+print( logLik( sb2, newParam = coef( sb2 ) ), digits = 4 )
 
 ## panel data, error components frontier, timeEffect
-logLik( b3 )
-logLik( b3, newParam = coef( b3 ) )
-logLik( sb3, newParam = coef( sb3 ) )
+print( logLik( b3 ), digits = 4 )
+print( logLik( b3, newParam = coef( b3 ) ), digits = 4 )
+print( logLik( sb3, newParam = coef( sb3 ) ), digits = 4 )
 
 ## panel data, error components frontier, truncNorm, timeEffect
-logLik( b4 )
-logLik( b4, newParam = coef( b4 ) )
-logLik( sb4, newParam = coef( sb4 ) )
+print( logLik( b4 ), digits = 4 )
+print( logLik( b4, newParam = coef( b4 ) ), digits = 4 )
+print( logLik( sb4, newParam = coef( sb4 ) ), digits = 4 )
 
 ## panel data, efficiency effects frontier
-logLik( b5 )
-logLik( b5, newParam = coef( b5 ) )
-logLik( sb5, newParam = coef( sb5 ) )
-logLik( Sb5, newParam = coef( b5 ) )
+print( logLik( b5 ), digits = 4 )
+print( logLik( b5, newParam = coef( b5 ) ), digits = 4 )
+print( logLik( sb5, newParam = coef( sb5 ) ), digits = 4 )
+print( logLik( Sb5, newParam = coef( b5 ) ), digits = 4 )
 
 ## panel data, efficiency effects frontier, zIntercept
-logLik( b6 )
-logLik( b6, newParam = coef( b6 ) )
-logLik( sb6, newParam = coef( sb6 ) )
+print( logLik( b6 ), digits = 4 )
+print( logLik( b6, newParam = coef( b6 ) ), digits = 4 )
+print( logLik( sb6, newParam = coef( sb6 ) ), digits = 4 )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
-logLik( b7 )
-logLik( b7, newParam = coef( b7 ) )
-logLik( sb7, newParam = coef( sb7 ) )
+print( logLik( b7 ), digits = 4 )
+print( logLik( b7, newParam = coef( b7 ) ), digits = 4 )
+print( logLik( sb7, newParam = coef( sb7 ) ), digits = 4 )
 
 ## panel data, efficiency effects frontier, zIntercept, starting values
-logLik( b8 )
-logLik( b8, newParam = coef( b8 ) )
-logLik( sb8, newParam = coef( sb8 ) )
+print( logLik( b8 ), digits = 4 )
+print( logLik( b8, newParam = coef( b8 ) ), digits = 4 )
+print( logLik( sb8, newParam = coef( sb8 ) ), digits = 4 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
 ## panel rice data, error components cost frontier
-logLik( d1 )
-logLik( d1, newParam = coef( d1 ) )
-logLik( sd1, newParam = coef( sd1 ) )
-logLik( Sd1, newParam = coef( d1 ) )
+print( logLik( d1 ), digits = 4 )
+print( logLik( d1, newParam = coef( d1 ) ), digits = 4 )
+print( logLik( sd1, newParam = coef( sd1 ) ), digits = 4 )
+print( logLik( Sd1, newParam = coef( d1 ) ), digits = 4 )
 
 ## panel rice data, error components cost frontier, truncNorm
-logLik( d2 )
-logLik( d2, newParam = coef( d2 ) )
-logLik( sd2, newParam = coef( sd2 ) )
+print( logLik( d2 ), digits = 4 )
+print( logLik( d2, newParam = coef( d2 ) ), digits = 4 )
+print( logLik( sd2, newParam = coef( sd2 ) ), digits = 4 )
 
 ## panel rice data, error components cost frontier, timeEffect
-logLik( d3 )
-logLik( d3, newParam = coef( d3 ) )
-logLik( sd3, newParam = coef( sd3 ) )
+print( logLik( d3 ), digits = 4 )
+print( logLik( d3, newParam = coef( d3 ) ), digits = 4 )
+print( logLik( sd3, newParam = coef( sd3 ) ), digits = 4 )
 
 ## panel rice data, error components cost frontier, truncNorm, timeEffect
-logLik( d4 )
-logLik( d4, newParam = coef( d4 ) )
-logLik( sd4, newParam = coef( sd4 ) )
+print( logLik( d4 ), digits = 4 )
+print( logLik( d4, newParam = coef( d4 ) ), digits = 4 )
+print( logLik( sd4, newParam = coef( sd4 ) ), digits = 4 )
 
 ## panel rice data, efficiency effects cost frontier
-logLik( d5 )
-logLik( d5, newParam = coef( d5 ) )
-logLik( sd5, newParam = coef( sd5 ) )
-logLik( Sd5, newParam = coef( d5 ) )
+print( logLik( d5 ), digits = 4 )
+print( logLik( d5, newParam = coef( d5 ) ), digits = 4 )
+print( logLik( sd5, newParam = coef( sd5 ) ), digits = 4 )
+print( logLik( Sd5, newParam = coef( d5 ) ), digits = 4 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
-logLik( d6 )
-logLik( d6, newParam = coef( d6 ) )
-logLik( sd6, newParam = coef( sd6 ) )
+print( logLik( d6 ), digits = 4 )
+print( logLik( d6, newParam = coef( d6 ) ), digits = 4 )
+print( logLik( sd6, newParam = coef( sd6 ) ), digits = 4 )
 
 
 ## translog frontiers
 ## cross-section data, error components frontier, translog
-logLik( translog )
-logLik( translog, newParam = coef( translog ) )
+print( logLik( translog ), digits = 4 )
+print( logLik( translog, newParam = coef( translog ) ), digits = 4 )
 
 ## cross-section data, error components frontier, translog, shifter
-logLik( translogShift )
-logLik( translogShift, newParam = coef( translogShift ) )
+print( logLik( translogShift ), digits = 4 )
+print( logLik( translogShift, newParam = coef( translogShift ) ), digits = 4 )
 
 ## cross-section data, efficiency effects frontier, translog
-logLik( translogZvar )
-logLik( translogZvar, newParam = coef( translogZvar ) )
+print( logLik( translogZvar ), digits = 4 )
+print( logLik( translogZvar, newParam = coef( translogZvar ) ), digits = 4 )
 
 
 ##############################################
