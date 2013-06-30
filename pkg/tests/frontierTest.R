@@ -1373,9 +1373,9 @@ round( efficiencies( translogShift, asInData = TRUE ), 2 )
 round( residuals( translogShift ), 2 )
 round( residuals( translogShift, asInData = TRUE ), 2 )
 translogShiftEla <- elas( translogShift )
-print( translogShiftEla, digits = 1 )
-attributes( translogShiftEla )$variance
-attributes( translogShiftEla )$stdDev
+round( translogShiftEla, 2 )
+round( attributes( translogShiftEla )$variance, 2 )
+round( attributes( translogShiftEla )$stdDev, 2 )
 printAll( translogShift )
 
 ## cross-section data, efficiency effects frontier, translog
@@ -1403,9 +1403,9 @@ printME( efficiencies( translogZvar, asInData = TRUE, minusU = FALSE, margEff = 
 round( residuals( translogZvar ), 2 )
 round( residuals( translogZvar, asInData = TRUE ), 2 )
 translogZvarEla <- elas( translogZvar )
-print( translogZvarEla ) 
-attributes( translogZvarEla )$variance
-attributes( translogZvarEla )$stdDev
+round( translogZvarEla, 2 )
+round( attributes( translogZvarEla )$variance, 2 )
+round( attributes( translogZvarEla )$stdDev, 2 )
 printAll( translogZvar )
 
 
