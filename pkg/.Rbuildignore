@@ -2,3 +2,4 @@
 pkg.Rproj
 ^.*\.Rproj$
 ^\.svn$
+^tests/.*\.Rout\.save$
