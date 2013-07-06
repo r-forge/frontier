@@ -560,6 +560,15 @@ nobs( dd9 )
 lrtest( dd9 )
 
 
+## error components frontier
+## with "true" fixed individual effects and observation-specific efficiencies
+riceTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
+   factor( FMERCODE ),  data = riceProdPhil )
+summary( riceTrue )
+lrtest( riceTrue )
+lrtest( Sbb1, riceTrue )
+
+
 ## panel data
 riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
    riceProdPhil$FMERCODE, sep = "" )
@@ -674,6 +683,24 @@ round( efficiencies( b4, asInData = TRUE ), 2 )
 round( residuals( b4 ), 2 )
 round( residuals( b4, asInData = TRUE ), 2 )
 printAll( b4 )
+
+## error components frontier
+## with "true" fixed individual effects and time-invariant efficiencies
+ricePanelTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
+      factor( FMERCODE ),  data = riceProdPhilPanel )
+summary( ricePanelTrue )
+lrtest( ricePanelTrue )
+lrtest( Sb1, ricePanelTrue )
+
+## error components frontier
+## with "true" fixed individual effects and time-variant efficiencies
+ricePanelTimeTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
+      factor( FMERCODE ), data = riceProdPhilPanel, timeEffect = TRUE )
+summary( ricePanelTimeTrue )
+lrtest( ricePanelTimeTrue )
+lrtest( sb3, ricePanelTimeTrue )
+lrtest( ricePanelTrue, ricePanelTimeTrue )
+
 
 ## panel data, efficiency effects frontier
 sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,

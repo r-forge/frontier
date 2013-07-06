@@ -42,7 +42,7 @@ Loading required package: miscTools
 Loading required package: lmtest
 
 Please cite the 'frontier' package as:
-Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.0-0. http://CRAN.R-Project.org/package=frontier.
+Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.0. http://CRAN.R-Project.org/package=frontier.
 
 If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
 https://r-forge.r-project.org/projects/frontier/
@@ -27112,6 +27112,101 @@ Model 2: Efficiency Effects Frontier (EEF)
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
+> ## error components frontier
+> ## with "true" fixed individual effects and observation-specific efficiencies
+> riceTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
++    factor( FMERCODE ),  data = riceProdPhil )
+Warning message:
+In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) + factor(FMERCODE),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> summary( riceTrue )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 36 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         0.149019   0.501755    0.30    0.766    
+log(AREA)           0.531551   0.082276    6.46    1e-10 ***
+log(LABOR)          0.193778   0.110522    1.75    0.080 .  
+log(NPK)            0.123891   0.077415    1.60    0.110    
+factor(FMERCODE)2   0.275134   0.778155    0.35    0.724    
+factor(FMERCODE)3  -0.013437   0.588623   -0.02    0.982    
+factor(FMERCODE)4   0.200573   0.675029    0.30    0.766    
+factor(FMERCODE)5  -0.031172   0.397109   -0.08    0.937    
+factor(FMERCODE)6  -0.195637   0.801697   -0.24    0.807    
+factor(FMERCODE)7   0.158020   0.719368    0.22    0.826    
+factor(FMERCODE)8   0.040526   0.884695    0.05    0.963    
+factor(FMERCODE)9   0.044792   0.632564    0.07    0.944    
+factor(FMERCODE)10  0.155911   0.905456    0.17    0.863    
+factor(FMERCODE)11 -0.300924   0.247496   -1.22    0.224    
+factor(FMERCODE)12  0.202055   0.755430    0.27    0.789    
+factor(FMERCODE)13 -0.090551   0.912464   -0.10    0.921    
+factor(FMERCODE)14 -0.001918   0.624783    0.00    0.998    
+factor(FMERCODE)15 -0.380964   0.603451   -0.63    0.528    
+factor(FMERCODE)16 -0.129120   0.831786   -0.16    0.877    
+factor(FMERCODE)17  0.378774   0.189270    2.00    0.045 *  
+factor(FMERCODE)18  0.289776   0.473522    0.61    0.541    
+factor(FMERCODE)19  0.394479   0.194882    2.02    0.043 *  
+factor(FMERCODE)20  0.130307   0.572215    0.23    0.820    
+factor(FMERCODE)21  0.146947   0.440694    0.33    0.739    
+factor(FMERCODE)22  0.068680   0.655531    0.10    0.917    
+factor(FMERCODE)23 -0.036852   0.421988   -0.09    0.930    
+factor(FMERCODE)24  0.009464   0.496122    0.02    0.985    
+factor(FMERCODE)25  0.153700   0.685916    0.22    0.823    
+factor(FMERCODE)26 -0.067289   0.604466   -0.11    0.911    
+factor(FMERCODE)27  0.048600   0.859207    0.06    0.955    
+factor(FMERCODE)28  0.089213   0.803284    0.11    0.912    
+factor(FMERCODE)29 -0.016762   0.438535   -0.04    0.970    
+factor(FMERCODE)30 -0.483397   0.242910   -1.99    0.047 *  
+factor(FMERCODE)31  0.227072   0.205065    1.11    0.268    
+factor(FMERCODE)32  0.525507   0.388195    1.35    0.176    
+factor(FMERCODE)33 -0.003096   0.879785    0.00    0.997    
+factor(FMERCODE)34 -0.714326   0.337747   -2.11    0.034 *  
+factor(FMERCODE)35  0.182843   0.673114    0.27    0.786    
+factor(FMERCODE)36  0.000683   0.365958    0.00    0.999    
+factor(FMERCODE)37  0.452857   0.529432    0.86    0.392    
+factor(FMERCODE)38  0.302173   0.820541    0.37    0.713    
+factor(FMERCODE)39 -0.147215   0.711323   -0.21    0.836    
+factor(FMERCODE)40 -0.158827   0.754420   -0.21    0.833    
+factor(FMERCODE)41  0.151991   0.472364    0.32    0.748    
+factor(FMERCODE)42  0.168044   0.613369    0.27    0.784    
+factor(FMERCODE)43  0.124199   0.166617    0.75    0.456    
+sigmaSq             0.210119   0.014207   14.79   <2e-16 ***
+gamma               0.999876   0.006329  157.98   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: 0.31397 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.72588 
+> lrtest( riceTrue )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1  47  -38.2                        
+2  48    0.3  1    77     <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> lrtest( Sbb1, riceTrue )
+Likelihood ratio test
+
+Model 1: Sbb1
+Model 2: riceTrue
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   6  -86.2                        
+2  48    0.3 42   173     <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> 
 > ## panel data
 > riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
 +    riceProdPhil$FMERCODE, sep = "" )
@@ -30940,6 +31035,214 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 
 class
 [1] "frontier"
+> 
+> ## error components frontier
+> ## with "true" fixed individual effects and time-invariant efficiencies
+> ricePanelTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
++       factor( FMERCODE ),  data = riceProdPhilPanel )
+Warning message:
+In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) + factor(FMERCODE),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> summary( ricePanelTrue )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 23 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)        -8.30e-01   3.46e-01   -2.40   0.0163 *  
+log(AREA)           5.41e-01   7.21e-02    7.50  6.2e-14 ***
+log(LABOR)          2.35e-01   6.34e-02    3.72   0.0002 ***
+log(NPK)            1.96e-01   4.37e-02    4.49  7.0e-06 ***
+factor(FMERCODE)2   3.58e-01   9.62e-01    0.37   0.7098    
+factor(FMERCODE)3  -2.42e-02   9.52e-01   -0.03   0.9798    
+factor(FMERCODE)4   2.64e-01   9.71e-01    0.27   0.7853    
+factor(FMERCODE)5   1.73e-01   9.43e-01    0.18   0.8544    
+factor(FMERCODE)6   9.71e-02   9.16e-01    0.11   0.9156    
+factor(FMERCODE)7   3.41e-01   8.69e-01    0.39   0.6944    
+factor(FMERCODE)8   1.31e-01   9.40e-01    0.14   0.8893    
+factor(FMERCODE)9   1.97e-01   9.62e-01    0.20   0.8377    
+factor(FMERCODE)10  1.82e-01   9.78e-01    0.19   0.8528    
+factor(FMERCODE)11 -2.55e-01   9.65e-01   -0.26   0.7914    
+factor(FMERCODE)12  4.73e-01   6.32e-01    0.75   0.4541    
+factor(FMERCODE)13  6.97e-02   9.34e-01    0.07   0.9405    
+factor(FMERCODE)14  1.89e-01   9.65e-01    0.20   0.8449    
+factor(FMERCODE)15 -3.80e-02   8.47e-01   -0.04   0.9642    
+factor(FMERCODE)16  2.68e-01   9.27e-01    0.29   0.7729    
+factor(FMERCODE)17  2.39e-01   8.95e-01    0.27   0.7895    
+factor(FMERCODE)18  3.41e-01   8.14e-01    0.42   0.6755    
+factor(FMERCODE)19  1.86e-01   9.57e-01    0.19   0.8460    
+factor(FMERCODE)20  2.91e-01   9.44e-01    0.31   0.7580    
+factor(FMERCODE)21  6.16e-02   9.34e-01    0.07   0.9474    
+factor(FMERCODE)22  1.50e-01   9.26e-01    0.16   0.8709    
+factor(FMERCODE)23 -5.69e-02   8.50e-01   -0.07   0.9466    
+factor(FMERCODE)24 -6.19e-02   9.70e-01   -0.06   0.9492    
+factor(FMERCODE)25  1.36e-01   9.17e-01    0.15   0.8824    
+factor(FMERCODE)26  1.83e-01   9.56e-01    0.19   0.8483    
+factor(FMERCODE)27  8.57e-02   9.04e-01    0.09   0.9244    
+factor(FMERCODE)28  4.11e-01   9.10e-01    0.45   0.6517    
+factor(FMERCODE)29 -8.28e-02   9.58e-01   -0.09   0.9311    
+factor(FMERCODE)30 -2.60e-01   8.86e-01   -0.29   0.7692    
+factor(FMERCODE)31  2.93e-01   9.30e-01    0.32   0.7524    
+factor(FMERCODE)32  1.67e-01   9.13e-01    0.18   0.8547    
+factor(FMERCODE)33  2.42e-01   9.55e-01    0.25   0.7997    
+factor(FMERCODE)34 -5.10e-01   6.71e-01   -0.76   0.4473    
+factor(FMERCODE)35  2.94e-01   9.66e-01    0.30   0.7607    
+factor(FMERCODE)36 -7.33e-02   9.75e-01   -0.08   0.9401    
+factor(FMERCODE)37  3.56e-01   9.41e-01    0.38   0.7053    
+factor(FMERCODE)38  3.58e-01   9.69e-01    0.37   0.7121    
+factor(FMERCODE)39 -2.35e-02   9.39e-01   -0.03   0.9800    
+factor(FMERCODE)40 -1.11e-01   9.75e-01   -0.11   0.9096    
+factor(FMERCODE)41  3.45e-01   8.68e-01    0.40   0.6910    
+factor(FMERCODE)42  2.37e-01   8.96e-01    0.26   0.7910    
+factor(FMERCODE)43 -4.52e-02   9.72e-01   -0.05   0.9629    
+sigmaSq             7.31e-02   5.53e-03   13.21  < 2e-16 ***
+gamma               1.00e-08   2.54e-04    0.00   1.0000    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -38.204 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.99998 
+> lrtest( ricePanelTrue )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)
+1  47  -38.2                    
+2  48  -38.2  1     0        0.5
+> lrtest( Sb1, ricePanelTrue )
+Likelihood ratio test
+
+Model 1: Sb1
+Model 2: ricePanelTrue
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   6  -86.4                        
+2  48  -38.2 42  96.5    3.6e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
+> ## error components frontier
+> ## with "true" fixed individual effects and time-variant efficiencies
+> ricePanelTimeTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
++       factor( FMERCODE ), data = riceProdPhilPanel, timeEffect = TRUE )
+Warning message:
+In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) + factor(FMERCODE),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> summary( ricePanelTimeTrue )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 89 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)        -8.06e-01   3.40e-01   -2.37    0.018 *  
+log(AREA)           5.56e-01   7.19e-02    7.73  1.0e-14 ***
+log(LABOR)          2.52e-01   6.38e-02    3.95  7.9e-05 ***
+log(NPK)            1.79e-01   4.43e-02    4.04  5.4e-05 ***
+factor(FMERCODE)2   3.57e-01   1.41e-01    2.53    0.011 *  
+factor(FMERCODE)3  -3.49e-02   1.41e-01   -0.25    0.804    
+factor(FMERCODE)4   2.64e-01   1.69e-01    1.56    0.118    
+factor(FMERCODE)5   1.60e-01   1.61e-01    0.99    0.320    
+factor(FMERCODE)6   1.10e-01   1.76e-01    0.63    0.532    
+factor(FMERCODE)7   3.48e-01   1.42e-01    2.46    0.014 *  
+factor(FMERCODE)8   1.32e-01   1.38e-01    0.96    0.337    
+factor(FMERCODE)9   1.87e-01   2.86e-01    0.66    0.512    
+factor(FMERCODE)10  1.81e-01   1.37e-01    1.32    0.187    
+factor(FMERCODE)11 -2.42e-01   1.52e-01   -1.59    0.113    
+factor(FMERCODE)12  5.03e-01   2.09e-01    2.40    0.016 *  
+factor(FMERCODE)13  6.95e-02   2.55e-01    0.27    0.785    
+factor(FMERCODE)14  1.89e-01   1.43e-01    1.32    0.186    
+factor(FMERCODE)15 -1.51e-02   1.89e-01   -0.08    0.936    
+factor(FMERCODE)16  2.95e-01   1.71e-01    1.72    0.085 .  
+factor(FMERCODE)17  2.48e-01   1.42e-01    1.75    0.080 .  
+factor(FMERCODE)18  3.26e-01   6.26e-01    0.52    0.603    
+factor(FMERCODE)19  1.73e-01   1.40e-01    1.23    0.218    
+factor(FMERCODE)20  2.86e-01   6.26e-01    0.46    0.648    
+factor(FMERCODE)21  5.82e-02   1.42e-01    0.41    0.682    
+factor(FMERCODE)22  1.48e-01   1.43e-01    1.03    0.301    
+factor(FMERCODE)23 -5.92e-02   1.47e-01   -0.40    0.686    
+factor(FMERCODE)24 -7.24e-02   1.39e-01   -0.52    0.602    
+factor(FMERCODE)25  1.30e-01   1.66e-01    0.78    0.434    
+factor(FMERCODE)26  1.99e-01   1.48e-01    1.35    0.178    
+factor(FMERCODE)27  1.00e-01   1.44e-01    0.69    0.487    
+factor(FMERCODE)28  4.22e-01   2.02e-01    2.08    0.037 *  
+factor(FMERCODE)29 -8.67e-02   2.52e-01   -0.34    0.731    
+factor(FMERCODE)30 -2.50e-01   1.94e-01   -1.29    0.198    
+factor(FMERCODE)31  3.00e-01   1.61e-01    1.86    0.063 .  
+factor(FMERCODE)32  1.98e-01   1.59e-01    1.25    0.213    
+factor(FMERCODE)33  2.55e-01   1.57e-01    1.62    0.104    
+factor(FMERCODE)34 -4.96e-01   1.67e-01   -2.97    0.003 ** 
+factor(FMERCODE)35  2.88e-01   1.63e-01    1.77    0.076 .  
+factor(FMERCODE)36 -6.41e-02   1.42e-01   -0.45    0.651    
+factor(FMERCODE)37  3.65e-01   1.48e-01    2.46    0.014 *  
+factor(FMERCODE)38  3.57e-01   1.89e-01    1.88    0.059 .  
+factor(FMERCODE)39 -2.76e-03   1.73e-01   -0.02    0.987    
+factor(FMERCODE)40 -1.04e-01   1.41e-01   -0.74    0.461    
+factor(FMERCODE)41  3.38e-01   1.90e-01    1.77    0.076 .  
+factor(FMERCODE)42  2.32e-01   1.45e-01    1.60    0.109    
+factor(FMERCODE)43 -1.64e-02   1.49e-01   -0.11    0.913    
+sigmaSq             7.09e-02   5.66e-03   12.52  < 2e-16 ***
+gamma               2.21e-06   1.39e-05    0.16    0.874    
+time                8.36e-01   4.39e-01    1.91    0.057 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -35.792 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.89959 0.95438 0.97981 0.99117 0.99616 0.99833 0.99928 0.99969 
+
+mean efficiency: 0.9773 
+> lrtest( ricePanelTimeTrue )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1  47  -38.2                      
+2  49  -35.8  2  4.82      0.036 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> lrtest( sb3, ricePanelTimeTrue )
+Likelihood ratio test
+
+Model 1: sb3
+Model 2: ricePanelTimeTrue
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   7  -84.6                        
+2  49  -35.8 42  97.5    2.6e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> lrtest( ricePanelTrue, ricePanelTimeTrue )
+Likelihood ratio test
+
+Model 1: ricePanelTrue
+Model 2: ricePanelTimeTrue
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1  48  -38.2                      
+2  49  -35.8  1  4.82      0.028 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> 
 > 
 > ## panel data, efficiency effects frontier
 > sb5 <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
@@ -70628,4 +70931,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 29.192   0.868  30.084 
+ 20.844   0.620  21.472 
