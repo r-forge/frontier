@@ -329,9 +329,16 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    summary( riceTimeVar )
 
    # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
-   rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+   # (efficiency effects model with intercept)
+   riceZ <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
+      EDYRS + BANRAT, data = riceProdPhil )
+   summary( riceZ )
+
+   # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
+   # (efficiency effects model without intercept)
+   riceZ2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
       EDYRS + BANRAT - 1, data = riceProdPhil )
-   summary( rice2 )
+   summary( riceZ2 )
 
    # Cost Frontier (with land as quasi-fixed input)
    riceProdPhil$cost <- riceProdPhil$LABOR * riceProdPhil$LABORP +
