@@ -298,14 +298,35 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       data = front41Data )
    summary( cobbDouglas )
 
-   # rice producers in the Philippines (panel data)
+   # load data about rice producers in the Philippines (panel data)
    data( riceProdPhil )
-   riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
 
    # Error Components Frontier (Battese & Coelli 1992)
+   # with observation-specific efficiencies (ignoring the panel structure)
    rice <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
       data = riceProdPhil )
    summary( rice )
+
+   # Error Components Frontier (Battese & Coelli 1992)
+   # with "true" fixed individual effects and observation-specific efficiencies
+   riceTrue <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) + 
+      factor( FMERCODE ),  data = riceProdPhil )
+   summary( riceTrue )
+
+   # add data set with information about its panel structure
+   ricePanel <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
+
+   # Error Components Frontier (Battese & Coelli 1992)
+   # with time-invariant efficiencies
+   riceTimeInv <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      data = ricePanel )
+   summary( riceTimeInv )
+
+   # Error Components Frontier (Battese & Coelli 1992)
+   # with time-variant efficiencies
+   riceTimeVar <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
+      data = ricePanel, timeEffect = TRUE )
+   summary( riceTimeVar )
 
    # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
    rice2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
@@ -318,40 +339,6 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    riceCost <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP )
       + log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
    summary( riceCost )
-
-   ######################################################
-   ### using frontier() with the "old" user interface ###
-   ######################################################
-
-   # example included in FRONTIER 4.1 (cross-section data)
-   front41Data$logOutput  <- log( front41Data$output )
-   front41Data$logCapital <- log( front41Data$capital )
-   front41Data$logLabour  <- log( front41Data$labour )
-
-   # Cobb-Douglas production frontier
-   cobbDouglasFront <- frontier( yName = "logOutput",
-      xNames = c( "logCapital", "logLabour" ), data = front41Data )
-   all.equal( cobbDouglasFront, cobbDouglas, check.attributes = FALSE )
-         # only the call is different (element 38)
-
-   # rice producers in the Philippines (panel data)
-   riceProdPhil$lPROD  <- log( riceProdPhil$PROD )
-   riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
-   riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
-   riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
-
-   # Error Components Frontier (Battese & Coelli 1992)
-   riceFront <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ), data = riceProdPhil )
-   all.equal( riceFront, rice, check.attributes = FALSE )
-         # only the call is different (element 38)
-
-   # Technical Efficiency Effects Frontier (Battese & Coelli 1995)
-   rice2Front <- frontier( yName = "lPROD",
-      xNames = c( "lAREA", "lLABOR", "lNPK" ),
-      zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil )
-   all.equal( rice2Front, rice2, check.attributes = FALSE )
-         # only the call is different (element 38)
 }
 
 \keyword{models}
