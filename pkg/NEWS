@@ -5,6 +5,14 @@ A full ChangeLog is available in the log messages of the SVN repository
 on R-Forge.
 
 
+            CHANGES IN VERSION 1.0-4  (201X-XX-XX)
+
+* frontierTranslogRay() now makes sure that the ratios (arcs) are in the
+interval [-1,1] before it takes the arc-cosine of the ratio, because small
+rouding errors can make that a few ratios are around 1+1e-8 or -1-1e-8
+(suggested by Tomasz Czekaj)
+
+
             CHANGES IN VERSION 1.0-2  (2013-07-06)
 
 * added argument "minusU" to efficiencies.frontier() and argument "effMinusU"
