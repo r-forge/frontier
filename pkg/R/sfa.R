@@ -3,7 +3,6 @@ sfa <- function(
       ineffDecrease = TRUE,
       truncNorm = FALSE,
       timeEffect = FALSE,
-      multErr = FALSE,
       startVal = NULL,
       tol = 0.00001,
       maxit = 1000,
@@ -59,12 +58,8 @@ sfa <- function(
          " cross-sectional data" )
    }
    # multErr (imult)
-   if( !is.logical( multErr ) || length( multErr ) != 1 ) {
-      stop( "argument 'multErr' must be a single logical value" )
-   }
-   if( multErr ) {
-      stop( "multiplicative errors are not yet implemented" )
-   }
+   multErr <- FALSE
+
    # printIter (iprint)
    if( !is.numeric( printIter ) ) {
       stop( "argument 'printIter' must be numeric" )
