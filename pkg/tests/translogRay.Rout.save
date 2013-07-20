@@ -202,8 +202,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 20
@@ -451,4 +451,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  0.820   0.036   0.843 
+  0.912   0.028   0.928 

@@ -57,8 +57,6 @@ sfa <- function(
       warning( "argument 'timeEffect' is ignored in case of",
          " cross-sectional data" )
    }
-   # multErr (imult)
-   multErr <- FALSE
 
    # printIter (iprint)
    if( !is.numeric( printIter ) ) {
@@ -158,7 +156,11 @@ sfa <- function(
    xMat <- model.matrix( mt, mf )
    if( ncol( xMat ) > 0 && colnames( xMat )[ 1 ] == "(Intercept)" ) {
       xMat <- xMat[ , -1, drop = FALSE ]
+      hasIntercept <- TRUE
    } else {
+      hasIntercept <- FALSE
+   }
+   if( !hasIntercept ) {
       stop( "the model cannot be estimated without an intercept" )
    }
    xNames <- colnames( xMat )
@@ -366,7 +368,7 @@ sfa <- function(
    returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
-      imult = as.integer( multErr ),
+      icept = as.integer( hasIntercept ),
       nn = as.integer( nn ),
       nt = as.integer( nt ),
       nob = as.integer( nob ),

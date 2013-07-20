@@ -418,8 +418,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -970,8 +970,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -1401,8 +1401,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -2319,8 +2319,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -2831,8 +2831,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -3284,8 +3284,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -4561,8 +4561,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -6781,8 +6781,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -8595,8 +8595,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -12954,8 +12954,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -14375,8 +14375,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -15804,8 +15804,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -18096,8 +18096,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -19910,8 +19910,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -24287,8 +24287,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -26138,8 +26138,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 344
@@ -27680,8 +27680,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -28588,8 +28588,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -29503,8 +29503,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -30421,8 +30421,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -32641,8 +32641,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -33573,8 +33573,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -34408,8 +34408,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -35247,8 +35247,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -36343,8 +36343,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -37257,8 +37257,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -38177,8 +38177,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -39101,8 +39101,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -41087,8 +41087,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -42042,8 +42042,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -42976,8 +42976,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -43842,8 +43842,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -44716,8 +44716,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -45714,8 +45714,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -46590,8 +46590,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -48504,8 +48504,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -49504,8 +49504,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -50377,8 +50377,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -51255,8 +51255,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -52134,8 +52134,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -53141,8 +53141,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -54035,8 +54035,8 @@ $modelType
 $ineffDecrease
 [1] FALSE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -54919,8 +54919,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 39
@@ -55741,8 +55741,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 39
@@ -56565,8 +56565,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 38
@@ -57390,8 +57390,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 38
@@ -58225,8 +58225,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -58999,8 +58999,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -59777,8 +59777,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -60519,8 +60519,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 43
@@ -61534,8 +61534,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -62238,8 +62238,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -63296,8 +63296,8 @@ $modelType
 $ineffDecrease
 [1] TRUE
 
-$imult
-[1] 0
+$icept
+[1] 1
 
 $nn
 [1] 60
@@ -70931,4 +70931,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 20.844   0.620  21.472 
+ 22.560   0.760  23.342 
