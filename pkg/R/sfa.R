@@ -180,8 +180,7 @@ sfa <- function(
       dataTable <- matrix( 1:length( yVec ), ncol = 1 )
       dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
    }
-   nXvars <- length( xNames )
-   nb <- nXvars
+   nb <- length( xNames )
 
    # endogenous variable
    dataTable <- cbind( dataTable, yVec )
@@ -192,8 +191,8 @@ sfa <- function(
    # exogenous variables
    dataTable <- cbind( dataTable, xMat )
    paramNames <- "(Intercept)";
-   if( nXvars > 0 ) {
-      for( i in 1:nXvars ) {
+   if( nb > 0 ) {
+      for( i in 1:nb ) {
          paramNames <- c( paramNames, xNames[ i ] )
          if( sum( !is.na( xMat[ , i ] ) & is.finite( xMat[ , i ] ) ) == 0 ) {
             stop( "regressor '", xNames[ i ], "' has no valid observations" )
@@ -356,7 +355,7 @@ sfa <- function(
    }
 
    # OLS estimation
-   if( nXvars > 0 ) {
+   if( nb > 0 ) {
       ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
    } else {
       ols <- lm( dataTable[ , 3 ] ~ 1 )
