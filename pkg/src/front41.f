@@ -37,7 +37,9 @@ c
 c       nb = number of coefficients of the frontier model (without intercept)
 c       nz = number of coefficients (slopes + possibly intercept) 
 c            of the inefficiency model
-c       nr = icept + nb + nz
+c       nr = 1 + nb + nz (third dimension of the data array that always
+c            includes a "column" for indicating whether the observation
+c            for the specific combination of time and individual exists)
       implicit double precision (a-h,o-z)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
@@ -440,15 +442,15 @@ c       checks if params are out of bounds & adjusts if required.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension b(n)
-      n1=nr+1
-      n2=nr+2
+      n1=icept+nr
+      n2=icept+nr+1
       bi=dsqrt(bignum) 
       if(b(n1).le.dble(0)) b(n1)=dble(1)/bi  
       if(b(n2).le.dble(1)/bi) b(n2)=dble(1)/bi   
       if(b(n2).ge.dble(1)-dble(1)/bi) b(n2)=dble(1)-dble(1)/bi   
       bound=bmu*dsqrt(b(n1)*b(n2))
       if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.dble(0))) then
-      n3=nr+3
+      n3=icept+nr+2
       if(b(n3).gt.bound) b(n3)=bound
       if(b(n3).lt.-bound) b(n3)=-bound
       endif
@@ -526,22 +528,22 @@ c       of the log-likelihood function of the error components model.
       f=dble(nn)    
       ftot=dble(nob) 
       fnt=dble(nt)  
-      n1=nr+1
-      n2=nr+2
+      n1=icept+nr
+      n2=icept+nr+1
       s2=b(n1)
       g=b(n2)
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then 
-      n3=nr+3
+      n3=icept+nr+2
       u=b(n3)
       if (neta.eq.1) then 
-      n4=nr+4
+      n4=icept+nr+3
       e=b(n4)
       endif
       else
       if (neta.eq.1) then 
-      n4=nr+3
+      n4=icept+nr+2
       e=b(n4)
       endif
       endif
@@ -646,8 +648,8 @@ c       TE effects model.
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       data pi/3.1415926/ 
       call check(b)  
-      s2=b(nr+1) 
-      g=b(nr+2)  
+      s2=b(icept+nr) 
+      g=b(icept+nr+1)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -682,8 +684,8 @@ c       of the log-likelihood function of the TE effects model.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)  
-      s2=b(nr+1) 
-      g=b(nr+2)  
+      s2=b(icept+nr) 
+      g=b(icept+nr+1)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -712,11 +714,11 @@ c       of the log-likelihood function of the TE effects model.
      +  **dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
    14   continue   
       endif  
-      gx(nr+1)=gx(nr+1)-dble(0.5)/s2*(dble(1)-(dendis(d)*d-dendis(ds)
-     +  *ds)-(ee+sc*zd)**2/s2)
-      gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)
+      gx(icept+nr)=gx(icept+nr)-dble(0.5)/s2
+     + *(dble(1)-(dendis(d)*d-dendis(ds)*ds)-(ee+sc*zd)**2/s2)
+      gx(icept+nr+1)=gx(icept+nr+1)+dble(0.5)*(dendis(d)*d/g-dendis(ds)
      +  /ss*(zd/g+sc*ee/(dble(1)-g)))
-c       gx(nr+2)=gx(nr+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
+c       gx(icept+nr+1)=gx(icept+nr+1)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
 c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
       endif
    10   continue   
@@ -770,15 +772,15 @@ c       also reads data from a file.
       end if
       if (im.eq.1) then
       nb=nb
-      nr=icept+nb
-      n=nr+2+nmu+neta
+      nr=1+nb
+      n=icept+nr+1+nmu+neta
       else
       nz=neta
       neta=0
       nz=nz+nmu
       nb=nb
-      nr=icept+nb+nz   
-      n=nr+2
+      nr=1+nb+nz   
+      n=icept+nr+1
       endif
       if (n.ne.nParamTotal) then
       call intpr( 'internal error: calculated variable ''n''',
@@ -878,8 +880,8 @@ c       does a grid search across gamma
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
       data pi/3.1415926/ 
-      n1=nr+1
-      n2=nr+2
+      n1=icept+nr
+      n2=icept+nr+1
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       var=ob(icept+nb+1)*dble(nob-icept-nb)/dble(nob)
