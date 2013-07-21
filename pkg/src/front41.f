@@ -442,15 +442,15 @@ c       checks if params are out of bounds & adjusts if required.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension b(n)
-      n1=icept+nr
-      n2=icept+nr+1
+      n1=icept+nb+nz+1
+      n2=icept+nb+nz+2
       bi=dsqrt(bignum) 
       if(b(n1).le.dble(0)) b(n1)=dble(1)/bi  
       if(b(n2).le.dble(1)/bi) b(n2)=dble(1)/bi   
       if(b(n2).ge.dble(1)-dble(1)/bi) b(n2)=dble(1)-dble(1)/bi   
       bound=bmu*dsqrt(b(n1)*b(n2))
       if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.dble(0))) then
-      n3=icept+nr+2
+      n3=icept+nb+nz+3
       if(b(n3).gt.bound) b(n3)=bound
       if(b(n3).lt.-bound) b(n3)=-bound
       endif
@@ -528,22 +528,22 @@ c       of the log-likelihood function of the error components model.
       f=dble(nn)    
       ftot=dble(nob) 
       fnt=dble(nt)  
-      n1=icept+nr
-      n2=icept+nr+1
+      n1=icept+nb+nz+1
+      n2=icept+nb+nz+2
       s2=b(n1)
       g=b(n2)
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then 
-      n3=icept+nr+2
+      n3=icept+nb+nz+3
       u=b(n3)
       if (neta.eq.1) then 
-      n4=icept+nr+3
+      n4=icept+nb+nz+4
       e=b(n4)
       endif
       else
       if (neta.eq.1) then 
-      n4=icept+nr+2
+      n4=icept+nb+nz+3
       e=b(n4)
       endif
       endif
@@ -648,8 +648,8 @@ c       TE effects model.
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       data pi/3.1415926/ 
       call check(b)  
-      s2=b(icept+nr) 
-      g=b(icept+nr+1)  
+      s2=b(icept+nb+nz+1) 
+      g=b(icept+nb+nz+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -660,8 +660,8 @@ c       TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=icept+nb+1,nr
-      zd=zd+xx(i,l,j)*b(j) 
+      do 12 j=icept+nb+1,icept+nb+nz
+      zd=zd+xx(i,l,j-icept+1)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
@@ -684,8 +684,8 @@ c       of the log-likelihood function of the TE effects model.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)  
-      s2=b(icept+nr) 
-      g=b(icept+nr+1)  
+      s2=b(icept+nb+nz+1) 
+      g=b(icept+nb+nz+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -698,8 +698,8 @@ c       of the log-likelihood function of the TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=icept+nb+1,nr
-      zd=zd+xx(i,l,j)*b(j) 
+      do 12 j=icept+nb+1,icept+nb+nz
+      zd=zd+xx(i,l,j-icept+1)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
@@ -709,16 +709,16 @@ c       of the log-likelihood function of the TE effects model.
       gx(j)=gx(j)+xx(i,l,j)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
    13   continue   
       if (nz.ne.0) then  
-      do 14 j=icept+nb+1,nr
-      gx(j)=gx(j)-xx(i,l,j)*((sc*ee+zd)/s2+dendis(d)/(g*s2)
-     +  **dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
+      do 14 j=icept+nb+1,icept+nb+nz
+      gx(j)=gx(j)-xx(i,l,j-icept+1)*((sc*ee+zd)/s2
+     +  +dendis(d)/(g*s2)**dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
    14   continue   
       endif  
-      gx(icept+nr)=gx(icept+nr)-dble(0.5)/s2
+      gx(icept+nb+nz+1)=gx(icept+nb+nz+1)-dble(0.5)/s2
      + *(dble(1)-(dendis(d)*d-dendis(ds)*ds)-(ee+sc*zd)**2/s2)
-      gx(icept+nr+1)=gx(icept+nr+1)+dble(0.5)*(dendis(d)*d/g-dendis(ds)
-     +  /ss*(zd/g+sc*ee/(dble(1)-g)))
-c       gx(icept+nr+1)=gx(icept+nr+1)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
+      gx(icept+nb+nz+2)=gx(icept+nb+nz+2)+dble(0.5)*(dendis(d)*d/g
+     +  -dendis(ds)/ss*(zd/g+sc*ee/(dble(1)-g)))
+c       gx(icept+nb+nz+2)=gx(icept+nb+nz+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
 c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
       endif
    10   continue   
@@ -772,15 +772,16 @@ c       also reads data from a file.
       end if
       if (im.eq.1) then
       nb=nb
+      nz=0
       nr=1+nb
-      n=icept+nr+1+nmu+neta
+      n=icept+nb+nz+2+nmu+neta
       else
       nz=neta
       neta=0
       nz=nz+nmu
       nb=nb
       nr=1+nb+nz   
-      n=icept+nr+1
+      n=icept+nb+nz+2
       endif
       if (n.ne.nParamTotal) then
       call intpr( 'internal error: calculated variable ''n''',
@@ -825,13 +826,13 @@ c       also reads data from a file.
       mm(i)=mm(i)+1
       xx(i,l,1)=dble(1)
       yy(i,l)=yyd
-      do 136 j=2,icept+nb
+      do 136 j=2,nb+1
       xx(i,l,j)=xxd(j)
   136   continue
       if ((im.eq.2).and.(nz.gt.0)) then
-      if (nmu.eq.1) xx(i,l,icept+nb+1)=dble(1)
+      if (nmu.eq.1) xx(i,l,nb+2)=dble(1)
       if ((nz-nmu).gt.0) then
-      do 154 j=icept+nb+nmu+1,nr
+      do 154 j=nb+nmu+2,nr
       xx(i,l,j)=xxd(j-nmu)
   154   continue
       endif
@@ -880,8 +881,8 @@ c       does a grid search across gamma
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
       data pi/3.1415926/ 
-      n1=icept+nr
-      n2=icept+nr+1
+      n1=icept+nb+nz+1
+      n2=icept+nb+nz+2
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       var=ob(icept+nb+1)*dble(nob-icept-nb)/dble(nob)
@@ -889,7 +890,7 @@ c       does a grid search across gamma
       do 131 i=1,icept+nb+1
       y(i)=ob(i) 
   131   continue   
-      do 132 i=icept+nb+1,nr   
+      do 132 i=icept+nb+1,n
       y(i)=dble(0)
   132   continue   
       fx=bignum  
