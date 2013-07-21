@@ -34,10 +34,10 @@ c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 c
-c       nb = number of coefficients of the frontier model (slopes + 1)
+c       nb = number of coefficients of the frontier model (without intercept)
 c       nz = number of coefficients (slopes + possibly intercept) 
 c            of the inefficiency model
-c       nr = nb + nz
+c       nr = icept + nb + nz
       implicit double precision (a-h,o-z)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
@@ -468,15 +468,15 @@ c       error components model.
       f=dble(nn)    
       fnt=dble(nt)
       ftot=dble(nob) 
-      s2=b(nb+1)
-      g=b(nb+2)
+      s2=b(icept+nb+1)
+      g=b(icept+nb+2)
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then 
-      u=b(nb+3)
-      if (neta.eq.1) e=b(nb+4)
+      u=b(icept+nb+3)
+      if (neta.eq.1) e=b(icept+nb+4)
       else
-      if (neta.eq.1) e=b(nb+3)
+      if (neta.eq.1) e=b(icept+nb+3)
       endif
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -568,7 +568,7 @@ c       of the log-likelihood function of the error components model.
       zi=(u*(dble(1)-g)-sc*g*epr)/
      $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
       
-      do 132 j=1,nb   
+      do 132 j=1,icept+nb
       do 134 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
       call resid(b,i,l,yy,xx,ee)
@@ -658,7 +658,7 @@ c       TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=nb+1,nr
+      do 12 j=icept+nb+1,nr
       zd=zd+xx(i,l,j)*b(j) 
    12   continue   
       endif  
@@ -696,18 +696,18 @@ c       of the log-likelihood function of the TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=nb+1,nr
+      do 12 j=icept+nb+1,nr
       zd=zd+xx(i,l,j)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
       d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
-      do 13 j=1,nb   
+      do 13 j=1,icept+nb   
       gx(j)=gx(j)+xx(i,l,j)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
    13   continue   
       if (nz.ne.0) then  
-      do 14 j=nb+1,nr
+      do 14 j=icept+nb+1,nr
       gx(j)=gx(j)-xx(i,l,j)*((sc*ee+zd)/s2+dendis(d)/(g*s2)
      +  **dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
    14   continue   
@@ -735,7 +735,7 @@ c       i.e. e = y - x ' b
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       xb=dble(0)
-      do 102 j=1,nb   
+      do 102 j=1,icept+nb   
       xb=xb+b(j)*xx(i,l,j)   
   102   continue
       ee=yy(i,l)-xb
@@ -769,15 +769,15 @@ c       also reads data from a file.
       return  
       end if
       if (im.eq.1) then
-      nb=nb+1
-      nr=nb
+      nb=nb
+      nr=icept+nb
       n=nr+2+nmu+neta
       else
       nz=neta
       neta=0
       nz=nz+nmu
-      nb=nb+1
-      nr=nb+nz   
+      nb=nb
+      nr=icept+nb+nz   
       n=nr+2
       endif
       if (n.ne.nParamTotal) then
@@ -823,13 +823,13 @@ c       also reads data from a file.
       mm(i)=mm(i)+1
       xx(i,l,1)=dble(1)
       yy(i,l)=yyd
-      do 136 j=2,nb
+      do 136 j=2,icept+nb
       xx(i,l,j)=xxd(j)
   136   continue
       if ((im.eq.2).and.(nz.gt.0)) then
-      if (nmu.eq.1) xx(i,l,nb+1)=dble(1)
+      if (nmu.eq.1) xx(i,l,icept+nb+1)=dble(1)
       if ((nz-nmu).gt.0) then
-      do 154 j=nb+nmu+1,nr
+      do 154 j=icept+nb+nmu+1,nr
       xx(i,l,j)=xxd(j-nmu)
   154   continue
       endif
@@ -882,12 +882,12 @@ c       does a grid search across gamma
       n2=nr+2
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
-      var=ob(nb+1)*dble(nob-nb)/dble(nob)
+      var=ob(icept+nb+1)*dble(nob-icept-nb)/dble(nob)
       b0=ob(1)   
-      do 131 i=1,nb+1
+      do 131 i=1,icept+nb+1
       y(i)=ob(i) 
   131   continue   
-      do 132 i=nb+1,nr   
+      do 132 i=icept+nb+1,nr   
       y(i)=dble(0)
   132   continue   
       fx=bignum  
