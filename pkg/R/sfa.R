@@ -444,10 +444,21 @@ sfa <- function(
    returnObj$olsStdEr <- olsStdEr
    returnObj$olsLogl  <- olsLogl
 
-   ## calculate residuals
-   resid <- drop( dataTable[ , 3 ] -
-      cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
+   ## calculate fitted "frontier" values
+   fitVal <- drop( cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
       returnObj$mleParam[ 1:( nb + 1 ) ] )
+   returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )
+   if( length( fitVal ) != nrow( dataTable ) ) {
+      stop( "internal error: length of the fitted values is not equal to",
+         " the number of rows of the data table (valid observations)" )
+   }
+   for( i in 1:length( fitVal ) ) {
+      returnObj$fitted[ dataTable[ i, 1 ], dataTable[ i, 2 ] ] <-
+         fitVal[ i ]
+   }
+
+   ## calculate residuals
+   resid <- drop( dataTable[ , 3 ] - fitVal )
    returnObj$resid <- matrix( NA, nrow = nn, ncol = nt )
    if( length( resid ) != nrow( dataTable ) ) {
       stop( "internal error: length of residuals is not equal to",

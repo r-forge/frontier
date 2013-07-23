@@ -249,6 +249,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
          the log-likelihood value obtained in the previous step;
       \code{6} = search failed on gradient step;
       \code{10} = maximum number of iterations reached.}
+   \item{fitted}{matrix. Fitted \dQuote{frontier} values
+      of the dependent variable:
+      each row corresponds to a cross-section;
+      each column corresponds to a time period.}
    \item{resid}{matrix. Residuals:
       each row corresponds to a cross-section;
       each column corresponds to a time period.}
@@ -280,7 +284,9 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
 \seealso{\code{\link{frontierQuad}} for quadratic/translog frontiers,
    \code{\link{summary.frontier}} for creating and printing summary results,
    \code{\link{efficiencies.frontier}} for calculating efficiency estimates,
-   and \code{\link{lrtest.frontier}} for comparing models by LR tests.}
+   \code{\link{lrtest.frontier}} for comparing models by LR tests,
+   \code{\link{fitted.frontier}} for obtaining the fitted \dQuote{frontier} values,
+   ang \code{\link{residuals.frontier}} for obtaining the residuals.}
 
 \author{Tim Coelli and Arne Henningsen}
 

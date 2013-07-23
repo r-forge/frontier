@@ -69,7 +69,7 @@ https://r-forge.r-project.org/projects/frontier/
 +    data = as.data.frame( riceProdPhil ) )
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb5ecf[-39], bb5ecf[-39], tol = 1e-3 )
+> all.equal( sbb5ecf[-40], bb5ecf[-40], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -78,7 +78,7 @@ https://r-forge.r-project.org/projects/frontier/
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sbb5eef[-39], bb5eef[-39], tol = 1e-3 )
+> all.equal( sbb5eef[-40], bb5eef[-40], tol = 1e-3 )
 [1] TRUE
 > tmp <- efficiencies( sbb5eef, margEff = TRUE )
 Warning message:
@@ -111,7 +111,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6ecf[-39], bb6ecf[-39], tol = 1e-3 )
+> all.equal( sbb6ecf[-40], bb6ecf[-40], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -126,7 +126,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = as.data.frame(riceProdPhil)) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6eef[-39], bb6eef[-39], tol = 1e-3 )
+> all.equal( sbb6eef[-40], bb6eef[-40], tol = 1e-3 )
 [1] TRUE
 > tmp <- efficiencies( sbb6eef, margEff = TRUE )
 Warning message:
@@ -154,9 +154,9 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sb5eef[-39], b5eef[-39], tol = 1e-3 )
+> all.equal( sb5eef[-40], b5eef[-40], tol = 1e-3 )
 [1] TRUE
-> all.equal( b5eef[ -c( 4, 5, 20, 31, 39 ) ], bb5eef[ -c( 4, 5, 20, 31, 39 ) ], 
+> all.equal( b5eef[ -c( 4, 5, 20, 31, 32, 40 ) ], bb5eef[ -c( 4, 5, 20, 31, 32, 40 ) ], 
 +    tol = 1e-3 )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ), tol = 1e-3 )
@@ -189,9 +189,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6ecf[-39], b6ecf[-39], tol = 1e-3 )
+> all.equal( sb6ecf[-40], b6ecf[-40], tol = 1e-3 )
 [1] TRUE
-> all.equal( b6ecf[-39], bb6ecf[-39], tol = 1e-3 )
+> all.equal( b6ecf[-40], bb6ecf[-40], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -206,9 +206,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = riceProdPhil) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6eef[-39], b6eef[-39], tol = 1e-3 )
+> all.equal( sb6eef[-40], b6eef[-40], tol = 1e-3 )
 [1] TRUE
-> all.equal( b6eef[ -c( 4, 5, 20, 31, 39 ) ], bb6eef[ -c( 4, 5, 20, 31, 39 ) ], 
+> all.equal( b6eef[ -c( 4, 5, 20, 31, 32, 40 ) ], bb6eef[ -c( 4, 5, 20, 31, 32, 40 ) ], 
 +    tol = 1e-3 )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ), tol = 1e-3 )
@@ -230,4 +230,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  3.860   0.016   3.880 
+  3.992   0.040   4.030 

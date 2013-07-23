@@ -53,7 +53,7 @@ https://r-forge.r-project.org/projects/frontier/
 +       cat( "$", n, "\n", sep = "" )
 +       if( n %in% c( "olsParam", "gridParam", "mleParam", "olsStdEr", "mleCov" ) ) {
 +          print( round( x[[ n ]], 2 ) )
-+       } else if( n %in% c( "resid", "olsResid" ) ) {
++       } else if( n %in% c( "fitted", "resid", "olsResid" ) ) {
 +          print( round( x[[ n ]], 3 ) )
 +       } else {
 +          print( x[[ n ]] )
@@ -374,6 +374,29 @@ $olsStdEr
 $olsLogl
 [1] 64.458
 
+$fitted
+       [,1]
+ [1,] 6.665
+ [2,] 6.679
+ [3,] 6.757
+ [4,] 6.840
+ [5,] 6.858
+ [6,] 6.884
+ [7,] 6.906
+ [8,] 6.917
+ [9,] 6.872
+[10,] 6.941
+[11,] 7.020
+[12,] 7.129
+[13,] 7.159
+[14,] 7.221
+[15,] 7.192
+[16,] 7.185
+[17,] 7.184
+[18,] 7.257
+[19,] 7.297
+[20,] 7.366
+
 $resid
    residuals
 1      0.001
@@ -451,4 +474,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  0.912   0.028   0.928 
+  0.816   0.036   0.852 
