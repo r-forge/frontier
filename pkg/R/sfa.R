@@ -454,7 +454,11 @@ sfa <- function(
       fitVal <- drop( cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
             returnObj$mleParam[ 1:( nb + 1 ) ] )
    } else {
-      fitVal <- drop( xMat[ validObs, ] %*% returnObj$mleParam[ 1:nb ] )
+      if( ncol( xMat ) == 0 ) {
+         fitVal <- rep( returnObj$mleParam[ 1 ], nrow( xMat ) )
+      } else {
+         fitVal <- drop( xMat[ validObs, ] %*% returnObj$mleParam[ 1:nb ] )
+      }
    }
    returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )
    if( length( fitVal ) != nrow( dataTable ) ) {
@@ -585,12 +589,15 @@ sfa <- function(
          paramNames <- c( paramNames, "time" )
       }
    }
-   names( returnObj$olsParam ) <- c( paramNames[ 1:( hasIntercept + nb ) ],
-      "sigmaSq" )
-   names( returnObj$olsStdEr ) <- paramNames[ 1:( hasIntercept + nb ) ]
+   if( hasIntercept + nb >= 1 ) {
+      betaNames <- paramNames[ 1:( hasIntercept + nb ) ]
+   } else {
+      betaNames <- NULL
+   }
+   names( returnObj$olsParam ) <- c( betaNames, "sigmaSq" )
+   names( returnObj$olsStdEr ) <- betaNames
    if( !is.null( returnObj$gridParam ) ) {
-      names( returnObj$gridParam ) <- c( paramNames[ 1:( hasIntercept + nb ) ],
-         "sigmaSq", "gamma" )
+      names( returnObj$gridParam ) <- c( betaNames, "sigmaSq", "gamma" )
    }
    names( returnObj$mleParam ) <- paramNames
    rownames( returnObj$mleCov ) <- paramNames
