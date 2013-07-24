@@ -457,7 +457,8 @@ sfa <- function(
       if( ncol( xMat ) == 0 ) {
          fitVal <- rep( returnObj$mleParam[ 1 ], nrow( xMat ) )
       } else {
-         fitVal <- drop( xMat[ validObs, ] %*% returnObj$mleParam[ 1:nb ] )
+         fitVal <- drop( xMat[ validObs, , drop = FALSE ] %*% 
+               returnObj$mleParam[ 1:nb ] )
       }
    }
    returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )
