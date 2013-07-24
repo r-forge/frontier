@@ -160,9 +160,6 @@ sfa <- function(
    } else {
       hasIntercept <- FALSE
    }
-   if( !hasIntercept ) {
-      stop( "the model cannot be estimated without an intercept" )
-   }
    xNames <- colnames( xMat )
    yVec <- model.response( mf )
    yName <- as.character( formula )[ 2 ]
@@ -190,7 +187,11 @@ sfa <- function(
 
    # exogenous variables
    dataTable <- cbind( dataTable, xMat )
-   paramNames <- "(Intercept)";
+   if( hasIntercept ) {
+      paramNames <- "(Intercept)"
+   } else {
+      paramNames <- NULL
+   }
    if( nb > 0 ) {
       for( i in 1:nb ) {
          paramNames <- c( paramNames, xNames[ i ] )
@@ -336,7 +337,7 @@ sfa <- function(
    rownames( dataTable ) <- obsNames[ validObs ]
    names( validObs ) <- obsNames
 
-   nParamTotal <- nb + 3 + mu + eta
+   nParamTotal <- hasIntercept + nb + 2 + mu + eta
    if( nParamTotal > nob ) {
       stop( "the model cannot be estimated,",
          " because the number of parameters (", nParamTotal,
@@ -355,10 +356,14 @@ sfa <- function(
    }
 
    # OLS estimation
-   if( nb > 0 ) {
+   if( nb > 0 && hasIntercept ) {
       ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
-   } else {
+   } else if( nb > 0 && !hasIntercept ) {
+      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] - 1 )
+   } else if( nb == 0 && hasIntercept ) {
       ols <- lm( dataTable[ , 3 ] ~ 1 )
+   } else if( nb == 0 && !hasIntercept ) {
+      ols <- lm( dataTable[ , 3 ] ~ -1 )
    }
    olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
    olsStdEr <- sqrt( diag( vcov( ols ) ) )
@@ -445,8 +450,12 @@ sfa <- function(
    returnObj$olsLogl  <- olsLogl
 
    ## calculate fitted "frontier" values
-   fitVal <- drop( cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
-      returnObj$mleParam[ 1:( nb + 1 ) ] )
+   if( hasIntercept ) {
+      fitVal <- drop( cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
+            returnObj$mleParam[ 1:( nb + 1 ) ] )
+   } else {
+      fitVal <- drop( xMat[ validObs, ] %*% returnObj$mleParam[ 1:nb ] )
+   }
    returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )
    if( length( fitVal ) != nrow( dataTable ) ) {
       stop( "internal error: length of the fitted values is not equal to",
@@ -538,10 +547,10 @@ sfa <- function(
    returnObj$indic <- NULL
    if( length( startVal ) == 1 ){
       if( modelType == 1 ) {
-         returnObj$gridParam <- returnObj$gridParam[ 1:( nb + 3 ) ]
+         returnObj$gridParam <- returnObj$gridParam[ 1:( hasIntercept + nb + 2 ) ]
       } else {
          returnObj$gridParam <- returnObj$gridParam[
-            c( 1:( nb + 1 ), ( nParamTotal - 1 ):nParamTotal ) ]
+            c( 1:( hasIntercept + nb ), ( nParamTotal - 1 ):nParamTotal ) ]
       }
       names( returnObj )[ names( returnObj ) == "startLogl" ] <- "gridLogl"
    } else {
@@ -576,11 +585,11 @@ sfa <- function(
          paramNames <- c( paramNames, "time" )
       }
    }
-   names( returnObj$olsParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+   names( returnObj$olsParam ) <- c( paramNames[ 1:( hasIntercept + nb ) ],
       "sigmaSq" )
-   names( returnObj$olsStdEr ) <- paramNames[ 1:( nb + 1 ) ]
+   names( returnObj$olsStdEr ) <- paramNames[ 1:( hasIntercept + nb ) ]
    if( !is.null( returnObj$gridParam ) ) {
-      names( returnObj$gridParam ) <- c( paramNames[ 1:( nb + 1 ) ],
+      names( returnObj$gridParam ) <- c( paramNames[ 1:( hasIntercept + nb ) ],
          "sigmaSq", "gamma" )
    }
    names( returnObj$mleParam ) <- paramNames

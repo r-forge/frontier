@@ -574,12 +574,14 @@ c       of the log-likelihood function of the error components model.
       do 134 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
       call resid(b,i,l,yy,xx,ee)
-      gx(j)=gx(j)-xx(i,l,j)*ee/(s2*(dble(1)-g))
+      gx(j)=gx(j)-xx(i,l,j+1-icept)*ee/(s2*(dble(1)-g))
       endif
  134    continue    
       xpe=dble(0)
       do 146 l=1,nt
-      if(xx(i,l,1).ne.dble(0))xpe=xpe+xx(i,l,j)*dexp(-e*(dble(l)-fnt))
+      if(xx(i,l,1).ne.dble(0)) then
+      xpe=xpe+xx(i,l,j+1-icept)*dexp(-e*(dble(l)-fnt))
+      endif
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
       gx(j)=gx(j)-d/
@@ -661,7 +663,7 @@ c       TE effects model.
       zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=icept+nb+1,icept+nb+nz
-      zd=zd+xx(i,l,j-icept+1)*b(j) 
+      zd=zd+xx(i,l,j+1-icept)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
@@ -699,18 +701,18 @@ c       of the log-likelihood function of the TE effects model.
       zd=dble(0)  
       if (nz.ne.0) then  
       do 12 j=icept+nb+1,icept+nb+nz
-      zd=zd+xx(i,l,j-icept+1)*b(j) 
+      zd=zd+xx(i,l,j+1-icept)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
       d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
       do 13 j=1,icept+nb   
-      gx(j)=gx(j)+xx(i,l,j)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
+      gx(j)=gx(j)+xx(i,l,j+1-icept)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
    13   continue   
       if (nz.ne.0) then  
       do 14 j=icept+nb+1,icept+nb+nz
-      gx(j)=gx(j)-xx(i,l,j-icept+1)*((sc*ee+zd)/s2
+      gx(j)=gx(j)-xx(i,l,j+1-icept)*((sc*ee+zd)/s2
      +  +dendis(d)/(g*s2)**dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
    14   continue   
       endif  
@@ -738,7 +740,7 @@ c       i.e. e = y - x ' b
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       xb=dble(0)
       do 102 j=1,icept+nb   
-      xb=xb+b(j)*xx(i,l,j)   
+      xb=xb+b(j)*xx(i,l,j+1-icept)   
   102   continue
       ee=yy(i,l)-xb
       return

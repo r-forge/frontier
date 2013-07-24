@@ -7,6 +7,8 @@ on R-Forge.
 
             CHANGES IN VERSION 1.0-4  (201X-XX-XX)
 
+* stochastic frontier models can be estimated without an intercept
+
 * added fitted() method for objects of class "frontier" for obtaining the
 fitted/predicted frontier values of each observation
 
