@@ -80,7 +80,8 @@ https://r-forge.r-project.org/projects/frontier/
 > front41Data$logCapital <- log( front41Data$capital )
 > front41Data$logLabour  <- log( front41Data$labour )
 > front41Data$firmNo     <- c( 1:nrow( front41Data ) )
-> 
+> front41Data$ones       <- 1
+>    
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
@@ -89,6 +90,10 @@ https://r-forge.r-project.org/projects/frontier/
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
 > all.equal( sa1[-40], a1[-40], tol = 1e-4 )
+[1] TRUE
+> sa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data )
+> all.equal( sa1i[ -c( 3, 7, 20, 40 ) ], sa1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a1 )
 
@@ -875,6 +880,11 @@ parameters
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
 > all.equal( sa2[-c(8,40)], a2[-c(8,40)], tol = 1e-4 )
 [1] TRUE
+> sa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
++    truncNorm = TRUE )
+> all.equal( sa2i[ -c( 3, 7, 8, 20, 40 ) ], sa2[ -c( 3, 7, 8, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( a2, digits = 1 )
 
 Call:
@@ -1445,6 +1455,11 @@ class
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 > all.equal( sa5[-40], a5[-40], tol = 1e-4 )
 [1] TRUE
+> sa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
++    truncNorm = TRUE, startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
+> all.equal( sa5i[ -c( 3, 7, 21, 40 ) ], sa5[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( a5, digits = 1 )
 
 Call:
@@ -1994,6 +2009,11 @@ parameters
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
 > all.equal( saa1[-40], aa1[-40], tol = 1e-4 )
+[1] TRUE
+> saa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo - 1, 
++    data = front41Data )
+> all.equal( saa1i[ -c( 3, 7, 20, 40 ) ], saa1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa1, digits = 1 )
 
@@ -2925,6 +2945,11 @@ class
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
 > all.equal( saa2[-40], aa2[-40], tol = 1e-4 )
 [1] TRUE
+> saa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo,
++    data = front41Data )
+> all.equal( saa2i[ -c( 3, 7, 20, 40 ) ], saa2[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( aa2, digits = 2 )
 
 Call:
@@ -3586,6 +3611,11 @@ class
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
 > all.equal( saa5[-40], aa5[-40], tol = 1e-4 )
 [1] TRUE
+> saa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo, 
++    data = front41Data, startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
+> all.equal( saa5i[ -c( 3, 7, 21, 40 ) ], saa5[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( aa5, digits = 2 )
 
 Call:
@@ -4103,6 +4133,11 @@ class
 > ## cross-section data, efficiency effects frontier, no Z vars
 > aa9 <- sfa( log( output ) ~ log( capital ) + log( labour ) | - 1,
 +    data = front41Data )
+> saa9i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | - 1, 
++    data = front41Data )
+> all.equal( saa9i[ -c( 3, 7, 20, 40 ) ], aa9[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( aa9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -4223,6 +4258,11 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > 
 > ## cross-section data with NAs, error components frontier
 > San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
+> San1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1, 
++    data = naData )
+> all.equal( San1i[ -c( 3, 7, 20, 40 ) ], San1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( San1 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -4326,6 +4366,11 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > ## cross-section data with NAs, efficiency effects frontier
 > Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
 +    data = naData )
+> Saan1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1 | 
++       firmNo - 1, data = naData )
+> all.equal( Saan1i[ -c( 3, 7, 20, 40 ) ], Saan1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( Saan1 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -4433,6 +4478,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > riceProdPhil$lAREA  <- log( riceProdPhil$AREA )
 > riceProdPhil$lLABOR <- log( riceProdPhil$LABOR )
 > riceProdPhil$lNPK   <- log( riceProdPhil$NPK )
+> riceProdPhil$ones   <- 1
 > 
 > ## cross-section rice data, error components frontier
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
@@ -4443,6 +4489,10 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 > all.equal( sbb1[-40], bb1[-40], tol = 1e-4 )
+[1] TRUE
+> sbb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil )
+> all.equal( sbb1i[ -c( 3, 7, 20, 40 ) ], sbb1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb1, digits = 1 )
 
@@ -6590,6 +6640,11 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
 > all.equal( sbb2[-40], bb2[-40], tol = 1e-4 )
+[1] TRUE
+> sbb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil,
++    truncNorm = TRUE )
+> all.equal( sbb2i[ -c( 3, 7, 20, 40 ) ], sbb2[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb2, digits = 1 )
 
@@ -9168,6 +9223,11 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ) )
 > all.equal( sbb5[-40], bb5[-40], tol = 1e-4 )
 [1] TRUE
+> sbb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
++    data = riceProdPhil )
+> all.equal( sbb5i[ -c( 3, 7, 20, 40 ) ], sbb5[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( bb5, digits = 1 )
 
 Call:
@@ -11328,6 +11388,11 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 > all.equal( sbb6[-40], bb6[-40], tol = 1e-4 )
+[1] TRUE
+> sbb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
++    data = riceProdPhil )
+> all.equal( sbb6i[ -c( 3, 7, 20, 40 ) ], sbb6[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb6, digits = 1 )
 
@@ -16050,6 +16115,11 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
 > all.equal( sbb7[-40], bb7[-40], tol = 1e-4 )
 [1] TRUE
+> sbb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil, 
++    truncNorm = TRUE, startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
+> all.equal( sbb7i[ -c( 3, 7, 21, 40 ) ], sbb7[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( bb7, digits = 1 )
 
 Call:
@@ -17812,6 +17882,12 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
 > all.equal( sbb8[-40], bb8[-40], tol = 1e-4 )
+[1] TRUE
+> sbb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
++    data = riceProdPhil, 
++    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
+> all.equal( sbb8i[ -c( 3, 7, 21, 40 ) ], sbb8[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb8, digits = 1 )
 
@@ -19597,6 +19673,11 @@ class
 > ## cross-section rice data, efficiency effects frontier, no Z vars
 > bb9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
 +    data = riceProdPhil )
+> sbb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
++    data = riceProdPhil )
+> all.equal( sbb9i[ -c( 3, 7, 20, 40 ) ], bb9[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( bb9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -20056,6 +20137,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
 > all.equal( sdd1[-40], dd1[-40], tol = 1e-4 )
+[1] TRUE
+> sdd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhil, ineffDecrease = FALSE )
+> all.equal( sdd1i[ -c( 3, 7, 20, 40 ) ], sdd1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd1, digits = 1 )
 
@@ -22634,6 +22720,11 @@ class
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
 > all.equal( sdd2[-40], dd2[-40], tol = 1e-4 )
 [1] TRUE
+> sdd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
+> all.equal( sdd2i[ -c( 3, 7, 20, 40 ) ], sdd2[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( dd2, digits = 1 )
 
 Call:
@@ -24812,6 +24903,14 @@ Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd5[-40], dd5[-40], tol = 1e-4 )
+[1] TRUE
+> sdd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
++       EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( sdd5i[ -c( 3, 7, 20, 40 ) ], sdd5[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd5, digits = 1 )
 
@@ -29545,6 +29644,14 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sdd6[-40], dd6[-40], tol = 1e-4 )
 [1] TRUE
+> sdd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
++       EDYRS + BANRAT, data = riceProdPhil, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( sdd6i[ -c( 3, 7, 20, 40 ) ], sdd6[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( dd6, digits = 1 )
 
 Call:
@@ -31737,6 +31844,11 @@ class
 > ## cross-section rice data, efficiency effects cost frontier: no Z vars
 > dd9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
+> sdd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
++    data = riceProdPhil, ineffDecrease = FALSE )
+> all.equal( sdd9i[ -c( 3, 7, 20, 40 ) ], dd9[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( dd9, effMinusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -32684,6 +32796,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    riceProdPhil$FMERCODE, sep = "" )
 > riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
 > riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
+serie ones  is constant and has been removed
 > 
 > ## panel data, error components frontier
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
@@ -32752,6 +32865,11 @@ parameters
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 > all.equal( sb1[-c(8,40)], b1[-c(8,40)], tol = 1e-4 )
+[1] TRUE
+> sb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanel )
+> all.equal( sb1i[ -c( 3, 7, 8, 20, 40 ) ], sb1[ -c( 3, 7, 8, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1, digits = 1 )
 
@@ -33820,6 +33938,11 @@ class
 +    truncNorm = TRUE )
 > all.equal( sb2[-40], b2[-40], tol = 1e-4 )
 [1] TRUE
+> sb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanel, truncNorm = TRUE )
+> all.equal( sb2i[ -c( 3, 7, 20, 40 ) ], sb2[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b2, digits = 1 )
 
 Call:
@@ -34880,6 +35003,11 @@ class
 +    timeEffect = TRUE )
 > all.equal( sb3[-40], b3[-40], tol = 1e-4 )
 [1] TRUE
+> sb3i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanel, timeEffect = TRUE )
+> all.equal( sb3i[ -c( 3, 7, 20, 40 ) ], sb3[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b3, digits = 1 )
 
 Call:
@@ -35843,6 +35971,11 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
 > all.equal( sb4[-40], b4[-40], tol = 1e-4 )
+[1] TRUE
+> sb4i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( sb4i[ -c( 3, 7, 20, 40 ) ], sb4[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4, digits = 1 )
 
@@ -37184,6 +37317,11 @@ parameters
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
 > all.equal( sb5[-40], b5[-40], tol = 1e-4 )
+[1] TRUE
+> sb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
++    data = riceProdPhilPanel )
+> all.equal( sb5i[ -c( 3, 7, 20, 40 ) ], sb5[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5, digits = 1 )
 
@@ -39289,6 +39427,11 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
 > all.equal( sb6[-40], b6[-40], tol = 1e-4 )
 [1] TRUE
+> sb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT,
++    data = riceProdPhilPanel )
+> all.equal( sb6i[ -c( 3, 7, 20, 40 ) ], sb6[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b6, digits = 1 )
 
 Call:
@@ -40284,6 +40427,12 @@ class
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
 > all.equal( sb7[-40], b7[-40], tol = 1e-4 )
 [1] TRUE
+> sb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,
++    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
+> all.equal( sb7i[ -c( 3, 7, 21, 40 ) ], sb7[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b7, digits = 1 )
 
 Call:
@@ -41158,6 +41307,12 @@ class
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
 > all.equal( sb8[-40], b8[-40], tol = 1e-4 )
+[1] TRUE
+> sb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
++    data = riceProdPhilPanel, 
++    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
+> all.equal( sb8i[ -c( 3, 7, 21, 40 ) ], sb8[ -c( 3, 7, 21, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b8, digits = 1 )
 
@@ -42052,6 +42207,11 @@ class
 > ## panel data, efficiency effects frontier: no Z vars
 > b9 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) | - 1,
 +    data = riceProdPhilPanel )
+> sb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
++    data = riceProdPhilPanel )
+> all.equal( sb9i[ -c( 3, 7, 20, 40 ) ], b9[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( b9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -42111,6 +42271,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
 > all.equal( sd1[-40], d1[-40], tol = 1e-4 )
+[1] TRUE
+> sd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanel, ineffDecrease = FALSE )
+> all.equal( sd1i[ -c( 3, 7, 20, 40 ) ], sd1[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d1, digits = 1 )
 
@@ -43190,6 +43355,11 @@ class
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
 > all.equal( sd2[-40], d2[-40], tol = 1e-4 )
 [1] TRUE
+> sd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
+> all.equal( sd2i[ -c( 3, 7, 20, 40 ) ], sd2[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d2, digits = 1 )
 
 Call:
@@ -44255,6 +44425,11 @@ class
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
 > all.equal( sd3[-40], d3[-40], tol = 1e-4 )
 [1] TRUE
+> sd3i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
+> all.equal( sd3i[ -c( 3, 7, 20, 40 ) ], sd3[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d3, digits = 1 )
 
 Call:
@@ -45224,6 +45399,12 @@ class
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
 > all.equal( sd4[-40], d4[-40], tol = 1e-4 )
+[1] TRUE
+> sd4i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanel, ineffDecrease = FALSE, 
++    truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( sd4i[ -c( 3, 7, 20, 40 ) ], sd4[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d4, digits = 1 )
 
@@ -46212,6 +46393,14 @@ Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd5[-40], d5[-40], tol = 1e-4 )
+[1] TRUE
+> sd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
++       EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( sd5i[ -c( 3, 7, 20, 40 ) ], sd5[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d5, digits = 1 )
 
@@ -48350,6 +48539,14 @@ In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > all.equal( sd6[-40], d6[-40], tol = 1e-4 )
 [1] TRUE
+> sd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
++       EDYRS + BANRAT, data = riceProdPhilPanel, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( sd6i[ -c( 3, 7, 20, 40 ) ], sd6[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d6, digits = 1 )
 
 Call:
@@ -49345,6 +49542,11 @@ class
 > ## panel rice data, efficiency effects cost frontier: no Z vars
 > d9 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
+> sd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
++    data = riceProdPhilPanel, ineffDecrease = FALSE )
+> all.equal( sd9i[ -c( 3, 7, 20, 40 ) ], d9[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( summary( d9, effMinusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -49404,6 +49606,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## unbalanced panel data, error components frontier
 > b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
+> b1ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanelUnb )
+> all.equal( b1ui[ -c( 3, 7, 20, 40 ) ], b1u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b1u, digits = 1 )
 
 Call:
@@ -50419,6 +50626,11 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm
 > b2u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE )
+> b2ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanelUnb, truncNorm = TRUE )
+> all.equal( b2ui[ -c( 3, 7, 20, 40 ) ], b2u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b2u, digits = 1 )
 
 Call:
@@ -51341,6 +51553,11 @@ class
 > ## unbalanced panel data, error components frontier, timeEffect
 > b3u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    timeEffect = TRUE )
+> b3ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanelUnb, timeEffect = TRUE )
+> all.equal( b3ui[ -c( 3, 7, 20, 40 ) ], b3u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b3u, digits = 1 )
 
 Call:
@@ -52267,6 +52484,11 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 > b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
 +    truncNorm = TRUE, timeEffect = TRUE )
+> b4ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
++    data = riceProdPhilPanelUnb, truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( b4ui[ -c( 3, 7, 20, 40 ) ], b4u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b4u, digits = 1 )
 
 Call:
@@ -53318,6 +53540,11 @@ class
 > ## unbalanced panel data, efficiency effects frontier
 > b5u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb )
+> b5ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
++    data = riceProdPhilPanelUnb )
+> all.equal( b5ui[ -c( 3, 7, 20, 40 ) ], b5u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b5u, digits = 1 )
 
 Call:
@@ -54246,6 +54473,11 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > b6u <- sfa( lPROD ~ lAREA + lLABOR + lNPK | EDYRS + BANRAT,
 +    data = riceProdPhilPanelUnb )
+> b6ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
++    data = riceProdPhilPanelUnb )
+> all.equal( b6ui[ -c( 3, 7, 20, 40 ) ], b6u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b6u, digits = 1 )
 
 Call:
@@ -56323,6 +56555,11 @@ class
 > ## unbalanced panel rice data, error components cost frontier
 > d1u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE )
+> d1ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+> all.equal( d1ui[ -c( 3, 7, 20, 40 ) ], d1u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d1u, digits = 1 )
 
 Call:
@@ -57365,6 +57602,11 @@ class
 > ## unbalanced panel rice data, error components cost frontier, truncNorm
 > d2u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE )
+> d2ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, truncNorm = TRUE )
+> all.equal( d2ui[ -c( 3, 7, 20, 40 ) ], d2u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d2u, digits = 1 )
 
 Call:
@@ -58291,6 +58533,11 @@ class
 > ## unbalanced panel rice data, error components cost frontier, timeEffect
 > d3u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, timeEffect = TRUE )
+> d3ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, timeEffect = TRUE )
+> all.equal( d3ui[ -c( 3, 7, 20, 40 ) ], d3u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d3u, digits = 1 )
 
 Call:
@@ -59321,6 +59568,12 @@ class
 > ## unbalanced panel rice data, error components cost frontier, truncNorm, timeEffect
 > d4u <- sfa( lCost ~ lPROD + lAREA + lLABORP + lNPKP, data = riceProdPhilPanelUnb,
 +    ineffDecrease = FALSE, truncNorm = TRUE, timeEffect = TRUE )
+> d4ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
++    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, 
++    truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( d4ui[ -c( 3, 7, 20, 40 ) ], d4u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d4u, digits = 1 )
 
 Call:
@@ -60256,6 +60509,14 @@ class
 Warning message:
 In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> d5ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
++       EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( d5ui[ -c( 3, 7, 20, 40 ) ], d5u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d5u, minusU = FALSE )
 
 Call:
@@ -61425,6 +61686,14 @@ class
 Warning message:
 In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> d6ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
++       EDYRS + BANRAT, data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
+Warning message:
+In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( d6ui[ -c( 3, 7, 20, 40 ) ], d6u[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( d6u, digits = 1 )
 
 Call:
@@ -62379,6 +62648,11 @@ class
 > ## panel data with NA firms, error components frontier
 > b1n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naPanelData )
+> b1ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
++    data = naPanelData )
+> all.equal( b1ni[ -c( 3, 7, 20, 40 ) ], b1n[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b1n, digits = 1 )
 
 Call:
@@ -63241,6 +63515,11 @@ class
 > ## panel data with NA firms, error components frontier, truncNorm, timeEffect
 > b4n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
+> b4ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
++    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( b4ni[ -c( 3, 7, 20, 40 ) ], b4n[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b4n, digits = 1 )
 
 Call:
@@ -64115,6 +64394,11 @@ class
 > ## panel data with NA firms, efficiency effects frontier
 > b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = naPanelData )
+> b5ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
++    EDYRS + BANRAT - 1, data = naPanelData )
+> all.equal( b5ni[ -c( 3, 7, 20, 40 ) ], b5n[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b5n, digits = 1 )
 
 Call:
@@ -64986,6 +65270,11 @@ class
 > ## panel data with NA firms, efficiency effects frontier, zIntercept
 > b6n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT, data = naPanelData )
+> b6ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
++       EDYRS + BANRAT, data = naPanelData )
+> all.equal( b6ni[ -c( 3, 7, 20, 40 ) ], b6n[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b6n, digits = 1 )
 
 Call:
@@ -65867,6 +66156,11 @@ class
 > ## panel data with NA years, error components frontier
 > b1t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naTimePanelData )
+> b1ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
++    data = naTimePanelData )
+> all.equal( b1ti[ -c( 3, 7, 20, 40 ) ], b1t[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b1t, digits = 1 )
 
 Call:
@@ -66785,6 +67079,11 @@ class
 > ## panel data with NA years, error components frontier, truncNorm, timeEffect
 > b4t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
+> b4ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
++    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( b4ti[ -c( 3, 7, 20, 40 ) ], b4t[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b4t, digits = 1 )
 
 Call:
@@ -67615,6 +67914,11 @@ class
 > ## panel data with NA years, efficiency effects frontier
 > b5t <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = naTimePanelData )
+> b5ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
++       EDYRS + BANRAT - 1, data = naTimePanelData )
+> all.equal( b5ti[ -c( 3, 7, 20, 40 ) ], b5t[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b5t, digits = 1 )
 
 Call:
@@ -68508,6 +68812,14 @@ class
 Warning message:
 In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) | EDYRS + BANRAT,  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> b6ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
++       EDYRS + BANRAT, data = naTimePanelData )
+Warning message:
+In sfa(log(PROD) ~ ones + log(AREA) + log(LABOR) + log(NPK) - 1 |  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( b6ti[ -c( 3, 7, 20, 40 ) ], b6t[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
 > print( b6t, digits = 1 )
 
 Call:
@@ -79568,4 +79880,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 23.808   0.628  24.454 
+ 30.592   0.744  31.407 
