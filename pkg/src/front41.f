@@ -904,7 +904,7 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      y(1)=b0+c*sc
+      if ((icept+nb).gt.0) y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
@@ -924,7 +924,7 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      y(1)=b0+c*sc
+      if ((icept+nb).gt.0) y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
