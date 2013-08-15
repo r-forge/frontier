@@ -59,11 +59,19 @@ print( logLik( a1 ), digits = 4 )
 nobs( a1 )
 print( summary( a1 ), digits = 1 )
 print( summary( a1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sa1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sa1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sa1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( a1 )
 printME( efficiencies( a1, margEff = TRUE ) )
 printME( efficiencies( a1, asInData = TRUE ) )
 printME( efficiencies( a1, minusU = FALSE ) )
 printME( efficiencies( a1, asInData = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( a1 ), efficiencies( sa1i ) )
+all.equal( efficiencies( a1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sa1i, asInData = TRUE, minusU = FALSE ) )
 round( fitted( a1 ), 2 )
 round( fitted( a1, asInData = TRUE ), 2 )
 round( residuals( a1 ), 2 )
@@ -94,9 +102,18 @@ print( logLik( a2, which = "ols" ), digits = 4 )
 print( logLik( a2 ), digits = 4 )
 nobs( a2 )
 print( summary( a2 ), digits = 1 )
+all.equal( summary( sa2 )[ -c( 3, 7, 8, 20, 40 ) ], 
+   summary( sa2i )[ -c( 3, 7, 8, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sa2, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 40 ) ], 
+   summary( sa2i, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( a2 )
 round( efficiencies( a2 ), 2 )
 round( efficiencies( a2, asInData = TRUE ), 2 )
+all.equal( efficiencies( a2, minusU = FALSE ), 
+   efficiencies( sa2i, minusU = FALSE ) )
+all.equal( efficiencies( a2, asInData = TRUE ), 
+   efficiencies( sa2i, asInData = TRUE ) )
 round( residuals( a2 ), 2 )
 round( residuals( a2, asInData = TRUE ), 2 )
 all.equal( fitted( a2, asInData = TRUE ) + residuals( a2, asInData = TRUE ),
@@ -126,9 +143,17 @@ print( logLik( a5, which = "ols" ), digits = 4 )
 print( logLik( a5 ), digits = 4 )
 nobs( a5 )
 print( summary( a5 ), digits = 1 )
+all.equal( summary( sa5 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sa5i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sa5, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( a5 )
 round( efficiencies( a5 ), 2 )
 round( efficiencies( a5, asInData = TRUE ), 2 )
+all.equal( efficiencies( a5 ), efficiencies( sa5i ) )
+all.equal( efficiencies( a5, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sa5i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( a5, asInData = TRUE ) + residuals( a5, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 printAll( a5 )
@@ -157,12 +182,21 @@ round( vcov( aa1 ), 2 )
 nobs( aa1 )
 print( summary( aa1 ), digits = 1 )
 print( summary( aa1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( saa1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( saa1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( aa1 )
 printME( aa1eff <- efficiencies( aa1, margEff = TRUE ) )
 printME( aa1effD <- efficiencies( aa1, asInData = TRUE, margEff = TRUE ) )
 printME( aa1effF <- efficiencies( aa1, minusU = FALSE, margEff = TRUE ) )
 printME( aa1effDF <- efficiencies( aa1, asInData = TRUE, minusU = FALSE, 
    margEff = TRUE ) )
+all.equal( efficiencies( saa1, margEff = TRUE ), 
+   efficiencies( saa1i, margEff = TRUE ) )
+all.equal( efficiencies( saa1, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( saa1i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 aa1m <- aa1
 aa1m$dataTable[ , "firmNo" ] <- aa1m$dataTable[ , "firmNo" ] + 1e-6
 all.equal( attr( aa1eff, "margEff" )[ , 1, 1 ], 
@@ -200,9 +234,18 @@ round( coef( summary( aa2 ) ), 2 )
 round( vcov( aa2 ), 2 )
 nobs( aa2 )
 print( summary( aa2 ), digits = 1 )
+all.equal( summary( saa2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( saa2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( aa2 )
-round( efficiencies( aa2 ), 2 )
-round( efficiencies( aa2, asInData = TRUE ), 2 )
+printME( efficiencies( aa2, margEff = TRUE ) )
+printME( efficiencies( aa2, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( saa2, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( saa2i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( saa2, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( saa2i, asInData = TRUE, margEff = TRUE ) )
 round( fitted( aa2 ), 2 )
 round( fitted( aa2, asInData = TRUE ), 2 )
 round( residuals( aa2 ), 2 )
@@ -232,9 +275,18 @@ round( coef( summary( aa5 ) ), 2 )
 round( vcov( aa5 ), 2 )
 nobs( aa5 )
 print( summary( aa5 ), digits = 1 )
+all.equal( summary( saa5 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( saa5i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( saa5, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( saa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( aa5 )
-round( efficiencies( aa5 ), 2 )
-round( efficiencies( aa5, asInData = TRUE ), 2 )
+printME( efficiencies( aa5, margEff = TRUE ) )
+printME( efficiencies( aa5, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( saa5, margEff = TRUE ), 
+   efficiencies( saa5i, margEff = TRUE ) )
+all.equal( efficiencies( saa5, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( saa5i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 all.equal( fitted( aa5, asInData = TRUE ) + residuals( aa5, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 printAll( aa5 )
@@ -247,8 +299,19 @@ saa9i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | - 1,
 all.equal( saa9i[ -c( 3, 7, 20, 40 ) ], aa9[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( aa9 ), digits = 1 )
+all.equal( summary( aa9 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( aa9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( saa9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( aa9 )
 lrtest( aa9 )
+round( efficiencies( aa9 ), 2 )
+round( efficiencies( aa9, asInData = TRUE ), 2 )
+all.equal( efficiencies( aa9, minusU = FALSE ), 
+   efficiencies( saa9i, minusU = FALSE ) )
+all.equal( efficiencies( aa9, asInData = TRUE ), 
+   efficiencies( saa9i, asInData = TRUE ) )
 round( fitted( aa9 ), 2 )
 round( fitted( aa9, asInData = TRUE ), 2 )
 all.equal( fitted( aa9, asInData = TRUE ) + residuals( aa9, asInData = TRUE ),
@@ -269,7 +332,18 @@ San1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1,
 all.equal( San1i[ -c( 3, 7, 20, 40 ) ], San1[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( San1 ), digits = 1 )
+all.equal( summary( San1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( San1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( San1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( San1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( San1 )
+round( efficiencies( San1 ), 2 )
+round( efficiencies( San1, asInData = TRUE ), 2 )
+all.equal( efficiencies( San1, minusU = FALSE ), 
+   efficiencies( San1i, minusU = FALSE ) )
+all.equal( efficiencies( San1, asInData = TRUE ), 
+   efficiencies( San1i, asInData = TRUE ) )
 round( fitted( San1 ), 2 )
 round( fitted( San1, asInData = TRUE ), 2 )
 all.equal( fitted( San1, asInData = TRUE ) + residuals( San1, asInData = TRUE ),
@@ -285,7 +359,18 @@ Saan1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1 |
 all.equal( Saan1i[ -c( 3, 7, 20, 40 ) ], Saan1[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( Saan1 ), digits = 1 )
+all.equal( summary( Saan1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( Saan1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( Saan1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( Saan1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( Saan1 )
+printME( efficiencies( Saan1, margEff = TRUE ) )
+printME( efficiencies( Saan1, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( Saan1, margEff = TRUE ), 
+   efficiencies( Saan1i, margEff = TRUE ) )
+all.equal( efficiencies( Saan1, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( Saan1i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( fitted( Saan1 ), 2 )
 round( fitted( Saan1, asInData = TRUE ), 2 )
 all.equal( fitted( Saan1, asInData = TRUE ) + residuals( Saan1, asInData = TRUE ),
@@ -323,9 +408,17 @@ round( coef( summary( bb1 ) ), 2 )
 round( vcov( bb1 ), 2 )
 nobs( bb1 )
 print( summary( bb1 ), digits = 1 )
+all.equal( summary( sbb1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb1 )
 round( efficiencies( bb1 ), 2 )
 round( efficiencies( bb1, asInData = TRUE ), 2 )
+all.equal( efficiencies( bb1 ), efficiencies( sbb1i ) )
+all.equal( efficiencies( bb1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sbb1i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( bb1 ), 2 )
 round( residuals( bb1, asInData = TRUE ), 2 )
 all.equal( fitted( bb1, asInData = TRUE ) + residuals( bb1, asInData = TRUE ),
@@ -354,11 +447,20 @@ round( vcov( bb2 ), 2 )
 nobs( bb2 )
 print( summary( bb2 ), digits = 1 )
 print( summary( bb2, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sbb2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb2 )
 round( efficiencies( bb2 ), 2 )
 round( efficiencies( bb2, asInData = TRUE ), 2 )
 round( efficiencies( bb2, minusU = FALSE ), 2 )
 round( efficiencies( bb2, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( bb2, minusU = FALSE ), 
+   efficiencies( sbb2i, minusU = FALSE ) )
+all.equal( efficiencies( bb2, asInData = TRUE ), 
+   efficiencies( sbb2i, asInData = TRUE ) )
 round( residuals( bb2 ), 2 )
 round( residuals( bb2, asInData = TRUE ), 2 )
 all.equal( fitted( bb2, asInData = TRUE ) + residuals( bb2, asInData = TRUE ),
@@ -389,9 +491,17 @@ round( coef( summary( bb5 ) ), 2 )
 round( vcov( bb5 ), 2 )
 nobs( bb5 )
 print( summary( bb5 ), digits = 1 )
+all.equal( summary( sbb5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb5 )
-round( efficiencies( bb5 ), 2 )
-round( efficiencies( bb5, asInData = TRUE ), 2 )
+printME( efficiencies( bb5, margEff = TRUE ) )
+printME( efficiencies( bb5, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( bb5 ), efficiencies( sbb5i ) )
+all.equal( efficiencies( bb5, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sbb5i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( bb5 ), 2 )
 round( residuals( bb5, asInData = TRUE ), 2 )
 all.equal( fitted( bb5, asInData = TRUE ) + residuals( bb5, asInData = TRUE ),
@@ -420,6 +530,11 @@ round( vcov( bb6 ), 2 )
 nobs( bb6 )
 print( summary( bb6 ), digits = 1 )
 print( summary( bb6, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sbb6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb6 )
 printME( bb6eff <- efficiencies( bb6, margEff = TRUE ) )
 printME( bb6effD <- efficiencies( bb6, asInData = TRUE, margEff = TRUE ) )
@@ -448,6 +563,10 @@ all.equal( attr( bb6effF, "margEff" )[ , 1, 2 ],
 all.equal( attr( bb6effDF, "margEff" )[ , 2 ],
    c( efficiencies( bb6m2, asInData = TRUE, minusU = FALSE ) - bb6effDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( bb6, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sbb6i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( bb6, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( sbb6i, asInData = TRUE, margEff = TRUE ) )
 round( residuals( bb6 ), 2 )
 round( residuals( bb6, asInData = TRUE ), 2 )
 all.equal( fitted( bb6, asInData = TRUE ) + residuals( bb6, asInData = TRUE ),
@@ -476,9 +595,17 @@ round( coef( summary( bb7 ) ), 2 )
 round( vcov( bb7 ), 2 )
 nobs( bb7 )
 print( summary( bb7 ), digits = 1 )
+all.equal( summary( sbb7 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sbb7i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb7, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sbb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb7 )
 round( efficiencies( bb7 ), 2 )
 round( efficiencies( bb7, asInData = TRUE ), 2 )
+all.equal( efficiencies( bb7 ), efficiencies( sbb7i ) )
+all.equal( efficiencies( bb7, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sbb7i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( bb7, asInData = TRUE ) + residuals( bb7, asInData = TRUE ),
    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 printAll( bb7 )
@@ -507,9 +634,18 @@ round( coef( summary( bb8 ) ), 2 )
 round( vcov( bb8 ), 2 )
 nobs( bb8 )
 print( summary( bb8 ), digits = 1 )
+all.equal( summary( sbb8 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sbb8i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sbb8, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sbb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( bb8 )
-round( efficiencies( bb8 ), 2 )
-round( efficiencies( bb8, asInData = TRUE ), 2 )
+printME( efficiencies( bb8, margEff = TRUE ) )
+printME( efficiencies( bb8, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( bb8, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sbb8i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( bb8, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( sbb8i, asInData = TRUE, margEff = TRUE ) )
 all.equal( fitted( bb8, asInData = TRUE ) + residuals( bb8, asInData = TRUE ),
    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 printAll( bb8 )
@@ -522,8 +658,17 @@ sbb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1,
 all.equal( sbb9i[ -c( 3, 7, 20, 40 ) ], bb9[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( bb9 ), digits = 1 )
+all.equal( summary( bb9 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( bb9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sbb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( bb9 )
 lrtest( bb9 )
+all.equal( efficiencies( bb9, minusU = FALSE ), 
+   efficiencies( sbb9i, minusU = FALSE ) )
+all.equal( efficiencies( bb9, asInData = TRUE ), 
+   efficiencies( sbb9i, asInData = TRUE ) )
 round( residuals( bb9 ), 2 )
 round( residuals( bb9, asInData = TRUE ), 2 )
 all.equal( fitted( bb9, asInData = TRUE ) + residuals( bb9, asInData = TRUE ),
@@ -561,11 +706,19 @@ round( vcov( dd1 ), 2 )
 nobs( dd1 )
 print( summary( dd1 ), digits = 1 )
 print( summary( dd1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sdd1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sdd1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( dd1 )
 round( efficiencies( dd1 ), 2 )
 round( efficiencies( dd1, asInData = TRUE ), 2 )
 round( efficiencies( dd1, minusU = FALSE ), 2 )
 round( efficiencies( dd1, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( dd1 ), efficiencies( sdd1i ) )
+all.equal( efficiencies( dd1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sdd1i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( dd1 ), 2 )
 round( residuals( dd1, asInData = TRUE ), 2 )
 all.equal( fitted( dd1, asInData = TRUE ) + residuals( dd1, asInData = TRUE ),
@@ -592,9 +745,17 @@ round( coef( summary( dd2 ) ), 2 )
 round( vcov( dd2 ), 2 )
 nobs( dd2 )
 print( summary( dd2, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sdd2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sdd2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( dd2 )
 round( efficiencies( dd2, minusU = FALSE ), 2 )
 round( efficiencies( dd2, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( dd2 ), efficiencies( sdd2i ) )
+all.equal( efficiencies( dd2, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sdd2i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( dd2 ), 2 )
 round( residuals( dd2, asInData = TRUE ), 2 )
 all.equal( fitted( dd2, asInData = TRUE ) + residuals( dd2, asInData = TRUE ),
@@ -626,6 +787,11 @@ round( vcov( dd5 ), 2 )
 nobs( dd5 )
 print( summary( dd5 ), digits = 1 )
 print( summary( dd5, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( sdd5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sdd5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( dd5 )
 printME( dd5eff <- efficiencies( dd5, margEff = TRUE ) )
 printME( dd5effD <- efficiencies( dd5, asInData = TRUE, margEff = TRUE ) )
@@ -654,6 +820,10 @@ all.equal( attr( dd5effF, "margEff" )[ , 1, 2 ],
 all.equal( attr( dd5effDF, "margEff" )[ , 2 ],
    c( efficiencies( dd5m2, asInData = TRUE, minusU = FALSE ) - dd5effDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( dd5, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sdd5i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( dd5, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( sdd5i, asInData = TRUE, margEff = TRUE ) )
 round( residuals( dd5 ), 2 )
 round( residuals( dd5, asInData = TRUE ), 2 )
 all.equal( fitted( dd5, asInData = TRUE ) + residuals( dd5, asInData = TRUE ),
@@ -678,12 +848,21 @@ round( coef( dd6, which = "grid" ), 2 )
 round( coef( dd6 ), 2 )
 round( coef( summary( dd6 ), which = "ols" ), 2 )
 round( coef( summary( dd6 ) ), 2 )
+all.equal( summary( sdd6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( dd6 ), 2 )
 nobs( dd6 )
 print( summary( dd6, effMinusU = FALSE ), digits = 1 )
 lrtest( dd6 )
-round( efficiencies( dd6, minusU = FALSE ), 2 )
-round( efficiencies( dd6, asInData = TRUE, minusU = FALSE ), 2 )
+printME( efficiencies( dd6, minusU = FALSE, margEff = TRUE ) )
+printME( efficiencies( dd6, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+all.equal( efficiencies( dd6, margEff = TRUE ), 
+   efficiencies( sdd6i, margEff = TRUE ) )
+all.equal( efficiencies( dd6, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sdd6i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( residuals( dd6 ), 2 )
 round( residuals( dd6, asInData = TRUE ), 2 )
 all.equal( fitted( dd6, asInData = TRUE ) + residuals( dd6, asInData = TRUE ),
@@ -698,8 +877,19 @@ sdd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1,
 all.equal( sdd9i[ -c( 3, 7, 20, 40 ) ], dd9[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( dd9, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( dd9 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( dd9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sdd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( dd9 )
 lrtest( dd9 )
+round( efficiencies( dd9 ), 2 )
+round( efficiencies( dd9, asInData = TRUE ), 2 )
+all.equal( efficiencies( dd9, minusU = FALSE ), 
+   efficiencies( sdd9i, minusU = FALSE ) )
+all.equal( efficiencies( dd9, asInData = TRUE ), 
+   efficiencies( sdd9i, asInData = TRUE ) )
 round( fitted( dd9 ), 2 )
 round( fitted( dd9, asInData = TRUE ), 2 )
 all.equal( fitted( dd9, asInData = TRUE ) + residuals( dd9, asInData = TRUE ),
@@ -751,11 +941,19 @@ print( logLik( b1 ), digits = 4 )
 nobs( b1 )
 print( summary( b1 ), digits = 1 )
 print( summary( b1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( b1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b1 )
 round( efficiencies( b1 ), 2 )
 round( efficiencies( b1, asInData = TRUE ), 2 )
 round( efficiencies( b1, minusU = FALSE ), 2 )
 round( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( b1 ), efficiencies( sb1i ) )
+all.equal( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sb1i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b1 ), 2 )
 round( residuals( b1, asInData = TRUE ), 2 )
 all.equal( fitted( b1, asInData = TRUE ) + residuals( b1, asInData = TRUE ),
@@ -785,9 +983,18 @@ print( logLik( b2, which = "ols" ), digits = 4 )
 print( logLik( b2 ), digits = 4 )
 nobs( b2 )
 print( summary( b2 ), digits = 1 )
+all.equal( summary( b2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b2 )
 round( efficiencies( b2 ), 2 )
 round( efficiencies( b2, asInData = TRUE ), 2 )
+all.equal( efficiencies( b2, minusU = FALSE ), 
+   efficiencies( sb2i, minusU = FALSE ) )
+all.equal( efficiencies( b2, asInData = TRUE ), 
+   efficiencies( sb2i, asInData = TRUE ) )
 round( fitted( b2 ), 2 )
 round( fitted( b2, asInData = TRUE ), 2 )
 round( residuals( b2 ), 2 )
@@ -819,9 +1026,17 @@ print( logLik( b3, which = "ols" ), digits = 4 )
 print( logLik( b3 ), digits = 4 )
 nobs( b3 )
 print( summary( b3 ), digits = 1 )
+all.equal( summary( b3 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b3 )
 round( efficiencies( b3 ), 2 )
 round( efficiencies( b3, asInData = TRUE ), 2 )
+all.equal( efficiencies( b3 ), efficiencies( sb3i ) )
+all.equal( efficiencies( b3, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sb3i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b3 ), 2 )
 round( residuals( b3, asInData = TRUE ), 2 )
 all.equal( fitted( b3, asInData = TRUE ) + residuals( b3, asInData = TRUE ),
@@ -846,6 +1061,11 @@ round( coef( b4, which = "grid" ), 2 )
 round( coef( b4 ), 2 )
 round( coef( summary( b4 ), which = "ols" ), 2 )
 round( coef( summary( b4 ) ), 2 )
+all.equal( summary( b4 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( b4 ), 2 )
 print( logLik( b4, which = "ols" ), digits = 4 )
 print( logLik( b4 ), digits = 4 )
@@ -854,6 +1074,10 @@ print( summary( b4 ), digits = 1 )
 lrtest( b4 )
 round( efficiencies( b4 ), 2 )
 round( efficiencies( b4, asInData = TRUE ), 2 )
+all.equal( efficiencies( b4, minusU = FALSE ), 
+   efficiencies( sb4i, minusU = FALSE ) )
+all.equal( efficiencies( b4, asInData = TRUE ), 
+   efficiencies( sb4i, asInData = TRUE ) )
 round( residuals( b4 ), 2 )
 round( residuals( b4, asInData = TRUE ), 2 )
 all.equal( fitted( b4, asInData = TRUE ) + residuals( b4, asInData = TRUE ),
@@ -907,6 +1131,11 @@ round( coef( b5, which = "grid" ), 2 )
 round( coef( b5 ), 2 )
 round( coef( summary( b5 ), which = "ols" ), 2 )
 round( coef( summary( b5 ) ), 2 )
+all.equal( summary( b5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( b5 ), 2 )
 print( logLik( b5, which = "ols" ), digits = 4 )
 print( logLik( b5 ), digits = 4 )
@@ -915,7 +1144,7 @@ print( summary( b5 ), digits = 1 )
 print( summary( b5, effMinusU = FALSE ), digits = 1 )
 lrtest( b5 )
 printME( b5eff <- efficiencies( b5, margEff = TRUE ) )
-printME( b5effD <- efficiencies( b5, asInData = TRUE , margEff = TRUE) )
+printME( b5effD <- efficiencies( b5, asInData = TRUE, margEff = TRUE) )
 printME( b5effF <- efficiencies( b5, minusU = FALSE, margEff = TRUE ) )
 printME( b5effDF <- efficiencies( b5, asInData = TRUE, minusU = FALSE, 
    margEff = TRUE ) )
@@ -941,6 +1170,10 @@ all.equal( attr( b5effF, "margEff" )[ , , 2 ],
 all.equal( attr( b5effDF, "margEff" )[ , 2 ],
    c( efficiencies( b5m2, asInData = TRUE, minusU = FALSE ) - b5effDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( b5, margEff = TRUE ),
+   efficiencies( sb5i, margEff = TRUE ) )
+all.equal( efficiencies( b5, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sb5i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( fitted( b5 ), 2 )
 round( fitted( b5, asInData = TRUE ), 2 )
 round( residuals( b5 ), 2 )
@@ -972,9 +1205,18 @@ print( logLik( b6, which = "ols" ), digits = 4 )
 print( logLik( b6 ), digits = 4 )
 nobs( b6 )
 print( summary( b6 ), digits = 1 )
+all.equal( summary( b6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b6 )
-round( efficiencies( b6 ), 2 )
-round( efficiencies( b6, asInData = TRUE ), 2 )
+printME( efficiencies( b6, margEff = TRUE ) )
+printME( efficiencies( b6, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b6, margEff = TRUE, minusU = FALSE ),
+   efficiencies( sb6i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( b6, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( sb6i, asInData = TRUE, margEff = TRUE ) )
 round( residuals( b6 ), 2 )
 round( residuals( b6, asInData = TRUE ), 2 )
 all.equal( fitted( b6, asInData = TRUE ) + residuals( b6, asInData = TRUE ),
@@ -1007,9 +1249,18 @@ print( logLik( b7, which = "ols" ), digits = 4 )
 print( logLik( b7 ), digits = 4 )
 nobs( b7 )
 print( summary( b7 ), digits = 1 )
+all.equal( summary( b7 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sb7i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b7, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b7 )
 round( efficiencies( b7 ), 2 )
 round( efficiencies( b7, asInData = TRUE ), 2 )
+all.equal( efficiencies( b7, minusU = FALSE ), 
+   efficiencies( sb7i, minusU = FALSE ) )
+all.equal( efficiencies( b7, asInData = TRUE ), 
+   efficiencies( sb7i, asInData = TRUE ) )
 all.equal( fitted( b7, asInData = TRUE ) + residuals( b7, asInData = TRUE ),
    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b7 )
@@ -1040,9 +1291,17 @@ print( logLik( b8, which = "ols" ), digits = 4 )
 print( logLik( b8 ), digits = 4 )
 nobs( b8 )
 print( summary( b8 ), digits = 1 )
+all.equal( summary( b8 )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sb8i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b8, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   summary( sb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( b8 )
-round( efficiencies( b8 ), 2 )
-round( efficiencies( b8, asInData = TRUE ), 2 )
+printME( efficiencies( b8, margEff = TRUE ) )
+printME( efficiencies( b8, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b8 ), efficiencies( sb8i ) )
+all.equal( efficiencies( b8, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sb8i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( b8, asInData = TRUE ) + residuals( b8, asInData = TRUE ),
    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b8 )
@@ -1055,8 +1314,18 @@ sb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1,
 all.equal( sb9i[ -c( 3, 7, 20, 40 ) ], b9[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( b9 ), digits = 1 )
+all.equal( summary( b9 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b9 )
 lrtest( b9 )
+round( efficiencies( b9 ), 2 )
+round( efficiencies( b9, asInData = TRUE ), 2 )
+all.equal( efficiencies( b9 ), efficiencies( sb9i ) )
+all.equal( efficiencies( b9, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sb9i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( b9, asInData = TRUE ) + residuals( b9, asInData = TRUE ),
    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 
@@ -1082,6 +1351,11 @@ round( coef( d1, which = "grid" ), 2 )
 round( coef( d1 ), 2 )
 round( coef( summary( d1 ), which = "ols" ), 2 )
 round( coef( summary( d1 ) ), 2 )
+all.equal( summary( d1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( d1 ), 2 )
 nobs( d1 )
 print( summary( d1 ), digits = 1 )
@@ -1091,6 +1365,10 @@ round( efficiencies( d1 ), 2 )
 round( efficiencies( d1, asInData = TRUE ), 2 )
 round( efficiencies( d1, minusU = FALSE ), 2 )
 round( efficiencies( d1, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d1, minusU = FALSE ), 
+   efficiencies( sd1i, minusU = FALSE ) )
+all.equal( efficiencies( d1, asInData = TRUE ), 
+   efficiencies( sd1i, asInData = TRUE ) )
 round( residuals( d1 ), 2 )
 round( residuals( d1, asInData = TRUE ), 2 )
 all.equal( fitted( d1, asInData = TRUE ) + residuals( d1, asInData = TRUE ),
@@ -1114,12 +1392,20 @@ round( coef( d2, which = "grid" ), 2 )
 round( coef( d2 ), 2 )
 round( coef( summary( d2 ), which = "ols" ), 2 )
 round( coef( summary( d2 ) ), 2 )
+all.equal( summary( d2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( d2 ), 2 )
 nobs( d2 )
 print( summary( d2, effMinusU = FALSE ), digits = 1 )
 lrtest( d2 )
 round( efficiencies( d2, minusU = FALSE ), 2 )
 round( efficiencies( d2, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d2 ), efficiencies( sd2i ) )
+all.equal( efficiencies( d2, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sd2i, asInData = TRUE, minusU = FALSE ) )
 round( fitted( d2 ), 2 )
 round( fitted( d2, asInData = TRUE ), 2 )
 round( residuals( d2 ), 2 )
@@ -1145,12 +1431,21 @@ round( coef( d3, which = "grid" ), 2 )
 round( coef( d3 ), 2 )
 round( coef( summary( d3 ), which = "ols" ), 2 )
 round( coef( summary( d3 ) ), 2 )
+all.equal( summary( d3 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( d3 ), 2 )
 nobs( d3 )
 print( summary( d3, effMinusU = FALSE ), digits = 1 )
 lrtest( d3 )
 round( efficiencies( d3, minusU = FALSE ), 2 )
 round( efficiencies( d3, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d3, minusU = FALSE ), 
+   efficiencies( sd3i, minusU = FALSE ) )
+all.equal( efficiencies( d3, asInData = TRUE ), 
+   efficiencies( sd3i, asInData = TRUE ) )
 round( residuals( d3 ), 2 )
 round( residuals( d3, asInData = TRUE ), 2 )
 all.equal( fitted( d3, asInData = TRUE ) + residuals( d3, asInData = TRUE ),
@@ -1176,12 +1471,20 @@ round( coef( d4, which = "grid" ), 2 )
 round( coef( d4 ), 2 )
 round( coef( summary( d4 ), which = "ols" ), 2 )
 round( coef( summary( d4 ) ), 2 )
+all.equal( summary( d4 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( d4 ), 2 )
 nobs( d4 )
 print( summary( d4, effMinusU = FALSE ), digits = 1 )
 lrtest( d4 )
 round( efficiencies( d4, minusU = FALSE ), 2 )
 round( efficiencies( d4, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d4 ), efficiencies( sd4i ) )
+all.equal( efficiencies( d4, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( sd4i, asInData = TRUE, minusU = FALSE ) )
 round( residuals( d4 ), 2 )
 round( residuals( d4, asInData = TRUE ), 2 )
 all.equal( fitted( d4, asInData = TRUE ) + residuals( d4, asInData = TRUE ),
@@ -1214,6 +1517,11 @@ round( vcov( d5 ), 2 )
 nobs( d5 )
 print( summary( d5 ), digits = 1 )
 print( summary( d5, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 lrtest( d5 )
 printME( d5eff <- efficiencies( d5, margEff = TRUE ) )
 printME( d5effD <- efficiencies( d5, asInData = TRUE, margEff = TRUE ) )
@@ -1242,6 +1550,10 @@ all.equal( attr( d5effF, "margEff" )[ , , 2 ],
 all.equal( attr( d5effDF, "margEff" )[ , 2 ],
    c( efficiencies( d5m2, asInData = TRUE, minusU = FALSE ) - d5effDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( d5, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sd5i, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( d5, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( sd5i, asInData = TRUE, margEff = TRUE ) )
 round( fitted( d5 ), 2 )
 round( fitted( d5, asInData = TRUE ), 2 )
 round( residuals( d5 ), 2 )
@@ -1268,12 +1580,21 @@ round( coef( d6, which = "grid" ), 2 )
 round( coef( d6 ), 2 )
 round( coef( summary( d6 ), which = "ols" ), 2 )
 round( coef( summary( d6 ) ), 2 )
+all.equal( summary( d6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 round( vcov( d6 ), 2 )
 nobs( d6 )
 print( summary( d6, effMinusU = FALSE ), digits = 1 )
 lrtest( d6 )
-round( efficiencies( d6, minusU = FALSE ), 2 )
-round( efficiencies( d6, asInData = TRUE, minusU = FALSE ), 2 )
+printME( efficiencies( d6, minusU = FALSE, margEff = TRUE ) )
+printME( efficiencies( d6, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+all.equal( efficiencies( d6, margEff = TRUE ), 
+   efficiencies( sd6i, margEff = TRUE ) )
+all.equal( efficiencies( d6, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( sd6i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( residuals( d6 ), 2 )
 round( residuals( d6, asInData = TRUE ), 2 )
 all.equal( fitted( d6, asInData = TRUE ) + residuals( d6, asInData = TRUE ),
@@ -1288,8 +1609,19 @@ sd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1,
 all.equal( sd9i[ -c( 3, 7, 20, 40 ) ], d9[ -c( 3, 7, 20, 40 ) ], 
    check.attributes = FALSE, tol = 1e-4 )
 print( summary( d9, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d9 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( sd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d9 )
 lrtest( d9 )
+round( efficiencies( d9, minusU = FALSE ), 2 )
+round( efficiencies( d9, asInData = TRUE ), 2 )
+all.equal( efficiencies( d9, minusU = FALSE ), 
+   efficiencies( sd9i, minusU = FALSE ) )
+all.equal( efficiencies( d9, asInData = TRUE ), 
+   efficiencies( sd9i, asInData = TRUE ) )
 all.equal( fitted( d9, asInData = TRUE ) + residuals( d9, asInData = TRUE ),
    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
 
@@ -1310,10 +1642,18 @@ all.equal( b1ui[ -c( 3, 7, 20, 40 ) ], b1u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b1u, digits = 1 )
 print( summary( b1u ), digits = 1 )
+all.equal( summary( b1u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b1u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b1u )
 lrtest( b1u )
 round( efficiencies( b1u ), 2 )
 round( efficiencies( b1u, asInData = TRUE ), 2 )
+all.equal( efficiencies( b1u ), efficiencies( b1ui ) )
+all.equal( efficiencies( b1u, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( b1ui, asInData = TRUE, minusU = FALSE ) )
 round( fitted( b1u ), 2 )
 round( fitted( b1u, asInData = TRUE ), 2 )
 round( residuals( b1u ), 2 )
@@ -1333,10 +1673,18 @@ all.equal( b2ui[ -c( 3, 7, 20, 40 ) ], b2u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b2u, digits = 1 )
 print( summary( b2u ), digits = 1 )
+all.equal( summary( b2u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b2ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b2u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b2u )
 lrtest( b2u )
 round( efficiencies( b2u ), 2 )
 round( efficiencies( b2u, asInData = TRUE ), 2 )
+all.equal( efficiencies( b2u ), efficiencies( b2ui ) )
+all.equal( efficiencies( b2u, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( b2ui, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b2u ), 2 )
 round( residuals( b2u, asInData = TRUE ), 2 )
 all.equal( fitted( b2u, asInData = TRUE ) + residuals( b2u, asInData = TRUE ),
@@ -1354,10 +1702,19 @@ all.equal( b3ui[ -c( 3, 7, 20, 40 ) ], b3u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b3u, digits = 1 )
 print( summary( b3u ), digits = 1 )
+all.equal( summary( b3u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b3ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b3u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b3u )
 lrtest( b3u )
 round( efficiencies( b3u ), 2 )
 round( efficiencies( b3u, asInData = TRUE ), 2 )
+all.equal( efficiencies( b3u, minusU = FALSE ), 
+   efficiencies( b3ui, minusU = FALSE ) )
+all.equal( efficiencies( b3u, asInData = TRUE ), 
+   efficiencies( b3ui, asInData = TRUE ) )
 round( residuals( b3u ), 2 )
 round( residuals( b3u, asInData = TRUE ), 2 )
 all.equal( fitted( b3u, asInData = TRUE ) + residuals( b3u, asInData = TRUE ),
@@ -1376,12 +1733,20 @@ all.equal( b4ui[ -c( 3, 7, 20, 40 ) ], b4u[ -c( 3, 7, 20, 40 ) ],
 print( b4u, digits = 1 )
 print( summary( b4u ), digits = 1 )
 print( summary( b4u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( b4u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b4u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b4u )
 lrtest( b4u )
 round( efficiencies( b4u ), 2 )
 round( efficiencies( b4u, asInData = TRUE ), 2 )
 round( efficiencies( b4u, minusU = FALSE ), 2 )
 round( efficiencies( b4u, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( b4u ), efficiencies( b4ui ) )
+all.equal( efficiencies( b4u, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( b4ui, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b4u ), 2 )
 round( residuals( b4u, asInData = TRUE ), 2 )
 all.equal( fitted( b4u, asInData = TRUE ) + residuals( b4u, asInData = TRUE ),
@@ -1399,10 +1764,19 @@ all.equal( b5ui[ -c( 3, 7, 20, 40 ) ], b5u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b5u, digits = 1 )
 print( summary( b5u ), digits = 1 )
+all.equal( summary( b5u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b5u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b5u )
 lrtest( b5u )
-round( efficiencies( b5u ), 2 )
-round( efficiencies( b5u, asInData = TRUE ), 2 )
+printME( efficiencies( b5u, margEff = TRUE ) )
+printME( efficiencies( b5u, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b5u, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b5ui, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( b5u, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( b5ui, asInData = TRUE, margEff = TRUE ) )
 round( residuals( b5u ), 2 )
 round( residuals( b5u, asInData = TRUE ), 2 )
 all.equal( fitted( b5u, asInData = TRUE ) + residuals( b5u, asInData = TRUE ),
@@ -1421,6 +1795,11 @@ all.equal( b6ui[ -c( 3, 7, 20, 40 ) ], b6u[ -c( 3, 7, 20, 40 ) ],
 print( b6u, digits = 1 )
 print( summary( b6u ), digits = 1 )
 print( summary( b6u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( b6u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b6u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b6u )
 lrtest( b6u )
 printME( b6ueff <- efficiencies( b6u, margEff = TRUE ) )
@@ -1450,6 +1829,10 @@ all.equal( attr( b6ueffF, "margEff" )[ , , 2 ],
 all.equal( attr( b6ueffDF, "margEff" )[ , 2 ],
    c( efficiencies( b6um2, asInData = TRUE, minusU = FALSE ) - b6ueffDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( b6u, margEff = TRUE ), 
+   efficiencies( b6ui, margEff = TRUE ) )
+all.equal( efficiencies( b6u, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b6ui, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( fitted( b6u ), 2 )
 round( fitted( b6u, asInData = TRUE ), 2 )
 round( residuals( b6u ), 2 )
@@ -1470,12 +1853,20 @@ all.equal( d1ui[ -c( 3, 7, 20, 40 ) ], d1u[ -c( 3, 7, 20, 40 ) ],
 print( d1u, digits = 1 )
 print( summary( d1u ), digits = 1 )
 print( summary( d1u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d1u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d1ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d1u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d1u )
 lrtest( d1u )
 round( efficiencies( d1u ), 2 )
 round( efficiencies( d1u, asInData = TRUE ), 2 )
 round( efficiencies( d1u, minusU = FALSE ), 2 )
 round( efficiencies( d1u, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d1u ), efficiencies( d1ui ) )
+all.equal( efficiencies( d1u, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( d1ui, asInData = TRUE, minusU = FALSE ) )
 round( residuals( d1u ), 2 )
 round( residuals( d1u, asInData = TRUE ), 2 )
 all.equal( fitted( d1u, asInData = TRUE ) + residuals( d1u, asInData = TRUE ),
@@ -1493,10 +1884,19 @@ all.equal( d2ui[ -c( 3, 7, 20, 40 ) ], d2u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( d2u, digits = 1 )
 print( summary( d2u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d2u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d2ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d2u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d2u )
 lrtest( d2u )
 round( efficiencies( d2u, minusU = FALSE ), 2 )
 round( efficiencies( d2u, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d2u, minusU = FALSE ), 
+   efficiencies( d2ui, minusU = FALSE ) )
+all.equal( efficiencies( d2u, asInData = TRUE ), 
+   efficiencies( d2ui, asInData = TRUE ) )
 round( residuals( d2u ), 2 )
 round( residuals( d2u, asInData = TRUE ), 2 )
 all.equal( fitted( d2u, asInData = TRUE ) + residuals( d2u, asInData = TRUE ),
@@ -1514,10 +1914,18 @@ all.equal( d3ui[ -c( 3, 7, 20, 40 ) ], d3u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( d3u, digits = 1 )
 print( summary( d3u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d3u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d3ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d3u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d3u )
 lrtest( d3u )
 round( efficiencies( d3u, minusU = FALSE ), 2 )
 round( efficiencies( d3u, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d3u ), efficiencies( d3ui ) )
+all.equal( efficiencies( d3u, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( d3ui, asInData = TRUE, minusU = FALSE ) )
 round( fitted( d3u ), 2 )
 round( fitted( d3u, asInData = TRUE ), 2 )
 round( residuals( d3u ), 2 )
@@ -1538,10 +1946,19 @@ all.equal( d4ui[ -c( 3, 7, 20, 40 ) ], d4u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( d4u, digits = 1 )
 print( summary( d4u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d4u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d4ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d4u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d4u )
 lrtest( d4u )
 round( efficiencies( d4u, minusU = FALSE ), 2 )
 round( efficiencies( d4u, asInData = TRUE, minusU = FALSE ), 2 )
+all.equal( efficiencies( d4u, minusU = FALSE ), 
+   efficiencies( d4ui, minusU = FALSE ) )
+all.equal( efficiencies( d4u, asInData = TRUE ), 
+   efficiencies( d4ui, asInData = TRUE ) )
 round( residuals( d4u ), 2 )
 round( residuals( d4u, asInData = TRUE ), 2 )
 all.equal( fitted( d4u, asInData = TRUE ) + residuals( d4u, asInData = TRUE ),
@@ -1560,12 +1977,21 @@ all.equal( d5ui[ -c( 3, 7, 20, 40 ) ], d5u[ -c( 3, 7, 20, 40 ) ],
 print( d5u, minusU = FALSE )
 print( summary( d5u ), digits = 1 )
 print( summary( d5u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d5u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d5ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d5u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d5u )
 lrtest( d5u )
-round( efficiencies( d5u ), 2 )
-round( efficiencies( d5u, asInData = TRUE ), 2 )
-round( efficiencies( d5u, minusU = FALSE ), 2 )
-round( efficiencies( d5u, asInData = TRUE, minusU = FALSE ), 2 )
+printME( efficiencies( d5u, margEff = TRUE ) )
+printME( efficiencies( d5u, asInData = TRUE, margEff = TRUE ) )
+printME( efficiencies( d5u, minusU = FALSE, margEff = TRUE ) )
+printME( efficiencies( d5u, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+all.equal( efficiencies( d5u, margEff = TRUE ), 
+   efficiencies( d5ui, margEff = TRUE ) )
+all.equal( efficiencies( d5u, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( d5ui, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( fitted( d5u ), 2 )
 round( fitted( d5u, asInData = TRUE ), 2 )
 round( residuals( d5u ), 2 )
@@ -1585,10 +2011,19 @@ all.equal( d6ui[ -c( 3, 7, 20, 40 ) ], d6u[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( d6u, digits = 1 )
 print( summary( d6u, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( d6u )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d6ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( d6u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( d6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( d6u )
 lrtest( d6u )
-round( efficiencies( d6u, minusU = FALSE ), 2 )
-round( efficiencies( d6u, asInData = TRUE, minusU = FALSE ), 2 )
+printME( efficiencies( d6u, minusU = FALSE, margEff = TRUE ) )
+printME( efficiencies( d6u, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+all.equal( efficiencies( d6u, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( d6ui, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( d6u, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( d6ui, asInData = TRUE, margEff = TRUE ) )
 round( residuals( d6u ), 2 )
 round( residuals( d6u, asInData = TRUE ), 2 )
 all.equal( fitted( d6u, asInData = TRUE ) + residuals( d6u, asInData = TRUE ),
@@ -1615,10 +2050,18 @@ all.equal( b1ni[ -c( 3, 7, 20, 40 ) ], b1n[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b1n, digits = 1 )
 print( summary( b1n ), digits = 1 )
+all.equal( summary( b1n )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b1n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b1n )
 lrtest( b1n )
 round( efficiencies( b1n ), 2 )
 round( efficiencies( b1n, asInData = TRUE ), 2 )
+all.equal( efficiencies( b1n ), efficiencies( b1ni ) )
+all.equal( efficiencies( b1n, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( b1ni, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b1n ), 2 )
 round( residuals( b1n, asInData = TRUE ), 2 )
 all.equal( fitted( b1n, asInData = TRUE ) + residuals( b1n, asInData = TRUE ),
@@ -1636,10 +2079,19 @@ all.equal( b4ni[ -c( 3, 7, 20, 40 ) ], b4n[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b4n, digits = 1 )
 print( summary( b4n ), digits = 1 )
+all.equal( summary( b4n )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b4n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b4n )
 lrtest( b4n )
 round( efficiencies( b4n ), 2 )
 round( efficiencies( b4n, asInData = TRUE ), 2 )
+all.equal( efficiencies( b4n, minusU = FALSE ), 
+   efficiencies( b4ni, minusU = FALSE ) )
+all.equal( efficiencies( b4n, asInData = TRUE ), 
+   efficiencies( b4ni, asInData = TRUE ) )
 round( residuals( b4n ), 2 )
 round( residuals( b4n, asInData = TRUE ), 2 )
 all.equal( fitted( b4n, asInData = TRUE ) + residuals( b4n, asInData = TRUE ),
@@ -1657,10 +2109,19 @@ all.equal( b5ni[ -c( 3, 7, 20, 40 ) ], b5n[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b5n, digits = 1 )
 print( summary( b5n ), digits = 1 )
+all.equal( summary( b5n )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b5n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b5n )
 lrtest( b5n )
-round( efficiencies( b5n ), 2 )
-round( efficiencies( b5n, asInData = TRUE ), 2 )
+printME( efficiencies( b5n, margEff = TRUE ) )
+printME( efficiencies( b5n, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b5n, margEff = TRUE ), 
+   efficiencies( b5ni, margEff = TRUE ) )
+all.equal( efficiencies( b5n, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b5ni, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( residuals( b5n ), 2 )
 round( residuals( b5n, asInData = TRUE ), 2 )
 all.equal( fitted( b5n, asInData = TRUE ) + residuals( b5n, asInData = TRUE ),
@@ -1678,10 +2139,19 @@ all.equal( b6ni[ -c( 3, 7, 20, 40 ) ], b6n[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b6n, digits = 1 )
 print( summary( b6n ), digits = 1 )
+all.equal( summary( b6n )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b6n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b6n )
 lrtest( b6n )
-round( efficiencies( b6n ), 2 )
-round( efficiencies( b6n, asInData = TRUE ), 2 )
+printME( efficiencies( b6n, margEff = TRUE ) )
+printME( efficiencies( b6n, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b6n, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b6ni, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( b6n, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( b6ni, asInData = TRUE, margEff = TRUE ) )
 round( residuals( b6n ), 2 )
 round( residuals( b6n, asInData = TRUE ), 2 )
 all.equal( fitted( b6n, asInData = TRUE ) + residuals( b6n, asInData = TRUE ),
@@ -1706,10 +2176,19 @@ all.equal( b1ti[ -c( 3, 7, 20, 40 ) ], b1t[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b1t, digits = 1 )
 print( summary( b1t ), digits = 1 )
+all.equal( summary( b1t )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b1t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b1ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b1t )
 lrtest( b1t )
 round( efficiencies( b1t ), 2 )
 round( efficiencies( b1t, asInData = TRUE ), 2 )
+all.equal( efficiencies( b1t, minusU = FALSE ), 
+   efficiencies( b1ti, minusU = FALSE ) )
+all.equal( efficiencies( b1t, asInData = TRUE ), 
+   efficiencies( b1ti, asInData = TRUE ) )
 round( fitted( b1t ), 2 )
 round( fitted( b1t, asInData = TRUE ), 2 )
 round( residuals( b1t ), 2 )
@@ -1729,10 +2208,18 @@ all.equal( b4ti[ -c( 3, 7, 20, 40 ) ], b4t[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b4t, digits = 1 )
 print( summary( b4t ), digits = 1 )
+all.equal( summary( b4t )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b4t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b4ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b4t )
 lrtest( b4t )
 round( efficiencies( b4t ), 2 )
 round( efficiencies( b4t, asInData = TRUE ), 2 )
+all.equal( efficiencies( b4t ), efficiencies( b4ti ) )
+all.equal( efficiencies( b4t, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( b4ti, asInData = TRUE, minusU = FALSE ) )
 round( residuals( b4t ), 2 )
 round( residuals( b4t, asInData = TRUE ), 2 )
 all.equal( fitted( b4t, asInData = TRUE ) + residuals( b4t, asInData = TRUE ),
@@ -1750,10 +2237,19 @@ all.equal( b5ti[ -c( 3, 7, 20, 40 ) ], b5t[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b5t, digits = 1 )
 print( summary( b5t ), digits = 1 )
+all.equal( summary( b5t )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b5t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b5ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b5t )
 lrtest( b5t )
-round( efficiencies( b5t ), 2 )
-round( efficiencies( b5t, asInData = TRUE ), 2 )
+printME( efficiencies( b5t, margEff = TRUE ) )
+printME( efficiencies( b5t, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b5t, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b5ti, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( b5t, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( b5ti, asInData = TRUE, margEff = TRUE ) )
 round( fitted( b5t ), 2 )
 round( fitted( b5t, asInData = TRUE ), 2 )
 round( residuals( b5t ), 2 )
@@ -1773,10 +2269,19 @@ all.equal( b6ti[ -c( 3, 7, 20, 40 ) ], b6t[ -c( 3, 7, 20, 40 ) ],
    check.attributes = FALSE, tol = 1e-4 )
 print( b6t, digits = 1 )
 print( summary( b6t ), digits = 1 )
+all.equal( summary( b6t )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( b6t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( b6ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
 nobs( b6t )
 lrtest( b6t )
-round( efficiencies( b6t ), 2 )
-round( efficiencies( b6t, asInData = TRUE ), 2 )
+printME( efficiencies( b6t, margEff = TRUE ) )
+printME( efficiencies( b6t, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( b6t, margEff = TRUE ), 
+   efficiencies( b6ti, margEff = TRUE ) )
+all.equal( efficiencies( b6t, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
+   efficiencies( b6ti, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 round( residuals( b6t ), 2 )
 round( residuals( b6t, asInData = TRUE ), 2 )
 all.equal( fitted( b6t, asInData = TRUE ) + residuals( b6t, asInData = TRUE ),
