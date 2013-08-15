@@ -552,11 +552,21 @@ sfa <- function(
    returnObj$indic <- NULL
    if( length( startVal ) == 1 ){
       if( modelType == 1 ) {
-         returnObj$gridParam <- returnObj$gridParam[ 1:( hasIntercept + nb + 2 ) ]
+         idx <- 1:( hasIntercept + nb + 2 )
       } else {
-         returnObj$gridParam <- returnObj$gridParam[
-            c( 1:( hasIntercept + nb ), ( nParamTotal - 1 ):nParamTotal ) ]
+         if( hasIntercept + nb == 0 ) {
+            idx <- NULL
+         } else {
+            idx <- 1:( hasIntercept + nb )
+         }
+         idx <- c( idx, ( nParamTotal - 1 ):nParamTotal )
       }
+      if( any( returnObj$gridParam[ (1:nParamTotal)[ -idx ] ] != 0 ) ) {
+         warning( "internal error: some unused grid-search parameters are",
+            " non-zero: ", paste( returnObj$gridParam, collapse = " " ),
+            " please contact the maintainer of the 'frontier' package" )
+      }
+      returnObj$gridParam <- returnObj$gridParam[ idx ]
       names( returnObj )[ names( returnObj ) == "startLogl" ] <- "gridLogl"
    } else {
       returnObj$gridParam <- NULL
