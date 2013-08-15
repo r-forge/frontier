@@ -82350,6 +82350,5566 @@ class
 [1] "frontierQuad" "frontier"    
 > 
 > 
+> #######  only an intercept as explanatory variable  #######
+> ## cross-section data, error components frontier
+> oi1 <- sfa( logOutput ~ 1, data = front41Data )
+> oi1i <- sfa( logOutput ~ ones - 1, data = front41Data )
+> all.equal( oi1[ -c( 3, 7, 20, 40 ) ], oi1i[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> print( oi1 )
+
+Call:
+sfa(formula = logOutput ~ 1, data = front41Data)
+
+Maximum likelihood estimates
+(Intercept)      sigmaSq        gamma  
+      3.372        0.880        0.934  
+> coef( oi1, which = "start" )
+NULL
+> round( coef( oi1, which = "ols" ), 2 )
+(Intercept)     sigmaSq 
+       2.66        0.38 
+> round( coef( oi1, which = "grid" ), 2 )
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+> round( coef( oi1 ), 2 )
+(Intercept)     sigmaSq       gamma 
+       3.37        0.88        0.93 
+> round( coef( summary( oi1 ), which = "ols" ), 2 )
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)     2.66       0.08   33.54        0
+sigmaSq         0.38         NA      NA       NA
+> round( coef( summary( oi1 ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     3.37       0.12   28.92        0
+sigmaSq         0.88       0.24    3.67        0
+gamma           0.93       0.06   14.81        0
+> round( vcov( oi1 ), 2 )
+            (Intercept) sigmaSq gamma
+(Intercept)        0.01    0.02  0.01
+sigmaSq            0.02    0.06  0.01
+gamma              0.01    0.01  0.00
+> print( logLik( oi1, which = "ols" ), digits = 4 )
+'log Lik.' -55.36 (df=2)
+> print( logLik( oi1, which = "grid" ), digits = 4 )
+'log Lik.' -50.62 (df=3)
+> print( logLik( oi1 ), digits = 4 )
+'log Lik.' -50.57 (df=3)
+> nobs( oi1 )
+[1] 60
+> print( summary( oi1 ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 6 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.37       0.12      29   <2e-16 ***
+sigmaSq         0.88       0.24       4    2e-04 ***
+gamma           0.93       0.06      15   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -50.573 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.5552 
+> print( summary( oi1, effMinusU = FALSE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 6 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.37       0.12      29   <2e-16 ***
+sigmaSq         0.88       0.24       4    2e-04 ***
+gamma           0.93       0.06      15   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -50.573 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 2.4995 
+> all.equal( summary( oi1 )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( oi1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> lrtest( oi1 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   2  -55.4                        
+2   3  -50.6  1  9.58    0.00098 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> round( efficiencies( oi1 ), 2 )
+     efficiency
+F_1        0.48
+F_2        0.78
+F_3        0.72
+F_4        0.49
+F_5        0.45
+F_6        0.56
+F_7        0.26
+F_8        0.73
+F_9        0.54
+F_10       0.51
+F_11       0.15
+F_12       0.89
+F_13       0.42
+F_14       0.35
+F_15       0.47
+F_16       0.37
+F_17       0.65
+F_18       0.62
+F_19       0.73
+F_20       0.67
+F_21       0.62
+F_22       0.54
+F_23       0.78
+F_24       0.26
+F_25       0.25
+F_26       0.87
+F_27       0.80
+F_28       0.60
+F_29       0.38
+F_30       0.26
+F_31       0.14
+F_32       0.07
+F_33       0.61
+F_34       0.38
+F_35       0.27
+F_36       0.86
+F_37       0.86
+F_38       0.54
+F_39       0.46
+F_40       0.47
+F_41       0.48
+F_42       0.58
+F_43       0.79
+F_44       0.71
+F_45       0.72
+F_46       0.47
+F_47       0.86
+F_48       0.57
+F_49       0.50
+F_50       0.39
+F_51       0.69
+F_52       0.82
+F_53       0.88
+F_54       0.48
+F_55       0.65
+F_56       0.69
+F_57       0.13
+F_58       0.73
+F_59       0.82
+F_60       0.52
+> round( efficiencies( oi1, asInData = TRUE ), 2 )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.48 0.78 0.72 0.49 0.45 0.56 0.26 0.73 0.54 0.51 0.15 0.89 0.42 0.35 0.47 0.37 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.65 0.62 0.73 0.67 0.62 0.54 0.78 0.26 0.25 0.87 0.80 0.60 0.38 0.26 0.14 0.07 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.61 0.38 0.27 0.86 0.86 0.54 0.46 0.47 0.48 0.58 0.79 0.71 0.72 0.47 0.86 0.57 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.50 0.39 0.69 0.82 0.88 0.48 0.65 0.69 0.13 0.73 0.82 0.52 
+> all.equal( efficiencies( oi1 ), efficiencies( oi1i ) )
+[1] TRUE
+> all.equal( efficiencies( oi1, asInData = TRUE, minusU = FALSE ), 
++    efficiencies( oi1i, asInData = TRUE, minusU = FALSE ) )
+[1] TRUE
+> round( fitted( oi1 ), 2 )
+      [,1]
+ [1,] 3.37
+ [2,] 3.37
+ [3,] 3.37
+ [4,] 3.37
+ [5,] 3.37
+ [6,] 3.37
+ [7,] 3.37
+ [8,] 3.37
+ [9,] 3.37
+[10,] 3.37
+[11,] 3.37
+[12,] 3.37
+[13,] 3.37
+[14,] 3.37
+[15,] 3.37
+[16,] 3.37
+[17,] 3.37
+[18,] 3.37
+[19,] 3.37
+[20,] 3.37
+[21,] 3.37
+[22,] 3.37
+[23,] 3.37
+[24,] 3.37
+[25,] 3.37
+[26,] 3.37
+[27,] 3.37
+[28,] 3.37
+[29,] 3.37
+[30,] 3.37
+[31,] 3.37
+[32,] 3.37
+[33,] 3.37
+[34,] 3.37
+[35,] 3.37
+[36,] 3.37
+[37,] 3.37
+[38,] 3.37
+[39,] 3.37
+[40,] 3.37
+[41,] 3.37
+[42,] 3.37
+[43,] 3.37
+[44,] 3.37
+[45,] 3.37
+[46,] 3.37
+[47,] 3.37
+[48,] 3.37
+[49,] 3.37
+[50,] 3.37
+[51,] 3.37
+[52,] 3.37
+[53,] 3.37
+[54,] 3.37
+[55,] 3.37
+[56,] 3.37
+[57,] 3.37
+[58,] 3.37
+[59,] 3.37
+[60,] 3.37
+> round( residuals( oi1 ), 2 )
+     residuals
+F_1      -0.82
+F_2      -0.18
+F_3      -0.33
+F_4      -0.79
+F_5      -0.89
+F_6      -0.65
+F_7      -1.47
+F_8      -0.30
+F_9      -0.69
+F_10     -0.75
+F_11     -2.04
+F_12      0.24
+F_13     -0.95
+F_14     -1.15
+F_15     -0.84
+F_16     -1.10
+F_17     -0.46
+F_18     -0.53
+F_19     -0.30
+F_20     -0.43
+F_21     -0.53
+F_22     -0.69
+F_23     -0.19
+F_24     -1.46
+F_25     -1.52
+F_26      0.12
+F_27     -0.11
+F_28     -0.56
+F_29     -1.06
+F_30     -1.49
+F_31     -2.11
+F_32     -2.87
+F_33     -0.55
+F_34     -1.06
+F_35     -1.42
+F_36      0.09
+F_37      0.10
+F_38     -0.69
+F_39     -0.87
+F_40     -0.83
+F_41     -0.82
+F_42     -0.61
+F_43     -0.17
+F_44     -0.35
+F_45     -0.32
+F_46     -0.85
+F_47      0.10
+F_48     -0.63
+F_49     -0.78
+F_50     -1.05
+F_51     -0.38
+F_52     -0.08
+F_53      0.21
+F_54     -0.83
+F_55     -0.46
+F_56     -0.38
+F_57     -2.19
+F_58     -0.31
+F_59     -0.07
+F_60     -0.73
+> all.equal( fitted( oi1, asInData = TRUE ) + residuals( oi1, asInData = TRUE ),
++    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( oi1 )
+$modelType
+[1] 1
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 1
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t logOutput
+F_1   1 1   2.54772
+F_2   2 1   3.18986
+F_3   3 1   3.03759
+F_4   4 1   2.58120
+F_5   5 1   2.48641
+F_6   6 1   2.72681
+F_7   7 1   1.90315
+F_8   8 1   3.07528
+F_9   9 1   2.67924
+F_10 10 1   2.62053
+F_11 11 1   1.33316
+F_12 12 1   3.61410
+F_13 13 1   2.41903
+F_14 14 1   2.22322
+F_15 15 1   2.53639
+F_16 16 1   2.26975
+F_17 17 1   2.90772
+F_18 18 1   2.83873
+F_19 19 1   3.07112
+F_20 20 1   2.93768
+F_21 21 1   2.83920
+F_22 22 1   2.67759
+F_23 23 1   3.17934
+F_24 24 1   1.91501
+F_25 25 1   1.85442
+F_26 26 1   3.49639
+F_27 27 1   3.25963
+F_28 28 1   2.81055
+F_29 29 1   2.30906
+F_30 30 1   1.88008
+F_31 31 1   1.26384
+F_32 32 1   0.50682
+F_33 33 1   2.81989
+F_34 34 1   2.31105
+F_35 35 1   1.95501
+F_36 36 1   3.45925
+F_37 37 1   3.47516
+F_38 38 1   2.67903
+F_39 39 1   2.50618
+F_40 40 1   2.54026
+F_41 41 1   2.55568
+F_42 42 1   2.76260
+F_43 43 1   3.20368
+F_44 44 1   3.02388
+F_45 45 1   3.05438
+F_46 46 1   2.52517
+F_47 47 1   3.47547
+F_48 48 1   2.74567
+F_49 49 1   2.59630
+F_50 50 1   2.32513
+F_51 51 1   2.99208
+F_52 52 1   3.29354
+F_53 53 1   3.57865
+F_54 54 1   2.54694
+F_55 55 1   2.91300
+F_56 56 1   2.98836
+F_57 57 1   1.18448
+F_58 58 1   3.06143
+F_59 59 1   3.30042
+F_60 60 1   2.64653
+
+$olsParam
+(Intercept)     sigmaSq 
+       2.66        0.38 
+
+$gridParam
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+
+$gridLogl
+[1] -50.623
+
+$mleParam
+(Intercept)     sigmaSq       gamma 
+       3.37        0.88        0.93 
+
+$mleCov
+            (Intercept) sigmaSq gamma
+(Intercept)        0.01    0.02  0.01
+sigmaSq            0.02    0.06  0.01
+gamma              0.01    0.01  0.00
+
+$mleLogl
+[1] -50.573
+
+$nIter
+[1] 6
+
+$code
+[1] 1
+
+$olsStdEr
+(Intercept) 
+       0.08 
+
+$olsLogl
+[1] -55.365
+
+$fitted
+      [,1]
+ [1,] 3.37
+ [2,] 3.37
+ [3,] 3.37
+ [4,] 3.37
+ [5,] 3.37
+ [6,] 3.37
+ [7,] 3.37
+ [8,] 3.37
+ [9,] 3.37
+[10,] 3.37
+[11,] 3.37
+[12,] 3.37
+[13,] 3.37
+[14,] 3.37
+[15,] 3.37
+[16,] 3.37
+[17,] 3.37
+[18,] 3.37
+[19,] 3.37
+[20,] 3.37
+[21,] 3.37
+[22,] 3.37
+[23,] 3.37
+[24,] 3.37
+[25,] 3.37
+[26,] 3.37
+[27,] 3.37
+[28,] 3.37
+[29,] 3.37
+[30,] 3.37
+[31,] 3.37
+[32,] 3.37
+[33,] 3.37
+[34,] 3.37
+[35,] 3.37
+[36,] 3.37
+[37,] 3.37
+[38,] 3.37
+[39,] 3.37
+[40,] 3.37
+[41,] 3.37
+[42,] 3.37
+[43,] 3.37
+[44,] 3.37
+[45,] 3.37
+[46,] 3.37
+[47,] 3.37
+[48,] 3.37
+[49,] 3.37
+[50,] 3.37
+[51,] 3.37
+[52,] 3.37
+[53,] 3.37
+[54,] 3.37
+[55,] 3.37
+[56,] 3.37
+[57,] 3.37
+[58,] 3.37
+[59,] 3.37
+[60,] 3.37
+
+$resid
+     residuals
+F_1      -0.82
+F_2      -0.18
+F_3      -0.33
+F_4      -0.79
+F_5      -0.89
+F_6      -0.65
+F_7      -1.47
+F_8      -0.30
+F_9      -0.69
+F_10     -0.75
+F_11     -2.04
+F_12      0.24
+F_13     -0.95
+F_14     -1.15
+F_15     -0.84
+F_16     -1.10
+F_17     -0.46
+F_18     -0.53
+F_19     -0.30
+F_20     -0.43
+F_21     -0.53
+F_22     -0.69
+F_23     -0.19
+F_24     -1.46
+F_25     -1.52
+F_26      0.12
+F_27     -0.11
+F_28     -0.56
+F_29     -1.06
+F_30     -1.49
+F_31     -2.11
+F_32     -2.87
+F_33     -0.55
+F_34     -1.06
+F_35     -1.42
+F_36      0.09
+F_37      0.10
+F_38     -0.69
+F_39     -0.87
+F_40     -0.83
+F_41     -0.82
+F_42     -0.61
+F_43     -0.17
+F_44     -0.35
+F_45     -0.32
+F_46     -0.85
+F_47      0.10
+F_48     -0.63
+F_49     -0.78
+F_50     -1.05
+F_51     -0.38
+F_52     -0.08
+F_53      0.21
+F_54     -0.83
+F_55     -0.46
+F_56     -0.38
+F_57     -2.19
+F_58     -0.31
+F_59     -0.07
+F_60     -0.73
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.11  0.53  0.38 -0.08 -0.17  0.07 -0.76  0.42  0.02 -0.04 -1.33  0.96 -0.24 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.44 -0.12 -0.39  0.25  0.18  0.41  0.28  0.18  0.02  0.52 -0.74 -0.80  0.84 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.60  0.15 -0.35 -0.78 -1.39 -2.15  0.16 -0.35 -0.70  0.80  0.82  0.02 -0.15 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.12 -0.10  0.10  0.55  0.37  0.40 -0.13  0.82  0.09 -0.06 -0.33  0.33  0.64 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.92 -0.11  0.25  0.33 -1.47  0.40  0.64 -0.01 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = logOutput ~ 1, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, error components frontier, truncNorm
+> oi2 <- sfa( logOutput ~ 1, data = front41Data, truncNorm = TRUE )
+> oi2i <- sfa( logOutput ~ ones - 1, data = front41Data, truncNorm = TRUE )
+> all.equal( oi2[ -c( 3, 7, 20, 40 ) ], oi2i[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> print( oi2 )
+
+Call:
+sfa(formula = logOutput ~ 1, data = front41Data, truncNorm = TRUE)
+
+Maximum likelihood estimates
+(Intercept)      sigmaSq        gamma           mu  
+      3.217        2.412        0.961       -3.046  
+> round( coef( oi2, which = "ols" ), 2 )
+(Intercept)     sigmaSq 
+       2.66        0.38 
+> round( coef( oi2, which = "grid" ), 2 )
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+> round( coef( oi2 ), 2 )
+(Intercept)     sigmaSq       gamma          mu 
+       3.22        2.41        0.96       -3.05 
+> round( coef( summary( oi2 ), which = "ols" ), 2 )
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)     2.66       0.08   33.54        0
+sigmaSq         0.38         NA      NA       NA
+> round( coef( summary( oi2 ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     3.22       0.11   29.51     0.00
+sigmaSq         2.41       1.93    1.25     0.21
+gamma           0.96       0.05   20.00     0.00
+mu             -3.05       3.72   -0.82     0.41
+> round( vcov( oi2 ), 2 )
+            (Intercept) sigmaSq gamma    mu
+(Intercept)        0.01   -0.15  0.00  0.30
+sigmaSq           -0.15    3.74  0.08 -7.15
+gamma              0.00    0.08  0.00 -0.14
+mu                 0.30   -7.15 -0.14 13.82
+> print( logLik( oi2, which = "ols" ), digits = 4 )
+'log Lik.' -55.36 (df=2)
+> print( logLik( oi2, which = "grid" ), digits = 4 )
+'log Lik.' -50.62 (df=3)
+> print( logLik( oi2 ), digits = 4 )
+'log Lik.' -49.92 (df=4)
+> nobs( oi2 )
+[1] 60
+> print( summary( oi2 ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 9 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.22       0.11    29.5   <2e-16 ***
+sigmaSq         2.41       1.93     1.2      0.2    
+gamma           0.96       0.05    20.0   <2e-16 ***
+mu             -3.05       3.72    -0.8      0.4    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -49.918 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.6347 
+> print( summary( oi2, effMinusU = FALSE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 9 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.22       0.11    29.5   <2e-16 ***
+sigmaSq         2.41       1.93     1.2      0.2    
+gamma           0.96       0.05    20.0   <2e-16 ***
+mu             -3.05       3.72    -0.8      0.4    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -49.918 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 2.1147 
+> all.equal( summary( oi2 )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( oi2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> lrtest( oi2 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)   
+1   2  -55.4                       
+2   4  -49.9  2  10.9     0.0016 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> round( efficiencies( oi2 ), 2 )
+     efficiency
+F_1        0.60
+F_2        0.82
+F_3        0.78
+F_4        0.61
+F_5        0.57
+F_6        0.68
+F_7        0.33
+F_8        0.79
+F_9        0.66
+F_10       0.63
+F_11       0.19
+F_12       0.89
+F_13       0.54
+F_14       0.45
+F_15       0.59
+F_16       0.47
+F_17       0.74
+F_18       0.72
+F_19       0.79
+F_20       0.75
+F_21       0.72
+F_22       0.66
+F_23       0.82
+F_24       0.34
+F_25       0.32
+F_26       0.87
+F_27       0.84
+F_28       0.71
+F_29       0.49
+F_30       0.33
+F_31       0.18
+F_32       0.09
+F_33       0.71
+F_34       0.49
+F_35       0.35
+F_36       0.87
+F_37       0.87
+F_38       0.66
+F_39       0.58
+F_40       0.59
+F_41       0.60
+F_42       0.69
+F_43       0.83
+F_44       0.78
+F_45       0.79
+F_46       0.59
+F_47       0.87
+F_48       0.68
+F_49       0.62
+F_50       0.49
+F_51       0.77
+F_52       0.84
+F_53       0.88
+F_54       0.60
+F_55       0.75
+F_56       0.77
+F_57       0.17
+F_58       0.79
+F_59       0.84
+F_60       0.64
+> round( efficiencies( oi2, asInData = TRUE ), 2 )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.60 0.82 0.78 0.61 0.57 0.68 0.33 0.79 0.66 0.63 0.19 0.89 0.54 0.45 0.59 0.47 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.74 0.72 0.79 0.75 0.72 0.66 0.82 0.34 0.32 0.87 0.84 0.71 0.49 0.33 0.18 0.09 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.71 0.49 0.35 0.87 0.87 0.66 0.58 0.59 0.60 0.69 0.83 0.78 0.79 0.59 0.87 0.68 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.62 0.49 0.77 0.84 0.88 0.60 0.75 0.77 0.17 0.79 0.84 0.64 
+> all.equal( efficiencies( oi2 ), efficiencies( oi2i ) )
+[1] TRUE
+> all.equal( efficiencies( oi2, asInData = TRUE, minusU = FALSE ), 
++    efficiencies( oi2i, asInData = TRUE, minusU = FALSE ) )
+[1] TRUE
+> round( fitted( oi2 ), 2 )
+      [,1]
+ [1,] 3.22
+ [2,] 3.22
+ [3,] 3.22
+ [4,] 3.22
+ [5,] 3.22
+ [6,] 3.22
+ [7,] 3.22
+ [8,] 3.22
+ [9,] 3.22
+[10,] 3.22
+[11,] 3.22
+[12,] 3.22
+[13,] 3.22
+[14,] 3.22
+[15,] 3.22
+[16,] 3.22
+[17,] 3.22
+[18,] 3.22
+[19,] 3.22
+[20,] 3.22
+[21,] 3.22
+[22,] 3.22
+[23,] 3.22
+[24,] 3.22
+[25,] 3.22
+[26,] 3.22
+[27,] 3.22
+[28,] 3.22
+[29,] 3.22
+[30,] 3.22
+[31,] 3.22
+[32,] 3.22
+[33,] 3.22
+[34,] 3.22
+[35,] 3.22
+[36,] 3.22
+[37,] 3.22
+[38,] 3.22
+[39,] 3.22
+[40,] 3.22
+[41,] 3.22
+[42,] 3.22
+[43,] 3.22
+[44,] 3.22
+[45,] 3.22
+[46,] 3.22
+[47,] 3.22
+[48,] 3.22
+[49,] 3.22
+[50,] 3.22
+[51,] 3.22
+[52,] 3.22
+[53,] 3.22
+[54,] 3.22
+[55,] 3.22
+[56,] 3.22
+[57,] 3.22
+[58,] 3.22
+[59,] 3.22
+[60,] 3.22
+> round( residuals( oi2 ), 2 )
+     residuals
+F_1      -0.67
+F_2      -0.03
+F_3      -0.18
+F_4      -0.64
+F_5      -0.73
+F_6      -0.49
+F_7      -1.31
+F_8      -0.14
+F_9      -0.54
+F_10     -0.60
+F_11     -1.88
+F_12      0.40
+F_13     -0.80
+F_14     -0.99
+F_15     -0.68
+F_16     -0.95
+F_17     -0.31
+F_18     -0.38
+F_19     -0.15
+F_20     -0.28
+F_21     -0.38
+F_22     -0.54
+F_23     -0.04
+F_24     -1.30
+F_25     -1.36
+F_26      0.28
+F_27      0.04
+F_28     -0.41
+F_29     -0.91
+F_30     -1.34
+F_31     -1.95
+F_32     -2.71
+F_33     -0.40
+F_34     -0.91
+F_35     -1.26
+F_36      0.24
+F_37      0.26
+F_38     -0.54
+F_39     -0.71
+F_40     -0.68
+F_41     -0.66
+F_42     -0.45
+F_43     -0.01
+F_44     -0.19
+F_45     -0.16
+F_46     -0.69
+F_47      0.26
+F_48     -0.47
+F_49     -0.62
+F_50     -0.89
+F_51     -0.22
+F_52      0.08
+F_53      0.36
+F_54     -0.67
+F_55     -0.30
+F_56     -0.23
+F_57     -2.03
+F_58     -0.16
+F_59      0.08
+F_60     -0.57
+> all.equal( fitted( oi2, asInData = TRUE ) + residuals( oi2, asInData = TRUE ),
++    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( oi2 )
+$modelType
+[1] 1
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 1
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t logOutput
+F_1   1 1   2.54772
+F_2   2 1   3.18986
+F_3   3 1   3.03759
+F_4   4 1   2.58120
+F_5   5 1   2.48641
+F_6   6 1   2.72681
+F_7   7 1   1.90315
+F_8   8 1   3.07528
+F_9   9 1   2.67924
+F_10 10 1   2.62053
+F_11 11 1   1.33316
+F_12 12 1   3.61410
+F_13 13 1   2.41903
+F_14 14 1   2.22322
+F_15 15 1   2.53639
+F_16 16 1   2.26975
+F_17 17 1   2.90772
+F_18 18 1   2.83873
+F_19 19 1   3.07112
+F_20 20 1   2.93768
+F_21 21 1   2.83920
+F_22 22 1   2.67759
+F_23 23 1   3.17934
+F_24 24 1   1.91501
+F_25 25 1   1.85442
+F_26 26 1   3.49639
+F_27 27 1   3.25963
+F_28 28 1   2.81055
+F_29 29 1   2.30906
+F_30 30 1   1.88008
+F_31 31 1   1.26384
+F_32 32 1   0.50682
+F_33 33 1   2.81989
+F_34 34 1   2.31105
+F_35 35 1   1.95501
+F_36 36 1   3.45925
+F_37 37 1   3.47516
+F_38 38 1   2.67903
+F_39 39 1   2.50618
+F_40 40 1   2.54026
+F_41 41 1   2.55568
+F_42 42 1   2.76260
+F_43 43 1   3.20368
+F_44 44 1   3.02388
+F_45 45 1   3.05438
+F_46 46 1   2.52517
+F_47 47 1   3.47547
+F_48 48 1   2.74567
+F_49 49 1   2.59630
+F_50 50 1   2.32513
+F_51 51 1   2.99208
+F_52 52 1   3.29354
+F_53 53 1   3.57865
+F_54 54 1   2.54694
+F_55 55 1   2.91300
+F_56 56 1   2.98836
+F_57 57 1   1.18448
+F_58 58 1   3.06143
+F_59 59 1   3.30042
+F_60 60 1   2.64653
+
+$olsParam
+(Intercept)     sigmaSq 
+       2.66        0.38 
+
+$gridParam
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+
+$gridLogl
+[1] -50.623
+
+$mleParam
+(Intercept)     sigmaSq       gamma          mu 
+       3.22        2.41        0.96       -3.05 
+
+$mleCov
+            (Intercept) sigmaSq gamma    mu
+(Intercept)        0.01   -0.15  0.00  0.30
+sigmaSq           -0.15    3.74  0.08 -7.15
+gamma              0.00    0.08  0.00 -0.14
+mu                 0.30   -7.15 -0.14 13.82
+
+$mleLogl
+[1] -49.918
+
+$nIter
+[1] 9
+
+$code
+[1] 5
+
+$olsStdEr
+(Intercept) 
+       0.08 
+
+$olsLogl
+[1] -55.365
+
+$fitted
+      [,1]
+ [1,] 3.22
+ [2,] 3.22
+ [3,] 3.22
+ [4,] 3.22
+ [5,] 3.22
+ [6,] 3.22
+ [7,] 3.22
+ [8,] 3.22
+ [9,] 3.22
+[10,] 3.22
+[11,] 3.22
+[12,] 3.22
+[13,] 3.22
+[14,] 3.22
+[15,] 3.22
+[16,] 3.22
+[17,] 3.22
+[18,] 3.22
+[19,] 3.22
+[20,] 3.22
+[21,] 3.22
+[22,] 3.22
+[23,] 3.22
+[24,] 3.22
+[25,] 3.22
+[26,] 3.22
+[27,] 3.22
+[28,] 3.22
+[29,] 3.22
+[30,] 3.22
+[31,] 3.22
+[32,] 3.22
+[33,] 3.22
+[34,] 3.22
+[35,] 3.22
+[36,] 3.22
+[37,] 3.22
+[38,] 3.22
+[39,] 3.22
+[40,] 3.22
+[41,] 3.22
+[42,] 3.22
+[43,] 3.22
+[44,] 3.22
+[45,] 3.22
+[46,] 3.22
+[47,] 3.22
+[48,] 3.22
+[49,] 3.22
+[50,] 3.22
+[51,] 3.22
+[52,] 3.22
+[53,] 3.22
+[54,] 3.22
+[55,] 3.22
+[56,] 3.22
+[57,] 3.22
+[58,] 3.22
+[59,] 3.22
+[60,] 3.22
+
+$resid
+     residuals
+F_1      -0.67
+F_2      -0.03
+F_3      -0.18
+F_4      -0.64
+F_5      -0.73
+F_6      -0.49
+F_7      -1.31
+F_8      -0.14
+F_9      -0.54
+F_10     -0.60
+F_11     -1.88
+F_12      0.40
+F_13     -0.80
+F_14     -0.99
+F_15     -0.68
+F_16     -0.95
+F_17     -0.31
+F_18     -0.38
+F_19     -0.15
+F_20     -0.28
+F_21     -0.38
+F_22     -0.54
+F_23     -0.04
+F_24     -1.30
+F_25     -1.36
+F_26      0.28
+F_27      0.04
+F_28     -0.41
+F_29     -0.91
+F_30     -1.34
+F_31     -1.95
+F_32     -2.71
+F_33     -0.40
+F_34     -0.91
+F_35     -1.26
+F_36      0.24
+F_37      0.26
+F_38     -0.54
+F_39     -0.71
+F_40     -0.68
+F_41     -0.66
+F_42     -0.45
+F_43     -0.01
+F_44     -0.19
+F_45     -0.16
+F_46     -0.69
+F_47      0.26
+F_48     -0.47
+F_49     -0.62
+F_50     -0.89
+F_51     -0.22
+F_52      0.08
+F_53      0.36
+F_54     -0.67
+F_55     -0.30
+F_56     -0.23
+F_57     -2.03
+F_58     -0.16
+F_59      0.08
+F_60     -0.57
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.11  0.53  0.38 -0.08 -0.17  0.07 -0.76  0.42  0.02 -0.04 -1.33  0.96 -0.24 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.44 -0.12 -0.39  0.25  0.18  0.41  0.28  0.18  0.02  0.52 -0.74 -0.80  0.84 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.60  0.15 -0.35 -0.78 -1.39 -2.15  0.16 -0.35 -0.70  0.80  0.82  0.02 -0.15 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.12 -0.10  0.10  0.55  0.37  0.40 -0.13  0.82  0.09 -0.06 -0.33  0.33  0.64 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.92 -0.11  0.25  0.33 -1.47  0.40  0.64 -0.01 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] TRUE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = logOutput ~ 1, data = front41Data, truncNorm = TRUE)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, efficiency effects frontier
+> oi5 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
+> oi5i <- sfa( logOutput ~ ones - 1 | firmNo - 1, data = front41Data )
+> all.equal( oi5[ -c( 3, 7, 20, 40 ) ], oi5i[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> print( oi5 )
+
+Call:
+sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
+
+Maximum likelihood estimates
+(Intercept)     Z_firmNo      sigmaSq        gamma  
+     3.3170      -0.0148       1.0869       0.9356  
+> round( coef( oi5, which = "ols" ), 2 )
+(Intercept)     sigmaSq 
+       2.66        0.38 
+> round( coef( oi5, which = "grid" ), 2 )
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+> round( coef( oi5 ), 2 )
+(Intercept)    Z_firmNo     sigmaSq       gamma 
+       3.32       -0.01        1.09        0.94 
+> round( coef( summary( oi5 ), which = "ols" ), 2 )
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)     2.66       0.08   33.54        0
+sigmaSq         0.38         NA      NA       NA
+> round( coef( summary( oi5 ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     3.32       0.12   27.77     0.00
+Z_firmNo       -0.01       0.02   -0.77     0.44
+sigmaSq         1.09       0.40    2.70     0.01
+gamma           0.94       0.05   18.25     0.00
+> round( vcov( oi5 ), 2 )
+            (Intercept) Z_firmNo sigmaSq gamma
+(Intercept)        0.01     0.00    0.01  0.00
+Z_firmNo           0.00     0.00   -0.01  0.00
+sigmaSq            0.01    -0.01    0.16  0.01
+gamma              0.00     0.00    0.01  0.00
+> print( logLik( oi5, which = "ols" ), digits = 4 )
+'log Lik.' -55.36 (df=2)
+> print( logLik( oi5, which = "grid" ), digits = 4 )
+'log Lik.' -50.62 (df=3)
+> print( logLik( oi5 ), digits = 4 )
+'log Lik.' -50.08 (df=4)
+> nobs( oi5 )
+[1] 60
+> print( summary( oi5 ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 10 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.32       0.12    27.8   <2e-16 ***
+Z_firmNo       -0.01       0.02    -0.8    0.440    
+sigmaSq         1.09       0.40     2.7    0.007 ** 
+gamma           0.94       0.05    18.3   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -50.08 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.58313 
+> print( summary( oi5, effMinusU = FALSE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 10 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     3.32       0.12    27.8   <2e-16 ***
+Z_firmNo       -0.01       0.02    -0.8    0.440    
+sigmaSq         1.09       0.40     2.7    0.007 ** 
+gamma           0.94       0.05    18.3   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -50.08 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 2.3524 
+> all.equal( summary( oi5 )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( oi5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> lrtest( oi5 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Efficiency Effects Frontier (EEF)
+  #Df LogLik Df Chisq Pr(>Chisq)   
+1   2  -55.4                       
+2   4  -50.1  2  10.6     0.0018 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> printME( efficiencies( oi5, margEff = TRUE ) )
+     efficiency
+F_1        0.50
+F_2        0.79
+F_3        0.73
+F_4        0.52
+F_5        0.48
+F_6        0.59
+F_7        0.28
+F_8        0.75
+F_9        0.57
+F_10       0.54
+F_11       0.16
+F_12       0.88
+F_13       0.45
+F_14       0.38
+F_15       0.50
+F_16       0.39
+F_17       0.68
+F_18       0.65
+F_19       0.75
+F_20       0.70
+F_21       0.65
+F_22       0.57
+F_23       0.79
+F_24       0.28
+F_25       0.27
+F_26       0.87
+F_27       0.82
+F_28       0.64
+F_29       0.41
+F_30       0.28
+F_31       0.16
+F_32       0.08
+F_33       0.65
+F_34       0.42
+F_35       0.30
+F_36       0.86
+F_37       0.87
+F_38       0.58
+F_39       0.50
+F_40       0.52
+F_41       0.52
+F_42       0.63
+F_43       0.81
+F_44       0.74
+F_45       0.76
+F_46       0.51
+F_47       0.87
+F_48       0.62
+F_49       0.55
+F_50       0.43
+F_51       0.73
+F_52       0.83
+F_53       0.89
+F_54       0.53
+F_55       0.70
+F_56       0.73
+F_57       0.15
+F_58       0.76
+F_59       0.84
+F_60       0.58
+margEff
+, , Z_firmNo
+
+     efficiency
+F_1           0
+F_2           0
+F_3           0
+F_4           0
+F_5           0
+F_6           0
+F_7           0
+F_8           0
+F_9           0
+F_10          0
+F_11          0
+F_12          0
+F_13          0
+F_14          0
+F_15          0
+F_16          0
+F_17          0
+F_18          0
+F_19          0
+F_20          0
+F_21          0
+F_22          0
+F_23          0
+F_24          0
+F_25          0
+F_26          0
+F_27          0
+F_28          0
+F_29          0
+F_30          0
+F_31          0
+F_32          0
+F_33          0
+F_34          0
+F_35          0
+F_36          0
+F_37          0
+F_38          0
+F_39          0
+F_40          0
+F_41          0
+F_42          0
+F_43          0
+F_44          0
+F_45          0
+F_46          0
+F_47          0
+F_48          0
+F_49          0
+F_50          0
+F_51          0
+F_52          0
+F_53          0
+F_54          0
+F_55          0
+F_56          0
+F_57          0
+F_58          0
+F_59          0
+F_60          0
+
+> printME( efficiencies( oi5, asInData = TRUE, margEff = TRUE ) )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.50 0.79 0.73 0.52 0.48 0.59 0.28 0.75 0.57 0.54 0.16 0.88 0.45 0.38 0.50 0.39 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.68 0.65 0.75 0.70 0.65 0.57 0.79 0.28 0.27 0.87 0.82 0.64 0.41 0.28 0.16 0.08 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.65 0.42 0.30 0.86 0.87 0.58 0.50 0.52 0.52 0.63 0.81 0.74 0.76 0.51 0.87 0.62 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.55 0.43 0.73 0.83 0.89 0.53 0.70 0.73 0.15 0.76 0.84 0.58 
+margEff
+     Z_firmNo
+F_1         0
+F_2         0
+F_3         0
+F_4         0
+F_5         0
+F_6         0
+F_7         0
+F_8         0
+F_9         0
+F_10        0
+F_11        0
+F_12        0
+F_13        0
+F_14        0
+F_15        0
+F_16        0
+F_17        0
+F_18        0
+F_19        0
+F_20        0
+F_21        0
+F_22        0
+F_23        0
+F_24        0
+F_25        0
+F_26        0
+F_27        0
+F_28        0
+F_29        0
+F_30        0
+F_31        0
+F_32        0
+F_33        0
+F_34        0
+F_35        0
+F_36        0
+F_37        0
+F_38        0
+F_39        0
+F_40        0
+F_41        0
+F_42        0
+F_43        0
+F_44        0
+F_45        0
+F_46        0
+F_47        0
+F_48        0
+F_49        0
+F_50        0
+F_51        0
+F_52        0
+F_53        0
+F_54        0
+F_55        0
+F_56        0
+F_57        0
+F_58        0
+F_59        0
+F_60        0
+> all.equal( efficiencies( oi5, minusU = FALSE, margEff = TRUE ), 
++    efficiencies( oi5i, minusU = FALSE, margEff = TRUE ) )
+[1] TRUE
+> all.equal( efficiencies( oi5, asInData = TRUE, margEff = TRUE ), 
++    efficiencies( oi5i, asInData = TRUE, margEff = TRUE ) )
+[1] TRUE
+> round( fitted( oi5 ), 2 )
+      [,1]
+ [1,] 3.32
+ [2,] 3.32
+ [3,] 3.32
+ [4,] 3.32
+ [5,] 3.32
+ [6,] 3.32
+ [7,] 3.32
+ [8,] 3.32
+ [9,] 3.32
+[10,] 3.32
+[11,] 3.32
+[12,] 3.32
+[13,] 3.32
+[14,] 3.32
+[15,] 3.32
+[16,] 3.32
+[17,] 3.32
+[18,] 3.32
+[19,] 3.32
+[20,] 3.32
+[21,] 3.32
+[22,] 3.32
+[23,] 3.32
+[24,] 3.32
+[25,] 3.32
+[26,] 3.32
+[27,] 3.32
+[28,] 3.32
+[29,] 3.32
+[30,] 3.32
+[31,] 3.32
+[32,] 3.32
+[33,] 3.32
+[34,] 3.32
+[35,] 3.32
+[36,] 3.32
+[37,] 3.32
+[38,] 3.32
+[39,] 3.32
+[40,] 3.32
+[41,] 3.32
+[42,] 3.32
+[43,] 3.32
+[44,] 3.32
+[45,] 3.32
+[46,] 3.32
+[47,] 3.32
+[48,] 3.32
+[49,] 3.32
+[50,] 3.32
+[51,] 3.32
+[52,] 3.32
+[53,] 3.32
+[54,] 3.32
+[55,] 3.32
+[56,] 3.32
+[57,] 3.32
+[58,] 3.32
+[59,] 3.32
+[60,] 3.32
+> round( residuals( oi5 ), 2 )
+     residuals
+F_1      -0.77
+F_2      -0.13
+F_3      -0.28
+F_4      -0.74
+F_5      -0.83
+F_6      -0.59
+F_7      -1.41
+F_8      -0.24
+F_9      -0.64
+F_10     -0.70
+F_11     -1.98
+F_12      0.30
+F_13     -0.90
+F_14     -1.09
+F_15     -0.78
+F_16     -1.05
+F_17     -0.41
+F_18     -0.48
+F_19     -0.25
+F_20     -0.38
+F_21     -0.48
+F_22     -0.64
+F_23     -0.14
+F_24     -1.40
+F_25     -1.46
+F_26      0.18
+F_27     -0.06
+F_28     -0.51
+F_29     -1.01
+F_30     -1.44
+F_31     -2.05
+F_32     -2.81
+F_33     -0.50
+F_34     -1.01
+F_35     -1.36
+F_36      0.14
+F_37      0.16
+F_38     -0.64
+F_39     -0.81
+F_40     -0.78
+F_41     -0.76
+F_42     -0.55
+F_43     -0.11
+F_44     -0.29
+F_45     -0.26
+F_46     -0.79
+F_47      0.16
+F_48     -0.57
+F_49     -0.72
+F_50     -0.99
+F_51     -0.32
+F_52     -0.02
+F_53      0.26
+F_54     -0.77
+F_55     -0.40
+F_56     -0.33
+F_57     -2.13
+F_58     -0.26
+F_59     -0.02
+F_60     -0.67
+> all.equal( fitted( oi5, asInData = TRUE ) + residuals( oi5, asInData = TRUE ),
++    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( oi5 )
+$modelType
+[1] 2
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 1
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t logOutput firmNo
+F_1   1 1   2.54772      1
+F_2   2 1   3.18986      2
+F_3   3 1   3.03759      3
+F_4   4 1   2.58120      4
+F_5   5 1   2.48641      5
+F_6   6 1   2.72681      6
+F_7   7 1   1.90315      7
+F_8   8 1   3.07528      8
+F_9   9 1   2.67924      9
+F_10 10 1   2.62053     10
+F_11 11 1   1.33316     11
+F_12 12 1   3.61410     12
+F_13 13 1   2.41903     13
+F_14 14 1   2.22322     14
+F_15 15 1   2.53639     15
+F_16 16 1   2.26975     16
+F_17 17 1   2.90772     17
+F_18 18 1   2.83873     18
+F_19 19 1   3.07112     19
+F_20 20 1   2.93768     20
+F_21 21 1   2.83920     21
+F_22 22 1   2.67759     22
+F_23 23 1   3.17934     23
+F_24 24 1   1.91501     24
+F_25 25 1   1.85442     25
+F_26 26 1   3.49639     26
+F_27 27 1   3.25963     27
+F_28 28 1   2.81055     28
+F_29 29 1   2.30906     29
+F_30 30 1   1.88008     30
+F_31 31 1   1.26384     31
+F_32 32 1   0.50682     32
+F_33 33 1   2.81989     33
+F_34 34 1   2.31105     34
+F_35 35 1   1.95501     35
+F_36 36 1   3.45925     36
+F_37 37 1   3.47516     37
+F_38 38 1   2.67903     38
+F_39 39 1   2.50618     39
+F_40 40 1   2.54026     40
+F_41 41 1   2.55568     41
+F_42 42 1   2.76260     42
+F_43 43 1   3.20368     43
+F_44 44 1   3.02388     44
+F_45 45 1   3.05438     45
+F_46 46 1   2.52517     46
+F_47 47 1   3.47547     47
+F_48 48 1   2.74567     48
+F_49 49 1   2.59630     49
+F_50 50 1   2.32513     50
+F_51 51 1   2.99208     51
+F_52 52 1   3.29354     52
+F_53 53 1   3.57865     53
+F_54 54 1   2.54694     54
+F_55 55 1   2.91300     55
+F_56 56 1   2.98836     56
+F_57 57 1   1.18448     57
+F_58 58 1   3.06143     58
+F_59 59 1   3.30042     59
+F_60 60 1   2.64653     60
+
+$olsParam
+(Intercept)     sigmaSq 
+       2.66        0.38 
+
+$gridParam
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+
+$gridLogl
+[1] -50.623
+
+$mleParam
+(Intercept)    Z_firmNo     sigmaSq       gamma 
+       3.32       -0.01        1.09        0.94 
+
+$mleCov
+            (Intercept) Z_firmNo sigmaSq gamma
+(Intercept)        0.01     0.00    0.01  0.00
+Z_firmNo           0.00     0.00   -0.01  0.00
+sigmaSq            0.01    -0.01    0.16  0.01
+gamma              0.00     0.00    0.01  0.00
+
+$mleLogl
+[1] -50.08
+
+$nIter
+[1] 10
+
+$code
+[1] 1
+
+$olsStdEr
+(Intercept) 
+       0.08 
+
+$olsLogl
+[1] -55.365
+
+$fitted
+      [,1]
+ [1,] 3.32
+ [2,] 3.32
+ [3,] 3.32
+ [4,] 3.32
+ [5,] 3.32
+ [6,] 3.32
+ [7,] 3.32
+ [8,] 3.32
+ [9,] 3.32
+[10,] 3.32
+[11,] 3.32
+[12,] 3.32
+[13,] 3.32
+[14,] 3.32
+[15,] 3.32
+[16,] 3.32
+[17,] 3.32
+[18,] 3.32
+[19,] 3.32
+[20,] 3.32
+[21,] 3.32
+[22,] 3.32
+[23,] 3.32
+[24,] 3.32
+[25,] 3.32
+[26,] 3.32
+[27,] 3.32
+[28,] 3.32
+[29,] 3.32
+[30,] 3.32
+[31,] 3.32
+[32,] 3.32
+[33,] 3.32
+[34,] 3.32
+[35,] 3.32
+[36,] 3.32
+[37,] 3.32
+[38,] 3.32
+[39,] 3.32
+[40,] 3.32
+[41,] 3.32
+[42,] 3.32
+[43,] 3.32
+[44,] 3.32
+[45,] 3.32
+[46,] 3.32
+[47,] 3.32
+[48,] 3.32
+[49,] 3.32
+[50,] 3.32
+[51,] 3.32
+[52,] 3.32
+[53,] 3.32
+[54,] 3.32
+[55,] 3.32
+[56,] 3.32
+[57,] 3.32
+[58,] 3.32
+[59,] 3.32
+[60,] 3.32
+
+$resid
+     residuals
+F_1      -0.77
+F_2      -0.13
+F_3      -0.28
+F_4      -0.74
+F_5      -0.83
+F_6      -0.59
+F_7      -1.41
+F_8      -0.24
+F_9      -0.64
+F_10     -0.70
+F_11     -1.98
+F_12      0.30
+F_13     -0.90
+F_14     -1.09
+F_15     -0.78
+F_16     -1.05
+F_17     -0.41
+F_18     -0.48
+F_19     -0.25
+F_20     -0.38
+F_21     -0.48
+F_22     -0.64
+F_23     -0.14
+F_24     -1.40
+F_25     -1.46
+F_26      0.18
+F_27     -0.06
+F_28     -0.51
+F_29     -1.01
+F_30     -1.44
+F_31     -2.05
+F_32     -2.81
+F_33     -0.50
+F_34     -1.01
+F_35     -1.36
+F_36      0.14
+F_37      0.16
+F_38     -0.64
+F_39     -0.81
+F_40     -0.78
+F_41     -0.76
+F_42     -0.55
+F_43     -0.11
+F_44     -0.29
+F_45     -0.26
+F_46     -0.79
+F_47      0.16
+F_48     -0.57
+F_49     -0.72
+F_50     -0.99
+F_51     -0.32
+F_52     -0.02
+F_53      0.26
+F_54     -0.77
+F_55     -0.40
+F_56     -0.33
+F_57     -2.13
+F_58     -0.26
+F_59     -0.02
+F_60     -0.67
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.11  0.53  0.38 -0.08 -0.17  0.07 -0.76  0.42  0.02 -0.04 -1.33  0.96 -0.24 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.44 -0.12 -0.39  0.25  0.18  0.41  0.28  0.18  0.02  0.52 -0.74 -0.80  0.84 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.60  0.15 -0.35 -0.78 -1.39 -2.15  0.16 -0.35 -0.70  0.80  0.82  0.02 -0.15 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.12 -0.10  0.10  0.55  0.37  0.40 -0.13  0.82  0.09 -0.06 -0.33  0.33  0.64 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.92 -0.11  0.25  0.33 -1.47  0.40  0.64 -0.01 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, efficiency effects frontier, zIntercept
+> oi6 <- sfa( logOutput ~ 1 | firmNo, data = front41Data )
+Warning message:
+In sfa(logOutput ~ 1 | firmNo, data = front41Data) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> oi6i <- sfa( logOutput ~ ones - 1 | firmNo, data = front41Data )
+Warning message:
+In sfa(logOutput ~ ones - 1 | firmNo, data = front41Data) :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( oi6[ -c( 3, 7, 20, 40 ) ], oi6i[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> print( oi6 )
+
+Call:
+sfa(formula = logOutput ~ 1 | firmNo, data = front41Data)
+
+Maximum likelihood estimates
+  (Intercept)  Z_(Intercept)       Z_firmNo        sigmaSq          gamma  
+        3.183        -31.164         -0.172         19.607          0.995  
+> round( coef( oi6, which = "ols" ), 2 )
+(Intercept)     sigmaSq 
+       2.66        0.38 
+> round( coef( oi6, which = "grid" ), 2 )
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+> round( coef( oi6 ), 2 )
+  (Intercept) Z_(Intercept)      Z_firmNo       sigmaSq         gamma 
+         3.18        -31.16         -0.17         19.61          0.99 
+> round( coef( summary( oi6 ), which = "ols" ), 2 )
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)     2.66       0.08   33.54        0
+sigmaSq         0.38         NA      NA       NA
+> round( coef( summary( oi6 ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)       3.18       0.11   28.46     0.00
+Z_(Intercept)   -31.16     408.97   -0.08     0.94
+Z_firmNo         -0.17       2.10   -0.08     0.93
+sigmaSq          19.61     243.41    0.08     0.94
+gamma             0.99       0.06   15.59     0.00
+> round( vcov( oi6 ), 2 )
+              (Intercept) Z_(Intercept) Z_firmNo   sigmaSq  gamma
+(Intercept)          0.01         27.87     0.14    -16.37   0.00
+Z_(Intercept)       27.87     167258.49   851.28 -99526.25 -26.07
+Z_firmNo             0.14        851.28     4.39   -507.56  -0.13
+sigmaSq            -16.37     -99526.25  -507.56  59246.88  15.53
+gamma                0.00        -26.07    -0.13     15.53   0.00
+> print( logLik( oi6, which = "ols" ), digits = 4 )
+'log Lik.' -55.36 (df=2)
+> print( logLik( oi6, which = "grid" ), digits = 4 )
+'log Lik.' -50.62 (df=3)
+> print( logLik( oi6 ), digits = 4 )
+'log Lik.' -49.64 (df=5)
+> nobs( oi6 )
+[1] 60
+> print( summary( oi6 ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 69 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)       3.18       0.11    28.5   <2e-16 ***
+Z_(Intercept)   -31.16     408.97    -0.1      0.9    
+Z_firmNo         -0.17       2.10    -0.1      0.9    
+sigmaSq          19.61     243.41     0.1      0.9    
+gamma             0.99       0.06    15.6   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -49.635 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.65625 
+> print( summary( oi6, effMinusU = FALSE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 69 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)       3.18       0.11    28.5   <2e-16 ***
+Z_(Intercept)   -31.16     408.97    -0.1      0.9    
+Z_firmNo         -0.17       2.10    -0.1      0.9    
+sigmaSq          19.61     243.41     0.1      0.9    
+gamma             0.99       0.06    15.6   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -49.635 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 2.0383 
+> all.equal( summary( oi6 )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( oi6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    summary( oi6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> lrtest( oi6 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Efficiency Effects Frontier (EEF)
+  #Df LogLik Df Chisq Pr(>Chisq)   
+1   2  -55.4                       
+2   5  -49.6  3  11.5     0.0042 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> printME( efficiencies( oi6, margEff = TRUE ) )
+     efficiency
+F_1        0.62
+F_2        0.83
+F_3        0.80
+F_4        0.64
+F_5        0.59
+F_6        0.70
+F_7        0.35
+F_8        0.81
+F_9        0.68
+F_10       0.65
+F_11       0.20
+F_12       0.89
+F_13       0.57
+F_14       0.48
+F_15       0.62
+F_16       0.50
+F_17       0.76
+F_18       0.74
+F_19       0.81
+F_20       0.77
+F_21       0.74
+F_22       0.68
+F_23       0.83
+F_24       0.36
+F_25       0.34
+F_26       0.88
+F_27       0.85
+F_28       0.73
+F_29       0.52
+F_30       0.35
+F_31       0.19
+F_32       0.09
+F_33       0.74
+F_34       0.52
+F_35       0.37
+F_36       0.88
+F_37       0.88
+F_38       0.69
+F_39       0.62
+F_40       0.63
+F_41       0.64
+F_42       0.72
+F_43       0.84
+F_44       0.80
+F_45       0.81
+F_46       0.63
+F_47       0.88
+F_48       0.72
+F_49       0.66
+F_50       0.54
+F_51       0.79
+F_52       0.86
+F_53       0.89
+F_54       0.64
+F_55       0.77
+F_56       0.79
+F_57       0.18
+F_58       0.81
+F_59       0.86
+F_60       0.68
+margEff
+, , Z_firmNo
+
+     efficiency
+F_1           0
+F_2           0
+F_3           0
+F_4           0
+F_5           0
+F_6           0
+F_7           0
+F_8           0
+F_9           0
+F_10          0
+F_11          0
+F_12          0
+F_13          0
+F_14          0
+F_15          0
+F_16          0
+F_17          0
+F_18          0
+F_19          0
+F_20          0
+F_21          0
+F_22          0
+F_23          0
+F_24          0
+F_25          0
+F_26          0
+F_27          0
+F_28          0
+F_29          0
+F_30          0
+F_31          0
+F_32          0
+F_33          0
+F_34          0
+F_35          0
+F_36          0
+F_37          0
+F_38          0
+F_39          0
+F_40          0
+F_41          0
+F_42          0
+F_43          0
+F_44          0
+F_45          0
+F_46          0
+F_47          0
+F_48          0
+F_49          0
+F_50          0
+F_51          0
+F_52          0
+F_53          0
+F_54          0
+F_55          0
+F_56          0
+F_57          0
+F_58          0
+F_59          0
+F_60          0
+
+> printME( efficiencies( oi6, asInData = TRUE, margEff = TRUE ) )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.62 0.83 0.80 0.64 0.59 0.70 0.35 0.81 0.68 0.65 0.20 0.89 0.57 0.48 0.62 0.50 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.76 0.74 0.81 0.77 0.74 0.68 0.83 0.36 0.34 0.88 0.85 0.73 0.52 0.35 0.19 0.09 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.74 0.52 0.37 0.88 0.88 0.69 0.62 0.63 0.64 0.72 0.84 0.80 0.81 0.63 0.88 0.72 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.66 0.54 0.79 0.86 0.89 0.64 0.77 0.79 0.18 0.81 0.86 0.68 
+margEff
+     Z_firmNo
+F_1         0
+F_2         0
+F_3         0
+F_4         0
+F_5         0
+F_6         0
+F_7         0
+F_8         0
+F_9         0
+F_10        0
+F_11        0
+F_12        0
+F_13        0
+F_14        0
+F_15        0
+F_16        0
+F_17        0
+F_18        0
+F_19        0
+F_20        0
+F_21        0
+F_22        0
+F_23        0
+F_24        0
+F_25        0
+F_26        0
+F_27        0
+F_28        0
+F_29        0
+F_30        0
+F_31        0
+F_32        0
+F_33        0
+F_34        0
+F_35        0
+F_36        0
+F_37        0
+F_38        0
+F_39        0
+F_40        0
+F_41        0
+F_42        0
+F_43        0
+F_44        0
+F_45        0
+F_46        0
+F_47        0
+F_48        0
+F_49        0
+F_50        0
+F_51        0
+F_52        0
+F_53        0
+F_54        0
+F_55        0
+F_56        0
+F_57        0
+F_58        0
+F_59        0
+F_60        0
+> all.equal( efficiencies( oi6, margEff = TRUE ), 
++    efficiencies( oi6i, margEff = TRUE ) )
+[1] TRUE
+> all.equal( efficiencies( oi6, asInData = TRUE, minusU = FALSE, margEff = TRUE ), 
++    efficiencies( oi6i, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+[1] TRUE
+> round( fitted( oi6 ), 2 )
+      [,1]
+ [1,] 3.18
+ [2,] 3.18
+ [3,] 3.18
+ [4,] 3.18
+ [5,] 3.18
+ [6,] 3.18
+ [7,] 3.18
+ [8,] 3.18
+ [9,] 3.18
+[10,] 3.18
+[11,] 3.18
+[12,] 3.18
+[13,] 3.18
+[14,] 3.18
+[15,] 3.18
+[16,] 3.18
+[17,] 3.18
+[18,] 3.18
+[19,] 3.18
+[20,] 3.18
+[21,] 3.18
+[22,] 3.18
+[23,] 3.18
+[24,] 3.18
+[25,] 3.18
+[26,] 3.18
+[27,] 3.18
+[28,] 3.18
+[29,] 3.18
+[30,] 3.18
+[31,] 3.18
+[32,] 3.18
+[33,] 3.18
+[34,] 3.18
+[35,] 3.18
+[36,] 3.18
+[37,] 3.18
+[38,] 3.18
+[39,] 3.18
+[40,] 3.18
+[41,] 3.18
+[42,] 3.18
+[43,] 3.18
+[44,] 3.18
+[45,] 3.18
+[46,] 3.18
+[47,] 3.18
+[48,] 3.18
+[49,] 3.18
+[50,] 3.18
+[51,] 3.18
+[52,] 3.18
+[53,] 3.18
+[54,] 3.18
+[55,] 3.18
+[56,] 3.18
+[57,] 3.18
+[58,] 3.18
+[59,] 3.18
+[60,] 3.18
+> round( residuals( oi6 ), 2 )
+     residuals
+F_1      -0.63
+F_2       0.01
+F_3      -0.14
+F_4      -0.60
+F_5      -0.70
+F_6      -0.46
+F_7      -1.28
+F_8      -0.11
+F_9      -0.50
+F_10     -0.56
+F_11     -1.85
+F_12      0.43
+F_13     -0.76
+F_14     -0.96
+F_15     -0.65
+F_16     -0.91
+F_17     -0.27
+F_18     -0.34
+F_19     -0.11
+F_20     -0.24
+F_21     -0.34
+F_22     -0.50
+F_23      0.00
+F_24     -1.27
+F_25     -1.33
+F_26      0.31
+F_27      0.08
+F_28     -0.37
+F_29     -0.87
+F_30     -1.30
+F_31     -1.92
+F_32     -2.68
+F_33     -0.36
+F_34     -0.87
+F_35     -1.23
+F_36      0.28
+F_37      0.29
+F_38     -0.50
+F_39     -0.68
+F_40     -0.64
+F_41     -0.63
+F_42     -0.42
+F_43      0.02
+F_44     -0.16
+F_45     -0.13
+F_46     -0.66
+F_47      0.29
+F_48     -0.44
+F_49     -0.59
+F_50     -0.86
+F_51     -0.19
+F_52      0.11
+F_53      0.40
+F_54     -0.64
+F_55     -0.27
+F_56     -0.19
+F_57     -2.00
+F_58     -0.12
+F_59      0.12
+F_60     -0.54
+> all.equal( fitted( oi6, asInData = TRUE ) + residuals( oi6, asInData = TRUE ),
++    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( oi6 )
+$modelType
+[1] 2
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 1
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t logOutput firmNo
+F_1   1 1   2.54772      1
+F_2   2 1   3.18986      2
+F_3   3 1   3.03759      3
+F_4   4 1   2.58120      4
+F_5   5 1   2.48641      5
+F_6   6 1   2.72681      6
+F_7   7 1   1.90315      7
+F_8   8 1   3.07528      8
+F_9   9 1   2.67924      9
+F_10 10 1   2.62053     10
+F_11 11 1   1.33316     11
+F_12 12 1   3.61410     12
+F_13 13 1   2.41903     13
+F_14 14 1   2.22322     14
+F_15 15 1   2.53639     15
+F_16 16 1   2.26975     16
+F_17 17 1   2.90772     17
+F_18 18 1   2.83873     18
+F_19 19 1   3.07112     19
+F_20 20 1   2.93768     20
+F_21 21 1   2.83920     21
+F_22 22 1   2.67759     22
+F_23 23 1   3.17934     23
+F_24 24 1   1.91501     24
+F_25 25 1   1.85442     25
+F_26 26 1   3.49639     26
+F_27 27 1   3.25963     27
+F_28 28 1   2.81055     28
+F_29 29 1   2.30906     29
+F_30 30 1   1.88008     30
+F_31 31 1   1.26384     31
+F_32 32 1   0.50682     32
+F_33 33 1   2.81989     33
+F_34 34 1   2.31105     34
+F_35 35 1   1.95501     35
+F_36 36 1   3.45925     36
+F_37 37 1   3.47516     37
+F_38 38 1   2.67903     38
+F_39 39 1   2.50618     39
+F_40 40 1   2.54026     40
+F_41 41 1   2.55568     41
+F_42 42 1   2.76260     42
+F_43 43 1   3.20368     43
+F_44 44 1   3.02388     44
+F_45 45 1   3.05438     45
+F_46 46 1   2.52517     46
+F_47 47 1   3.47547     47
+F_48 48 1   2.74567     48
+F_49 49 1   2.59630     49
+F_50 50 1   2.32513     50
+F_51 51 1   2.99208     51
+F_52 52 1   3.29354     52
+F_53 53 1   3.57865     53
+F_54 54 1   2.54694     54
+F_55 55 1   2.91300     55
+F_56 56 1   2.98836     56
+F_57 57 1   1.18448     57
+F_58 58 1   3.06143     58
+F_59 59 1   3.30042     59
+F_60 60 1   2.64653     60
+
+$olsParam
+(Intercept)     sigmaSq 
+       2.66        0.38 
+
+$gridParam
+(Intercept)     sigmaSq       gamma 
+       3.40        0.92        0.94 
+
+$gridLogl
+[1] -50.623
+
+$mleParam
+  (Intercept) Z_(Intercept)      Z_firmNo       sigmaSq         gamma 
+         3.18        -31.16         -0.17         19.61          0.99 
+
+$mleCov
+              (Intercept) Z_(Intercept) Z_firmNo   sigmaSq  gamma
+(Intercept)          0.01         27.87     0.14    -16.37   0.00
+Z_(Intercept)       27.87     167258.49   851.28 -99526.25 -26.07
+Z_firmNo             0.14        851.28     4.39   -507.56  -0.13
+sigmaSq            -16.37     -99526.25  -507.56  59246.88  15.53
+gamma                0.00        -26.07    -0.13     15.53   0.00
+
+$mleLogl
+[1] -49.635
+
+$nIter
+[1] 69
+
+$code
+[1] 5
+
+$olsStdEr
+(Intercept) 
+       0.08 
+
+$olsLogl
+[1] -55.365
+
+$fitted
+      [,1]
+ [1,] 3.18
+ [2,] 3.18
+ [3,] 3.18
+ [4,] 3.18
+ [5,] 3.18
+ [6,] 3.18
+ [7,] 3.18
+ [8,] 3.18
+ [9,] 3.18
+[10,] 3.18
+[11,] 3.18
+[12,] 3.18
+[13,] 3.18
+[14,] 3.18
+[15,] 3.18
+[16,] 3.18
+[17,] 3.18
+[18,] 3.18
+[19,] 3.18
+[20,] 3.18
+[21,] 3.18
+[22,] 3.18
+[23,] 3.18
+[24,] 3.18
+[25,] 3.18
+[26,] 3.18
+[27,] 3.18
+[28,] 3.18
+[29,] 3.18
+[30,] 3.18
+[31,] 3.18
+[32,] 3.18
+[33,] 3.18
+[34,] 3.18
+[35,] 3.18
+[36,] 3.18
+[37,] 3.18
+[38,] 3.18
+[39,] 3.18
+[40,] 3.18
+[41,] 3.18
+[42,] 3.18
+[43,] 3.18
+[44,] 3.18
+[45,] 3.18
+[46,] 3.18
+[47,] 3.18
+[48,] 3.18
+[49,] 3.18
+[50,] 3.18
+[51,] 3.18
+[52,] 3.18
+[53,] 3.18
+[54,] 3.18
+[55,] 3.18
+[56,] 3.18
+[57,] 3.18
+[58,] 3.18
+[59,] 3.18
+[60,] 3.18
+
+$resid
+     residuals
+F_1      -0.63
+F_2       0.01
+F_3      -0.14
+F_4      -0.60
+F_5      -0.70
+F_6      -0.46
+F_7      -1.28
+F_8      -0.11
+F_9      -0.50
+F_10     -0.56
+F_11     -1.85
+F_12      0.43
+F_13     -0.76
+F_14     -0.96
+F_15     -0.65
+F_16     -0.91
+F_17     -0.27
+F_18     -0.34
+F_19     -0.11
+F_20     -0.24
+F_21     -0.34
+F_22     -0.50
+F_23      0.00
+F_24     -1.27
+F_25     -1.33
+F_26      0.31
+F_27      0.08
+F_28     -0.37
+F_29     -0.87
+F_30     -1.30
+F_31     -1.92
+F_32     -2.68
+F_33     -0.36
+F_34     -0.87
+F_35     -1.23
+F_36      0.28
+F_37      0.29
+F_38     -0.50
+F_39     -0.68
+F_40     -0.64
+F_41     -0.63
+F_42     -0.42
+F_43      0.02
+F_44     -0.16
+F_45     -0.13
+F_46     -0.66
+F_47      0.29
+F_48     -0.44
+F_49     -0.59
+F_50     -0.86
+F_51     -0.19
+F_52      0.11
+F_53      0.40
+F_54     -0.64
+F_55     -0.27
+F_56     -0.19
+F_57     -2.00
+F_58     -0.12
+F_59      0.12
+F_60     -0.54
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.11  0.53  0.38 -0.08 -0.17  0.07 -0.76  0.42  0.02 -0.04 -1.33  0.96 -0.24 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.44 -0.12 -0.39  0.25  0.18  0.41  0.28  0.18  0.02  0.52 -0.74 -0.80  0.84 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.60  0.15 -0.35 -0.78 -1.39 -2.15  0.16 -0.35 -0.70  0.80  0.82  0.02 -0.15 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.12 -0.10  0.10  0.55  0.37  0.40 -0.13  0.82  0.09 -0.06 -0.33  0.33  0.64 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.92 -0.11  0.25  0.33 -1.47  0.40  0.64 -0.01 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] TRUE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = logOutput ~ 1 | firmNo, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> 
+> #######  no explanatory variable  #######
+> front41Data$ynx <- front41Data$logOutput - mean( front41Data$logOutput ) - 0.1
+> 
+> ## cross-section data, error components frontier
+> nx1 <- sfa( ynx ~ -1, data = front41Data )
+> print( nx1 )
+
+Call:
+sfa(formula = ynx ~ -1, data = front41Data)
+
+Maximum likelihood estimates
+sigmaSq    gamma  
+ 0.3807   0.0451  
+> coef( nx1, which = "start" )
+NULL
+> round( coef( nx1, which = "ols" ), 2 )
+sigmaSq 
+   0.38 
+> round( coef( nx1, which = "grid" ), 2 )
+sigmaSq   gamma 
+   0.49    0.05 
+> round( coef( nx1 ), 2 )
+sigmaSq   gamma 
+   0.38    0.05 
+> round( coef( summary( nx1 ), which = "ols" ), 2 )
+        Estimate Std. Error t value Pr(>|t|)
+sigmaSq     0.38         NA      NA       NA
+> round( coef( summary( nx1 ) ), 2 )
+        Estimate Std. Error z value Pr(>|z|)
+sigmaSq     0.38       0.07    5.46     0.00
+gamma       0.05       0.07    0.65     0.52
+> round( vcov( nx1 ), 2 )
+        sigmaSq gamma
+sigmaSq       0     0
+gamma         0     0
+> print( logLik( nx1, which = "ols" ), digits = 4 )
+'log Lik.' -56.16 (df=1)
+> print( logLik( nx1, which = "grid" ), digits = 4 )
+'log Lik.' -56.26 (df=2)
+> print( logLik( nx1 ), digits = 4 )
+'log Lik.' -55.34 (df=2)
+> nobs( nx1 )
+[1] 60
+> print( summary( nx1 ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 5 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+        Estimate Std. Error z value Pr(>|z|)    
+sigmaSq     0.38       0.07     5.5    5e-08 ***
+gamma       0.05       0.07     0.6      0.5    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -55.341 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.89778 
+> print( summary( nx1, effMinusU = FALSE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 5 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+        Estimate Std. Error z value Pr(>|z|)    
+sigmaSq     0.38       0.07     5.5    5e-08 ***
+gamma       0.05       0.07     0.6      0.5    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -55.341 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 1.1214 
+> lrtest( nx1 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   1  -56.2                      
+2   2  -55.3  1  1.64        0.1 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> round( efficiencies( nx1 ), 2 )
+     efficiency
+F_1        0.90
+F_2        0.91
+F_3        0.90
+F_4        0.90
+F_5        0.90
+F_6        0.90
+F_7        0.89
+F_8        0.90
+F_9        0.90
+F_10       0.90
+F_11       0.87
+F_12       0.91
+F_13       0.89
+F_14       0.89
+F_15       0.90
+F_16       0.89
+F_17       0.90
+F_18       0.90
+F_19       0.90
+F_20       0.90
+F_21       0.90
+F_22       0.90
+F_23       0.91
+F_24       0.89
+F_25       0.88
+F_26       0.91
+F_27       0.91
+F_28       0.90
+F_29       0.89
+F_30       0.89
+F_31       0.87
+F_32       0.86
+F_33       0.90
+F_34       0.89
+F_35       0.89
+F_36       0.91
+F_37       0.91
+F_38       0.90
+F_39       0.90
+F_40       0.90
+F_41       0.90
+F_42       0.90
+F_43       0.91
+F_44       0.90
+F_45       0.90
+F_46       0.90
+F_47       0.91
+F_48       0.90
+F_49       0.90
+F_50       0.89
+F_51       0.90
+F_52       0.91
+F_53       0.91
+F_54       0.90
+F_55       0.90
+F_56       0.90
+F_57       0.87
+F_58       0.90
+F_59       0.91
+F_60       0.90
+> round( efficiencies( nx1, asInData = TRUE ), 2 )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.90 0.91 0.90 0.90 0.90 0.90 0.89 0.90 0.90 0.90 0.87 0.91 0.89 0.89 0.90 0.89 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.90 0.90 0.90 0.90 0.90 0.90 0.91 0.89 0.88 0.91 0.91 0.90 0.89 0.89 0.87 0.86 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.90 0.89 0.89 0.91 0.91 0.90 0.90 0.90 0.90 0.90 0.91 0.90 0.90 0.90 0.91 0.90 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.90 0.89 0.90 0.91 0.91 0.90 0.90 0.90 0.87 0.90 0.91 0.90 
+> round( fitted( nx1 ), 2 )
+      [,1]
+ [1,] 0.38
+ [2,] 0.38
+ [3,] 0.38
+ [4,] 0.38
+ [5,] 0.38
+ [6,] 0.38
+ [7,] 0.38
+ [8,] 0.38
+ [9,] 0.38
+[10,] 0.38
+[11,] 0.38
+[12,] 0.38
+[13,] 0.38
+[14,] 0.38
+[15,] 0.38
+[16,] 0.38
+[17,] 0.38
+[18,] 0.38
+[19,] 0.38
+[20,] 0.38
+[21,] 0.38
+[22,] 0.38
+[23,] 0.38
+[24,] 0.38
+[25,] 0.38
+[26,] 0.38
+[27,] 0.38
+[28,] 0.38
+[29,] 0.38
+[30,] 0.38
+[31,] 0.38
+[32,] 0.38
+[33,] 0.38
+[34,] 0.38
+[35,] 0.38
+[36,] 0.38
+[37,] 0.38
+[38,] 0.38
+[39,] 0.38
+[40,] 0.38
+[41,] 0.38
+[42,] 0.38
+[43,] 0.38
+[44,] 0.38
+[45,] 0.38
+[46,] 0.38
+[47,] 0.38
+[48,] 0.38
+[49,] 0.38
+[50,] 0.38
+[51,] 0.38
+[52,] 0.38
+[53,] 0.38
+[54,] 0.38
+[55,] 0.38
+[56,] 0.38
+[57,] 0.38
+[58,] 0.38
+[59,] 0.38
+[60,] 0.38
+> round( residuals( nx1 ), 2 )
+     residuals
+F_1      -0.59
+F_2       0.05
+F_3      -0.10
+F_4      -0.56
+F_5      -0.65
+F_6      -0.41
+F_7      -1.24
+F_8      -0.06
+F_9      -0.46
+F_10     -0.52
+F_11     -1.81
+F_12      0.47
+F_13     -0.72
+F_14     -0.92
+F_15     -0.60
+F_16     -0.87
+F_17     -0.23
+F_18     -0.30
+F_19     -0.07
+F_20     -0.20
+F_21     -0.30
+F_22     -0.46
+F_23      0.04
+F_24     -1.22
+F_25     -1.28
+F_26      0.36
+F_27      0.12
+F_28     -0.33
+F_29     -0.83
+F_30     -1.26
+F_31     -1.88
+F_32     -2.63
+F_33     -0.32
+F_34     -0.83
+F_35     -1.18
+F_36      0.32
+F_37      0.34
+F_38     -0.46
+F_39     -0.63
+F_40     -0.60
+F_41     -0.58
+F_42     -0.38
+F_43      0.06
+F_44     -0.12
+F_45     -0.08
+F_46     -0.61
+F_47      0.34
+F_48     -0.39
+F_49     -0.54
+F_50     -0.81
+F_51     -0.15
+F_52      0.15
+F_53      0.44
+F_54     -0.59
+F_55     -0.23
+F_56     -0.15
+F_57     -1.95
+F_58     -0.08
+F_59      0.16
+F_60     -0.49
+> all.equal( fitted( nx1, asInData = TRUE ) + residuals( nx1, asInData = TRUE ),
++    front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( nx1 )
+$modelType
+[1] 1
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 0
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t        ynx
+F_1   1 1 -0.2107721
+F_2   2 1  0.4313618
+F_3   3 1  0.2790967
+F_4   4 1 -0.1772959
+F_5   5 1 -0.2720915
+F_6   6 1 -0.0316905
+F_7   7 1 -0.8553453
+F_8   8 1  0.3167855
+F_9   9 1 -0.0792579
+F_10 10 1 -0.1379675
+F_11 11 1 -1.4253398
+F_12 12 1  0.8556050
+F_13 13 1 -0.3394632
+F_14 14 1 -0.5352799
+F_15 15 1 -0.2221055
+F_16 16 1 -0.4887451
+F_17 17 1  0.1492233
+F_18 18 1  0.0802305
+F_19 19 1  0.3126209
+F_20 20 1  0.1791823
+F_21 21 1  0.0806984
+F_22 22 1 -0.0809061
+F_23 23 1  0.4208476
+F_24 24 1 -0.8434880
+F_25 25 1 -0.9040758
+F_26 26 1  0.7378893
+F_27 27 1  0.5011368
+F_28 28 1  0.0520496
+F_29 29 1 -0.4494330
+F_30 30 1 -0.8784215
+F_31 31 1 -1.4946529
+F_32 32 1 -2.2516795
+F_33 33 1  0.0613926
+F_34 34 1 -0.4474479
+F_35 35 1 -0.8034856
+F_36 36 1  0.7007491
+F_37 37 1  0.7166630
+F_38 38 1 -0.0794638
+F_39 39 1 -0.2523183
+F_40 40 1 -0.2182346
+F_41 41 1 -0.2028213
+F_42 42 1  0.0041045
+F_43 43 1  0.4451839
+F_44 44 1  0.2653853
+F_45 45 1  0.2958814
+F_46 46 1 -0.2333286
+F_47 47 1  0.7169726
+F_48 48 1 -0.0128300
+F_49 49 1 -0.1621981
+F_50 50 1 -0.4333680
+F_51 51 1  0.2335785
+F_52 52 1  0.5350409
+F_53 53 1  0.8201489
+F_54 54 1 -0.2115550
+F_55 55 1  0.1545056
+F_56 56 1  0.2298581
+F_57 57 1 -1.5740129
+F_58 58 1  0.3029293
+F_59 59 1  0.5419219
+F_60 60 1 -0.1119677
+
+$olsParam
+sigmaSq 
+   0.38 
+
+$gridParam
+sigmaSq   gamma 
+   0.49    0.05 
+
+$gridLogl
+[1] -56.261
+
+$mleParam
+sigmaSq   gamma 
+   0.38    0.05 
+
+$mleCov
+        sigmaSq gamma
+sigmaSq       0     0
+gamma         0     0
+
+$mleLogl
+[1] -55.341
+
+$nIter
+[1] 5
+
+$code
+[1] 1
+
+$olsStdEr
+<0 x 0 matrix>
+
+$olsLogl
+[1] -56.164
+
+$fitted
+      [,1]
+ [1,] 0.38
+ [2,] 0.38
+ [3,] 0.38
+ [4,] 0.38
+ [5,] 0.38
+ [6,] 0.38
+ [7,] 0.38
+ [8,] 0.38
+ [9,] 0.38
+[10,] 0.38
+[11,] 0.38
+[12,] 0.38
+[13,] 0.38
+[14,] 0.38
+[15,] 0.38
+[16,] 0.38
+[17,] 0.38
+[18,] 0.38
+[19,] 0.38
+[20,] 0.38
+[21,] 0.38
+[22,] 0.38
+[23,] 0.38
+[24,] 0.38
+[25,] 0.38
+[26,] 0.38
+[27,] 0.38
+[28,] 0.38
+[29,] 0.38
+[30,] 0.38
+[31,] 0.38
+[32,] 0.38
+[33,] 0.38
+[34,] 0.38
+[35,] 0.38
+[36,] 0.38
+[37,] 0.38
+[38,] 0.38
+[39,] 0.38
+[40,] 0.38
+[41,] 0.38
+[42,] 0.38
+[43,] 0.38
+[44,] 0.38
+[45,] 0.38
+[46,] 0.38
+[47,] 0.38
+[48,] 0.38
+[49,] 0.38
+[50,] 0.38
+[51,] 0.38
+[52,] 0.38
+[53,] 0.38
+[54,] 0.38
+[55,] 0.38
+[56,] 0.38
+[57,] 0.38
+[58,] 0.38
+[59,] 0.38
+[60,] 0.38
+
+$resid
+     residuals
+F_1      -0.59
+F_2       0.05
+F_3      -0.10
+F_4      -0.56
+F_5      -0.65
+F_6      -0.41
+F_7      -1.24
+F_8      -0.06
+F_9      -0.46
+F_10     -0.52
+F_11     -1.81
+F_12      0.47
+F_13     -0.72
+F_14     -0.92
+F_15     -0.60
+F_16     -0.87
+F_17     -0.23
+F_18     -0.30
+F_19     -0.07
+F_20     -0.20
+F_21     -0.30
+F_22     -0.46
+F_23      0.04
+F_24     -1.22
+F_25     -1.28
+F_26      0.36
+F_27      0.12
+F_28     -0.33
+F_29     -0.83
+F_30     -1.26
+F_31     -1.88
+F_32     -2.63
+F_33     -0.32
+F_34     -0.83
+F_35     -1.18
+F_36      0.32
+F_37      0.34
+F_38     -0.46
+F_39     -0.63
+F_40     -0.60
+F_41     -0.58
+F_42     -0.38
+F_43      0.06
+F_44     -0.12
+F_45     -0.08
+F_46     -0.61
+F_47      0.34
+F_48     -0.39
+F_49     -0.54
+F_50     -0.81
+F_51     -0.15
+F_52      0.15
+F_53      0.44
+F_54     -0.59
+F_55     -0.23
+F_56     -0.15
+F_57     -1.95
+F_58     -0.08
+F_59      0.16
+F_60     -0.49
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.21  0.43  0.28 -0.18 -0.27 -0.03 -0.86  0.32 -0.08 -0.14 -1.43  0.86 -0.34 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.54 -0.22 -0.49  0.15  0.08  0.31  0.18  0.08 -0.08  0.42 -0.84 -0.90  0.74 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.50  0.05 -0.45 -0.88 -1.49 -2.25  0.06 -0.45 -0.80  0.70  0.72 -0.08 -0.25 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.22 -0.20  0.00  0.45  0.27  0.30 -0.23  0.72 -0.01 -0.16 -0.43  0.23  0.54 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.82 -0.21  0.15  0.23 -1.57  0.30  0.54 -0.11 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = ynx ~ -1, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, error components frontier, truncNorm
+> nx2 <- sfa( ynx ~ -1, data = front41Data, truncNorm = TRUE )
+> print( nx2 )
+
+Call:
+sfa(formula = ynx ~ -1, data = front41Data, truncNorm = TRUE)
+
+Maximum likelihood estimates
+sigmaSq    gamma       mu  
+  0.461    0.227   -0.647  
+> round( coef( nx2, which = "ols" ), 2 )
+sigmaSq 
+   0.38 
+> round( coef( nx2, which = "grid" ), 2 )
+sigmaSq   gamma 
+   0.49    0.05 
+> round( coef( nx2 ), 2 )
+sigmaSq   gamma      mu 
+   0.46    0.23   -0.65 
+> round( coef( summary( nx2 ), which = "ols" ), 2 )
+        Estimate Std. Error t value Pr(>|t|)
+sigmaSq     0.38         NA      NA       NA
+> round( coef( summary( nx2 ) ), 2 )
+        Estimate Std. Error z value Pr(>|z|)
+sigmaSq     0.46       0.35    1.30     0.19
+gamma       0.23       0.72    0.32     0.75
+mu         -0.65       2.71   -0.24     0.81
+> round( vcov( nx2 ), 2 )
+        sigmaSq gamma    mu
+sigmaSq    0.13  0.25 -0.94
+gamma      0.25  0.51 -1.93
+mu        -0.94 -1.93  7.32
+> print( logLik( nx2, which = "ols" ), digits = 4 )
+'log Lik.' -56.16 (df=1)
+> print( logLik( nx2, which = "grid" ), digits = 4 )
+'log Lik.' -56.26 (df=2)
+> print( logLik( nx2 ), digits = 4 )
+'log Lik.' -55.29 (df=3)
+> nobs( nx2 )
+[1] 60
+> print( summary( nx2 ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+        Estimate Std. Error z value Pr(>|z|)
+sigmaSq      0.5        0.4     1.3      0.2
+gamma        0.2        0.7     0.3      0.8
+mu          -0.6        2.7    -0.2      0.8
+log likelihood value: -55.288 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.87824 
+> print( summary( nx2, effMinusU = FALSE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+        Estimate Std. Error z value Pr(>|z|)
+sigmaSq      0.5        0.4     1.3      0.2
+gamma        0.2        0.7     0.3      0.8
+mu          -0.6        2.7    -0.2      0.8
+log likelihood value: -55.288 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 1.1559 
+> lrtest( nx2 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Error Components Frontier (ECF)
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   1  -56.2                    
+2   3  -55.3  2  1.75        0.2
+> round( efficiencies( nx2 ), 2 )
+     efficiency
+F_1        0.88
+F_2        0.90
+F_3        0.89
+F_4        0.88
+F_5        0.88
+F_6        0.88
+F_7        0.85
+F_8        0.89
+F_9        0.88
+F_10       0.88
+F_11       0.83
+F_12       0.91
+F_13       0.87
+F_14       0.87
+F_15       0.88
+F_16       0.87
+F_17       0.89
+F_18       0.89
+F_19       0.89
+F_20       0.89
+F_21       0.89
+F_22       0.88
+F_23       0.90
+F_24       0.85
+F_25       0.85
+F_26       0.90
+F_27       0.90
+F_28       0.89
+F_29       0.87
+F_30       0.85
+F_31       0.82
+F_32       0.77
+F_33       0.89
+F_34       0.87
+F_35       0.86
+F_36       0.90
+F_37       0.90
+F_38       0.88
+F_39       0.88
+F_40       0.88
+F_41       0.88
+F_42       0.88
+F_43       0.90
+F_44       0.89
+F_45       0.89
+F_46       0.88
+F_47       0.90
+F_48       0.88
+F_49       0.88
+F_50       0.87
+F_51       0.89
+F_52       0.90
+F_53       0.90
+F_54       0.88
+F_55       0.89
+F_56       0.89
+F_57       0.82
+F_58       0.89
+F_59       0.90
+F_60       0.88
+> round( efficiencies( nx2, asInData = TRUE ), 2 )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.88 0.90 0.89 0.88 0.88 0.88 0.85 0.89 0.88 0.88 0.83 0.91 0.87 0.87 0.88 0.87 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.89 0.89 0.89 0.89 0.89 0.88 0.90 0.85 0.85 0.90 0.90 0.89 0.87 0.85 0.82 0.77 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.89 0.87 0.86 0.90 0.90 0.88 0.88 0.88 0.88 0.88 0.90 0.89 0.89 0.88 0.90 0.88 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.88 0.87 0.89 0.90 0.90 0.88 0.89 0.89 0.82 0.89 0.90 0.88 
+> round( fitted( nx2 ), 2 )
+      [,1]
+ [1,] 0.46
+ [2,] 0.46
+ [3,] 0.46
+ [4,] 0.46
+ [5,] 0.46
+ [6,] 0.46
+ [7,] 0.46
+ [8,] 0.46
+ [9,] 0.46
+[10,] 0.46
+[11,] 0.46
+[12,] 0.46
+[13,] 0.46
+[14,] 0.46
+[15,] 0.46
+[16,] 0.46
+[17,] 0.46
+[18,] 0.46
+[19,] 0.46
+[20,] 0.46
+[21,] 0.46
+[22,] 0.46
+[23,] 0.46
+[24,] 0.46
+[25,] 0.46
+[26,] 0.46
+[27,] 0.46
+[28,] 0.46
+[29,] 0.46
+[30,] 0.46
+[31,] 0.46
+[32,] 0.46
+[33,] 0.46
+[34,] 0.46
+[35,] 0.46
+[36,] 0.46
+[37,] 0.46
+[38,] 0.46
+[39,] 0.46
+[40,] 0.46
+[41,] 0.46
+[42,] 0.46
+[43,] 0.46
+[44,] 0.46
+[45,] 0.46
+[46,] 0.46
+[47,] 0.46
+[48,] 0.46
+[49,] 0.46
+[50,] 0.46
+[51,] 0.46
+[52,] 0.46
+[53,] 0.46
+[54,] 0.46
+[55,] 0.46
+[56,] 0.46
+[57,] 0.46
+[58,] 0.46
+[59,] 0.46
+[60,] 0.46
+> round( residuals( nx2 ), 2 )
+     residuals
+F_1      -0.67
+F_2      -0.03
+F_3      -0.18
+F_4      -0.64
+F_5      -0.73
+F_6      -0.49
+F_7      -1.32
+F_8      -0.14
+F_9      -0.54
+F_10     -0.60
+F_11     -1.89
+F_12      0.40
+F_13     -0.80
+F_14     -1.00
+F_15     -0.68
+F_16     -0.95
+F_17     -0.31
+F_18     -0.38
+F_19     -0.15
+F_20     -0.28
+F_21     -0.38
+F_22     -0.54
+F_23     -0.04
+F_24     -1.30
+F_25     -1.36
+F_26      0.28
+F_27      0.04
+F_28     -0.41
+F_29     -0.91
+F_30     -1.34
+F_31     -1.96
+F_32     -2.71
+F_33     -0.40
+F_34     -0.91
+F_35     -1.26
+F_36      0.24
+F_37      0.26
+F_38     -0.54
+F_39     -0.71
+F_40     -0.68
+F_41     -0.66
+F_42     -0.46
+F_43     -0.02
+F_44     -0.20
+F_45     -0.16
+F_46     -0.69
+F_47      0.26
+F_48     -0.47
+F_49     -0.62
+F_50     -0.89
+F_51     -0.23
+F_52      0.07
+F_53      0.36
+F_54     -0.67
+F_55     -0.31
+F_56     -0.23
+F_57     -2.03
+F_58     -0.16
+F_59      0.08
+F_60     -0.57
+> all.equal( fitted( nx2, asInData = TRUE ) + residuals( nx2, asInData = TRUE ),
++    front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( nx2 )
+$modelType
+[1] 1
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 0
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t        ynx
+F_1   1 1 -0.2107721
+F_2   2 1  0.4313618
+F_3   3 1  0.2790967
+F_4   4 1 -0.1772959
+F_5   5 1 -0.2720915
+F_6   6 1 -0.0316905
+F_7   7 1 -0.8553453
+F_8   8 1  0.3167855
+F_9   9 1 -0.0792579
+F_10 10 1 -0.1379675
+F_11 11 1 -1.4253398
+F_12 12 1  0.8556050
+F_13 13 1 -0.3394632
+F_14 14 1 -0.5352799
+F_15 15 1 -0.2221055
+F_16 16 1 -0.4887451
+F_17 17 1  0.1492233
+F_18 18 1  0.0802305
+F_19 19 1  0.3126209
+F_20 20 1  0.1791823
+F_21 21 1  0.0806984
+F_22 22 1 -0.0809061
+F_23 23 1  0.4208476
+F_24 24 1 -0.8434880
+F_25 25 1 -0.9040758
+F_26 26 1  0.7378893
+F_27 27 1  0.5011368
+F_28 28 1  0.0520496
+F_29 29 1 -0.4494330
+F_30 30 1 -0.8784215
+F_31 31 1 -1.4946529
+F_32 32 1 -2.2516795
+F_33 33 1  0.0613926
+F_34 34 1 -0.4474479
+F_35 35 1 -0.8034856
+F_36 36 1  0.7007491
+F_37 37 1  0.7166630
+F_38 38 1 -0.0794638
+F_39 39 1 -0.2523183
+F_40 40 1 -0.2182346
+F_41 41 1 -0.2028213
+F_42 42 1  0.0041045
+F_43 43 1  0.4451839
+F_44 44 1  0.2653853
+F_45 45 1  0.2958814
+F_46 46 1 -0.2333286
+F_47 47 1  0.7169726
+F_48 48 1 -0.0128300
+F_49 49 1 -0.1621981
+F_50 50 1 -0.4333680
+F_51 51 1  0.2335785
+F_52 52 1  0.5350409
+F_53 53 1  0.8201489
+F_54 54 1 -0.2115550
+F_55 55 1  0.1545056
+F_56 56 1  0.2298581
+F_57 57 1 -1.5740129
+F_58 58 1  0.3029293
+F_59 59 1  0.5419219
+F_60 60 1 -0.1119677
+
+$olsParam
+sigmaSq 
+   0.38 
+
+$gridParam
+sigmaSq   gamma 
+   0.49    0.05 
+
+$gridLogl
+[1] -56.261
+
+$mleParam
+sigmaSq   gamma      mu 
+   0.46    0.23   -0.65 
+
+$mleCov
+        sigmaSq gamma    mu
+sigmaSq    0.13  0.25 -0.94
+gamma      0.25  0.51 -1.93
+mu        -0.94 -1.93  7.32
+
+$mleLogl
+[1] -55.288
+
+$nIter
+[1] 7
+
+$code
+[1] 1
+
+$olsStdEr
+<0 x 0 matrix>
+
+$olsLogl
+[1] -56.164
+
+$fitted
+      [,1]
+ [1,] 0.46
+ [2,] 0.46
+ [3,] 0.46
+ [4,] 0.46
+ [5,] 0.46
+ [6,] 0.46
+ [7,] 0.46
+ [8,] 0.46
+ [9,] 0.46
+[10,] 0.46
+[11,] 0.46
+[12,] 0.46
+[13,] 0.46
+[14,] 0.46
+[15,] 0.46
+[16,] 0.46
+[17,] 0.46
+[18,] 0.46
+[19,] 0.46
+[20,] 0.46
+[21,] 0.46
+[22,] 0.46
+[23,] 0.46
+[24,] 0.46
+[25,] 0.46
+[26,] 0.46
+[27,] 0.46
+[28,] 0.46
+[29,] 0.46
+[30,] 0.46
+[31,] 0.46
+[32,] 0.46
+[33,] 0.46
+[34,] 0.46
+[35,] 0.46
+[36,] 0.46
+[37,] 0.46
+[38,] 0.46
+[39,] 0.46
+[40,] 0.46
+[41,] 0.46
+[42,] 0.46
+[43,] 0.46
+[44,] 0.46
+[45,] 0.46
+[46,] 0.46
+[47,] 0.46
+[48,] 0.46
+[49,] 0.46
+[50,] 0.46
+[51,] 0.46
+[52,] 0.46
+[53,] 0.46
+[54,] 0.46
+[55,] 0.46
+[56,] 0.46
+[57,] 0.46
+[58,] 0.46
+[59,] 0.46
+[60,] 0.46
+
+$resid
+     residuals
+F_1      -0.67
+F_2      -0.03
+F_3      -0.18
+F_4      -0.64
+F_5      -0.73
+F_6      -0.49
+F_7      -1.32
+F_8      -0.14
+F_9      -0.54
+F_10     -0.60
+F_11     -1.89
+F_12      0.40
+F_13     -0.80
+F_14     -1.00
+F_15     -0.68
+F_16     -0.95
+F_17     -0.31
+F_18     -0.38
+F_19     -0.15
+F_20     -0.28
+F_21     -0.38
+F_22     -0.54
+F_23     -0.04
+F_24     -1.30
+F_25     -1.36
+F_26      0.28
+F_27      0.04
+F_28     -0.41
+F_29     -0.91
+F_30     -1.34
+F_31     -1.96
+F_32     -2.71
+F_33     -0.40
+F_34     -0.91
+F_35     -1.26
+F_36      0.24
+F_37      0.26
+F_38     -0.54
+F_39     -0.71
+F_40     -0.68
+F_41     -0.66
+F_42     -0.46
+F_43     -0.02
+F_44     -0.20
+F_45     -0.16
+F_46     -0.69
+F_47      0.26
+F_48     -0.47
+F_49     -0.62
+F_50     -0.89
+F_51     -0.23
+F_52      0.07
+F_53      0.36
+F_54     -0.67
+F_55     -0.31
+F_56     -0.23
+F_57     -2.03
+F_58     -0.16
+F_59      0.08
+F_60     -0.57
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.21  0.43  0.28 -0.18 -0.27 -0.03 -0.86  0.32 -0.08 -0.14 -1.43  0.86 -0.34 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.54 -0.22 -0.49  0.15  0.08  0.31  0.18  0.08 -0.08  0.42 -0.84 -0.90  0.74 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.50  0.05 -0.45 -0.88 -1.49 -2.25  0.06 -0.45 -0.80  0.70  0.72 -0.08 -0.25 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.22 -0.20  0.00  0.45  0.27  0.30 -0.23  0.72 -0.01 -0.16 -0.43  0.23  0.54 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.82 -0.21  0.15  0.23 -1.57  0.30  0.54 -0.11 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] TRUE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = ynx ~ -1, data = front41Data, truncNorm = TRUE)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, efficiency effects frontier
+> nx5 <- sfa( ynx ~ -1 | firmNo - 1, data = front41Data )
+> print( nx5 )
+
+Call:
+sfa(formula = ynx ~ -1 | firmNo - 1, data = front41Data)
+
+Maximum likelihood estimates
+Z_firmNo   sigmaSq     gamma  
+  -0.663     0.594     0.362  
+> round( coef( nx5, which = "ols" ), 2 )
+sigmaSq 
+   0.38 
+> round( coef( nx5, which = "grid" ), 2 )
+sigmaSq   gamma    <NA> 
+   0.49    0.39    0.05 
+> round( coef( nx5 ), 2 )
+Z_firmNo  sigmaSq    gamma 
+   -0.66     0.59     0.36 
+> round( coef( summary( nx5 ), which = "ols" ), 2 )
+        Estimate Std. Error t value Pr(>|t|)
+sigmaSq     0.38         NA      NA       NA
+> round( coef( summary( nx5 ) ), 2 )
+         Estimate Std. Error z value Pr(>|z|)
+Z_firmNo    -0.66       0.32   -2.07     0.04
+sigmaSq      0.59       0.51    1.16     0.25
+gamma        0.36       0.55    0.66     0.51
+> round( vcov( nx5 ), 2 )
+         Z_firmNo sigmaSq gamma
+Z_firmNo     0.10    0.16  0.17
+sigmaSq      0.16    0.26  0.27
+gamma        0.17    0.27  0.30
+> print( logLik( nx5, which = "ols" ), digits = 4 )
+'log Lik.' -56.16 (df=1)
+> print( logLik( nx5, which = "grid" ), digits = 4 )
+'log Lik.' -22685 (df=3)
+> print( logLik( nx5 ), digits = 4 )
+'log Lik.' -56.06 (df=3)
+> nobs( nx5 )
+[1] 60
+> print( summary( nx5 ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 9 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+         Estimate Std. Error z value Pr(>|z|)  
+Z_firmNo     -0.7        0.3    -2.1     0.04 *
+sigmaSq       0.6        0.5     1.2     0.25  
+gamma         0.4        0.5     0.7     0.51  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -56.06 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.98077 
+> print( summary( nx5, effMinusU = FALSE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 9 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+         Estimate Std. Error z value Pr(>|z|)  
+Z_firmNo     -0.7        0.3    -2.1     0.04 *
+sigmaSq       0.6        0.5     1.2     0.25  
+gamma         0.4        0.5     0.7     0.51  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -56.06 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 1.0213 
+> lrtest( nx5 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Efficiency Effects Frontier (EEF)
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   1  -56.2                    
+2   3  -56.1  2  0.21       0.55
+> printME( efficiencies( nx5, margEff = TRUE ) )
+     efficiency
+F_1        0.86
+F_2        0.91
+F_3        0.93
+F_4        0.94
+F_5        0.95
+F_6        0.95
+F_7        0.96
+F_8        0.97
+F_9        0.97
+F_10       0.97
+F_11       0.97
+F_12       0.98
+F_13       0.98
+F_14       0.98
+F_15       0.98
+F_16       0.98
+F_17       0.98
+F_18       0.98
+F_19       0.98
+F_20       0.98
+F_21       0.99
+F_22       0.99
+F_23       0.99
+F_24       0.99
+F_25       0.99
+F_26       0.99
+F_27       0.99
+F_28       0.99
+F_29       0.99
+F_30       0.99
+F_31       0.99
+F_32       0.99
+F_33       0.99
+F_34       0.99
+F_35       0.99
+F_36       0.99
+F_37       0.99
+F_38       0.99
+F_39       0.99
+F_40       0.99
+F_41       0.99
+F_42       0.99
+F_43       0.99
+F_44       0.99
+F_45       0.99
+F_46       0.99
+F_47       0.99
+F_48       0.99
+F_49       0.99
+F_50       0.99
+F_51       0.99
+F_52       0.99
+F_53       0.99
+F_54       0.99
+F_55       0.99
+F_56       0.99
+F_57       0.99
+F_58       0.99
+F_59       0.99
+F_60       0.99
+margEff
+, , Z_firmNo
+
+     efficiency
+F_1        0.05
+F_2        0.02
+F_3        0.02
+F_4        0.01
+F_5        0.01
+F_6        0.01
+F_7        0.01
+F_8        0.00
+F_9        0.00
+F_10       0.00
+F_11       0.00
+F_12       0.00
+F_13       0.00
+F_14       0.00
+F_15       0.00
+F_16       0.00
+F_17       0.00
+F_18       0.00
+F_19       0.00
+F_20       0.00
+F_21       0.00
+F_22       0.00
+F_23       0.00
+F_24       0.00
+F_25       0.00
+F_26       0.00
+F_27       0.00
+F_28       0.00
+F_29       0.00
+F_30       0.00
+F_31       0.00
+F_32       0.00
+F_33       0.00
+F_34       0.00
+F_35       0.00
+F_36       0.00
+F_37       0.00
+F_38       0.00
+F_39       0.00
+F_40       0.00
+F_41       0.00
+F_42       0.00
+F_43       0.00
+F_44       0.00
+F_45       0.00
+F_46       0.00
+F_47       0.00
+F_48       0.00
+F_49       0.00
+F_50       0.00
+F_51       0.00
+F_52       0.00
+F_53       0.00
+F_54       0.00
+F_55       0.00
+F_56       0.00
+F_57       0.00
+F_58       0.00
+F_59       0.00
+F_60       0.00
+
+> printME( efficiencies( nx5, asInData = TRUE, margEff = TRUE ) )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+0.86 0.91 0.93 0.94 0.95 0.95 0.96 0.97 0.97 0.97 0.97 0.98 0.98 0.98 0.98 0.98 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+0.98 0.98 0.98 0.98 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 0.99 
+margEff
+     Z_firmNo
+F_1      0.05
+F_2      0.02
+F_3      0.02
+F_4      0.01
+F_5      0.01
+F_6      0.01
+F_7      0.01
+F_8      0.00
+F_9      0.00
+F_10     0.00
+F_11     0.00
+F_12     0.00
+F_13     0.00
+F_14     0.00
+F_15     0.00
+F_16     0.00
+F_17     0.00
+F_18     0.00
+F_19     0.00
+F_20     0.00
+F_21     0.00
+F_22     0.00
+F_23     0.00
+F_24     0.00
+F_25     0.00
+F_26     0.00
+F_27     0.00
+F_28     0.00
+F_29     0.00
+F_30     0.00
+F_31     0.00
+F_32     0.00
+F_33     0.00
+F_34     0.00
+F_35     0.00
+F_36     0.00
+F_37     0.00
+F_38     0.00
+F_39     0.00
+F_40     0.00
+F_41     0.00
+F_42     0.00
+F_43     0.00
+F_44     0.00
+F_45     0.00
+F_46     0.00
+F_47     0.00
+F_48     0.00
+F_49     0.00
+F_50     0.00
+F_51     0.00
+F_52     0.00
+F_53     0.00
+F_54     0.00
+F_55     0.00
+F_56     0.00
+F_57     0.00
+F_58     0.00
+F_59     0.00
+F_60     0.00
+> round( fitted( nx5 ), 2 )
+       [,1]
+ [1,] -0.66
+ [2,] -0.66
+ [3,] -0.66
+ [4,] -0.66
+ [5,] -0.66
+ [6,] -0.66
+ [7,] -0.66
+ [8,] -0.66
+ [9,] -0.66
+[10,] -0.66
+[11,] -0.66
+[12,] -0.66
+[13,] -0.66
+[14,] -0.66
+[15,] -0.66
+[16,] -0.66
+[17,] -0.66
+[18,] -0.66
+[19,] -0.66
+[20,] -0.66
+[21,] -0.66
+[22,] -0.66
+[23,] -0.66
+[24,] -0.66
+[25,] -0.66
+[26,] -0.66
+[27,] -0.66
+[28,] -0.66
+[29,] -0.66
+[30,] -0.66
+[31,] -0.66
+[32,] -0.66
+[33,] -0.66
+[34,] -0.66
+[35,] -0.66
+[36,] -0.66
+[37,] -0.66
+[38,] -0.66
+[39,] -0.66
+[40,] -0.66
+[41,] -0.66
+[42,] -0.66
+[43,] -0.66
+[44,] -0.66
+[45,] -0.66
+[46,] -0.66
+[47,] -0.66
+[48,] -0.66
+[49,] -0.66
+[50,] -0.66
+[51,] -0.66
+[52,] -0.66
+[53,] -0.66
+[54,] -0.66
+[55,] -0.66
+[56,] -0.66
+[57,] -0.66
+[58,] -0.66
+[59,] -0.66
+[60,] -0.66
+> round( residuals( nx5 ), 2 )
+     residuals
+F_1       0.45
+F_2       1.09
+F_3       0.94
+F_4       0.49
+F_5       0.39
+F_6       0.63
+F_7      -0.19
+F_8       0.98
+F_9       0.58
+F_10      0.53
+F_11     -0.76
+F_12      1.52
+F_13      0.32
+F_14      0.13
+F_15      0.44
+F_16      0.17
+F_17      0.81
+F_18      0.74
+F_19      0.98
+F_20      0.84
+F_21      0.74
+F_22      0.58
+F_23      1.08
+F_24     -0.18
+F_25     -0.24
+F_26      1.40
+F_27      1.16
+F_28      0.72
+F_29      0.21
+F_30     -0.22
+F_31     -0.83
+F_32     -1.59
+F_33      0.72
+F_34      0.22
+F_35     -0.14
+F_36      1.36
+F_37      1.38
+F_38      0.58
+F_39      0.41
+F_40      0.44
+F_41      0.46
+F_42      0.67
+F_43      1.11
+F_44      0.93
+F_45      0.96
+F_46      0.43
+F_47      1.38
+F_48      0.65
+F_49      0.50
+F_50      0.23
+F_51      0.90
+F_52      1.20
+F_53      1.48
+F_54      0.45
+F_55      0.82
+F_56      0.89
+F_57     -0.91
+F_58      0.97
+F_59      1.21
+F_60      0.55
+> all.equal( fitted( nx5, asInData = TRUE ) + residuals( nx5, asInData = TRUE ),
++    front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( nx5 )
+$modelType
+[1] 2
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 0
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t        ynx firmNo
+F_1   1 1 -0.2107721      1
+F_2   2 1  0.4313618      2
+F_3   3 1  0.2790967      3
+F_4   4 1 -0.1772959      4
+F_5   5 1 -0.2720915      5
+F_6   6 1 -0.0316905      6
+F_7   7 1 -0.8553453      7
+F_8   8 1  0.3167855      8
+F_9   9 1 -0.0792579      9
+F_10 10 1 -0.1379675     10
+F_11 11 1 -1.4253398     11
+F_12 12 1  0.8556050     12
+F_13 13 1 -0.3394632     13
+F_14 14 1 -0.5352799     14
+F_15 15 1 -0.2221055     15
+F_16 16 1 -0.4887451     16
+F_17 17 1  0.1492233     17
+F_18 18 1  0.0802305     18
+F_19 19 1  0.3126209     19
+F_20 20 1  0.1791823     20
+F_21 21 1  0.0806984     21
+F_22 22 1 -0.0809061     22
+F_23 23 1  0.4208476     23
+F_24 24 1 -0.8434880     24
+F_25 25 1 -0.9040758     25
+F_26 26 1  0.7378893     26
+F_27 27 1  0.5011368     27
+F_28 28 1  0.0520496     28
+F_29 29 1 -0.4494330     29
+F_30 30 1 -0.8784215     30
+F_31 31 1 -1.4946529     31
+F_32 32 1 -2.2516795     32
+F_33 33 1  0.0613926     33
+F_34 34 1 -0.4474479     34
+F_35 35 1 -0.8034856     35
+F_36 36 1  0.7007491     36
+F_37 37 1  0.7166630     37
+F_38 38 1 -0.0794638     38
+F_39 39 1 -0.2523183     39
+F_40 40 1 -0.2182346     40
+F_41 41 1 -0.2028213     41
+F_42 42 1  0.0041045     42
+F_43 43 1  0.4451839     43
+F_44 44 1  0.2653853     44
+F_45 45 1  0.2958814     45
+F_46 46 1 -0.2333286     46
+F_47 47 1  0.7169726     47
+F_48 48 1 -0.0128300     48
+F_49 49 1 -0.1621981     49
+F_50 50 1 -0.4333680     50
+F_51 51 1  0.2335785     51
+F_52 52 1  0.5350409     52
+F_53 53 1  0.8201489     53
+F_54 54 1 -0.2115550     54
+F_55 55 1  0.1545056     55
+F_56 56 1  0.2298581     56
+F_57 57 1 -1.5740129     57
+F_58 58 1  0.3029293     58
+F_59 59 1  0.5419219     59
+F_60 60 1 -0.1119677     60
+
+$olsParam
+sigmaSq 
+   0.38 
+
+$gridParam
+sigmaSq   gamma    <NA> 
+   0.49    0.39    0.05 
+
+$gridLogl
+[1] -22685
+
+$mleParam
+Z_firmNo  sigmaSq    gamma 
+   -0.66     0.59     0.36 
+
+$mleCov
+         Z_firmNo sigmaSq gamma
+Z_firmNo     0.10    0.16  0.17
+sigmaSq      0.16    0.26  0.27
+gamma        0.17    0.27  0.30
+
+$mleLogl
+[1] -56.06
+
+$nIter
+[1] 9
+
+$code
+[1] 1
+
+$olsStdEr
+<0 x 0 matrix>
+
+$olsLogl
+[1] -56.164
+
+$fitted
+       [,1]
+ [1,] -0.66
+ [2,] -0.66
+ [3,] -0.66
+ [4,] -0.66
+ [5,] -0.66
+ [6,] -0.66
+ [7,] -0.66
+ [8,] -0.66
+ [9,] -0.66
+[10,] -0.66
+[11,] -0.66
+[12,] -0.66
+[13,] -0.66
+[14,] -0.66
+[15,] -0.66
+[16,] -0.66
+[17,] -0.66
+[18,] -0.66
+[19,] -0.66
+[20,] -0.66
+[21,] -0.66
+[22,] -0.66
+[23,] -0.66
+[24,] -0.66
+[25,] -0.66
+[26,] -0.66
+[27,] -0.66
+[28,] -0.66
+[29,] -0.66
+[30,] -0.66
+[31,] -0.66
+[32,] -0.66
+[33,] -0.66
+[34,] -0.66
+[35,] -0.66
+[36,] -0.66
+[37,] -0.66
+[38,] -0.66
+[39,] -0.66
+[40,] -0.66
+[41,] -0.66
+[42,] -0.66
+[43,] -0.66
+[44,] -0.66
+[45,] -0.66
+[46,] -0.66
+[47,] -0.66
+[48,] -0.66
+[49,] -0.66
+[50,] -0.66
+[51,] -0.66
+[52,] -0.66
+[53,] -0.66
+[54,] -0.66
+[55,] -0.66
+[56,] -0.66
+[57,] -0.66
+[58,] -0.66
+[59,] -0.66
+[60,] -0.66
+
+$resid
+     residuals
+F_1       0.45
+F_2       1.09
+F_3       0.94
+F_4       0.49
+F_5       0.39
+F_6       0.63
+F_7      -0.19
+F_8       0.98
+F_9       0.58
+F_10      0.53
+F_11     -0.76
+F_12      1.52
+F_13      0.32
+F_14      0.13
+F_15      0.44
+F_16      0.17
+F_17      0.81
+F_18      0.74
+F_19      0.98
+F_20      0.84
+F_21      0.74
+F_22      0.58
+F_23      1.08
+F_24     -0.18
+F_25     -0.24
+F_26      1.40
+F_27      1.16
+F_28      0.72
+F_29      0.21
+F_30     -0.22
+F_31     -0.83
+F_32     -1.59
+F_33      0.72
+F_34      0.22
+F_35     -0.14
+F_36      1.36
+F_37      1.38
+F_38      0.58
+F_39      0.41
+F_40      0.44
+F_41      0.46
+F_42      0.67
+F_43      1.11
+F_44      0.93
+F_45      0.96
+F_46      0.43
+F_47      1.38
+F_48      0.65
+F_49      0.50
+F_50      0.23
+F_51      0.90
+F_52      1.20
+F_53      1.48
+F_54      0.45
+F_55      0.82
+F_56      0.89
+F_57     -0.91
+F_58      0.97
+F_59      1.21
+F_60      0.55
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.21  0.43  0.28 -0.18 -0.27 -0.03 -0.86  0.32 -0.08 -0.14 -1.43  0.86 -0.34 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.54 -0.22 -0.49  0.15  0.08  0.31  0.18  0.08 -0.08  0.42 -0.84 -0.90  0.74 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.50  0.05 -0.45 -0.88 -1.49 -2.25  0.06 -0.45 -0.80  0.70  0.72 -0.08 -0.25 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.22 -0.20  0.00  0.45  0.27  0.30 -0.23  0.72 -0.01 -0.16 -0.43  0.23  0.54 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.82 -0.21  0.15  0.23 -1.57  0.30  0.54 -0.11 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] FALSE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = ynx ~ -1 | firmNo - 1, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> ## cross-section data, efficiency effects frontier, zIntercept
+> nx6 <- sfa( ynx ~ -1 | firmNo, data = front41Data )
+> print( nx6 )
+
+Call:
+sfa(formula = ynx ~ -1 | firmNo, data = front41Data)
+
+Maximum likelihood estimates
+Z_(Intercept)       Z_firmNo        sigmaSq          gamma  
+     -132.711         -1.091         22.893          0.985  
+> round( coef( nx6, which = "ols" ), 2 )
+sigmaSq 
+   0.38 
+> round( coef( nx6, which = "grid" ), 2 )
+sigmaSq   gamma    <NA> 
+   0.49    0.39    0.05 
+> round( coef( nx6 ), 2 )
+Z_(Intercept)      Z_firmNo       sigmaSq         gamma 
+      -132.71         -1.09         22.89          0.99 
+> round( coef( summary( nx6 ), which = "ols" ), 2 )
+        Estimate Std. Error t value Pr(>|t|)
+sigmaSq     0.38         NA      NA       NA
+> round( coef( summary( nx6 ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+Z_(Intercept)  -132.71     586.12   -0.23     0.82
+Z_firmNo         -1.09       4.90   -0.22     0.82
+sigmaSq          22.89      89.33    0.26     0.80
+gamma             0.99       0.06   16.43     0.00
+> round( vcov( nx6 ), 2 )
+              Z_(Intercept) Z_firmNo   sigmaSq  gamma
+Z_(Intercept)     343538.41  2508.14 -51877.11 -34.54
+Z_firmNo            2508.14    24.03   -399.90  -0.27
+sigmaSq           -51877.11  -399.90   7979.78   5.34
+gamma                -34.54    -0.27      5.34   0.00
+> print( logLik( nx6, which = "ols" ), digits = 4 )
+'log Lik.' -56.16 (df=1)
+> print( logLik( nx6, which = "grid" ), digits = 4 )
+'log Lik.' -67.18 (df=3)
+> print( logLik( nx6 ), digits = 4 )
+'log Lik.' -55.12 (df=4)
+> nobs( nx6 )
+[1] 60
+> print( summary( nx6 ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 260 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+Z_(Intercept)   -1e+02      6e+02    -0.2      0.8    
+Z_firmNo        -1e+00      5e+00    -0.2      0.8    
+sigmaSq          2e+01      9e+01     0.3      0.8    
+gamma            1e+00      6e-02    16.4   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -55.117 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.99748 
+> print( summary( nx6, effMinusU = FALSE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 260 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+Z_(Intercept)   -1e+02      6e+02    -0.2      0.8    
+Z_firmNo        -1e+00      5e+00    -0.2      0.8    
+sigmaSq          2e+01      9e+01     0.3      0.8    
+gamma            1e+00      6e-02    16.4   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -55.117 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 1.0025 
+> lrtest( nx6 )
+Likelihood ratio test
+
+Model 1: OLS (no inefficiency)
+Model 2: Efficiency Effects Frontier (EEF)
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   1  -56.2                    
+2   4  -55.1  3  2.09       0.35
+> printME( efficiencies( nx6, margEff = TRUE ) )
+     efficiency
+F_1           1
+F_2           1
+F_3           1
+F_4           1
+F_5           1
+F_6           1
+F_7           1
+F_8           1
+F_9           1
+F_10          1
+F_11          1
+F_12          1
+F_13          1
+F_14          1
+F_15          1
+F_16          1
+F_17          1
+F_18          1
+F_19          1
+F_20          1
+F_21          1
+F_22          1
+F_23          1
+F_24          1
+F_25          1
+F_26          1
+F_27          1
+F_28          1
+F_29          1
+F_30          1
+F_31          1
+F_32          1
+F_33          1
+F_34          1
+F_35          1
+F_36          1
+F_37          1
+F_38          1
+F_39          1
+F_40          1
+F_41          1
+F_42          1
+F_43          1
+F_44          1
+F_45          1
+F_46          1
+F_47          1
+F_48          1
+F_49          1
+F_50          1
+F_51          1
+F_52          1
+F_53          1
+F_54          1
+F_55          1
+F_56          1
+F_57          1
+F_58          1
+F_59          1
+F_60          1
+margEff
+, , Z_firmNo
+
+     efficiency
+F_1           0
+F_2           0
+F_3           0
+F_4           0
+F_5           0
+F_6           0
+F_7           0
+F_8           0
+F_9           0
+F_10          0
+F_11          0
+F_12          0
+F_13          0
+F_14          0
+F_15          0
+F_16          0
+F_17          0
+F_18          0
+F_19          0
+F_20          0
+F_21          0
+F_22          0
+F_23          0
+F_24          0
+F_25          0
+F_26          0
+F_27          0
+F_28          0
+F_29          0
+F_30          0
+F_31          0
+F_32          0
+F_33          0
+F_34          0
+F_35          0
+F_36          0
+F_37          0
+F_38          0
+F_39          0
+F_40          0
+F_41          0
+F_42          0
+F_43          0
+F_44          0
+F_45          0
+F_46          0
+F_47          0
+F_48          0
+F_49          0
+F_50          0
+F_51          0
+F_52          0
+F_53          0
+F_54          0
+F_55          0
+F_56          0
+F_57          0
+F_58          0
+F_59          0
+F_60          0
+
+> printME( efficiencies( nx6, asInData = TRUE, margEff = TRUE ) )
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+   1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+   1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+   1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+   1    1    1    1    1    1    1    1    1    1    1    1 
+margEff
+     Z_firmNo
+F_1         0
+F_2         0
+F_3         0
+F_4         0
+F_5         0
+F_6         0
+F_7         0
+F_8         0
+F_9         0
+F_10        0
+F_11        0
+F_12        0
+F_13        0
+F_14        0
+F_15        0
+F_16        0
+F_17        0
+F_18        0
+F_19        0
+F_20        0
+F_21        0
+F_22        0
+F_23        0
+F_24        0
+F_25        0
+F_26        0
+F_27        0
+F_28        0
+F_29        0
+F_30        0
+F_31        0
+F_32        0
+F_33        0
+F_34        0
+F_35        0
+F_36        0
+F_37        0
+F_38        0
+F_39        0
+F_40        0
+F_41        0
+F_42        0
+F_43        0
+F_44        0
+F_45        0
+F_46        0
+F_47        0
+F_48        0
+F_49        0
+F_50        0
+F_51        0
+F_52        0
+F_53        0
+F_54        0
+F_55        0
+F_56        0
+F_57        0
+F_58        0
+F_59        0
+F_60        0
+> round( fitted( nx6 ), 2 )
+         [,1]
+ [1,] -132.71
+ [2,] -132.71
+ [3,] -132.71
+ [4,] -132.71
+ [5,] -132.71
+ [6,] -132.71
+ [7,] -132.71
+ [8,] -132.71
+ [9,] -132.71
+[10,] -132.71
+[11,] -132.71
+[12,] -132.71
+[13,] -132.71
+[14,] -132.71
+[15,] -132.71
+[16,] -132.71
+[17,] -132.71
+[18,] -132.71
+[19,] -132.71
+[20,] -132.71
+[21,] -132.71
+[22,] -132.71
+[23,] -132.71
+[24,] -132.71
+[25,] -132.71
+[26,] -132.71
+[27,] -132.71
+[28,] -132.71
+[29,] -132.71
+[30,] -132.71
+[31,] -132.71
+[32,] -132.71
+[33,] -132.71
+[34,] -132.71
+[35,] -132.71
+[36,] -132.71
+[37,] -132.71
+[38,] -132.71
+[39,] -132.71
+[40,] -132.71
+[41,] -132.71
+[42,] -132.71
+[43,] -132.71
+[44,] -132.71
+[45,] -132.71
+[46,] -132.71
+[47,] -132.71
+[48,] -132.71
+[49,] -132.71
+[50,] -132.71
+[51,] -132.71
+[52,] -132.71
+[53,] -132.71
+[54,] -132.71
+[55,] -132.71
+[56,] -132.71
+[57,] -132.71
+[58,] -132.71
+[59,] -132.71
+[60,] -132.71
+> round( residuals( nx6 ), 2 )
+     residuals
+F_1     132.50
+F_2     133.14
+F_3     132.99
+F_4     132.53
+F_5     132.44
+F_6     132.68
+F_7     131.86
+F_8     133.03
+F_9     132.63
+F_10    132.57
+F_11    131.29
+F_12    133.57
+F_13    132.37
+F_14    132.18
+F_15    132.49
+F_16    132.22
+F_17    132.86
+F_18    132.79
+F_19    133.02
+F_20    132.89
+F_21    132.79
+F_22    132.63
+F_23    133.13
+F_24    131.87
+F_25    131.81
+F_26    133.45
+F_27    133.21
+F_28    132.76
+F_29    132.26
+F_30    131.83
+F_31    131.22
+F_32    130.46
+F_33    132.77
+F_34    132.26
+F_35    131.91
+F_36    133.41
+F_37    133.43
+F_38    132.63
+F_39    132.46
+F_40    132.49
+F_41    132.51
+F_42    132.71
+F_43    133.16
+F_44    132.98
+F_45    133.01
+F_46    132.48
+F_47    133.43
+F_48    132.70
+F_49    132.55
+F_50    132.28
+F_51    132.94
+F_52    133.25
+F_53    133.53
+F_54    132.50
+F_55    132.87
+F_56    132.94
+F_57    131.14
+F_58    133.01
+F_59    133.25
+F_60    132.60
+> all.equal( fitted( nx6, asInData = TRUE ) + residuals( nx6, asInData = TRUE ),
++    front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> printAll( nx6 )
+$modelType
+[1] 2
+
+$ineffDecrease
+[1] TRUE
+
+$icept
+[1] 0
+
+$nn
+[1] 60
+
+$nt
+[1] 1
+
+$nob
+[1] 60
+
+$nb
+[1] 0
+
+$printIter
+[1] 0
+
+$tol
+[1] 1e-05
+
+$searchTol
+[1] 0.001
+
+$bignum
+[1] 1e+16
+
+$searchStep
+[1] 1e-05
+
+$gridDouble
+[1] TRUE
+
+$gridSize
+[1] 0.1
+
+$maxit
+[1] 1000
+
+$muBound
+[1] 2
+
+$restartMax
+[1] 10
+
+$restartFactor
+[1] 0.999
+
+$nRestart
+[1] 0
+
+$dataTable
+     id t        ynx firmNo
+F_1   1 1 -0.2107721      1
+F_2   2 1  0.4313618      2
+F_3   3 1  0.2790967      3
+F_4   4 1 -0.1772959      4
+F_5   5 1 -0.2720915      5
+F_6   6 1 -0.0316905      6
+F_7   7 1 -0.8553453      7
+F_8   8 1  0.3167855      8
+F_9   9 1 -0.0792579      9
+F_10 10 1 -0.1379675     10
+F_11 11 1 -1.4253398     11
+F_12 12 1  0.8556050     12
+F_13 13 1 -0.3394632     13
+F_14 14 1 -0.5352799     14
+F_15 15 1 -0.2221055     15
+F_16 16 1 -0.4887451     16
+F_17 17 1  0.1492233     17
+F_18 18 1  0.0802305     18
+F_19 19 1  0.3126209     19
+F_20 20 1  0.1791823     20
+F_21 21 1  0.0806984     21
+F_22 22 1 -0.0809061     22
+F_23 23 1  0.4208476     23
+F_24 24 1 -0.8434880     24
+F_25 25 1 -0.9040758     25
+F_26 26 1  0.7378893     26
+F_27 27 1  0.5011368     27
+F_28 28 1  0.0520496     28
+F_29 29 1 -0.4494330     29
+F_30 30 1 -0.8784215     30
+F_31 31 1 -1.4946529     31
+F_32 32 1 -2.2516795     32
+F_33 33 1  0.0613926     33
+F_34 34 1 -0.4474479     34
+F_35 35 1 -0.8034856     35
+F_36 36 1  0.7007491     36
+F_37 37 1  0.7166630     37
+F_38 38 1 -0.0794638     38
+F_39 39 1 -0.2523183     39
+F_40 40 1 -0.2182346     40
+F_41 41 1 -0.2028213     41
+F_42 42 1  0.0041045     42
+F_43 43 1  0.4451839     43
+F_44 44 1  0.2653853     44
+F_45 45 1  0.2958814     45
+F_46 46 1 -0.2333286     46
+F_47 47 1  0.7169726     47
+F_48 48 1 -0.0128300     48
+F_49 49 1 -0.1621981     49
+F_50 50 1 -0.4333680     50
+F_51 51 1  0.2335785     51
+F_52 52 1  0.5350409     52
+F_53 53 1  0.8201489     53
+F_54 54 1 -0.2115550     54
+F_55 55 1  0.1545056     55
+F_56 56 1  0.2298581     56
+F_57 57 1 -1.5740129     57
+F_58 58 1  0.3029293     58
+F_59 59 1  0.5419219     59
+F_60 60 1 -0.1119677     60
+
+$olsParam
+sigmaSq 
+   0.38 
+
+$gridParam
+sigmaSq   gamma    <NA> 
+   0.49    0.39    0.05 
+
+$gridLogl
+[1] -67.181
+
+$mleParam
+Z_(Intercept)      Z_firmNo       sigmaSq         gamma 
+      -132.71         -1.09         22.89          0.99 
+
+$mleCov
+              Z_(Intercept) Z_firmNo   sigmaSq  gamma
+Z_(Intercept)     343538.41  2508.14 -51877.11 -34.54
+Z_firmNo            2508.14    24.03   -399.90  -0.27
+sigmaSq           -51877.11  -399.90   7979.78   5.34
+gamma                -34.54    -0.27      5.34   0.00
+
+$mleLogl
+[1] -55.117
+
+$nIter
+[1] 260
+
+$code
+[1] 1
+
+$olsStdEr
+<0 x 0 matrix>
+
+$olsLogl
+[1] -56.164
+
+$fitted
+         [,1]
+ [1,] -132.71
+ [2,] -132.71
+ [3,] -132.71
+ [4,] -132.71
+ [5,] -132.71
+ [6,] -132.71
+ [7,] -132.71
+ [8,] -132.71
+ [9,] -132.71
+[10,] -132.71
+[11,] -132.71
+[12,] -132.71
+[13,] -132.71
+[14,] -132.71
+[15,] -132.71
+[16,] -132.71
+[17,] -132.71
+[18,] -132.71
+[19,] -132.71
+[20,] -132.71
+[21,] -132.71
+[22,] -132.71
+[23,] -132.71
+[24,] -132.71
+[25,] -132.71
+[26,] -132.71
+[27,] -132.71
+[28,] -132.71
+[29,] -132.71
+[30,] -132.71
+[31,] -132.71
+[32,] -132.71
+[33,] -132.71
+[34,] -132.71
+[35,] -132.71
+[36,] -132.71
+[37,] -132.71
+[38,] -132.71
+[39,] -132.71
+[40,] -132.71
+[41,] -132.71
+[42,] -132.71
+[43,] -132.71
+[44,] -132.71
+[45,] -132.71
+[46,] -132.71
+[47,] -132.71
+[48,] -132.71
+[49,] -132.71
+[50,] -132.71
+[51,] -132.71
+[52,] -132.71
+[53,] -132.71
+[54,] -132.71
+[55,] -132.71
+[56,] -132.71
+[57,] -132.71
+[58,] -132.71
+[59,] -132.71
+[60,] -132.71
+
+$resid
+     residuals
+F_1     132.50
+F_2     133.14
+F_3     132.99
+F_4     132.53
+F_5     132.44
+F_6     132.68
+F_7     131.86
+F_8     133.03
+F_9     132.63
+F_10    132.57
+F_11    131.29
+F_12    133.57
+F_13    132.37
+F_14    132.18
+F_15    132.49
+F_16    132.22
+F_17    132.86
+F_18    132.79
+F_19    133.02
+F_20    132.89
+F_21    132.79
+F_22    132.63
+F_23    133.13
+F_24    131.87
+F_25    131.81
+F_26    133.45
+F_27    133.21
+F_28    132.76
+F_29    132.26
+F_30    131.83
+F_31    131.22
+F_32    130.46
+F_33    132.77
+F_34    132.26
+F_35    131.91
+F_36    133.41
+F_37    133.43
+F_38    132.63
+F_39    132.46
+F_40    132.49
+F_41    132.51
+F_42    132.71
+F_43    133.16
+F_44    132.98
+F_45    133.01
+F_46    132.48
+F_47    133.43
+F_48    132.70
+F_49    132.55
+F_50    132.28
+F_51    132.94
+F_52    133.25
+F_53    133.53
+F_54    132.50
+F_55    132.87
+F_56    132.94
+F_57    131.14
+F_58    133.01
+F_59    133.25
+F_60    132.60
+
+$olsResid
+  F_1   F_2   F_3   F_4   F_5   F_6   F_7   F_8   F_9  F_10  F_11  F_12  F_13 
+-0.21  0.43  0.28 -0.18 -0.27 -0.03 -0.86  0.32 -0.08 -0.14 -1.43  0.86 -0.34 
+ F_14  F_15  F_16  F_17  F_18  F_19  F_20  F_21  F_22  F_23  F_24  F_25  F_26 
+-0.54 -0.22 -0.49  0.15  0.08  0.31  0.18  0.08 -0.08  0.42 -0.84 -0.90  0.74 
+ F_27  F_28  F_29  F_30  F_31  F_32  F_33  F_34  F_35  F_36  F_37  F_38  F_39 
+ 0.50  0.05 -0.45 -0.88 -1.49 -2.25  0.06 -0.45 -0.80  0.70  0.72 -0.08 -0.25 
+ F_40  F_41  F_42  F_43  F_44  F_45  F_46  F_47  F_48  F_49  F_50  F_51  F_52 
+-0.22 -0.20  0.00  0.45  0.27  0.30 -0.23  0.72 -0.01 -0.16 -0.43  0.23  0.54 
+ F_53  F_54  F_55  F_56  F_57  F_58  F_59  F_60 
+ 0.82 -0.21  0.15  0.23 -1.57  0.30  0.54 -0.11 
+
+$olsSkewness
+[1] -1.117
+
+$olsSkewnessOkay
+[1] TRUE
+
+$truncNorm
+[1] FALSE
+
+$zIntercept
+[1] TRUE
+
+$timeEffect
+[1] FALSE
+
+$searchScale
+[1] NA
+
+$call
+sfa(formula = ynx ~ -1 | firmNo, data = front41Data)
+
+$validObs
+ F_1  F_2  F_3  F_4  F_5  F_6  F_7  F_8  F_9 F_10 F_11 F_12 F_13 F_14 F_15 F_16 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_17 F_18 F_19 F_20 F_21 F_22 F_23 F_24 F_25 F_26 F_27 F_28 F_29 F_30 F_31 F_32 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
+TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+class
+[1] "frontier"
+> 
+> 
 > ################################################
 > ## endogenous variable (seemingly) NOT logged ##
 > ################################################
@@ -89715,4 +95275,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 36.760   0.788  37.640 
+ 37.432   0.688  38.146 

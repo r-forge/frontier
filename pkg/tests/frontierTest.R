@@ -2392,6 +2392,252 @@ round( attributes( translogZvarEla )$stdDev, 2 )
 printAll( translogZvar )
 
 
+#######  only an intercept as explanatory variable  #######
+## cross-section data, error components frontier
+oi1 <- sfa( logOutput ~ 1, data = front41Data )
+oi1i <- sfa( logOutput ~ ones - 1, data = front41Data )
+all.equal( oi1[ -c( 3, 7, 20, 40 ) ], oi1i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oi1 )
+coef( oi1, which = "start" )
+round( coef( oi1, which = "ols" ), 2 )
+round( coef( oi1, which = "grid" ), 2 )
+round( coef( oi1 ), 2 )
+round( coef( summary( oi1 ), which = "ols" ), 2 )
+round( coef( summary( oi1 ) ), 2 )
+round( vcov( oi1 ), 2 )
+print( logLik( oi1, which = "ols" ), digits = 4 )
+print( logLik( oi1, which = "grid" ), digits = 4 )
+print( logLik( oi1 ), digits = 4 )
+nobs( oi1 )
+print( summary( oi1 ), digits = 1 )
+print( summary( oi1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oi1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oi1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oi1 )
+round( efficiencies( oi1 ), 2 )
+round( efficiencies( oi1, asInData = TRUE ), 2 )
+all.equal( efficiencies( oi1 ), efficiencies( oi1i ) )
+all.equal( efficiencies( oi1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oi1i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oi1 ), 2 )
+round( residuals( oi1 ), 2 )
+all.equal( fitted( oi1, asInData = TRUE ) + residuals( oi1, asInData = TRUE ),
+   front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+printAll( oi1 )
+
+## cross-section data, error components frontier, truncNorm
+oi2 <- sfa( logOutput ~ 1, data = front41Data, truncNorm = TRUE )
+oi2i <- sfa( logOutput ~ ones - 1, data = front41Data, truncNorm = TRUE )
+all.equal( oi2[ -c( 3, 7, 20, 40 ) ], oi2i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oi2 )
+round( coef( oi2, which = "ols" ), 2 )
+round( coef( oi2, which = "grid" ), 2 )
+round( coef( oi2 ), 2 )
+round( coef( summary( oi2 ), which = "ols" ), 2 )
+round( coef( summary( oi2 ) ), 2 )
+round( vcov( oi2 ), 2 )
+print( logLik( oi2, which = "ols" ), digits = 4 )
+print( logLik( oi2, which = "grid" ), digits = 4 )
+print( logLik( oi2 ), digits = 4 )
+nobs( oi2 )
+print( summary( oi2 ), digits = 1 )
+print( summary( oi2, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oi2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oi2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oi2 )
+round( efficiencies( oi2 ), 2 )
+round( efficiencies( oi2, asInData = TRUE ), 2 )
+all.equal( efficiencies( oi2 ), efficiencies( oi2i ) )
+all.equal( efficiencies( oi2, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oi2i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oi2 ), 2 )
+round( residuals( oi2 ), 2 )
+all.equal( fitted( oi2, asInData = TRUE ) + residuals( oi2, asInData = TRUE ),
+   front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+printAll( oi2 )
+
+## cross-section data, efficiency effects frontier
+oi5 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
+oi5i <- sfa( logOutput ~ ones - 1 | firmNo - 1, data = front41Data )
+all.equal( oi5[ -c( 3, 7, 20, 40 ) ], oi5i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oi5 )
+round( coef( oi5, which = "ols" ), 2 )
+round( coef( oi5, which = "grid" ), 2 )
+round( coef( oi5 ), 2 )
+round( coef( summary( oi5 ), which = "ols" ), 2 )
+round( coef( summary( oi5 ) ), 2 )
+round( vcov( oi5 ), 2 )
+print( logLik( oi5, which = "ols" ), digits = 4 )
+print( logLik( oi5, which = "grid" ), digits = 4 )
+print( logLik( oi5 ), digits = 4 )
+nobs( oi5 )
+print( summary( oi5 ), digits = 1 )
+print( summary( oi5, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oi5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oi5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oi5 )
+printME( efficiencies( oi5, margEff = TRUE ) )
+printME( efficiencies( oi5, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( oi5, minusU = FALSE, margEff = TRUE ), 
+   efficiencies( oi5i, minusU = FALSE, margEff = TRUE ) )
+all.equal( efficiencies( oi5, asInData = TRUE, margEff = TRUE ), 
+   efficiencies( oi5i, asInData = TRUE, margEff = TRUE ) )
+round( fitted( oi5 ), 2 )
+round( residuals( oi5 ), 2 )
+all.equal( fitted( oi5, asInData = TRUE ) + residuals( oi5, asInData = TRUE ),
+   front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+printAll( oi5 )
+
+## cross-section data, efficiency effects frontier, zIntercept
+oi6 <- sfa( logOutput ~ 1 | firmNo, data = front41Data )
+oi6i <- sfa( logOutput ~ ones - 1 | firmNo, data = front41Data )
+all.equal( oi6[ -c( 3, 7, 20, 40 ) ], oi6i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oi6 )
+round( coef( oi6, which = "ols" ), 2 )
+round( coef( oi6, which = "grid" ), 2 )
+round( coef( oi6 ), 2 )
+round( coef( summary( oi6 ), which = "ols" ), 2 )
+round( coef( summary( oi6 ) ), 2 )
+round( vcov( oi6 ), 2 )
+print( logLik( oi6, which = "ols" ), digits = 4 )
+print( logLik( oi6, which = "grid" ), digits = 4 )
+print( logLik( oi6 ), digits = 4 )
+nobs( oi6 )
+print( summary( oi6 ), digits = 1 )
+print( summary( oi6, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oi6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oi6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oi6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oi6 )
+printME( efficiencies( oi6, margEff = TRUE ) )
+printME( efficiencies( oi6, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( oi6, margEff = TRUE ), 
+   efficiencies( oi6i, margEff = TRUE ) )
+all.equal( efficiencies( oi6, asInData = TRUE, minusU = FALSE, margEff = TRUE ), 
+   efficiencies( oi6i, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+round( fitted( oi6 ), 2 )
+round( residuals( oi6 ), 2 )
+all.equal( fitted( oi6, asInData = TRUE ) + residuals( oi6, asInData = TRUE ),
+   front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+printAll( oi6 )
+
+
+#######  no explanatory variable  #######
+front41Data$ynx <- front41Data$logOutput - mean( front41Data$logOutput ) - 0.1
+
+## cross-section data, error components frontier
+nx1 <- sfa( ynx ~ -1, data = front41Data )
+print( nx1 )
+coef( nx1, which = "start" )
+round( coef( nx1, which = "ols" ), 2 )
+round( coef( nx1, which = "grid" ), 2 )
+round( coef( nx1 ), 2 )
+round( coef( summary( nx1 ), which = "ols" ), 2 )
+round( coef( summary( nx1 ) ), 2 )
+round( vcov( nx1 ), 2 )
+print( logLik( nx1, which = "ols" ), digits = 4 )
+print( logLik( nx1, which = "grid" ), digits = 4 )
+print( logLik( nx1 ), digits = 4 )
+nobs( nx1 )
+print( summary( nx1 ), digits = 1 )
+print( summary( nx1, effMinusU = FALSE ), digits = 1 )
+lrtest( nx1 )
+round( efficiencies( nx1 ), 2 )
+round( efficiencies( nx1, asInData = TRUE ), 2 )
+round( fitted( nx1 ), 2 )
+round( residuals( nx1 ), 2 )
+all.equal( fitted( nx1, asInData = TRUE ) + residuals( nx1, asInData = TRUE ),
+   front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nx1 )
+
+## cross-section data, error components frontier, truncNorm
+nx2 <- sfa( ynx ~ -1, data = front41Data, truncNorm = TRUE )
+print( nx2 )
+round( coef( nx2, which = "ols" ), 2 )
+round( coef( nx2, which = "grid" ), 2 )
+round( coef( nx2 ), 2 )
+round( coef( summary( nx2 ), which = "ols" ), 2 )
+round( coef( summary( nx2 ) ), 2 )
+round( vcov( nx2 ), 2 )
+print( logLik( nx2, which = "ols" ), digits = 4 )
+print( logLik( nx2, which = "grid" ), digits = 4 )
+print( logLik( nx2 ), digits = 4 )
+nobs( nx2 )
+print( summary( nx2 ), digits = 1 )
+print( summary( nx2, effMinusU = FALSE ), digits = 1 )
+lrtest( nx2 )
+round( efficiencies( nx2 ), 2 )
+round( efficiencies( nx2, asInData = TRUE ), 2 )
+round( fitted( nx2 ), 2 )
+round( residuals( nx2 ), 2 )
+all.equal( fitted( nx2, asInData = TRUE ) + residuals( nx2, asInData = TRUE ),
+   front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nx2 )
+
+## cross-section data, efficiency effects frontier
+nx5 <- sfa( ynx ~ -1 | firmNo - 1, data = front41Data )
+print( nx5 )
+round( coef( nx5, which = "ols" ), 2 )
+round( coef( nx5, which = "grid" ), 2 )
+round( coef( nx5 ), 2 )
+round( coef( summary( nx5 ), which = "ols" ), 2 )
+round( coef( summary( nx5 ) ), 2 )
+round( vcov( nx5 ), 2 )
+print( logLik( nx5, which = "ols" ), digits = 4 )
+print( logLik( nx5, which = "grid" ), digits = 4 )
+print( logLik( nx5 ), digits = 4 )
+nobs( nx5 )
+print( summary( nx5 ), digits = 1 )
+print( summary( nx5, effMinusU = FALSE ), digits = 1 )
+lrtest( nx5 )
+printME( efficiencies( nx5, margEff = TRUE ) )
+printME( efficiencies( nx5, asInData = TRUE, margEff = TRUE ) )
+round( fitted( nx5 ), 2 )
+round( residuals( nx5 ), 2 )
+all.equal( fitted( nx5, asInData = TRUE ) + residuals( nx5, asInData = TRUE ),
+   front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nx5 )
+
+## cross-section data, efficiency effects frontier, zIntercept
+nx6 <- sfa( ynx ~ -1 | firmNo, data = front41Data )
+print( nx6 )
+round( coef( nx6, which = "ols" ), 2 )
+round( coef( nx6, which = "grid" ), 2 )
+round( coef( nx6 ), 2 )
+round( coef( summary( nx6 ), which = "ols" ), 2 )
+round( coef( summary( nx6 ) ), 2 )
+round( vcov( nx6 ), 2 )
+print( logLik( nx6, which = "ols" ), digits = 4 )
+print( logLik( nx6, which = "grid" ), digits = 4 )
+print( logLik( nx6 ), digits = 4 )
+nobs( nx6 )
+print( summary( nx6 ), digits = 1 )
+print( summary( nx6, effMinusU = FALSE ), digits = 1 )
+lrtest( nx6 )
+printME( efficiencies( nx6, margEff = TRUE ) )
+printME( efficiencies( nx6, asInData = TRUE, margEff = TRUE ) )
+round( fitted( nx6 ), 2 )
+round( residuals( nx6 ), 2 )
+all.equal( fitted( nx6, asInData = TRUE ) + residuals( nx6, asInData = TRUE ),
+   front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nx6 )
+
+
 ################################################
 ## endogenous variable (seemingly) NOT logged ##
 ################################################
