@@ -34,7 +34,7 @@ c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
 c       Hence, this programme can be run automatically (non-interactively) now.
 c
-c       nb = number of coefficients of the frontier model (without intercept)
+c       nb = number of coefficients of the frontier model (possibly including intercept)
 c       nz = number of coefficients (slopes + possibly intercept) 
 c            of the inefficiency model
 c       nr = 1 + nb + nz (third dimension of the data array that always
@@ -49,13 +49,12 @@ c            for the specific combination of time and individual exists)
       dimension h(nParamTotal,nParamTotal)
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/four/frestart,mrestart,nrestart
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
 
       im=imArg
       ipc=ipcArg
-      icept=iceptArg
       nn=nnArg
       nt=ntArg
       nob=nobArg
@@ -91,7 +90,7 @@ c            for the specific combination of time and individual exists)
       subroutine mini(yy,xx,sv,ob,gb,fxs,y,h)
 c       contains the main loop of this iterative program. 
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/four/frestart,mrestart,nrestart
@@ -279,7 +278,7 @@ c       calculates the direction matrix (p).
 c       unidimensional search (coggin) to determine optimal step length
 c       determines the step length (t) using a unidimensional search. 
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
@@ -439,19 +438,19 @@ c       determines the step length (t) using a unidimensional search.
       subroutine check(b)
 c       checks if params are out of bounds & adjusts if required. 
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension b(n)
-      n1=icept+nb+nz+1
-      n2=icept+nb+nz+2
+      n1=nb+nz+1
+      n2=nb+nz+2
       bi=dsqrt(bignum) 
       if(b(n1).le.dble(0)) b(n1)=dble(1)/bi  
       if(b(n2).le.dble(1)/bi) b(n2)=dble(1)/bi   
       if(b(n2).ge.dble(1)-dble(1)/bi) b(n2)=dble(1)-dble(1)/bi   
       bound=bmu*dsqrt(b(n1)*b(n2))
       if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.dble(0))) then
-      n3=icept+nb+nz+3
+      n3=nb+nz+3
       if(b(n3).gt.bound) b(n3)=bound
       if(b(n3).lt.-bound) b(n3)=-bound
       endif
@@ -462,7 +461,7 @@ c       checks if params are out of bounds & adjusts if required.
 c       calculates the negative of the log-likelihood function of the
 c       error components model.
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       data pi/3.1415926/ 
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
@@ -471,15 +470,15 @@ c       error components model.
       f=dble(nn)    
       fnt=dble(nt)
       ftot=dble(nob) 
-      s2=b(icept+nb+1)
-      g=b(icept+nb+2)
+      s2=b(nb+1)
+      g=b(nb+2)
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then 
-      u=b(icept+nb+3)
-      if (neta.eq.1) e=b(icept+nb+4)
+      u=b(nb+3)
+      if (neta.eq.1) e=b(nb+4)
       else
-      if (neta.eq.1) e=b(icept+nb+3)
+      if (neta.eq.1) e=b(nb+3)
       endif
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -522,29 +521,29 @@ c       error components model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the error components model.
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr) 
       call check(b)  
       f=dble(nn)    
       ftot=dble(nob) 
       fnt=dble(nt)  
-      n1=icept+nb+nz+1
-      n2=icept+nb+nz+2
+      n1=nb+nz+1
+      n2=nb+nz+2
       s2=b(n1)
       g=b(n2)
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then 
-      n3=icept+nb+nz+3
+      n3=nb+nz+3
       u=b(n3)
       if (neta.eq.1) then 
-      n4=icept+nb+nz+4
+      n4=nb+nz+4
       e=b(n4)
       endif
       else
       if (neta.eq.1) then 
-      n4=icept+nb+nz+3
+      n4=nb+nz+3
       e=b(n4)
       endif
       endif
@@ -571,17 +570,17 @@ c       of the log-likelihood function of the error components model.
       zi=(u*(dble(1)-g)-sc*g*epr)/
      $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
       
-      do 132 j=1,icept+nb
+      do 132 j=1,nb
       do 134 l=1,nt   
       if(xx(i,l,1).ne.dble(0)) then
       call resid(b,i,l,yy,xx,ee)
-      gx(j)=gx(j)-xx(i,l,j+1-icept)*ee/(s2*(dble(1)-g))
+      gx(j)=gx(j)-xx(i,l,j+1)*ee/(s2*(dble(1)-g))
       endif
  134    continue    
       xpe=dble(0)
       do 146 l=1,nt
       if(xx(i,l,1).ne.dble(0)) then
-      xpe=xpe+xx(i,l,j+1-icept)*dexp(-e*(dble(l)-fnt))
+      xpe=xpe+xx(i,l,j+1)*dexp(-e*(dble(l)-fnt))
       endif
  146    continue
       d=(dendis(zi)+zi)*g*xpe*sc
@@ -646,13 +645,13 @@ c       of the log-likelihood function of the error components model.
 c       calculates the negative of the log-likelihood function of the
 c       TE effects model.
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       data pi/3.1415926/ 
       call check(b)  
-      s2=b(icept+nb+nz+1) 
-      g=b(icept+nb+nz+2)  
+      s2=b(nb+nz+1) 
+      g=b(nb+nz+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -663,8 +662,8 @@ c       TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=icept+nb+1,icept+nb+nz
-      zd=zd+xx(i,l,j+1-icept)*b(j) 
+      do 12 j=nb+1,nb+nz
+      zd=zd+xx(i,l,j+1)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
@@ -683,12 +682,12 @@ c       TE effects model.
 c       calculates the first-order partial derivatives of the negative
 c       of the log-likelihood function of the TE effects model.   
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)  
-      s2=b(icept+nb+nz+1) 
-      g=b(icept+nb+nz+2)  
+      s2=b(nb+nz+1) 
+      g=b(nb+nz+2)  
       ss=(g*(dble(1)-g)*s2)**dble(0.5)  
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -701,27 +700,27 @@ c       of the log-likelihood function of the TE effects model.
       call resid(b,i,l,yy,xx,ee)
       zd=dble(0)  
       if (nz.ne.0) then  
-      do 12 j=icept+nb+1,icept+nb+nz
-      zd=zd+xx(i,l,j+1-icept)*b(j) 
+      do 12 j=nb+1,nb+nz
+      zd=zd+xx(i,l,j+1)*b(j) 
    12   continue   
       endif  
       us=(dble(1)-g)*zd-sc*g*ee  
       d=zd/(g*s2)**dble(0.5)   
       ds=us/ss   
-      do 13 j=1,icept+nb   
-      gx(j)=gx(j)+xx(i,l,j+1-icept)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
+      do 13 j=1,nb   
+      gx(j)=gx(j)+xx(i,l,j+1)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
    13   continue   
       if (nz.ne.0) then  
-      do 14 j=icept+nb+1,icept+nb+nz
-      gx(j)=gx(j)-xx(i,l,j+1-icept)*((sc*ee+zd)/s2
+      do 14 j=nb+1,nb+nz
+      gx(j)=gx(j)-xx(i,l,j+1)*((sc*ee+zd)/s2
      +  +dendis(d)/(g*s2)**dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
    14   continue   
       endif  
-      gx(icept+nb+nz+1)=gx(icept+nb+nz+1)-dble(0.5)/s2
+      gx(nb+nz+1)=gx(nb+nz+1)-dble(0.5)/s2
      + *(dble(1)-(dendis(d)*d-dendis(ds)*ds)-(ee+sc*zd)**2/s2)
-      gx(icept+nb+nz+2)=gx(icept+nb+nz+2)+dble(0.5)*(dendis(d)*d/g
+      gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g
      +  -dendis(ds)/ss*(zd/g+sc*ee/(dble(1)-g)))
-c       gx(icept+nb+nz+2)=gx(icept+nb+nz+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
+c       gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
 c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
       endif
    10   continue   
@@ -736,12 +735,12 @@ c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
 c       calculates the residual for a single observation, 
 c       i.e. e = y - x ' b 
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       xb=dble(0)
-      do 102 j=1,icept+nb   
-      xb=xb+b(j)*xx(i,l,j+1-icept)   
+      do 102 j=1,nb   
+      xb=xb+b(j)*xx(i,l,j+1)   
   102   continue
       ee=yy(i,l)-xb
       return
@@ -753,7 +752,7 @@ c       i.e. e = y - x ' b
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
       dimension startVal(nStartVal)
@@ -777,14 +776,14 @@ c       also reads data from a file.
       nb=nb
       nz=0
       nr=1+nb
-      n=icept+nb+nz+2+nmu+neta
+      n=nb+nz+2+nmu+neta
       else
       nz=neta
       neta=0
       nz=nz+nmu
       nb=nb
       nr=1+nb+nz   
-      n=icept+nb+nz+2
+      n=nb+nz+2
       endif
       if (n.ne.nParamTotal) then
       call intpr( 'internal error: calculated variable ''n''',
@@ -878,22 +877,22 @@ c       also reads data from a file.
       subroutine grid(x,y,yy,xx,ob,gb)
 c       does a grid search across gamma
       implicit double precision (a-h,o-z)
-      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im,icept
+      common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
       dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
       data pi/3.1415926/ 
-      n1=icept+nb+nz+1
-      n2=icept+nb+nz+2
+      n1=nb+nz+1
+      n2=nb+nz+2
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
-      var=ob(icept+nb+1)*dble(nob-icept-nb)/dble(nob)
+      var=ob(nb+1)*dble(nob-nb)/dble(nob)
       b0=ob(1)   
-      do 131 i=1,icept+nb+1
+      do 131 i=1,nb+1
       y(i)=ob(i) 
   131   continue   
-      do 132 i=icept+nb+1,n
+      do 132 i=nb+1,n
       y(i)=dble(0)
   132   continue   
       fx=bignum  
@@ -905,7 +904,7 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      if ((icept+nb).gt.0) y(1)=b0+c*sc
+      if (nb.gt.0) y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
@@ -925,7 +924,7 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      if ((icept+nb).gt.0) y(1)=b0+c*sc
+      if (nb.gt.0) y(1)=b0+c*sc
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
