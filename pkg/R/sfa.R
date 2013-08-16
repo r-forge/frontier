@@ -154,12 +154,12 @@ sfa <- function(
    mf <- eval( mf, parent.frame() )
    mt <- attr( mf, "terms" )
    xMat <- model.matrix( mt, mf )
-   if( ncol( xMat ) > 0 && colnames( xMat )[ 1 ] == "(Intercept)" ) {
-      xMat <- xMat[ , -1, drop = FALSE ]
-      hasIntercept <- TRUE
-   } else {
+#    if( ncol( xMat ) > 0 && colnames( xMat )[ 1 ] == "(Intercept)" ) {
+#       xMat <- xMat[ , -1, drop = FALSE ]
+#       hasIntercept <- TRUE
+#    } else {
       hasIntercept <- FALSE
-   }
+#    }
    xNames <- colnames( xMat )
    yVec <- model.response( mf )
    yName <- as.character( formula )[ 2 ]
