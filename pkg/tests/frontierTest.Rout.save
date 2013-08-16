@@ -94209,6 +94209,10 @@ class
 > 
 > ## unbalanced panel data, error components frontier
 > nxp1 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb )
+> nxp1r <- sfa( ynx ~ -1,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+> all.equal( nxp1[ -c(40, 41) ], nxp1r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp1 )
 
 Call:
@@ -94390,6 +94394,9 @@ F_43       0.73
 0.74 0.74   NA   NA 0.74 0.74 0.74 0.74 0.88 0.88 0.88   NA 0.88 0.88 0.88 0.88 
   43   86  129  172  215  258  301  344 
 0.73 0.73 0.73   NA 0.73 0.73 0.73 0.73 
+> all.equal( efficiencies( nxp1r, asInData = TRUE ),
++    efficiencies( nxp1, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
 > round( fitted( nxp1 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -94480,6 +94487,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp1, asInData = TRUE ) + residuals( nxp1, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp1r, asInData = TRUE ) + residuals( nxp1r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp1 )
 $modelType
@@ -95072,6 +95083,11 @@ class
 > 
 > ## unbalanced panel data, error components frontier, truncNorm
 > nxp2 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
+> nxp2r <- sfa( ynx ~ -1,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
++    truncNorm = TRUE )
+> all.equal( nxp2[ -c(40, 41) ], nxp2r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp2 )
 
 Call:
@@ -95257,6 +95273,9 @@ F_43       0.76
 0.77 0.77   NA   NA 0.77 0.77 0.77 0.77 0.90 0.90 0.90   NA 0.90 0.90 0.90 0.90 
   43   86  129  172  215  258  301  344 
 0.76 0.76 0.76   NA 0.76 0.76 0.76 0.76 
+> all.equal( efficiencies( nxp2r, asInData = TRUE ),
++    efficiencies( nxp2, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
 > round( fitted( nxp2 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -95347,6 +95366,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp2, asInData = TRUE ) + residuals( nxp2, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp2r, asInData = TRUE ) + residuals( nxp2r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp2 )
 $modelType
@@ -95940,6 +95963,11 @@ class
 > 
 > ## unbalanced panel data, error components frontier, timeEffect
 > nxp3 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
+> nxp3r <- sfa( ynx ~ -1,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
++    timeEffect = TRUE )
+> all.equal( nxp3[ -c(40, 41) ], nxp3r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp3 )
 
 Call:
@@ -96133,6 +96161,9 @@ F_43 0.72 0.72 0.72 0.73 0.73 0.73 0.73
 0.73 0.73   NA   NA 0.74 0.74 0.74 0.74 0.88 0.88 0.88   NA 0.88 0.88 0.88 0.88 
   43   86  129  172  215  258  301  344 
 0.72 0.72 0.72   NA 0.73 0.73 0.73 0.73 
+> all.equal( efficiencies( nxp3r, asInData = TRUE ),
++    efficiencies( nxp3, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
 > round( fitted( nxp3 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -96223,6 +96254,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp3, asInData = TRUE ) + residuals( nxp3, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp3r, asInData = TRUE ) + residuals( nxp3r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp3 )
 $modelType
@@ -96817,6 +96852,11 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 > nxp4 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, 
 +    truncNorm = TRUE, timeEffect = TRUE )
+> nxp4r <- sfa( ynx ~ -1,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
++    truncNorm = TRUE, timeEffect = TRUE )
+> all.equal( nxp4[ -c(40, 41) ], nxp4r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp4 )
 
 Call:
@@ -97014,6 +97054,9 @@ F_43 0.74 0.75 0.75 0.75 0.76 0.76 0.76
 0.76 0.76   NA   NA 0.77 0.77 0.77 0.78 0.89 0.89 0.89   NA 0.90 0.90 0.90 0.90 
   43   86  129  172  215  258  301  344 
 0.74 0.75 0.75   NA 0.75 0.76 0.76 0.76 
+> all.equal( efficiencies( nxp4r, asInData = TRUE ),
++    efficiencies( nxp4, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
 > round( fitted( nxp4 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -97104,6 +97147,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp4, asInData = TRUE ) + residuals( nxp4, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp4r, asInData = TRUE ) + residuals( nxp4r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp4 )
 $modelType
@@ -97699,6 +97746,10 @@ class
 > 
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > nxp5 <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
+> nxp5r <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+> all.equal( nxp5[ -c(40, 41) ], nxp5r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp5 )
 
 Call:
@@ -98331,6 +98382,14 @@ margEff
 258    0.00     0.14
 301    0.00     0.17
 344    0.00     0.10
+> all.equal( efficiencies( nxp5r, asInData = TRUE ),
++    efficiencies( nxp5, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
+> all.equal( 
++    attr( efficiencies( nxp5r, asInData = TRUE, margEff = TRUE ), "margEff" ),
++    attr( efficiencies( nxp5, asInData = TRUE, margEff = TRUE ), "margEff" )[ 
++       !is.na( riceProdPhilPanelUnb$ynx ), ] )
+[1] TRUE
 > round( fitted( nxp5 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -98421,6 +98480,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp5, asInData = TRUE ) + residuals( nxp5, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp5r, asInData = TRUE ) + residuals( nxp5r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp5 )
 $modelType
@@ -99018,6 +99081,13 @@ class
 Warning message:
 In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> nxp6r <- sfa( ynx ~ -1 | EDYRS + BANRAT,
++    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+Warning message:
+In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb[!is.na(riceProdPhilPanelUnb$ynx),  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+> all.equal( nxp6[ -c(40, 41) ], nxp6r[ -c(40, 41) ] )
+[1] TRUE
 > print( nxp6 )
 
 Call:
@@ -99658,6 +99728,14 @@ margEff
 258    0.14     1.04
 301    0.14     1.04
 344    0.16     1.23
+> all.equal( efficiencies( nxp6r, asInData = TRUE ),
++    efficiencies( nxp6, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+[1] TRUE
+> all.equal( 
++    attr( efficiencies( nxp6r, asInData = TRUE, margEff = TRUE ), "margEff" ),
++    attr( efficiencies( nxp6, asInData = TRUE, margEff = TRUE ), "margEff" )[ 
++       !is.na( riceProdPhilPanelUnb$ynx ), ] )
+[1] TRUE
 > round( fitted( nxp6 ), 2 )
       [,1] [,2] [,3] [,4] [,5] [,6] [,7]
  [1,]    0    0   NA    0    0    0    0
@@ -99748,6 +99826,10 @@ F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp6, asInData = TRUE ) + residuals( nxp6, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( nxp6r, asInData = TRUE ) + residuals( nxp6r, asInData = TRUE ),
++    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
++    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( nxp6 )
 $modelType
@@ -107707,4 +107789,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 56.900   1.180  58.148 
+ 41.280   0.868  42.196 

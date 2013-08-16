@@ -2866,6 +2866,9 @@ riceProdPhilPanelUnb$ynx <- riceProdPhilPanelUnb$lProdNa -
 
 ## unbalanced panel data, error components frontier
 nxp1 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb )
+nxp1r <- sfa( ynx ~ -1,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+all.equal( nxp1[ -c(40, 41) ], nxp1r[ -c(40, 41) ] )
 print( nxp1 )
 round( coef( nxp1, which = "ols" ), 2 )
 round( coef( nxp1, which = "grid" ), 2 )
@@ -2882,14 +2885,23 @@ print( summary( nxp1, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp1 )
 round( efficiencies( nxp1 ), 2 )
 round( efficiencies( nxp1, asInData = TRUE ), 2 )
+all.equal( efficiencies( nxp1r, asInData = TRUE ),
+   efficiencies( nxp1, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
 round( fitted( nxp1 ), 2 )
 round( residuals( nxp1 ), 2 )
 all.equal( fitted( nxp1, asInData = TRUE ) + residuals( nxp1, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp1r, asInData = TRUE ) + residuals( nxp1r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp1 )
 
 ## unbalanced panel data, error components frontier, truncNorm
 nxp2 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
+nxp2r <- sfa( ynx ~ -1,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
+   truncNorm = TRUE )
+all.equal( nxp2[ -c(40, 41) ], nxp2r[ -c(40, 41) ] )
 print( nxp2 )
 round( coef( nxp2, which = "ols" ), 2 )
 round( coef( nxp2, which = "grid" ), 2 )
@@ -2906,14 +2918,23 @@ print( summary( nxp2, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp2 )
 round( efficiencies( nxp2 ), 2 )
 round( efficiencies( nxp2, asInData = TRUE ), 2 )
+all.equal( efficiencies( nxp2r, asInData = TRUE ),
+   efficiencies( nxp2, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
 round( fitted( nxp2 ), 2 )
 round( residuals( nxp2 ), 2 )
 all.equal( fitted( nxp2, asInData = TRUE ) + residuals( nxp2, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp2r, asInData = TRUE ) + residuals( nxp2r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp2 )
 
 ## unbalanced panel data, error components frontier, timeEffect
 nxp3 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
+nxp3r <- sfa( ynx ~ -1,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
+   timeEffect = TRUE )
+all.equal( nxp3[ -c(40, 41) ], nxp3r[ -c(40, 41) ] )
 print( nxp3 )
 round( coef( nxp3, which = "ols" ), 2 )
 round( coef( nxp3, which = "grid" ), 2 )
@@ -2930,15 +2951,24 @@ print( summary( nxp3, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp3 )
 round( efficiencies( nxp3 ), 2 )
 round( efficiencies( nxp3, asInData = TRUE ), 2 )
+all.equal( efficiencies( nxp3r, asInData = TRUE ),
+   efficiencies( nxp3, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
 round( fitted( nxp3 ), 2 )
 round( residuals( nxp3 ), 2 )
 all.equal( fitted( nxp3, asInData = TRUE ) + residuals( nxp3, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp3r, asInData = TRUE ) + residuals( nxp3r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp3 )
 
 ## unbalanced panel data, error components frontier, truncNorm, timeEffect
 nxp4 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, 
    truncNorm = TRUE, timeEffect = TRUE )
+nxp4r <- sfa( ynx ~ -1,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
+   truncNorm = TRUE, timeEffect = TRUE )
+all.equal( nxp4[ -c(40, 41) ], nxp4r[ -c(40, 41) ] )
 print( nxp4 )
 round( coef( nxp4, which = "ols" ), 2 )
 round( coef( nxp4, which = "grid" ), 2 )
@@ -2955,14 +2985,22 @@ print( summary( nxp4, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp4 )
 round( efficiencies( nxp4 ), 2 )
 round( efficiencies( nxp4, asInData = TRUE ), 2 )
+all.equal( efficiencies( nxp4r, asInData = TRUE ),
+   efficiencies( nxp4, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
 round( fitted( nxp4 ), 2 )
 round( residuals( nxp4 ), 2 )
 all.equal( fitted( nxp4, asInData = TRUE ) + residuals( nxp4, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp4r, asInData = TRUE ) + residuals( nxp4r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp4 )
 
 ## unbalanced panel data, efficiency effects frontier, zIntercept
 nxp5 <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
+nxp5r <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+all.equal( nxp5[ -c(40, 41) ], nxp5r[ -c(40, 41) ] )
 print( nxp5 )
 round( coef( nxp5, which = "ols" ), 2 )
 round( coef( nxp5, which = "grid" ), 2 )
@@ -2979,14 +3017,26 @@ print( summary( nxp5, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp5 )
 printME( efficiencies( nxp5, margEff = TRUE ) )
 printME( efficiencies( nxp5, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( nxp5r, asInData = TRUE ),
+   efficiencies( nxp5, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+all.equal( 
+   attr( efficiencies( nxp5r, asInData = TRUE, margEff = TRUE ), "margEff" ),
+   attr( efficiencies( nxp5, asInData = TRUE, margEff = TRUE ), "margEff" )[ 
+      !is.na( riceProdPhilPanelUnb$ynx ), ] )
 round( fitted( nxp5 ), 2 )
 round( residuals( nxp5 ), 2 )
 all.equal( fitted( nxp5, asInData = TRUE ) + residuals( nxp5, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp5r, asInData = TRUE ) + residuals( nxp5r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp5 )
 
 ## unbalanced panel data, efficiency effects frontier, zIntercept
 nxp6 <- sfa( ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
+nxp6r <- sfa( ynx ~ -1 | EDYRS + BANRAT,
+   data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
+all.equal( nxp6[ -c(40, 41) ], nxp6r[ -c(40, 41) ] )
 print( nxp6 )
 round( coef( nxp6, which = "ols" ), 2 )
 round( coef( nxp6, which = "grid" ), 2 )
@@ -3003,10 +3053,19 @@ print( summary( nxp6, effMinusU = FALSE ), digits = 1 )
 lrtest( nxp6 )
 printME( efficiencies( nxp6, margEff = TRUE ) )
 printME( efficiencies( nxp6, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( nxp6r, asInData = TRUE ),
+   efficiencies( nxp6, asInData = TRUE )[ !is.na( riceProdPhilPanelUnb$ynx ) ] )
+all.equal( 
+   attr( efficiencies( nxp6r, asInData = TRUE, margEff = TRUE ), "margEff" ),
+   attr( efficiencies( nxp6, asInData = TRUE, margEff = TRUE ), "margEff" )[ 
+      !is.na( riceProdPhilPanelUnb$ynx ), ] )
 round( fitted( nxp6 ), 2 )
 round( residuals( nxp6 ), 2 )
 all.equal( fitted( nxp6, asInData = TRUE ) + residuals( nxp6, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+all.equal( fitted( nxp6r, asInData = TRUE ) + residuals( nxp6r, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
 printAll( nxp6 )
 
 
