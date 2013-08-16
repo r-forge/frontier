@@ -2537,6 +2537,228 @@ all.equal( fitted( oi6, asInData = TRUE ) + residuals( oi6, asInData = TRUE ),
 printAll( oi6 )
 
 
+######  only an intercept as explanatory variable: unbalanced panel data  ######
+riceProdPhilPanelUnb$lProdNa <- riceProdPhilPanelUnb$lPROD
+riceProdPhilPanelUnb$lProdNa[ riceProdPhilPanelUnb$farm == "F_28" ] <- NA
+riceProdPhilPanelUnb$lProdNa[ riceProdPhilPanelUnb$year == 2002 ] <- NA
+riceProdPhilPanelUnb$lProdNa[ (1:20) * 17 ] <- NA
+
+
+## unbalanced panel data, error components frontier
+oip1 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb )
+oip1i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb )
+all.equal( oip1[ -c( 3, 7, 20, 40 ) ], oip1i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip1 )
+round( coef( oip1, which = "ols" ), 2 )
+round( coef( oip1, which = "grid" ), 2 )
+round( coef( oip1 ), 2 )
+round( coef( summary( oip1 ), which = "ols" ), 2 )
+round( coef( summary( oip1 ) ), 2 )
+round( vcov( oip1 ), 2 )
+print( logLik( oip1, which = "ols" ), digits = 4 )
+print( logLik( oip1, which = "grid" ), digits = 4 )
+print( logLik( oip1 ), digits = 4 )
+nobs( oip1 )
+print( summary( oip1 ), digits = 1 )
+print( summary( oip1, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip1 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip1 )
+round( efficiencies( oip1 ), 2 )
+round( efficiencies( oip1, asInData = TRUE ), 2 )
+all.equal( efficiencies( oip1 ), efficiencies( oip1i ) )
+all.equal( efficiencies( oip1, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oip1i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oip1 ), 2 )
+round( residuals( oip1 ), 2 )
+all.equal( fitted( oip1, asInData = TRUE ) + residuals( oip1, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip1 )
+
+## unbalanced panel data, error components frontier, truncNorm
+oip2 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
+oip2i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
+all.equal( oip2[ -c( 3, 7, 20, 40 ) ], oip2i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip2 )
+round( coef( oip2, which = "ols" ), 2 )
+round( coef( oip2, which = "grid" ), 2 )
+round( coef( oip2 ), 2 )
+round( coef( summary( oip2 ), which = "ols" ), 2 )
+round( coef( summary( oip2 ) ), 2 )
+round( vcov( oip2 ), 2 )
+print( logLik( oip2, which = "ols" ), digits = 4 )
+print( logLik( oip2, which = "grid" ), digits = 4 )
+print( logLik( oip2 ), digits = 4 )
+nobs( oip2 )
+print( summary( oip2 ), digits = 1 )
+print( summary( oip2, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip2 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip2 )
+round( efficiencies( oip2 ), 2 )
+round( efficiencies( oip2, asInData = TRUE ), 2 )
+all.equal( efficiencies( oip2 ), efficiencies( oip2i ) )
+all.equal( efficiencies( oip2, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oip2i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oip2 ), 2 )
+round( residuals( oip2 ), 2 )
+all.equal( fitted( oip2, asInData = TRUE ) + residuals( oip2, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip2 )
+
+## unbalanced panel data, error components frontier, timeEffect
+oip3 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
+oip3i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
+all.equal( oip3[ -c( 3, 7, 20, 40 ) ], oip3i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip3 )
+round( coef( oip3, which = "ols" ), 2 )
+round( coef( oip3, which = "grid" ), 2 )
+round( coef( oip3 ), 2 )
+round( coef( summary( oip3 ), which = "ols" ), 2 )
+round( coef( summary( oip3 ) ), 2 )
+round( vcov( oip3 ), 2 )
+print( logLik( oip3, which = "ols" ), digits = 4 )
+print( logLik( oip3, which = "grid" ), digits = 4 )
+print( logLik( oip3 ), digits = 4 )
+nobs( oip3 )
+print( summary( oip3 ), digits = 1 )
+print( summary( oip3, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip3 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip3 )
+round( efficiencies( oip3 ), 2 )
+round( efficiencies( oip3, asInData = TRUE ), 2 )
+all.equal( efficiencies( oip3 ), efficiencies( oip3i ) )
+all.equal( efficiencies( oip3, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oip3i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oip3 ), 2 )
+round( residuals( oip3 ), 2 )
+all.equal( fitted( oip3, asInData = TRUE ) + residuals( oip3, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip3 )
+
+## unbalanced panel data, error components frontier, truncNorm, timeEffect
+oip4 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, 
+   truncNorm = TRUE, timeEffect = TRUE )
+oip4i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, 
+   truncNorm = TRUE, timeEffect = TRUE )
+all.equal( oip4[ -c( 3, 7, 20, 40 ) ], oip4i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip4 )
+round( coef( oip4, which = "ols" ), 2 )
+round( coef( oip4, which = "grid" ), 2 )
+round( coef( oip4 ), 2 )
+round( coef( summary( oip4 ), which = "ols" ), 2 )
+round( coef( summary( oip4 ) ), 2 )
+round( vcov( oip4 ), 2 )
+print( logLik( oip4, which = "ols" ), digits = 4 )
+print( logLik( oip4, which = "grid" ), digits = 4 )
+print( logLik( oip4 ), digits = 4 )
+nobs( oip4 )
+print( summary( oip4 ), digits = 1 )
+print( summary( oip4, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip4 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip4 )
+round( efficiencies( oip4 ), 2 )
+round( efficiencies( oip4, asInData = TRUE ), 2 )
+all.equal( efficiencies( oip4 ), efficiencies( oip4i ) )
+all.equal( efficiencies( oip4, asInData = TRUE, minusU = FALSE ), 
+   efficiencies( oip4i, asInData = TRUE, minusU = FALSE ) )
+round( fitted( oip4 ), 2 )
+round( residuals( oip4 ), 2 )
+all.equal( fitted( oip4, asInData = TRUE ) + residuals( oip4, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip4 )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+oip5 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
+oip5i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
+all.equal( oip5[ -c( 3, 7, 20, 40 ) ], oip5i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip5 )
+round( coef( oip5, which = "ols" ), 2 )
+round( coef( oip5, which = "grid" ), 2 )
+round( coef( oip5 ), 2 )
+round( coef( summary( oip5 ), which = "ols" ), 2 )
+round( coef( summary( oip5 ) ), 2 )
+round( vcov( oip5 ), 2 )
+print( logLik( oip5, which = "ols" ), digits = 4 )
+print( logLik( oip5, which = "grid" ), digits = 4 )
+print( logLik( oip5 ), digits = 4 )
+nobs( oip5 )
+print( summary( oip5 ), digits = 1 )
+print( summary( oip5, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip5 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip5 )
+printME( efficiencies( oip5, margEff = TRUE ) )
+printME( efficiencies( oip5, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( oip5, margEff = TRUE ), 
+   efficiencies( oip5i, margEff = TRUE ) )
+all.equal( efficiencies( oip5, asInData = TRUE, minusU = FALSE, margEff = TRUE ), 
+   efficiencies( oip5i, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+round( fitted( oip5 ), 2 )
+round( residuals( oip5 ), 2 )
+all.equal( fitted( oip5, asInData = TRUE ) + residuals( oip5, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip5 )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+oip6 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
+oip6i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
+all.equal( oip6[ -c( 3, 7, 20, 40 ) ], oip6i[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE, tol = 1e-4 )
+print( oip6 )
+round( coef( oip6, which = "ols" ), 2 )
+round( coef( oip6, which = "grid" ), 2 )
+round( coef( oip6 ), 2 )
+round( coef( summary( oip6 ), which = "ols" ), 2 )
+round( coef( summary( oip6 ) ), 2 )
+round( vcov( oip6 ), 2 )
+print( logLik( oip6, which = "ols" ), digits = 4 )
+print( logLik( oip6, which = "grid" ), digits = 4 )
+print( logLik( oip6 ), digits = 4 )
+nobs( oip6 )
+print( summary( oip6 ), digits = 1 )
+print( summary( oip6, effMinusU = FALSE ), digits = 1 )
+all.equal( summary( oip6 )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+all.equal( summary( oip6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   summary( oip6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+   check.attributes = FALSE )
+lrtest( oip6 )
+printME( efficiencies( oip6, margEff = TRUE ) )
+printME( efficiencies( oip6, asInData = TRUE, margEff = TRUE ) )
+all.equal( efficiencies( oip6, margEff = TRUE ), 
+   efficiencies( oip6i, margEff = TRUE ) )
+all.equal( efficiencies( oip6, asInData = TRUE, minusU = FALSE, margEff = TRUE ), 
+   efficiencies( oip6i, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+round( fitted( oip6 ), 2 )
+round( residuals( oip6 ), 2 )
+all.equal( fitted( oip6, asInData = TRUE ) + residuals( oip6, asInData = TRUE ),
+   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+printAll( oip6 )
+
+
 #######  no explanatory variable  #######
 front41Data$ynx <- front41Data$logOutput - mean( front41Data$logOutput ) - 0.1
 
@@ -2636,6 +2858,156 @@ round( residuals( nx6 ), 2 )
 all.equal( fitted( nx6, asInData = TRUE ) + residuals( nx6, asInData = TRUE ),
    front41Data$ynx, check.attributes = FALSE, tol = 1e-4 )
 printAll( nx6 )
+
+
+#######  no explanatory variable  #######
+riceProdPhilPanelUnb$ynx <- riceProdPhilPanelUnb$lProdNa - 
+   mean( riceProdPhilPanelUnb$lProdNa, na.rm = TRUE ) - 0.1
+
+## unbalanced panel data, error components frontier
+nxp1 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb )
+print( nxp1 )
+round( coef( nxp1, which = "ols" ), 2 )
+round( coef( nxp1, which = "grid" ), 2 )
+round( coef( nxp1 ), 2 )
+round( coef( summary( nxp1 ), which = "ols" ), 2 )
+round( coef( summary( nxp1 ) ), 2 )
+round( vcov( nxp1 ), 2 )
+print( logLik( nxp1, which = "ols" ), digits = 4 )
+print( logLik( nxp1, which = "grid" ), digits = 4 )
+print( logLik( nxp1 ), digits = 4 )
+nobs( nxp1 )
+print( summary( nxp1 ), digits = 1 )
+print( summary( nxp1, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp1 )
+round( efficiencies( nxp1 ), 2 )
+round( efficiencies( nxp1, asInData = TRUE ), 2 )
+round( fitted( nxp1 ), 2 )
+round( residuals( nxp1 ), 2 )
+all.equal( fitted( nxp1, asInData = TRUE ) + residuals( nxp1, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp1 )
+
+## unbalanced panel data, error components frontier, truncNorm
+nxp2 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
+print( nxp2 )
+round( coef( nxp2, which = "ols" ), 2 )
+round( coef( nxp2, which = "grid" ), 2 )
+round( coef( nxp2 ), 2 )
+round( coef( summary( nxp2 ), which = "ols" ), 2 )
+round( coef( summary( nxp2 ) ), 2 )
+round( vcov( nxp2 ), 2 )
+print( logLik( nxp2, which = "ols" ), digits = 4 )
+print( logLik( nxp2, which = "grid" ), digits = 4 )
+print( logLik( nxp2 ), digits = 4 )
+nobs( nxp2 )
+print( summary( nxp2 ), digits = 1 )
+print( summary( nxp2, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp2 )
+round( efficiencies( nxp2 ), 2 )
+round( efficiencies( nxp2, asInData = TRUE ), 2 )
+round( fitted( nxp2 ), 2 )
+round( residuals( nxp2 ), 2 )
+all.equal( fitted( nxp2, asInData = TRUE ) + residuals( nxp2, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp2 )
+
+## unbalanced panel data, error components frontier, timeEffect
+nxp3 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
+print( nxp3 )
+round( coef( nxp3, which = "ols" ), 2 )
+round( coef( nxp3, which = "grid" ), 2 )
+round( coef( nxp3 ), 2 )
+round( coef( summary( nxp3 ), which = "ols" ), 2 )
+round( coef( summary( nxp3 ) ), 2 )
+round( vcov( nxp3 ), 2 )
+print( logLik( nxp3, which = "ols" ), digits = 4 )
+print( logLik( nxp3, which = "grid" ), digits = 4 )
+print( logLik( nxp3 ), digits = 4 )
+nobs( nxp3 )
+print( summary( nxp3 ), digits = 1 )
+print( summary( nxp3, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp3 )
+round( efficiencies( nxp3 ), 2 )
+round( efficiencies( nxp3, asInData = TRUE ), 2 )
+round( fitted( nxp3 ), 2 )
+round( residuals( nxp3 ), 2 )
+all.equal( fitted( nxp3, asInData = TRUE ) + residuals( nxp3, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp3 )
+
+## unbalanced panel data, error components frontier, truncNorm, timeEffect
+nxp4 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb, 
+   truncNorm = TRUE, timeEffect = TRUE )
+print( nxp4 )
+round( coef( nxp4, which = "ols" ), 2 )
+round( coef( nxp4, which = "grid" ), 2 )
+round( coef( nxp4 ), 2 )
+round( coef( summary( nxp4 ), which = "ols" ), 2 )
+round( coef( summary( nxp4 ) ), 2 )
+round( vcov( nxp4 ), 2 )
+print( logLik( nxp4, which = "ols" ), digits = 4 )
+print( logLik( nxp4, which = "grid" ), digits = 4 )
+print( logLik( nxp4 ), digits = 4 )
+nobs( nxp4 )
+print( summary( nxp4 ), digits = 1 )
+print( summary( nxp4, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp4 )
+round( efficiencies( nxp4 ), 2 )
+round( efficiencies( nxp4, asInData = TRUE ), 2 )
+round( fitted( nxp4 ), 2 )
+round( residuals( nxp4 ), 2 )
+all.equal( fitted( nxp4, asInData = TRUE ) + residuals( nxp4, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp4 )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+nxp5 <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
+print( nxp5 )
+round( coef( nxp5, which = "ols" ), 2 )
+round( coef( nxp5, which = "grid" ), 2 )
+round( coef( nxp5 ), 2 )
+round( coef( summary( nxp5 ), which = "ols" ), 2 )
+round( coef( summary( nxp5 ) ), 2 )
+round( vcov( nxp5 ), 2 )
+print( logLik( nxp5, which = "ols" ), digits = 4 )
+print( logLik( nxp5, which = "grid" ), digits = 4 )
+print( logLik( nxp5 ), digits = 4 )
+nobs( nxp5 )
+print( summary( nxp5 ), digits = 1 )
+print( summary( nxp5, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp5 )
+printME( efficiencies( nxp5, margEff = TRUE ) )
+printME( efficiencies( nxp5, asInData = TRUE, margEff = TRUE ) )
+round( fitted( nxp5 ), 2 )
+round( residuals( nxp5 ), 2 )
+all.equal( fitted( nxp5, asInData = TRUE ) + residuals( nxp5, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp5 )
+
+## unbalanced panel data, efficiency effects frontier, zIntercept
+nxp6 <- sfa( ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
+print( nxp6 )
+round( coef( nxp6, which = "ols" ), 2 )
+round( coef( nxp6, which = "grid" ), 2 )
+round( coef( nxp6 ), 2 )
+round( coef( summary( nxp6 ), which = "ols" ), 2 )
+round( coef( summary( nxp6 ) ), 2 )
+round( vcov( nxp6 ), 2 )
+print( logLik( nxp6, which = "ols" ), digits = 4 )
+print( logLik( nxp6, which = "grid" ), digits = 4 )
+print( logLik( nxp6 ), digits = 4 )
+nobs( nxp6 )
+print( summary( nxp6 ), digits = 1 )
+print( summary( nxp6, effMinusU = FALSE ), digits = 1 )
+lrtest( nxp6 )
+printME( efficiencies( nxp6, margEff = TRUE ) )
+printME( efficiencies( nxp6, asInData = TRUE, margEff = TRUE ) )
+round( fitted( nxp6 ), 2 )
+round( residuals( nxp6 ), 2 )
+all.equal( fitted( nxp6, asInData = TRUE ) + residuals( nxp6, asInData = TRUE ),
+   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+printAll( nxp6 )
 
 
 ################################################
