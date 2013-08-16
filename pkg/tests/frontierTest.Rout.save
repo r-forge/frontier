@@ -51,7 +51,7 @@ https://r-forge.r-project.org/projects/frontier/
 > printAll <- function( x ) {
 +    for( n in names( x ) ) {
 +       cat( "$", n, "\n", sep = "" )
-+       if( n %in% c( "olsParam", "gridParam", "mleParam", "olsStdEr", 
++       if( n %in% c( "olsParam", "gridAdj", "gridParam", "mleParam", "olsStdEr", 
 +             "mleCov", "resid", "fitted", "olsResid" ) ) {
 +          print( round( x[[ n ]], 2 ) )
 +       } else {
@@ -628,7 +628,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $gridParam
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
@@ -1270,7 +1270,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $gridParam
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
@@ -1794,7 +1794,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $startLogl
 [1] -23.321
@@ -2798,7 +2798,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $gridParam
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
@@ -3598,7 +3598,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $gridParam
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
@@ -4274,7 +4274,7 @@ $olsParam
        0.24        0.28        0.53        0.11 
 
 $gridAdj
-[1] 0 0 0
+[1] 1 0 0
 
 $startLogl
 [1] -25.12
@@ -6523,7 +6523,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -9117,7 +9117,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -12347,7 +12347,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -17080,7 +17080,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -18880,7 +18880,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $startLogl
 [1] -96.527
@@ -21727,7 +21727,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $startLogl
 [1] -112.79
@@ -24808,7 +24808,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -26995,7 +26995,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -31749,7 +31749,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -35020,7 +35020,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -38153,7 +38153,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -39234,7 +39234,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -40221,7 +40221,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -41212,7 +41212,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -43713,7 +43713,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -45159,7 +45159,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -46074,7 +46074,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $startLogl
 [1] -111.34
@@ -47427,7 +47427,7 @@ $olsParam
       -1.67        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $startLogl
 [1] -195.92
@@ -48700,7 +48700,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -49786,7 +49786,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -50779,7 +50779,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -51776,7 +51776,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -53938,7 +53938,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -55410,7 +55410,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -56626,7 +56626,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -57567,7 +57567,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -58517,7 +58517,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -59590,7 +59590,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -60983,7 +60983,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -63073,7 +63073,7 @@ $olsParam
       -1.68        0.33        0.38        0.28        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
@@ -64148,7 +64148,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -65097,7 +65097,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -66150,7 +66150,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -67106,7 +67106,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -69174,7 +69174,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -70588,7 +70588,7 @@ $olsParam
        6.06        0.44        0.52        0.42        0.06        0.05 
 
 $gridAdj
-[1] 0 0 0 0 0
+[1] 1 0 0 0 0
 
 $gridParam
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
@@ -71515,7 +71515,7 @@ $olsParam
       -1.44        0.37        0.32        0.29        0.10 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -72409,7 +72409,7 @@ $olsParam
       -1.44        0.37        0.32        0.29        0.10 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -73728,7 +73728,7 @@ $olsParam
       -1.44        0.37        0.31        0.30        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -75055,7 +75055,7 @@ $olsParam
       -1.44        0.37        0.31        0.30        0.11 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -76017,7 +76017,7 @@ $olsParam
       -1.92        0.28        0.43        0.29        0.12 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -76866,7 +76866,7 @@ $olsParam
       -1.92        0.28        0.43        0.29        0.12 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -78218,7 +78218,7 @@ $olsParam
       -1.86        0.28        0.42        0.29        0.12 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -79480,7 +79480,7 @@ $olsParam
       -1.86        0.28        0.42        0.29        0.12 
 
 $gridAdj
-[1] 0 0 0 0
+[1] 1 0 0 0
 
 $gridParam
 (Intercept)   log(AREA)  log(LABOR)    log(NPK)     sigmaSq       gamma 
@@ -80469,7 +80469,7 @@ $olsParam
    0.56    0.38    0.35   -0.19    0.01    0.06    0.11 
 
 $gridAdj
-[1] 0 0 0 0 0 0
+[1] 1 0 0 0 0 0
 
 $gridParam
     a_0     a_1     a_2   b_1_1   b_1_2   b_2_2 sigmaSq   gamma 
@@ -81307,7 +81307,7 @@ $olsParam
    0.44    0.38    0.38   -0.19    0.00    0.05    0.00    0.11 
 
 $gridAdj
-[1] 0 0 0 0 0 0 0
+[1] 1 0 0 0 0 0 0
 
 $gridParam
     a_0     a_1     a_2   b_1_1   b_1_2   b_2_2     d_1 sigmaSq   gamma 
@@ -82570,7 +82570,7 @@ $olsParam
    0.56    0.38    0.35   -0.19    0.01    0.06    0.11 
 
 $gridAdj
-[1] 0 0 0 0 0 0
+[1] 1 0 0 0 0 0
 
 $gridParam
     a_0     a_1     a_2   b_1_1   b_1_2   b_2_2 sigmaSq   gamma 
@@ -83226,7 +83226,7 @@ $olsParam
        2.66        0.38 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -83873,7 +83873,7 @@ $olsParam
        2.66        0.38 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -84649,7 +84649,7 @@ $olsParam
        2.66        0.38 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -85435,7 +85435,7 @@ $olsParam
        2.66        0.38 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -86293,7 +86293,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -87189,7 +87189,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -88094,7 +88094,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -89005,7 +89005,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -90356,7 +90356,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -91714,7 +91714,7 @@ $olsParam
        1.56        0.79 
 
 $gridAdj
-[1] 0
+[1] 1
 
 $gridParam
 (Intercept)     sigmaSq       gamma 
@@ -108648,4 +108648,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
-176.588   1.132 177.877 
+178.164   1.120 179.462 

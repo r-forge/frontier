@@ -354,6 +354,18 @@ sfa <- function(
    olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
    olsStdEr <- sqrt( diag( vcov( ols ) ) )
    olsLogl  <- logLik( ols )[ 1 ]
+   
+   # factors for adjusting the parameters in the grid search
+   if( nb > 0 ) {
+      gridAdj <- coef( 
+         lm( rep( 1, nrow( dataTable ) ) ~ dataTable[ , 4:( 3 + nb ) ] - 1 ) )
+   } else {
+      gridAdj <- numeric( 0 )
+   }
+   if( length( gridAdj ) != nb ) {
+      stop( "internal error: the length of 'gridAdj' is not equal to 'nb'.",
+         " Please contact the maintainer of the frontier package" )
+   }
 
    returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),
@@ -386,7 +398,7 @@ sfa <- function(
          ncol( dataTable ), dimnames = dimnames( dataTable ) ),
       nParamTotal = as.integer( nParamTotal ),
       olsParam = as.double( c( olsParam, rep( 0, 1 + mu + eta ) ) ),
-      gridAdj = as.double( rep( 0, nb ) ),
+      gridAdj = as.double( gridAdj ),
       gridParam = as.double( rep( 0, nParamTotal ) ),
       startLogl = as.double( 0 ),
       mleParam = as.double( rep( 0, nParamTotal ) ),
