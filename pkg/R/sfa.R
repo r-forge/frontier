@@ -455,7 +455,7 @@ sfa <- function(
             returnObj$mleParam[ 1:( nb + 1 ) ] )
    } else {
       if( ncol( xMat ) == 0 ) {
-         fitVal <- rep( 0, nrow( xMat ) )
+         fitVal <- rep( 0, sum( validObs ) )
       } else {
          fitVal <- drop( xMat[ validObs, , drop = FALSE ] %*% 
                returnObj$mleParam[ 1:nb ] )
