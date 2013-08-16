@@ -2493,6 +2493,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 256
+
 $olsStdEr
     a_0     a_1     a_2     a_3    a_t1    a_t2   b_1_1   b_1_2   b_1_3  b_1_t1 
    0.66    0.21    0.19    0.20    0.46    0.37    0.05    0.04    0.04    0.08 
@@ -3887,4 +3890,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  1.124   0.068   1.181 
+  1.224   0.060   1.274 

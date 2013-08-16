@@ -406,7 +406,8 @@ sfa <- function(
       mleCov = matrix( as.double( 0 ), nParamTotal, nParamTotal ),
       mleLogl = as.double( 0 ),
       nIter = as.integer( 0 ),
-      code = as.integer( 0 ) )
+      code = as.integer( 0 ),
+      nFuncEval = as.integer( 0 ) )
 
    # check if the return code indicates an error
    if( returnObj$code == 101 ) {

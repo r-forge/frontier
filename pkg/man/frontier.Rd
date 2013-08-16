@@ -249,6 +249,8 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
          the log-likelihood value obtained in the previous step;
       \code{6} = search failed on gradient step;
       \code{10} = maximum number of iterations reached.}
+   \item{nFuncEval}{Number of evaluations of the log likelihood function
+      during the grid search and the iterative ML estimation.}
    \item{fitted}{matrix. Fitted \dQuote{frontier} values
       of the dependent variable:
       each row corresponds to a cross-section;

@@ -85,14 +85,14 @@ https://r-forge.r-project.org/projects/frontier/
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-40], sa1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sa1[-41], sa1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-40], a1[-40], tol = 1e-4 )
+> all.equal( sa1[-41], a1[-41], tol = 1e-4 )
 [1] TRUE
 > sa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data )
-> all.equal( sa1i[ -c( 3, 7, 20, 40 ) ], sa1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sa1i[ -c( 3, 7, 20, 41 ) ], sa1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a1 )
@@ -188,11 +188,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.4405 
-> all.equal( summary( sa1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sa1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sa1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sa1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sa1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a1 )
@@ -655,6 +655,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 66
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -890,11 +893,11 @@ parameters
 [1]  0.47641  0.28259  0.54038  0.54776  0.90815 -1.41060
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-c(8,40)], a2[-c(8,40)], tol = 1e-4 )
+> all.equal( sa2[-c(8,41)], a2[-c(8,41)], tol = 1e-4 )
 [1] TRUE
 > sa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
 +    truncNorm = TRUE )
-> all.equal( sa2i[ -c( 3, 7, 8, 20, 40 ) ], sa2[ -c( 3, 7, 8, 20, 40 ) ], 
+> all.equal( sa2i[ -c( 3, 7, 8, 20, 41 ) ], sa2[ -c( 3, 7, 8, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a2, digits = 1 )
@@ -968,11 +971,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78903 
-> all.equal( summary( sa2 )[ -c( 3, 7, 8, 20, 40 ) ], 
-+    summary( sa2i )[ -c( 3, 7, 8, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sa2 )[ -c( 3, 7, 8, 20, 41 ) ], 
++    summary( sa2i )[ -c( 3, 7, 8, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa2, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 40 ) ], 
-+    summary( sa2i, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 40 ) ], 
+> all.equal( summary( sa2, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 41 ) ], 
++    summary( sa2i, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a2 )
@@ -1292,6 +1295,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 285
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -1478,11 +1484,11 @@ class
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-40], a5[-40], tol = 1e-4 )
+> all.equal( sa5[-41], a5[-41], tol = 1e-4 )
 [1] TRUE
 > sa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
 +    truncNorm = TRUE, startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5i[ -c( 3, 7, 21, 40 ) ], sa5[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( sa5i[ -c( 3, 7, 21, 41 ) ], sa5[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a5, digits = 1 )
@@ -1556,11 +1562,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78854 
-> all.equal( summary( sa5 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sa5i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sa5 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sa5i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa5, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( sa5, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a5 )
@@ -1806,6 +1812,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 94
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -2041,15 +2050,15 @@ log-likelihood value
 [1] -16.382
 parameters
 [1]  0.536808  0.268649  0.539341 -0.010282  0.284557  0.840089
-> all.equal( Saa1[-c(8,40)], saa1[-c(8,40)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Saa1[-c(8,41)], saa1[-c(8,41)], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-40], aa1[-40], tol = 1e-4 )
+> all.equal( saa1[-41], aa1[-41], tol = 1e-4 )
 [1] TRUE
 > saa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo - 1, 
 +    data = front41Data )
-> all.equal( saa1i[ -c( 3, 7, 20, 40 ) ], saa1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( saa1i[ -c( 3, 7, 20, 41 ) ], saa1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa1, digits = 1 )
@@ -2143,11 +2152,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.3975 
-> all.equal( summary( saa1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( saa1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( saa1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa1 )
@@ -2808,6 +2817,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 178
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -2993,11 +3005,11 @@ class
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-40], aa2[-40], tol = 1e-4 )
+> all.equal( saa2[-41], aa2[-41], tol = 1e-4 )
 [1] TRUE
 > saa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo,
 +    data = front41Data )
-> all.equal( saa2i[ -c( 3, 7, 20, 40 ) ], saa2[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( saa2i[ -c( 3, 7, 20, 41 ) ], saa2[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa2, digits = 2 )
@@ -3082,11 +3094,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( saa2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( saa2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa2 )
@@ -3613,6 +3625,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 332
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -3799,11 +3814,11 @@ class
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-40], aa5[-40], tol = 1e-4 )
+> all.equal( saa5[-41], aa5[-41], tol = 1e-4 )
 [1] TRUE
 > saa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo, 
 +    data = front41Data, startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5i[ -c( 3, 7, 21, 40 ) ], saa5[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( saa5i[ -c( 3, 7, 21, 41 ) ], saa5[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa5, digits = 2 )
@@ -3890,11 +3905,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa5 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( saa5i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( saa5 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( saa5i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa5, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( saa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( saa5, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( saa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa5 )
@@ -4279,6 +4294,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 136
+
 $olsStdEr
 (Intercept)  logCapital   logLabour 
        0.21        0.05        0.05 
@@ -4465,7 +4483,7 @@ class
 +    data = front41Data )
 > saa9i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | - 1, 
 +    data = front41Data )
-> all.equal( saa9i[ -c( 3, 7, 20, 40 ) ], aa9[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( saa9i[ -c( 3, 7, 20, 41 ) ], aa9[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( aa9 ), digits = 1 )
@@ -4491,11 +4509,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.74057 
-> all.equal( summary( aa9 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( aa9 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa9i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( aa9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( saa9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( aa9, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( saa9i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( aa9 )
@@ -4674,7 +4692,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
 > San1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1, 
 +    data = naData )
-> all.equal( San1i[ -c( 3, 7, 20, 40 ) ], San1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( San1i[ -c( 3, 7, 20, 41 ) ], San1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( San1 ), digits = 1 )
@@ -4700,11 +4718,11 @@ cross-sectional data
 total number of observations = 57 
 
 mean efficiency: 0.73415 
-> all.equal( summary( San1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( San1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( San1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( San1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( San1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( San1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( San1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( San1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( San1 )
@@ -4863,7 +4881,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 +    data = naData )
 > Saan1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1 | 
 +       firmNo - 1, data = naData )
-> all.equal( Saan1i[ -c( 3, 7, 20, 40 ) ], Saan1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( Saan1i[ -c( 3, 7, 20, 41 ) ], Saan1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( Saan1 ), digits = 1 )
@@ -4890,11 +4908,11 @@ cross-sectional data
 total number of observations = 56 
 
 mean efficiency: 0.75779 
-> all.equal( summary( Saan1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( Saan1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( Saan1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( Saan1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( Saan1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( Saan1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( Saan1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( Saan1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( Saan1 )
@@ -5182,14 +5200,14 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-40], sbb1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sbb1[-41], sbb1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-40], bb1[-40], tol = 1e-4 )
+> all.equal( sbb1[-41], bb1[-41], tol = 1e-4 )
 [1] TRUE
 > sbb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil )
-> all.equal( sbb1i[ -c( 3, 7, 20, 40 ) ], sbb1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sbb1i[ -c( 3, 7, 20, 41 ) ], sbb1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb1, digits = 1 )
@@ -5260,11 +5278,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72297 
-> all.equal( summary( sbb1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sbb1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb1 )
@@ -6515,6 +6533,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 94
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -7349,11 +7370,11 @@ class
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-40], bb2[-40], tol = 1e-4 )
+> all.equal( sbb2[-41], bb2[-41], tol = 1e-4 )
 [1] TRUE
 > sbb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil,
 +    truncNorm = TRUE )
-> all.equal( sbb2i[ -c( 3, 7, 20, 40 ) ], sbb2[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sbb2i[ -c( 3, 7, 20, 41 ) ], sbb2[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb2, digits = 1 )
@@ -7456,11 +7477,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.4033 
-> all.equal( summary( sbb2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sbb2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb2 )
@@ -9106,6 +9127,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 228
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -9939,16 +9963,16 @@ class
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-40], sbb5[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sbb5[-41], sbb5[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-40], bb5[-40], tol = 1e-4 )
+> all.equal( sbb5[-41], bb5[-41], tol = 1e-4 )
 [1] TRUE
 > sbb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhil )
-> all.equal( sbb5i[ -c( 3, 7, 20, 40 ) ], sbb5[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sbb5i[ -c( 3, 7, 20, 41 ) ], sbb5[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb5, digits = 1 )
@@ -10029,11 +10053,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.77076 
-> all.equal( summary( sbb5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sbb5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb5 )
@@ -12331,6 +12355,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 373
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -13165,11 +13192,11 @@ class
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-40], bb6[-40], tol = 1e-4 )
+> all.equal( sbb6[-41], bb6[-41], tol = 1e-4 )
 [1] TRUE
 > sbb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhil )
-> all.equal( sbb6i[ -c( 3, 7, 20, 40 ) ], sbb6[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sbb6i[ -c( 3, 7, 20, 41 ) ], sbb6[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb6, digits = 1 )
@@ -13290,11 +13317,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.375 
-> all.equal( summary( sbb6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sbb6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb6 )
@@ -17069,6 +17096,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 839
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -17904,11 +17934,11 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-40], bb7[-40], tol = 1e-4 )
+> all.equal( sbb7[-41], bb7[-41], tol = 1e-4 )
 [1] TRUE
 > sbb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil, 
 +    truncNorm = TRUE, startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7i[ -c( 3, 7, 21, 40 ) ], sbb7[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( sbb7i[ -c( 3, 7, 21, 41 ) ], sbb7[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb7, digits = 1 )
@@ -17988,11 +18018,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.76766 
-> all.equal( summary( sbb7 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sbb7i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb7 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sbb7i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb7, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sbb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( sbb7, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sbb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb7 )
@@ -18847,6 +18877,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 180
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -19684,12 +19717,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-40], bb8[-40], tol = 1e-4 )
+> all.equal( sbb8[-41], bb8[-41], tol = 1e-4 )
 [1] TRUE
 > sbb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhil, 
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8i[ -c( 3, 7, 21, 40 ) ], sbb8[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( sbb8i[ -c( 3, 7, 21, 41 ) ], sbb8[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb8, digits = 1 )
@@ -19785,11 +19818,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.78493 
-> all.equal( summary( sbb8 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sbb8i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sbb8 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sbb8i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb8, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sbb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( sbb8, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sbb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb8 )
@@ -21700,6 +21733,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 718
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -22534,7 +22570,7 @@ class
 +    data = riceProdPhil )
 > sbb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
 +    data = riceProdPhil )
-> all.equal( sbb9i[ -c( 3, 7, 20, 40 ) ], bb9[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sbb9i[ -c( 3, 7, 20, 41 ) ], bb9[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( bb9 ), digits = 1 )
@@ -22561,11 +22597,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72298 
-> all.equal( summary( bb9 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( bb9 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb9i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( bb9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sbb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( bb9, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sbb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( bb9 )
@@ -23004,15 +23040,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd1[-40], sdd1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sdd1[-41], sdd1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1[-40], dd1[-40], tol = 1e-4 )
+> all.equal( sdd1[-41], dd1[-41], tol = 1e-4 )
 [1] TRUE
 > sdd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1i[ -c( 3, 7, 20, 40 ) ], sdd1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sdd1i[ -c( 3, 7, 20, 41 ) ], sdd1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd1, digits = 1 )
@@ -23118,11 +23154,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1745 
-> all.equal( summary( sdd1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sdd1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sdd1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd1 )
@@ -24769,6 +24805,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 113
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -25602,11 +25641,11 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2[-40], dd2[-40], tol = 1e-4 )
+> all.equal( sdd2[-41], dd2[-41], tol = 1e-4 )
 [1] TRUE
 > sdd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2i[ -c( 3, 7, 20, 40 ) ], sdd2[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sdd2i[ -c( 3, 7, 20, 41 ) ], sdd2[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd2, digits = 1 )
@@ -25690,11 +25729,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1391 
-> all.equal( summary( sdd2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sdd2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sdd2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd2 )
@@ -26951,6 +26990,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 264
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -27790,7 +27832,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sdd5[-40], sdd5[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sdd5[-41], sdd5[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -27798,14 +27840,14 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd5[-40], dd5[-40], tol = 1e-4 )
+> all.equal( sdd5[-41], dd5[-41], tol = 1e-4 )
 [1] TRUE
 > sdd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
 +       EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd5i[ -c( 3, 7, 20, 40 ) ], sdd5[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sdd5i[ -c( 3, 7, 20, 41 ) ], sdd5[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd5, digits = 1 )
@@ -27929,11 +27971,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.0969 
-> all.equal( summary( sdd5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sdd5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sdd5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd5 )
@@ -31710,6 +31752,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 2632
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -32551,14 +32596,14 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd6[-40], dd6[-40], tol = 1e-4 )
+> all.equal( sdd6[-41], dd6[-41], tol = 1e-4 )
 [1] TRUE
 > sdd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
 +       EDYRS + BANRAT, data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd6i[ -c( 3, 7, 20, 40 ) ], sdd6[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sdd6i[ -c( 3, 7, 20, 41 ) ], sdd6[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd6, digits = 1 )
@@ -32606,11 +32651,11 @@ Z_EDYRS          -8.65       9.70   -0.89     0.37
 Z_BANRAT        -56.22      62.78   -0.90     0.37
 sigmaSq          10.03      10.92    0.92     0.36
 gamma             1.00       0.00  236.04     0.00
-> all.equal( summary( sdd6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( sdd6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( dd6 ), 2 )
@@ -34977,6 +35022,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 2071
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -35811,7 +35859,7 @@ class
 +    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
 > sdd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd9i[ -c( 3, 7, 20, 40 ) ], dd9[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sdd9i[ -c( 3, 7, 20, 41 ) ], dd9[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( dd9, effMinusU = FALSE ), digits = 1 )
@@ -35839,11 +35887,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1745 
-> all.equal( summary( dd9 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( dd9 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd9i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( dd9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sdd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( dd9, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sdd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( dd9 )
@@ -37229,15 +37277,15 @@ parameters
 [1] -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-c(8,40)], sb1[-c(8,40)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sb1[-c(8,41)], sb1[-c(8,41)], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-c(8,40)], b1[-c(8,40)], tol = 1e-4 )
+> all.equal( sb1[-c(8,41)], b1[-c(8,41)], tol = 1e-4 )
 [1] TRUE
 > sb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb1i[ -c( 3, 7, 8, 20, 40 ) ], sb1[ -c( 3, 7, 8, 20, 40 ) ], 
+> all.equal( sb1i[ -c( 3, 7, 8, 20, 41 ) ], sb1[ -c( 3, 7, 8, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1, digits = 1 )
@@ -37342,11 +37390,11 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.2547 
-> all.equal( summary( b1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b1 )
@@ -38085,6 +38133,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 135
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -38317,11 +38368,11 @@ class
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-40], b2[-40], tol = 1e-4 )
+> all.equal( sb2[-41], b2[-41], tol = 1e-4 )
 [1] TRUE
 > sb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE )
-> all.equal( sb2i[ -c( 3, 7, 20, 40 ) ], sb2[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb2i[ -c( 3, 7, 20, 41 ) ], sb2[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b2, digits = 1 )
@@ -38406,11 +38457,11 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.83128 
-> all.equal( summary( b2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b2 )
@@ -39163,6 +39214,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 250
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -39395,11 +39449,11 @@ class
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-40], b3[-40], tol = 1e-4 )
+> all.equal( sb3[-41], b3[-41], tol = 1e-4 )
 [1] TRUE
 > sb3i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, timeEffect = TRUE )
-> all.equal( sb3i[ -c( 3, 7, 20, 40 ) ], sb3[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb3i[ -c( 3, 7, 20, 41 ) ], sb3[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b3, digits = 1 )
@@ -39488,11 +39542,11 @@ mean efficiency of each year
 0.78484 0.79503 0.80484 0.81427 0.82332 0.83202 0.84035 0.84833 
 
 mean efficiency: 0.81787 
-> all.equal( summary( b3 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b3 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb3i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b3, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb3i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b3 )
@@ -40144,6 +40198,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 161
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -40376,11 +40433,11 @@ class
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-40], b4[-40], tol = 1e-4 )
+> all.equal( sb4[-41], b4[-41], tol = 1e-4 )
 [1] TRUE
 > sb4i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4i[ -c( 3, 7, 20, 40 ) ], sb4[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb4i[ -c( 3, 7, 20, 41 ) ], sb4[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4, digits = 1 )
@@ -40423,11 +40480,11 @@ sigmaSq         0.17       0.15    1.16     0.25
 gamma           0.52       0.41    1.27     0.20
 mu             -0.32       1.05   -0.30     0.76
 time            0.06       0.04    1.81     0.07
-> all.equal( summary( b4 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b4 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb4i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( b4 ), 2 )
@@ -41130,6 +41187,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 254
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -41730,16 +41790,16 @@ log-likelihood value
 parameters
 [1] -1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405673  0.597476
 [8]  0.944931
-> all.equal( Sb5[-c(8,40)], sb5[-c(8,40)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sb5[-c(8,41)], sb5[-c(8,41)], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-40], b5[-40], tol = 1e-4 )
+> all.equal( sb5[-41], b5[-41], tol = 1e-4 )
 [1] TRUE
 > sb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb5i[ -c( 3, 7, 20, 40 ) ], sb5[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb5i[ -c( 3, 7, 20, 41 ) ], sb5[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5, digits = 1 )
@@ -41782,11 +41842,11 @@ Z_EDYRS        -0.06       0.09   -0.67     0.51
 Z_BANRAT       -1.41       0.91   -1.55     0.12
 sigmaSq         0.60       0.31    1.94     0.05
 gamma           0.94       0.03   32.54     0.00
-> all.equal( summary( b5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( b5 ), 2 )
@@ -43625,6 +43685,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 373
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -43857,11 +43920,11 @@ class
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-40], b6[-40], tol = 1e-4 )
+> all.equal( sb6[-41], b6[-41], tol = 1e-4 )
 [1] TRUE
 > sb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT,
 +    data = riceProdPhilPanel )
-> all.equal( sb6i[ -c( 3, 7, 20, 40 ) ], sb6[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb6i[ -c( 3, 7, 20, 41 ) ], sb6[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6, digits = 1 )
@@ -43966,11 +44029,11 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b6 )
@@ -45076,6 +45139,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 860
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -45311,12 +45377,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-40], b7[-40], tol = 1e-4 )
+> all.equal( sb7[-41], b7[-41], tol = 1e-4 )
 [1] TRUE
 > sb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7i[ -c( 3, 7, 21, 40 ) ], sb7[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( sb7i[ -c( 3, 7, 21, 41 ) ], sb7[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b7, digits = 1 )
@@ -45410,11 +45476,11 @@ mean efficiency of each year
 0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
 
 mean efficiency: 0.83349 
-> all.equal( summary( b7 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sb7i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b7 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sb7i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b7, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( b7, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b7 )
@@ -45970,6 +46036,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 157
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -46205,12 +46274,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-40], b8[-40], tol = 1e-4 )
+> all.equal( sb8[-41], b8[-41], tol = 1e-4 )
 [1] TRUE
 > sb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhilPanel, 
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8i[ -c( 3, 7, 21, 40 ) ], sb8[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( sb8i[ -c( 3, 7, 21, 41 ) ], sb8[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b8, digits = 1 )
@@ -46317,11 +46386,11 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b8 )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sb8i )[ -c( 3, 7, 21, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b8 )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sb8i )[ -c( 3, 7, 21, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b8, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
-+    summary( sb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 40 ) ], 
+> all.equal( summary( b8, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
++    summary( sb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b8 )
@@ -47328,6 +47397,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 895
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -47561,7 +47633,7 @@ class
 +    data = riceProdPhilPanel )
 > sb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb9i[ -c( 3, 7, 20, 40 ) ], b9[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sb9i[ -c( 3, 7, 20, 41 ) ], b9[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( b9 ), digits = 1 )
@@ -47595,11 +47667,11 @@ mean efficiency of each year
 0.70242 0.68633 0.77094 0.74934 0.69611 0.74420 0.63266 0.80183 
 
 mean efficiency: 0.72298 
-> all.equal( summary( b9 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b9 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb9i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b9, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sb9i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b9 )
@@ -47720,15 +47792,15 @@ F_43 0.34 0.31 0.64 0.62 0.80 0.90 0.76 0.91
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-40], sd1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sd1[-41], sd1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-40], d1[-40], tol = 1e-4 )
+> all.equal( sd1[-41], d1[-41], tol = 1e-4 )
 [1] TRUE
 > sd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1i[ -c( 3, 7, 20, 40 ) ], sd1[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd1i[ -c( 3, 7, 20, 41 ) ], sd1[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d1, digits = 1 )
@@ -47773,11 +47845,11 @@ lLABORP         0.44       0.03   14.18     0.00
 lNPKP           0.09       0.05    1.72     0.09
 sigmaSq         0.07       0.02    4.64     0.00
 gamma           0.48       0.13    3.84     0.00
-> all.equal( summary( d1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( d1 ), 2 )
@@ -48589,6 +48661,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 154
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -48820,11 +48895,11 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-40], d2[-40], tol = 1e-4 )
+> all.equal( sd2[-41], d2[-41], tol = 1e-4 )
 [1] TRUE
 > sd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2i[ -c( 3, 7, 20, 40 ) ], sd2[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd2i[ -c( 3, 7, 20, 41 ) ], sd2[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d2, digits = 1 )
@@ -48870,11 +48945,11 @@ lNPKP           0.10       0.05    1.79     0.07
 sigmaSq         0.05       0.01    6.32     0.00
 gamma           0.29       0.10    2.79     0.01
 mu              0.24       0.06    3.74     0.00
-> all.equal( summary( d2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( d2 ), 2 )
@@ -49670,6 +49745,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 143
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -49902,11 +49980,11 @@ class
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-40], d3[-40], tol = 1e-4 )
+> all.equal( sd3[-41], d3[-41], tol = 1e-4 )
 [1] TRUE
 > sd3i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3i[ -c( 3, 7, 20, 40 ) ], sd3[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd3i[ -c( 3, 7, 20, 41 ) ], sd3[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d3, digits = 1 )
@@ -49952,11 +50030,11 @@ lNPKP           0.10       0.05    1.83     0.07
 sigmaSq         0.08       0.02    4.45     0.00
 gamma           0.54       0.12    4.59     0.00
 time           -0.03       0.03   -1.25     0.21
-> all.equal( summary( d3 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d3 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd3i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( d3 ), 2 )
@@ -50657,6 +50735,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 184
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -50890,12 +50971,12 @@ class
 > d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-40], d4[-40], tol = 1e-4 )
+> all.equal( sd4[-41], d4[-41], tol = 1e-4 )
 [1] TRUE
 > sd4i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sd4i[ -c( 3, 7, 20, 40 ) ], sd4[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd4i[ -c( 3, 7, 20, 41 ) ], sd4[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d4, digits = 1 )
@@ -50942,11 +51023,11 @@ sigmaSq         0.05       0.01    5.68     0.00
 gamma           0.32       0.11    2.94     0.00
 mu              0.26       0.07    3.58     0.00
 time           -0.03       0.02   -1.43     0.15
-> all.equal( summary( d4 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d4 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd4i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( d4 ), 2 )
@@ -51649,6 +51730,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 123
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -51888,7 +51972,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sd5[-40], sd5[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sd5[-41], sd5[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
@@ -51896,14 +51980,14 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd5[-40], d5[-40], tol = 1e-4 )
+> all.equal( sd5[-41], d5[-41], tol = 1e-4 )
 [1] TRUE
 > sd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
 +       EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd5i[ -c( 3, 7, 20, 40 ) ], sd5[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd5i[ -c( 3, 7, 20, 41 ) ], sd5[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d5, digits = 1 )
@@ -52041,11 +52125,11 @@ mean efficiency of each year
 1.0923 1.0993 1.0793 1.0964 1.1000 1.0980 1.1167 1.0917 
 
 mean efficiency: 1.0967 
-> all.equal( summary( d5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d5 )
@@ -53815,6 +53899,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 2869
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -54054,14 +54141,14 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd6[-40], d6[-40], tol = 1e-4 )
+> all.equal( sd6[-41], d6[-41], tol = 1e-4 )
 [1] TRUE
 > sd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
 +       EDYRS + BANRAT, data = riceProdPhilPanel, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd6i[ -c( 3, 7, 20, 40 ) ], sd6[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd6i[ -c( 3, 7, 20, 41 ) ], sd6[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d6, digits = 1 )
@@ -54109,11 +54196,11 @@ Z_EDYRS         -15.59      29.48   -0.53     0.60
 Z_BANRAT        -96.10     181.45   -0.53     0.60
 sigmaSq          17.18      32.17    0.53     0.59
 gamma             1.00       0.00  237.37     0.00
-> all.equal( summary( d6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > round( vcov( d6 ), 2 )
@@ -55283,6 +55370,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 3055
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -55515,7 +55605,7 @@ class
 +    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 > sd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd9i[ -c( 3, 7, 20, 40 ) ], d9[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( sd9i[ -c( 3, 7, 20, 41 ) ], d9[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( d9, effMinusU = FALSE ), digits = 1 )
@@ -55550,11 +55640,11 @@ mean efficiency of each year
 1.1629 1.1710 1.1493 1.1904 1.1884 1.1499 1.2125 1.1717 
 
 mean efficiency: 1.1745 
-> all.equal( summary( d9 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd9i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d9 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd9i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d9, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( sd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d9, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( sd9i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d9 )
@@ -55682,7 +55772,7 @@ F_43 1.26 1.33 1.19 1.11 1.15 1.11 1.08 1.10
 > b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
 > b1ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b1ui[ -c( 3, 7, 20, 40 ) ], b1u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b1ui[ -c( 3, 7, 20, 41 ) ], b1u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1u, digits = 1 )
@@ -55720,11 +55810,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.81812 
-> all.equal( summary( b1u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b1u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b1u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1u )
@@ -56474,6 +56564,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 133
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -56714,7 +56807,7 @@ class
 +    truncNorm = TRUE )
 > b2ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, truncNorm = TRUE )
-> all.equal( b2ui[ -c( 3, 7, 20, 40 ) ], b2u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b2ui[ -c( 3, 7, 20, 41 ) ], b2u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b2u, digits = 1 )
@@ -56755,11 +56848,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.82987 
-> all.equal( summary( b2u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b2ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b2u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b2ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b2u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b2u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b2u )
@@ -57412,6 +57505,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 245
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -57653,7 +57749,7 @@ class
 +    timeEffect = TRUE )
 > b3ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, timeEffect = TRUE )
-> all.equal( b3ui[ -c( 3, 7, 20, 40 ) ], b3u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b3ui[ -c( 3, 7, 20, 41 ) ], b3u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b3u, digits = 1 )
@@ -57698,11 +57794,11 @@ mean efficiency of each year
 0.78424 0.79438 0.80623 0.81352 0.82445 0.82847 0.83888 0.84747 
 
 mean efficiency: 0.81712 
-> all.equal( summary( b3u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b3ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b3u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b3ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b3u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b3u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b3u )
@@ -58356,6 +58452,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 160
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -58597,7 +58696,7 @@ class
 +    truncNorm = TRUE, timeEffect = TRUE )
 > b4ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ui[ -c( 3, 7, 20, 40 ) ], b4u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b4ui[ -c( 3, 7, 20, 41 ) ], b4u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4u, digits = 1 )
@@ -58676,11 +58775,11 @@ mean efficiency of each year
 1.3072 1.2838 1.2597 1.2430 1.2228 1.2126 1.1952 1.1801 
 
 mean efficiency: 1.2382 
-> all.equal( summary( b4u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b4u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b4u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4u )
@@ -59424,6 +59523,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 291
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -59665,7 +59767,7 @@ class
 +    data = riceProdPhilPanelUnb )
 > b5ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b5ui[ -c( 3, 7, 20, 40 ) ], b5u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b5ui[ -c( 3, 7, 20, 41 ) ], b5u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5u, digits = 1 )
@@ -59711,11 +59813,11 @@ mean efficiency of each year
 0.74687 0.73404 0.81640 0.79651 0.74731 0.79221 0.68164 0.83650 
 
 mean efficiency: 0.76905 
-> all.equal( summary( b5u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b5u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b5u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5u )
@@ -60811,6 +60913,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 332
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -61052,7 +61157,7 @@ class
 +    data = riceProdPhilPanelUnb )
 > b6ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b6ui[ -c( 3, 7, 20, 40 ) ], b6u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b6ui[ -c( 3, 7, 20, 41 ) ], b6u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6u, digits = 1 )
@@ -61133,11 +61238,11 @@ mean efficiency of each year
 1.4417 1.4618 1.2421 1.2861 1.3932 1.3098 1.5551 1.3378 
 
 mean efficiency: 1.3785 
-> all.equal( summary( b6u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b6u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b6u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6u )
@@ -62906,6 +63011,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 811
+
 $olsStdEr
 (Intercept)       lAREA      lLABOR        lNPK 
        0.25        0.06        0.07        0.04 
@@ -63147,7 +63255,7 @@ class
 +    ineffDecrease = FALSE )
 > d1ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
-> all.equal( d1ui[ -c( 3, 7, 20, 40 ) ], d1u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d1ui[ -c( 3, 7, 20, 41 ) ], d1u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d1u, digits = 1 )
@@ -63216,11 +63324,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.172 
-> all.equal( summary( d1u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d1ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d1u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d1ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d1u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d1u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d1ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d1u )
@@ -63965,6 +64073,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 154
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -64206,7 +64317,7 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( d2ui[ -c( 3, 7, 20, 40 ) ], d2u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d2ui[ -c( 3, 7, 20, 41 ) ], d2u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d2u, digits = 1 )
@@ -64248,11 +64359,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.2895 
-> all.equal( summary( d2u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d2ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d2u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d2ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d2u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d2u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d2ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d2u )
@@ -64909,6 +65020,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 114
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -65150,7 +65264,7 @@ class
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( d3ui[ -c( 3, 7, 20, 40 ) ], d3u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d3ui[ -c( 3, 7, 20, 41 ) ], d3u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d3u, digits = 1 )
@@ -65196,11 +65310,11 @@ mean efficiency of each year
 1.1459 1.1521 1.1565 1.1652 1.1701 1.1748 1.1900 1.1955 
 
 mean efficiency: 1.1687 
-> all.equal( summary( d3u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d3ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d3u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d3ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d3u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d3u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d3ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d3u )
@@ -65956,6 +66070,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 181
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -66198,7 +66315,7 @@ class
 > d4ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( d4ui[ -c( 3, 7, 20, 40 ) ], d4u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d4ui[ -c( 3, 7, 20, 41 ) ], d4u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d4u, digits = 1 )
@@ -66245,11 +66362,11 @@ mean efficiency of each year
 1.2621 1.2701 1.2758 1.2870 1.2931 1.3002 1.3173 1.3243 
 
 mean efficiency: 1.2912 
-> all.equal( summary( d4u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d4ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d4u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d4ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d4u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d4u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d4ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d4u )
@@ -66907,6 +67024,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 129
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -67154,7 +67274,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( d5ui[ -c( 3, 7, 20, 40 ) ], d5u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d5ui[ -c( 3, 7, 20, 41 ) ], d5u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d5u, minusU = FALSE )
@@ -67235,11 +67355,11 @@ mean efficiency of each year
 1.0943 1.1016 1.0809 1.0987 1.1023 1.1000 1.1214 1.0938 
 
 mean efficiency: 1.0991 
-> all.equal( summary( d5u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d5ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d5u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d5ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d5u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d5u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d5ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d5u )
@@ -68979,6 +69099,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 2949
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -69226,7 +69349,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( d6ui[ -c( 3, 7, 20, 40 ) ], d6u[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( d6ui[ -c( 3, 7, 20, 41 ) ], d6u[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d6u, digits = 1 )
@@ -69274,11 +69397,11 @@ mean efficiency of each year
 1.0943 1.1017 1.0811 1.0988 1.1024 1.1001 1.1217 1.0940 
 
 mean efficiency: 1.0992 
-> all.equal( summary( d6u )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d6ui )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( d6u )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d6ui )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d6u, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( d6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( d6u, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( d6ui, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d6u )
@@ -70389,6 +70512,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 3148
+
 $olsStdEr
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP 
        0.20        0.03        0.03        0.03        0.06 
@@ -70639,7 +70765,7 @@ class
 +    data = naPanelData )
 > b1ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naPanelData )
-> all.equal( b1ni[ -c( 3, 7, 20, 40 ) ], b1n[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b1ni[ -c( 3, 7, 20, 41 ) ], b1n[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1n, digits = 1 )
@@ -70677,11 +70803,11 @@ total number of observations = 308
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.8139 
-> all.equal( summary( b1n )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b1n )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ni )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b1n, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ni, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1n )
@@ -71291,6 +71417,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 100
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.26        0.07        0.07        0.04 
@@ -71518,7 +71647,7 @@ class
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
 > b4ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ni[ -c( 3, 7, 20, 40 ) ], b4n[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b4ni[ -c( 3, 7, 20, 41 ) ], b4n[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4n, digits = 1 )
@@ -71564,11 +71693,11 @@ mean efficiency of each year
 0.79352 0.80790 0.82353 0.83432 0.84813 0.85502 0.86772 0.87828 
 
 mean efficiency: 0.83842 
-> all.equal( summary( b4n )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b4n )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ni )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b4n, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ni, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4n )
@@ -72183,6 +72312,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 252
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.26        0.07        0.07        0.04 
@@ -72410,7 +72542,7 @@ class
 +    EDYRS + BANRAT - 1, data = naPanelData )
 > b5ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +    EDYRS + BANRAT - 1, data = naPanelData )
-> all.equal( b5ni[ -c( 3, 7, 20, 40 ) ], b5n[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b5ni[ -c( 3, 7, 20, 41 ) ], b5n[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5n, digits = 1 )
@@ -72456,11 +72588,11 @@ mean efficiency of each year
 0.76006 0.74574 0.82030 0.81909 0.75188 0.79792 0.68468 0.85626 
 
 mean efficiency: 0.7797 
-> all.equal( summary( b5n )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b5n )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ni )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b5n, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ni, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5n )
@@ -73505,6 +73637,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 411
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.27        0.07        0.07        0.04 
@@ -73730,7 +73865,7 @@ class
 +    EDYRS + BANRAT, data = naPanelData )
 > b6ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +       EDYRS + BANRAT, data = naPanelData )
-> all.equal( b6ni[ -c( 3, 7, 20, 40 ) ], b6n[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b6ni[ -c( 3, 7, 20, 41 ) ], b6n[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6n, digits = 1 )
@@ -73777,11 +73912,11 @@ mean efficiency of each year
 0.74848 0.73263 0.80769 0.80634 0.73822 0.78589 0.66982 0.84733 
 
 mean efficiency: 0.76727 
-> all.equal( summary( b6n )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ni )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b6n )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ni )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6n, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ni, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b6n, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ni, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6n )
@@ -74828,6 +74963,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 340
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.27        0.07        0.07        0.04 
@@ -75060,7 +75198,7 @@ class
 +    data = naTimePanelData )
 > b1ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naTimePanelData )
-> all.equal( b1ti[ -c( 3, 7, 20, 40 ) ], b1t[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b1ti[ -c( 3, 7, 20, 41 ) ], b1t[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1t, digits = 1 )
@@ -75098,11 +75236,11 @@ total number of observations = 256
 thus there are 2 observations not in the panel
 
 mean efficiency: 0.82036 
-> all.equal( summary( b1t )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b1t )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ti )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b1ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b1t, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b1ti, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1t )
@@ -75769,6 +75907,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 130
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.30        0.07        0.08        0.05 
@@ -75996,7 +76137,7 @@ class
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
 > b4ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ti[ -c( 3, 7, 20, 40 ) ], b4t[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b4ti[ -c( 3, 7, 20, 41 ) ], b4t[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4t, digits = 1 )
@@ -76042,11 +76183,11 @@ mean efficiency of each year
 0.79312 0.81064 0.82696 0.84265 0.85529 0.86912 
 
 mean efficiency: 0.83284 
-> all.equal( summary( b4t )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b4t )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ti )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b4ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b4t, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b4ti, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4t )
@@ -76616,6 +76757,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 231
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.30        0.07        0.08        0.05 
@@ -76843,7 +76987,7 @@ class
 +    EDYRS + BANRAT - 1, data = naTimePanelData )
 > b5ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +       EDYRS + BANRAT - 1, data = naTimePanelData )
-> all.equal( b5ti[ -c( 3, 7, 20, 40 ) ], b5t[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b5ti[ -c( 3, 7, 20, 41 ) ], b5t[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5t, digits = 1 )
@@ -76889,11 +77033,11 @@ mean efficiency of each year
 0.72477 0.78678 0.73764 0.66888 0.82361 
 
 mean efficiency: 0.74876 
-> all.equal( summary( b5t )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b5t )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ti )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b5ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b5t, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b5ti, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5t )
@@ -77971,6 +78115,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 250
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.33        0.08        0.09        0.05 
@@ -78198,7 +78345,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) | EDYRS + BANRAT,  :
 Warning message:
 In sfa(log(PROD) ~ ones + log(AREA) + log(LABOR) + log(NPK) - 1 |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( b6ti[ -c( 3, 7, 20, 40 ) ], b6t[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( b6ti[ -c( 3, 7, 20, 41 ) ], b6t[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6t, digits = 1 )
@@ -78245,11 +78392,11 @@ mean efficiency of each year
 0.76605 0.82337 0.78006 0.71711 0.84811 
 
 mean efficiency: 0.7873 
-> all.equal( summary( b6t )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ti )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( b6t )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ti )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6t, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( b6ti, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( b6t, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( b6ti, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6t )
@@ -79229,6 +79376,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 2257
+
 $olsStdEr
 (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
        0.33        0.08        0.09        0.05 
@@ -80199,6 +80349,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 79
+
 $olsStdEr
   a_0   a_1   a_2 b_1_1 b_1_2 b_2_2 
  0.36  0.19  0.21  0.09  0.05  0.07 
@@ -80970,6 +81123,9 @@ $nIter
 
 $code
 [1] 5
+
+$nFuncEval
+[1] 104
 
 $olsStdEr
   a_0   a_1   a_2 b_1_1 b_1_2 b_2_2   d_1 
@@ -82169,6 +82325,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 197
+
 $olsStdEr
   a_0   a_1   a_2 b_1_1 b_1_2 b_2_2 
  0.36  0.19  0.21  0.09  0.05  0.07 
@@ -82354,7 +82513,7 @@ class
 > ## cross-section data, error components frontier
 > oi1 <- sfa( logOutput ~ 1, data = front41Data )
 > oi1i <- sfa( logOutput ~ ones - 1, data = front41Data )
-> all.equal( oi1[ -c( 3, 7, 20, 40 ) ], oi1i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oi1[ -c( 3, 7, 20, 41 ) ], oi1i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi1 )
@@ -82440,11 +82599,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.4995 
-> all.equal( summary( oi1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oi1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oi1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi1 )
@@ -82811,6 +82970,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 83
+
 $olsStdEr
 (Intercept) 
        0.08 
@@ -82993,7 +83155,7 @@ class
 > ## cross-section data, error components frontier, truncNorm
 > oi2 <- sfa( logOutput ~ 1, data = front41Data, truncNorm = TRUE )
 > oi2i <- sfa( logOutput ~ ones - 1, data = front41Data, truncNorm = TRUE )
-> all.equal( oi2[ -c( 3, 7, 20, 40 ) ], oi2i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oi2[ -c( 3, 7, 20, 41 ) ], oi2i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi2 )
@@ -83081,11 +83243,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.1147 
-> all.equal( summary( oi2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oi2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oi2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi2 )
@@ -83453,6 +83615,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 146
+
 $olsStdEr
 (Intercept) 
        0.08 
@@ -83635,7 +83800,7 @@ class
 > ## cross-section data, efficiency effects frontier
 > oi5 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
 > oi5i <- sfa( logOutput ~ ones - 1 | firmNo - 1, data = front41Data )
-> all.equal( oi5[ -c( 3, 7, 20, 40 ) ], oi5i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oi5[ -c( 3, 7, 20, 41 ) ], oi5i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi5 )
@@ -83723,11 +83888,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.3524 
-> all.equal( summary( oi5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oi5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oi5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi5 )
@@ -84223,6 +84388,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 145
+
 $olsStdEr
 (Intercept) 
        0.08 
@@ -84411,7 +84579,7 @@ In sfa(logOutput ~ 1 | firmNo, data = front41Data) :
 Warning message:
 In sfa(logOutput ~ ones - 1 | firmNo, data = front41Data) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( oi6[ -c( 3, 7, 20, 40 ) ], oi6i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oi6[ -c( 3, 7, 20, 41 ) ], oi6i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi6 )
@@ -84503,11 +84671,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.0383 
-> all.equal( summary( oi6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oi6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oi6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oi6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oi6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi6 )
@@ -85004,6 +85172,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 1476
+
 $olsStdEr
 (Intercept) 
        0.08 
@@ -85194,7 +85365,7 @@ class
 > ## unbalanced panel data, error components frontier
 > oip1 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb )
 > oip1i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb )
-> all.equal( oip1[ -c( 3, 7, 20, 40 ) ], oip1i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip1[ -c( 3, 7, 20, 41 ) ], oip1i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip1 )
@@ -85284,11 +85455,11 @@ total number of observations = 277
 thus there are 17 observations not in the panel
 
 mean efficiency: 4.9385 
-> all.equal( summary( oip1 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip1i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip1 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip1i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip1, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip1i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip1, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip1i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip1 )
@@ -85854,6 +86025,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 141
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -86080,7 +86254,7 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm
 > oip2 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
 > oip2i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
-> all.equal( oip2[ -c( 3, 7, 20, 40 ) ], oip2i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip2[ -c( 3, 7, 20, 41 ) ], oip2i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip2 )
@@ -86174,11 +86348,11 @@ total number of observations = 277
 thus there are 17 observations not in the panel
 
 mean efficiency: 6.6111 
-> all.equal( summary( oip2 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip2i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip2 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip2i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip2, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip2i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip2, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip2i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip2 )
@@ -86745,6 +86919,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 265
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -86971,7 +87148,7 @@ class
 > ## unbalanced panel data, error components frontier, timeEffect
 > oip3 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
 > oip3i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
-> all.equal( oip3[ -c( 3, 7, 20, 40 ) ], oip3i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip3[ -c( 3, 7, 20, 41 ) ], oip3i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip3 )
@@ -87073,11 +87250,11 @@ mean efficiency of each year
 5.1953 4.9249 5.1743 4.8402 4.6315 4.5168 4.6945 
 
 mean efficiency: 4.8501 
-> all.equal( summary( oip3 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip3i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip3 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip3i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip3, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip3i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip3, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip3i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip3 )
@@ -87644,6 +87821,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 145
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -87872,7 +88052,7 @@ class
 +    truncNorm = TRUE, timeEffect = TRUE )
 > oip4i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( oip4[ -c( 3, 7, 20, 40 ) ], oip4i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip4[ -c( 3, 7, 20, 41 ) ], oip4i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip4 )
@@ -87978,11 +88158,11 @@ mean efficiency of each year
 6.9845 6.6200 6.9435 6.4992 6.2214 6.0663 6.2973 
 
 mean efficiency: 6.5137 
-> all.equal( summary( oip4 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip4i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip4 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip4i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip4, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip4i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip4, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip4i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip4 )
@@ -88550,6 +88730,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 320
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -88777,7 +88960,7 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > oip5 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
 > oip5i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
-> all.equal( oip5[ -c( 3, 7, 20, 40 ) ], oip5i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip5[ -c( 3, 7, 20, 41 ) ], oip5i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip5 )
@@ -88883,11 +89066,11 @@ mean efficiency of each year
 3.6367 3.5061 3.3206 3.4303 2.8888 3.4667 4.3995 
 
 mean efficiency: 3.522 
-> all.equal( summary( oip5 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip5i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip5 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip5i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip5, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip5i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip5, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip5i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip5 )
@@ -89895,6 +90078,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 175
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -90121,7 +90307,7 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > oip6 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
 > oip6i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
-> all.equal( oip6[ -c( 3, 7, 20, 40 ) ], oip6i[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( oip6[ -c( 3, 7, 20, 41 ) ], oip6i[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip6 )
@@ -90235,11 +90421,11 @@ mean efficiency of each year
 5.7514 5.5390 5.1782 5.4379 4.4645 5.5195 7.1931 
 
 mean efficiency: 5.5853 
-> all.equal( summary( oip6 )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip6i )[ -c( 3, 7, 20, 40 ) ], check.attributes = FALSE )
+> all.equal( summary( oip6 )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip6i )[ -c( 3, 7, 20, 41 ) ], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip6, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
-+    summary( oip6i, effMinusU = FALSE )[ -c( 3, 7, 20, 40 ) ], 
+> all.equal( summary( oip6, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
++    summary( oip6i, effMinusU = FALSE )[ -c( 3, 7, 20, 41 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip6 )
@@ -91250,6 +91436,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 242
+
 $olsStdEr
 (Intercept) 
        0.05 
@@ -91915,6 +92104,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 61
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -92527,6 +92719,9 @@ $nIter
 
 $code
 [1] 5
+
+$nFuncEval
+[1] 122
 
 $olsStdEr
 <0 x 0 matrix>
@@ -93271,6 +93466,9 @@ $nIter
 
 $code
 [1] 1
+
+$nFuncEval
+[1] 141
 
 $olsStdEr
 <0 x 0 matrix>
@@ -94024,6 +94222,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 248
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -94211,7 +94412,7 @@ class
 > nxp1 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb )
 > nxp1r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
-> all.equal( nxp1[ -c(40, 41) ], nxp1r[ -c(40, 41) ] )
+> all.equal( nxp1[ -c(41, 42) ], nxp1r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp1 )
 
@@ -94859,6 +95060,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 118
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -95086,7 +95290,7 @@ class
 > nxp2r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    truncNorm = TRUE )
-> all.equal( nxp2[ -c(40, 41) ], nxp2r[ -c(40, 41) ] )
+> all.equal( nxp2[ -c(41, 42) ], nxp2r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp2 )
 
@@ -95739,6 +95943,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 121
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -95966,7 +96173,7 @@ class
 > nxp3r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    timeEffect = TRUE )
-> all.equal( nxp3[ -c(40, 41) ], nxp3r[ -c(40, 41) ] )
+> all.equal( nxp3[ -c(41, 42) ], nxp3r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp3 )
 
@@ -96627,6 +96834,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 123
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -96855,7 +97065,7 @@ class
 > nxp4r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( nxp4[ -c(40, 41) ], nxp4r[ -c(40, 41) ] )
+> all.equal( nxp4[ -c(41, 42) ], nxp4r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp4 )
 
@@ -97521,6 +97731,9 @@ $nIter
 $code
 [1] 5
 
+$nFuncEval
+[1] 109
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -97748,7 +97961,7 @@ class
 > nxp5 <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
 > nxp5r <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
-> all.equal( nxp5[ -c(40, 41) ], nxp5r[ -c(40, 41) ] )
+> all.equal( nxp5[ -c(41, 42) ], nxp5r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp5 )
 
@@ -98854,6 +99067,9 @@ $nIter
 $code
 [1] 1
 
+$nFuncEval
+[1] 1375
+
 $olsStdEr
 <0 x 0 matrix>
 
@@ -99086,7 +99302,7 @@ In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb) :
 Warning message:
 In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb[!is.na(riceProdPhilPanelUnb$ynx),  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( nxp6[ -c(40, 41) ], nxp6r[ -c(40, 41) ] )
+> all.equal( nxp6[ -c(41, 42) ], nxp6r[ -c(41, 42) ] )
 [1] TRUE
 > print( nxp6 )
 
@@ -100200,6 +100416,9 @@ $nIter
 
 $code
 [1] 1
+
+$nFuncEval
+[1] 131
 
 $olsStdEr
 <0 x 0 matrix>
@@ -107339,19 +107558,19 @@ F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-40], a1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( a1a[-41], a1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( a1a )
 [1] 60
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-40], aa1[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( aa1a[-41], aa1[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-40], aa2[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( aa2a[-41], aa2[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > 
@@ -107370,7 +107589,7 @@ sfa(formula = logOutput ~ 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
         3.4          0.9          0.9  
-> all.equal( sa10[-40], a10[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( sa10[-41], a10[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa10 )
 [1] 60
@@ -107385,7 +107604,7 @@ sfa(formula = logOutput ~ logLabour, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
         1.1          0.5          0.4          0.9  
-> all.equal( sa11[-40], a11[-40], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( sa11[-41], a11[-41], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa11 )
 [1] 60
@@ -107402,7 +107621,7 @@ sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
        3.32        -0.01         1.09         0.94  
-> all.equal( saa10[-40], aa10[-40], tol = 1e-4 )
+> all.equal( saa10[-41], aa10[-41], tol = 1e-4 )
 [1] TRUE
 > nobs( saa10 )
 [1] 60
@@ -107418,7 +107637,7 @@ sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
        1.02         0.53        -0.03         0.65         0.93  
-> all.equal( saa11[-40], aa11[-40], tol = 1e-4 )
+> all.equal( saa11[-41], aa11[-41], tol = 1e-4 )
 [1] TRUE
 > nobs( saa11 )
 [1] 60
@@ -107973,4 +108192,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
-178.976   1.044 180.241 
+177.996   0.968 179.203 
