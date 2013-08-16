@@ -154,12 +154,6 @@ sfa <- function(
    mf <- eval( mf, parent.frame() )
    mt <- attr( mf, "terms" )
    xMat <- model.matrix( mt, mf )
-#    if( ncol( xMat ) > 0 && colnames( xMat )[ 1 ] == "(Intercept)" ) {
-#       xMat <- xMat[ , -1, drop = FALSE ]
-#       hasIntercept <- TRUE
-#    } else {
-      hasIntercept <- FALSE
-#    }
    xNames <- colnames( xMat )
    yVec <- model.response( mf )
    yName <- as.character( formula )[ 2 ]
@@ -187,11 +181,7 @@ sfa <- function(
 
    # exogenous variables
    dataTable <- cbind( dataTable, xMat )
-   if( hasIntercept ) {
-      paramNames <- "(Intercept)"
-   } else {
-      paramNames <- NULL
-   }
+   paramNames <- NULL
    if( nb > 0 ) {
       for( i in 1:nb ) {
          paramNames <- c( paramNames, xNames[ i ] )
@@ -337,7 +327,7 @@ sfa <- function(
    rownames( dataTable ) <- obsNames[ validObs ]
    names( validObs ) <- obsNames
 
-   nParamTotal <- hasIntercept + nb + 2 + mu + eta
+   nParamTotal <- nb + 2 + mu + eta
    if( nParamTotal > nob ) {
       stop( "the model cannot be estimated,",
          " because the number of parameters (", nParamTotal,
@@ -356,13 +346,9 @@ sfa <- function(
    }
 
    # OLS estimation
-   if( nb > 0 && hasIntercept ) {
-      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] )
-   } else if( nb > 0 && !hasIntercept ) {
+   if( nb > 0 ) {
       ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] - 1 )
-   } else if( nb == 0 && hasIntercept ) {
-      ols <- lm( dataTable[ , 3 ] ~ 1 )
-   } else if( nb == 0 && !hasIntercept ) {
+   } else if( nb == 0 ) {
       ols <- lm( dataTable[ , 3 ] ~ -1 )
    }
    olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
@@ -372,7 +358,7 @@ sfa <- function(
    returnObj <- .Fortran( "front41",
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
-      icept = as.integer( hasIntercept ),
+      icept = as.integer( 0 ),
       nn = as.integer( nn ),
       nt = as.integer( nt ),
       nob = as.integer( nob ),
@@ -451,16 +437,11 @@ sfa <- function(
    returnObj$olsLogl  <- olsLogl
 
    ## calculate fitted "frontier" values
-   if( hasIntercept ) {
-      fitVal <- drop( cbind( rep( 1, nrow( dataTable ) ), xMat[ validObs, ] ) %*%
-            returnObj$mleParam[ 1:( nb + 1 ) ] )
+   if( ncol( xMat ) == 0 ) {
+      fitVal <- rep( 0, sum( validObs ) )
    } else {
-      if( ncol( xMat ) == 0 ) {
-         fitVal <- rep( 0, sum( validObs ) )
-      } else {
-         fitVal <- drop( xMat[ validObs, , drop = FALSE ] %*% 
-               returnObj$mleParam[ 1:nb ] )
-      }
+      fitVal <- drop( xMat[ validObs, , drop = FALSE ] %*% 
+            returnObj$mleParam[ 1:nb ] )
    }
    returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )
    if( length( fitVal ) != nrow( dataTable ) ) {
@@ -553,12 +534,12 @@ sfa <- function(
    returnObj$indic <- NULL
    if( length( startVal ) == 1 ){
       if( modelType == 1 ) {
-         idx <- 1:( hasIntercept + nb + 2 )
+         idx <- 1:( nb + 2 )
       } else {
-         if( hasIntercept + nb == 0 ) {
+         if( nb == 0 ) {
             idx <- NULL
          } else {
-            idx <- 1:( hasIntercept + nb )
+            idx <- 1:nb
          }
          idx <- c( idx, ( nParamTotal - 1 ):nParamTotal )
       }
@@ -601,8 +582,8 @@ sfa <- function(
          paramNames <- c( paramNames, "time" )
       }
    }
-   if( hasIntercept + nb >= 1 ) {
-      betaNames <- paramNames[ 1:( hasIntercept + nb ) ]
+   if( nb >= 1 ) {
+      betaNames <- paramNames[ 1:nb ]
    } else {
       betaNames <- NULL
    }
