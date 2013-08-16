@@ -100424,6 +100424,190 @@ class
 [1] "frontier"
 > 
 > 
+> ###  manual intercept and changing the order of the explanatory variables  ###
+> sa1iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1, data = front41Data )
+> all.equal( coef( sa1iCap, which = "ols" )[ c(3,1,2,4) ], 
++    coef( sa1i, which = "ols" ) )
+[1] TRUE
+> all.equal( logLik( sa1iCap, which = "ols" ), logLik( sa1i, which = "ols" ) )
+[1] TRUE
+> rbind( coef( sa1iCap, which = "grid" )[ c(3,1,2,4,5) ],
++    coef( sa1i, which = "grid" ) )
+        ones logCapital logLabour sigmaSq gamma
+[1,] 0.24490    0.34016   0.53331 0.11185  0.05
+[2,] 0.58014    0.28049   0.53331 0.22067  0.80
+> rbind( logLik( sa1iCap, which = "grid" ), logLik( sa1i, which = "grid" ) )
+        [,1]
+[1,] -19.330
+[2,] -17.035
+> all.equal( coef( sa1iCap )[ c(3,1,2,4,5) ], coef( sa1i ), tol = 1e-5 )
+[1] TRUE
+> all.equal( logLik( sa1iCap ), logLik( sa1i ) )
+[1] TRUE
+> 
+> sa1iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1, data = front41Data )
+> all.equal( coef( sa1iLab, which = "ols" )[ c(3,2,1,4) ], 
++    coef( sa1i, which = "ols" ) )
+[1] TRUE
+> all.equal( logLik( sa1iLab, which = "ols" ), logLik( sa1i, which = "ols" ) )
+[1] TRUE
+> rbind( coef( sa1iLab, which = "grid" )[ c(3,2,1,4,5) ],
++    coef( sa1i, which = "grid" ) )
+        ones logCapital logLabour sigmaSq gamma
+[1,] 0.24490    0.28049   0.59297 0.11185  0.05
+[2,] 0.58014    0.28049   0.53331 0.22067  0.80
+> rbind( logLik( sa1iCap, which = "grid" ), logLik( sa1i, which = "grid" ) )
+        [,1]
+[1,] -19.330
+[2,] -17.035
+> all.equal( coef( sa1iLab )[ c(3,2,1,4,5) ], coef( sa1i ), tol = 1e-5 )
+[1] TRUE
+> all.equal( logLik( sa1iLab ), logLik( sa1i ) )
+[1] TRUE
+> 
+> sa5iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1 | firmNo - 1, 
++    data = front41Data )
+> all.equal( coef( sa5iCap, which = "ols" ), coef( sa1iCap, which = "ols" ) )
+[1] TRUE
+> all.equal( coef( sa5iCap, which = "grid" ), coef( sa1iCap, which = "grid" ) )
+[1] TRUE
+> all.equal( coef( sa5iCap )[ c(3,1,2,4,5,6) ], coef( saa1i ), tol = 1e-5 )
+[1] TRUE
+> 
+> sa5iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1 | firmNo - 1, 
++    data = front41Data )
+> all.equal( coef( sa5iLab, which = "ols" ), coef( sa1iLab, which = "ols" ) )
+[1] TRUE
+> all.equal( coef( sa5iLab, which = "grid" ), coef( sa1iLab, which = "grid" ) )
+[1] TRUE
+> all.equal( coef( sa5iLab )[ c(3,2,1,4,5,6) ], coef( saa1i ), tol = 1e-5 )
+[1] TRUE
+> 
+> ###  no intercept at all and changing the order of the explanatory variables  ###
+> front41Data$mlogOutput <- front41Data$logOutput - mean( front41Data$logOutput )
+> 
+> sa1iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1, data = front41Data )
+> summary( sa1iLabCap )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 6 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+           Estimate Std. Error z value Pr(>|z|)    
+logLabour    0.1102     0.0410    2.69   0.0072 ** 
+logCapital   0.1237     0.0643    1.92   0.0544 .  
+sigmaSq      0.4982     0.0905    5.50  3.8e-08 ***
+gamma        0.8628     0.3317    2.60   0.0093 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -41.224 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.61574 
+> coef( sa1iLabCap, which = "ols" )
+ logLabour logCapital    sigmaSq 
+ -0.010404   0.108175   0.362939 
+> logLik( sa1iLabCap, which = "ols" )
+'log Lik.' -53.714 (df=3)
+> coef( sa1iLabCap, which = "grid" )
+ logLabour logCapital    sigmaSq      gamma 
+  0.096996   0.108175   0.362376   0.050000 
+> logLik( sa1iLabCap, which = "grid" )
+'log Lik.' -60.533 (df=4)
+> coef( sa1iLabCap )
+ logLabour logCapital    sigmaSq      gamma 
+   0.11023    0.12373    0.49817    0.86277 
+> logLik( sa1iLabCap  )
+'log Lik.' -41.224 (df=4)
+> 
+> sa1iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1, data = front41Data )
+> summary( sa1iCapLab )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 16 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+           Estimate Std. Error z value Pr(>|z|)    
+logCapital   0.1965     0.0764    2.57  0.01007 *  
+logLabour    0.1052     0.0286    3.68  0.00023 ***
+sigmaSq      0.6787     0.1461    4.65  3.4e-06 ***
+gamma        0.9505     0.0367   25.87  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -39.671 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.57231 
+> coef( sa1iCapLab, which = "ols" )
+logCapital  logLabour    sigmaSq 
+  0.108175  -0.010404   0.362939 
+> all.equal( coef( sa1iCapLab, which = "ols" )[ c(2,1,3) ], 
++    coef( sa1iLabCap, which = "ols" ) )
+[1] TRUE
+> logLik( sa1iCapLab, which = "ols" )
+'log Lik.' -53.714 (df=3)
+> all.equal( logLik( sa1iCapLab, which = "ols" ), 
++    logLik( sa1iCapLab, which = "ols" ) )
+[1] TRUE
+> coef( sa1iCapLab, which = "grid" )
+logCapital  logLabour    sigmaSq      gamma 
+  0.226215  -0.010404   0.364775   0.060000 
+> rbind( coef( sa1iCapLab, which = "grid" )[ c(2,1,3,4) ],
++    coef( sa1iLabCap, which = "grid" ) )
+     logLabour logCapital sigmaSq gamma
+[1,] -0.010404    0.22622 0.36477  0.06
+[2,]  0.096996    0.10818 0.36238  0.05
+> logLik( sa1iCapLab, which = "grid" )
+'log Lik.' -52.736 (df=4)
+> rbind( logLik( sa1iCapLab, which = "grid" ), 
++    logLik( sa1iLabCap, which = "grid" ) )
+        [,1]
+[1,] -52.736
+[2,] -60.533
+> coef( sa1iCapLab )
+logCapital  logLabour    sigmaSq      gamma 
+   0.19649    0.10517    0.67868    0.95045 
+> rbind( coef( sa1iCapLab )[ c(2,1,3,4) ], coef( sa1iLabCap ) )
+     logLabour logCapital sigmaSq   gamma
+[1,]   0.10517    0.19649 0.67868 0.95045
+[2,]   0.11023    0.12373 0.49817 0.86277
+> logLik( sa1iCapLab )
+'log Lik.' -39.671 (df=4)
+> rbind( logLik( sa1iCapLab ), logLik( sa1iLabCap ) )
+        [,1]
+[1,] -39.671
+[2,] -41.224
+> 
+> sa5iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1 | firmNo - 1, 
++    data = front41Data )
+> all.equal( coef( sa5iCapLab, which = "ols" ), coef( sa1iCapLab, which = "ols" ) )
+[1] TRUE
+> all.equal( coef( sa5iCapLab, which = "grid" ), coef( sa1iCapLab, which = "grid" ) )
+[1] TRUE
+> coef( sa5iCapLab )
+logCapital  logLabour   Z_firmNo    sigmaSq      gamma 
+0.19693242 0.10519190 0.00019874 0.67558467 0.95037159 
+> 
+> sa5iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1 | firmNo - 1, 
++    data = front41Data )
+> all.equal( coef( sa5iLabCap, which = "ols" ), coef( sa1iLabCap, which = "ols" ) )
+[1] TRUE
+> all.equal( coef( sa5iLabCap, which = "grid" ), coef( sa1iLabCap, which = "grid" ) )
+[1] TRUE
+> all.equal( coef( sa5iLabCap )[ c(2,1,3,4,5) ], coef( sa5iCapLab ), tol = 1e-5 )
+[1] TRUE
+> 
+> 
 > ################################################
 > ## endogenous variable (seemingly) NOT logged ##
 > ################################################
@@ -107789,4 +107973,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 41.280   0.868  42.196 
+178.976   1.044 180.241 

@@ -3069,6 +3069,83 @@ all.equal( fitted( nxp6r, asInData = TRUE ) + residuals( nxp6r, asInData = TRUE 
 printAll( nxp6 )
 
 
+###  manual intercept and changing the order of the explanatory variables  ###
+sa1iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1, data = front41Data )
+all.equal( coef( sa1iCap, which = "ols" )[ c(3,1,2,4) ], 
+   coef( sa1i, which = "ols" ) )
+all.equal( logLik( sa1iCap, which = "ols" ), logLik( sa1i, which = "ols" ) )
+rbind( coef( sa1iCap, which = "grid" )[ c(3,1,2,4,5) ],
+   coef( sa1i, which = "grid" ) )
+rbind( logLik( sa1iCap, which = "grid" ), logLik( sa1i, which = "grid" ) )
+all.equal( coef( sa1iCap )[ c(3,1,2,4,5) ], coef( sa1i ), tol = 1e-5 )
+all.equal( logLik( sa1iCap ), logLik( sa1i ) )
+
+sa1iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1, data = front41Data )
+all.equal( coef( sa1iLab, which = "ols" )[ c(3,2,1,4) ], 
+   coef( sa1i, which = "ols" ) )
+all.equal( logLik( sa1iLab, which = "ols" ), logLik( sa1i, which = "ols" ) )
+rbind( coef( sa1iLab, which = "grid" )[ c(3,2,1,4,5) ],
+   coef( sa1i, which = "grid" ) )
+rbind( logLik( sa1iCap, which = "grid" ), logLik( sa1i, which = "grid" ) )
+all.equal( coef( sa1iLab )[ c(3,2,1,4,5) ], coef( sa1i ), tol = 1e-5 )
+all.equal( logLik( sa1iLab ), logLik( sa1i ) )
+
+sa5iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1 | firmNo - 1, 
+   data = front41Data )
+all.equal( coef( sa5iCap, which = "ols" ), coef( sa1iCap, which = "ols" ) )
+all.equal( coef( sa5iCap, which = "grid" ), coef( sa1iCap, which = "grid" ) )
+all.equal( coef( sa5iCap )[ c(3,1,2,4,5,6) ], coef( saa1i ), tol = 1e-5 )
+
+sa5iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1 | firmNo - 1, 
+   data = front41Data )
+all.equal( coef( sa5iLab, which = "ols" ), coef( sa1iLab, which = "ols" ) )
+all.equal( coef( sa5iLab, which = "grid" ), coef( sa1iLab, which = "grid" ) )
+all.equal( coef( sa5iLab )[ c(3,2,1,4,5,6) ], coef( saa1i ), tol = 1e-5 )
+
+###  no intercept at all and changing the order of the explanatory variables  ###
+front41Data$mlogOutput <- front41Data$logOutput - mean( front41Data$logOutput )
+
+sa1iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1, data = front41Data )
+summary( sa1iLabCap )
+coef( sa1iLabCap, which = "ols" )
+logLik( sa1iLabCap, which = "ols" )
+coef( sa1iLabCap, which = "grid" )
+logLik( sa1iLabCap, which = "grid" )
+coef( sa1iLabCap )
+logLik( sa1iLabCap  )
+
+sa1iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1, data = front41Data )
+summary( sa1iCapLab )
+coef( sa1iCapLab, which = "ols" )
+all.equal( coef( sa1iCapLab, which = "ols" )[ c(2,1,3) ], 
+   coef( sa1iLabCap, which = "ols" ) )
+logLik( sa1iCapLab, which = "ols" )
+all.equal( logLik( sa1iCapLab, which = "ols" ), 
+   logLik( sa1iCapLab, which = "ols" ) )
+coef( sa1iCapLab, which = "grid" )
+rbind( coef( sa1iCapLab, which = "grid" )[ c(2,1,3,4) ],
+   coef( sa1iLabCap, which = "grid" ) )
+logLik( sa1iCapLab, which = "grid" )
+rbind( logLik( sa1iCapLab, which = "grid" ), 
+   logLik( sa1iLabCap, which = "grid" ) )
+coef( sa1iCapLab )
+rbind( coef( sa1iCapLab )[ c(2,1,3,4) ], coef( sa1iLabCap ) )
+logLik( sa1iCapLab )
+rbind( logLik( sa1iCapLab ), logLik( sa1iLabCap ) )
+
+sa5iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1 | firmNo - 1, 
+   data = front41Data )
+all.equal( coef( sa5iCapLab, which = "ols" ), coef( sa1iCapLab, which = "ols" ) )
+all.equal( coef( sa5iCapLab, which = "grid" ), coef( sa1iCapLab, which = "grid" ) )
+coef( sa5iCapLab )
+
+sa5iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1 | firmNo - 1, 
+   data = front41Data )
+all.equal( coef( sa5iLabCap, which = "ols" ), coef( sa1iLabCap, which = "ols" ) )
+all.equal( coef( sa5iLabCap, which = "grid" ), coef( sa1iLabCap, which = "grid" ) )
+all.equal( coef( sa5iLabCap )[ c(2,1,3,4,5) ], coef( sa5iCapLab ), tol = 1e-5 )
+
+
 ################################################
 ## endogenous variable (seemingly) NOT logged ##
 ################################################
