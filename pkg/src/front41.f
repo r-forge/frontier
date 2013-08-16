@@ -6,7 +6,7 @@
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, bmuArg,
      $  mrestartArg, frestartArg, nrestartArg,
      $  nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, gb, startLogl, y, h, fmleLogl,
+     $  nParamTotal, ob, ga, gb, startLogl, y, h, fmleLogl,
      $  nIter, icodeArg, nfunctArg )
 c       FRONTIER version 4.1d by Tim Coelli.   
 c       (with a very few contributions by Arne Henningsen)
@@ -44,6 +44,7 @@ c            for the specific combination of time and individual exists)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
       dimension ob(nParamTotal)
+      dimension ga(nbArg)
       dimension gb(nParamTotal)
       dimension y(nParamTotal)
       dimension h(nParamTotal,nParamTotal)

@@ -386,6 +386,7 @@ sfa <- function(
          ncol( dataTable ), dimnames = dimnames( dataTable ) ),
       nParamTotal = as.integer( nParamTotal ),
       olsParam = as.double( c( olsParam, rep( 0, 1 + mu + eta ) ) ),
+      gridAdj = as.double( rep( 0, nb ) ),
       gridParam = as.double( rep( 0, nParamTotal ) ),
       startLogl = as.double( 0 ),
       mleParam = as.double( rep( 0, nParamTotal ) ),
