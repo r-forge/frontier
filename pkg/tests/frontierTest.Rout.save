@@ -150,6 +150,15 @@ logCapital         0.00          0      0.00    0.00  0.00
 logLabour         -0.01          0      0.00    0.00  0.00
 sigmaSq            0.00          0      0.00    0.00  0.01
 gamma              0.01          0      0.00    0.01  0.02
+> round( vcov( a1, extraPar = TRUE ), 2 )
+            (Intercept) logCapital logLabour sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)        0.04          0     -0.01    0.00  0.01     0.01        0
+logCapital         0.00          0      0.00    0.00  0.00     0.00        0
+logLabour         -0.01          0      0.00    0.00  0.00     0.00        0
+sigmaSq            0.00          0      0.00    0.00  0.01     0.00        0
+gamma              0.01          0      0.00    0.01  0.02     0.01        0
+sigmaSqU           0.01          0      0.00    0.00  0.01     0.01        0
+sigmaSqV           0.00          0      0.00    0.00  0.00     0.00        0
 > print( logLik( a1, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a1, which = "grid" ), digits = 4 )
@@ -970,6 +979,25 @@ logLabour         -0.01          0      0.00    0.00  0.00 -0.01
 sigmaSq           -0.03          0      0.00    0.39  0.07 -1.60
 gamma              0.00          0      0.00    0.07  0.01 -0.29
 mu                 0.16          0     -0.01   -1.60 -0.29  6.75
+> round( vcov( a2, extraPar = TRUE ), 2 )
+            (Intercept) logCapital logLabour sigmaSq gamma    mu sigmaSqU
+(Intercept)        0.05          0     -0.01   -0.03  0.00  0.16    -0.03
+logCapital         0.00          0      0.00    0.00  0.00  0.00     0.00
+logLabour         -0.01          0      0.00    0.00  0.00 -0.01     0.00
+sigmaSq           -0.03          0      0.00    0.39  0.07 -1.60     0.39
+gamma              0.00          0      0.00    0.07  0.01 -0.29     0.07
+mu                 0.16          0     -0.01   -1.60 -0.29  6.75    -1.61
+sigmaSqU          -0.03          0      0.00    0.39  0.07 -1.61     0.40
+sigmaSqV           0.00          0      0.00    0.00  0.00  0.01     0.00
+            sigmaSqV
+(Intercept)     0.00
+logCapital      0.00
+logLabour       0.00
+sigmaSq         0.00
+gamma           0.00
+mu              0.01
+sigmaSqU        0.00
+sigmaSqV        0.00
 > print( logLik( a2, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a2 ), digits = 4 )
@@ -1571,6 +1599,25 @@ logLabour         -0.01       0.00      0.00    0.00  0.00 -0.01
 sigmaSq           -0.05       0.00      0.00    0.62  0.10 -2.53
 gamma              0.00       0.00      0.00    0.10  0.02 -0.41
 mu                 0.24      -0.01     -0.01   -2.53 -0.41 10.73
+> round( vcov( a5, extraPar = TRUE ), 2 )
+            (Intercept) logCapital logLabour sigmaSq gamma    mu sigmaSqU
+(Intercept)        0.04       0.00     -0.01   -0.05  0.00  0.24    -0.05
+logCapital         0.00       0.00      0.00    0.00  0.00 -0.01     0.00
+logLabour         -0.01       0.00      0.00    0.00  0.00 -0.01     0.00
+sigmaSq           -0.05       0.00      0.00    0.62  0.10 -2.53     0.62
+gamma              0.00       0.00      0.00    0.10  0.02 -0.41     0.11
+mu                 0.24      -0.01     -0.01   -2.53 -0.41 10.73    -2.52
+sigmaSqU          -0.05       0.00      0.00    0.62  0.11 -2.52     0.62
+sigmaSqV           0.00       0.00      0.00    0.00  0.00 -0.01     0.00
+            sigmaSqV
+(Intercept)     0.00
+logCapital      0.00
+logLabour       0.00
+sigmaSq         0.00
+gamma           0.00
+mu             -0.01
+sigmaSqU        0.00
+sigmaSqV        0.00
 > print( logLik( a5, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a5 ), digits = 4 )
@@ -2154,6 +2201,25 @@ logLabour         -0.01          0      0.00        0    0.00  0.00
 Z_firmNo           0.00          0      0.00        0    0.00  0.00
 sigmaSq            0.00          0      0.00        0    0.01  0.01
 gamma              0.01          0      0.00        0    0.01  0.01
+> round( vcov( aa1, extraPar = TRUE ), 2 )
+            (Intercept) logCapital logLabour Z_firmNo sigmaSq gamma sigmaSqU
+(Intercept)        0.04          0     -0.01        0    0.00  0.01     0.00
+logCapital         0.00          0      0.00        0    0.00  0.00     0.00
+logLabour         -0.01          0      0.00        0    0.00  0.00     0.00
+Z_firmNo           0.00          0      0.00        0    0.00  0.00     0.00
+sigmaSq            0.00          0      0.00        0    0.01  0.01     0.02
+gamma              0.01          0      0.00        0    0.01  0.01     0.01
+sigmaSqU           0.00          0      0.00        0    0.02  0.01     0.02
+sigmaSqV           0.00          0      0.00        0    0.00  0.00     0.00
+            sigmaSqV
+(Intercept)        0
+logCapital         0
+logLabour          0
+Z_firmNo           0
+sigmaSq            0
+gamma              0
+sigmaSqU           0
+sigmaSqV           0
 > nobs( aa1 )
 [1] 60
 > print( summary( aa1 ), digits = 1 )
@@ -3132,6 +3198,27 @@ Z_(Intercept) -0.52
 Z_firmNo      -0.01
 sigmaSq        0.17
 gamma          0.05
+> round( vcov( aa2, extraPar = TRUE ), 2 )
+              (Intercept) logCapital logLabour Z_(Intercept) Z_firmNo sigmaSq
+(Intercept)          0.05       0.00     -0.01          0.31     0.00   -0.09
+logCapital           0.00       0.00      0.00         -0.02     0.00    0.01
+logLabour           -0.01       0.00      0.00         -0.01     0.00    0.00
+Z_(Intercept)        0.31      -0.02     -0.01          6.49     0.06   -2.02
+Z_firmNo             0.00       0.00      0.00          0.06     0.00   -0.02
+sigmaSq             -0.09       0.01      0.00         -2.02    -0.02    0.66
+gamma               -0.02       0.00      0.00         -0.52    -0.01    0.17
+sigmaSqU            -0.09       0.01      0.00         -2.00    -0.02    0.65
+sigmaSqV             0.00       0.00      0.00         -0.02     0.00    0.01
+              gamma sigmaSqU sigmaSqV
+(Intercept)   -0.02    -0.09     0.00
+logCapital     0.00     0.01     0.00
+logLabour      0.00     0.00     0.00
+Z_(Intercept) -0.52    -2.00    -0.02
+Z_firmNo      -0.01    -0.02     0.00
+sigmaSq        0.17     0.65     0.01
+gamma          0.05     0.17     0.00
+sigmaSqU       0.17     0.65     0.01
+sigmaSqV       0.00     0.01     0.00
 > nobs( aa2 )
 [1] 60
 > print( summary( aa2 ), digits = 1 )
@@ -3953,6 +4040,27 @@ Z_(Intercept) -0.49
 Z_firmNo      -0.01
 sigmaSq        0.16
 gamma          0.05
+> round( vcov( aa5, extraPar = TRUE ), 2 )
+              (Intercept) logCapital logLabour Z_(Intercept) Z_firmNo sigmaSq
+(Intercept)          0.05       0.00     -0.01          0.28     0.00   -0.08
+logCapital           0.00       0.00      0.00         -0.02     0.00    0.00
+logLabour           -0.01       0.00      0.00         -0.01     0.00    0.00
+Z_(Intercept)        0.28      -0.02     -0.01          6.13     0.06   -1.91
+Z_firmNo             0.00       0.00      0.00          0.06     0.00   -0.02
+sigmaSq             -0.08       0.00      0.00         -1.91    -0.02    0.62
+gamma               -0.02       0.00      0.00         -0.49    -0.01    0.16
+sigmaSqU            -0.08       0.00      0.00         -1.89    -0.02    0.62
+sigmaSqV             0.00       0.00      0.00         -0.02     0.00    0.01
+              gamma sigmaSqU sigmaSqV
+(Intercept)   -0.02    -0.08     0.00
+logCapital     0.00     0.00     0.00
+logLabour      0.00     0.00     0.00
+Z_(Intercept) -0.49    -1.89    -0.02
+Z_firmNo      -0.01    -0.02     0.00
+sigmaSq        0.16     0.62     0.01
+gamma          0.05     0.16     0.00
+sigmaSqU       0.16     0.61     0.01
+sigmaSqV       0.00     0.01     0.00
 > nobs( aa5 )
 [1] 60
 > print( summary( aa5 ), digits = 1 )
@@ -5340,6 +5448,16 @@ lLABOR            -0.01  0.00   0.00    0       0     0
 lNPK               0.00  0.00   0.00    0       0     0
 sigmaSq            0.00  0.00   0.00    0       0     0
 gamma              0.00  0.00   0.00    0       0     0
+> round( vcov( bb1, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)        0.06  0.01  -0.01    0       0     0        0        0
+lAREA              0.01  0.00   0.00    0       0     0        0        0
+lLABOR            -0.01  0.00   0.00    0       0     0        0        0
+lNPK               0.00  0.00   0.00    0       0     0        0        0
+sigmaSq            0.00  0.00   0.00    0       0     0        0        0
+gamma              0.00  0.00   0.00    0       0     0        0        0
+sigmaSqU           0.00  0.00   0.00    0       0     0        0        0
+sigmaSqV           0.00  0.00   0.00    0       0     0        0        0
 > nobs( bb1 )
 [1] 344
 > print( summary( bb1 ), digits = 1 )
@@ -7526,6 +7644,17 @@ lNPK               0.00  0.00   0.00    0    0.00  0.00  0.00
 sigmaSq           -0.01  0.00   0.00    0    0.09  0.01 -0.32
 gamma              0.00  0.00   0.00    0    0.01  0.00 -0.03
 mu                 0.04  0.01   0.00    0   -0.32 -0.03  1.12
+> round( vcov( bb2, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu sigmaSqU sigmaSqV
+(Intercept)        0.05  0.01  -0.01    0   -0.01  0.00  0.04    -0.01        0
+lAREA              0.01  0.00   0.00    0    0.00  0.00  0.01     0.00        0
+lLABOR            -0.01  0.00   0.00    0    0.00  0.00  0.00     0.00        0
+lNPK               0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
+sigmaSq           -0.01  0.00   0.00    0    0.09  0.01 -0.32     0.09        0
+gamma              0.00  0.00   0.00    0    0.01  0.00 -0.03     0.01        0
+mu                 0.04  0.01   0.00    0   -0.32 -0.03  1.12    -0.32        0
+sigmaSqU          -0.01  0.00   0.00    0    0.09  0.01 -0.32     0.09        0
+sigmaSqV           0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
 > nobs( bb2 )
 [1] 344
 > print( summary( bb2 ), digits = 1 )
@@ -10139,6 +10268,29 @@ Z_EDYRS            0.00  0.00   0.00    0    0.01     0.05   -0.02  0.00
 Z_BANRAT           0.00  0.00   0.00    0    0.05     0.72   -0.22 -0.02
 sigmaSq            0.00  0.00   0.00    0   -0.02    -0.22    0.08  0.01
 gamma              0.00  0.00   0.00    0    0.00    -0.02    0.01  0.00
+> round( vcov( bb5, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK Z_EDYRS Z_BANRAT sigmaSq gamma
+(Intercept)        0.06  0.01  -0.01    0    0.00     0.00    0.00  0.00
+lAREA              0.01  0.00   0.00    0    0.00     0.00    0.00  0.00
+lLABOR            -0.01  0.00   0.00    0    0.00     0.00    0.00  0.00
+lNPK               0.00  0.00   0.00    0    0.00     0.00    0.00  0.00
+Z_EDYRS            0.00  0.00   0.00    0    0.01     0.05   -0.02  0.00
+Z_BANRAT           0.00  0.00   0.00    0    0.05     0.72   -0.22 -0.02
+sigmaSq            0.00  0.00   0.00    0   -0.02    -0.22    0.08  0.01
+gamma              0.00  0.00   0.00    0    0.00    -0.02    0.01  0.00
+sigmaSqU           0.00  0.00   0.00    0   -0.02    -0.21    0.08  0.01
+sigmaSqV           0.00  0.00   0.00    0    0.00     0.00    0.00  0.00
+            sigmaSqU sigmaSqV
+(Intercept)     0.00        0
+lAREA           0.00        0
+lLABOR          0.00        0
+lNPK            0.00        0
+Z_EDYRS        -0.02        0
+Z_BANRAT       -0.21        0
+sigmaSq         0.08        0
+gamma           0.01        0
+sigmaSqU        0.08        0
+sigmaSqV        0.00        0
 > nobs( bb5 )
 [1] 344
 > print( summary( bb5 ), digits = 1 )
@@ -13390,6 +13542,31 @@ Z_EDYRS         -0.11  0.00
 Z_BANRAT       -29.72 -0.36
 sigmaSq         13.73  0.17
 gamma            0.17  0.00
+> round( vcov( bb6, extraPar = TRUE ), 2 )
+              (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
+(Intercept)          0.06  0.01  -0.01  0.00          0.41    0.00     0.36
+lAREA                0.01  0.00   0.00  0.00          0.05    0.00     0.03
+lLABOR              -0.01  0.00   0.00  0.00         -0.03    0.00    -0.03
+lNPK                 0.00  0.00   0.00  0.00         -0.02    0.00    -0.01
+Z_(Intercept)        0.41  0.05  -0.03 -0.02         72.60   -0.05    66.48
+Z_EDYRS              0.00  0.00   0.00  0.00         -0.05    0.05     0.21
+Z_BANRAT             0.36  0.03  -0.03 -0.01         66.48    0.21    65.93
+sigmaSq             -0.17 -0.02   0.01  0.01        -30.95   -0.11   -29.72
+gamma                0.00  0.00   0.00  0.00         -0.38    0.00    -0.36
+sigmaSqU            -0.17 -0.02   0.01  0.01        -30.92   -0.11   -29.69
+sigmaSqV             0.00  0.00   0.00  0.00         -0.03    0.00    -0.03
+              sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)     -0.17  0.00    -0.17     0.00
+lAREA           -0.02  0.00    -0.02     0.00
+lLABOR           0.01  0.00     0.01     0.00
+lNPK             0.01  0.00     0.01     0.00
+Z_(Intercept)  -30.95 -0.38   -30.92    -0.03
+Z_EDYRS         -0.11  0.00    -0.11     0.00
+Z_BANRAT       -29.72 -0.36   -29.69    -0.03
+sigmaSq         13.73  0.17    13.72     0.01
+gamma            0.17  0.00     0.17     0.00
+sigmaSqU        13.72  0.17    13.71     0.01
+sigmaSqV         0.01  0.00     0.01     0.00
 > nobs( bb6 )
 [1] 344
 > print( summary( bb6 ), digits = 1 )
@@ -18130,6 +18307,17 @@ lNPK               0.00  0.00   0.00    0    0.00  0.00  0.00
 sigmaSq            0.01  0.00   0.00    0    0.05  0.00 -0.17
 gamma              0.00  0.00   0.00    0    0.00  0.00 -0.01
 mu                -0.03  0.00   0.01    0   -0.17 -0.01  0.58
+> round( vcov( bb7, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu sigmaSqU sigmaSqV
+(Intercept)        0.06  0.01  -0.01    0    0.01  0.00 -0.03     0.01        0
+lAREA              0.01  0.00   0.00    0    0.00  0.00  0.00     0.00        0
+lLABOR            -0.01  0.00   0.00    0    0.00  0.00  0.01     0.00        0
+lNPK               0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
+sigmaSq            0.01  0.00   0.00    0    0.05  0.00 -0.17     0.05        0
+gamma              0.00  0.00   0.00    0    0.00  0.00 -0.01     0.00        0
+mu                -0.03  0.00   0.01    0   -0.17 -0.01  0.58    -0.17        0
+sigmaSqU           0.01  0.00   0.00    0    0.05  0.00 -0.17     0.05        0
+sigmaSqV           0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
 > nobs( bb7 )
 [1] 344
 > print( summary( bb7 ), digits = 1 )
@@ -19940,6 +20128,31 @@ Z_EDYRS         -0.14  0.00
 Z_BANRAT       -27.00 -0.33
 sigmaSq         12.48  0.15
 gamma            0.15  0.00
+> round( vcov( bb8, extraPar = TRUE ), 2 )
+              (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
+(Intercept)          0.06  0.01  -0.01  0.00          0.33    0.00     0.27
+lAREA                0.01  0.00   0.00  0.00          0.03    0.00     0.02
+lLABOR              -0.01  0.00   0.00  0.00         -0.03    0.00    -0.02
+lNPK                 0.00  0.00   0.00  0.00         -0.01    0.00    -0.01
+Z_(Intercept)        0.33  0.03  -0.03 -0.01         64.87    0.03    59.76
+Z_EDYRS              0.00  0.00   0.00  0.00          0.03    0.04     0.27
+Z_BANRAT             0.27  0.02  -0.02 -0.01         59.76    0.27    59.50
+sigmaSq             -0.14 -0.01   0.01  0.00        -27.91   -0.14   -27.00
+gamma                0.00  0.00   0.00  0.00         -0.34    0.00    -0.33
+sigmaSqU            -0.14 -0.01   0.01  0.00        -27.89   -0.14   -26.98
+sigmaSqV             0.00  0.00   0.00  0.00         -0.02    0.00    -0.02
+              sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)     -0.14  0.00    -0.14     0.00
+lAREA           -0.01  0.00    -0.01     0.00
+lLABOR           0.01  0.00     0.01     0.00
+lNPK             0.00  0.00     0.00     0.00
+Z_(Intercept)  -27.91 -0.34   -27.89    -0.02
+Z_EDYRS         -0.14  0.00    -0.14     0.00
+Z_BANRAT       -27.00 -0.33   -26.98    -0.02
+sigmaSq         12.48  0.15    12.47     0.01
+gamma            0.15  0.00     0.15     0.00
+sigmaSqU        12.47  0.15    12.46     0.01
+sigmaSqV         0.01  0.00     0.01     0.00
 > nobs( bb8 )
 [1] 344
 > print( summary( bb8 ), digits = 1 )
@@ -23266,6 +23479,27 @@ lLABORP            0.00     0     0       0  0.00       0  0.00
 lNPKP             -0.01     0     0       0  0.00       0  0.00
 sigmaSq            0.00     0     0       0  0.00       0  0.00
 gamma             -0.01     0     0       0  0.00       0  0.04
+> round( vcov( dd1, extraPar = TRUE ), 2 )
+            (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma sigmaSqU
+(Intercept)        0.04     0     0       0 -0.01       0 -0.01        0
+lPROD              0.00     0     0       0  0.00       0  0.00        0
+lAREA              0.00     0     0       0  0.00       0  0.00        0
+lLABORP            0.00     0     0       0  0.00       0  0.00        0
+lNPKP             -0.01     0     0       0  0.00       0  0.00        0
+sigmaSq            0.00     0     0       0  0.00       0  0.00        0
+gamma             -0.01     0     0       0  0.00       0  0.04        0
+sigmaSqU           0.00     0     0       0  0.00       0  0.00        0
+sigmaSqV           0.00     0     0       0  0.00       0  0.00        0
+            sigmaSqV
+(Intercept)        0
+lPROD              0
+lAREA              0
+lLABORP            0
+lNPKP              0
+sigmaSq            0
+gamma              0
+sigmaSqU           0
+sigmaSqV           0
 > nobs( dd1 )
 [1] 344
 > print( summary( dd1 ), digits = 1 )
@@ -25878,6 +26112,29 @@ lNPKP             -0.01     0     0       0  0.00    0.00  0.00  0.00
 sigmaSq            0.00     0     0       0  0.00    0.00  0.01 -0.02
 gamma              0.00     0     0       0  0.00    0.01  0.01 -0.04
 mu                 0.00     0     0       0  0.00   -0.02 -0.04  0.20
+> round( vcov( dd2, extraPar = TRUE ), 2 )
+            (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma    mu sigmaSqU
+(Intercept)        0.04     0     0       0 -0.01    0.00  0.00  0.00     0.00
+lPROD              0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
+lAREA              0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
+lLABORP            0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
+lNPKP             -0.01     0     0       0  0.00    0.00  0.00  0.00     0.00
+sigmaSq            0.00     0     0       0  0.00    0.00  0.01 -0.02     0.00
+gamma              0.00     0     0       0  0.00    0.01  0.01 -0.04     0.01
+mu                 0.00     0     0       0  0.00   -0.02 -0.04  0.20    -0.02
+sigmaSqU           0.00     0     0       0  0.00    0.00  0.01 -0.02     0.00
+sigmaSqV           0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
+            sigmaSqV
+(Intercept)        0
+lPROD              0
+lAREA              0
+lLABORP            0
+lNPKP              0
+sigmaSq            0
+gamma              0
+mu                 0
+sigmaSqU           0
+sigmaSqV           0
 > nobs( dd2 )
 [1] 344
 > print( summary( dd2, effMinusU = FALSE ), digits = 1 )
@@ -28105,6 +28362,31 @@ Z_EDYRS     -0.29
 Z_BANRAT    -1.93
 sigmaSq      0.28
 gamma        0.00
+> round( vcov( dd5, extraPar = TRUE ), 2 )
+            (Intercept) lPROD lAREA lLABORP lNPKP  Z_EDYRS Z_BANRAT  sigmaSq
+(Intercept)        0.04  0.00  0.00    0.00 -0.01    -0.05    -0.35     0.05
+lPROD              0.00  0.00  0.00    0.00  0.00    -0.02    -0.17     0.02
+lAREA              0.00  0.00  0.00    0.00  0.00     0.00    -0.01     0.00
+lLABORP            0.00  0.00  0.00    0.00  0.00     0.03     0.22    -0.03
+lNPKP             -0.01  0.00  0.00    0.00  0.00    -0.04    -0.25     0.04
+Z_EDYRS           -0.05 -0.02  0.00    0.03 -0.04  1137.33  7643.96 -1127.77
+Z_BANRAT          -0.35 -0.17 -0.01    0.22 -0.25  7643.96 51374.96 -7579.70
+sigmaSq            0.05  0.02  0.00   -0.03  0.04 -1127.77 -7579.70  1118.29
+gamma              0.00  0.00  0.00    0.00  0.00    -0.29    -1.93     0.28
+sigmaSqU           0.05  0.02  0.00   -0.03  0.04 -1127.88 -7580.47  1118.40
+sigmaSqV           0.00  0.00  0.00    0.00  0.00     0.11     0.77    -0.11
+            gamma sigmaSqU sigmaSqV
+(Intercept)  0.00     0.05     0.00
+lPROD        0.00     0.02     0.00
+lAREA        0.00     0.00     0.00
+lLABORP      0.00    -0.03     0.00
+lNPKP        0.00     0.04     0.00
+Z_EDYRS     -0.29 -1127.88     0.11
+Z_BANRAT    -1.93 -7580.47     0.77
+sigmaSq      0.28  1118.40    -0.11
+gamma        0.00     0.28     0.00
+sigmaSqU     0.28  1118.51    -0.11
+sigmaSqV     0.00    -0.11     0.00
 > nobs( dd5 )
 [1] 344
 > print( summary( dd5 ), digits = 1 )
@@ -32886,6 +33168,33 @@ Z_EDYRS        3917.53  -685.48 -0.08
 Z_BANRAT      24484.14 -4284.19 -0.52
 sigmaSq       -4284.19   749.64  0.09
 gamma            -0.52     0.09  0.00
+> round( vcov( dd6, extraPar = TRUE ), 2 )
+              (Intercept) lPROD lAREA lLABORP lNPKP Z_(Intercept) Z_EDYRS
+(Intercept)          0.03  0.00  0.00    0.00 -0.01          0.89    1.05
+lPROD                0.00  0.00  0.00    0.00  0.00         -0.21   -0.25
+lAREA                0.00  0.00  0.00    0.00  0.00          0.29    0.35
+lLABORP              0.00  0.00  0.00    0.00  0.00         -0.12   -0.14
+lNPKP               -0.01  0.00  0.00    0.00  0.00         -0.10   -0.12
+Z_(Intercept)        0.89 -0.21  0.29   -0.12 -0.10        444.53  527.82
+Z_EDYRS              1.05 -0.25  0.35   -0.14 -0.12        527.82  626.82
+Z_BANRAT             6.59 -1.57  2.19   -0.86 -0.74       3298.83 3917.53
+sigmaSq             -1.15  0.28 -0.38    0.15  0.13       -577.23 -685.48
+gamma                0.00  0.00  0.00    0.00  0.00         -0.07   -0.08
+sigmaSqU            -1.15  0.28 -0.38    0.15  0.13       -577.26 -685.52
+sigmaSqV             0.00  0.00  0.00    0.00  0.00          0.03    0.04
+              Z_BANRAT  sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)       6.59    -1.15  0.00    -1.15     0.00
+lPROD            -1.57     0.28  0.00     0.28     0.00
+lAREA             2.19    -0.38  0.00    -0.38     0.00
+lLABORP          -0.86     0.15  0.00     0.15     0.00
+lNPKP            -0.74     0.13  0.00     0.13     0.00
+Z_(Intercept)  3298.83  -577.23 -0.07  -577.26     0.03
+Z_EDYRS        3917.53  -685.48 -0.08  -685.52     0.04
+Z_BANRAT      24484.14 -4284.19 -0.52 -4284.42     0.23
+sigmaSq       -4284.19   749.64  0.09   749.68    -0.04
+gamma            -0.52     0.09  0.00     0.09     0.00
+sigmaSqU      -4284.42   749.68  0.09   749.72    -0.04
+sigmaSqV          0.23    -0.04  0.00    -0.04     0.00
 > nobs( dd6 )
 [1] 344
 > print( summary( dd6, effMinusU = FALSE ), digits = 1 )
@@ -37549,6 +37858,16 @@ lLABOR            -0.01  0.00   0.00    0       0  0.00
 lNPK               0.00  0.00   0.00    0       0  0.00
 sigmaSq            0.00  0.00   0.00    0       0  0.00
 gamma              0.01  0.00   0.00    0       0  0.01
+> round( vcov( b1, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)        0.08  0.02  -0.01    0       0  0.01        0        0
+lAREA              0.02  0.00   0.00    0       0  0.00        0        0
+lLABOR            -0.01  0.00   0.00    0       0  0.00        0        0
+lNPK               0.00  0.00   0.00    0       0  0.00        0        0
+sigmaSq            0.00  0.00   0.00    0       0  0.00        0        0
+gamma              0.01  0.00   0.00    0       0  0.01        0        0
+sigmaSqU           0.00  0.00   0.00    0       0  0.00        0        0
+sigmaSqV           0.00  0.00   0.00    0       0  0.00        0        0
 > print( logLik( b1, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b1 ), digits = 4 )
@@ -38655,6 +38974,17 @@ lNPK               0.00  0.00   0.00 0.00    0.00  0.00  0.01
 sigmaSq            0.01  0.00   0.00 0.00    0.03  0.06 -0.16
 gamma              0.01  0.00   0.00 0.00    0.06  0.13 -0.32
 mu                -0.02  0.00   0.00 0.01   -0.16 -0.32  0.86
+> round( vcov( b2, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu sigmaSqU sigmaSqV
+(Intercept)        0.08  0.02  -0.01 0.00    0.01  0.01 -0.02     0.01        0
+lAREA              0.02  0.00   0.00 0.00    0.00  0.00  0.00     0.00        0
+lLABOR            -0.01  0.00   0.00 0.00    0.00  0.00  0.00     0.00        0
+lNPK               0.00  0.00   0.00 0.00    0.00  0.00  0.01     0.00        0
+sigmaSq            0.01  0.00   0.00 0.00    0.03  0.06 -0.16     0.03        0
+gamma              0.01  0.00   0.00 0.00    0.06  0.13 -0.32     0.06        0
+mu                -0.02  0.00   0.00 0.01   -0.16 -0.32  0.86    -0.16        0
+sigmaSqU           0.01  0.00   0.00 0.00    0.03  0.06 -0.16     0.03        0
+sigmaSqV           0.00  0.00   0.00 0.00    0.00  0.00  0.00     0.00        0
 > print( logLik( b2, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b2 ), digits = 4 )
@@ -39749,6 +40079,17 @@ lNPK              -0.01  0.00   0.00  0.00       0  0.00    0
 sigmaSq            0.00  0.00   0.00  0.00       0  0.00    0
 gamma              0.01  0.00   0.00  0.00       0  0.01    0
 time               0.00  0.00   0.00  0.00       0  0.00    0
+> round( vcov( b3, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR  lNPK sigmaSq gamma time sigmaSqU sigmaSqV
+(Intercept)        0.08  0.02  -0.01 -0.01       0  0.01    0        0        0
+lAREA              0.02  0.00   0.00  0.00       0  0.00    0        0        0
+lLABOR            -0.01  0.00   0.00  0.00       0  0.00    0        0        0
+lNPK              -0.01  0.00   0.00  0.00       0  0.00    0        0        0
+sigmaSq            0.00  0.00   0.00  0.00       0  0.00    0        0        0
+gamma              0.01  0.00   0.00  0.00       0  0.01    0        0        0
+time               0.00  0.00   0.00  0.00       0  0.00    0        0        0
+sigmaSqU           0.00  0.00   0.00  0.00       0  0.00    0        0        0
+sigmaSqV           0.00  0.00   0.00  0.00       0  0.00    0        0        0
 > print( logLik( b3, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b3 ), digits = 4 )
@@ -40755,6 +41096,29 @@ sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.15  0.00
 gamma              0.01  0.00   0.00  0.00    0.06  0.17 -0.42  0.00
 mu                -0.01  0.00   0.00  0.00   -0.15 -0.42  1.10 -0.01
 time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00
+> round( vcov( b4, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR  lNPK sigmaSq gamma    mu  time sigmaSqU
+(Intercept)        0.08  0.02  -0.01 -0.01    0.00  0.01 -0.01  0.00     0.00
+lAREA              0.02  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+lLABOR            -0.01  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+lNPK              -0.01  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.15  0.00     0.02
+gamma              0.01  0.00   0.00  0.00    0.06  0.17 -0.42  0.00     0.06
+mu                -0.01  0.00   0.00  0.00   -0.15 -0.42  1.10 -0.01    -0.15
+time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00     0.00
+sigmaSqU           0.00  0.00   0.00  0.00    0.02  0.06 -0.15  0.00     0.02
+sigmaSqV           0.00  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+            sigmaSqV
+(Intercept)        0
+lAREA              0
+lLABOR             0
+lNPK               0
+sigmaSq            0
+gamma              0
+mu                 0
+time               0
+sigmaSqU           0
+sigmaSqV           0
 > print( logLik( b4, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b4 ), digits = 4 )
@@ -42130,6 +42494,29 @@ Z_EDYRS            0.00  0.00   0.00    0    0.01     0.05   -0.02  0.00
 Z_BANRAT           0.00  0.00   0.00    0    0.05     0.72   -0.22 -0.02
 sigmaSq            0.00  0.00   0.00    0   -0.02    -0.22    0.08  0.01
 gamma              0.00  0.00   0.00    0    0.00    -0.02    0.01  0.00
+> round( vcov( b5, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR lNPK Z_EDYRS Z_BANRAT sigmaSq gamma
+(Intercept)        0.06  0.01  -0.01    0    0.00     0.00    0.00  0.00
+lAREA              0.01  0.00   0.00    0    0.00     0.00    0.00  0.00
+lLABOR            -0.01  0.00   0.00    0    0.00     0.00    0.00  0.00
+lNPK               0.00  0.00   0.00    0    0.00     0.00    0.00  0.00
+Z_EDYRS            0.00  0.00   0.00    0    0.01     0.05   -0.02  0.00
+Z_BANRAT           0.00  0.00   0.00    0    0.05     0.72   -0.22 -0.02
+sigmaSq            0.00  0.00   0.00    0   -0.02    -0.22    0.08  0.01
+gamma              0.00  0.00   0.00    0    0.00    -0.02    0.01  0.00
+sigmaSqU           0.00  0.00   0.00    0   -0.02    -0.21    0.08  0.01
+sigmaSqV           0.00  0.00   0.00    0    0.00     0.00    0.00  0.00
+            sigmaSqU sigmaSqV
+(Intercept)     0.00        0
+lAREA           0.00        0
+lLABOR          0.00        0
+lNPK            0.00        0
+Z_EDYRS        -0.02        0
+Z_BANRAT       -0.21        0
+sigmaSq         0.08        0
+gamma           0.01        0
+sigmaSqU        0.08        0
+sigmaSqV        0.00        0
 > print( logLik( b5, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b5 ), digits = 4 )
@@ -44275,6 +44662,31 @@ Z_EDYRS         -0.12  0.00
 Z_BANRAT       -29.55 -0.36
 sigmaSq         13.66  0.17
 gamma            0.17  0.00
+> round( vcov( b6, extraPar = TRUE ), 2 )
+              (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
+(Intercept)          0.06  0.01  -0.01  0.00          0.41    0.00     0.35
+lAREA                0.01  0.00   0.00  0.00          0.04    0.00     0.03
+lLABOR              -0.01  0.00   0.00  0.00         -0.03    0.00    -0.03
+lNPK                 0.00  0.00   0.00  0.00         -0.02    0.00    -0.01
+Z_(Intercept)        0.41  0.04  -0.03 -0.02         72.24   -0.05    66.11
+Z_EDYRS              0.00  0.00   0.00  0.00         -0.05    0.05     0.21
+Z_BANRAT             0.35  0.03  -0.03 -0.01         66.11    0.21    65.56
+sigmaSq             -0.16 -0.02   0.01  0.01        -30.78   -0.12   -29.55
+gamma                0.00  0.00   0.00  0.00         -0.37    0.00    -0.36
+sigmaSqU            -0.16 -0.02   0.01  0.01        -30.75   -0.12   -29.52
+sigmaSqV             0.00  0.00   0.00  0.00         -0.03    0.00    -0.03
+              sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)     -0.16  0.00    -0.16     0.00
+lAREA           -0.02  0.00    -0.02     0.00
+lLABOR           0.01  0.00     0.01     0.00
+lNPK             0.01  0.00     0.01     0.00
+Z_(Intercept)  -30.78 -0.37   -30.75    -0.03
+Z_EDYRS         -0.12  0.00    -0.12     0.00
+Z_BANRAT       -29.55 -0.36   -29.52    -0.03
+sigmaSq         13.66  0.17    13.65     0.01
+gamma            0.17  0.00     0.17     0.00
+sigmaSqU        13.65  0.17    13.64     0.01
+sigmaSqV         0.01  0.00     0.01     0.00
 > print( logLik( b6, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b6 ), digits = 4 )
@@ -45733,6 +46145,29 @@ sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.16  0.00
 gamma              0.01  0.00   0.00  0.00    0.06  0.18 -0.44  0.00
 mu                -0.01  0.00   0.00  0.01   -0.16 -0.44  1.14 -0.01
 time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00
+> round( vcov( b7, extraPar = TRUE ), 2 )
+            (Intercept) lAREA lLABOR  lNPK sigmaSq gamma    mu  time sigmaSqU
+(Intercept)        0.08  0.02  -0.01 -0.01    0.00  0.01 -0.01  0.00     0.00
+lAREA              0.02  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+lLABOR            -0.01  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+lNPK              -0.01  0.00   0.00  0.00    0.00  0.00  0.01  0.00     0.00
+sigmaSq            0.00  0.00   0.00  0.00    0.02  0.06 -0.16  0.00     0.02
+gamma              0.01  0.00   0.00  0.00    0.06  0.18 -0.44  0.00     0.06
+mu                -0.01  0.00   0.00  0.01   -0.16 -0.44  1.14 -0.01    -0.16
+time               0.00  0.00   0.00  0.00    0.00  0.00 -0.01  0.00     0.00
+sigmaSqU           0.00  0.00   0.00  0.00    0.02  0.06 -0.16  0.00     0.02
+sigmaSqV           0.00  0.00   0.00  0.00    0.00  0.00  0.00  0.00     0.00
+            sigmaSqV
+(Intercept)        0
+lAREA              0
+lLABOR             0
+lNPK               0
+sigmaSq            0
+gamma              0
+mu                 0
+time               0
+sigmaSqU           0
+sigmaSqV           0
 > print( logLik( b7, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b7 ), digits = 4 )
@@ -46654,6 +47089,31 @@ Z_EDYRS         -0.12  0.00
 Z_BANRAT       -26.88 -0.33
 sigmaSq         12.43  0.15
 gamma            0.15  0.00
+> round( vcov( b8, extraPar = TRUE ), 2 )
+              (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
+(Intercept)          0.06  0.01  -0.01  0.00          0.37    0.00     0.31
+lAREA                0.01  0.00   0.00  0.00          0.04    0.00     0.02
+lLABOR              -0.01  0.00   0.00  0.00         -0.03    0.00    -0.02
+lNPK                 0.00  0.00   0.00  0.00         -0.02    0.00    -0.01
+Z_(Intercept)        0.37  0.04  -0.03 -0.02         65.88   -0.04    60.09
+Z_EDYRS              0.00  0.00   0.00  0.00         -0.04    0.04     0.21
+Z_BANRAT             0.31  0.02  -0.02 -0.01         60.09    0.21    59.69
+sigmaSq             -0.14 -0.02   0.01  0.00        -28.02   -0.12   -26.88
+gamma                0.00  0.00   0.00  0.00         -0.34    0.00    -0.33
+sigmaSqU            -0.14 -0.02   0.01  0.00        -28.00   -0.12   -26.85
+sigmaSqV             0.00  0.00   0.00  0.00         -0.03    0.00    -0.02
+              sigmaSq gamma sigmaSqU sigmaSqV
+(Intercept)     -0.14  0.00    -0.14     0.00
+lAREA           -0.02  0.00    -0.02     0.00
+lLABOR           0.01  0.00     0.01     0.00
+lNPK             0.00  0.00     0.00     0.00
+Z_(Intercept)  -28.02 -0.34   -28.00    -0.03
+Z_EDYRS         -0.12  0.00    -0.12     0.00
+Z_BANRAT       -26.88 -0.33   -26.85    -0.02
+sigmaSq         12.43  0.15    12.42     0.01
+gamma            0.15  0.00     0.15     0.00
+sigmaSqU        12.42  0.15    12.41     0.01
+sigmaSqV         0.01  0.00     0.01     0.00
 > print( logLik( b8, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b8 ), digits = 4 )
@@ -108893,4 +109353,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 43.108   0.956  44.114 
+ 42.420   0.732  43.202 
