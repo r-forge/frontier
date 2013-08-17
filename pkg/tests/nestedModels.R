@@ -108,11 +108,11 @@ all.equal( sb6eef[-42], b6eef[-42], tol = 1e-3 )
 all.equal( b6eef[ -c( 4, 5, 20, 33, 34, 42 ) ], bb6eef[ -c( 4, 5, 20, 33, 34, 42 ) ], 
    tol = 1e-3 )
 all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ), tol = 1e-3 )
-all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ), tol = 1e-3 )
+all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ), tol = 5e-3 )
 
 # Comparisons
 round( rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
 all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ), 
    tol = 1e-3 )
-all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ), tol = 1e-3 )
+all.equal( c( residuals( b6ecf ) ), c( t( residuals( b6eef ) ) ), tol = 5e-3 )
 

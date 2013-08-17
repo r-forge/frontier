@@ -67,17 +67,17 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
-Iterative ML estimation terminated after 47 iterations:
+Iterative ML estimation terminated after 52 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
              Estimate Std. Error z value Pr(>|z|)    
-(Intercept)     2e-01      6e-01     0.4      0.7    
+(Intercept)     2e-01      7e-01     0.3      0.7    
 log(capital)    3e-01      5e-02     6.0    2e-09 ***
-log(labour)     5e-01      5e-02    10.9   <2e-16 ***
-sigmaSq         1e-01      2e-02     5.6    2e-08 ***
-gamma           1e-05      2e-02     0.0      1.0    
+log(labour)     5e-01      5e-02    11.0   <2e-16 ***
+sigmaSq         1e-01      2e-02     5.7    1e-08 ***
+gamma           9e-06      2e-02     0.0      1.0    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -18.447 
@@ -85,7 +85,7 @@ log likelihood value: -18.447
 cross-sectional data
 total number of observations = 60 
 
-mean efficiency: 1.001 
+mean efficiency: 1.0008 
 > lrtest( a1 )
 Likelihood ratio test
 
@@ -308,4 +308,4 @@ Model 2: Error Components Frontier (ECF)
 > 
 > proc.time()
    user  system elapsed 
-  1.192   0.052   1.233 
+  1.264   0.044   1.302 

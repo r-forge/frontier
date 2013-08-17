@@ -79,7 +79,7 @@ c            for the specific combination of time and individual exists)
       nfunct=0   
       ndrv=0 
       call info( nStartVal, startVal, nRowData, nColData, dataTable,
-     $  nParamTotal, ob, gb, fxs, y, h )
+     $  nParamTotal, ob, ga, gb, fxs, y, h )
       startLogl = -fxs
       fmleLogl = -fx
       nIter = iter
@@ -88,7 +88,7 @@ c            for the specific combination of time and individual exists)
       nfunctArg = nfunct
       end
  
-      subroutine mini(yy,xx,sv,ob,gb,fxs,y,h)
+      subroutine mini(yy,xx,sv,ob,ga,gb,fxs,y,h)
 c       contains the main loop of this iterative program. 
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
@@ -96,7 +96,7 @@ c       contains the main loop of this iterative program.
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/four/frestart,mrestart,nrestart
       dimension yy(nn,nt),xx(nn,nt,nr),sv(n)
-      dimension ob(n),gb(n),x(:),y(n),s(:)
+      dimension ob(n),ga(nb),gb(n),x(:),y(n),s(:)
       dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
       allocatable :: x,s,delx,delg,gx,gy
       allocate(x(n),s(n))
@@ -107,7 +107,7 @@ c       contains the main loop of this iterative program.
       delx(i)=dble(0)  
   98    continue
   107 if ((igrid.eq.1).and.(nrestart.eq.0)) then
-      call grid(x,y,yy,xx,ob,gb)  
+      call grid(x,y,yy,xx,ob,ga,gb)  
       if (im.eq.1) call fun1(gb,fxs,yy,xx)
       if (im.eq.2) call fun2(gb,fxs,yy,xx)
       else   
@@ -749,7 +749,7 @@ c       i.e. e = y - x ' b
  
       subroutine info( nStartVal, startVal,
      $  nRowData, nColData, dataTable, 
-     $  nParamTotal, ob, gb, fxs, y, h )
+     $  nParamTotal, ob, ga, gb, fxs, y, h )
 c       accepts instructions from the terminal or from a file and 
 c       also reads data from a file.  
       implicit double precision (a-h,o-z)
@@ -759,6 +759,7 @@ c       also reads data from a file.
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
       dimension ob(nParamTotal)
+      dimension ga(nb)
       dimension gb(nParamTotal)
       dimension y(nParamTotal)
       dimension h(nParamTotal,nParamTotal)
@@ -868,28 +869,27 @@ c       also reads data from a file.
       return
       end if
   149   continue   
-      call mini(yy,xx,sv,ob,gb,fxs,y,h)
+      call mini(yy,xx,sv,ob,ga,gb,fxs,y,h)
       deallocate(yy,xx,mm,sv,xxd)
       return 
       end
 
 
  
-      subroutine grid(x,y,yy,xx,ob,gb)
+      subroutine grid(x,y,yy,xx,ob,ga,gb)
 c       does a grid search across gamma
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
-      dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),gb(n)
+      dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),ga(nb),gb(n)
       data pi/3.1415926/ 
       n1=nb+nz+1
       n2=nb+nz+2
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       var=ob(nb+1)*dble(nob-nb)/dble(nob)
-      b0=ob(1)   
       do 131 i=1,nb+1
       y(i)=ob(i) 
   131   continue   
@@ -905,7 +905,11 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      if (nb.gt.0) y(1)=b0+c*sc
+      if (nb.gt.0) then
+      do 139 i=1,nb
+      y(i)=ob(i)+ga(i)*c*sc
+  139 continue   
+      endif
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
@@ -925,7 +929,11 @@ c       does a grid search across gamma
       y(n2)=y6   
       y(n1)=var/(dble(1)-dble(2)*y(n2)/pi) 
       c=(y(n2)*y(n1)*2/pi)**dble(0.5)  
-      if (nb.gt.0) y(1)=b0+c*sc
+      if (nb.gt.0) then
+      do 144 i=1,nb
+      y(i)=ob(i)+ga(i)*c*sc
+  144 continue   
+      endif
       if (im.eq.1) call fun1(y,fy,yy,xx) 
       if (im.eq.2) call fun2(y,fy,yy,xx) 
       if(fy.lt.fx) then  
