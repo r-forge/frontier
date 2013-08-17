@@ -3073,6 +3073,7 @@ printAll( nxp6 )
 front41Data$tens <- 10
 sa1iTens <- sfa( logOutput ~ tens + logCapital + logLabour - 1, 
    data = front41Data )
+round( sa1iTens$gridAdj, 3 )
 all.equal( coef( sa1iTens, which = "ols" ) * c( 10, 1, 1, 1 ), 
    coef( sa1i, which = "ols" ), check.attributes = FALSE )
 rbind( coef( sa1iTens, which = "grid" ) * c( 10, 1, 1, 1, 1 ), 
@@ -3083,6 +3084,7 @@ all.equal( coef( sa1iTens ) * c( 10, 1, 1, 1, 1 ), coef( sa1i ),
 front41Data$hundreds <- 100
 sa1iHundreds <- sfa( logOutput ~ hundreds + logCapital + logLabour - 1, 
    data = front41Data )
+round( sa1iHundreds$gridAdj, 3 )
 all.equal( coef( sa1iHundreds, which = "ols" ) * c( 100, 1, 1, 1 ), 
    coef( sa1i, which = "ols" ), check.attributes = FALSE )
 rbind( coef( sa1iHundreds, which = "grid" ) * c( 100, 1, 1, 1, 1 ), 
@@ -3093,6 +3095,7 @@ all.equal( coef( sa1iHundreds ) * c( 100, 1, 1, 1, 1 ), coef( sa1i ),
 
 ###  manual intercept and changing the order of the explanatory variables  ###
 sa1iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1, data = front41Data )
+round( sa1iCap$gridAdj, 3 )
 all.equal( coef( sa1iCap, which = "ols" )[ c(3,1,2,4) ], 
    coef( sa1i, which = "ols" ) )
 all.equal( logLik( sa1iCap, which = "ols" ), logLik( sa1i, which = "ols" ) )
@@ -3103,6 +3106,7 @@ all.equal( coef( sa1iCap )[ c(3,1,2,4,5) ], coef( sa1i ), tol = 1e-5 )
 all.equal( logLik( sa1iCap ), logLik( sa1i ) )
 
 sa1iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1, data = front41Data )
+round( sa1iLab$gridAdj, 3 )
 all.equal( coef( sa1iLab, which = "ols" )[ c(3,2,1,4) ], 
    coef( sa1i, which = "ols" ) )
 all.equal( logLik( sa1iLab, which = "ols" ), logLik( sa1i, which = "ols" ) )
@@ -3114,12 +3118,14 @@ all.equal( logLik( sa1iLab ), logLik( sa1i ) )
 
 sa5iCap <- sfa( logOutput ~ logCapital + logLabour + ones - 1 | firmNo - 1, 
    data = front41Data )
+round( sa5iCap$gridAdj, 3 )
 all.equal( coef( sa5iCap, which = "ols" ), coef( sa1iCap, which = "ols" ) )
 all.equal( coef( sa5iCap, which = "grid" ), coef( sa1iCap, which = "grid" ) )
 all.equal( coef( sa5iCap )[ c(3,1,2,4,5,6) ], coef( saa1i ), tol = 1e-5 )
 
 sa5iLab <- sfa( logOutput ~ logLabour + logCapital + ones - 1 | firmNo - 1, 
    data = front41Data )
+round( sa5iLab$gridAdj, 3 )
 all.equal( coef( sa5iLab, which = "ols" ), coef( sa1iLab, which = "ols" ) )
 all.equal( coef( sa5iLab, which = "grid" ), coef( sa1iLab, which = "grid" ) )
 all.equal( coef( sa5iLab )[ c(3,2,1,4,5,6) ], coef( saa1i ), tol = 1e-5 )
@@ -3129,6 +3135,7 @@ front41Data$mlogOutput <- front41Data$logOutput - mean( front41Data$logOutput )
 
 sa1iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1, data = front41Data )
 summary( sa1iLabCap )
+round( sa1iLabCap$gridAdj, 3 )
 coef( sa1iLabCap, which = "ols" )
 logLik( sa1iLabCap, which = "ols" )
 coef( sa1iLabCap, which = "grid" )
@@ -3138,6 +3145,7 @@ logLik( sa1iLabCap  )
 
 sa1iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1, data = front41Data )
 summary( sa1iCapLab )
+round( sa1iCapLab$gridAdj, 3 )
 coef( sa1iCapLab, which = "ols" )
 all.equal( coef( sa1iCapLab, which = "ols" )[ c(2,1,3) ], 
    coef( sa1iLabCap, which = "ols" ) )
@@ -3157,12 +3165,14 @@ rbind( logLik( sa1iCapLab ), logLik( sa1iLabCap ) )
 
 sa5iCapLab <- sfa( mlogOutput ~ logCapital + logLabour - 1 | firmNo - 1, 
    data = front41Data )
+round( sa5iCapLab$gridAdj, 3 )
 all.equal( coef( sa5iCapLab, which = "ols" ), coef( sa1iCapLab, which = "ols" ) )
 all.equal( coef( sa5iCapLab, which = "grid" ), coef( sa1iCapLab, which = "grid" ) )
 coef( sa5iCapLab )
 
 sa5iLabCap <- sfa( mlogOutput ~ logLabour + logCapital - 1 | firmNo - 1, 
    data = front41Data )
+round( sa5iLabCap$gridAdj, 3 )
 all.equal( coef( sa5iLabCap, which = "ols" ), coef( sa1iLabCap, which = "ols" ) )
 all.equal( coef( sa5iLabCap, which = "grid" ), coef( sa1iLabCap, which = "grid" ) )
 all.equal( coef( sa5iLabCap )[ c(2,1,3,4,5) ], coef( sa5iCapLab ), tol = 1e-5 )
@@ -3174,6 +3184,7 @@ front41Data$logLabourTen <- 10 * front41Data$logLabour
 
 sa1iLabTenCap <- sfa( mlogOutput ~ logLabourTen + logCapital - 1, 
    data = front41Data )
+round( sa1iLabTenCap$gridAdj, 3 )
 all.equal( coef( sa1iLabTenCap, which = "ols" ) * c( 10, 1, 1 ), 
    coef( sa1iLabCap, which = "ols" ), check.attributes = FALSE )
 rbind( coef( sa1iLabTenCap, which = "grid" ) * c( 10, 1, 1, 1 ), 
@@ -3182,6 +3193,7 @@ rbind( coef( sa1iLabTenCap ) * c( 10, 1, 1, 1 ), coef( sa1iLabCap ) )
 
 sa1iLabCapTen <- sfa( mlogOutput ~ logLabour + logCapitalTen - 1, 
    data = front41Data )
+round( sa1iLabCapTen$gridAdj, 3 )
 all.equal( coef( sa1iLabCapTen, which = "ols" ) * c( 1, 10, 1 ), 
    coef( sa1iLabCap, which = "ols" ), check.attributes = FALSE )
 all.equal( coef( sa1iLabCapTen, which = "grid" ) * c( 1, 10, 1, 1 ), 
@@ -3190,6 +3202,7 @@ rbind( coef( sa1iLabCapTen ) * c( 1, 10, 1, 1 ), coef( sa1iLabCap ) )
 
 sa1iLabTenCapTen <- sfa( mlogOutput ~ logLabourTen + logCapitalTen - 1, 
    data = front41Data )
+round( sa1iLabTenCapTen$gridAdj, 3 )
 all.equal( coef( sa1iLabTenCapTen, which = "ols" ) * c( 10, 10, 1 ), 
    coef( sa1iLabCap, which = "ols" ), check.attributes = FALSE )
 all.equal( coef( sa1iLabTenCapTen, which = "grid" ) * c( 1, 10, 1, 1 ), 
@@ -3199,6 +3212,7 @@ all.equal( coef( sa1iLabTenCapTen ) * c( 1, 10, 1, 1 ), coef( sa1iLabTenCap ),
 
 sa1iCapTenLab <- sfa( mlogOutput ~ logCapitalTen + logLabour - 1, 
    data = front41Data )
+round( sa1iCapTenLab$gridAdj, 3 )
 all.equal( coef( sa1iCapTenLab, which = "ols" ) * c( 10, 1, 1 ), 
    coef( sa1iCapLab, which = "ols" ), check.attributes = FALSE )
 rbind( coef( sa1iCapTenLab, which = "grid" ) * c( 10, 1, 1, 1 ), 
@@ -3208,6 +3222,7 @@ all.equal( coef( sa1iCapTenLab ) * c( 10, 1, 1, 1 ), coef( sa1iCapLab ),
 
 sa1iCapLabTen <- sfa( mlogOutput ~ logCapital + logLabourTen - 1, 
    data = front41Data )
+round( sa1iCapLabTen$gridAdj, 3 )
 all.equal( coef( sa1iCapLabTen, which = "ols" ) * c( 1, 10, 1 ), 
    coef( sa1iCapLab, which = "ols" ), check.attributes = FALSE )
 all.equal( coef( sa1iCapLabTen, which = "grid" ) * c( 1, 10, 1, 1 ), 
@@ -3217,6 +3232,7 @@ all.equal( coef( sa1iCapLabTen ) * c( 1, 10, 1, 1 ), coef( sa1iCapLab ),
 
 sa1iCapTenLabTen <- sfa( mlogOutput ~ logCapitalTen + logLabourTen - 1, 
    data = front41Data )
+round( sa1iCapTenLabTen$gridAdj, 3 )
 all.equal( coef( sa1iCapTenLabTen, which = "ols" ) * c( 10, 10, 1 ), 
    coef( sa1iCapLab, which = "ols" ), check.attributes = FALSE )
 all.equal( coef( sa1iCapTenLabTen, which = "grid" ) * c( 1, 10, 1, 1 ), 
