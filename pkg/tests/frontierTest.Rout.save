@@ -108,12 +108,28 @@ NULL
 > round( coef( a1, which = "ols" ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq 
        0.24        0.28        0.53        0.11 
+> coef( a1, which = "ols", extraPar = TRUE )
+(Intercept)  logCapital   logLabour     sigmaSq 
+    0.24490     0.28049     0.53331     0.11398 
+Warning message:
+In coef.frontier(a1, which = "ols", extraPar = TRUE) :
+  extra parameters are not available for coefficients obtained by OLS
 > round( coef( a1, which = "grid" ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.58        0.28        0.53        0.22        0.80 
+> round( coef( a1, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
+       0.58        0.28        0.53        0.22        0.80        0.18 
+   sigmaSqV 
+       0.04 
 > round( coef( a1 ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.56        0.28        0.54        0.22        0.80 
+> round( coef( a1, extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
+       0.56        0.28        0.54        0.22        0.80        0.17 
+   sigmaSqV 
+       0.04 
 > round( coef( summary( a1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -919,9 +935,19 @@ NULL
 > round( coef( a2, which = "grid" ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.58        0.28        0.53        0.22        0.80 
+> round( coef( a2, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
+       0.58        0.28        0.53        0.22        0.80        0.18 
+   sigmaSqV 
+       0.04 
 > round( coef( a2 ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
        0.48        0.28        0.54        0.55        0.91       -1.41 
+> round( coef( a2, extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
+       0.48        0.28        0.54        0.55        0.91       -1.41 
+   sigmaSqU    sigmaSqV 
+       0.50        0.05 
 > round( coef( summary( a2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -1513,9 +1539,16 @@ Maximum likelihood estimates
        0.24        0.28        0.53        0.11 
 > coef( a5, which = "grid" )
 NULL
+> coef( a5, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( a5 ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
        0.48        0.28        0.54        0.55        0.91       -1.41 
+> round( coef( a5, extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
+       0.48        0.28        0.54        0.55        0.91       -1.41 
+   sigmaSqU    sigmaSqV 
+       0.50        0.05 
 > round( coef( summary( a5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -2086,9 +2119,19 @@ NULL
 > round( coef( aa1, which = "grid" ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.58        0.28        0.53        0.22        0.80 
+> round( coef( aa1, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
+       0.58        0.28        0.53        0.22        0.80        0.18 
+   sigmaSqV 
+       0.04 
 > round( coef( aa1 ), 2 )
 (Intercept)  logCapital   logLabour    Z_firmNo     sigmaSq       gamma 
        0.54        0.27        0.54       -0.01        0.28        0.84 
+> round( coef( aa1, extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour    Z_firmNo     sigmaSq       gamma 
+       0.54        0.27        0.54       -0.01        0.28        0.84 
+   sigmaSqU    sigmaSqV 
+       0.24        0.05 
 > round( coef( summary( aa1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -3042,11 +3085,21 @@ NULL
 > round( coef( aa2, which = "grid" ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.58        0.28        0.53        0.22        0.80 
+> round( coef( aa2, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
+       0.58        0.28        0.53        0.22        0.80        0.18 
+   sigmaSqV 
+       0.04 
 > round( coef( aa2 ), 2 )
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
          0.51          0.27          0.54         -0.40         -0.01 
       sigmaSq         gamma 
          0.41          0.88 
+> round( coef( aa2, extraPar = TRUE ), 2 )
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+         0.51          0.27          0.54         -0.40         -0.01 
+      sigmaSq         gamma      sigmaSqU      sigmaSqV 
+         0.41          0.88          0.36          0.05 
 > round( coef( summary( aa2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -3856,11 +3909,18 @@ Maximum likelihood estimates
        0.24        0.28        0.53        0.11 
 > coef( aa5, which = "grid" )
 NULL
+> coef( aa5, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( aa5 ), 2 )
   (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
          0.51          0.27          0.54         -0.40         -0.01 
       sigmaSq         gamma 
          0.41          0.88 
+> round( coef( aa5, extraPar = TRUE ), 2 )
+  (Intercept)    logCapital     logLabour Z_(Intercept)      Z_firmNo 
+         0.51          0.27          0.54         -0.40         -0.01 
+      sigmaSq         gamma      sigmaSqU      sigmaSqV 
+         0.41          0.88          0.36          0.05 
 > round( coef( summary( aa5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -5244,9 +5304,19 @@ NULL
 > round( coef( bb1, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( bb1, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( bb1 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.04        0.36        0.33        0.27        0.24        0.89 
+> round( coef( bb1, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.04        0.36        0.33        0.27        0.24        0.89 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( summary( bb1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -7416,11 +7486,21 @@ NULL
 > round( coef( bb2, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( bb2, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( bb2 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.13        0.35        0.33        0.27        0.66        0.95 
          mu 
       -1.59 
+> round( coef( bb2, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.13        0.35        0.33        0.27        0.66        0.95 
+         mu    sigmaSqU    sigmaSqV 
+      -1.59        0.63        0.03 
 > round( coef( summary( bb2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -10017,11 +10097,21 @@ NULL
 > round( coef( bb5, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( bb5, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( bb5 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
       -1.01        0.38        0.32        0.26       -0.06       -1.41 
     sigmaSq       gamma 
        0.60        0.94 
+> round( coef( bb5, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
+      -1.01        0.38        0.32        0.26       -0.06       -1.41 
+    sigmaSq       gamma    sigmaSqU    sigmaSqV 
+       0.60        0.94        0.56        0.03 
 > round( coef( summary( bb5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -13244,11 +13334,23 @@ NULL
 > round( coef( bb6, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( bb6, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( bb6 ), 2 )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.05          0.38          0.32          0.26         -2.75 
       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
         -0.03         -3.63          1.67          0.98 
+> round( coef( bb6, extraPar = TRUE ), 2 )
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.05          0.38          0.32          0.26         -2.75 
+      Z_EDYRS      Z_BANRAT       sigmaSq         gamma      sigmaSqU 
+        -0.03         -3.63          1.67          0.98          1.63 
+     sigmaSqV 
+         0.04 
 > round( coef( summary( bb6 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -17991,11 +18093,18 @@ Maximum likelihood estimates
       -1.67        0.33        0.38        0.28        0.11 
 > coef( bb7, which = "grid" )
 NULL
+> coef( bb7, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( bb7 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.09        0.36        0.33        0.27        0.68        0.95 
          mu 
       -1.61 
+> round( coef( bb7, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.09        0.36        0.33        0.27        0.68        0.95 
+         mu    sigmaSqU    sigmaSqV 
+      -1.61        0.64        0.03 
 > round( coef( summary( bb7 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -19778,11 +19887,20 @@ Maximum likelihood estimates
       -1.67        0.33        0.38        0.28        0.11 
 > coef( bb8, which = "grid" )
 NULL
+> coef( bb8, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( bb8 ), 2 )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.05          0.38          0.32          0.26         -2.75 
       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
         -0.03         -3.64          1.67          0.98 
+> round( coef( bb8, extraPar = TRUE ), 2 )
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.05          0.38          0.32          0.26         -2.75 
+      Z_EDYRS      Z_BANRAT       sigmaSq         gamma      sigmaSqU 
+        -0.03         -3.64          1.67          0.98          1.63 
+     sigmaSqV 
+         0.04 
 > round( coef( summary( bb8 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -23107,11 +23225,21 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma 
        0.46 
+> round( coef( dd1, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.92        0.44        0.52        0.42        0.06        0.07 
+      gamma    sigmaSqU    sigmaSqV 
+       0.46        0.03        0.04 
 > round( coef( dd1 ), 2 )
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
        5.87        0.46        0.51        0.41        0.07        0.07 
       gamma 
        0.53 
+> round( coef( dd1, extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.87        0.46        0.51        0.41        0.07        0.07 
+      gamma    sigmaSqU    sigmaSqV 
+       0.53        0.04        0.03 
 > round( coef( summary( dd1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -25707,11 +25835,21 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma 
        0.46 
+> round( coef( dd2, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.92        0.44        0.52        0.42        0.06        0.07 
+      gamma    sigmaSqU    sigmaSqV 
+       0.46        0.03        0.04 
 > round( coef( dd2 ), 2 )
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
        5.89        0.47        0.50        0.41        0.07        0.14 
       gamma          mu 
        0.77       -0.66 
+> round( coef( dd2, extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.89        0.47        0.50        0.41        0.07        0.14 
+      gamma          mu    sigmaSqU    sigmaSqV 
+       0.77       -0.66        0.11        0.03 
 > round( coef( summary( dd2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -27912,11 +28050,21 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma 
        0.46 
+> round( coef( dd5, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.92        0.44        0.52        0.42        0.06        0.07 
+      gamma    sigmaSqU    sigmaSqV 
+       0.46        0.03        0.04 
 > round( coef( dd5 ), 2 )
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     Z_EDYRS 
        5.92        0.46        0.51        0.41        0.08      -12.73 
    Z_BANRAT     sigmaSq       gamma 
      -77.78       12.31        1.00 
+> round( coef( dd5, extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     Z_EDYRS 
+       5.92        0.46        0.51        0.41        0.08      -12.73 
+   Z_BANRAT     sigmaSq       gamma    sigmaSqU    sigmaSqV 
+     -77.78       12.31        1.00       12.27        0.04 
 > round( coef( summary( dd5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -32671,11 +32819,23 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma 
        0.46 
+> round( coef( dd6, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
+       5.92        0.44        0.52        0.42        0.06        0.07 
+      gamma    sigmaSqU    sigmaSqV 
+       0.46        0.03        0.04 
 > round( coef( dd6 ), 2 )
   (Intercept)         lPROD         lAREA       lLABORP         lNPKP 
          5.91          0.46          0.51          0.41          0.08 
 Z_(Intercept)       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
        -13.81        -16.01       -100.08         17.64          1.00 
+> round( coef( dd6, extraPar = TRUE ), 2 )
+  (Intercept)         lPROD         lAREA       lLABORP         lNPKP 
+         5.91          0.46          0.51          0.41          0.08 
+Z_(Intercept)       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
+       -13.81        -16.01       -100.08         17.64          1.00 
+     sigmaSqU      sigmaSqV 
+        17.60          0.04 
 > round( coef( summary( dd6 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -37353,9 +37513,19 @@ NULL
 > round( coef( b1, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
+> round( coef( b1, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.47        0.33        0.38        0.28        0.15        0.41 
+   sigmaSqU    sigmaSqV 
+       0.06        0.09 
 > round( coef( b1 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.83        0.45        0.29        0.23        0.16        0.46 
+> round( coef( b1, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -0.83        0.45        0.29        0.23        0.16        0.46 
+   sigmaSqU    sigmaSqV 
+       0.07        0.08 
 > round( coef( summary( b1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -38445,11 +38615,21 @@ NULL
 > round( coef( b2, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
+> round( coef( b2, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.47        0.33        0.38        0.28        0.15        0.41 
+   sigmaSqU    sigmaSqV 
+       0.06        0.09 
 > round( coef( b2 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.83        0.45        0.29        0.23        0.20        0.59 
          mu 
       -0.27 
+> round( coef( b2, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -0.83        0.45        0.29        0.23        0.20        0.59 
+         mu    sigmaSqU    sigmaSqV 
+      -0.27        0.12        0.08 
 > round( coef( summary( b2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -39529,11 +39709,21 @@ NULL
 > round( coef( b3, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
+> round( coef( b3, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.47        0.33        0.38        0.28        0.15        0.41 
+   sigmaSqU    sigmaSqV 
+       0.06        0.09 
 > round( coef( b3 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.75        0.47        0.30        0.20        0.13        0.37 
        time 
        0.06 
+> round( coef( b3, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -0.75        0.47        0.30        0.20        0.13        0.37 
+       time    sigmaSqU    sigmaSqV 
+       0.06        0.05        0.08 
 > round( coef( summary( b3 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -40516,11 +40706,21 @@ NULL
 > round( coef( b4, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
+> round( coef( b4, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.47        0.33        0.38        0.28        0.15        0.41 
+   sigmaSqU    sigmaSqV 
+       0.06        0.09 
 > round( coef( b4 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.75        0.48        0.30        0.20        0.17        0.52 
          mu        time 
       -0.32        0.06 
+> round( coef( b4, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -0.75        0.48        0.30        0.20        0.17        0.52 
+         mu        time    sigmaSqU    sigmaSqV 
+      -0.32        0.06        0.09        0.08 
 > round( coef( summary( b4 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -41881,11 +42081,21 @@ NULL
 > round( coef( b5, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( b5, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( b5 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
       -1.01        0.38        0.32        0.26       -0.06       -1.41 
     sigmaSq       gamma 
        0.60        0.94 
+> round( coef( b5, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     Z_EDYRS    Z_BANRAT 
+      -1.01        0.38        0.32        0.26       -0.06       -1.41 
+    sigmaSq       gamma    sigmaSqU    sigmaSqV 
+       0.60        0.94        0.56        0.03 
 > round( coef( summary( b5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -44009,11 +44219,23 @@ NULL
 > round( coef( b6, which = "grid" ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
+> round( coef( b6, which = "grid", extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -1.30        0.33        0.38        0.28        0.24        0.87 
+   sigmaSqU    sigmaSqV 
+       0.21        0.03 
 > round( coef( b6 ), 2 )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.05          0.38          0.32          0.26         -2.75 
       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
         -0.03         -3.64          1.67          0.98 
+> round( coef( b6, extraPar = TRUE ), 2 )
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.05          0.38          0.32          0.26         -2.75 
+      Z_EDYRS      Z_BANRAT       sigmaSq         gamma      sigmaSqU 
+        -0.03         -3.64          1.67          0.98          1.63 
+     sigmaSqV 
+         0.04 
 > round( coef( summary( b6 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -45472,11 +45694,18 @@ Maximum likelihood estimates
       -1.67        0.33        0.38        0.28        0.11 
 > coef( b7, which = "grid" )
 NULL
+> coef( b7, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( b7 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.75        0.48        0.30        0.20        0.17        0.52 
          mu        time 
       -0.32        0.06 
+> round( coef( b7, extraPar = TRUE ), 2 )
+(Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
+      -0.75        0.48        0.30        0.20        0.17        0.52 
+         mu        time    sigmaSqU    sigmaSqV 
+      -0.32        0.06        0.09        0.08 
 > round( coef( summary( b7 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -46372,11 +46601,20 @@ Maximum likelihood estimates
       -1.67        0.33        0.38        0.28        0.11 
 > coef( b8, which = "grid" )
 NULL
+> coef( b8, which = "grid", extraPar = TRUE )
+numeric(0)
 > round( coef( b8 ), 2 )
   (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
         -1.05          0.38          0.32          0.26         -2.75 
       Z_EDYRS      Z_BANRAT       sigmaSq         gamma 
         -0.03         -3.64          1.67          0.98 
+> round( coef( b8, extraPar = TRUE ), 2 )
+  (Intercept)         lAREA        lLABOR          lNPK Z_(Intercept) 
+        -1.05          0.38          0.32          0.26         -2.75 
+      Z_EDYRS      Z_BANRAT       sigmaSq         gamma      sigmaSqU 
+        -0.03         -3.64          1.67          0.98          1.63 
+     sigmaSqV 
+         0.04 
 > round( coef( summary( b8 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -108655,4 +108893,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 42.704   0.864  43.716 
+ 43.108   0.956  44.114 
