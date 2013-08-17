@@ -8,12 +8,18 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{vcov}{frontier}( object, \dots )
+\method{vcov}{frontier}( object, extraPar = FALSE, \dots )
 }
 
 \arguments{
    \item{object}{an object of class \code{frontier}
       (returned by the function \code{\link{frontier}}).}
+   \item{extraPar}{logical. If \code{TRUE}, additional parameters are returned:
+      \code{sigmaSqU} = \code{sigmaSq} * \code{gamma} 
+      (with \eqn{u} ~ \eqn{N^+}{N+}( \code{mu}, \code{sigmaSqU} )) 
+      and \code{sigmaSqV} = \code{sigmaSq} * ( 1 - \code{gamma} )
+      (with \eqn{v} ~ N( 0, \code{sigmaSqV} )).
+      Please note that \code{sigmaSqU} is not the variance of \eqn{u}.}
    \item{\dots}{currently unused.}
 }
 
