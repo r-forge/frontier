@@ -9,7 +9,7 @@ returned by \code{\link{frontier}}.
 }
 
 \usage{
-\method{summary}{frontier}( object, effic = FALSE,
+\method{summary}{frontier}( object, extraPar = FALSE, effic = FALSE,
    logDepVar = TRUE, effMinusU = farrell, farrell = TRUE, \dots )
 \method{print}{summary.frontier}( x, effic = x$printEffic, \dots )
 }
@@ -19,6 +19,13 @@ returned by \code{\link{frontier}}.
       (returned by the function \code{\link{frontier}}).}
    \item{x}{an object of class \code{summary.frontier} 
       (returned by the function \code{summary.frontier}).}
+   \item{extraPar}{logical. If \code{TRUE}, some additional parameters,
+      their standard errors, z-values, and P values are returned:
+      \code{sigmaSqU} = \code{sigmaSq} * \code{gamma} 
+      (with \eqn{u} ~ \eqn{N^+}{N+}( \code{mu}, \code{sigmaSqU} )) 
+      and \code{sigmaSqV} = \code{sigmaSq} * ( 1 - \code{gamma} )
+      (with \eqn{v} ~ N( 0, \code{sigmaSqV} )).
+      Please note that \code{sigmaSqU} is not the variance of \eqn{u}.}
    \item{effic}{logical. Print the individual efficiency estimates?}
    \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{effMinusU}{logical. If \code{TRUE} (the default), 
