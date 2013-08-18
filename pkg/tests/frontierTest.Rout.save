@@ -33559,14 +33559,6 @@ Z_EDYRS         -16.01      25.04   -0.64     0.52
 Z_BANRAT       -100.08     156.47   -0.64     0.52
 sigmaSq          17.64      27.38    0.64     0.52
 gamma             1.00       0.00  300.28     0.00
-> all.equal( summary( sdd6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( dd6 ), 2 )
               (Intercept) lPROD lAREA lLABORP lNPKP Z_(Intercept) Z_EDYRS
 (Intercept)          0.03  0.00  0.00    0.00 -0.01          0.89    1.05
@@ -33677,6 +33669,14 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.9173 
+> all.equal( summary( sdd6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( dd6 )
 Likelihood ratio test
 
@@ -41627,14 +41627,6 @@ sigmaSq         0.17       0.15    1.16     0.25
 gamma           0.52       0.41    1.27     0.20
 mu             -0.32       1.05   -0.30     0.76
 time            0.06       0.04    1.81     0.07
-> all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( b4 ), 2 )
             (Intercept) lAREA lLABOR  lNPK sigmaSq gamma    mu  time
 (Intercept)        0.08  0.02  -0.01 -0.01    0.00  0.01 -0.01  0.00
@@ -41742,6 +41734,14 @@ mean efficiency of each year
 0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
 
 mean efficiency: 0.83349 
+> all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( b4 )
 Likelihood ratio test
 
@@ -43061,14 +43061,6 @@ Z_EDYRS        -0.06       0.09   -0.68     0.50
 Z_BANRAT       -1.41       0.85   -1.65     0.10
 sigmaSq         0.60       0.29    2.06     0.04
 gamma           0.94       0.03   34.16     0.00
-> all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( b5 ), 2 )
             (Intercept) lAREA lLABOR lNPK Z_EDYRS Z_BANRAT sigmaSq gamma
 (Intercept)        0.06  0.01  -0.01    0    0.00     0.00    0.00  0.00
@@ -43209,6 +43201,14 @@ mean efficiency of each year
 0.74782 0.73499 0.81753 0.79751 0.74817 0.79462 0.68791 0.83752 
 
 mean efficiency: 0.77076 
+> all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( b5 )
 Likelihood ratio test
 
@@ -49346,13 +49346,6 @@ lLABORP         0.44       0.03   14.18     0.00
 lNPKP           0.09       0.05    1.72     0.09
 sigmaSq         0.07       0.02    4.64     0.00
 gamma           0.48       0.13    3.84     0.00
-> all.equal( summary( d1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( d1 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma
 (Intercept)        0.04     0     0       0 -0.01       0 -0.01
@@ -49420,6 +49413,13 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.176 
+> all.equal( summary( d1 )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( d1 )
 Likelihood ratio test
 
@@ -50449,13 +50449,6 @@ lNPKP           0.10       0.05    1.79     0.07
 sigmaSq         0.05       0.01    6.32     0.00
 gamma           0.29       0.10    2.79     0.01
 mu              0.24       0.06    3.74     0.00
-> all.equal( summary( d2 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( d2 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma mu
 (Intercept)        0.03     0     0       0 -0.01       0  0.00  0
@@ -50497,6 +50490,13 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.2917 
+> all.equal( summary( d2 )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( d2 )
 Likelihood ratio test
 
@@ -51537,13 +51537,6 @@ lNPKP           0.10       0.05    1.83     0.07
 sigmaSq         0.08       0.02    4.45     0.00
 gamma           0.54       0.12    4.59     0.00
 time           -0.03       0.03   -1.25     0.21
-> all.equal( summary( d3 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd3i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( d3 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma time
 (Intercept)        0.04     0     0       0 -0.01       0  0.00    0
@@ -51589,6 +51582,13 @@ mean efficiency of each year
 1.1520 1.1578 1.1638 1.1700 1.1765 1.1833 1.1904 1.1978 
 
 mean efficiency: 1.174 
+> all.equal( summary( d3 )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd3i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( d3 )
 Likelihood ratio test
 
@@ -52533,13 +52533,6 @@ sigmaSq         0.05       0.01    5.68     0.00
 gamma           0.32       0.11    2.94     0.00
 mu              0.26       0.07    3.58     0.00
 time           -0.03       0.02   -1.43     0.15
-> all.equal( summary( d4 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd4i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( d4 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma   mu time
 (Intercept)        0.04     0     0       0 -0.01       0  0.00 0.00    0
@@ -52587,6 +52580,13 @@ mean efficiency of each year
 1.2609 1.2692 1.2777 1.2865 1.2957 1.3052 1.3150 1.3252 
 
 mean efficiency: 1.2919 
+> all.equal( summary( d4 )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd4i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( d4 )
 Likelihood ratio test
 
@@ -55712,13 +55712,6 @@ Z_EDYRS         -14.56      18.72   -0.78     0.44
 Z_BANRAT        -93.57     120.70   -0.78     0.44
 sigmaSq          16.52      21.09    0.78     0.43
 gamma             1.00       0.00  335.36     0.00
-> all.equal( summary( d6 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
-[1] TRUE
-> all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-+    check.attributes = FALSE )
-[1] TRUE
 > round( vcov( d6 ), 2 )
               (Intercept) lPROD lAREA lLABORP lNPKP Z_(Intercept) Z_EDYRS
 (Intercept)          0.03  0.00  0.00    0.00 -0.01          0.82    0.75
@@ -55779,6 +55772,13 @@ mean efficiency of each year
 1.0962 1.1036 1.0825 1.1015 1.1051 1.1017 1.1233 1.0961 
 
 mean efficiency: 1.1012 
+> all.equal( summary( d6 )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+[1] TRUE
+> all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
+[1] TRUE
 > lrtest( d6 )
 Likelihood ratio test
 
@@ -110083,4 +110083,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 43.664   0.924  44.637 
+ 61.544   1.272  62.974 

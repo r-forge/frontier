@@ -925,17 +925,17 @@ round( coef( dd6 ), 2 )
 round( coef( dd6, extraPar = TRUE ), 2 )
 round( coef( summary( dd6 ), which = "ols" ), 2 )
 round( coef( summary( dd6 ) ), 2 )
+round( vcov( dd6 ), 2 )
+round( vcov( dd6, extraPar = TRUE ), 2 )
+nobs( dd6 )
+print( summary( dd6, effMinusU = FALSE ), digits = 1 )
+print( summary( dd6, extraPar = TRUE ), digits = 1 )
 all.equal( summary( sdd6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
 all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( dd6 ), 2 )
-round( vcov( dd6, extraPar = TRUE ), 2 )
-nobs( dd6 )
-print( summary( dd6, effMinusU = FALSE ), digits = 1 )
-print( summary( dd6, extraPar = TRUE ), digits = 1 )
 lrtest( dd6 )
 printME( efficiencies( dd6, minusU = FALSE, margEff = TRUE ) )
 printME( efficiencies( dd6, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
@@ -1158,12 +1158,6 @@ round( coef( b4 ), 2 )
 round( coef( b4, extraPar = TRUE ), 2 )
 round( coef( summary( b4 ), which = "ols" ), 2 )
 round( coef( summary( b4 ) ), 2 )
-all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-   check.attributes = FALSE )
-all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-   check.attributes = FALSE )
 round( vcov( b4 ), 2 )
 round( vcov( b4, extraPar = TRUE ), 2 )
 print( logLik( b4, which = "ols" ), digits = 4 )
@@ -1171,6 +1165,12 @@ print( logLik( b4 ), digits = 4 )
 nobs( b4 )
 print( summary( b4 ), digits = 1 )
 print( summary( b4, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
+all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 lrtest( b4 )
 round( efficiencies( b4 ), 2 )
 round( efficiencies( b4, asInData = TRUE ), 2 )
@@ -1233,12 +1233,6 @@ round( coef( b5 ), 2 )
 round( coef( b5, extraPar = TRUE ), 2 )
 round( coef( summary( b5 ), which = "ols" ), 2 )
 round( coef( summary( b5 ) ), 2 )
-all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
-   check.attributes = FALSE )
-all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
-   check.attributes = FALSE )
 round( vcov( b5 ), 2 )
 round( vcov( b5, extraPar = TRUE ), 2 )
 print( logLik( b5, which = "ols" ), digits = 4 )
@@ -1247,6 +1241,12 @@ nobs( b5 )
 print( summary( b5 ), digits = 1 )
 print( summary( b5, effMinusU = FALSE ), digits = 1 )
 print( summary( b5, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
+all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 lrtest( b5 )
 printME( b5eff <- efficiencies( b5, margEff = TRUE ) )
 printME( b5effD <- efficiencies( b5, asInData = TRUE, margEff = TRUE) )
@@ -1471,15 +1471,15 @@ round( coef( d1, which = "grid" ), 2 )
 round( coef( d1 ), 2 )
 round( coef( summary( d1 ), which = "ols" ), 2 )
 round( coef( summary( d1 ) ), 2 )
+round( vcov( d1 ), 2 )
+nobs( d1 )
+print( summary( d1 ), digits = 1 )
+print( summary( d1, effMinusU = FALSE ), digits = 1 )
 all.equal( summary( d1 )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( d1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( d1 ), 2 )
-nobs( d1 )
-print( summary( d1 ), digits = 1 )
-print( summary( d1, effMinusU = FALSE ), digits = 1 )
 lrtest( d1 )
 round( efficiencies( d1 ), 2 )
 round( efficiencies( d1, asInData = TRUE ), 2 )
@@ -1512,14 +1512,14 @@ round( coef( d2, which = "grid" ), 2 )
 round( coef( d2 ), 2 )
 round( coef( summary( d2 ), which = "ols" ), 2 )
 round( coef( summary( d2 ) ), 2 )
+round( vcov( d2 ), 2 )
+nobs( d2 )
+print( summary( d2, effMinusU = FALSE ), digits = 1 )
 all.equal( summary( d2 )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( d2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( d2 ), 2 )
-nobs( d2 )
-print( summary( d2, effMinusU = FALSE ), digits = 1 )
 lrtest( d2 )
 round( efficiencies( d2, minusU = FALSE ), 2 )
 round( efficiencies( d2, asInData = TRUE, minusU = FALSE ), 2 )
@@ -1551,14 +1551,14 @@ round( coef( d3, which = "grid" ), 2 )
 round( coef( d3 ), 2 )
 round( coef( summary( d3 ), which = "ols" ), 2 )
 round( coef( summary( d3 ) ), 2 )
+round( vcov( d3 ), 2 )
+nobs( d3 )
+print( summary( d3, effMinusU = FALSE ), digits = 1 )
 all.equal( summary( d3 )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd3i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( d3, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd3i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( d3 ), 2 )
-nobs( d3 )
-print( summary( d3, effMinusU = FALSE ), digits = 1 )
 lrtest( d3 )
 round( efficiencies( d3, minusU = FALSE ), 2 )
 round( efficiencies( d3, asInData = TRUE, minusU = FALSE ), 2 )
@@ -1591,14 +1591,14 @@ round( coef( d4, which = "grid" ), 2 )
 round( coef( d4 ), 2 )
 round( coef( summary( d4 ), which = "ols" ), 2 )
 round( coef( summary( d4 ) ), 2 )
+round( vcov( d4 ), 2 )
+nobs( d4 )
+print( summary( d4, effMinusU = FALSE ), digits = 1 )
 all.equal( summary( d4 )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd4i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( d4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( d4 ), 2 )
-nobs( d4 )
-print( summary( d4, effMinusU = FALSE ), digits = 1 )
 lrtest( d4 )
 round( efficiencies( d4, minusU = FALSE ), 2 )
 round( efficiencies( d4, asInData = TRUE, minusU = FALSE ), 2 )
@@ -1700,14 +1700,14 @@ round( coef( d6, which = "grid" ), 2 )
 round( coef( d6 ), 2 )
 round( coef( summary( d6 ), which = "ols" ), 2 )
 round( coef( summary( d6 ) ), 2 )
+round( vcov( d6 ), 2 )
+nobs( d6 )
+print( summary( d6, effMinusU = FALSE ), digits = 1 )
 all.equal( summary( d6 )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( d6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
-round( vcov( d6 ), 2 )
-nobs( d6 )
-print( summary( d6, effMinusU = FALSE ), digits = 1 )
 lrtest( d6 )
 printME( efficiencies( d6, minusU = FALSE, margEff = TRUE ) )
 printME( efficiencies( d6, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
