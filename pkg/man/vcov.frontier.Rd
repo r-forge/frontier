@@ -14,7 +14,8 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
 \arguments{
    \item{object}{an object of class \code{frontier}
       (returned by the function \code{\link{frontier}}).}
-   \item{extraPar}{logical. If \code{TRUE}, additional parameters are returned:
+   \item{extraPar}{logical. If \code{TRUE}, the variances and covariances
+      of additional parameters are returned:
       \code{sigmaSqU} = \code{sigmaSq} * \code{gamma} 
       (with \eqn{u} ~ \eqn{N^+}{N+}( \code{mu}, \code{sigmaSqU} )) 
       and \code{sigmaSqV} = \code{sigmaSq} * ( 1 - \code{gamma} )
