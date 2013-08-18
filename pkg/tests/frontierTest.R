@@ -63,8 +63,10 @@ print( logLik( a1 ), digits = 4 )
 nobs( a1 )
 print( summary( a1 ), digits = 1 )
 print( summary( a1, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sa1 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sa1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( a1, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sa1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sa1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sa1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -109,8 +111,10 @@ print( logLik( a2, which = "ols" ), digits = 4 )
 print( logLik( a2 ), digits = 4 )
 nobs( a2 )
 print( summary( a2 ), digits = 1 )
-all.equal( summary( sa2 )[ -c( 3, 7, 8, 20, 42 ) ], 
-   summary( sa2i )[ -c( 3, 7, 8, 20, 42 ) ], check.attributes = FALSE )
+print( summary( a2, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sa2, extraPar = TRUE )[ -c( 3, 7, 8, 20, 42 ) ], 
+   summary( sa2i, extraPar = TRUE )[ -c( 3, 7, 8, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sa2, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 42 ) ], 
    summary( sa2i, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -153,8 +157,10 @@ print( logLik( a5, which = "ols" ), digits = 4 )
 print( logLik( a5 ), digits = 4 )
 nobs( a5 )
 print( summary( a5 ), digits = 1 )
-all.equal( summary( sa5 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( sa5i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( a5, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sa5, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( sa5i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sa5, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( sa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )
@@ -195,8 +201,10 @@ round( vcov( aa1, extraPar = TRUE ), 2 )
 nobs( aa1 )
 print( summary( aa1 ), digits = 1 )
 print( summary( aa1, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( saa1 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( saa1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( aa1, extraPar = TRUE ), digits = 1 )
+all.equal( summary( saa1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( saa1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( saa1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( saa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -250,8 +258,10 @@ round( vcov( aa2 ), 2 )
 round( vcov( aa2, extraPar = TRUE ), 2 )
 nobs( aa2 )
 print( summary( aa2 ), digits = 1 )
-all.equal( summary( saa2 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( saa2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( aa2, extraPar = TRUE ), digits = 1 )
+all.equal( summary( saa2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( saa2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( saa2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( saa2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -294,8 +304,10 @@ round( vcov( aa5 ), 2 )
 round( vcov( aa5, extraPar = TRUE ), 2 )
 nobs( aa5 )
 print( summary( aa5 ), digits = 1 )
-all.equal( summary( saa5 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( saa5i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( aa5, extraPar = TRUE ), digits = 1 )
+all.equal( summary( saa5, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( saa5i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( saa5, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( saa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )
@@ -430,8 +442,10 @@ round( vcov( bb1 ), 2 )
 round( vcov( bb1, extraPar = TRUE ), 2 )
 nobs( bb1 )
 print( summary( bb1 ), digits = 1 )
-all.equal( summary( sbb1 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sbb1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( bb1, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sbb1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sbb1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sbb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -472,8 +486,10 @@ round( vcov( bb2, extraPar = TRUE ), 2 )
 nobs( bb2 )
 print( summary( bb2 ), digits = 1 )
 print( summary( bb2, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sbb2 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sbb2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( bb2, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sbb2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sbb2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sbb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -519,8 +535,10 @@ round( vcov( bb5 ), 2 )
 round( vcov( bb5, extraPar = TRUE ), 2 )
 nobs( bb5 )
 print( summary( bb5 ), digits = 1 )
-all.equal( summary( sbb5 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sbb5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( bb5, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sbb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sbb5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sbb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -561,8 +579,10 @@ round( vcov( bb6, extraPar = TRUE ), 2 )
 nobs( bb6 )
 print( summary( bb6 ), digits = 1 )
 print( summary( bb6, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sbb6 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sbb6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( bb6, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sbb6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ],
+   check.attributes = FALSE )
 all.equal( summary( sbb6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sbb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -629,8 +649,10 @@ round( vcov( bb7 ), 2 )
 round( vcov( bb7, extraPar = TRUE ), 2 )
 nobs( bb7 )
 print( summary( bb7 ), digits = 1 )
-all.equal( summary( sbb7 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( sbb7i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( bb7, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb7, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( sbb7i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sbb7, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( sbb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )
@@ -671,8 +693,10 @@ round( vcov( bb8 ), 2 )
 round( vcov( bb8, extraPar = TRUE ), 2 )
 nobs( bb8 )
 print( summary( bb8 ), digits = 1 )
-all.equal( summary( sbb8 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( sbb8i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( bb8, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sbb8, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( sbb8i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sbb8, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( sbb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )
@@ -746,8 +770,9 @@ round( vcov( dd1, extraPar = TRUE ), 2 )
 nobs( dd1 )
 print( summary( dd1 ), digits = 1 )
 print( summary( dd1, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sdd1 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sdd1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( dd1, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sdd1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sdd1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 all.equal( summary( sdd1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -788,8 +813,10 @@ round( vcov( dd2 ), 2 )
 round( vcov( dd2, extraPar = TRUE ), 2 )
 nobs( dd2 )
 print( summary( dd2, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sdd2 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sdd2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( dd2, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sdd2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sdd2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sdd2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -833,8 +860,10 @@ round( vcov( dd5, extraPar = TRUE ), 2 )
 nobs( dd5 )
 print( summary( dd5 ), digits = 1 )
 print( summary( dd5, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( sdd5 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sdd5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( dd5, extraPar = TRUE ), digits = 1 )
+all.equal( summary( sdd5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sdd5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sdd5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -896,8 +925,9 @@ round( coef( dd6 ), 2 )
 round( coef( dd6, extraPar = TRUE ), 2 )
 round( coef( summary( dd6 ), which = "ols" ), 2 )
 round( coef( summary( dd6 ) ), 2 )
-all.equal( summary( sdd6 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sdd6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+all.equal( summary( sdd6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sdd6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -905,6 +935,7 @@ round( vcov( dd6 ), 2 )
 round( vcov( dd6, extraPar = TRUE ), 2 )
 nobs( dd6 )
 print( summary( dd6, effMinusU = FALSE ), digits = 1 )
+print( summary( dd6, extraPar = TRUE ), digits = 1 )
 lrtest( dd6 )
 printME( efficiencies( dd6, minusU = FALSE, margEff = TRUE ) )
 printME( efficiencies( dd6, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
@@ -993,8 +1024,10 @@ print( logLik( b1 ), digits = 4 )
 nobs( b1 )
 print( summary( b1 ), digits = 1 )
 print( summary( b1, effMinusU = FALSE ), digits = 1 )
-all.equal( summary( b1 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( b1, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ],
+   check.attributes = FALSE )
 all.equal( summary( b1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1038,8 +1071,10 @@ print( logLik( b2, which = "ols" ), digits = 4 )
 print( logLik( b2 ), digits = 4 )
 nobs( b2 )
 print( summary( b2 ), digits = 1 )
-all.equal( summary( b2 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( b2, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1084,8 +1119,10 @@ print( logLik( b3, which = "ols" ), digits = 4 )
 print( logLik( b3 ), digits = 4 )
 nobs( b3 )
 print( summary( b3 ), digits = 1 )
-all.equal( summary( b3 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb3i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( b3, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b3, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb3i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b3, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb3i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1121,8 +1158,9 @@ round( coef( b4 ), 2 )
 round( coef( b4, extraPar = TRUE ), 2 )
 round( coef( summary( b4 ), which = "ols" ), 2 )
 round( coef( summary( b4 ) ), 2 )
-all.equal( summary( b4 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb4i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1132,6 +1170,7 @@ print( logLik( b4, which = "ols" ), digits = 4 )
 print( logLik( b4 ), digits = 4 )
 nobs( b4 )
 print( summary( b4 ), digits = 1 )
+print( summary( b4, extraPar = TRUE ), digits = 1 )
 lrtest( b4 )
 round( efficiencies( b4 ), 2 )
 round( efficiencies( b4, asInData = TRUE ), 2 )
@@ -1194,8 +1233,9 @@ round( coef( b5 ), 2 )
 round( coef( b5, extraPar = TRUE ), 2 )
 round( coef( summary( b5 ), which = "ols" ), 2 )
 round( coef( summary( b5 ) ), 2 )
-all.equal( summary( b5 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1206,6 +1246,7 @@ print( logLik( b5 ), digits = 4 )
 nobs( b5 )
 print( summary( b5 ), digits = 1 )
 print( summary( b5, effMinusU = FALSE ), digits = 1 )
+print( summary( b5, extraPar = TRUE ), digits = 1 )
 lrtest( b5 )
 printME( b5eff <- efficiencies( b5, margEff = TRUE ) )
 printME( b5effD <- efficiencies( b5, asInData = TRUE, margEff = TRUE) )
@@ -1272,8 +1313,10 @@ print( logLik( b6, which = "ols" ), digits = 4 )
 print( logLik( b6 ), digits = 4 )
 nobs( b6 )
 print( summary( b6 ), digits = 1 )
-all.equal( summary( b6 )[ -c( 3, 7, 20, 42 ) ], 
-   summary( sb6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+print( summary( b6, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   summary( sb6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    summary( sb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
    check.attributes = FALSE )
@@ -1319,8 +1362,10 @@ print( logLik( b7, which = "ols" ), digits = 4 )
 print( logLik( b7 ), digits = 4 )
 nobs( b7 )
 print( summary( b7 ), digits = 1 )
-all.equal( summary( b7 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( sb7i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( b7, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b7, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( sb7i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b7, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( sb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )
@@ -1364,8 +1409,10 @@ print( logLik( b8, which = "ols" ), digits = 4 )
 print( logLik( b8 ), digits = 4 )
 nobs( b8 )
 print( summary( b8 ), digits = 1 )
-all.equal( summary( b8 )[ -c( 3, 7, 21, 42 ) ], 
-   summary( sb8i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+print( summary( b8, extraPar = TRUE ), digits = 1 )
+all.equal( summary( b8, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   summary( sb8i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
+   check.attributes = FALSE )
 all.equal( summary( b8, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    summary( sb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
    check.attributes = FALSE )

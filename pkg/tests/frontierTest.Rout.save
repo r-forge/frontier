@@ -213,8 +213,34 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.4405 
-> all.equal( summary( sa1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sa1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( a1, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 7 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     0.56       0.20       3    0.006 ** 
+logCapital      0.28       0.05       6    4e-09 ***
+logLabour       0.54       0.05      12   <2e-16 ***
+sigmaSq         0.22       0.06       3    7e-04 ***
+gamma           0.80       0.14       6    5e-09 ***
+sigmaSqU        0.17       0.08       2    0.023 *  
+sigmaSqV        0.04       0.02       2    0.038 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -17.027 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.74057 
+> all.equal( summary( sa1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sa1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sa1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -1028,8 +1054,35 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78903 
-> all.equal( summary( sa2 )[ -c( 3, 7, 8, 20, 42 ) ], 
-+    summary( sa2i )[ -c( 3, 7, 8, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( a2, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     0.48       0.21     2.2     0.03 *  
+logCapital      0.28       0.05     5.9    4e-09 ***
+logLabour       0.54       0.05    11.8   <2e-16 ***
+sigmaSq         0.55       0.62     0.9     0.38    
+gamma           0.91       0.12     7.8    8e-15 ***
+mu             -1.41       2.60    -0.5     0.59    
+sigmaSqU        0.50       0.63     0.8     0.43    
+sigmaSqV        0.05       0.01     3.7    2e-04 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -16.796 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.78903 
+> all.equal( summary( sa2, extraPar = TRUE )[ -c( 3, 7, 8, 20, 42 ) ], 
++    summary( sa2i, extraPar = TRUE )[ -c( 3, 7, 8, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sa2, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 42 ) ], 
 +    summary( sa2i, effMinusU = FALSE )[ -c( 3, 7, 8, 20, 42 ) ], 
@@ -1648,8 +1701,35 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78854 
-> all.equal( summary( sa5 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( sa5i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( a5, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 10 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     0.48       0.21     2.3     0.02 *  
+logCapital      0.28       0.04     7.1    2e-12 ***
+logLabour       0.54       0.05    11.9   <2e-16 ***
+sigmaSq         0.55       0.78     0.7     0.48    
+gamma           0.91       0.14     6.4    2e-10 ***
+mu             -1.41       3.28    -0.4     0.67    
+sigmaSqU        0.50       0.79     0.6     0.53    
+sigmaSqV        0.05       0.03     1.7     0.08 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -16.795 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.78854 
+> all.equal( summary( sa5, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( sa5i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sa5, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( sa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -2270,8 +2350,35 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 1.3975 
-> all.equal( summary( saa1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( saa1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( aa1, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     0.54       0.20     2.7    0.008 ** 
+logCapital      0.27       0.05     5.5    4e-08 ***
+logLabour       0.54       0.04    12.1   <2e-16 ***
+Z_firmNo       -0.01       0.01    -0.8    0.418    
+sigmaSq         0.28       0.12     2.4    0.018 *  
+gamma           0.84       0.11     7.6    2e-14 ***
+sigmaSqU        0.24       0.13     1.9    0.061 .  
+sigmaSqV        0.05       0.02     2.3    0.023 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -16.382 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.76241 
+> all.equal( summary( saa1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( saa1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( saa1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( saa1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -3246,8 +3353,36 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa2 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( saa2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( aa2, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 22 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)       0.51       0.23     2.2     0.03 *  
+logCapital        0.27       0.05     5.5    4e-08 ***
+logLabour         0.54       0.04    12.3   <2e-16 ***
+Z_(Intercept)    -0.40       2.55    -0.2     0.88    
+Z_firmNo         -0.01       0.03    -0.4     0.66    
+sigmaSq           0.41       0.81     0.5     0.62    
+gamma             0.88       0.22     4.0    6e-05 ***
+sigmaSqU          0.36       0.80     0.4     0.65    
+sigmaSqV          0.05       0.02     2.2     0.03 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -16.356 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.77784 
+> all.equal( summary( saa2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( saa2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( saa2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( saa2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -4088,8 +4223,36 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa5 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( saa5i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( aa5, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)       0.51       0.23     2.3     0.02 *  
+logCapital        0.27       0.05     5.5    4e-08 ***
+logLabour         0.54       0.04    12.3   <2e-16 ***
+Z_(Intercept)    -0.40       2.48    -0.2     0.87    
+Z_firmNo         -0.01       0.03    -0.5     0.65    
+sigmaSq           0.41       0.79     0.5     0.61    
+gamma             0.88       0.21     4.1    4e-05 ***
+sigmaSqU          0.36       0.78     0.5     0.65    
+sigmaSqV          0.05       0.02     2.2     0.03 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -16.356 
+
+cross-sectional data
+total number of observations = 60 
+
+mean efficiency: 0.77784 
+> all.equal( summary( saa5, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( saa5i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( saa5, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( saa5i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -5484,8 +5647,35 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72297 
-> all.equal( summary( sbb1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sbb1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( bb1, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 9 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -1.043      0.252      -4    4e-05 ***
+lAREA          0.356      0.060       6    4e-09 ***
+lLABOR         0.333      0.063       5    1e-07 ***
+lNPK           0.271      0.035       8    1e-14 ***
+sigmaSq        0.239      0.027       9   <2e-16 ***
+gamma          0.885      0.036      25   <2e-16 ***
+sigmaSqU       0.211      0.030       7    3e-12 ***
+sigmaSqV       0.027      0.007       4    4e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -86.203 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.72297 
+> all.equal( summary( sbb1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sbb1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sbb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -7707,8 +7897,36 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.4033 
-> all.equal( summary( sbb2 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sbb2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( bb2, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 15 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -1.132      0.221      -5    3e-07 ***
+lAREA          0.354      0.055       6    1e-10 ***
+lLABOR         0.335      0.059       6    2e-08 ***
+lNPK           0.274      0.031       9   <2e-16 ***
+sigmaSq        0.663      0.306       2     0.03 *  
+gamma          0.950      0.026      36   <2e-16 ***
+mu            -1.587      1.057      -2     0.13    
+sigmaSqU       0.629      0.307       2     0.04 *  
+sigmaSqV       0.033      0.006       6    3e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -82.23 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.76998 
+> all.equal( summary( sbb2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sbb2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sbb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -10319,8 +10537,37 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.77076 
-> all.equal( summary( sbb5 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sbb5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( bb5, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 23 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -1.009      0.246    -4.1    4e-05 ***
+lAREA          0.384      0.059     6.5    9e-11 ***
+lLABOR         0.319      0.061     5.2    2e-07 ***
+lNPK           0.260      0.034     7.8    9e-15 ***
+Z_EDYRS       -0.058      0.085    -0.7     0.50    
+Z_BANRAT      -1.406      0.851    -1.7     0.10 .  
+sigmaSq        0.597      0.291     2.1     0.04 *  
+gamma          0.945      0.028    34.2   <2e-16 ***
+sigmaSqU       0.565      0.290     1.9     0.05 .  
+sigmaSqV       0.033      0.007     5.1    4e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.85 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.77076 
+> all.equal( summary( sbb5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sbb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sbb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -13623,8 +13870,38 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.375 
-> all.equal( summary( sbb6 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sbb6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( bb6, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 46 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -1.052      0.246    -4.3    2e-05 ***
+lAREA            0.380      0.058     6.5    6e-11 ***
+lLABOR           0.321      0.061     5.3    1e-07 ***
+lNPK             0.264      0.034     7.8    5e-15 ***
+Z_(Intercept)   -2.746      8.520    -0.3      0.7    
+Z_EDYRS         -0.029      0.214    -0.1      0.9    
+Z_BANRAT        -3.635      8.120    -0.4      0.7    
+sigmaSq          1.666      3.706     0.4      0.7    
+gamma            0.979      0.045    21.6   <2e-16 ***
+sigmaSqU         1.631      3.702     0.4      0.7    
+sigmaSqV         0.035      0.007     4.8    2e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.314 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.78493 
+> all.equal( summary( sbb6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sbb6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ],
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sbb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -18345,8 +18622,36 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.76766 
-> all.equal( summary( sbb7 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( sbb7i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( bb7, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 15 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -1.091      0.235      -5    3e-06 ***
+lAREA          0.358      0.058       6    7e-10 ***
+lLABOR         0.326      0.057       6    1e-08 ***
+lNPK           0.275      0.035       8    3e-15 ***
+sigmaSq        0.677      0.228       3    0.003 ** 
+gamma          0.953      0.018      54   <2e-16 ***
+mu            -1.606      0.760      -2    0.035 *  
+sigmaSqU       0.645      0.228       3    0.005 ** 
+sigmaSqV       0.032      0.005       6    3e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -82.224 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.76766 
+> all.equal( summary( sbb7, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( sbb7i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb7, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( sbb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -20182,8 +20487,38 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.78493 
-> all.equal( summary( sbb8 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( sbb8i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( bb8, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 42 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -1.052      0.247    -4.3    2e-05 ***
+lAREA            0.380      0.060     6.3    2e-10 ***
+lLABOR           0.321      0.061     5.3    1e-07 ***
+lNPK             0.264      0.034     7.7    1e-14 ***
+Z_(Intercept)   -2.747      8.054    -0.3      0.7    
+Z_EDYRS         -0.029      0.210    -0.1      0.9    
+Z_BANRAT        -3.636      7.713    -0.5      0.6    
+sigmaSq          1.667      3.533     0.5      0.6    
+gamma            0.979      0.043    22.6   <2e-16 ***
+sigmaSqU         1.631      3.530     0.5      0.6    
+sigmaSqV         0.035      0.006     5.7    1e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.314 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.78493 
+> all.equal( summary( sbb8, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( sbb8i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sbb8, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( sbb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -23552,8 +23887,35 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1745 
-> all.equal( summary( sdd1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( dd1, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function)
+The dependent variable is logged
+Iterative ML estimation terminated after 11 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    5.870      0.201      29   <2e-16 ***
+lPROD          0.462      0.034      13   <2e-16 ***
+lAREA          0.506      0.035      14   <2e-16 ***
+lLABORP        0.414      0.032      13   <2e-16 ***
+lNPKP          0.071      0.054       1    0.194    
+sigmaSq        0.070      0.014       5    9e-07 ***
+gamma          0.530      0.187       3    0.005 ** 
+sigmaSqU       0.037      0.020       2    0.068 .  
+sigmaSqV       0.033      0.007       4    8e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: 39.931 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.86317 
+> all.equal( summary( sdd1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sdd1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sdd1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -26163,8 +26525,37 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1391 
-> all.equal( summary( sdd2 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( dd2, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency increases the endogenous variable (as in a cost function)
+The dependent variable is logged
+Iterative ML estimation terminated after 19 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    5.894      0.193      30   <2e-16 ***
+lPROD          0.466      0.031      15   <2e-16 ***
+lAREA          0.503      0.034      15   <2e-16 ***
+lLABORP        0.414      0.032      13   <2e-16 ***
+lNPKP          0.072      0.054       1    0.178    
+sigmaSq        0.144      0.053       3    0.007 ** 
+gamma          0.768      0.107       7    8e-13 ***
+mu            -0.664      0.446      -2    0.136    
+sigmaSqU       0.110      0.056       2    0.048 *  
+sigmaSqV       0.033      0.005       6    3e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: 40.966 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.88937 
+> all.equal( summary( sdd2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sdd2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sdd2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -28443,8 +28834,38 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.0966 
-> all.equal( summary( sdd5 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( dd5, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function)
+The dependent variable is logged
+Iterative ML estimation terminated after 141 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    6e+00      2e-01    31.5   <2e-16 ***
+lPROD          5e-01      3e-02    15.6   <2e-16 ***
+lAREA          5e-01      3e-02    15.5   <2e-16 ***
+lLABORP        4e-01      3e-02    13.0   <2e-16 ***
+lNPKP          8e-02      5e-02     1.5      0.1    
+Z_EDYRS       -1e+01      3e+01    -0.4      0.7    
+Z_BANRAT      -8e+01      2e+02    -0.3      0.7    
+sigmaSq        1e+01      3e+01     0.4      0.7    
+gamma          1e+00      9e-03   117.1   <2e-16 ***
+sigmaSqU       1e+01      3e+01     0.4      0.7    
+sigmaSqV       4e-02      4e-03    10.2   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: 43.315 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.92062 
+> all.equal( summary( sdd5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sdd5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sdd5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -33138,8 +33559,9 @@ Z_EDYRS         -16.01      25.04   -0.64     0.52
 Z_BANRAT       -100.08     156.47   -0.64     0.52
 sigmaSq          17.64      27.38    0.64     0.52
 gamma             1.00       0.00  300.28     0.00
-> all.equal( summary( sdd6 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sdd6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> all.equal( summary( sdd6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sdd6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( sdd6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sdd6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -33225,6 +33647,36 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1013 
+> print( summary( dd6, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency increases the endogenous variable (as in a cost function)
+The dependent variable is logged
+Iterative ML estimation terminated after 165 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      6e+00      2e-01    33.0   <2e-16 ***
+lPROD            5e-01      3e-02    16.9   <2e-16 ***
+lAREA            5e-01      3e-02    17.7   <2e-16 ***
+lLABORP          4e-01      3e-02    13.4   <2e-16 ***
+lNPKP            8e-02      5e-02     1.5      0.1    
+Z_(Intercept)   -1e+01      2e+01    -0.7      0.5    
+Z_EDYRS         -2e+01      3e+01    -0.6      0.5    
+Z_BANRAT        -1e+02      2e+02    -0.6      0.5    
+sigmaSq          2e+01      3e+01     0.6      0.5    
+gamma            1e+00      3e-03   300.3   <2e-16 ***
+sigmaSqU         2e+01      3e+01     0.6      0.5    
+sigmaSqV         4e-02      3e-03    11.6   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: 43.337 
+
+cross-sectional data
+total number of observations = 344 
+
+mean efficiency: 0.9173 
 > lrtest( dd6 )
 Likelihood ratio test
 
@@ -37928,8 +38380,38 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.2547 
-> all.equal( summary( b1 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb1i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( b1, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 11 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.832      0.275      -3    0.003 ** 
+lAREA          0.454      0.064       7    1e-12 ***
+lLABOR         0.289      0.064       4    6e-06 ***
+lNPK           0.228      0.041       6    3e-08 ***
+sigmaSq        0.155      0.024       6    1e-10 ***
+gamma          0.464      0.088       5    1e-07 ***
+sigmaSqU       0.072      0.024       3    0.003 ** 
+sigmaSqV       0.083      0.007      12   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -86.43 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.8188 
+> all.equal( summary( b1, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb1i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ],
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b1, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb1i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -39019,8 +39501,39 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.83128 
-> all.equal( summary( b2 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb2i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( b2, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 18 iterations:
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.829      0.279    -3.0    0.003 ** 
+lAREA          0.455      0.064     7.1    1e-12 ***
+lLABOR         0.287      0.063     4.5    6e-06 ***
+lNPK           0.225      0.041     5.5    5e-08 ***
+sigmaSq        0.203      0.175     1.2    0.245    
+gamma          0.590      0.356     1.7    0.097 .  
+mu            -0.273      0.930    -0.3    0.769    
+sigmaSqU       0.120      0.175     0.7    0.494    
+sigmaSqV       0.083      0.007    11.9   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -86.343 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency: 0.83128 
+> all.equal( summary( b2, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb2i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b2, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb2i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -40128,8 +40641,43 @@ mean efficiency of each year
 0.78484 0.79503 0.80484 0.81427 0.82332 0.83202 0.84035 0.84833 
 
 mean efficiency: 0.81787 
-> all.equal( summary( b3 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb3i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( b3, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 13 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.754      0.278      -3    0.007 ** 
+lAREA          0.475      0.065       7    4e-13 ***
+lLABOR         0.300      0.064       5    3e-06 ***
+lNPK           0.199      0.043       5    3e-06 ***
+sigmaSq        0.130      0.022       6    2e-09 ***
+gamma          0.370      0.107       3    6e-04 ***
+time           0.059      0.031       2    0.058 .  
+sigmaSqU       0.048      0.021       2    0.025 *  
+sigmaSqV       0.082      0.007      12   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -84.55 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.78484 0.79503 0.80484 0.81427 0.82332 0.83202 0.84035 0.84833 
+
+mean efficiency: 0.81787 
+> all.equal( summary( b3, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb3i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b3, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb3i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -41079,8 +41627,9 @@ sigmaSq         0.17       0.15    1.16     0.25
 gamma           0.52       0.41    1.27     0.20
 mu             -0.32       1.05   -0.30     0.76
 time            0.06       0.04    1.81     0.07
-> all.equal( summary( b4 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb4i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> all.equal( summary( b4, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb4i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b4, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb4i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -41143,6 +41692,41 @@ sigmaSq         0.17       0.15     1.2    0.247
 gamma           0.52       0.41     1.3    0.204    
 mu             -0.32       1.05    -0.3    0.763    
 time            0.06       0.04     1.8    0.070 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -84.407 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
+
+mean efficiency: 0.83349 
+> print( summary( b4, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 20 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.750      0.279    -2.7    0.007 ** 
+lAREA          0.476      0.065     7.3    3e-13 ***
+lLABOR         0.298      0.063     4.7    2e-06 ***
+lNPK           0.196      0.044     4.5    8e-06 ***
+sigmaSq        0.172      0.149     1.2    0.247    
+gamma          0.524      0.412     1.3    0.204    
+mu            -0.317      1.050    -0.3    0.763    
+time           0.065      0.036     1.8    0.070 .  
+sigmaSqU       0.090      0.149     0.6    0.544    
+sigmaSqV       0.082      0.007    12.0   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -84.407 
@@ -42477,8 +43061,9 @@ Z_EDYRS        -0.06       0.09   -0.68     0.50
 Z_BANRAT       -1.41       0.85   -1.65     0.10
 sigmaSq         0.60       0.29    2.06     0.04
 gamma           0.94       0.03   34.16     0.00
-> all.equal( summary( b5 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb5i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> all.equal( summary( b5, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb5i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b5, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb5i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -42589,6 +43174,41 @@ mean efficiency of each year
 1.4722 1.4950 1.2647 1.3112 1.4243 1.3296 1.5819 1.3478 
 
 mean efficiency: 1.4033 
+> print( summary( b5, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 23 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -1.009      0.246    -4.1    4e-05 ***
+lAREA          0.384      0.059     6.5    9e-11 ***
+lLABOR         0.319      0.061     5.2    2e-07 ***
+lNPK           0.260      0.034     7.8    9e-15 ***
+Z_EDYRS       -0.058      0.085    -0.7     0.50    
+Z_BANRAT      -1.406      0.851    -1.7     0.10 .  
+sigmaSq        0.597      0.291     2.1     0.04 *  
+gamma          0.945      0.028    34.2   <2e-16 ***
+sigmaSqU       0.565      0.290     1.9     0.05 .  
+sigmaSqV       0.033      0.007     5.1    4e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.85 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.74782 0.73499 0.81753 0.79751 0.74817 0.79462 0.68791 0.83752 
+
+mean efficiency: 0.77076 
 > lrtest( b5 )
 Likelihood ratio test
 
@@ -44727,8 +45347,45 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b6 )[ -c( 3, 7, 20, 42 ) ], 
-+    summary( sb6i )[ -c( 3, 7, 20, 42 ) ], check.attributes = FALSE )
+> print( summary( b6, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 47 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -1.052      0.253    -4.2    3e-05 ***
+lAREA            0.380      0.060     6.3    2e-10 ***
+lLABOR           0.321      0.061     5.3    2e-07 ***
+lNPK             0.264      0.034     7.7    2e-14 ***
+Z_(Intercept)   -2.746      8.499    -0.3      0.7    
+Z_EDYRS         -0.029      0.216    -0.1      0.9    
+Z_BANRAT        -3.636      8.097    -0.4      0.7    
+sigmaSq          1.667      3.696     0.5      0.7    
+gamma            0.979      0.045    21.7   <2e-16 ***
+sigmaSqU         1.631      3.693     0.4      0.7    
+sigmaSqV         0.035      0.007     4.8    2e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.314 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
+
+mean efficiency: 0.78493 
+> all.equal( summary( b6, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    summary( sb6i, extraPar = TRUE )[ -c( 3, 7, 20, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b6, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
 +    summary( sb6i, effMinusU = FALSE )[ -c( 3, 7, 20, 42 ) ], 
@@ -46207,8 +46864,44 @@ mean efficiency of each year
 0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
 
 mean efficiency: 0.83349 
-> all.equal( summary( b7 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( sb7i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( b7, extraPar = TRUE ), digits = 1 )
+Error Components Frontier (see Battese & Coelli 1992)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 15 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.750      0.282    -2.7    0.008 ** 
+lAREA          0.476      0.065     7.3    2e-13 ***
+lLABOR         0.298      0.064     4.7    3e-06 ***
+lNPK           0.196      0.043     4.6    4e-06 ***
+sigmaSq        0.172      0.151     1.1    0.255    
+gamma          0.524      0.420     1.2    0.213    
+mu            -0.317      1.067    -0.3    0.766    
+time           0.065      0.035     1.8    0.068 .  
+sigmaSqU       0.090      0.151     0.6    0.551    
+sigmaSqV       0.082      0.007    11.8   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -84.407 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
+
+mean efficiency: 0.83349 
+> all.equal( summary( b7, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( sb7i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b7, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( sb7i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -47154,8 +47847,45 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b8 )[ -c( 3, 7, 21, 42 ) ], 
-+    summary( sb8i )[ -c( 3, 7, 21, 42 ) ], check.attributes = FALSE )
+> print( summary( b8, extraPar = TRUE ), digits = 1 )
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 49 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -1.052      0.255    -4.1    4e-05 ***
+lAREA            0.380      0.060     6.3    3e-10 ***
+lLABOR           0.321      0.062     5.2    2e-07 ***
+lNPK             0.264      0.034     7.7    1e-14 ***
+Z_(Intercept)   -2.746      8.117    -0.3      0.7    
+Z_EDYRS         -0.029      0.211    -0.1      0.9    
+Z_BANRAT        -3.635      7.726    -0.5      0.6    
+sigmaSq          1.667      3.526     0.5      0.6    
+gamma            0.979      0.043    22.6   <2e-16 ***
+sigmaSqU         1.631      3.523     0.5      0.6    
+sigmaSqV         0.035      0.007     5.0    6e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+log likelihood value: -77.314 
+
+panel data
+number of cross-sections = 43 
+number of time periods = 8 
+total number of observations = 344 
+thus there are 0 observations not in the panel
+
+mean efficiency of each year
+   1999    2000    2001    2002    2003    2004    2005    2006 
+0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
+
+mean efficiency: 0.78493 
+> all.equal( summary( b8, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    summary( sb8i, extraPar = TRUE )[ -c( 3, 7, 21, 42 ) ], 
++    check.attributes = FALSE )
 [1] TRUE
 > all.equal( summary( b8, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
 +    summary( sb8i, effMinusU = FALSE )[ -c( 3, 7, 21, 42 ) ], 
@@ -109353,4 +110083,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 42.420   0.732  43.202 
+ 43.664   0.924  44.637 
