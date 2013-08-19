@@ -32,6 +32,8 @@ returned by \code{\link{frontier}}.
    \code{coef.frontier} returns a named vector of the coefficients.
 }
 
+\seealso{\code{\link{coef.summary.frontier}} and \code{\link{sfa}}.}
+
 \author{Arne Henningsen}
 
 \examples{

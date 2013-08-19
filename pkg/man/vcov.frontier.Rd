@@ -24,10 +24,36 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
    \item{\dots}{currently unused.}
 }
 
+\details{
+   The variance-covariance matrix of the estimated parameters
+   is taken from the direction matrix
+   that is used in the final iteration of the Davidon-Fletcher-Powell procedure
+   that is used for maximising the (log) likelihood function.
+   
+   If argument \code{extraPar} is \code{TRUE},
+   the variances and covariances of the additional parameters
+   are obtained by the delta method.
+   Please note that the delta method might provide poor approximations
+   of the \sQuote{true} variances and covariances,
+   because parameter \eqn{\sigma^2}{sigma^2} is left-censored
+   and parameter \eqn{\gamma}{gamma} is both left-censored and right-censored
+   so that these parameters cannot be normally distributed.
+   
+   Please note further
+   that it might not be appropriate to use standard statistical tests
+   (e.g. t-tests or other Wald tests)
+   that are based on the variances and covariances of \eqn{\sigma^2}{sigma^2},
+   \eqn{\gamma}{gamma}, and the \sQuote{additional parameters},
+   because these parameters are censored and cannot follow normal distributions.
+}
+
 \value{
    \code{vcov.frontier} returns the covariance matrix 
    of the maximum likelihood coefficients.
 }
+
+\seealso{\code{\link{coef.frontier}}, \code{\link{coef.summary.frontier}},
+   \code{\link{summary.frontier}}, and \code{\link{sfa}}.}
 
 \author{Arne Henningsen}
 

@@ -42,6 +42,29 @@ returned by \code{\link{frontier}}.
       are forwarded to \code{\link[stats]{printCoefmat}}.}
 }
 
+\details{
+   The standard errors of the estimated parameters
+   are taken from the direction matrix
+   that is used in the final iteration of the Davidon-Fletcher-Powell procedure
+   that is used for maximising the (log) likelihood function.
+   
+   If argument \code{extraPar} is \code{TRUE},
+   the standard errors of the additional parameters
+   are obtained by the delta method.
+   Please note that the delta method might provide poor approximations
+   of the \sQuote{true} standard errors,
+   because parameter \eqn{\sigma^2}{sigma^2} is left-censored
+   and parameter \eqn{\gamma}{gamma} is both left-censored and right-censored
+   so that these parameters cannot be normally distributed.
+   
+   Please note further
+   that the t statistic and the z statistic are not reliable
+   for testing the statistical signicance of \eqn{\sigma^2}{sigma^2},
+   \eqn{\gamma}{gamma}, and the \sQuote{additional parameters},
+   because these parameters are censored and cannot follow 
+   a normal distribution or a t distribution.
+}
+
 \value{
    \code{summary.frontier} returns a list of class \code{summary.frontier}
    that is identical to an object returned by \code{\link{frontier}}
@@ -64,8 +87,8 @@ returned by \code{\link{frontier}}.
 
 \author{Arne Henningsen}
 
-\seealso{\code{\link{sfa}}, \code{\link{efficiencies.frontier}},
-   and \code{\link{lrtest.frontier}}.}
+\seealso{\code{\link{sfa}}, \code{\link{efficiencies.frontier}}, 
+   \code{\link{vcov.frontier}}, and \code{\link{lrtest.frontier}}.}
 
 \examples{
    # example included in FRONTIER 4.1 (cross-section data)
