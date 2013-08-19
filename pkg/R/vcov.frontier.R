@@ -23,6 +23,14 @@ vcov.frontier <- function( object, extraPar = FALSE, ... ) {
       jacobian[ "sigmaU", "gamma" ] <- 0.5 * sqrt( sigmaSq / gamma )
       jacobian[ "sigmaV", "sigmaSq" ] <- 0.5 * sqrt( ( 1 - gamma ) / sigmaSq )
       jacobian[ "sigmaV", "gamma" ] <- - 0.5 * sqrt( sigmaSq / ( 1 - gamma ) )
+      
+      if( object$modelType == 1 && ! object$timeEffect ) {
+         jacobian <- rbind( jacobian, 
+            varU = rep( NA, ncol = ncol( result ) ),
+            sdU = rep( NA, ncol = ncol( result ) ),
+            gammaVar = rep( NA, ncol = ncol( result ) ) )
+      }
+      
       result <- jacobian %*% result %*% t( jacobian )
    }
 

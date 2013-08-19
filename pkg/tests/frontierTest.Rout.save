@@ -120,16 +120,20 @@ In coef.frontier(a1, which = "ols", extraPar = TRUE) :
 > round( coef( a1, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
        0.58        0.28        0.53        0.22        0.80        0.18 
-   sigmaSqV       sigma      sigmaU      sigmaV 
-       0.04        0.47        0.42        0.21 
+   sigmaSqV       sigma      sigmaU      sigmaV        varU         sdU 
+       0.04        0.47        0.42        0.21        0.06        0.25 
+   gammaVar 
+       0.59 
 > round( coef( a1 ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma 
        0.56        0.28        0.54        0.22        0.80 
 > round( coef( a1, extraPar = TRUE ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
        0.56        0.28        0.54        0.22        0.80        0.17 
-   sigmaSqV       sigma      sigmaU      sigmaV 
-       0.04        0.47        0.42        0.21 
+   sigmaSqV       sigma      sigmaU      sigmaV        varU         sdU 
+       0.04        0.47        0.42        0.21        0.06        0.25 
+   gammaVar 
+       0.59 
 > round( coef( summary( a1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -155,6 +159,9 @@ sigmaSqV        0.04       0.02    2.07     0.04
 sigma           0.47       0.07    6.79     0.00
 sigmaU          0.42       0.09    4.54     0.00
 sigmaV          0.21       0.05    4.15     0.00
+varU            0.06         NA      NA       NA
+sdU             0.25         NA      NA       NA
+gammaVar        0.59         NA      NA       NA
 > round( vcov( a1 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma
 (Intercept)        0.04          0     -0.01    0.00  0.01
@@ -174,17 +181,23 @@ sigmaSqV           0.00          0      0.00    0.00  0.00     0.00        0
 sigma              0.00          0      0.00    0.00  0.01     0.01        0
 sigmaU             0.01          0      0.00    0.01  0.01     0.01        0
 sigmaV             0.00          0      0.00    0.00 -0.01     0.00        0
-            sigma sigmaU sigmaV
-(Intercept)  0.00   0.01   0.00
-logCapital   0.00   0.00   0.00
-logLabour    0.00   0.00   0.00
-sigmaSq      0.00   0.01   0.00
-gamma        0.01   0.01  -0.01
-sigmaSqU     0.01   0.01   0.00
-sigmaSqV     0.00   0.00   0.00
-sigma        0.00   0.01   0.00
-sigmaU       0.01   0.01   0.00
-sigmaV       0.00   0.00   0.00
+varU                 NA         NA        NA      NA    NA       NA       NA
+sdU                  NA         NA        NA      NA    NA       NA       NA
+gammaVar             NA         NA        NA      NA    NA       NA       NA
+            sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)  0.00   0.01   0.00   NA  NA       NA
+logCapital   0.00   0.00   0.00   NA  NA       NA
+logLabour    0.00   0.00   0.00   NA  NA       NA
+sigmaSq      0.00   0.01   0.00   NA  NA       NA
+gamma        0.01   0.01  -0.01   NA  NA       NA
+sigmaSqU     0.01   0.01   0.00   NA  NA       NA
+sigmaSqV     0.00   0.00   0.00   NA  NA       NA
+sigma        0.00   0.01   0.00   NA  NA       NA
+sigmaU       0.01   0.01   0.00   NA  NA       NA
+sigmaV       0.00   0.00   0.00   NA  NA       NA
+varU           NA     NA     NA   NA  NA       NA
+sdU            NA     NA     NA   NA  NA       NA
+gammaVar       NA     NA     NA   NA  NA       NA
 > print( logLik( a1, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a1, which = "grid" ), digits = 4 )
@@ -259,6 +272,9 @@ sigmaSqV        0.04       0.02       2    0.038 *
 sigma           0.47       0.07       7    1e-11 ***
 sigmaU          0.42       0.09       4    6e-06 ***
 sigmaV          0.21       0.05       4    3e-05 ***
+varU            0.06         NA      NA       NA    
+sdU             0.25         NA      NA       NA    
+gammaVar        0.59         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -17.027 
@@ -1002,16 +1018,20 @@ NULL
 > round( coef( a2, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma    sigmaSqU 
        0.58        0.28        0.53        0.22        0.80        0.18 
-   sigmaSqV       sigma      sigmaU      sigmaV 
-       0.04        0.47        0.42        0.21 
+   sigmaSqV       sigma      sigmaU      sigmaV        varU         sdU 
+       0.04        0.47        0.42        0.21        0.06        0.25 
+   gammaVar 
+       0.59 
 > round( coef( a2 ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
        0.48        0.28        0.54        0.55        0.91       -1.41 
 > round( coef( a2, extraPar = TRUE ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
        0.48        0.28        0.54        0.55        0.91       -1.41 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.50        0.05        0.74        0.71        0.22 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.50        0.05        0.74        0.71        0.22        0.06 
+        sdU    gammaVar 
+       0.24        0.53 
 > round( coef( summary( a2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -1039,6 +1059,9 @@ sigmaSqV        0.05       0.01    3.71     0.00
 sigma           0.74       0.42    1.75     0.08
 sigmaU          0.71       0.45    1.58     0.11
 sigmaV          0.22       0.03    7.42     0.00
+varU            0.06         NA      NA       NA
+sdU             0.24         NA      NA       NA
+gammaVar        0.53         NA      NA       NA
 > round( vcov( a2 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma    mu
 (Intercept)        0.05          0     -0.01   -0.03  0.00  0.16
@@ -1060,18 +1083,24 @@ sigmaSqV           0.00          0      0.00    0.00  0.00  0.01     0.00
 sigma             -0.02          0      0.00    0.26  0.05 -1.08     0.27
 sigmaU            -0.02          0      0.00    0.28  0.05 -1.14     0.28
 sigmaV             0.00          0      0.00   -0.01  0.00  0.03    -0.01
-            sigmaSqV sigma sigmaU sigmaV
-(Intercept)     0.00 -0.02  -0.02   0.00
-logCapital      0.00  0.00   0.00   0.00
-logLabour       0.00  0.00   0.00   0.00
-sigmaSq         0.00  0.26   0.28  -0.01
-gamma           0.00  0.05   0.05   0.00
-mu              0.01 -1.08  -1.14   0.03
-sigmaSqU        0.00  0.27   0.28  -0.01
-sigmaSqV        0.00  0.00   0.00   0.00
-sigma           0.00  0.18   0.19  -0.01
-sigmaU          0.00  0.19   0.20  -0.01
-sigmaV          0.00 -0.01  -0.01   0.00
+varU                 NA         NA        NA      NA    NA    NA       NA
+sdU                  NA         NA        NA      NA    NA    NA       NA
+gammaVar             NA         NA        NA      NA    NA    NA       NA
+            sigmaSqV sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)     0.00 -0.02  -0.02   0.00   NA  NA       NA
+logCapital      0.00  0.00   0.00   0.00   NA  NA       NA
+logLabour       0.00  0.00   0.00   0.00   NA  NA       NA
+sigmaSq         0.00  0.26   0.28  -0.01   NA  NA       NA
+gamma           0.00  0.05   0.05   0.00   NA  NA       NA
+mu              0.01 -1.08  -1.14   0.03   NA  NA       NA
+sigmaSqU        0.00  0.27   0.28  -0.01   NA  NA       NA
+sigmaSqV        0.00  0.00   0.00   0.00   NA  NA       NA
+sigma           0.00  0.18   0.19  -0.01   NA  NA       NA
+sigmaU          0.00  0.19   0.20  -0.01   NA  NA       NA
+sigmaV          0.00 -0.01  -0.01   0.00   NA  NA       NA
+varU              NA    NA     NA     NA   NA  NA       NA
+sdU               NA    NA     NA     NA   NA  NA       NA
+gammaVar          NA    NA     NA     NA   NA  NA       NA
 > print( logLik( a2, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a2 ), digits = 4 )
@@ -1123,6 +1152,9 @@ sigmaSqV        0.05       0.01     3.7    2e-04 ***
 sigma           0.74       0.42     1.8     0.08 .  
 sigmaU          0.71       0.45     1.6     0.11    
 sigmaV          0.22       0.03     7.4    1e-13 ***
+varU            0.06         NA      NA       NA    
+sdU             0.24         NA      NA       NA    
+gammaVar        0.53         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.796 
@@ -1679,8 +1711,10 @@ NULL
 > round( coef( a5, extraPar = TRUE ), 2 )
 (Intercept)  logCapital   logLabour     sigmaSq       gamma          mu 
        0.48        0.28        0.54        0.55        0.91       -1.41 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.50        0.05        0.74        0.71        0.22 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.50        0.05        0.74        0.71        0.22        0.06 
+        sdU    gammaVar 
+       0.24        0.53 
 > round( coef( summary( a5 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     0.24       0.21    1.15     0.26
@@ -1708,6 +1742,9 @@ sigmaSqV        0.05       0.03    1.73     0.08
 sigma           0.74       0.53    1.40     0.16
 sigmaU          0.71       0.56    1.27     0.20
 sigmaV          0.22       0.06    3.46     0.00
+varU            0.06         NA      NA       NA
+sdU             0.24         NA      NA       NA
+gammaVar        0.53         NA      NA       NA
 > round( vcov( a5 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma    mu
 (Intercept)        0.04       0.00     -0.01   -0.05  0.00  0.24
@@ -1729,18 +1766,24 @@ sigmaSqV           0.00       0.00      0.00    0.00  0.00 -0.01     0.00
 sigma             -0.03       0.00      0.00    0.42  0.07 -1.71     0.42
 sigmaU            -0.03       0.00      0.00    0.44  0.07 -1.79     0.44
 sigmaV            -0.01       0.00      0.00    0.00  0.00 -0.02     0.00
-            sigmaSqV sigma sigmaU sigmaV
-(Intercept)     0.00 -0.03  -0.03  -0.01
-logCapital      0.00  0.00   0.00   0.00
-logLabour       0.00  0.00   0.00   0.00
-sigmaSq         0.00  0.42   0.44   0.00
-gamma           0.00  0.07   0.07   0.00
-mu             -0.01 -1.71  -1.79  -0.02
-sigmaSqU        0.00  0.42   0.44   0.00
-sigmaSqV        0.00  0.00   0.00   0.00
-sigma           0.00  0.28   0.29   0.00
-sigmaU          0.00  0.29   0.31   0.00
-sigmaV          0.00  0.00   0.00   0.00
+varU                 NA         NA        NA      NA    NA    NA       NA
+sdU                  NA         NA        NA      NA    NA    NA       NA
+gammaVar             NA         NA        NA      NA    NA    NA       NA
+            sigmaSqV sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)     0.00 -0.03  -0.03  -0.01   NA  NA       NA
+logCapital      0.00  0.00   0.00   0.00   NA  NA       NA
+logLabour       0.00  0.00   0.00   0.00   NA  NA       NA
+sigmaSq         0.00  0.42   0.44   0.00   NA  NA       NA
+gamma           0.00  0.07   0.07   0.00   NA  NA       NA
+mu             -0.01 -1.71  -1.79  -0.02   NA  NA       NA
+sigmaSqU        0.00  0.42   0.44   0.00   NA  NA       NA
+sigmaSqV        0.00  0.00   0.00   0.00   NA  NA       NA
+sigma           0.00  0.28   0.29   0.00   NA  NA       NA
+sigmaU          0.00  0.29   0.31   0.00   NA  NA       NA
+sigmaV          0.00  0.00   0.00   0.00   NA  NA       NA
+varU              NA    NA     NA     NA   NA  NA       NA
+sdU               NA    NA     NA     NA   NA  NA       NA
+gammaVar          NA    NA     NA     NA   NA  NA       NA
 > print( logLik( a5, which = "ols" ), digits = 4 )
 'log Lik.' -18.45 (df=4)
 > print( logLik( a5 ), digits = 4 )
@@ -1792,6 +1835,9 @@ sigmaSqV        0.05       0.03     1.7     0.08 .
 sigma           0.74       0.53     1.4     0.16    
 sigmaU          0.71       0.56     1.3     0.20    
 sigmaV          0.22       0.06     3.5    5e-04 ***
+varU            0.06         NA      NA       NA    
+sdU             0.24         NA      NA       NA    
+gammaVar        0.53         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -16.795 
@@ -5735,16 +5781,20 @@ NULL
 > round( coef( bb1, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.21        0.03        0.49        0.46        0.18 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.21        0.03        0.49        0.46        0.18        0.08 
+        sdU    gammaVar 
+       0.28        0.71 
 > round( coef( bb1 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.04        0.36        0.33        0.27        0.24        0.89 
 > round( coef( bb1, extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.04        0.36        0.33        0.27        0.24        0.89 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.21        0.03        0.49        0.46        0.17 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.21        0.03        0.49        0.46        0.17        0.08 
+        sdU    gammaVar 
+       0.28        0.74 
 > round( coef( summary( bb1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -5773,6 +5823,9 @@ sigmaSqV        0.03       0.01    4.12        0
 sigma           0.49       0.03   17.84        0
 sigmaU          0.46       0.03   13.93        0
 sigmaV          0.17       0.02    8.24        0
+varU            0.08         NA      NA       NA
+sdU             0.28         NA      NA       NA
+gammaVar        0.74         NA      NA       NA
 > round( vcov( bb1 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma
 (Intercept)        0.06  0.01  -0.01    0       0     0
@@ -5794,18 +5847,24 @@ sigmaSqV           0.00  0.00   0.00    0       0     0        0        0     0
 sigma              0.00  0.00   0.00    0       0     0        0        0     0
 sigmaU             0.00  0.00   0.00    0       0     0        0        0     0
 sigmaV             0.00  0.00   0.00    0       0     0        0        0     0
-            sigmaU sigmaV
-(Intercept)      0      0
-lAREA            0      0
-lLABOR           0      0
-lNPK             0      0
-sigmaSq          0      0
-gamma            0      0
-sigmaSqU         0      0
-sigmaSqV         0      0
-sigma            0      0
-sigmaU           0      0
-sigmaV           0      0
+varU                 NA    NA     NA   NA      NA    NA       NA       NA    NA
+sdU                  NA    NA     NA   NA      NA    NA       NA       NA    NA
+gammaVar             NA    NA     NA   NA      NA    NA       NA       NA    NA
+            sigmaU sigmaV varU sdU gammaVar
+(Intercept)      0      0   NA  NA       NA
+lAREA            0      0   NA  NA       NA
+lLABOR           0      0   NA  NA       NA
+lNPK             0      0   NA  NA       NA
+sigmaSq          0      0   NA  NA       NA
+gamma            0      0   NA  NA       NA
+sigmaSqU         0      0   NA  NA       NA
+sigmaSqV         0      0   NA  NA       NA
+sigma            0      0   NA  NA       NA
+sigmaU           0      0   NA  NA       NA
+sigmaV           0      0   NA  NA       NA
+varU            NA     NA   NA  NA       NA
+sdU             NA     NA   NA  NA       NA
+gammaVar        NA     NA   NA  NA       NA
 > nobs( bb1 )
 [1] 344
 > print( summary( bb1 ), digits = 1 )
@@ -5853,6 +5912,9 @@ sigmaSqV       0.027      0.007       4    4e-05 ***
 sigma          0.489      0.027      18   <2e-16 ***
 sigmaU         0.460      0.033      14   <2e-16 ***
 sigmaV         0.165      0.020       8   <2e-16 ***
+varU           0.077         NA      NA       NA    
+sdU            0.277         NA      NA       NA    
+gammaVar       0.737         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.203 
@@ -7985,8 +8047,10 @@ NULL
 > round( coef( bb2, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.30        0.33        0.38        0.28        0.24        0.87 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.21        0.03        0.49        0.46        0.18 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.21        0.03        0.49        0.46        0.18        0.08 
+        sdU    gammaVar 
+       0.28        0.71 
 > round( coef( bb2 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.13        0.35        0.33        0.27        0.66        0.95 
@@ -7997,6 +8061,8 @@ NULL
       -1.13        0.35        0.33        0.27        0.66        0.95 
          mu    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
       -1.59        0.63        0.03        0.81        0.79        0.18 
+       varU         sdU    gammaVar 
+       0.07        0.27        0.68 
 > round( coef( summary( bb2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -8027,6 +8093,9 @@ sigmaSqV        0.03       0.01    5.92     0.00
 sigma           0.81       0.19    4.33     0.00
 sigmaU          0.79       0.19    4.10     0.00
 sigmaV          0.18       0.02   11.83     0.00
+varU            0.07         NA      NA       NA
+sdU             0.27         NA      NA       NA
+gammaVar        0.68         NA      NA       NA
 > round( vcov( bb2 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.05  0.01  -0.01    0   -0.01  0.00  0.04
@@ -8050,19 +8119,25 @@ sigmaSqV           0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
 sigma             -0.01  0.00   0.00    0    0.06  0.00 -0.20     0.06        0
 sigmaU            -0.01  0.00   0.00    0    0.06  0.00 -0.20     0.06        0
 sigmaV             0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
-            sigma sigmaU sigmaV
-(Intercept) -0.01  -0.01      0
-lAREA        0.00   0.00      0
-lLABOR       0.00   0.00      0
-lNPK         0.00   0.00      0
-sigmaSq      0.06   0.06      0
-gamma        0.00   0.00      0
-mu          -0.20  -0.20      0
-sigmaSqU     0.06   0.06      0
-sigmaSqV     0.00   0.00      0
-sigma        0.04   0.04      0
-sigmaU       0.04   0.04      0
-sigmaV       0.00   0.00      0
+varU                 NA    NA     NA   NA      NA    NA    NA       NA       NA
+sdU                  NA    NA     NA   NA      NA    NA    NA       NA       NA
+gammaVar             NA    NA     NA   NA      NA    NA    NA       NA       NA
+            sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept) -0.01  -0.01      0   NA  NA       NA
+lAREA        0.00   0.00      0   NA  NA       NA
+lLABOR       0.00   0.00      0   NA  NA       NA
+lNPK         0.00   0.00      0   NA  NA       NA
+sigmaSq      0.06   0.06      0   NA  NA       NA
+gamma        0.00   0.00      0   NA  NA       NA
+mu          -0.20  -0.20      0   NA  NA       NA
+sigmaSqU     0.06   0.06      0   NA  NA       NA
+sigmaSqV     0.00   0.00      0   NA  NA       NA
+sigma        0.04   0.04      0   NA  NA       NA
+sigmaU       0.04   0.04      0   NA  NA       NA
+sigmaV       0.00   0.00      0   NA  NA       NA
+varU           NA     NA     NA   NA  NA       NA
+sdU            NA     NA     NA   NA  NA       NA
+gammaVar       NA     NA     NA   NA  NA       NA
 > nobs( bb2 )
 [1] 344
 > print( summary( bb2 ), digits = 1 )
@@ -8137,6 +8212,9 @@ sigmaSqV       0.033      0.006       6    3e-09 ***
 sigma          0.814      0.188       4    1e-05 ***
 sigmaU         0.793      0.194       4    4e-05 ***
 sigmaV         0.183      0.015      12   <2e-16 ***
+varU           0.072         NA      NA       NA    
+sdU            0.268         NA      NA       NA    
+gammaVar       0.683         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -82.23 
@@ -18831,6 +18909,8 @@ NULL
       -1.09        0.36        0.33        0.27        0.68        0.95 
          mu    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
       -1.61        0.64        0.03        0.82        0.80        0.18 
+       varU         sdU    gammaVar 
+       0.07        0.27        0.70 
 > round( coef( summary( bb7 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -18861,6 +18941,9 @@ sigmaSqV        0.03       0.01    5.92     0.00
 sigma           0.82       0.14    5.93     0.00
 sigmaU          0.80       0.14    5.65     0.00
 sigmaV          0.18       0.02   11.84     0.00
+varU            0.07         NA      NA       NA
+sdU             0.27         NA      NA       NA
+gammaVar        0.70         NA      NA       NA
 > round( vcov( bb7 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.06  0.01  -0.01    0    0.01  0.00 -0.03
@@ -18884,19 +18967,25 @@ sigmaSqV           0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
 sigma              0.01  0.00   0.00    0    0.03  0.00 -0.10     0.03        0
 sigmaU             0.01  0.00   0.00    0    0.03  0.00 -0.11     0.03        0
 sigmaV             0.00  0.00   0.00    0    0.00  0.00  0.00     0.00        0
-            sigma sigmaU sigmaV
-(Intercept)  0.01   0.01      0
-lAREA        0.00   0.00      0
-lLABOR       0.00   0.00      0
-lNPK         0.00   0.00      0
-sigmaSq      0.03   0.03      0
-gamma        0.00   0.00      0
-mu          -0.10  -0.11      0
-sigmaSqU     0.03   0.03      0
-sigmaSqV     0.00   0.00      0
-sigma        0.02   0.02      0
-sigmaU       0.02   0.02      0
-sigmaV       0.00   0.00      0
+varU                 NA    NA     NA   NA      NA    NA    NA       NA       NA
+sdU                  NA    NA     NA   NA      NA    NA    NA       NA       NA
+gammaVar             NA    NA     NA   NA      NA    NA    NA       NA       NA
+            sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)  0.01   0.01      0   NA  NA       NA
+lAREA        0.00   0.00      0   NA  NA       NA
+lLABOR       0.00   0.00      0   NA  NA       NA
+lNPK         0.00   0.00      0   NA  NA       NA
+sigmaSq      0.03   0.03      0   NA  NA       NA
+gamma        0.00   0.00      0   NA  NA       NA
+mu          -0.10  -0.11      0   NA  NA       NA
+sigmaSqU     0.03   0.03      0   NA  NA       NA
+sigmaSqV     0.00   0.00      0   NA  NA       NA
+sigma        0.02   0.02      0   NA  NA       NA
+sigmaU       0.02   0.02      0   NA  NA       NA
+sigmaV       0.00   0.00      0   NA  NA       NA
+varU           NA     NA     NA   NA  NA       NA
+sdU            NA     NA     NA   NA  NA       NA
+gammaVar       NA     NA     NA   NA  NA       NA
 > nobs( bb7 )
 [1] 344
 > print( summary( bb7 ), digits = 1 )
@@ -18946,6 +19035,9 @@ sigmaSqV       0.032      0.005       6    3e-09 ***
 sigma          0.822      0.139       6    3e-09 ***
 sigmaU         0.803      0.142       6    2e-08 ***
 sigmaV         0.178      0.015      12   <2e-16 ***
+varU           0.074         NA      NA       NA    
+sdU            0.271         NA      NA       NA    
+gammaVar       0.698         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -82.224 
@@ -24121,6 +24213,8 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
        0.46        0.03        0.04        0.26        0.17        0.19 
+       varU         sdU    gammaVar 
+       0.01        0.11        0.24 
 > round( coef( dd1 ), 2 )
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
        5.87        0.46        0.51        0.41        0.07        0.07 
@@ -24131,6 +24225,8 @@ NULL
        5.87        0.46        0.51        0.41        0.07        0.07 
       gamma    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
        0.53        0.04        0.03        0.27        0.19        0.18 
+       varU         sdU    gammaVar 
+       0.01        0.12        0.29 
 > round( coef( summary( dd1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -24162,6 +24258,9 @@ sigmaSqV        0.03       0.01    4.47     0.00
 sigma           0.27       0.03    9.81     0.00
 sigmaU          0.19       0.05    3.65     0.00
 sigmaV          0.18       0.02    8.95     0.00
+varU            0.01         NA      NA       NA
+sdU             0.12         NA      NA       NA
+gammaVar        0.29         NA      NA       NA
 > round( vcov( dd1 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma
 (Intercept)        0.04     0     0       0 -0.01       0 -0.01
@@ -24185,19 +24284,25 @@ sigmaSqV           0.00     0     0       0  0.00       0  0.00        0
 sigma              0.00     0     0       0  0.00       0  0.00        0
 sigmaU             0.00     0     0       0  0.00       0  0.01        0
 sigmaV             0.00     0     0       0  0.00       0  0.00        0
-            sigmaSqV sigma sigmaU sigmaV
-(Intercept)        0     0   0.00      0
-lPROD              0     0   0.00      0
-lAREA              0     0   0.00      0
-lLABORP            0     0   0.00      0
-lNPKP              0     0   0.00      0
-sigmaSq            0     0   0.00      0
-gamma              0     0   0.01      0
-sigmaSqU           0     0   0.00      0
-sigmaSqV           0     0   0.00      0
-sigma              0     0   0.00      0
-sigmaU             0     0   0.00      0
-sigmaV             0     0   0.00      0
+varU                 NA    NA    NA      NA    NA      NA    NA       NA
+sdU                  NA    NA    NA      NA    NA      NA    NA       NA
+gammaVar             NA    NA    NA      NA    NA      NA    NA       NA
+            sigmaSqV sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)        0     0   0.00      0   NA  NA       NA
+lPROD              0     0   0.00      0   NA  NA       NA
+lAREA              0     0   0.00      0   NA  NA       NA
+lLABORP            0     0   0.00      0   NA  NA       NA
+lNPKP              0     0   0.00      0   NA  NA       NA
+sigmaSq            0     0   0.00      0   NA  NA       NA
+gamma              0     0   0.01      0   NA  NA       NA
+sigmaSqU           0     0   0.00      0   NA  NA       NA
+sigmaSqV           0     0   0.00      0   NA  NA       NA
+sigma              0     0   0.00      0   NA  NA       NA
+sigmaU             0     0   0.00      0   NA  NA       NA
+sigmaV             0     0   0.00      0   NA  NA       NA
+varU              NA    NA     NA     NA   NA  NA       NA
+sdU               NA    NA     NA     NA   NA  NA       NA
+gammaVar          NA    NA     NA     NA   NA  NA       NA
 > nobs( dd1 )
 [1] 344
 > print( summary( dd1 ), digits = 1 )
@@ -24272,6 +24377,9 @@ sigmaSqV       0.033      0.007       4    8e-06 ***
 sigma          0.265      0.027      10   <2e-16 ***
 sigmaU         0.193      0.053       4    3e-04 ***
 sigmaV         0.182      0.020       9   <2e-16 ***
+varU           0.014         NA      NA       NA    
+sdU            0.116         NA      NA       NA    
+gammaVar       0.291         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.931 
@@ -26802,6 +26910,8 @@ NULL
        5.92        0.44        0.52        0.42        0.06        0.07 
       gamma    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
        0.46        0.03        0.04        0.26        0.17        0.19 
+       varU         sdU    gammaVar 
+       0.01        0.11        0.24 
 > round( coef( dd2 ), 2 )
 (Intercept)       lPROD       lAREA     lLABORP       lNPKP     sigmaSq 
        5.89        0.47        0.50        0.41        0.07        0.14 
@@ -26812,8 +26922,8 @@ NULL
        5.89        0.47        0.50        0.41        0.07        0.14 
       gamma          mu    sigmaSqU    sigmaSqV       sigma      sigmaU 
        0.77       -0.66        0.11        0.03        0.38        0.33 
-     sigmaV 
-       0.18 
+     sigmaV        varU         sdU    gammaVar 
+       0.18        0.01        0.11        0.27 
 > round( coef( summary( dd2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)     6.06       0.20   30.98     0.00
@@ -26847,6 +26957,9 @@ sigmaSqV        0.03       0.01    6.29     0.00
 sigma           0.38       0.07    5.37     0.00
 sigmaU          0.33       0.08    3.95     0.00
 sigmaV          0.18       0.01   12.59     0.00
+varU            0.01         NA      NA       NA
+sdU             0.11         NA      NA       NA
+gammaVar        0.27         NA      NA       NA
 > round( vcov( dd2 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma    mu
 (Intercept)        0.04     0     0       0 -0.01    0.00  0.00  0.00
@@ -26872,20 +26985,26 @@ sigmaSqV           0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
 sigma              0.00     0     0       0  0.00    0.00  0.01 -0.03     0.00
 sigmaU             0.00     0     0       0  0.00    0.00  0.01 -0.04     0.00
 sigmaV             0.00     0     0       0  0.00    0.00  0.00  0.00     0.00
-            sigmaSqV sigma sigmaU sigmaV
-(Intercept)        0  0.00   0.00      0
-lPROD              0  0.00   0.00      0
-lAREA              0  0.00   0.00      0
-lLABORP            0  0.00   0.00      0
-lNPKP              0  0.00   0.00      0
-sigmaSq            0  0.00   0.00      0
-gamma              0  0.01   0.01      0
-mu                 0 -0.03  -0.04      0
-sigmaSqU           0  0.00   0.00      0
-sigmaSqV           0  0.00   0.00      0
-sigma              0  0.00   0.01      0
-sigmaU             0  0.01   0.01      0
-sigmaV             0  0.00   0.00      0
+varU                 NA    NA    NA      NA    NA      NA    NA    NA       NA
+sdU                  NA    NA    NA      NA    NA      NA    NA    NA       NA
+gammaVar             NA    NA    NA      NA    NA      NA    NA    NA       NA
+            sigmaSqV sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)        0  0.00   0.00      0   NA  NA       NA
+lPROD              0  0.00   0.00      0   NA  NA       NA
+lAREA              0  0.00   0.00      0   NA  NA       NA
+lLABORP            0  0.00   0.00      0   NA  NA       NA
+lNPKP              0  0.00   0.00      0   NA  NA       NA
+sigmaSq            0  0.00   0.00      0   NA  NA       NA
+gamma              0  0.01   0.01      0   NA  NA       NA
+mu                 0 -0.03  -0.04      0   NA  NA       NA
+sigmaSqU           0  0.00   0.00      0   NA  NA       NA
+sigmaSqV           0  0.00   0.00      0   NA  NA       NA
+sigma              0  0.00   0.01      0   NA  NA       NA
+sigmaU             0  0.01   0.01      0   NA  NA       NA
+sigmaV             0  0.00   0.00      0   NA  NA       NA
+varU              NA    NA     NA     NA   NA  NA       NA
+sdU               NA    NA     NA     NA   NA  NA       NA
+gammaVar          NA    NA     NA     NA   NA  NA       NA
 > nobs( dd2 )
 [1] 344
 > print( summary( dd2, effMinusU = FALSE ), digits = 1 )
@@ -26937,6 +27056,9 @@ sigmaSqV       0.033      0.005       6    3e-10 ***
 sigma          0.379      0.071       5    8e-08 ***
 sigmaU         0.332      0.084       4    8e-05 ***
 sigmaV         0.182      0.014      13   <2e-16 ***
+varU           0.013         NA      NA       NA    
+sdU            0.112         NA      NA       NA    
+gammaVar       0.275         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 40.966 
@@ -38736,16 +38858,20 @@ NULL
 > round( coef( b1, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.06        0.09        0.38        0.24        0.29 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.06        0.09        0.38        0.24        0.29        0.02 
+        sdU    gammaVar 
+       0.15        0.20 
 > round( coef( b1 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.83        0.45        0.29        0.23        0.16        0.46 
 > round( coef( b1, extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.83        0.45        0.29        0.23        0.16        0.46 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.07        0.08        0.39        0.27        0.29 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.07        0.08        0.39        0.27        0.29        0.03 
+        sdU    gammaVar 
+       0.16        0.24 
 > round( coef( summary( b1 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -38774,6 +38900,9 @@ sigmaSqV        0.08       0.01   12.42        0
 sigma           0.39       0.03   12.84        0
 sigmaU          0.27       0.04    5.98        0
 sigmaV          0.29       0.01   24.84        0
+varU            0.03         NA      NA       NA
+sdU             0.16         NA      NA       NA
+gammaVar        0.24         NA      NA       NA
 > round( vcov( b1 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma
 (Intercept)        0.08  0.02  -0.01    0       0  0.01
@@ -38795,18 +38924,24 @@ sigmaSqV           0.00  0.00   0.00    0       0  0.00        0        0     0
 sigma              0.00  0.00   0.00    0       0  0.00        0        0     0
 sigmaU             0.00  0.00   0.00    0       0  0.00        0        0     0
 sigmaV             0.00  0.00   0.00    0       0  0.00        0        0     0
-            sigmaU sigmaV
-(Intercept)      0      0
-lAREA            0      0
-lLABOR           0      0
-lNPK             0      0
-sigmaSq          0      0
-gamma            0      0
-sigmaSqU         0      0
-sigmaSqV         0      0
-sigma            0      0
-sigmaU           0      0
-sigmaV           0      0
+varU                 NA    NA     NA   NA      NA    NA       NA       NA    NA
+sdU                  NA    NA     NA   NA      NA    NA       NA       NA    NA
+gammaVar             NA    NA     NA   NA      NA    NA       NA       NA    NA
+            sigmaU sigmaV varU sdU gammaVar
+(Intercept)      0      0   NA  NA       NA
+lAREA            0      0   NA  NA       NA
+lLABOR           0      0   NA  NA       NA
+lNPK             0      0   NA  NA       NA
+sigmaSq          0      0   NA  NA       NA
+gamma            0      0   NA  NA       NA
+sigmaSqU         0      0   NA  NA       NA
+sigmaSqV         0      0   NA  NA       NA
+sigma            0      0   NA  NA       NA
+sigmaU           0      0   NA  NA       NA
+sigmaV           0      0   NA  NA       NA
+varU            NA     NA   NA  NA       NA
+sdU             NA     NA   NA  NA       NA
+gammaVar        NA     NA   NA  NA       NA
 > print( logLik( b1, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b1 ), digits = 4 )
@@ -38888,6 +39023,9 @@ sigmaSqV       0.083      0.007      12   <2e-16 ***
 sigma          0.394      0.031      13   <2e-16 ***
 sigmaU         0.269      0.045       6    2e-09 ***
 sigmaV         0.289      0.012      25   <2e-16 ***
+varU           0.026         NA      NA       NA    
+sdU            0.162         NA      NA       NA    
+gammaVar       0.240         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.43 
@@ -39909,8 +40047,10 @@ NULL
 > round( coef( b2, which = "grid", extraPar = TRUE ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -1.47        0.33        0.38        0.28        0.15        0.41 
-   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
-       0.06        0.09        0.38        0.24        0.29 
+   sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV        varU 
+       0.06        0.09        0.38        0.24        0.29        0.02 
+        sdU    gammaVar 
+       0.15        0.20 
 > round( coef( b2 ), 2 )
 (Intercept)       lAREA      lLABOR        lNPK     sigmaSq       gamma 
       -0.83        0.45        0.29        0.23        0.20        0.59 
@@ -39921,6 +40061,8 @@ NULL
       -0.83        0.45        0.29        0.23        0.20        0.59 
          mu    sigmaSqU    sigmaSqV       sigma      sigmaU      sigmaV 
       -0.27        0.12        0.08        0.45        0.35        0.29 
+       varU         sdU    gammaVar 
+       0.03        0.16        0.25 
 > round( coef( summary( b2 ), which = "ols" ), 2 )
             Estimate Std. Error t value Pr(>|t|)
 (Intercept)    -1.67       0.25   -6.71        0
@@ -39951,6 +40093,9 @@ sigmaSqV        0.08       0.01   11.88     0.00
 sigma           0.45       0.19    2.33     0.02
 sigmaU          0.35       0.25    1.37     0.17
 sigmaV          0.29       0.01   23.76     0.00
+varU            0.03         NA      NA       NA
+sdU             0.16         NA      NA       NA
+gammaVar        0.25         NA      NA       NA
 > round( vcov( b2 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.08  0.02  -0.01 0.00    0.01  0.01 -0.02
@@ -39974,19 +40119,25 @@ sigmaSqV           0.00  0.00   0.00 0.00    0.00  0.00  0.00     0.00        0
 sigma              0.01  0.00   0.00 0.00    0.03  0.07 -0.18     0.03        0
 sigmaU             0.01  0.00   0.00 0.00    0.04  0.09 -0.23     0.04        0
 sigmaV             0.00  0.00   0.00 0.00    0.00  0.00  0.00     0.00        0
-            sigma sigmaU sigmaV
-(Intercept)  0.01   0.01      0
-lAREA        0.00   0.00      0
-lLABOR       0.00   0.00      0
-lNPK         0.00   0.00      0
-sigmaSq      0.03   0.04      0
-gamma        0.07   0.09      0
-mu          -0.18  -0.23      0
-sigmaSqU     0.03   0.04      0
-sigmaSqV     0.00   0.00      0
-sigma        0.04   0.05      0
-sigmaU       0.05   0.06      0
-sigmaV       0.00   0.00      0
+varU                 NA    NA     NA   NA      NA    NA    NA       NA       NA
+sdU                  NA    NA     NA   NA      NA    NA    NA       NA       NA
+gammaVar             NA    NA     NA   NA      NA    NA    NA       NA       NA
+            sigma sigmaU sigmaV varU sdU gammaVar
+(Intercept)  0.01   0.01      0   NA  NA       NA
+lAREA        0.00   0.00      0   NA  NA       NA
+lLABOR       0.00   0.00      0   NA  NA       NA
+lNPK         0.00   0.00      0   NA  NA       NA
+sigmaSq      0.03   0.04      0   NA  NA       NA
+gamma        0.07   0.09      0   NA  NA       NA
+mu          -0.18  -0.23      0   NA  NA       NA
+sigmaSqU     0.03   0.04      0   NA  NA       NA
+sigmaSqV     0.00   0.00      0   NA  NA       NA
+sigma        0.04   0.05      0   NA  NA       NA
+sigmaU       0.05   0.06      0   NA  NA       NA
+sigmaV       0.00   0.00      0   NA  NA       NA
+varU           NA     NA     NA   NA  NA       NA
+sdU            NA     NA     NA   NA  NA       NA
+gammaVar       NA     NA     NA   NA  NA       NA
 > print( logLik( b2, which = "ols" ), digits = 4 )
 'log Lik.' -104.9 (df=5)
 > print( logLik( b2 ), digits = 4 )
@@ -40043,6 +40194,9 @@ sigmaSqV       0.083      0.007    11.9   <2e-16 ***
 sigma          0.451      0.194     2.3    0.020 *  
 sigmaU         0.347      0.253     1.4    0.171    
 sigmaV         0.289      0.012    23.8   <2e-16 ***
+varU           0.027         NA      NA       NA    
+sdU            0.165         NA      NA       NA    
+gammaVar       0.245         NA      NA       NA    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -86.343 
@@ -50057,6 +50211,9 @@ sigmaSqV        0.04       0.00   11.52     0.00
 sigma           0.27       0.03    9.28     0.00
 sigmaU          0.19       0.04    4.27     0.00
 sigmaV          0.19       0.01   23.04     0.00
+varU            0.01         NA      NA       NA
+sdU             0.11         NA      NA       NA
+gammaVar        0.25         NA      NA       NA
 > round( vcov( d1 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma
 (Intercept)        0.04     0     0       0 -0.01       0 -0.01
@@ -51175,6 +51332,9 @@ sigmaSqV        0.04       0.00   10.95     0.00
 sigma           0.23       0.02   12.64     0.00
 sigmaU          0.12       0.03    4.03     0.00
 sigmaV          0.19       0.01   21.91     0.00
+varU            0.01         NA      NA       NA
+sdU             0.11         NA      NA       NA
+gammaVar        0.26         NA      NA       NA
 > round( vcov( d2 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma mu
 (Intercept)        0.03     0     0       0 -0.01       0  0.00  0
@@ -110887,4 +111047,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 43.488   0.892  44.425 
+ 43.120   0.764  43.931 

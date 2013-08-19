@@ -29,7 +29,16 @@ returned by \code{\link{frontier}}.
       \code{sigmaU} = \code{sigmaSqU}^0.5,
       and \code{sigmaV} = \code{sigmaSqV}^0.5.
       Please note that \code{sigmaSqU} and \code{sigmaU} are not
-      the variance and standard error, respectively, of \eqn{u}.}
+      the variance and standard error, respectively, of \eqn{u}.
+      If the model is an error components frontier,
+      also the following additional parameters are returned:
+      \code{varU} = the variance of \eqn{u},
+      \code{sdU} = \code{varU}^0.5,
+      and \code{gammaVar} = \code{varU} / ( \code{varU} + \code{sigmaSqV} ).
+      Please note that the variance of \eqn{u}
+      usually differs between observations
+      if the model is an error component frontier with \sQuote{time effect}
+      or an efficiency effects frontier.}
    \item{effic}{logical. Print the individual efficiency estimates?}
    \item{logDepVar}{logical. Is the dependent variable logged?}
    \item{effMinusU}{logical. If \code{TRUE} (the default), 

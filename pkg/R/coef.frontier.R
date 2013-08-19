@@ -28,6 +28,22 @@ coef.frontier <- function( object, which = "mle", extraPar = FALSE, ... ) {
             sigma = unname( sqrt( result[ "sigmaSq" ] ) ),
             sigmaU = unname( sqrt( result[ "sigmaSq" ] * result[ "gamma"] ) ),
             sigmaV = unname( sqrt( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ) ) )
+         if( object$modelType == 1 && ! object$timeEffect ) {
+            sigmaSqU <- result[ "sigmaSqU"]
+            if( object$truncNorm & which == "mle" ) {
+               alpha <- - result[ "mu" ] / sqrt( sigmaSqU )
+            } else {
+               alpha <- 0
+            }
+            denom <- 1 - pnorm( alpha )
+            result <- c( result,
+               varU = unname( sigmaSqU * ( 1 + alpha * dnorm( alpha ) / denom -
+                     ( dnorm( alpha ) / denom )^2 ) ) )
+            result <- c( result,
+               sdU = unname( sqrt( result[ "varU" ] ) ),
+               gammaVar = unname( result[ "varU" ] / 
+                     ( result[ "varU" ] + result[ "sigmaSqV" ] ) ) )
+         }
       }
    }
    
