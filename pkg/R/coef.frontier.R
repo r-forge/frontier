@@ -27,7 +27,9 @@ coef.frontier <- function( object, which = "mle", extraPar = FALSE, ... ) {
             sigmaSqV = unname( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ),
             sigma = unname( sqrt( result[ "sigmaSq" ] ) ),
             sigmaU = unname( sqrt( result[ "sigmaSq" ] * result[ "gamma"] ) ),
-            sigmaV = unname( sqrt( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ) ) )
+            sigmaV = unname( sqrt( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ) ),
+            lambdaSq = unname( result[ "gamma"] / ( 1 -  result[ "gamma"] ) ),
+            lambda = unname( sqrt( result[ "gamma"] / ( 1 -  result[ "gamma"] ) ) ) )
          if( object$modelType == 1 && ! object$timeEffect ) {
             sigmaSqU <- result[ "sigmaSqU"]
             if( object$truncNorm & which == "mle" ) {

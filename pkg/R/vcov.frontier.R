@@ -10,9 +10,9 @@ vcov.frontier <- function( object, extraPar = FALSE, ... ) {
       gamma <- coef( object )[ "gamma" ]
       sigmaSq <- coef( object )[ "sigmaSq" ]
       jacobian <- diag( nrow( result ) )
-      jacobian <- rbind( jacobian, matrix( 0, nrow = 5, ncol = ncol( result ) ) )
+      jacobian <- rbind( jacobian, matrix( 0, nrow = 7, ncol = ncol( result ) ) )
       rownames( jacobian ) <- c( rownames( result ), "sigmaSqU", "sigmaSqV",
-         "sigma", "sigmaU", "sigmaV" )
+         "sigma", "sigmaU", "sigmaV", "lambdaSq", "lambda" )
       colnames( jacobian ) <- colnames( result )
       jacobian[ "sigmaSqU", "sigmaSq" ] <- gamma
       jacobian[ "sigmaSqU", "gamma" ] <- sigmaSq
@@ -23,6 +23,8 @@ vcov.frontier <- function( object, extraPar = FALSE, ... ) {
       jacobian[ "sigmaU", "gamma" ] <- 0.5 * sqrt( sigmaSq / gamma )
       jacobian[ "sigmaV", "sigmaSq" ] <- 0.5 * sqrt( ( 1 - gamma ) / sigmaSq )
       jacobian[ "sigmaV", "gamma" ] <- - 0.5 * sqrt( sigmaSq / ( 1 - gamma ) )
+      jacobian[ "lambdaSq", "gamma" ] <- 1 / ( 1 - gamma )^2
+      jacobian[ "lambda", "gamma" ] <- 1 / ( 2 * sqrt( gamma ) * ( 1 - gamma )^1.5 )
       
       if( object$modelType == 1 && ! object$timeEffect ) {
          jacobian <- rbind( jacobian, 

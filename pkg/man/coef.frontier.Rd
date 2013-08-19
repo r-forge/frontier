@@ -26,7 +26,9 @@ returned by \code{\link{frontier}}.
       (with \eqn{v} ~ N( 0, \code{sigmaSqV} )),
       \code{sigma} = \code{sigmaSq}^0.5,
       \code{sigmaU} = \code{sigmaSqU}^0.5,
-      and \code{sigmaV} = \code{sigmaSqV}^0.5.
+      \code{sigmaV} = \code{sigmaSqV}^0.5,
+      \code{lambdaSq} = \code{sigmaSqU} / \code{sigmaSqV},
+      and \code{lambda} = \code{sigmaU} / \code{sigmaV}.
       Please note that \code{sigmaSqU} and \code{sigmaU} are not
       the variance and standard error, respectively, of \eqn{u}.
       If the model is an error components frontier
