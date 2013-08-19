@@ -143,6 +143,15 @@ logCapital      0.28       0.05    5.90     0.00
 logLabour       0.54       0.05   11.86     0.00
 sigmaSq         0.22       0.06    3.40     0.00
 gamma           0.80       0.14    5.84     0.00
+> round( coef( summary( a1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     0.56       0.20    2.77     0.01
+logCapital      0.28       0.05    5.90     0.00
+logLabour       0.54       0.05   11.86     0.00
+sigmaSq         0.22       0.06    3.40     0.00
+gamma           0.80       0.14    5.84     0.00
+sigmaSqU        0.17       0.08    2.27     0.02
+sigmaSqV        0.04       0.02    2.07     0.04
 > round( vcov( a1 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma
 (Intercept)        0.04          0     -0.01    0.00  0.01
@@ -997,6 +1006,16 @@ logLabour       0.54       0.05   11.82     0.00
 sigmaSq         0.55       0.62    0.88     0.38
 gamma           0.91       0.12    7.76     0.00
 mu             -1.41       2.60   -0.54     0.59
+> round( coef( summary( a2, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     0.48       0.21    2.22     0.03
+logCapital      0.28       0.05    5.91     0.00
+logLabour       0.54       0.05   11.82     0.00
+sigmaSq         0.55       0.62    0.88     0.38
+gamma           0.91       0.12    7.76     0.00
+mu             -1.41       2.60   -0.54     0.59
+sigmaSqU        0.50       0.63    0.79     0.43
+sigmaSqV        0.05       0.01    3.71     0.00
 > round( vcov( a2 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma    mu
 (Intercept)        0.05          0     -0.01   -0.03  0.00  0.16
@@ -1644,6 +1663,16 @@ logLabour       0.54       0.05   11.85     0.00
 sigmaSq         0.55       0.78    0.70     0.48
 gamma           0.91       0.14    6.37     0.00
 mu             -1.41       3.28   -0.43     0.67
+> round( coef( summary( a5, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     0.48       0.21    2.29     0.02
+logCapital      0.28       0.04    7.06     0.00
+logLabour       0.54       0.05   11.85     0.00
+sigmaSq         0.55       0.78    0.70     0.48
+gamma           0.91       0.14    6.37     0.00
+mu             -1.41       3.28   -0.43     0.67
+sigmaSqU        0.50       0.79    0.63     0.53
+sigmaSqV        0.05       0.03    1.73     0.08
 > round( vcov( a5 ), 2 )
             (Intercept) logCapital logLabour sigmaSq gamma    mu
 (Intercept)        0.04       0.00     -0.01   -0.05  0.00  0.24
@@ -2273,6 +2302,16 @@ logLabour       0.54       0.04   12.07     0.00
 Z_firmNo       -0.01       0.01   -0.81     0.42
 sigmaSq         0.28       0.12    2.36     0.02
 gamma           0.84       0.11    7.63     0.00
+> round( coef( summary( aa1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     0.54       0.20    2.66     0.01
+logCapital      0.27       0.05    5.49     0.00
+logLabour       0.54       0.04   12.07     0.00
+Z_firmNo       -0.01       0.01   -0.81     0.42
+sigmaSq         0.28       0.12    2.36     0.02
+gamma           0.84       0.11    7.63     0.00
+sigmaSqU        0.24       0.13    1.87     0.06
+sigmaSqV        0.05       0.02    2.27     0.02
 > round( vcov( aa1 ), 2 )
             (Intercept) logCapital logLabour Z_firmNo sigmaSq gamma
 (Intercept)        0.04          0     -0.01        0    0.00  0.01
@@ -3288,6 +3327,17 @@ Z_(Intercept)    -0.40       2.55   -0.16     0.88
 Z_firmNo         -0.01       0.03   -0.45     0.66
 sigmaSq           0.41       0.81    0.50     0.62
 gamma             0.88       0.22    4.01     0.00
+> round( coef( summary( aa2, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)       0.51       0.23    2.21     0.03
+logCapital        0.27       0.05    5.48     0.00
+logLabour         0.54       0.04   12.35     0.00
+Z_(Intercept)    -0.40       2.55   -0.16     0.88
+Z_firmNo         -0.01       0.03   -0.45     0.66
+sigmaSq           0.41       0.81    0.50     0.62
+gamma             0.88       0.22    4.01     0.00
+sigmaSqU          0.36       0.80    0.45     0.65
+sigmaSqV          0.05       0.02    2.16     0.03
 > round( vcov( aa2 ), 2 )
               (Intercept) logCapital logLabour Z_(Intercept) Z_firmNo sigmaSq
 (Intercept)          0.05       0.00     -0.01          0.31     0.00   -0.09
@@ -4158,6 +4208,17 @@ Z_(Intercept)    -0.40       2.48   -0.16     0.87
 Z_firmNo         -0.01       0.03   -0.45     0.65
 sigmaSq           0.41       0.79    0.52     0.61
 gamma             0.88       0.21    4.12     0.00
+> round( coef( summary( aa5, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)       0.51       0.23    2.25     0.02
+logCapital        0.27       0.05    5.48     0.00
+logLabour         0.54       0.04   12.26     0.00
+Z_(Intercept)    -0.40       2.48   -0.16     0.87
+Z_firmNo         -0.01       0.03   -0.45     0.65
+sigmaSq           0.41       0.79    0.52     0.61
+gamma             0.88       0.21    4.12     0.00
+sigmaSqU          0.36       0.78    0.46     0.65
+sigmaSqV          0.05       0.02    2.21     0.03
 > round( vcov( aa5 ), 2 )
               (Intercept) logCapital logLabour Z_(Intercept) Z_firmNo sigmaSq
 (Intercept)          0.05       0.00     -0.01          0.28     0.00   -0.08
@@ -4835,6 +4896,15 @@ class
 > all.equal( saa9i[ -c( 3, 7, 20, 42 ) ], aa9[ -c( 3, 7, 20, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> round( coef( summary( aa9, extraPar = TRUE ) ), 2 )
+             Estimate Std. Error z value Pr(>|z|)
+(Intercept)      0.56       0.20    2.77     0.01
+log(capital)     0.28       0.05    5.90     0.00
+log(labour)      0.54       0.05   11.86     0.00
+sigmaSq          0.22       0.06    3.40     0.00
+gamma            0.80       0.14    5.84     0.00
+sigmaSqU         0.17       0.08    2.27     0.02
+sigmaSqV         0.04       0.02    2.07     0.04
 > print( summary( aa9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -5603,6 +5673,16 @@ lLABOR          0.33       0.06    5.32        0
 lNPK            0.27       0.04    7.70        0
 sigmaSq         0.24       0.03    8.92        0
 gamma           0.89       0.04   24.91        0
+> round( coef( summary( bb1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.04       0.25   -4.14        0
+lAREA           0.36       0.06    5.89        0
+lLABOR          0.33       0.06    5.32        0
+lNPK            0.27       0.04    7.70        0
+sigmaSq         0.24       0.03    8.92        0
+gamma           0.89       0.04   24.91        0
+sigmaSqU        0.21       0.03    6.96        0
+sigmaSqV        0.03       0.01    4.12        0
 > round( vcov( bb1 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma
 (Intercept)        0.06  0.01  -0.01    0       0     0
@@ -7825,6 +7905,17 @@ lNPK            0.27       0.03    8.71     0.00
 sigmaSq         0.66       0.31    2.17     0.03
 gamma           0.95       0.03   35.94     0.00
 mu             -1.59       1.06   -1.50     0.13
+> round( coef( summary( bb2, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.13       0.22   -5.13     0.00
+lAREA           0.35       0.06    6.44     0.00
+lLABOR          0.33       0.06    5.64     0.00
+lNPK            0.27       0.03    8.71     0.00
+sigmaSq         0.66       0.31    2.17     0.03
+gamma           0.95       0.03   35.94     0.00
+mu             -1.59       1.06   -1.50     0.13
+sigmaSqU        0.63       0.31    2.05     0.04
+sigmaSqV        0.03       0.01    5.92     0.00
 > round( vcov( bb2 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.05  0.01  -0.01    0   -0.01  0.00  0.04
@@ -10476,6 +10567,18 @@ Z_EDYRS        -0.06       0.09   -0.68     0.50
 Z_BANRAT       -1.41       0.85   -1.65     0.10
 sigmaSq         0.60       0.29    2.06     0.04
 gamma           0.94       0.03   34.16     0.00
+> round( coef( summary( bb5, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.01       0.25   -4.10     0.00
+lAREA           0.38       0.06    6.48     0.00
+lLABOR          0.32       0.06    5.22     0.00
+lNPK            0.26       0.03    7.75     0.00
+Z_EDYRS        -0.06       0.09   -0.68     0.50
+Z_BANRAT       -1.41       0.85   -1.65     0.10
+sigmaSq         0.60       0.29    2.06     0.04
+gamma           0.94       0.03   34.16     0.00
+sigmaSqU        0.56       0.29    1.95     0.05
+sigmaSqV        0.03       0.01    5.06     0.00
 > round( vcov( bb5 ), 2 )
             (Intercept) lAREA lLABOR lNPK Z_EDYRS Z_BANRAT sigmaSq gamma
 (Intercept)        0.06  0.01  -0.01    0    0.00     0.00    0.00  0.00
@@ -13768,6 +13871,19 @@ Z_EDYRS          -0.03       0.21   -0.13     0.89
 Z_BANRAT         -3.63       8.12   -0.45     0.65
 sigmaSq           1.67       3.71    0.45     0.65
 gamma             0.98       0.05   21.61     0.00
+> round( coef( summary( bb6, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)      -1.05       0.25   -4.28     0.00
+lAREA             0.38       0.06    6.55     0.00
+lLABOR            0.32       0.06    5.29     0.00
+lNPK              0.26       0.03    7.82     0.00
+Z_(Intercept)    -2.75       8.52   -0.32     0.75
+Z_EDYRS          -0.03       0.21   -0.13     0.89
+Z_BANRAT         -3.63       8.12   -0.45     0.65
+sigmaSq           1.67       3.71    0.45     0.65
+gamma             0.98       0.05   21.61     0.00
+sigmaSqU          1.63       3.70    0.44     0.66
+sigmaSqV          0.04       0.01    4.76     0.00
 > round( vcov( bb6 ), 2 )
               (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
 (Intercept)          0.06  0.01  -0.01  0.00          0.41    0.00     0.36
@@ -18575,6 +18691,17 @@ lNPK            0.27       0.03    7.91     0.00
 sigmaSq         0.68       0.23    2.96     0.00
 gamma           0.95       0.02   53.47     0.00
 mu             -1.61       0.76   -2.11     0.03
+> round( coef( summary( bb7, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.09       0.23   -4.65     0.00
+lAREA           0.36       0.06    6.16     0.00
+lLABOR          0.33       0.06    5.70     0.00
+lNPK            0.27       0.03    7.91     0.00
+sigmaSq         0.68       0.23    2.96     0.00
+gamma           0.95       0.02   53.47     0.00
+mu             -1.61       0.76   -2.11     0.03
+sigmaSqU        0.64       0.23    2.82     0.00
+sigmaSqV        0.03       0.01    5.92     0.00
 > round( vcov( bb7 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.06  0.01  -0.01    0    0.01  0.00 -0.03
@@ -20412,6 +20539,19 @@ Z_EDYRS          -0.03       0.21   -0.14     0.89
 Z_BANRAT         -3.64       7.71   -0.47     0.64
 sigmaSq           1.67       3.53    0.47     0.64
 gamma             0.98       0.04   22.57     0.00
+> round( coef( summary( bb8, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)      -1.05       0.25   -4.26     0.00
+lAREA             0.38       0.06    6.35     0.00
+lLABOR            0.32       0.06    5.29     0.00
+lNPK              0.26       0.03    7.73     0.00
+Z_(Intercept)    -2.75       8.05   -0.34     0.73
+Z_EDYRS          -0.03       0.21   -0.14     0.89
+Z_BANRAT         -3.64       7.71   -0.47     0.64
+sigmaSq           1.67       3.53    0.47     0.64
+gamma             0.98       0.04   22.57     0.00
+sigmaSqU          1.63       3.53    0.46     0.64
+sigmaSqV          0.04       0.01    5.69     0.00
 > round( vcov( bb8 ), 2 )
               (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
 (Intercept)          0.06  0.01  -0.01  0.00          0.33    0.00     0.27
@@ -23275,6 +23415,16 @@ class
 > all.equal( sbb9i[ -c( 3, 7, 20, 42 ) ], bb9[ -c( 3, 7, 20, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> round( coef( summary( bb9, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.04       0.26   -4.06        0
+log(AREA)       0.36       0.06    5.83        0
+log(LABOR)      0.33       0.06    5.25        0
+log(NPK)        0.27       0.04    7.68        0
+sigmaSq         0.24       0.03    9.17        0
+gamma           0.89       0.03   26.29        0
+sigmaSqU        0.21       0.03    7.23        0
+sigmaSqV        0.03       0.01    4.32        0
 > print( summary( bb9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -23805,6 +23955,17 @@ lLABORP         0.41       0.03   12.82     0.00
 lNPKP           0.07       0.05    1.30     0.19
 sigmaSq         0.07       0.01    4.91     0.00
 gamma           0.53       0.19    2.83     0.00
+> round( coef( summary( dd1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.87       0.20   29.15     0.00
+lPROD           0.46       0.03   13.42     0.00
+lAREA           0.51       0.04   14.42     0.00
+lLABORP         0.41       0.03   12.82     0.00
+lNPKP           0.07       0.05    1.30     0.19
+sigmaSq         0.07       0.01    4.91     0.00
+gamma           0.53       0.19    2.83     0.00
+sigmaSqU        0.04       0.02    1.83     0.07
+sigmaSqV        0.03       0.01    4.47     0.00
 > round( vcov( dd1 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma
 (Intercept)        0.04     0     0       0 -0.01       0 -0.01
@@ -26464,6 +26625,18 @@ lNPKP           0.07       0.05    1.35     0.18
 sigmaSq         0.14       0.05    2.69     0.01
 gamma           0.77       0.11    7.17     0.00
 mu             -0.66       0.45   -1.49     0.14
+> round( coef( summary( dd2, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.89       0.19   30.55     0.00
+lPROD           0.47       0.03   14.91     0.00
+lAREA           0.50       0.03   14.98     0.00
+lLABORP         0.41       0.03   12.78     0.00
+lNPKP           0.07       0.05    1.35     0.18
+sigmaSq         0.14       0.05    2.69     0.01
+gamma           0.77       0.11    7.17     0.00
+mu             -0.66       0.45   -1.49     0.14
+sigmaSqU        0.11       0.06    1.97     0.05
+sigmaSqV        0.03       0.01    6.29     0.00
 > round( vcov( dd2 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma    mu
 (Intercept)        0.04     0     0       0 -0.01    0.00  0.00  0.00
@@ -28732,6 +28905,19 @@ Z_EDYRS       -12.73      33.72   -0.38     0.71
 Z_BANRAT      -77.78     226.66   -0.34     0.73
 sigmaSq        12.31      33.44    0.37     0.71
 gamma           1.00       0.01  117.09     0.00
+> round( coef( summary( dd5, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.92       0.19   31.52     0.00
+lPROD           0.46       0.03   15.55     0.00
+lAREA           0.51       0.03   15.47     0.00
+lLABORP         0.41       0.03   12.97     0.00
+lNPKP           0.08       0.05    1.46     0.15
+Z_EDYRS       -12.73      33.72   -0.38     0.71
+Z_BANRAT      -77.78     226.66   -0.34     0.73
+sigmaSq        12.31      33.44    0.37     0.71
+gamma           1.00       0.01  117.09     0.00
+sigmaSqU       12.27      33.44    0.37     0.71
+sigmaSqV        0.04       0.00   10.17     0.00
 > round( vcov( dd5 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP  Z_EDYRS Z_BANRAT  sigmaSq
 (Intercept)        0.04  0.00  0.00    0.00 -0.01    -0.05    -0.35     0.05
@@ -33559,6 +33745,20 @@ Z_EDYRS         -16.01      25.04   -0.64     0.52
 Z_BANRAT       -100.08     156.47   -0.64     0.52
 sigmaSq          17.64      27.38    0.64     0.52
 gamma             1.00       0.00  300.28     0.00
+> round( coef( summary( dd6, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)       5.91       0.18   33.04     0.00
+lPROD             0.46       0.03   16.86     0.00
+lAREA             0.51       0.03   17.66     0.00
+lLABORP           0.41       0.03   13.41     0.00
+lNPKP             0.08       0.05    1.47     0.14
+Z_(Intercept)   -13.81      21.08   -0.65     0.51
+Z_EDYRS         -16.01      25.04   -0.64     0.52
+Z_BANRAT       -100.08     156.47   -0.64     0.52
+sigmaSq          17.64      27.38    0.64     0.52
+gamma             1.00       0.00  300.28     0.00
+sigmaSqU         17.60      27.38    0.64     0.52
+sigmaSqV          0.04       0.00   11.60     0.00
 > round( vcov( dd6 ), 2 )
               (Intercept) lPROD lAREA lLABORP lNPKP Z_(Intercept) Z_EDYRS
 (Intercept)          0.03  0.00  0.00    0.00 -0.01          0.89    1.05
@@ -36831,6 +37031,17 @@ class
 > all.equal( sdd9i[ -c( 3, 7, 20, 42 ) ], dd9[ -c( 3, 7, 20, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> round( coef( summary( dd9, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.87       0.20   29.15     0.00
+log(PROD)       0.46       0.03   13.42     0.00
+log(AREA)       0.51       0.04   14.42     0.00
+log(LABORP)     0.41       0.03   12.82     0.00
+log(NPKP)       0.07       0.05    1.30     0.19
+sigmaSq         0.07       0.01    4.91     0.00
+gamma           0.53       0.19    2.83     0.00
+sigmaSqU        0.04       0.02    1.83     0.07
+sigmaSqV        0.03       0.01    4.47     0.00
 > print( summary( dd9, effMinusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -38302,6 +38513,16 @@ lLABOR          0.29       0.06    4.54        0
 lNPK            0.23       0.04    5.57        0
 sigmaSq         0.16       0.02    6.42        0
 gamma           0.46       0.09    5.27        0
+> round( coef( summary( b1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -0.83       0.28   -3.02        0
+lAREA           0.45       0.06    7.11        0
+lLABOR          0.29       0.06    4.54        0
+lNPK            0.23       0.04    5.57        0
+sigmaSq         0.16       0.02    6.42        0
+gamma           0.46       0.09    5.27        0
+sigmaSqU        0.07       0.02    2.99        0
+sigmaSqV        0.08       0.01   12.42        0
 > round( vcov( b1 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma
 (Intercept)        0.08  0.02  -0.01    0       0  0.01
@@ -39447,6 +39668,17 @@ lNPK            0.23       0.04    5.46     0.00
 sigmaSq         0.20       0.17    1.16     0.24
 gamma           0.59       0.36    1.66     0.10
 mu             -0.27       0.93   -0.29     0.77
+> round( coef( summary( b2, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -0.83       0.28   -2.97     0.00
+lAREA           0.45       0.06    7.08     0.00
+lLABOR          0.29       0.06    4.53     0.00
+lNPK            0.23       0.04    5.46     0.00
+sigmaSq         0.20       0.17    1.16     0.24
+gamma           0.59       0.36    1.66     0.10
+mu             -0.27       0.93   -0.29     0.77
+sigmaSqU        0.12       0.18    0.68     0.49
+sigmaSqV        0.08       0.01   11.88     0.00
 > round( vcov( b2 ), 2 )
             (Intercept) lAREA lLABOR lNPK sigmaSq gamma    mu
 (Intercept)        0.08  0.02  -0.01 0.00    0.01  0.01 -0.02
@@ -40583,6 +40815,17 @@ lNPK            0.20       0.04    4.68     0.00
 sigmaSq         0.13       0.02    5.97     0.00
 gamma           0.37       0.11    3.45     0.00
 time            0.06       0.03    1.90     0.06
+> round( coef( summary( b3, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -0.75       0.28   -2.71     0.01
+lAREA           0.47       0.07    7.26     0.00
+lLABOR          0.30       0.06    4.69     0.00
+lNPK            0.20       0.04    4.68     0.00
+sigmaSq         0.13       0.02    5.97     0.00
+gamma           0.37       0.11    3.45     0.00
+time            0.06       0.03    1.90     0.06
+sigmaSqU        0.05       0.02    2.24     0.02
+sigmaSqV        0.08       0.01   12.44     0.00
 > round( vcov( b3 ), 2 )
             (Intercept) lAREA lLABOR  lNPK sigmaSq gamma time
 (Intercept)        0.08  0.02  -0.01 -0.01       0  0.01    0
@@ -41627,6 +41870,18 @@ sigmaSq         0.17       0.15    1.16     0.25
 gamma           0.52       0.41    1.27     0.20
 mu             -0.32       1.05   -0.30     0.76
 time            0.06       0.04    1.81     0.07
+> round( coef( summary( b4, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -0.75       0.28   -2.69     0.01
+lAREA           0.48       0.07    7.31     0.00
+lLABOR          0.30       0.06    4.73     0.00
+lNPK            0.20       0.04    4.48     0.00
+sigmaSq         0.17       0.15    1.16     0.25
+gamma           0.52       0.41    1.27     0.20
+mu             -0.32       1.05   -0.30     0.76
+time            0.06       0.04    1.81     0.07
+sigmaSqU        0.09       0.15    0.61     0.54
+sigmaSqV        0.08       0.01   12.03     0.00
 > round( vcov( b4 ), 2 )
             (Intercept) lAREA lLABOR  lNPK sigmaSq gamma    mu  time
 (Intercept)        0.08  0.02  -0.01 -0.01    0.00  0.01 -0.01  0.00
@@ -43061,6 +43316,18 @@ Z_EDYRS        -0.06       0.09   -0.68     0.50
 Z_BANRAT       -1.41       0.85   -1.65     0.10
 sigmaSq         0.60       0.29    2.06     0.04
 gamma           0.94       0.03   34.16     0.00
+> round( coef( summary( b5, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.01       0.25   -4.10     0.00
+lAREA           0.38       0.06    6.48     0.00
+lLABOR          0.32       0.06    5.22     0.00
+lNPK            0.26       0.03    7.75     0.00
+Z_EDYRS        -0.06       0.09   -0.68     0.50
+Z_BANRAT       -1.41       0.85   -1.65     0.10
+sigmaSq         0.60       0.29    2.06     0.04
+gamma           0.94       0.03   34.16     0.00
+sigmaSqU        0.56       0.29    1.95     0.05
+sigmaSqV        0.03       0.01    5.06     0.00
 > round( vcov( b5 ), 2 )
             (Intercept) lAREA lLABOR lNPK Z_EDYRS Z_BANRAT sigmaSq gamma
 (Intercept)        0.06  0.01  -0.01    0    0.00     0.00    0.00  0.00
@@ -45261,6 +45528,19 @@ Z_EDYRS          -0.03       0.22   -0.13     0.89
 Z_BANRAT         -3.64       8.10   -0.45     0.65
 sigmaSq           1.67       3.70    0.45     0.65
 gamma             0.98       0.05   21.65     0.00
+> round( coef( summary( b6, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)      -1.05       0.25   -4.16     0.00
+lAREA             0.38       0.06    6.33     0.00
+lLABOR            0.32       0.06    5.25     0.00
+lNPK              0.26       0.03    7.66     0.00
+Z_(Intercept)    -2.75       8.50   -0.32     0.75
+Z_EDYRS          -0.03       0.22   -0.13     0.89
+Z_BANRAT         -3.64       8.10   -0.45     0.65
+sigmaSq           1.67       3.70    0.45     0.65
+gamma             0.98       0.05   21.65     0.00
+sigmaSqU          1.63       3.69    0.44     0.66
+sigmaSqV          0.04       0.01    4.76     0.00
 > round( vcov( b6 ), 2 )
               (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
 (Intercept)          0.06  0.01  -0.01  0.00          0.41    0.00     0.35
@@ -46792,6 +47072,18 @@ sigmaSq         0.17       0.15    1.14     0.26
 gamma           0.52       0.42    1.25     0.21
 mu             -0.32       1.07   -0.30     0.77
 time            0.06       0.04    1.82     0.07
+> round( coef( summary( b7, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -0.75       0.28   -2.66     0.01
+lAREA           0.48       0.06    7.33     0.00
+lLABOR          0.30       0.06    4.65     0.00
+lNPK            0.20       0.04    4.60     0.00
+sigmaSq         0.17       0.15    1.14     0.26
+gamma           0.52       0.42    1.25     0.21
+mu             -0.32       1.07   -0.30     0.77
+time            0.06       0.04    1.82     0.07
+sigmaSqU        0.09       0.15    0.60     0.55
+sigmaSqV        0.08       0.01   11.84     0.00
 > round( vcov( b7 ), 2 )
             (Intercept) lAREA lLABOR  lNPK sigmaSq gamma    mu  time
 (Intercept)        0.08  0.02  -0.01 -0.01    0.00  0.01 -0.01  0.00
@@ -47761,6 +48053,19 @@ Z_EDYRS          -0.03       0.21   -0.14     0.89
 Z_BANRAT         -3.64       7.73   -0.47     0.64
 sigmaSq           1.67       3.53    0.47     0.64
 gamma             0.98       0.04   22.64     0.00
+> round( coef( summary( b8, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)      -1.05       0.25   -4.13     0.00
+lAREA             0.38       0.06    6.30     0.00
+lLABOR            0.32       0.06    5.17     0.00
+lNPK              0.26       0.03    7.71     0.00
+Z_(Intercept)    -2.75       8.12   -0.34     0.74
+Z_EDYRS          -0.03       0.21   -0.14     0.89
+Z_BANRAT         -3.64       7.73   -0.47     0.64
+sigmaSq           1.67       3.53    0.47     0.64
+gamma             0.98       0.04   22.64     0.00
+sigmaSqU          1.63       3.52    0.46     0.64
+sigmaSqV          0.04       0.01    4.98     0.00
 > round( vcov( b8 ), 2 )
               (Intercept) lAREA lLABOR  lNPK Z_(Intercept) Z_EDYRS Z_BANRAT
 (Intercept)          0.06  0.01  -0.01  0.00          0.37    0.00     0.31
@@ -49137,6 +49442,16 @@ class
 > all.equal( sb9i[ -c( 3, 7, 20, 42 ) ], b9[ -c( 3, 7, 20, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> round( coef( summary( b9, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)    -1.04       0.26   -4.06        0
+log(AREA)       0.36       0.06    5.83        0
+log(LABOR)      0.33       0.06    5.25        0
+log(NPK)        0.27       0.04    7.68        0
+sigmaSq         0.24       0.03    9.17        0
+gamma           0.89       0.03   26.29        0
+sigmaSqU        0.21       0.03    7.23        0
+sigmaSqV        0.03       0.01    4.32        0
 > print( summary( b9 ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
@@ -49346,6 +49661,17 @@ lLABORP         0.44       0.03   14.18     0.00
 lNPKP           0.09       0.05    1.72     0.09
 sigmaSq         0.07       0.02    4.64     0.00
 gamma           0.48       0.13    3.84     0.00
+> round( coef( summary( d1, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.80       0.19   31.00     0.00
+lPROD           0.37       0.03   10.87     0.00
+lAREA           0.55       0.04   14.64     0.00
+lLABORP         0.44       0.03   14.18     0.00
+lNPKP           0.09       0.05    1.72     0.09
+sigmaSq         0.07       0.02    4.64     0.00
+gamma           0.48       0.13    3.84     0.00
+sigmaSqU        0.04       0.02    2.14     0.03
+sigmaSqV        0.04       0.00   11.52     0.00
 > round( vcov( d1 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma
 (Intercept)        0.04     0     0       0 -0.01       0 -0.01
@@ -50449,6 +50775,18 @@ lNPKP           0.10       0.05    1.79     0.07
 sigmaSq         0.05       0.01    6.32     0.00
 gamma           0.29       0.10    2.79     0.01
 mu              0.24       0.06    3.74     0.00
+> round( coef( summary( d2, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.72       0.19   30.69     0.00
+lPROD           0.36       0.03   10.54     0.00
+lAREA           0.55       0.04   14.16     0.00
+lLABORP         0.44       0.03   14.46     0.00
+lNPKP           0.10       0.05    1.79     0.07
+sigmaSq         0.05       0.01    6.32     0.00
+gamma           0.29       0.10    2.79     0.01
+mu              0.24       0.06    3.74     0.00
+sigmaSqU        0.01       0.01    2.01     0.04
+sigmaSqV        0.04       0.00   10.95     0.00
 > round( vcov( d2 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma mu
 (Intercept)        0.03     0     0       0 -0.01       0  0.00  0
@@ -51537,6 +51875,18 @@ lNPKP           0.10       0.05    1.83     0.07
 sigmaSq         0.08       0.02    4.45     0.00
 gamma           0.54       0.12    4.59     0.00
 time           -0.03       0.03   -1.25     0.21
+> round( coef( summary( d3, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.81       0.19   31.01     0.00
+lPROD           0.37       0.03   10.91     0.00
+lAREA           0.56       0.04   15.30     0.00
+lLABORP         0.44       0.03   14.04     0.00
+lNPKP           0.10       0.05    1.83     0.07
+sigmaSq         0.08       0.02    4.45     0.00
+gamma           0.54       0.12    4.59     0.00
+time           -0.03       0.03   -1.25     0.21
+sigmaSqU        0.04       0.02    2.29     0.02
+sigmaSqV        0.04       0.00   11.60     0.00
 > round( vcov( d3 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma time
 (Intercept)        0.04     0     0       0 -0.01       0  0.00    0
@@ -52533,6 +52883,19 @@ sigmaSq         0.05       0.01    5.68     0.00
 gamma           0.32       0.11    2.94     0.00
 mu              0.26       0.07    3.58     0.00
 time           -0.03       0.02   -1.43     0.15
+> round( coef( summary( d4, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.73       0.19   30.28     0.00
+lPROD           0.36       0.04    9.98     0.00
+lAREA           0.55       0.04   14.53     0.00
+lLABORP         0.44       0.03   14.29     0.00
+lNPKP           0.10       0.05    1.86     0.06
+sigmaSq         0.05       0.01    5.68     0.00
+gamma           0.32       0.11    2.94     0.00
+mu              0.26       0.07    3.58     0.00
+time           -0.03       0.02   -1.43     0.15
+sigmaSqU        0.02       0.01    2.00     0.05
+sigmaSqV        0.04       0.00   11.16     0.00
 > round( vcov( d4 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP sigmaSq gamma   mu time
 (Intercept)        0.04     0     0       0 -0.01       0  0.00 0.00    0
@@ -53547,6 +53910,19 @@ Z_EDYRS       -16.34      27.97   -0.58     0.56
 Z_BANRAT      -97.49     177.58   -0.55     0.58
 sigmaSq        15.61      27.10    0.58     0.56
 gamma           1.00       0.00  233.41     0.00
+> round( coef( summary( d5, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.92       0.19   31.51     0.00
+lPROD           0.46       0.03   15.63     0.00
+lAREA           0.51       0.03   15.72     0.00
+lLABORP         0.41       0.03   13.00     0.00
+lNPKP           0.08       0.05    1.46     0.15
+Z_EDYRS       -16.34      27.97   -0.58     0.56
+Z_BANRAT      -97.49     177.58   -0.55     0.58
+sigmaSq        15.61      27.10    0.58     0.56
+gamma           1.00       0.00  233.41     0.00
+sigmaSqU       15.57      27.10    0.57     0.57
+sigmaSqV        0.04       0.00   18.11     0.00
 > round( vcov( d5 ), 2 )
             (Intercept) lPROD lAREA lLABORP lNPKP Z_EDYRS Z_BANRAT  sigmaSq
 (Intercept)        0.04  0.00  0.00    0.00 -0.01   -0.02    -0.10     0.02
@@ -55712,6 +56088,20 @@ Z_EDYRS         -14.56      18.72   -0.78     0.44
 Z_BANRAT        -93.57     120.70   -0.78     0.44
 sigmaSq          16.52      21.09    0.78     0.43
 gamma             1.00       0.00  335.36     0.00
+> round( coef( summary( d6, extraPar = TRUE ) ), 2 )
+              Estimate Std. Error z value Pr(>|z|)
+(Intercept)       5.91       0.18   32.88     0.00
+lPROD             0.46       0.03   16.27     0.00
+lAREA             0.51       0.03   16.15     0.00
+lLABORP           0.41       0.03   13.50     0.00
+lNPKP             0.08       0.05    1.56     0.12
+Z_(Intercept)   -16.00      20.09   -0.80     0.43
+Z_EDYRS         -14.56      18.72   -0.78     0.44
+Z_BANRAT        -93.57     120.70   -0.78     0.44
+sigmaSq          16.52      21.09    0.78     0.43
+gamma             1.00       0.00  335.36     0.00
+sigmaSqU         16.48      21.09    0.78     0.43
+sigmaSqV          0.04       0.00   12.99     0.00
 > round( vcov( d6 ), 2 )
               (Intercept) lPROD lAREA lLABORP lNPKP Z_(Intercept) Z_EDYRS
 (Intercept)          0.03  0.00  0.00    0.00 -0.01          0.82    0.75
@@ -57127,6 +57517,17 @@ class
 > all.equal( sd9i[ -c( 3, 7, 20, 42 ) ], d9[ -c( 3, 7, 20, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> round( coef( summary( d9, extraPar = TRUE ) ), 2 )
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept)     5.87       0.20   29.15     0.00
+log(PROD)       0.46       0.03   13.42     0.00
+log(AREA)       0.51       0.04   14.42     0.00
+log(LABORP)     0.41       0.03   12.82     0.00
+log(NPKP)       0.07       0.05    1.30     0.19
+sigmaSq         0.07       0.01    4.91     0.00
+gamma           0.53       0.19    2.83     0.00
+sigmaSqU        0.04       0.02    1.83     0.07
+sigmaSqV        0.03       0.01    4.47     0.00
 > print( summary( d9, effMinusU = FALSE ), digits = 1 )
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency increases the endogenous variable (as in a cost function)
@@ -110083,4 +110484,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 61.544   1.272  62.974 
+ 60.852   1.156  62.057 

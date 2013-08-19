@@ -29,6 +29,13 @@ for objects of class \code{frontier}.
    where the four columns contain the estimated
    coefficients, their standard errors, z-values or t-values,
    and (asymptotic) P-values.
+   If argument \code{which} of this method is \code{"mle"} (the default)
+   and argument \code{extraPar} of \code{\link{summary.frontier}}
+   is set to \code{TRUE},
+   some additional parameters, their standard errors, z-values,
+   and (asymptotic) P-values are returned
+   (see documentation of \code{\link{summary.frontier}}, 
+   \code{\link{coef.frontier}}, or \code{\link{vcov.frontier}}).
 }
 
 \author{Arne Henningsen}
@@ -41,6 +48,7 @@ for objects of class \code{frontier}.
       data = front41Data )
    coef( summary( sfaResult ), which = "ols" )
    coef( summary( sfaResult ) )
+   coef( summary( sfaResult, extraPar = TRUE ) )
 }
 
 \keyword{models}
