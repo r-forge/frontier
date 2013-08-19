@@ -12,6 +12,10 @@ on R-Forge.
 * added fitted() method for objects of class "frontier" for obtaining the
 fitted/predicted frontier values of each observation
 
+* added argument "extraPar" to the coef(), vcov(), and summary() methods for
+frontier models: if this argument is set to TRUE, further parameters are
+calculated (based on the estimated parameters) and returned
+
 * removed unused argument "multErr" of sfa(), because this feature probably
 will not be implemented in the near future
 
