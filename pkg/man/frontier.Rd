@@ -317,6 +317,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    summary( riceTrue )
 
    # add data set with information about its panel structure
+   library( "plm" )
    ricePanel <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
 
    # Error Components Frontier (Battese & Coelli 1992)

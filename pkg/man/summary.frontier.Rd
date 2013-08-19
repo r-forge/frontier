@@ -114,7 +114,8 @@ returned by \code{\link{frontier}}.
    summary( sfaResult )
 
    # rice producers in the Phillipines (panel data)
-   data( riceProdPhil )
+   data( "riceProdPhil" )
+   library( "plm" )
    riceProdPhil <- plm.data( riceProdPhil, c( "FMERCODE", "YEARDUM" ) )
 
    # Error Components Frontier

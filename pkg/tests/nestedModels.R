@@ -1,4 +1,5 @@
-library( frontier )
+library( "frontier" )
+library( "plm" )
 options( digits = 5 )
 
 ## data set of rice producers in the Philippines
