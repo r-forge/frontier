@@ -17,14 +17,17 @@ coef.frontier <- function( object, which = "mle", extraPar = FALSE, ... ) {
          " or 'mle'" )
    }
    
-   if( extraPar ) {
+   if( extraPar && !is.null( result ) ) {
       if( tolower( which ) == "ols" ) {
          warning( "extra parameters are not available for coefficients",
             " obtained by OLS" )
       } else {
          result <- c( result, 
             sigmaSqU = unname( result[ "sigmaSq" ] * result[ "gamma"] ),
-            sigmaSqV = unname( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ) )
+            sigmaSqV = unname( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ),
+            sigma = unname( sqrt( result[ "sigmaSq" ] ) ),
+            sigmaU = unname( sqrt( result[ "sigmaSq" ] * result[ "gamma"] ) ),
+            sigmaV = unname( sqrt( result[ "sigmaSq" ] * ( 1 - result[ "gamma"] ) ) ) )
       }
    }
    

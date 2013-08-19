@@ -17,10 +17,14 @@ of a stochastic frontier model returned by \code{\link{frontier}}.
    \item{extraPar}{logical. If \code{TRUE}, the variances and covariances
       of additional parameters are returned:
       \code{sigmaSqU} = \code{sigmaSq} * \code{gamma} 
-      (with \eqn{u} ~ \eqn{N^+}{N+}( \code{mu}, \code{sigmaSqU} )) 
-      and \code{sigmaSqV} = \code{sigmaSq} * ( 1 - \code{gamma} )
-      (with \eqn{v} ~ N( 0, \code{sigmaSqV} )).
-      Please note that \code{sigmaSqU} is not the variance of \eqn{u}.}
+      (with \eqn{u} ~ \eqn{N^+}{N+}( \code{mu}, \code{sigmaSqU} )),
+      \code{sigmaSqV} = \code{sigmaSq} * ( 1 - \code{gamma} )
+      (with \eqn{v} ~ N( 0, \code{sigmaSqV} )),
+      \code{sigma} = \code{sigmaSq}^0.5,
+      \code{sigmaU} = \code{sigmaSqU}^0.5,
+      and \code{sigmaV} = \code{sigmaSqV}^0.5.
+      Please note that \code{sigmaSqU} and \code{sigmaU} are not
+      the variance and standard error, respectively, of \eqn{u}.}
    \item{\dots}{currently unused.}
 }
 
