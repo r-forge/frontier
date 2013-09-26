@@ -31,7 +31,7 @@ The following object is masked from 'package:base':
 
 
 Please cite the 'frontier' package as:
-Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.0. http://CRAN.R-Project.org/package=frontier.
+Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.1. http://CRAN.R-Project.org/package=frontier.
 
 If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
 https://r-forge.r-project.org/projects/frontier/
@@ -3884,4 +3884,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  0.684   0.064   0.767 
+  0.964   0.068   1.031 

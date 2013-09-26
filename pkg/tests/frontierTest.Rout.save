@@ -29,7 +29,7 @@ The following object is masked from 'package:base':
 
 
 Please cite the 'frontier' package as:
-Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.0. http://CRAN.R-Project.org/package=frontier.
+Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R package version 1.1. http://CRAN.R-Project.org/package=frontier.
 
 If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
 https://r-forge.r-project.org/projects/frontier/
@@ -111394,4 +111394,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 44.652   0.856  45.590 
+ 61.620   1.240  62.921 
