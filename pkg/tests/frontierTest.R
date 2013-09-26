@@ -2450,7 +2450,7 @@ printAll( b6t )
 ## translog frontiers
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
-   xNames = c( "logCapital", "logLabour" ) )
+   xNames = c( "logCapital", "logLabour" ), lrTests = TRUE )
 print( translog, digits = 1 )
 coef( translog, which = "start" )
 round( coef( translog, which = "ols" ), 2 )
@@ -2485,7 +2485,7 @@ printAll( translog )
 ## cross-section data, error components frontier, translog, shifter
 translogShift <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
-   data = front41Data )
+   data = front41Data, lrTests = TRUE )
 print( translogShift, digits = 1 )
 coef( translogShift, which = "start" )
 round( coef( translogShift, which = "ols" ), 2 )
@@ -2515,7 +2515,7 @@ printAll( translogShift )
 ## cross-section data, efficiency effects frontier, translog
 translogZvar <- frontierQuad( yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
-   data = front41Data )
+   data = front41Data, lrTests = TRUE )
 print( translogZvar, digits = 1 )
 coef( translogZvar, which = "start" )
 round( coef( translogZvar, which = "ols" ), 2 )

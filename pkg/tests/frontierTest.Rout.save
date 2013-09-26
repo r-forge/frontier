@@ -82489,11 +82489,11 @@ class
 > ## translog frontiers
 > ## cross-section data, error components frontier, translog
 > translog <- frontierQuad( data = front41Data, yName = "logOutput",
-+    xNames = c( "logCapital", "logLabour" ) )
++    xNames = c( "logCapital", "logLabour" ), lrTests = TRUE )
 > print( translog, digits = 1 )
 
 Call:
-frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data)
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      data = front41Data, lrTests = TRUE)
 
 Maximum likelihood estimates
     a_0      a_1      a_2    b_1_1    b_1_2    b_2_2  sigmaSq    gamma  
@@ -83410,7 +83410,7 @@ $searchScale
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    data = front41Data)
+    data = front41Data, lrTests = TRUE)
 
 $validObs
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
@@ -83422,17 +83422,32 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
 
+$lrTests
+Likelihood ratio test
+Note: all models are tested against the full model (model 1)
+
+Model 1: full model
+Model 2: without 'logCapital'
+Model 3: without 'logLabour'
+
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   8  -14.4                        
+2   5  -29.0 -3  29.2    2.0e-06 ***
+3   5  -43.4 -3  58.0    1.6e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
 class
 [1] "frontierQuad" "frontier"    
 > 
 > ## cross-section data, error components frontier, translog, shifter
 > translogShift <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), shifterNames = "firmNo",
-+    data = front41Data )
++    data = front41Data, lrTests = TRUE )
 > print( translogShift, digits = 1 )
 
 Call:
-frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      shifterNames = "firmNo", data = front41Data)
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      shifterNames = "firmNo", data = front41Data, lrTests = TRUE)
 
 Maximum likelihood estimates
     a_0      a_1      a_2    b_1_1    b_1_2    b_2_2      d_1  sigmaSq  
@@ -84249,7 +84264,7 @@ $searchScale
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    shifterNames = "firmNo", data = front41Data)
+    shifterNames = "firmNo", data = front41Data, lrTests = TRUE)
 
 $validObs
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
@@ -84261,17 +84276,32 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
 
+$lrTests
+Likelihood ratio test
+Note: all models are tested against the full model (model 1)
+
+Model 1: full model
+Model 2: without 'logCapital'
+Model 3: without 'logLabour'
+
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   9  -14.0                        
+2   6  -27.2 -3  26.4    7.9e-06 ***
+3   6  -43.4 -3  58.8    1.1e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
 class
 [1] "frontierQuad" "frontier"    
 > 
 > ## cross-section data, efficiency effects frontier, translog
 > translogZvar <- frontierQuad( yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), zNames = "firmNo",
-+    data = front41Data )
++    data = front41Data, lrTests = TRUE )
 > print( translogZvar, digits = 1 )
 
 Call:
-frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data)
+frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"),      zNames = "firmNo", data = front41Data, lrTests = TRUE)
 
 Maximum likelihood estimates
      a_0       a_1       a_2     b_1_1     b_1_2     b_2_2  Z_firmNo   sigmaSq  
@@ -85514,7 +85544,7 @@ $searchScale
 
 $call
 frontierQuad(yName = "logOutput", xNames = c("logCapital", "logLabour"), 
-    zNames = "firmNo", data = front41Data)
+    zNames = "firmNo", data = front41Data, lrTests = TRUE)
 
 $validObs
    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
@@ -85525,6 +85555,21 @@ TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
   49   50   51   52   53   54   55   56   57   58   59   60 
 TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+
+$lrTests
+Likelihood ratio test
+Note: all models are tested against the full model (model 1)
+
+Model 1: full model
+Model 2: without 'logCapital'
+Model 3: without 'logLabour'
+
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1   9  -13.7                        
+2   6  -26.4 -3  25.3    1.3e-05 ***
+3   6  -43.4 -3  59.3    8.2e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 class
 [1] "frontierQuad" "frontier"    
@@ -111394,4 +111439,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 61.620   1.240  62.921 
+ 43.828   0.924  44.786 
