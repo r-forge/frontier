@@ -351,6 +351,11 @@ sfa <- function(
    } else if( nb == 0 ) {
       ols <- lm( dataTable[ , 3 ] ~ -1 )
    }
+   if( any( is.na( coef( ols ) ) ) ) {
+      stop( "at least one coefficient estimated by OLS is NA: ",
+         paste( paramNames[ is.na( coef( ols ) ) ], collapse = ", " ),
+      ". This may have been caused by (nearly) perfect multicollinearity" )
+   }
    olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
    olsStdEr <- sqrt( diag( vcov( ols ) ) )
    olsLogl  <- logLik( ols )[ 1 ]

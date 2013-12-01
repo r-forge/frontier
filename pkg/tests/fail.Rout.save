@@ -262,7 +262,7 @@ Maximum likelihood estimates
 > try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ), 
 +    data = front41Data ) )
 Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10),  : 
-  NA/NaN/Inf in foreign function call (arg 29)
+  at least one coefficient estimated by OLS is NA: log(capital10). This may have been caused by (nearly) perfect multicollinearity
 > 
 > 
 > ## load data abour rice production in the Phillipines
@@ -686,4 +686,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  1.404   0.032   1.428 
+  1.364   0.028   1.385 
