@@ -1,5 +1,5 @@
 
-R version 3.0.1 (2013-05-16) -- "Good Sport"
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
 Copyright (C) 2013 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -23,7 +23,7 @@ Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object is masked from 'package:base':
+The following objects are masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -21056,22 +21056,22 @@ are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
-(Intercept)     -1e+00      2e-01    -4.3    2e-05 ***
-lAREA            4e-01      6e-02     6.3    2e-10 ***
-lLABOR           3e-01      6e-02     5.3    1e-07 ***
-lNPK             3e-01      3e-02     7.7    1e-14 ***
-Z_(Intercept)   -3e+00      8e+00    -0.3      0.7    
-Z_EDYRS         -3e-02      2e-01    -0.1      0.9    
-Z_BANRAT        -4e+00      8e+00    -0.5      0.6    
-sigmaSq          2e+00      4e+00     0.5      0.6    
-gamma            1e+00      4e-02    22.6   <2e-16 ***
-sigmaSqU         2e+00      4e+00     0.5      0.6    
-sigmaSqV         4e-02      6e-03     5.7    1e-08 ***
-sigma            1e+00      1e+00     0.9      0.3    
-sigmaU           1e+00      1e+00     0.9      0.4    
-sigmaV           2e-01      2e-02    11.4   <2e-16 ***
-lambdaSq         5e+01      1e+02     0.5      0.6    
-lambda           7e+00      7e+00     1.0      0.3    
+(Intercept)     -1.052      0.247    -4.3    2e-05 ***
+lAREA            0.380      0.060     6.3    2e-10 ***
+lLABOR           0.321      0.061     5.3    1e-07 ***
+lNPK             0.264      0.034     7.7    1e-14 ***
+Z_(Intercept)   -2.747      8.054    -0.3      0.7    
+Z_EDYRS         -0.029      0.210    -0.1      0.9    
+Z_BANRAT        -3.636      7.713    -0.5      0.6    
+sigmaSq          1.667      3.533     0.5      0.6    
+gamma            0.979      0.043    22.6   <2e-16 ***
+sigmaSqU         1.631      3.530     0.5      0.6    
+sigmaSqV         0.035      0.006     5.7    1e-08 ***
+sigma            1.291      1.368     0.9      0.3    
+sigmaU           1.277      1.382     0.9      0.4    
+sigmaV           0.188      0.017    11.4   <2e-16 ***
+lambdaSq        46.165     96.492     0.5      0.6    
+lambda           6.795      7.101     1.0      0.3    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
@@ -49021,22 +49021,22 @@ are within the tolerance limit
 
 final maximum likelihood estimates
               Estimate Std. Error z value Pr(>|z|)    
-(Intercept)     -1e+00      3e-01    -4.1    4e-05 ***
-lAREA            4e-01      6e-02     6.3    3e-10 ***
-lLABOR           3e-01      6e-02     5.2    2e-07 ***
-lNPK             3e-01      3e-02     7.7    1e-14 ***
-Z_(Intercept)   -3e+00      8e+00    -0.3      0.7    
-Z_EDYRS         -3e-02      2e-01    -0.1      0.9    
-Z_BANRAT        -4e+00      8e+00    -0.5      0.6    
-sigmaSq          2e+00      4e+00     0.5      0.6    
-gamma            1e+00      4e-02    22.6   <2e-16 ***
-sigmaSqU         2e+00      4e+00     0.5      0.6    
-sigmaSqV         4e-02      7e-03     5.0    6e-07 ***
-sigma            1e+00      1e+00     0.9      0.3    
-sigmaU           1e+00      1e+00     0.9      0.4    
-sigmaV           2e-01      2e-02    10.0   <2e-16 ***
-lambdaSq         5e+01      1e+02     0.5      0.6    
-lambda           7e+00      7e+00     1.0      0.3    
+(Intercept)     -1.052      0.255    -4.1    4e-05 ***
+lAREA            0.380      0.060     6.3    3e-10 ***
+lLABOR           0.321      0.062     5.2    2e-07 ***
+lNPK             0.264      0.034     7.7    1e-14 ***
+Z_(Intercept)   -2.746      8.117    -0.3      0.7    
+Z_EDYRS         -0.029      0.211    -0.1      0.9    
+Z_BANRAT        -3.635      7.726    -0.5      0.6    
+sigmaSq          1.667      3.526     0.5      0.6    
+gamma            0.979      0.043    22.6   <2e-16 ***
+sigmaSqU         1.631      3.523     0.5      0.6    
+sigmaSqV         0.035      0.007     5.0    6e-07 ***
+sigma            1.291      1.366     0.9      0.3    
+sigmaU           1.277      1.379     0.9      0.4    
+sigmaV           0.188      0.019    10.0   <2e-16 ***
+lambdaSq        46.166     96.199     0.5      0.6    
+lambda           6.795      7.079     1.0      0.3    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -77.314 
@@ -54768,9 +54768,9 @@ frontier(yName = "lCost", xNames = c("lPROD", "lAREA", "lLABORP",      "lNPKP"),
 
 Maximum likelihood estimates
 (Intercept)        lPROD        lAREA      lLABORP        lNPKP      Z_EDYRS  
-      6e+00        5e-01        5e-01        4e-01        8e-02       -2e+01  
+       5.92         0.46         0.51         0.41         0.08       -16.34  
    Z_BANRAT      sigmaSq        gamma  
-     -1e+02        2e+01        1e+00  
+     -97.49        15.61         1.00  
 > coef( d5, which = "start" )
 NULL
 > round( coef( d5, which = "ols" ), 2 )
@@ -111439,4 +111439,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 43.828   0.924  44.786 
+ 44.612   0.844  45.492 
