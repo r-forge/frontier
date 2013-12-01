@@ -74,6 +74,16 @@ try( sfa( log( output) ~ log( capital ) + log( labour ), data = front41Data,
 try( sfa( log( output) ~ log( capital ) + log( labour ), data = front41Data,
    truncNorm = TRUE, startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9 ) ) )
 
+## one explanatory variable specifiec twice (works)
+sfa( log( output) ~ log( capital ) + log( labour ) + log( capital ), 
+   data = front41Data )
+
+## perfect multicollinearity -> NAs in OLS coefficiencts
+front41Data$capital10 <- 10 * front41Data$capital
+try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ), 
+   data = front41Data ) )
+
+
 ## load data abour rice production in the Phillipines
 data( "riceProdPhil")
 

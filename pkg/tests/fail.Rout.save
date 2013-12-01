@@ -246,6 +246,25 @@ Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 Error in sfa(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
   wrong number of starting values (you provided 5 starting values but the model has 6 parameters)
 > 
+> ## one explanatory variable specifiec twice (works)
+> sfa( log( output) ~ log( capital ) + log( labour ) + log( capital ), 
++    data = front41Data )
+
+Call:
+sfa(formula = log(output) ~ log(capital) + log(labour) + log(capital),      data = front41Data)
+
+Maximum likelihood estimates
+ (Intercept)  log(capital)   log(labour)       sigmaSq         gamma  
+       0.562         0.281         0.536         0.217         0.797  
+> 
+> ## perfect multicollinearity -> NAs in OLS coefficiencts
+> front41Data$capital10 <- 10 * front41Data$capital
+> try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ), 
++    data = front41Data ) )
+Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10),  : 
+  NA/NaN/Inf in foreign function call (arg 29)
+> 
+> 
 > ## load data abour rice production in the Phillipines
 > data( "riceProdPhil")
 > 
@@ -667,4 +686,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  1.388   0.028   1.447 
+  1.404   0.032   1.428 
