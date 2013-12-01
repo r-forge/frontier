@@ -264,6 +264,13 @@ Maximum likelihood estimates
 Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10),  : 
   at least one coefficient estimated by OLS is NA: log(capital10). This may have been caused by (nearly) perfect multicollinearity
 > 
+> ## perfect multicollinearity -> 2 NAs in OLS coefficiencts
+> front41Data$capitalLabour <- front41Data$capital * front41Data$labour
+> try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ) + 
++       log( capitalLabour ), data = front41Data ) )
+Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10) +  : 
+  at least one coefficient estimated by OLS is NA: log(capital10), log(capitalLabour). This may have been caused by (nearly) perfect multicollinearity
+> 
 > 
 > ## load data abour rice production in the Phillipines
 > data( "riceProdPhil")
@@ -686,4 +693,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  1.364   0.028   1.385 
+  1.360   0.044   1.390 

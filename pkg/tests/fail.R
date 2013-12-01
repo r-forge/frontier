@@ -83,6 +83,11 @@ front41Data$capital10 <- 10 * front41Data$capital
 try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ), 
    data = front41Data ) )
 
+## perfect multicollinearity -> 2 NAs in OLS coefficiencts
+front41Data$capitalLabour <- front41Data$capital * front41Data$labour
+try( sfa( log( output) ~ log( capital ) + log( labour ) + log( capital10 ) + 
+      log( capitalLabour ), data = front41Data ) )
+
 
 ## load data abour rice production in the Phillipines
 data( "riceProdPhil")
