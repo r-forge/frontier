@@ -154,7 +154,6 @@ sfa <- function(
    validObs   <- tmp$validObs
    firmId     <- tmp$firmId
    timeId     <- tmp$timeId
-   obsNames   <- tmp$obsNames
    nb         <- tmp$nb
    nob        <- tmp$nob
    nn         <- tmp$nn
@@ -427,7 +426,7 @@ sfa <- function(
       rownames( returnObj$resid ) <- levels( data[[ 1 ]] )[ firmId ]
       colnames( returnObj$resid ) <- levels( data[[ 2 ]] )[ timeId ]
    } else {
-      rownames( returnObj$resid ) <- obsNames[ validObs ]
+      rownames( returnObj$resid ) <- names( validObs )[ validObs ]
       colnames( returnObj$resid ) <- "residuals"
    }
    if( modelType == 2 ) {

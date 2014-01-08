@@ -174,14 +174,13 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    returnObj$validObs    <- validObs
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId
-   returnObj$obsNames    <- obsNames
    returnObj$nb          <- nb
    returnObj$nob         <- nob
    returnObj$nn          <- nn
    returnObj$nt          <- nt
    returnObj$paramNames  <- paramNames
    returnObj$zNames      <- zNames
-   returnObj$zIntercepts <- zIntercept
+   returnObj$zIntercept  <- zIntercept
    returnObj$nZvars      <- nZvars
    
    return( returnObj )
