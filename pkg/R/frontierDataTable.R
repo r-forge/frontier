@@ -1,6 +1,13 @@
-frontierDataTable <- function( data, formula, effFormula, mc, mf, mfe ) {
+frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # preparing model matrix and model response
+   m <- match( "data", names( mc ), 0 )
+   mf <- mc[ c( 1, m ) ]
+   mf$formula <- formula
+   attributes( mf$formula ) <- NULL
+   mf$na.action <- na.pass
+   mf[[ 1 ]] <- as.name( "model.frame" )
+   mf <- eval( mf, parent.frame( n = 2 ) )
    mt <- attr( mf, "terms" )
    xMat <- model.matrix( mt, mf )
    xNames <- colnames( xMat )
@@ -46,6 +53,18 @@ frontierDataTable <- function( data, formula, effFormula, mc, mf, mfe ) {
       zNames <- NULL
       zIntercept <- FALSE
    } else {
+      if( class( effFormula ) != "formula" ) {
+         stop( "argument 'effFormula' must be a formula" )
+      } else if( length( effFormula ) != 2 ) {
+         stop( "argument 'formula' must be a 1-sided formula" )
+      }
+      me <- match( "data", names( mc ), 0 )
+      mfe <- mc[ c( 1, me ) ]
+      mfe$formula <- effFormula
+      attributes( mfe$formula ) <- NULL
+      mfe$na.action <- na.pass
+      mfe[[ 1 ]] <- as.name( "model.frame" )
+      mfe <- eval( mfe, parent.frame( n = 2 ) )
       mte <- attr( mfe, "terms" )
       zMat <- model.matrix( mte, mfe )
       if( ncol( zMat ) > 0 && colnames( zMat )[ 1 ] == "(Intercept)" ) {

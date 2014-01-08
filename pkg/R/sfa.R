@@ -142,33 +142,11 @@ sfa <- function(
       stop( "argument 'restartFactor' must be finite" )
    }
 
-   # obtain model frame for frontier model
+   # obtain call with full names of arguments
    mc <- match.call( expand.dots = FALSE )
-   m <- match( "data", names( mc ), 0 )
-   mf <- mc[ c( 1, m ) ]
-   mf$formula <- formula
-   attributes( mf$formula ) <- NULL
-   mf$na.action <- na.pass
-   mf[[ 1 ]] <- as.name( "model.frame" )
-   mf <- eval( mf, parent.frame() )
-   # obtain model frame for frontier model
-   if( !is.null( effFormula  ) ) {
-      if( class( effFormula ) != "formula" ) {
-         stop( "argument 'effFormula' must be a formula" )
-      } else if( length( effFormula ) != 2 ) {
-         stop( "argument 'formula' must be a 1-sided formula" )
-      }
-      me <- match( "data", names( mc ), 0 )
-      mfe <- mc[ c( 1, me ) ]
-      mfe$formula <- effFormula
-      attributes( mfe$formula ) <- NULL
-      mfe$na.action <- na.pass
-      mfe[[ 1 ]] <- as.name( "model.frame" )
-      mfe <- eval( mfe, parent.frame() )
-   }
    # prepare data table, etc
    tmp <- frontierDataTable( formula = formula, effFormula = effFormula, 
-      data = data, mc = mc, mf = mf, mfe = mfe )
+      data = data, mc = mc )
    if( is.character( tmp ) ) {
       stop( tmp )
    }
