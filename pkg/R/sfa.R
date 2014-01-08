@@ -174,7 +174,6 @@ sfa <- function(
    }
    dataTable  <- tmp$dataTable
    validObs   <- tmp$validObs
-   xMat       <- tmp$xMat
    firmId     <- tmp$firmId
    timeId     <- tmp$timeId
    obsNames   <- tmp$obsNames
@@ -329,10 +328,10 @@ sfa <- function(
    returnObj$olsLogl  <- olsLogl
 
    ## calculate fitted "frontier" values
-   if( ncol( xMat ) == 0 ) {
+   if( nb == 0 ) {
       fitVal <- rep( 0, sum( validObs ) )
    } else {
-      fitVal <- drop( xMat[ validObs, , drop = FALSE ] %*% 
+      fitVal <- drop( dataTable[ , 4:(3+nb), drop = FALSE ] %*% 
             returnObj$mleParam[ 1:nb ] )
    }
    returnObj$fitted <- matrix( NA, nrow = nn, ncol = nt )

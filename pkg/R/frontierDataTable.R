@@ -153,7 +153,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mf, mfe ) {
    returnObj <- list()
    returnObj$dataTable   <- dataTable
    returnObj$validObs    <- validObs
-   returnObj$xMat        <- xMat
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId
    returnObj$obsNames    <- obsNames
