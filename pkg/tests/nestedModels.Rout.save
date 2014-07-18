@@ -1,6 +1,6 @@
 
-R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
-Copyright (C) 2013 The R Foundation for Statistical Computing
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,7 +17,9 @@ Type 'q()' to quit R.
 
 > library( "frontier" )
 Loading required package: micEcon
-Loading required package: miscTools
+
+If you have questions, suggestions, or comments regarding one of the 'micEcon' packages, please use a forum or 'tracker' at micEcon's R-Forge site:
+https://r-forge.r-project.org/projects/micecon/
 Loading required package: lmtest
 Loading required package: zoo
 
@@ -34,18 +36,7 @@ Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R
 If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
 https://r-forge.r-project.org/projects/frontier/
 > library( "plm" )
-Loading required package: bdsmatrix
-
-Attaching package: 'bdsmatrix'
-
-The following object is masked from 'package:base':
-
-    backsolve
-
-Loading required package: nlme
 Loading required package: Formula
-Loading required package: MASS
-Loading required package: sandwich
 > options( digits = 5 )
 > 
 > ## data set of rice producers in the Philippines
@@ -136,8 +127,8 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > # Comparisons
 > round( rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
      (Intercept) lAREA lLABOR lNPK sigmaSq gamma     mu
-[1,]       -1.14  0.35   0.33 0.27   13.67     1 -49.75
-[2,]       -1.14  0.35   0.33 0.27   14.59     1 -53.29
+[1,]       -1.14  0.35   0.33 0.27   15.68     1 -57.21
+[2,]       -1.14  0.35   0.33 0.27    8.29     1 -29.83
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ), tol = 1e-3 )
 [1] TRUE
 > 
@@ -219,8 +210,8 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > # Comparisons
 > round( rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
      (Intercept) lAREA lLABOR lNPK sigmaSq gamma     mu
-[1,]       -1.14  0.35   0.33 0.27   13.67     1 -49.75
-[2,]       -1.14  0.35   0.33 0.27   14.59     1 -53.29
+[1,]       -1.14  0.35   0.33 0.27   15.68     1 -57.21
+[2,]       -1.14  0.35   0.33 0.27    8.29     1 -29.83
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ), 
 +    tol = 1e-3 )
 [1] TRUE
@@ -230,4 +221,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  3.968   0.048   4.006 
+  3.360   0.065   4.214 
