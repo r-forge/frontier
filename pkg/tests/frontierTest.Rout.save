@@ -597,6 +597,29 @@ F_60     -0.43
 > all.equal( fitted( a1, asInData = TRUE ) + residuals( a1, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> rta1 <- resettestFrontier( a1 )
+> rta1
+Likelihood ratio test
+
+Model 1: a1
+Model 2: a1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   5  -17.0                    
+2   7  -16.9  2  0.19       0.91
+> all.equal( rta1, resettestFrontier( Sa1 ), check.attributes = FALSE )
+[1] TRUE
+> all.equal( rta1, resettestFrontier( sa1 ), check.attributes = FALSE )
+[1] TRUE
+> all.equal( rta1, resettestFrontier( sa1i ), check.attributes = FALSE )
+[1] TRUE
+> resettestFrontier( a1, power = 2:4 )
+Likelihood ratio test
+
+Model 1: a1
+Model 2: a1 + fit^2 + fit^3 + fit^4
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   5  -17.0                    
+2   8  -16.9  3  0.21       0.98
 > printAll( a1 )
 $modelType
 [1] 1
@@ -1341,6 +1364,35 @@ F_60     -0.37
 > all.equal( fitted( a2, asInData = TRUE ) + residuals( a2, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( a2 )
+Likelihood ratio test
+
+Model 1: a2
+Model 2: a2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -16.8                    
+2   8  -16.7  2  0.28       0.87
+> rta2 <- resettestFrontier( a2 )
+> rta2
+Likelihood ratio test
+
+Model 1: a2
+Model 2: a2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -16.8                    
+2   8  -16.7  2  0.28       0.87
+> all.equal( rta2, resettestFrontier( sa2 ), check.attributes = FALSE )
+[1] TRUE
+> all.equal( rta2, resettestFrontier( sa2i ), check.attributes = FALSE )
+[1] TRUE
+> resettestFrontier( a2, power = 2 )
+Likelihood ratio test
+
+Model 1: a2
+Model 2: a2 + fit^2
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -16.8                    
+2   7  -16.7  1  0.26       0.61
 > printAll( a2 )
 $modelType
 [1] 1
@@ -1957,6 +2009,19 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 [1] TRUE
 > all.equal( fitted( a5, asInData = TRUE ) + residuals( a5, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> rta5 <- resettestFrontier( a5 )
+> rta5
+Likelihood ratio test
+
+Model 1: a5
+Model 2: a5 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -16.8                    
+2   8  -16.7  2  0.27       0.87
+> all.equal( rta5, resettestFrontier( sa5 ), check.attributes = FALSE )
+[1] TRUE
+> all.equal( rta5, resettestFrontier( sa5i ), check.attributes = FALSE )
 [1] TRUE
 > printAll( a5 )
 $modelType
@@ -3054,6 +3119,9 @@ F_60     -0.40
 > all.equal( fitted( aa1, asInData = TRUE ) + residuals( aa1, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> try( resettestFrontier( aa1 ) )
+Error in resettestFrontier(aa1) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( aa1 )
 $modelType
 [1] 2
@@ -5470,6 +5538,14 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > all.equal( log( naData$output ) - fitted( San1, asInData = TRUE ),
 +    residuals( San1, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( San1 )
+Likelihood ratio test
+
+Model 1: San1
+Model 2: San1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   5  -17.2                    
+2   7  -17.1  2   0.2       0.91
 > 
 > ## cross-section data with NAs, efficiency effects frontier
 > Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
@@ -6792,6 +6868,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( bb1, asInData = TRUE ) + residuals( bb1, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( bb1 )
+Likelihood ratio test
+
+Model 1: bb1
+Model 2: bb1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -86.2                    
+2   8  -85.9  2   0.7        0.7
 > printAll( bb1 )
 $modelType
 [1] 1
@@ -9492,6 +9576,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( bb2, asInData = TRUE ) + residuals( bb2, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( bb2 )
+Likelihood ratio test
+
+Model 1: bb2
+Model 2: bb2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7  -82.2                    
+2   9  -82.0  2  0.42       0.81
 > printAll( bb2 )
 $modelType
 [1] 1
@@ -12820,6 +12912,9 @@ margEff
 > all.equal( fitted( bb5, asInData = TRUE ) + residuals( bb5, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> try( resettestFrontier( bb5 ) )
+Error in resettestFrontier(bb5) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( bb5 )
 $modelType
 [1] 2
@@ -19569,6 +19664,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( bb7, asInData = TRUE ) + residuals( bb7, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( bb7 )
+Likelihood ratio test
+
+Model 1: bb7
+Model 2: bb7 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7  -82.2                    
+2   9  -82.0  2  0.35       0.84
 > printAll( bb7 )
 $modelType
 [1] 1
@@ -25739,6 +25842,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( dd1, asInData = TRUE ) + residuals( dd1, asInData = TRUE ),
 +    log( riceProdPhil$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( dd1 )
+Likelihood ratio test
+
+Model 1: dd1
+Model 2: dd1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   7   39.9                      
+2   9   42.8  2  5.73      0.057 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( dd1 )
 $modelType
 [1] 1
@@ -28036,6 +28149,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( dd2, asInData = TRUE ) + residuals( dd2, asInData = TRUE ),
 +    log( riceProdPhil$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( dd2 )
+Likelihood ratio test
+
+Model 1: dd2
+Model 2: dd2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   8     41                      
+2  10     44  2  6.01       0.05 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( dd2 )
 $modelType
 [1] 1
@@ -38949,6 +39072,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( riceTrue, asInData = TRUE ) + residuals( riceTrue, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( Sbb1 )
+Likelihood ratio test
+
+Model 1: Sbb1
+Model 2: Sbb1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -86.2                    
+2   8  -85.9  2   0.7        0.7
 > 
 > 
 > ## panel data
@@ -39543,6 +39674,14 @@ F_43 -1.09 -1.17 -0.35 -0.46 -0.11  0.20 -0.20  0.21
 > all.equal( fitted( b1, asInData = TRUE ) + residuals( b1, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b1 )
+Likelihood ratio test
+
+Model 1: b1
+Model 2: b1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -86.4                    
+2   8  -84.9  2  3.05       0.22
 > printAll( b1 )
 $modelType
 [1] 1
@@ -40733,6 +40872,14 @@ F_43 -1.08 -1.16 -0.34 -0.45 -0.10  0.22 -0.19  0.22
 > all.equal( fitted( b2, asInData = TRUE ) + residuals( b2, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b2 )
+Likelihood ratio test
+
+Model 1: b2
+Model 2: b2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7  -86.3                    
+2   9  -84.9  2  2.95       0.23
 > printAll( b2 )
 $modelType
 [1] 1
@@ -41821,6 +41968,16 @@ F_43 -1.10 -1.18 -0.35 -0.48 -0.13  0.20 -0.20  0.20
 > all.equal( fitted( b3, asInData = TRUE ) + residuals( b3, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b3 )
+Likelihood ratio test
+
+Model 1: b3
+Model 2: b3 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   7  -84.6                      
+2   9  -82.0  2   5.1      0.078 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b3 )
 $modelType
 [1] 1
@@ -42917,6 +43074,16 @@ F_43 -1.09 -1.16 -0.34 -0.47 -0.11  0.22 -0.19  0.22
 > all.equal( fitted( b4, asInData = TRUE ) + residuals( b4, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b4 )
+Likelihood ratio test
+
+Model 1: b4
+Model 2: b4 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   8  -84.4                      
+2  10  -81.7  2  5.31       0.07 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b4 )
 $modelType
 [1] 1
@@ -43789,6 +43956,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +       residuals( ricePanelTrue, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( ricePanelTrue )
+Likelihood ratio test
+
+Model 1: ricePanelTrue
+Model 2: ricePanelTrue + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1  48  -38.2                        
+2  50  -26.7  2    23    9.9e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Warning messages:
+1: In sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) +  :
+  the likelihood value of the ML estimation is less than that obtained using OLS; this indicates that the likelihood maximization did not converge to the global maximum or that there is no inefficiency (you could try again using different starting values)
+2: In sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > 
 > ## error components frontier
 > ## with "true" fixed individual effects and time-variant efficiencies
@@ -43905,6 +44087,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +       residuals( ricePanelTimeTrue, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( ricePanelTimeTrue )
+Likelihood ratio test
+
+Model 1: ricePanelTimeTrue
+Model 2: ricePanelTimeTrue + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)    
+1  49  -35.8                        
+2  51  -22.8  2    26    2.3e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Warning message:
+In sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) +  :
+  the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
 > 
 > 
 > ## panel data, efficiency effects frontier
@@ -45523,6 +45718,9 @@ F_43 -1.17 -1.26 -0.44 -0.50 -0.17  0.12 -0.25  0.14
 > all.equal( fitted( b5, asInData = TRUE ) + residuals( b5, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> try( resettestFrontier( b5 ) )
+Error in resettestFrontier(b5) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( b5 )
 $modelType
 [1] 2
@@ -48106,6 +48304,16 @@ F_43 0.64 0.66 0.67 0.69 0.71 0.72 0.74 0.75
 > all.equal( fitted( b7, asInData = TRUE ) + residuals( b7, asInData = TRUE ),
 +    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b7 )
+Likelihood ratio test
+
+Model 1: b7
+Model 2: b7 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   8  -84.4                      
+2  10  -81.7  2  5.31       0.07 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b7 )
 $modelType
 [1] 1
@@ -50895,6 +51103,14 @@ F_43  0.33  0.45  0.23 -0.08  0.14  0.01 -0.26 -0.06
 > all.equal( fitted( d1, asInData = TRUE ) + residuals( d1, asInData = TRUE ),
 +    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d1 )
+Likelihood ratio test
+
+Model 1: d1
+Model 2: d1 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7   49.4                    
+2   9   50.3  2  1.94       0.38
 > printAll( d1 )
 $modelType
 [1] 1
@@ -52001,6 +52217,14 @@ F_43  0.41  0.53  0.31  0.01  0.23  0.11 -0.17  0.04
 > all.equal( fitted( d2, asInData = TRUE ) + residuals( d2, asInData = TRUE ),
 +    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d2 )
+Likelihood ratio test
+
+Model 1: d2
+Model 2: d2 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8   52.4                    
+2  10   52.4  2  0.07       0.96
 > printAll( d2 )
 $modelType
 [1] 1
@@ -53011,6 +53235,14 @@ F_43  0.32  0.44  0.23 -0.09  0.13  0.01 -0.26 -0.06
 > all.equal( fitted( d3, asInData = TRUE ) + residuals( d3, asInData = TRUE ),
 +    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d3 )
+Likelihood ratio test
+
+Model 1: d3
+Model 2: d3 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8   50.2                    
+2  10   51.2  2  1.94       0.38
 > printAll( d3 )
 $modelType
 [1] 1
@@ -54026,6 +54258,14 @@ F_43  0.40  0.52  0.31  0.00  0.23  0.11 -0.16  0.04
 > all.equal( fitted( d4, asInData = TRUE ) + residuals( d4, asInData = TRUE ),
 +    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d4 )
+Likelihood ratio test
+
+Model 1: d4
+Model 2: d4 + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   9   53.2                    
+2  11   53.3  2   0.3       0.86
 > printAll( d4 )
 $modelType
 [1] 1
@@ -58933,6 +59173,14 @@ F_43 -1.10 -1.17 -0.35 -0.46 -0.11  0.20 -0.20  0.21
 > all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b1u, asInData = TRUE ),
 +    residuals( b1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b1u )
+Likelihood ratio test
+
+Model 1: b1u
+Model 2: b1u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -87.1                    
+2   8  -85.7  2  2.96       0.23
 > printAll( b1u )
 $modelType
 [1] 1
@@ -59874,6 +60122,14 @@ F_43 -1.08 -1.16 -0.34 -0.45 -0.10  0.22 -0.19  0.22
 > all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b2u, asInData = TRUE ),
 +    residuals( b2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b2u )
+Likelihood ratio test
+
+Model 1: b2u
+Model 2: b2u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7  -87.1                    
+2   9  -85.6  2  2.87       0.24
 > printAll( b2u )
 $modelType
 [1] 1
@@ -60824,6 +61080,16 @@ F_43 -1.10 -1.18 -0.35 -0.48 -0.13  0.20 -0.20  0.20
 > all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b3u, asInData = TRUE ),
 +    residuals( b3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b3u )
+Likelihood ratio test
+
+Model 1: b3u
+Model 2: b3u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   7  -85.3                      
+2   9  -82.8  2  4.95      0.084 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b3u )
 $modelType
 [1] 1
@@ -61897,6 +62163,16 @@ F_43 -1.09 -1.16 -0.34 -0.47 -0.11  0.22 -0.19  0.22
 > all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b4u, asInData = TRUE ),
 +    residuals( b4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b4u )
+Likelihood ratio test
+
+Model 1: b4u
+Model 2: b4u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   8  -85.2                      
+2  10  -82.6  2  5.12      0.077 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b4u )
 $modelType
 [1] 1
@@ -63290,6 +63566,9 @@ F_43 -1.18 -1.26 -0.44 -0.50 -0.17  0.12 -0.25  0.14
 > all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b5u, asInData = TRUE ),
 +    residuals( b5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> try( resettestFrontier( b5u ) )
+Error in resettestFrontier(b5u) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( b5u )
 $modelType
 [1] 2
@@ -66455,6 +66734,14 @@ F_43  0.32  0.44  0.23 -0.08  0.14  0.00 -0.26 -0.06
 > all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d1u, asInData = TRUE ),
 +    residuals( d1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d1u )
+Likelihood ratio test
+
+Model 1: d1u
+Model 2: d1u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   7   47.5                    
+2   9   48.4  2  1.88       0.39
 > printAll( d1u )
 $modelType
 [1] 1
@@ -67404,6 +67691,14 @@ F_43  0.40  0.52  0.31  0.00  0.23  0.11 -0.17  0.04
 > all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d2u, asInData = TRUE ),
 +    residuals( d2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d2u )
+Likelihood ratio test
+
+Model 1: d2u
+Model 2: d2u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8   50.5                    
+2  10   50.5  2     0          1
 > printAll( d2u )
 $modelType
 [1] 1
@@ -68457,6 +68752,14 @@ F_43  0.32  0.44  0.22 -0.09  0.13  0.00 -0.26 -0.07
 > all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d3u, asInData = TRUE ),
 +    residuals( d3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d3u )
+Likelihood ratio test
+
+Model 1: d3u
+Model 2: d3u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8   48.4                    
+2  10   49.4  2  1.87       0.39
 > printAll( d3u )
 $modelType
 [1] 1
@@ -69413,6 +69716,14 @@ F_43  0.40  0.52  0.31  0.01  0.24  0.11 -0.16  0.04
 > all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d4u, asInData = TRUE ),
 +    residuals( d4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( d4u )
+Likelihood ratio test
+
+Model 1: d4u
+Model 2: d4u + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   9   51.4                    
+2  11   51.5  2  0.31       0.86
 > printAll( d4u )
 $modelType
 [1] 1
@@ -71481,6 +71792,9 @@ F_43  0.33  0.45  0.18 -0.10  0.08 -0.11 -0.28 -0.15
 > all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d5u, asInData = TRUE ),
 +    residuals( d5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> try( resettestFrontier( d5u ) )
+Error in resettestFrontier(d5u) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( d5u )
 $modelType
 [1] 2
@@ -73854,6 +74168,14 @@ F_43 -1.11 -1.18 -0.36 -0.51 -0.13  0.19 -0.29  0.17
 > all.equal( log( naPanelData$PROD ) - fitted( b1n, asInData = TRUE ),
 +    residuals( b1n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b1n )
+Likelihood ratio test
+
+Model 1: b1n
+Model 2: b1n + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   6  -64.9                    
+2   8  -64.2  2  1.34       0.51
 > printAll( b1n )
 $modelType
 [1] 1
@@ -74748,6 +75070,14 @@ F_43 -1.09 -1.16 -0.35 -0.50 -0.12  0.21 -0.25  0.20
 > all.equal( log( naPanelData$PROD ) - fitted( b4n, asInData = TRUE ),
 +    residuals( b4n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b4n )
+Likelihood ratio test
+
+Model 1: b4n
+Model 2: b4n + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8  -60.3                    
+2  10  -60.1  2  0.46       0.79
 > printAll( b4n )
 $modelType
 [1] 1
@@ -78408,6 +78738,16 @@ F_43 -1.07 -1.15 -0.40 -0.08 -0.12  0.25
 > all.equal( log( naTimePanelData$PROD ) - fitted( b1t, asInData = TRUE ),
 +    residuals( b1t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b1t )
+Likelihood ratio test
+
+Model 1: b1t
+Model 2: b1t + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   6  -83.1                      
+2   8  -80.7  2  4.64      0.098 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b1t )
 $modelType
 [1] 1
@@ -79257,6 +79597,16 @@ F_43 -1.07 -1.14 -0.41 -0.08 -0.09  0.25
 > all.equal( log( naTimePanelData$PROD ) - fitted( b4t, asInData = TRUE ),
 +    residuals( b4t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> resettestFrontier( b4t )
+Likelihood ratio test
+
+Model 1: b4t
+Model 2: b4t + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)  
+1   8  -80.9                      
+2  10  -77.1  2  7.51      0.023 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > printAll( b4t )
 $modelType
 [1] 1
@@ -83056,6 +83406,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 58       0.25      0.26
 59       0.24      0.24
 60       0.21      0.22
+> resettestFrontier( translog )
+Likelihood ratio test
+
+Model 1: translog
+Model 2: translog + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   8  -14.4                    
+2  10  -14.3  2  0.18       0.91
 > printAll( translog )
 $modelType
 [1] 1
@@ -83848,6 +84206,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 58       0.25      0.26
 59       0.24      0.24
 60       0.21      0.23
+> resettestFrontier( translogShift )
+Likelihood ratio test
+
+Model 1: translogShift
+Model 2: translogShift + fit^2 + fit^3
+  #Df LogLik Df Chisq Pr(>Chisq)
+1   9  -14.0                    
+2  11  -13.9  2  0.22        0.9
 > printAll( translogShift )
 $modelType
 [1] 1
@@ -85126,6 +85492,9 @@ margEff
 58       0.25      0.25
 59       0.23      0.23
 60       0.21      0.22
+> try( resettestFrontier( translogZvar ) )
+Error in resettestFrontier(translogZvar) : 
+  function resettestFrontier() can currently only test 'Error Components Frontiers' (not yet 'Efficiency Effects Frontiers')
 > printAll( translogZvar )
 $modelType
 [1] 2
@@ -111412,4 +111781,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 50.220   1.430  52.136 
+ 46.913   1.408  48.562 
