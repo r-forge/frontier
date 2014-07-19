@@ -7,6 +7,9 @@ on R-Forge.
 
             CHANGES IN VERSION 1.1-2  (2013-??-??)
 
+* added function resettestFrontier() that applies Ramsey's RESET test to
+stochastic frontier models
+
 * added argument "lrTests" to frontierQuad(): if this argument is TRUE,
 likelihood ratio tests are conducted for each X variable
 
