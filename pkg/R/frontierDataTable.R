@@ -98,11 +98,11 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # make sure that the cross-section units are numbered continously
    firmId <- sort( unique( idVec ) )
-   firmNo <- rep( NA, sum( validObs ) )
+   idVecNew <- rep( NA, sum( validObs ) )
    for( i in 1:length( firmId ) ) {
-      firmNo[ idVec == firmId[ i ] ] <- i
+      idVecNew[ idVec == firmId[ i ] ] <- i
    }
-   idVec <- firmNo
+   idVec <- idVecNew
    
    # check consistency of firm numbers
    if( any( is.na( idVec ) ) ) {
@@ -117,11 +117,11 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    
    # make sure that the time periods are numbered continously
    timeId <- sort( unique( timeVec ) )
-   timeNo <- rep( NA, sum( validObs ) )
+   timeVecNew <- rep( NA, sum( validObs ) )
    for( i in 1:length( timeId ) ) {
-      timeNo[ timeVec == timeId[ i ] ] <- i
+      timeVecNew[ timeVec == timeId[ i ] ] <- i
    }
-   timeVec <- timeNo
+   timeVec <- timeVecNew
    
    # check consistency of time period numbers
    if( any( is.na( timeVec ) ) ) {
