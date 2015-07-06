@@ -160,8 +160,6 @@ sfa <- function(
    nob        <- sum( validObs )
    nn         <- max( tmp$idVec )
    nt         <- max( tmp$timeVec )
-   paramNames <- tmp$paramNames
-   zNames     <- colnames( tmp$zMat )
    zIntercept <- tmp$zIntercept
    nZvars     <- ncol( tmp$zMat )
 
@@ -199,13 +197,13 @@ sfa <- function(
 
    # OLS estimation
    if( nb > 0 ) {
-      ols <- lm( dataTable[ , 3 ] ~ dataTable[ , 4:( 3 + nb ) ] - 1 )
+      ols <- lm( tmp$yVec ~ tmp$xMat - 1 )
    } else if( nb == 0 ) {
-      ols <- lm( dataTable[ , 3 ] ~ -1 )
+      ols <- lm( tmp$yVec ~ -1 )
    }
    if( any( is.na( coef( ols ) ) ) ) {
       stop( "at least one coefficient estimated by OLS is NA: ",
-         paste( paramNames[ is.na( coef( ols ) ) ], collapse = ", " ),
+         paste( colnames( tmp$xMat )[ is.na( coef( ols ) ) ], collapse = ", " ),
       ". This may have been caused by (nearly) perfect multicollinearity" )
    }
    olsParam <- c( coef( ols ), summary( ols )$sigma^2 )
@@ -431,12 +429,15 @@ sfa <- function(
       rownames( returnObj$resid ) <- names( validObs )[ validObs ]
       colnames( returnObj$resid ) <- "residuals"
    }
+
+   # names of the parameters
+   paramNames <- colnames( tmp$xMat )
    if( modelType == 2 ) {
       if( zIntercept ){
          paramNames <- c( paramNames, "Z_(Intercept)" )
       }
       if( nZvars > 0 ) {
-         paramNames <- c( paramNames, paste( "Z", zNames, sep = "_" ) )
+         paramNames <- c( paramNames, paste( "Z", colnames( tmp$zMat ), sep = "_" ) )
       }
    }
 

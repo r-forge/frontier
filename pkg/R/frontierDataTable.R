@@ -34,10 +34,8 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    }
 
    # explanatory x variables
-   paramNames <- NULL
    if( ncol( xMat ) > 0 ) {
       for( i in 1:ncol( xMat ) ) {
-         paramNames <- c( paramNames, xNames[ i ] )
          if( sum( !is.na( xMat[ , i ] ) & is.finite( xMat[ , i ] ) ) == 0 ) {
             return( paste( "regressor '", xNames[ i ], "' has no valid observations",
                sep = "" ) )
@@ -169,7 +167,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    returnObj$validObs    <- validObs
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId
-   returnObj$paramNames  <- paramNames
    returnObj$zIntercept  <- zIntercept
 
    return( returnObj )
