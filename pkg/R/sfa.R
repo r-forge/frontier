@@ -151,9 +151,9 @@ sfa <- function(
       stop( tmp )
    }
    validObs   <- tmp$validObs
-   dataTable  <- cbind( tmp$idTime, tmp$yVec, tmp$xMat, tmp$zMat )
+   dataTable  <- cbind( tmp$idVec, tmp$timeVec, tmp$yVec, tmp$xMat, tmp$zMat )
    rownames( dataTable ) <- names( validObs )[ validObs ]
-   colnames( dataTable )[3] <- tmp$yName
+   colnames( dataTable )[1:3] <- c( "id", "t", tmp$yName )
    firmId     <- tmp$firmId
    timeId     <- tmp$timeId
    nb         <- ncol( tmp$xMat )

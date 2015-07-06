@@ -21,11 +21,11 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # cross section and time period identifier
    if( "plm.dim" %in% class( data ) ) {
-      idTime <- matrix( as.integer( data[[ 1 ]] ), ncol = 1 )
-      idTime <- cbind( idTime, as.integer( data[[ 2 ]] ) )
+      idVec <- as.integer( data[[ 1 ]] )
+      timeVec <- as.integer( data[[ 2 ]] )
    } else {
-      idTime <- matrix( 1:length( yVec ), ncol = 1 )
-      idTime <- cbind( idTime, rep( 1, nrow( idTime ) ) )
+      idVec <- 1:length( yVec )
+      timeVec <- rep( 1, length( idVec ) )
    }
 
    # check dependent variable
@@ -87,53 +87,54 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    }
 
    # detect and remove observations with NAs, NaNs, and INFs
-   dataTable <- cbind( idTime, yVec, xMat, zMat )
+   dataTable <- cbind( idVec, timeVec, yVec, xMat, zMat )
    validObs <- rowSums( is.na( dataTable ) | is.infinite( dataTable ) ) == 0
    rm( dataTable )
-   idTime <- idTime[ validObs, , drop = FALSE ]
+   idVec   <- idVec[ validObs ]
+   timeVec <- timeVec[ validObs ]
    yVec   <- yVec[ validObs ]
    xMat   <- xMat[ validObs, , drop = FALSE ]
    zMat <- zMat[ validObs, , drop = FALSE ]
 
    # make sure that the cross-section units are numbered continously
-   firmId <- sort( unique( idTime[ , 1 ] ) )
+   firmId <- sort( unique( idVec ) )
    # number of cross-section units
    nn <- length( firmId )
    firmNo <- rep( NA, sum( validObs ) )
    for( i in 1:nn ) {
-      firmNo[ idTime[ , 1 ] == firmId[ i ] ] <- i
+      firmNo[ idVec == firmId[ i ] ] <- i
    }
-   idTime[ , 1 ] <- firmNo
+   idVec <- firmNo
    
    # check consistency of firm numbers
-   if( any( is.na( idTime[ , 1 ] ) ) ) {
+   if( any( is.na( idVec ) ) ) {
       return( "internal error: at least one firm number is NA" )
    }
-   if( min( idTime[ , 1 ] ) != 1 ) {
+   if( min( idVec ) != 1 ) {
       return( "internal error: the smallest firm number must be one" )
    }
-   if( max( idTime[ , 1 ] ) > nn ) {
+   if( max( idVec ) > nn ) {
       return( "internal error: a firm number is larger than the number of firms" )
    }
    
    # make sure that the time periods are numbered continously
-   timeId <- sort( unique( idTime[ , 2 ] ) )
+   timeId <- sort( unique( timeVec ) )
    # number of time periods
-   nt <- length( unique( idTime[ , 2 ] ) )
+   nt <- length( unique( timeVec ) )
    timeNo <- rep( NA, sum( validObs ) )
    for( i in 1:nt ) {
-      timeNo[ idTime[ , 2 ] == timeId[ i ] ] <- i
+      timeNo[ timeVec == timeId[ i ] ] <- i
    }
-   idTime[ , 2 ] <- timeNo
+   timeVec <- timeNo
    
    # check consistency of time period numbers
-   if( any( is.na( idTime[ , 2 ] ) ) ) {
+   if( any( is.na( timeVec ) ) ) {
       return( "internal error: at least one time period number is NA" )
    }
-   if( min( idTime[ , 2 ] ) != 1 ) {
+   if( min( timeVec ) != 1 ) {
       return( "internal error: the smallest time period number must be one" )
    }
-   if( max( idTime[ , 2 ] ) > nt ) {
+   if( max( timeVec ) > nt ) {
       return( "internal error: a time period number is larger",
          " than the number of time periods" )
    }
@@ -141,15 +142,12 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    # check for double entries for firm/period combinations
    for( i in 1:nn ) {
       for( j in 1:nt ) {
-         if( sum( idTime[ , 1 ] == i & idTime[ , 2 ] == j ) > 1 ){
+         if( sum( idVec == i & timeVec == j ) > 1 ){
             return( paste( "more than one observation for firm '", firmId[ i ],
                "' in period '", timeId[ j ], "'", sep = "" ) )
          }
       }
    }
-   
-   # adding column names to the data table
-   colnames( idTime ) <- c( "id", "t" )
    
    # obtaining names of the observations
    if( !is.null( rownames( data ) ) ) {
@@ -166,7 +164,8 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    names( validObs ) <- obsNames
    
    returnObj <- list()
-   returnObj$idTime      <- idTime
+   returnObj$idVec       <- idVec
+   returnObj$timeVec     <- timeVec
    returnObj$yVec        <- yVec
    returnObj$yName       <- yName
    returnObj$xMat        <- xMat
