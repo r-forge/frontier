@@ -156,14 +156,14 @@ sfa <- function(
    colnames( dataTable )[3] <- tmp$yName
    firmId     <- tmp$firmId
    timeId     <- tmp$timeId
-   nb         <- tmp$nb
-   nob        <- tmp$nob
+   nb         <- ncol( tmp$xMat )
+   nob        <- sum( validObs )
    nn         <- tmp$nn
    nt         <- tmp$nt
    paramNames <- tmp$paramNames
-   zNames     <- tmp$zNames
+   zNames     <- colnames( tmp$zMat )
    zIntercept <- tmp$zIntercept
-   nZvars     <- tmp$nZvars
+   nZvars     <- ncol( tmp$zMat )
 
    # mu: truncNorm, zIntercept
    if( modelType == 1 ) {

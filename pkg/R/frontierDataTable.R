@@ -27,7 +27,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
       idTime <- matrix( 1:length( yVec ), ncol = 1 )
       idTime <- cbind( idTime, rep( 1, nrow( idTime ) ) )
    }
-   nb <- length( xNames )
 
    # check dependent variable
    if( sum( !is.na( yVec ) & is.finite( yVec ) ) == 0 ) {
@@ -36,8 +35,8 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # explanatory x variables
    paramNames <- NULL
-   if( nb > 0 ) {
-      for( i in 1:nb ) {
+   if( ncol( xMat ) > 0 ) {
+      for( i in 1:ncol( xMat ) ) {
          paramNames <- c( paramNames, xNames[ i ] )
          if( sum( !is.na( xMat[ , i ] ) & is.finite( xMat[ , i ] ) ) == 0 ) {
             return( paste( "regressor '", xNames[ i ], "' has no valid observations",
@@ -49,7 +48,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    # variables explaining the efficiency level
    if( is.null( effFormula  ) ) {
       zMat <- NULL
-      zNames <- NULL
       zIntercept <- FALSE
    } else {
       if( class( effFormula ) != "formula" ) {
@@ -78,17 +76,15 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
             " of observations of the (regular) regressors (",
             nrow( xMat ), ")", sep = "" ) )
       }
-      zNames <- colnames( zMat )
-      if( length( zNames ) > 0 ) {
-         for( i in 1:length( zNames ) ) {
+      if( ncol( zMat ) > 0 ) {
+         for( i in 1:ncol( zMat ) ) {
             if( sum( !is.na( zMat[ , i ] ) & is.finite( zMat[ , i ] ) ) == 0 ) {
                return( paste( "the regressor for the inefficiency term '", 
-                  zNames[ i ], "' has no valid observations", sep = "" ) )
+                  colnames( zMat )[ i ], "' has no valid observations", sep = "" ) )
             }
          }
       }
    }
-   nZvars <- length( zNames )
 
    # detect and remove observations with NAs, NaNs, and INFs
    dataTable <- cbind( idTime, yVec, xMat, zMat )
@@ -98,14 +94,12 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    yVec   <- yVec[ validObs ]
    xMat   <- xMat[ validObs, , drop = FALSE ]
    zMat <- zMat[ validObs, , drop = FALSE ]
-   # number of (valid) observations
-   nob <- sum( validObs )
-   
+
    # make sure that the cross-section units are numbered continously
    firmId <- sort( unique( idTime[ , 1 ] ) )
    # number of cross-section units
    nn <- length( firmId )
-   firmNo <- rep( NA, nob )
+   firmNo <- rep( NA, sum( validObs ) )
    for( i in 1:nn ) {
       firmNo[ idTime[ , 1 ] == firmId[ i ] ] <- i
    }
@@ -126,7 +120,7 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    timeId <- sort( unique( idTime[ , 2 ] ) )
    # number of time periods
    nt <- length( unique( idTime[ , 2 ] ) )
-   timeNo <- rep( NA, nob )
+   timeNo <- rep( NA, sum( validObs ) )
    for( i in 1:nt ) {
       timeNo[ idTime[ , 2 ] == timeId[ i ] ] <- i
    }
@@ -180,14 +174,10 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    returnObj$validObs    <- validObs
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId
-   returnObj$nb          <- nb
-   returnObj$nob         <- nob
    returnObj$nn          <- nn
    returnObj$nt          <- nt
    returnObj$paramNames  <- paramNames
-   returnObj$zNames      <- zNames
    returnObj$zIntercept  <- zIntercept
-   returnObj$nZvars      <- nZvars
-   
+
    return( returnObj )
 }
