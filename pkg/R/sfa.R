@@ -158,8 +158,8 @@ sfa <- function(
    timeId     <- tmp$timeId
    nb         <- ncol( tmp$xMat )
    nob        <- sum( validObs )
-   nn         <- tmp$nn
-   nt         <- tmp$nt
+   nn         <- max( tmp$idVec )
+   nt         <- max( tmp$timeVec )
    paramNames <- tmp$paramNames
    zNames     <- colnames( tmp$zMat )
    zIntercept <- tmp$zIntercept

@@ -98,10 +98,8 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # make sure that the cross-section units are numbered continously
    firmId <- sort( unique( idVec ) )
-   # number of cross-section units
-   nn <- length( firmId )
    firmNo <- rep( NA, sum( validObs ) )
-   for( i in 1:nn ) {
+   for( i in 1:length( firmId ) ) {
       firmNo[ idVec == firmId[ i ] ] <- i
    }
    idVec <- firmNo
@@ -113,16 +111,14 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    if( min( idVec ) != 1 ) {
       return( "internal error: the smallest firm number must be one" )
    }
-   if( max( idVec ) > nn ) {
+   if( max( idVec ) > length( firmId ) ) {
       return( "internal error: a firm number is larger than the number of firms" )
    }
    
    # make sure that the time periods are numbered continously
    timeId <- sort( unique( timeVec ) )
-   # number of time periods
-   nt <- length( unique( timeVec ) )
    timeNo <- rep( NA, sum( validObs ) )
-   for( i in 1:nt ) {
+   for( i in 1:length( timeId ) ) {
       timeNo[ timeVec == timeId[ i ] ] <- i
    }
    timeVec <- timeNo
@@ -134,14 +130,14 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    if( min( timeVec ) != 1 ) {
       return( "internal error: the smallest time period number must be one" )
    }
-   if( max( timeVec ) > nt ) {
+   if( max( timeVec ) > length( timeId ) ) {
       return( "internal error: a time period number is larger",
          " than the number of time periods" )
    }
    
    # check for double entries for firm/period combinations
-   for( i in 1:nn ) {
-      for( j in 1:nt ) {
+   for( i in 1:length( firmId ) ) {
+      for( j in 1:length( timeId ) ) {
          if( sum( idVec == i & timeVec == j ) > 1 ){
             return( paste( "more than one observation for firm '", firmId[ i ],
                "' in period '", timeId[ j ], "'", sep = "" ) )
@@ -173,8 +169,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    returnObj$validObs    <- validObs
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId
-   returnObj$nn          <- nn
-   returnObj$nt          <- nt
    returnObj$paramNames  <- paramNames
    returnObj$zIntercept  <- zIntercept
 
