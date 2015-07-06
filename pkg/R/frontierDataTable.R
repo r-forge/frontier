@@ -21,22 +21,20 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # cross section and time period identifier
    if( "plm.dim" %in% class( data ) ) {
-      dataTable <- matrix( as.integer( data[[ 1 ]] ), ncol = 1 )
-      dataTable <- cbind( dataTable, as.integer( data[[ 2 ]] ) )
+      idTime <- matrix( as.integer( data[[ 1 ]] ), ncol = 1 )
+      idTime <- cbind( idTime, as.integer( data[[ 2 ]] ) )
    } else {
-      dataTable <- matrix( 1:length( yVec ), ncol = 1 )
-      dataTable <- cbind( dataTable, rep( 1, nrow( dataTable ) ) )
+      idTime <- matrix( 1:length( yVec ), ncol = 1 )
+      idTime <- cbind( idTime, rep( 1, nrow( idTime ) ) )
    }
    nb <- length( xNames )
 
-   # endogenous variable
-   dataTable <- cbind( dataTable, yVec )
+   # check dependent variable
    if( sum( !is.na( yVec ) & is.finite( yVec ) ) == 0 ) {
       return( "the dependent variable has no valid observations" )
    }
 
-   # exogenous variables
-   dataTable <- cbind( dataTable, xMat )
+   # explanatory x variables
    paramNames <- NULL
    if( nb > 0 ) {
       for( i in 1:nb ) {
@@ -50,6 +48,7 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
 
    # variables explaining the efficiency level
    if( is.null( effFormula  ) ) {
+      zMat <- NULL
       zNames <- NULL
       zIntercept <- FALSE
    } else {
@@ -79,7 +78,6 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
             " of observations of the (regular) regressors (",
             nrow( xMat ), ")", sep = "" ) )
       }
-      dataTable <- cbind( dataTable, zMat )
       zNames <- colnames( zMat )
       if( length( zNames ) > 0 ) {
          for( i in 1:length( zNames ) ) {
@@ -93,50 +91,55 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    nZvars <- length( zNames )
 
    # detect and remove observations with NAs, NaNs, and INFs
+   dataTable <- cbind( idTime, yVec, xMat, zMat )
    validObs <- rowSums( is.na( dataTable ) | is.infinite( dataTable ) ) == 0
-   dataTable <- dataTable[ validObs, ]
+   rm( dataTable )
+   idTime <- idTime[ validObs, , drop = FALSE ]
+   yVec   <- yVec[ validObs ]
+   xMat   <- xMat[ validObs, , drop = FALSE ]
+   zMat <- zMat[ validObs, , drop = FALSE ]
    # number of (valid) observations
    nob <- sum( validObs )
    
    # make sure that the cross-section units are numbered continously
-   firmId <- sort( unique( dataTable[ , 1 ] ) )
+   firmId <- sort( unique( idTime[ , 1 ] ) )
    # number of cross-section units
    nn <- length( firmId )
-   firmNo <- rep( NA, nrow( dataTable ) )
+   firmNo <- rep( NA, nob )
    for( i in 1:nn ) {
-      firmNo[ dataTable[ , 1 ] == firmId[ i ] ] <- i
+      firmNo[ idTime[ , 1 ] == firmId[ i ] ] <- i
    }
-   dataTable[ , 1 ] <- firmNo
+   idTime[ , 1 ] <- firmNo
    
    # check consistency of firm numbers
-   if( any( is.na( dataTable[ , 1 ] ) ) ) {
+   if( any( is.na( idTime[ , 1 ] ) ) ) {
       return( "internal error: at least one firm number is NA" )
    }
-   if( min( dataTable[ , 1 ] ) != 1 ) {
+   if( min( idTime[ , 1 ] ) != 1 ) {
       return( "internal error: the smallest firm number must be one" )
    }
-   if( max( dataTable[ , 1 ] ) > nn ) {
+   if( max( idTime[ , 1 ] ) > nn ) {
       return( "internal error: a firm number is larger than the number of firms" )
    }
    
    # make sure that the time periods are numbered continously
-   timeId <- sort( unique( dataTable[ , 2 ] ) )
+   timeId <- sort( unique( idTime[ , 2 ] ) )
    # number of time periods
-   nt <- length( unique( dataTable[ , 2 ] ) )
-   timeNo <- rep( NA, nrow( dataTable ) )
+   nt <- length( unique( idTime[ , 2 ] ) )
+   timeNo <- rep( NA, nob )
    for( i in 1:nt ) {
-      timeNo[ dataTable[ , 2 ] == timeId[ i ] ] <- i
+      timeNo[ idTime[ , 2 ] == timeId[ i ] ] <- i
    }
-   dataTable[ , 2 ] <- timeNo
+   idTime[ , 2 ] <- timeNo
    
    # check consistency of time period numbers
-   if( any( is.na( dataTable[ , 2 ] ) ) ) {
+   if( any( is.na( idTime[ , 2 ] ) ) ) {
       return( "internal error: at least one time period number is NA" )
    }
-   if( min( dataTable[ , 2 ] ) != 1 ) {
+   if( min( idTime[ , 2 ] ) != 1 ) {
       return( "internal error: the smallest time period number must be one" )
    }
-   if( max( dataTable[ , 2 ] ) > nt ) {
+   if( max( idTime[ , 2 ] ) > nt ) {
       return( "internal error: a time period number is larger",
          " than the number of time periods" )
    }
@@ -144,7 +147,7 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    # check for double entries for firm/period combinations
    for( i in 1:nn ) {
       for( j in 1:nt ) {
-         if( sum( dataTable[ , 1 ] == i & dataTable[ , 2 ] == j ) > 1 ){
+         if( sum( idTime[ , 1 ] == i & idTime[ , 2 ] == j ) > 1 ){
             return( paste( "more than one observation for firm '", firmId[ i ],
                "' in period '", timeId[ j ], "'", sep = "" ) )
          }
@@ -152,7 +155,7 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    }
    
    # adding column names to the data table
-   colnames( dataTable ) <- c( "id", "t", yName, xNames, zNames )
+   colnames( idTime ) <- c( "id", "t" )
    
    # obtaining names of the observations
    if( !is.null( rownames( data ) ) ) {
@@ -166,11 +169,14 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
    } else {
       obsNames <- NULL
    }
-   rownames( dataTable ) <- obsNames[ validObs ]
    names( validObs ) <- obsNames
    
    returnObj <- list()
-   returnObj$dataTable   <- dataTable
+   returnObj$idTime      <- idTime
+   returnObj$yVec        <- yVec
+   returnObj$yName       <- yName
+   returnObj$xMat        <- xMat
+   returnObj$zMat        <- zMat
    returnObj$validObs    <- validObs
    returnObj$firmId      <- firmId
    returnObj$timeId      <- timeId

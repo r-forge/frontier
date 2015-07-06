@@ -150,8 +150,10 @@ sfa <- function(
    if( is.character( tmp ) ) {
       stop( tmp )
    }
-   dataTable  <- tmp$dataTable
    validObs   <- tmp$validObs
+   dataTable  <- cbind( tmp$idTime, tmp$yVec, tmp$xMat, tmp$zMat )
+   rownames( dataTable ) <- names( validObs )[ validObs ]
+   colnames( dataTable )[3] <- tmp$yName
    firmId     <- tmp$firmId
    timeId     <- tmp$timeId
    nb         <- tmp$nb
