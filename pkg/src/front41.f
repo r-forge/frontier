@@ -752,8 +752,8 @@ c       i.e. e = y - x ' b
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       xb=dble(0)
       do 102 j=1,nb
-      xb=xb+b(j)*xx(i,l,j+1)
-  102   continue
+        xb=xb+b(j)*xx(i,l,j+1)
+  102 continue
       ee=yy(i,l)-xb
       return
       end
@@ -779,51 +779,51 @@ c       also reads data from a file.
       igrid=1
       nz=0
       if ((nn*nt).lt.nob) then
-      call intpr( 'the total number of obsns exceeds the product of',
-     $  -1, 0, 0 )
-      call intpr( 'the number of firms by the number of years - bye!',
-     $  -1, 0, 0 )
-      icode=101
-      return
+        call intpr( 'the total number of obsns exceeds the product of',
+     $    -1, 0, 0 )
+        call intpr( 'the number of firms by the number of years - bye!',
+     $    -1, 0, 0 )
+        icode=101
+        return
       end if
       if (im.eq.1) then
-      nb=nb
-      nz=0
-      nr=1+nb
-      n=nb+nz+2+nmu+neta
+        nb=nb
+        nz=0
+        nr=1+nb
+        n=nb+nz+2+nmu+neta
       else
-      nz=neta
-      neta=0
-      nz=nz+nmu
-      nb=nb
-      nr=1+nb+nz
-      n=nb+nz+2
+        nz=neta
+        neta=0
+        nz=nz+nmu
+        nb=nb
+        nr=1+nb+nz
+        n=nb+nz+2
       endif
       if (n.ne.nParamTotal) then
-      call intpr( 'internal error: calculated variable ''n''',
-     $  -1, 0, 0 )
-      call intpr( 'is not equal to argument ''nParamTotal''',
-     $ -1, 0, 0 )
-      icode=102
-      return
+        call intpr( 'internal error: calculated variable ''n''',
+     $    -1, 0, 0 )
+        call intpr( 'is not equal to argument ''nParamTotal''',
+     $    -1, 0, 0 )
+        icode=102
+        return
       endif
       allocate (sv(n))
       if (nStartVal.eq.n) then
-      igrid=0
-      do 148 i=1,n
-      sv(i)=startVal(i)
+        igrid=0
+        do 148 i=1,n
+          sv(i)=startVal(i)
   148   continue
       else if (nStartVal.gt.1) then
-      call intpr( 'wrong number of starting values', -1, 0, 0 )
-      icode=103
-      deallocate(sv)
-      return
+        call intpr( 'wrong number of starting values', -1, 0, 0 )
+        icode=103
+        deallocate(sv)
+        return
       endif
       allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr-nmu*(im-1)))
       do 135 i=1,nn
-      mm(i)=0
-      do 135 l=1,nt
-      xx(i,l,1)=dble(0)
+        mm(i)=0
+        do 135 l=1,nt
+          xx(i,l,1)=dble(0)
   135   continue
       if ((2+nr-nmu*(im-1)).ne.nColData) then
       call intpr( 'internal error: 2 + nr - nmu * (im-1)',-1, 0, 0 )
@@ -833,61 +833,61 @@ c       also reads data from a file.
       return
       endif
       do 134 k=1,nob
-      fii=dataTable(k,1)
-      ftt=dataTable(k,2)
-      yyd=dataTable(k,3)
-      do 143 i=2,(nr-nmu*(im-1))
-      xxd(i)=dataTable(k,2+i)
-  143 continue
-      i=int(fii)
-      l=int(ftt)
-      mm(i)=mm(i)+1
-      xx(i,l,1)=dble(1)
-      yy(i,l)=yyd
-      do 136 j=2,nb+1
-      xx(i,l,j)=xxd(j)
+        fii=dataTable(k,1)
+        ftt=dataTable(k,2)
+        yyd=dataTable(k,3)
+        do 143 i=2,(nr-nmu*(im-1))
+          xxd(i)=dataTable(k,2+i)
+  143   continue
+        i=int(fii)
+        l=int(ftt)
+        mm(i)=mm(i)+1
+        xx(i,l,1)=dble(1)
+        yy(i,l)=yyd
+        do 136 j=2,nb+1
+          xx(i,l,j)=xxd(j)
   136   continue
-      if ((im.eq.2).and.(nz.gt.0)) then
-      if (nmu.eq.1) xx(i,l,nb+2)=dble(1)
-      if ((nz-nmu).gt.0) then
-      do 154 j=nb+nmu+2,nr
-      xx(i,l,j)=xxd(j-nmu)
-  154   continue
-      endif
-      endif
-      if (i.lt.1) then
-      call intpr( 'error - a firm number is < 1', -1, 0, 0 )
-      icode=104
-      deallocate(yy,xx,mm,sv,xxd)
-      return
-      else if (i.gt.nn) then
-      call intpr( 'error - a firm number is > number of firms',
-     $  -1, 0, 0 )
-      icode=105
-      deallocate(yy,xx,mm,sv,xxd)
-      return
-      else if (l.lt.1) then
-      call intpr( 'error - a period number is < 1', -1, 0, 0 )
-      icode=106
-      deallocate(yy,xx,mm,sv,xxd)
-      return
-      else if (l.gt.nt) then
-      call intpr( 'error - a period number is > number of periods',
-     $  -1, 0, 0 )
-      icode=107
-      deallocate(yy,xx,mm,sv,xxd)
-      return
-      end if
-  134   continue
+        if ((im.eq.2).and.(nz.gt.0)) then
+          if (nmu.eq.1) xx(i,l,nb+2)=dble(1)
+          if ((nz-nmu).gt.0) then
+            do 154 j=nb+nmu+2,nr
+              xx(i,l,j)=xxd(j-nmu)
+  154       continue
+          endif
+        endif
+        if (i.lt.1) then
+          call intpr( 'error - a firm number is < 1', -1, 0, 0 )
+          icode=104
+          deallocate(yy,xx,mm,sv,xxd)
+          return
+        else if (i.gt.nn) then
+          call intpr( 'error - a firm number is > number of firms',
+     $      -1, 0, 0 )
+          icode=105
+          deallocate(yy,xx,mm,sv,xxd)
+          return
+        else if (l.lt.1) then
+          call intpr( 'error - a period number is < 1', -1, 0, 0 )
+          icode=106
+          deallocate(yy,xx,mm,sv,xxd)
+          return
+        else if (l.gt.nt) then
+          call intpr( 'error - a period number is > number of periods',
+     $      -1, 0, 0 )
+          icode=107
+          deallocate(yy,xx,mm,sv,xxd)
+          return
+        end if
+  134 continue
       do 149 i=1,nn
-      if (mm(i).eq.0) then
-      call intpr( 'error - there are no observations on firm',
-     $  -1, i, 1 )
-      icode=108
-      deallocate(yy,xx,mm,sv,xxd)
-      return
-      end if
-  149   continue
+        if (mm(i).eq.0) then
+          call intpr( 'error - there are no observations on firm',
+     $      -1, i, 1 )
+          icode=108
+          deallocate(yy,xx,mm,sv,xxd)
+          return
+        end if
+  149 continue
       call mini(yy,xx,sv,ob,ga,gb,fxs,y,h)
       deallocate(yy,xx,mm,sv,xxd)
       return
