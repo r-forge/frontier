@@ -53,6 +53,7 @@ c            for the specific combination of time and individual exists)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/two/fx,fy
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/three/,/four/,/one/,/two/,/five/
 
       im=imArg
       ipc=ipcArg
@@ -95,6 +96,7 @@ c       contains the main loop of this iterative program.
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/four/frestart,mrestart,nrestart
+      save/one/,/two/,/three/,/four/
       dimension yy(nn,nt),xx(nn,nt,nr),sv(n)
       dimension ob(n),ga(nb),gb(n),x(:),y(n),s(:)
       dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
@@ -204,6 +206,7 @@ c       a specified tolerance.
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/two/,/three/,/five/
       dimension x(n),y(n)
       xtol=tol
       ftol=tol
@@ -229,6 +232,7 @@ c       calculates the direction matrix (p).
       implicit double precision (a-h,o-z)
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/three/,/five/
       dimension h(n,n),delx(n),delg(n),gx(n)
       dimension hdg(:),dgh(:),hgx(:)
       allocatable :: hdg,dgh,hgx
@@ -283,6 +287,7 @@ c       determines the step length (t) using a unidimensional search.
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/one/,/two/,/three/,/five/
       dimension x(n),y(n),s(n),gx(n),delx(n)
       dimension yy(nn,nt),xx(nn,nt,nr)
       iexit=0
@@ -442,6 +447,7 @@ c       checks if params are out of bounds & adjusts if required.
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/one/,/three/,/five/
       dimension b(n)
       n1=nb+nz+1
       n2=nb+nz+2
@@ -464,6 +470,7 @@ c       error components model.
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       data pi/3.1415926/
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)
@@ -524,6 +531,7 @@ c       of the log-likelihood function of the error components model.
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)
       f=dble(nn)
@@ -648,6 +656,7 @@ c       TE effects model.
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       data pi/3.1415926/
       call check(b)
@@ -685,6 +694,7 @@ c       of the log-likelihood function of the TE effects model.
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       dimension b(n),gx(n),yy(nn,nt),xx(nn,nt,nr)
       call check(b)
       s2=b(nb+nz+1)
@@ -738,6 +748,7 @@ c       i.e. e = y - x ' b
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       dimension b(n),yy(nn,nt),xx(nn,nt,nr)
       xb=dble(0)
       do 102 j=1,nb
@@ -755,6 +766,7 @@ c       also reads data from a file.
       implicit double precision (a-h,o-z)
       common/one/nn,nz,nb,nr,nt,nob,nmu,neta,ipc,im
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
+      save/one/,/three/
       dimension yy(:,:),xx(:,:,:),mm(:),sv(:),xxd(:)
       dimension startVal(nStartVal)
       dimension dataTable(nRowData,nColData)
@@ -883,6 +895,7 @@ c       does a grid search across gamma
       common/two/fx,fy
       common/three/n,nfunct,ndrv,iter,indic,iprint,igrid,maxit,icode
       common/five/tol,tol2,bmu,bignum,step1,gridno,igrid2
+      save/one/,/two/,/three/,/five/
       dimension x(n),y(n),yy(nn,nt),xx(nn,nt,nr),ob(n),ga(nb),gb(n)
       data pi/3.1415926/
       n1=nb+nz+1
