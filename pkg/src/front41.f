@@ -816,6 +816,7 @@ c       also reads data from a file.
       else if (nStartVal.gt.1) then
       call intpr( 'wrong number of starting values', -1, 0, 0 )
       icode=103
+      deallocate(sv)
       return
       endif
       allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr-nmu*(im-1)))
@@ -828,6 +829,7 @@ c       also reads data from a file.
       call intpr( 'internal error: 2 + nr - nmu * (im-1)',-1, 0, 0 )
       call intpr( 'is not equal to argument ''nColData''',-1, 0, 0 )
       icode=109
+      deallocate(yy,xx,mm,sv,xxd)
       return
       endif
       do 134 k=1,nob
@@ -856,20 +858,24 @@ c       also reads data from a file.
       if (i.lt.1) then
       call intpr( 'error - a firm number is < 1', -1, 0, 0 )
       icode=104
+      deallocate(yy,xx,mm,sv,xxd)
       return
       else if (i.gt.nn) then
       call intpr( 'error - a firm number is > number of firms',
      $  -1, 0, 0 )
       icode=105
+      deallocate(yy,xx,mm,sv,xxd)
       return
       else if (l.lt.1) then
       call intpr( 'error - a period number is < 1', -1, 0, 0 )
       icode=106
+      deallocate(yy,xx,mm,sv,xxd)
       return
       else if (l.gt.nt) then
       call intpr( 'error - a period number is > number of periods',
      $  -1, 0, 0 )
       icode=107
+      deallocate(yy,xx,mm,sv,xxd)
       return
       end if
   134   continue
@@ -878,6 +884,7 @@ c       also reads data from a file.
       call intpr( 'error - there are no observations on firm',
      $  -1, i, 1 )
       icode=108
+      deallocate(yy,xx,mm,sv,xxd)
       return
       end if
   149   continue
