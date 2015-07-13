@@ -482,9 +482,9 @@ c       checks if params are out of bounds & adjusts if required.
       if(b(n2).ge.dble(1)-dble(1)/bi) b(n2)=dble(1)-dble(1)/bi
       bound=bmu*dsqrt(b(n1)*b(n2))
       if((im.eq.1).and.(nmu.eq.1).and.(bmu.gt.dble(0))) then
-      n3=nb+nz+3
-      if(b(n3).gt.bound) b(n3)=bound
-      if(b(n3).lt.-bound) b(n3)=-bound
+        n3=nb+nz+3
+        if(b(n3).gt.bound) b(n3)=bound
+        if(b(n3).lt.-bound) b(n3)=-bound
       endif
       return
       end
@@ -508,10 +508,10 @@ c       error components model.
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then
-      u=b(nb+3)
-      if (neta.eq.1) e=b(nb+4)
+        u=b(nb+3)
+        if (neta.eq.1) e=b(nb+4)
       else
-      if (neta.eq.1) e=b(nb+3)
+        if (neta.eq.1) e=b(nb+3)
       endif
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
@@ -522,29 +522,31 @@ c       error components model.
       a=a+dble(0.5)*f*z**2
       a2=dble(0)
       do 132 i=1,nn
-      epr=dble(0)
-      do 103 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      epr=epr+ee*dexp(-e*(dble(l)-fnt))
-      end if
+        epr=dble(0)
+        do 103 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            epr=epr+ee*dexp(-e*(dble(l)-fnt))
+          end if
   103   continue
-      epe=dble(0)
-      do 101 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))
+        epe=dble(0)
+        do 101 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))
+          endif
   101   continue
-      zi=(u*(dble(1)-g)-sc*g*epr)/
-     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
-      a=a+dble(0.5)*dlog(dble(1)+(epe-dble(1))*g)
-      a=a-dislog(zi)
-      do 133 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      a2=a2+ee**2
-      end if
+        zi=(u*(dble(1)-g)-sc*g*epr)/
+     $    (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
+        a=a+dble(0.5)*dlog(dble(1)+(epe-dble(1))*g)
+        a=a-dislog(zi)
+        do 133 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            a2=a2+ee**2
+          end if
  133    continue
-      a=a-dble(0.5)*zi**2
- 132    continue
+        a=a-dble(0.5)*zi**2
+ 132  continue
       a=a+dble(0.5)*a2/((dble(1)-g)*s2)
       nfunct=nfunct+1
       return
@@ -569,107 +571,100 @@ c       of the log-likelihood function of the error components model.
       u=dble(0)
       e=dble(0)
       if (nmu.eq.1) then
-      n3=nb+nz+3
-      u=b(n3)
-      if (neta.eq.1) then
-      n4=nb+nz+4
-      e=b(n4)
-      endif
+        n3=nb+nz+3
+        u=b(n3)
+        if (neta.eq.1) then
+          n4=nb+nz+4
+          e=b(n4)
+        endif
       else
-      if (neta.eq.1) then
-      n4=nb+nz+3
-      e=b(n4)
-      endif
+        if (neta.eq.1) then
+          n4=nb+nz+3
+          e=b(n4)
+        endif
       endif
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       z=u/(s2*g)**dble(0.5)
       do 106 j=1,n
-      gx(j)=dble(0)
- 106    continue
+        gx(j)=dble(0)
+ 106  continue
       gx(n1)=dble(0.5)*ftot/s2-dble(0.5)*f*(dendis(z)+z)*z/s2
       gx(n2)=-dble(0.5)*(ftot-f)/(dble(1)-g)-
      $  dble(0.5)*f*(dendis(z)+z)*z/g
-
       do 105 i=1,nn
-      epr=dble(0)
-      epe=dble(0)
-      do 103 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      epr=epr+ee*dexp(-e*(dble(l)-fnt))
-      epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))
-      end if
+        epr=dble(0)
+        epe=dble(0)
+        do 103 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            epr=epr+ee*dexp(-e*(dble(l)-fnt))
+            epe=epe+dexp(-dble(2)*e*(dble(l)-fnt))
+          end if
   103   continue
-      zi=(u*(dble(1)-g)-sc*g*epr)/
-     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
-
-      do 132 j=1,nb
-      do 134 l=1,nt
-      if(xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      gx(j)=gx(j)-xx(i,l,j+1)*ee/(s2*(dble(1)-g))
-      endif
- 134    continue
-      xpe=dble(0)
-      do 146 l=1,nt
-      if(xx(i,l,1).ne.dble(0)) then
-      xpe=xpe+xx(i,l,j+1)*dexp(-e*(dble(l)-fnt))
-      endif
- 146    continue
-      d=(dendis(zi)+zi)*g*xpe*sc
-      gx(j)=gx(j)-d/
-     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
+        zi=(u*(dble(1)-g)-sc*g*epr)/
+     $    (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
+        do 132 j=1,nb
+          do 134 l=1,nt
+            if(xx(i,l,1).ne.dble(0)) then
+              call resid(b,i,l,yy,xx,ee)
+              gx(j)=gx(j)-xx(i,l,j+1)*ee/(s2*(dble(1)-g))
+            endif
+ 134      continue
+          xpe=dble(0)
+          do 146 l=1,nt
+            if(xx(i,l,1).ne.dble(0)) then
+              xpe=xpe+xx(i,l,j+1)*dexp(-e*(dble(l)-fnt))
+            endif
+ 146      continue
+          d=(dendis(zi)+zi)*g*xpe*sc
+          gx(j)=gx(j)-d/
+     $      (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
  132    continue
-
-      gx(n1)=gx(n1)+dble(0.5)*(dendis(zi)+zi)*zi/s2
-      ss=dble(0)
-      do 138 l=1,nt
-      if(xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      ss=ss+ee**2
-      endif
+        gx(n1)=gx(n1)+dble(0.5)*(dendis(zi)+zi)*zi/s2
+        ss=dble(0)
+        do 138 l=1,nt
+          if(xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            ss=ss+ee**2
+          endif
  138    continue
-      gx(n1)=gx(n1)-dble(0.5)*ss/((dble(1)-g)*s2**2)
-
-      gx(n2)=gx(n2)+dble(0.5)*ss/((dble(1)-g)**2*s2)
-      gx(n2)=gx(n2)+dble(0.5)*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)
-      d=g*(dble(1)-g)*(dble(1)+(epe-dble(1))*g)
-      dzi=-(u+sc*epr)*d
-      c=dble(0.5)*(u*(dble(1)-g)-sc*g*epr)
-      dzi=dzi-c*
-     $  ((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-dble(3)*g))
-      dzi=dzi/(d**dble(1.5)*s2**dble(0.5))
-      gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
-
-      if (nmu.eq.1) then
-      gx(n3)=gx(n3)+dble(1)/(s2*g)**dble(0.5)*(dendis(z)+z)
-      d=(dendis(zi)+zi)*(dble(1)-g)
-      gx(n3)=gx(n3)-d/
-     $  (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
-      end if
-
-      if (neta.eq.1) then
-      de=dble(0)
-      d=dble(0)
-      do 152 l=1,nt
-      if (xx(i,l,1).eq.1) then
-      t=dble(l)
-      de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))
-      call resid(b,i,l,yy,xx,ee)
-      d=d+(t-fnt)*dexp(-e*(t-fnt))*ee
-      end if
-  152   continue
-      dd=(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))
-      d=d*g*dd*sc
-      c=u*(dble(1)-g)-sc*g*epr
-      c=c*dble(0.5)*g**2*(dble(1)-g)*s2*de
-      dzi=(d-c)/dd**dble(1.5)
-      gx(n4)=gx(n4)-(dendis(zi)+zi)*dzi
-      gx(n4)=gx(n4)+g/dble(2)*de/(dble(1)+(epe-dble(1))*g)
-      end if
-  105   continue
-
+        gx(n1)=gx(n1)-dble(0.5)*ss/((dble(1)-g)*s2**2)
+        gx(n2)=gx(n2)+dble(0.5)*ss/((dble(1)-g)**2*s2)
+        gx(n2)=gx(n2)+dble(0.5)*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)
+        d=g*(dble(1)-g)*(dble(1)+(epe-dble(1))*g)
+        dzi=-(u+sc*epr)*d
+        c=dble(0.5)*(u*(dble(1)-g)-sc*g*epr)
+        dzi=dzi-c*
+     $    ((dble(1)-dble(2)*g)+(epe-dble(1))*g*(dble(2)-dble(3)*g))
+        dzi=dzi/(d**dble(1.5)*s2**dble(0.5))
+        gx(n2)=gx(n2)-(dendis(zi)+zi)*dzi
+        if (nmu.eq.1) then
+          gx(n3)=gx(n3)+dble(1)/(s2*g)**dble(0.5)*(dendis(z)+z)
+          d=(dendis(zi)+zi)*(dble(1)-g)
+          gx(n3)=gx(n3)-d/
+     $      (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
+        end if
+        if (neta.eq.1) then
+          de=dble(0)
+          d=dble(0)
+          do 152 l=1,nt
+            if (xx(i,l,1).eq.1) then
+              t=dble(l)
+              de=de-dble(2)*(t-fnt)*dexp(-dble(2)*e*(t-fnt))
+              call resid(b,i,l,yy,xx,ee)
+              d=d+(t-fnt)*dexp(-e*(t-fnt))*ee
+            end if
+  152     continue
+          dd=(g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))
+          d=d*g*dd*sc
+          c=u*(dble(1)-g)-sc*g*epr
+          c=c*dble(0.5)*g**2*(dble(1)-g)*s2*de
+          dzi=(d-c)/dd**dble(1.5)
+          gx(n4)=gx(n4)-(dendis(zi)+zi)*dzi
+          gx(n4)=gx(n4)+g/dble(2)*de/(dble(1)+(epe-dble(1))*g)
+        end if
+  105 continue
       ndrv=ndrv+1
       return
       end
