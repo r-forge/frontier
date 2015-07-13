@@ -11,17 +11,19 @@
 c       FRONTIER version 4.1d by Tim Coelli.
 c       (with a very few contributions by Arne Henningsen)
 c       This program uses the Davidon-Fletcher-Powell algorithm to
-c       estimate two forms of the stochastic frontier production function.
+c       estimate two forms of the stochastic frontier production
+c       function.
 c       The first is the error components model described in Battese and
 c       Coelli (1992) in the JPA, and the second is the TE effects model
 c       described in Battese and Coelli (1995), in Empirical Economics.
 c       A large proportion of the search, convrg, mini and eta
-c       subroutines are taken from the book: Himmelblau (1972, appendix b).
+c       subroutines are taken from the book: Himmelblau (1972,
+c       appendix b).
 c       The remainder of the program is the work of Tim Coelli.
-c       Any person is welcome to copy and use this program free of charge.
-c       If you find the program useful, a contribution of A$200
-c       to help defray some of the author's costs would be appreciated, but
-c       is in no way obligatory.
+c       Any person is welcome to copy and use this program free of
+c       charge. If you find the program useful, a contribution of A$200
+c       to help defray some of the author's costs would be appreciated,
+c       but is in no way obligatory.
 c       Please note that the author takes no responsibility for any
 c       inconvenience caused by undetected errors. If an error is
 c       detected the author would appreciate being informed. He may be
@@ -32,9 +34,11 @@ c       of this program.
 c       last update = 25/April/2008
 c       Since version 4.1d, the user might specify the name of the
 c       instruction file by an (optional) argument at the command line.
-c       Hence, this programme can be run automatically (non-interactively) now.
+c       Hence, this programme can be run automatically
+c       (non-interactively) now.
 c
-c       nb = number of coefficients of the frontier model (possibly including intercept)
+c       nb = number of coefficients of the frontier model (possibly
+c            including intercept)
 c       nz = number of coefficients (slopes + possibly intercept)
 c            of the inefficiency model
 c       nr = 1 + nb + nz (third dimension of the data array that always
@@ -104,94 +108,101 @@ c       contains the main loop of this iterative program.
       allocate(x(n),s(n))
       allocate(delx(n),delg(n),gx(n),gy(n))
       do 98 i=1,n
-      gx(i)=dble(0)
-      gy(i)=dble(0)
-      delx(i)=dble(0)
-  98    continue
+        gx(i)=dble(0)
+        gy(i)=dble(0)
+        delx(i)=dble(0)
+   98 continue
   107 if ((igrid.eq.1).and.(nrestart.eq.0)) then
-      call grid(x,y,yy,xx,ob,ga,gb)
-      if (im.eq.1) call fun1(gb,fxs,yy,xx)
-      if (im.eq.2) call fun2(gb,fxs,yy,xx)
+        call grid(x,y,yy,xx,ob,ga,gb)
+        if (im.eq.1) call fun1(gb,fxs,yy,xx)
+        if (im.eq.2) call fun2(gb,fxs,yy,xx)
       else
-      do 131 i=1,n
-      y(i)=sv(i)
-      x(i)=sv(i)
+        do 131 i=1,n
+          y(i)=sv(i)
+          x(i)=sv(i)
   131   continue
-      if (im.eq.1) call fun1(x,fx,yy,xx)
-      if (im.eq.2) call fun2(x,fx,yy,xx)
-      fy=fx
-      fxs=fx
+        if (im.eq.1) call fun1(x,fx,yy,xx)
+        if (im.eq.2) call fun2(x,fx,yy,xx)
+        fy=fx
+        fxs=fx
       end if
       iter=0
       if (im.eq.1) call der1(x,gx,yy,xx)
       if (im.eq.2) call der2(x,gx,yy,xx)
       if (iprint.ne.0) then
-      call intpr( 'iteration', -1, iter, 1 )
-      call intpr( 'function evaluations', -1, nfunct, 1 )
-      call dblepr( 'log-likelihood value', -1, -fy, 1 )
-      call dblepr( 'parameters', -1, y, n )
+        call intpr( 'iteration', -1, iter, 1 )
+        call intpr( 'function evaluations', -1, nfunct, 1 )
+        call dblepr( 'log-likelihood value', -1, -fy, 1 )
+        call dblepr( 'parameters', -1, y, n )
       endif
       if (maxit.eq.0) goto 70
-   5    do 20 i=1,n
-      do 10 j=1,n
-   10   h(i,j)=dble(0)
-   20   h(i,i)=dble(1)
+   5  do 20 i=1,n
+        do 10 j=1,n
+          h(i,j)=dble(0)
+   10   continue
+        h(i,i)=dble(1)
+   20 continue
       if(iprint.ne.0) then
-      call intpr( 'gradient step', -1, 0, 0 )
+        call intpr( 'gradient step', -1, 0, 0 )
       endif
       do 30 i=1,n
-   30   s(i)=-gx(i)
+        s(i)=-gx(i)
+   30 continue
    40 icode=0
       call search(x,y,s,gx,delx,yy,xx)
       iter=iter+1
       if (iter.ge.maxit) then
-      icode=10
-      goto 70
+        icode=10
+        goto 70
       endif
       if(fy.gt.fx) goto 5
       if (im.eq.1) call der1(y,gy,yy,xx)
       if (im.eq.2) call der2(y,gy,yy,xx)
       call convrg(ipass,x,y)
       if (ipass.eq.1.) then
-      if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.mrestart)) then
-      call dblepr( 'restarting with starting values multiplied by',
-     $  -1, frestart, 1 )
-      do 108 i=1,n
-      sv(i)=x(i)*frestart
-  108 continue
-      nrestart=nrestart+1
-      goto 107
-      else
-      goto 70
-      endif
+        if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.mrestart))
+     $      then
+          call dblepr( 'restarting with starting values multiplied by',
+     $      -1, frestart, 1 )
+          do 108 i=1,n
+            sv(i)=x(i)*frestart
+  108     continue
+          nrestart=nrestart+1
+          goto 107
+        else
+          goto 70
+        endif
       endif
       if (iprint.ne.0) then
-      printcon=dble(iter)/dble(iprint)-dble(iter/iprint)
-      if (printcon.eq.dble(0)) then
-      call intpr( 'iteration', -1, iter, 1 )
-      call intpr( 'function evaluations', -1, nfunct, 1 )
-      call dblepr( 'log-likelihood value', -1, -fy, 1 )
-      call dblepr( 'parameters', -1, y, n )
-      endif
+        printcon=dble(iter)/dble(iprint)-dble(iter/iprint)
+        if (printcon.eq.dble(0)) then
+          call intpr( 'iteration', -1, iter, 1 )
+          call intpr( 'function evaluations', -1, nfunct, 1 )
+          call dblepr( 'log-likelihood value', -1, -fy, 1 )
+          call dblepr( 'parameters', -1, y, n )
+        endif
       endif
       do 50 i=1,n
-      delg(i)=gy(i)-gx(i)
-      delx(i)=y(i)-x(i)
-      gx(i)=gy(i)
-   50   x(i)=y(i)
+        delg(i)=gy(i)-gx(i)
+        delx(i)=y(i)-x(i)
+        gx(i)=gy(i)
+        x(i)=y(i)
+   50 continue
       fx=fy
       call eta(h,delx,delg,gx)
       do 60 i=1,n
-      s(i)=dble(0)
-      do 60 j=1,n
-   60   s(i)=s(i)-h(i,j)*gy(j)
+        s(i)=dble(0)
+        do 61 j=1,n
+          s(i)=s(i)-h(i,j)*gy(j)
+   61   continue
+   60 continue
       goto 40
-   70   continue
+   70 continue
       if (iprint.ne.0) then
-      call intpr( 'iteration', -1, iter, 1 )
-      call intpr( 'function evaluations', -1, nfunct, 1 )
-      call dblepr( 'log-likelihood value', -1, -fy, 1 )
-      call dblepr( 'parameters', -1, y, n )
+        call intpr( 'iteration', -1, iter, 1 )
+        call intpr( 'function evaluations', -1, nfunct, 1 )
+        call dblepr( 'log-likelihood value', -1, -fy, 1 )
+        call dblepr( 'parameters', -1, y, n )
       endif
       deallocate(x,s,delx,delg,gx,gy)
       return
