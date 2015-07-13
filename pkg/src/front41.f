@@ -327,32 +327,35 @@ c       determines the step length (t) using a unidimensional search.
       dxnorm=dble(0)
       snorm=dble(0)
       do 102 i=1,n
-      dxnorm=dxnorm+delx(i)*delx(i)
-  102   snorm=snorm+s(i)*s(i)
+        dxnorm=dxnorm+delx(i)*delx(i)
+        snorm=snorm+s(i)*s(i)
+  102 continue
       if(indic.eq.1.and.dxnorm.ge.snorm) goto 1
       ratio=dxnorm/snorm
       step=dsqrt(ratio)
       d=step
-   1    do 2 i=1,n
-   2    y(i)=x(i)+d*s(i)
+    1 do 2 i=1,n
+        y(i)=x(i)+d*s(i)
+    2 continue
       if (im.eq.1) call fun1(y,f,yy,xx)
       if (im.eq.2) call fun2(y,f,yy,xx)
       if (f.ne.f) then
-      call intpr( 'function value in search procedure is NaN',
-     $   -1, 0, 0 )
-      return
+        call intpr( 'function value in search procedure is NaN',
+     $    -1, 0, 0 )
+        return
       endif
       k=k+1
       if(f-fa) 5,3,6
-   3    do 4 i=1,n
-   4    y(i)=x(i)+da*s(i)
+    3 do 4 i=1,n
+        y(i)=x(i)+da*s(i)
+    4 continue
       fy=fa
       if(iprint.ne.0) then
-      call intpr( 'search failed. fn val indep of search direction',
-     $  -1, 0, 0 )
+        call intpr( 'search failed. fn val indep of search direction',
+     $    -1, 0, 0 )
       endif
       goto 326
-   5    fc=fb
+    5 fc=fb
       fb=fa
       fa=f
       dc=db
@@ -360,101 +363,104 @@ c       determines the step length (t) using a unidimensional search.
       da=d
       d=dble(2)*d+step
       goto 1
-   6    if(k) 7,8,9
-   7    fb=f
+    6 if(k) 7,8,9
+    7 fb=f
       db=d
       d=-d
       step=-step
       goto 1
-   8    fc=fb
+    8 fc=fb
       fb=fa
       fa=f
       dc=db
       db=da
       da=d
       goto 21
-   9    dc=db
+    9 dc=db
       db=da
       da=d
       fc=fb
       fb=fa
       fa=f
-   10   d=dble(0.5)*(da+db)
+   10 d=dble(0.5)*(da+db)
       do 11 i=1,n
-   11   y(i)=x(i)+d*s(i)
+        y(i)=x(i)+d*s(i)
+   11 continue
       if (im.eq.1) call fun1(y,f,yy,xx)
       if (im.eq.2) call fun2(y,f,yy,xx)
-   12   if((dc-d)*(d-db)) 15,13,18
-   13   do 14 i=1,n
-   14   y(i)=x(i)+db*s(i)
+   12 if((dc-d)*(d-db)) 15,13,18
+   13 do 14 i=1,n
+        y(i)=x(i)+db*s(i)
+   14 continue
       fy=fb
       if(iexit.eq.1) goto 32
       if(iprint.ne.0) then
-      call intpr( 'search failed. loc of min limited by rounding',
-     $ -1, 0, 0 )
+        call intpr( 'search failed. loc of min limited by rounding',
+     $    -1, 0, 0 )
       endif
       goto 325
-   15   if(f-fb) 16,13,17
-   16   fc=fb
+   15 if(f-fb) 16,13,17
+   16 fc=fb
       fb=f
       dc=db
       db=d
       goto 21
-   17   fa=f
+   17 fa=f
       da=d
       goto 21
-   18   if(f-fb) 19,13,20
-   19   fa=fb
+   18 if(f-fb) 19,13,20
+   19 fa=fb
       fb=f
       da=db
       db=d
       goto 21
-   20   fc=f
+   20 fc=f
       dc=d
-   21   a=fa*(db-dc)+fb*(dc-da)+fc*(da-db)
+   21 a=fa*(db-dc)+fb*(dc-da)+fc*(da-db)
       if(a) 22,30,22
-   22   d=dble(0.5)*
+   22 d=dble(0.5)*
      $  ((db*db-dc*dc)*fa+(dc*dc-da*da)*fb+(da*da-db*db)*fc)/a
       if((da-d)*(d-dc)) 13,13,23
-   23   do 24 i=1,n
-   24   y(i)=x(i)+d*s(i)
+   23 do 24 i=1,n
+        y(i)=x(i)+d*s(i)
+   24 continue
       if (im.eq.1) call fun1(y,f,yy,xx)
       if (im.eq.2) call fun2(y,f,yy,xx)
       if(dabs(fb)-ftol2) 25,25,26
-   25   a=dble(1)
+   25 a=dble(1)
       goto 27
-   26   a=dble(1)/fb
-   27   if((dabs(fb-f)*a)-ftol) 28,28,12
-   28   iexit=1
+   26 a=dble(1)/fb
+   27 if((dabs(fb-f)*a)-ftol) 28,28,12
+   28 iexit=1
       if(f-fb) 29,13,13
-   29   fy=f
+   29 fy=f
       goto 32
-   30   if(m) 31,31,13
-   31   m=m+1
+   30 if(m) 31,31,13
+   31 m=m+1
       goto 10
-   32   do 99 i=1,n
-      if(y(i).ne.x(i)) goto 325
-   99   continue
+   32 do 99 i=1,n
+        if(y(i).ne.x(i)) goto 325
+   99 continue
       goto 33
-  325   if(ntol.ne.0.and.iprint.eq.1) then
-      call intpr( 'tolerance reduced so many time(s):', -1, ntol, 1 )
+  325 if(ntol.ne.0.and.iprint.eq.1) then
+        call intpr( 'tolerance reduced so many time(s):', -1, ntol, 1 )
       endif
-  326   if(fy.lt.fx) return
+  326 if(fy.lt.fx) return
       do 101 i=1,n
-      if(s(i).ne.-gx(i)) return
-  101   continue
+        if(s(i).ne.-gx(i)) return
+  101 continue
       call intpr( 'search failed on gradient step, termination',
      $  -1, 0, 0 )
       icode=6
       return
-   33   if(ntol.eq.10) goto 34
+   33 if(ntol.eq.10) goto 34
       iexit=0
       ntol=ntol+1
       ftol=ftol/dble(10)
       goto 12
-  34    if(iprint.ne.0) then
-      call intpr( 'pt better than entering pt cannot be found',
-     $  -1, 0, 0 )
+  34  if(iprint.ne.0) then
+        call intpr( 'pt better than entering pt cannot be found',
+     $    -1, 0, 0 )
       endif
       icode=5
       return
