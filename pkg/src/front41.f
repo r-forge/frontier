@@ -136,7 +136,7 @@ c       contains the main loop of this iterative program.
         call dblepr( 'parameters', -1, y, n )
       endif
       if (maxit.eq.0) goto 70
-   5  do 20 i=1,n
+    5 do 20 i=1,n
         do 10 j=1,n
           h(i,j)=dble(0)
    10   continue
@@ -458,7 +458,7 @@ c       determines the step length (t) using a unidimensional search.
       ntol=ntol+1
       ftol=ftol/dble(10)
       goto 12
-  34  if(iprint.ne.0) then
+   34 if(iprint.ne.0) then
         call intpr( 'pt better than entering pt cannot be found',
      $    -1, 0, 0 )
       endif
@@ -544,9 +544,9 @@ c       error components model.
             call resid(b,i,l,yy,xx,ee)
             a2=a2+ee**2
           end if
- 133    continue
+  133   continue
         a=a-dble(0.5)*zi**2
- 132  continue
+  132 continue
       a=a+dble(0.5)*a2/((dble(1)-g)*s2)
       nfunct=nfunct+1
       return
@@ -588,7 +588,7 @@ c       of the log-likelihood function of the error components model.
       z=u/(s2*g)**dble(0.5)
       do 106 j=1,n
         gx(j)=dble(0)
- 106  continue
+  106 continue
       gx(n1)=dble(0.5)*ftot/s2-dble(0.5)*f*(dendis(z)+z)*z/s2
       gx(n2)=-dble(0.5)*(ftot-f)/(dble(1)-g)-
      $  dble(0.5)*f*(dendis(z)+z)*z/g
@@ -610,17 +610,17 @@ c       of the log-likelihood function of the error components model.
               call resid(b,i,l,yy,xx,ee)
               gx(j)=gx(j)-xx(i,l,j+1)*ee/(s2*(dble(1)-g))
             endif
- 134      continue
+  134     continue
           xpe=dble(0)
           do 146 l=1,nt
             if(xx(i,l,1).ne.dble(0)) then
               xpe=xpe+xx(i,l,j+1)*dexp(-e*(dble(l)-fnt))
             endif
- 146      continue
+  146     continue
           d=(dendis(zi)+zi)*g*xpe*sc
           gx(j)=gx(j)-d/
      $      (g*(dble(1)-g)*s2*(dble(1)+(epe-dble(1))*g))**dble(0.5)
- 132    continue
+  132   continue
         gx(n1)=gx(n1)+dble(0.5)*(dendis(zi)+zi)*zi/s2
         ss=dble(0)
         do 138 l=1,nt
@@ -628,7 +628,7 @@ c       of the log-likelihood function of the error components model.
             call resid(b,i,l,yy,xx,ee)
             ss=ss+ee**2
           endif
- 138    continue
+  138   continue
         gx(n1)=gx(n1)-dble(0.5)*ss/((dble(1)-g)*s2**2)
         gx(n2)=gx(n2)+dble(0.5)*ss/((dble(1)-g)**2*s2)
         gx(n2)=gx(n2)+dble(0.5)*(epe-dble(1))/(dble(1)+(epe-dble(1))*g)
@@ -725,7 +725,7 @@ c       of the log-likelihood function of the TE effects model.
       if (ipc.eq.2) sc=-dble(1)
       do 9 j=1,n
         gx(j)=dble(0)
-   9  continue
+    9 continue
       do 10 i=1,nn
         do 11 l=1,nt
           if (xx(i,l,1).ne.dble(0)) then
