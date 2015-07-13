@@ -251,40 +251,48 @@ c       calculates the direction matrix (p).
       dxdg=dble(0)
       dghdg=dble(0)
       do 20 i=1,n
-      hdg(i)=dble(0)
-      dgh(i)=dble(0)
-      do 10 j=1,n
-      hdg(i)=hdg(i)-h(i,j)*delg(j)
-   10   dgh(i)=dgh(i)+delg(j)*h(j,i)
-      dxdg=dxdg+delx(i)*delg(i)
-   20   dghdg=dghdg+dgh(i)*delg(i)
+        hdg(i)=dble(0)
+        dgh(i)=dble(0)
+        do 10 j=1,n
+          hdg(i)=hdg(i)-h(i,j)*delg(j)
+          dgh(i)=dgh(i)+delg(j)*h(j,i)
+   10   continue
+        dxdg=dxdg+delx(i)*delg(i)
+        dghdg=dghdg+dgh(i)*delg(i)
+   20 continue
       do 30 i=1,n
-      do 30 j=1,n
-   30   h(i,j)=h(i,j)+delx(i)*delx(j)/dxdg+hdg(i)*dgh(j)/dghdg
+        do 31 j=1,n
+          h(i,j)=h(i,j)+delx(i)*delx(j)/dxdg+hdg(i)*dgh(j)/dghdg
+   31   continue
+   30 continue
       do 117 i=1,n
-  117   h(i,i)=dabs(h(i,i))
-      do 132 i=1,n
-      hgx(i)=dble(0)
-      do 132 j=1,n
-      hgx(i)=hgx(i)+h(i,j)*gx(j)
+        h(i,i)=dabs(h(i,i))
+  117 continue
+      do 131 i=1,n
+        hgx(i)=dble(0)
+        do 132 j=1,n
+          hgx(i)=hgx(i)+h(i,j)*gx(j)
   132   continue
+  131 continue
       hgxx=dble(0)
       gxx=dble(0)
       do 133 i=1,n
-      hgxx=hgxx+hgx(i)**2
-      gxx=gxx+gx(i)**2
-  133   continue
+        hgxx=hgxx+hgx(i)**2
+        gxx=gxx+gx(i)**2
+  133 continue
       c=dble(0)
       do 134 i=1,n
-      c=c+hgx(i)*gx(i)
-  134   continue
+        c=c+hgx(i)*gx(i)
+  134 continue
       c=c/(hgxx*gxx)**dble(0.5)
       if(dabs(c).lt.dble(1)/bignum) then
-      call intpr( 'ill-conditioned eta', -1, 0, 0 )
-      do 136 i=1,n
-      do 137 j=1,n
-  137   h(i,j)=dble(0)
-  136   h(i,i)=delx(i)/gx(i)
+        call intpr( 'ill-conditioned eta', -1, 0, 0 )
+        do 136 i=1,n
+          do 137 j=1,n
+            h(i,j)=dble(0)
+  137     continue
+          h(i,i)=delx(i)/gx(i)
+  136   continue
       endif
       deallocate(hdg,dgh,hgx)
       return
