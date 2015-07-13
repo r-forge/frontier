@@ -934,63 +934,63 @@ c       does a grid search across gamma
       if (ipc.eq.2) sc=-dble(1)
       var=ob(nb+1)*dble(nob-nb)/dble(nob)
       do 131 i=1,nb+1
-      y(i)=ob(i)
-  131   continue
+        y(i)=ob(i)
+  131 continue
       do 132 i=nb+1,n
-      y(i)=dble(0)
-  132   continue
+        y(i)=dble(0)
+  132 continue
       fx=bignum
       y6b=gridno
       y6t=dble(1)-gridno
       nloop=ceiling((y6t-y6b+gridno)/gridno)
       do 137 j=1,nloop
-      y6=y6b+(j-1)*gridno
-      y(n2)=y6
-      y(n1)=var/(dble(1)-dble(2)*y(n2)/pi)
-      c=(y(n2)*y(n1)*2/pi)**dble(0.5)
-      if (nb.gt.0) then
-      do 139 i=1,nb
-      y(i)=ob(i)+ga(i)*c*sc
-  139 continue
-      endif
-      if (im.eq.1) call fun1(y,fy,yy,xx)
-      if (im.eq.2) call fun2(y,fy,yy,xx)
-      if(fy.lt.fx) then
-      fx=fy
-      do 138 i=1,n
-      x(i)=y(i)
-  138   continue
-      end if
-  137   continue
+        y6=y6b+(j-1)*gridno
+        y(n2)=y6
+        y(n1)=var/(dble(1)-dble(2)*y(n2)/pi)
+        c=(y(n2)*y(n1)*2/pi)**dble(0.5)
+        if (nb.gt.0) then
+          do 139 i=1,nb
+            y(i)=ob(i)+ga(i)*c*sc
+  139     continue
+        endif
+        if (im.eq.1) call fun1(y,fy,yy,xx)
+        if (im.eq.2) call fun2(y,fy,yy,xx)
+        if(fy.lt.fx) then
+          fx=fy
+          do 138 i=1,n
+            x(i)=y(i)
+  138     continue
+        end if
+  137 continue
       if(igrid2.eq.1) then
-      bb1=x(n2)-gridno/dble(2)
-      bb2=x(n2)+gridno/dble(2)
-      bb3=gridno/dble(10)
-      nloop=ceiling((bb2-bb1+bb3)/bb3)
-      do 140 j=1,nloop
-      y6=bb1+(j-1)*bb3
-      y(n2)=y6
-      y(n1)=var/(dble(1)-dble(2)*y(n2)/pi)
-      c=(y(n2)*y(n1)*2/pi)**dble(0.5)
-      if (nb.gt.0) then
-      do 144 i=1,nb
-      y(i)=ob(i)+ga(i)*c*sc
-  144 continue
-      endif
-      if (im.eq.1) call fun1(y,fy,yy,xx)
-      if (im.eq.2) call fun2(y,fy,yy,xx)
-      if(fy.lt.fx) then
-      fx=fy
-      do 141 i=1,n
-      x(i)=y(i)
-  141   continue
-      end if
+        bb1=x(n2)-gridno/dble(2)
+        bb2=x(n2)+gridno/dble(2)
+        bb3=gridno/dble(10)
+        nloop=ceiling((bb2-bb1+bb3)/bb3)
+        do 140 j=1,nloop
+          y6=bb1+(j-1)*bb3
+          y(n2)=y6
+          y(n1)=var/(dble(1)-dble(2)*y(n2)/pi)
+          c=(y(n2)*y(n1)*2/pi)**dble(0.5)
+          if (nb.gt.0) then
+            do 144 i=1,nb
+              y(i)=ob(i)+ga(i)*c*sc
+  144       continue
+          endif
+          if (im.eq.1) call fun1(y,fy,yy,xx)
+          if (im.eq.2) call fun2(y,fy,yy,xx)
+          if(fy.lt.fx) then
+            fx=fy
+            do 141 i=1,n
+              x(i)=y(i)
+  141       continue
+          end if
   140   continue
       end if
       do 142 i=1,n
-      gb(i)=x(i)
-      y(i)=x(i)
-  142   continue
+        gb(i)=x(i)
+        y(i)=x(i)
+  142 continue
       fy=fx
       return
       end
