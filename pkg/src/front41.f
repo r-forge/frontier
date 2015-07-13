@@ -687,22 +687,23 @@ c       TE effects model.
       if (ipc.eq.2) sc=-dble(1)
       a=dble(0)
       do 10 i=1,nn
-      do 10 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      zd=dble(0)
-      if (nz.ne.0) then
-      do 12 j=nb+1,nb+nz
-      zd=zd+xx(i,l,j+1)*b(j)
-   12   continue
-      endif
-      us=(dble(1)-g)*zd-sc*g*ee
-      d=zd/(g*s2)**dble(0.5)
-      ds=us/ss
-      a=a-dble(0.5)*dlog(dble(2)*pi)-dble(0.5)*dlog(s2)-
-     $  (dislog(d)-dislog(ds))-dble(0.5)*(ee+sc*zd)**2/s2
-      endif
-   10   continue
+        do 11 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            zd=dble(0)
+            if (nz.ne.0) then
+              do 12 j=nb+1,nb+nz
+                zd=zd+xx(i,l,j+1)*b(j)
+   12         continue
+            endif
+            us=(dble(1)-g)*zd-sc*g*ee
+            d=zd/(g*s2)**dble(0.5)
+            ds=us/ss
+            a=a-dble(0.5)*dlog(dble(2)*pi)-dble(0.5)*dlog(s2)-
+     $        (dislog(d)-dislog(ds))-dble(0.5)*(ee+sc*zd)**2/s2
+          endif
+   11   continue
+   10 continue
       a=-a
       nfunct=nfunct+1
       return
@@ -723,41 +724,43 @@ c       of the log-likelihood function of the TE effects model.
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
       do 9 j=1,n
-      gx(j)=dble(0)
-   9    continue
+        gx(j)=dble(0)
+   9  continue
       do 10 i=1,nn
-      do 10 l=1,nt
-      if (xx(i,l,1).ne.dble(0)) then
-      call resid(b,i,l,yy,xx,ee)
-      zd=dble(0)
-      if (nz.ne.0) then
-      do 12 j=nb+1,nb+nz
-      zd=zd+xx(i,l,j+1)*b(j)
-   12   continue
-      endif
-      us=(dble(1)-g)*zd-sc*g*ee
-      d=zd/(g*s2)**dble(0.5)
-      ds=us/ss
-      do 13 j=1,nb
-      gx(j)=gx(j)+xx(i,l,j+1)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
-   13   continue
-      if (nz.ne.0) then
-      do 14 j=nb+1,nb+nz
-      gx(j)=gx(j)-xx(i,l,j+1)*((sc*ee+zd)/s2
-     +  +dendis(d)/(g*s2)**dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
-   14   continue
-      endif
-      gx(nb+nz+1)=gx(nb+nz+1)-dble(0.5)/s2
-     + *(dble(1)-(dendis(d)*d-dendis(ds)*ds)-(ee+sc*zd)**2/s2)
-      gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g
-     +  -dendis(ds)/ss*(zd/g+sc*ee/(dble(1)-g)))
-c       gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
-c    +  (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/(g*(dble(1)-g))))
-      endif
-   10   continue
+        do 11 l=1,nt
+          if (xx(i,l,1).ne.dble(0)) then
+            call resid(b,i,l,yy,xx,ee)
+            zd=dble(0)
+            if (nz.ne.0) then
+              do 12 j=nb+1,nb+nz
+                zd=zd+xx(i,l,j+1)*b(j)
+   12         continue
+            endif
+            us=(dble(1)-g)*zd-sc*g*ee
+            d=zd/(g*s2)**dble(0.5)
+            ds=us/ss
+            do 13 j=1,nb
+              gx(j)=gx(j)+xx(i,l,j+1)*((ee+sc*zd)/s2+sc*dendis(ds)*g/ss)
+   13       continue
+            if (nz.ne.0) then
+              do 14 j=nb+1,nb+nz
+                gx(j)=gx(j)-xx(i,l,j+1)*((sc*ee+zd)/s2+
+     $            dendis(d)/(g*s2)**dble(0.5)-dendis(ds)*(dble(1)-g)/ss)
+   14         continue
+            endif
+            gx(nb+nz+1)=gx(nb+nz+1)-dble(0.5)/s2
+     $        *(dble(1)-(dendis(d)*d-dendis(ds)*ds)-(ee+sc*zd)**2/s2)
+            gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g
+     $        -dendis(ds)/ss*(zd/g+sc*ee/(dble(1)-g)))
+c           gx(nb+nz+2)=gx(nb+nz+2)+dble(0.5)*(dendis(d)*d/g-dendis(ds)*
+c    $        (dble(2)*(ee+zd)/ss+ds*(dble(1)-dble(2)*g)/
+c    $        (g*(dble(1)-g))))
+          endif
+   11   continue
+   10 continue
       do 15 j=1,n
-      gx(j)=-gx(j)
-   15   continue
+        gx(j)=-gx(j)
+   15 continue
       ndrv=ndrv+1
       return
       end
