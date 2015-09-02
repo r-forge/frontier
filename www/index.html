@@ -4,8 +4,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>frontier - Stochastic Frontier Analysis in R</title>
-    <meta name="GENERATOR" content="Quanta Plus" />
-    <meta name="AUTHOR" content="Arne Henningsen" />
+    <meta name="generator" content="Bluefish 2.2.6" />
+    <meta name="author" content="Arne Henningsen" />
     <meta name="KEYWORDS" content="Stochastic Frontier Analysis, SFA, R" />
   </head>
   <body background="images/RLogoLight.jpg">
@@ -108,7 +108,7 @@
         while the R package frontier has a much simpler user interface.</li>
       <li>The coefficients and efficiencies estimated by the R package frontier
         are directly available for further calculations.</li>
-      <li>The Fortran code in FRONTIER 4.1 includes a bug
+      <li>The Fortran code in FRONTIER 4.1 includes two bugs
         that in specific circumstances can result in wrong estimates,
         while this bug has been fixed in the R package frontier.</li>
       <li>The Fortran code in the R package frontier
@@ -189,6 +189,21 @@
         <a href="http://r-forge.r-project.org/projects/frontier/">project's R-Forge site</a>.</li>
     </ul>
 
+    <h3>
+       Which two bugs are in FRONTIER 4.1 that are fixed in the R package &quot;frontier&quot;?
+    </h3>
+    <ul>
+      <li>In case of unbalanced panel data sets,
+        FRONTIER 4.1 returns some arbitray numbers
+        for the efficiency estimates of the unobserved observations.</li>
+      <li>When estimating an &quot;Error Components Frontier&quot; (ECF)
+        with unbalanced panel data sets,
+        FRONTIER 4.1 uses arbitrary numbers
+        for the derivatives of the log-likelihood function
+        for the unobserved observations,
+        which usually leads the optimisation solver into a wrong direction.</li>
+    </ul>
+       
     <p>
        &nbsp; 
     </p>
@@ -198,8 +213,9 @@
     <p>
        &nbsp; 
     </p>
+
     <div align="center">
-       Last Update: 12 May 2013
+       Last Update: 2 September 2015
     </div>
   </body>
 </html>
