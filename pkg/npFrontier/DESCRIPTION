@@ -1,0 +1,13 @@
+Package: npFrontier
+Version: 0.1-0
+Date: 2015-09-14
+Title: Non-Parametric and Semi-Parametric Stochastic Frontier Analysis
+Author: Christopher F. Parmeter, Arne Henningsen
+Maintainer: Arne Henningsen <arne.henningsen@gmail.com>
+Depends: R (>= 3.2.0), np (>= 0.60-2), bbmle (>= 1.0.17)
+Suggests: frontier
+Description: Tools for Semi-parametric Stochastic Frontier Analysis.
+  Tools for Nonparametric Stochastic Frontier Analysis
+  will be added in the future.
+License: GPL (>= 2)
+URL: http://frontier.r-forge.r-project.org/
