@@ -34,9 +34,9 @@ FLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
   # example included in FRONTIER 4.1 (cross-section data)
   data( front41Data, package = "frontier" )
 
-  # Cobb-Douglas production frontier
+  # semiparametric local-constant Cobb-Douglas production frontier
   FLW_Result <- FLW( log( front41Data$output ), 
-    cbind( log( front41Data$capital ),log( front41Data$labour ) ) )
+    cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
   FLW_Result
 }
 
