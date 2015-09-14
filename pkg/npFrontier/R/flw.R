@@ -14,7 +14,7 @@ flw.ll <- function(lmd=1,e){
  	ep <- e-mu
     
  	# log-likelihood
- 	flw.ll <- -length(ep)*log(si)+sum(pnorm(-ep*lmd/si,log=T))-0.5*sum(ep^2)/si^2    
+ 	flw.ll <- -length(ep)*log(si)+sum(pnorm(-ep*lmd/si,log.p=TRUE))-0.5*sum(ep^2)/si^2    
  	return(-flw.ll)
 
 }
@@ -26,7 +26,7 @@ FLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
 	if(bw.sel=="cv.ls" | bw.sel=="cv.aic"){
 		bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bwmethod=bw.sel)
 	}else{
-		bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bandwidth.compute=F)
+		bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bandwidth.compute=FALSE)
 		bw$bw <- 1.06*apply(as.matrix(x),2,sd)*length(y)^(-1/(4+ncol(as.matrix(x))))
 		
 	}
@@ -34,7 +34,7 @@ FLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
 	## Need to allow for users to pass own bandwidths directly
 	## so tht we can also have constrained FLW.
 
-	model <- npreg(bws=bw,tydat=y,txdat=x,residuals=T,gradients=T)
+	model <- npreg(bws=bw,tydat=y,txdat=x,residuals=TRUE,gradients=TRUE)
 	
 	## Extract residuals from model
 	resid <- residuals(model)
