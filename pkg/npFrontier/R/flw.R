@@ -55,7 +55,15 @@ FLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
   ## Caluclate Bias Correction, see beneath (15) on page 463.
   mu <- sqrt(sig.sq)*sc
 
-  return(list(mhat=(fitted(model)+mu),mprime=gradients(model),e=resid,
-    sigma.sq=sig.sq,lambda=lmd,sigma.u=sigma.u,sigma.v=sigma.v,
-    bw=bw$bw))
+  returnObj <- list()
+  returnObj$mhat <- fitted( model ) + mu 
+  returnObj$mprime <- gradients(model)
+  returnObj$e <- resid
+  returnObj$sigma.sq <- sig.sq
+  returnObj$lambda <- lmd
+  returnObj$sigma.u <- sigma.u
+  returnObj$sigma.v <- sigma.v
+  returnObj$bw <- bw$bw
+  
+  return( returnObj )
 }
