@@ -639,6 +639,13 @@ $bw
 [1]       1.82 1448053.51
 
 > 
+> # wrong value of argument 'bw.sel'
+> try( FLW_Result_ll_aic <- FLW( log( front41Data$output ), 
++   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
++   bw.sel = "wrong" ) )
+Error in FLW(log(front41Data$output), cbind(log(front41Data$capital),  : 
+  argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
+> 
 > proc.time()
    user  system elapsed 
-  0.924   0.020   0.943 
+  0.908   0.032   0.934 

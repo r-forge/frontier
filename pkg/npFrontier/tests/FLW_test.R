@@ -70,3 +70,8 @@ for( i in 1:length( FLW_Result_ll_aic ) ) {
   print( round( FLW_Result_ll_aic[[ i ]], 2 ) )
   cat( "\n" )
 }
+
+# wrong value of argument 'bw.sel'
+try( FLW_Result_ll_aic <- FLW( log( front41Data$output ), 
+  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
+  bw.sel = "wrong" ) )

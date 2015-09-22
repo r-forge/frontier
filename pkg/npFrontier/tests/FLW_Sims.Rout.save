@@ -1621,6 +1621,11 @@ $bw
 [1] 1.89
 
 > 
+> # wrong value of argument 'bw.sel'
+> try( FLW( y = y, x = x, bw.sel = "unknown" ) )
+Error in FLW(y = y, x = x, bw.sel = "unknown") : 
+  argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
+> 
 > proc.time()
    user  system elapsed 
-  0.984   0.044   1.025 
+  0.988   0.008   0.993 

@@ -80,3 +80,6 @@ for( i in 1:length( sfa.flw.ll.aic ) ) {
   print( round( sfa.flw.ll.aic[[ i ]], 2 ) )
   cat( "\n" )
 }
+
+# wrong value of argument 'bw.sel'
+try( FLW( y = y, x = x, bw.sel = "unknown" ) )
