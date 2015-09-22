@@ -16,8 +16,11 @@ FLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
   \item{x}{matrix of input quantities.}
   \item{regtype}{regression type,
     passed to \code{\link[np]{npregbw}}.}
-  \item{bw.sel}{bandwidth selection method,
-    passed to \code{\link[np]{npregbw}}.}
+  \item{bw.sel}{bandwidth selection method:
+    if it is \code{"rot"},
+    FLW's rule-of-thumb is applied;
+    otherwise, this argument is passed
+    further to \code{\link[np]{npregbw}}.}
 }
 
 \references{
