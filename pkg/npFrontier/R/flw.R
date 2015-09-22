@@ -22,11 +22,13 @@ FLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
   
   ## Step 1: Estimate conditional mean and obtain residuals
   
-  if(bw.sel=="cv.ls" | bw.sel=="cv.aic"){
+  if( bw.sel %in% c( "cv.ls", "cv.aic" ) ) {
     bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bwmethod=bw.sel)
-  }else{
+  } else if( bw.sel == "rot" ) {
     bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bandwidth.compute=FALSE)
     bw$bw <- 1.06*apply(as.matrix(x),2,sd)*length(y)^(-1/(4+ncol(as.matrix(x))))
+  } else {
+    stop( "argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'" )
   }
 
   ## Need to allow for users to pass own bandwidths directly
