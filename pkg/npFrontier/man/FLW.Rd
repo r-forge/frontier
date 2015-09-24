@@ -14,7 +14,7 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
 
 \arguments{
   \item{formula}{a symbolic description of the model to be estimated.}
-  \item{data}{optional. a data frame that contains the data.}
+  \item{data}{optional data frame that contains the data.}
   \item{regtype}{regression type,
     passed to \code{\link[np]{npregbw}}.}
   \item{bw.sel}{bandwidth selection method:
@@ -22,6 +22,33 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
     FLW's rule-of-thumb is applied;
     otherwise, this argument is passed
     further to \code{\link[np]{npregbw}}.}
+}
+
+\value{
+  \code{sfaFLW} returns a list
+    containing following elements:
+  \item{mhat}{numeric vector containing the fitted frontier values,
+    i.e. the fitted values from the nonparametric regression (first step)
+    plus the bias correction \eqn{\mu}
+    obtained in the maximum likelihood estimation (second step).}
+  \item{mprime}{numeric matrix containing the first derivatives
+    (gradients) of the dependent variable
+    with respect to the explanatory variables
+    obtained in the nonparametric regression (first step). }
+  \item{e}{numeric vector containing the residuals
+    from the nonparametric regression (first step).}
+  \item{sigma.sq}{numeric scalar.
+    \eqn{\sigma^2 = \sigma_u^2 + \sigma_v^2},
+    obtained in the maximum likelihood estimation (second step).}
+  \item{lambda}{numeric scalar.
+    \eqn{\lambda = \sigma_u / \sigma_v},
+    obtained in the maximum likelihood estimation (second step).}
+  \item{sigma.u}{numeric scalar. \eqn{\sigma_u},
+    obtained in the maximum likelihood estimation (second step).}
+  \item{sigma.v}{numeric. \eqn{\sigma_v},
+    obtained in the maximum likelihood estimation (second step).}
+  \item{bw}{numeric vector of the bandwidths of the explanatory
+    variables used in the nonparametric regression (first step).}
 }
 
 \references{
