@@ -18,47 +18,41 @@ printFLW <- function( x ) {
 
 # semiparametric Cobb-Douglas production frontiers
 # local-constant regression, ls.cv bandwidths
-FLW_Result <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
+FLW_Result <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data )
 
 printFLW( FLW_Result )
 
 # local-linear regression, ls.cv bandwidths
-FLW_Result_ll <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  regtype = "ll" )
+FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, regtype = "ll" )
 
 printFLW( FLW_Result_ll )
 
 # local-constant regression, rule-of-thumb bandwidths
-FLW_Result_rot <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  bw.sel = "rot"  )
+FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, bw.sel = "rot"  )
 
 printFLW( FLW_Result_rot )
 
 # local-linear regression with rule-of-thumb bandwidths
-FLW_Result_ll_rot <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  regtype = "ll", bw.sel = "rot"  )
+FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, regtype = "ll", bw.sel = "rot"  )
 
 printFLW( FLW_Result_ll_rot )
 
 # local-constant regression, ls.cv bandwidths
-FLW_Result_aic <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  bw.sel = "cv.aic" )
+FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, bw.sel = "cv.aic" )
 
 printFLW( FLW_Result_aic )
 
 # local-linear regression, ls.cv bandwidths
-FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  regtype = "ll", bw.sel = "cv.aic" )
+FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, regtype = "ll", bw.sel = "cv.aic" )
 
 printFLW( FLW_Result_ll_aic )
 
 # wrong value of argument 'bw.sel'
-try( FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
-  cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-  bw.sel = "wrong" ) )
+try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, bw.sel = "wrong" ) )

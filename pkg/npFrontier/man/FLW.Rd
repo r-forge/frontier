@@ -8,12 +8,13 @@
 }
 
 \usage{
-sfaFLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
+sfaFLW( formula, data = sys.frame( sys.parent() ),
+  regtype = "lc", bw.sel = "cv.ls" )
 }
 
 \arguments{
-  \item{y}{vector of output quantities.}
-  \item{x}{matrix of input quantities.}
+  \item{formula}{a symbolic description of the model to be estimated.}
+  \item{data}{optional. a data frame that contains the data.}
   \item{regtype}{regression type,
     passed to \code{\link[np]{npregbw}}.}
   \item{bw.sel}{bandwidth selection method:
@@ -38,8 +39,8 @@ sfaFLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
   data( front41Data, package = "frontier" )
 
   # semiparametric local-constant Cobb-Douglas production frontier
-  FLW_Result <- sfaFLW( log( front41Data$output ), 
-    cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
+  FLW_Result <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+    data = front41Data )
   FLW_Result
 }
 

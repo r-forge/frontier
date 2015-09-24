@@ -40,8 +40,8 @@ Loading required package: stats4
 > 
 > # semiparametric Cobb-Douglas production frontiers
 > # local-constant regression, ls.cv bandwidths
-> FLW_Result <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
+> FLW_Result <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result )
 $mhat
@@ -137,9 +137,8 @@ $bw
 
 > 
 > # local-linear regression, ls.cv bandwidths
-> FLW_Result_ll <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   regtype = "ll" )
+> FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, regtype = "ll" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -                   > 
 > printFLW( FLW_Result_ll )
 $mhat
@@ -235,9 +234,8 @@ $bw
 
 > 
 > # local-constant regression, rule-of-thumb bandwidths
-> FLW_Result_rot <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   bw.sel = "rot"  )
+> FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, bw.sel = "rot"  )
 > 
 > printFLW( FLW_Result_rot )
 $mhat
@@ -329,13 +327,13 @@ $sigma.v
 [1] 0.26
 
 $bw
-[1] 0.49 0.46
+log(capital)  log(labour) 
+        0.49         0.46 
 
 > 
 > # local-linear regression with rule-of-thumb bandwidths
-> FLW_Result_ll_rot <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   regtype = "ll", bw.sel = "rot"  )
+> FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, regtype = "ll", bw.sel = "rot"  )
 > 
 > printFLW( FLW_Result_ll_rot )
 $mhat
@@ -427,13 +425,13 @@ $sigma.v
 [1] 0.2
 
 $bw
-[1] 0.49 0.46
+log(capital)  log(labour) 
+        0.49         0.46 
 
 > 
 > # local-constant regression, ls.cv bandwidths
-> FLW_Result_aic <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   bw.sel = "cv.aic" )
+> FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_aic )
 $mhat
@@ -529,9 +527,8 @@ $bw
 
 > 
 > # local-linear regression, ls.cv bandwidths
-> FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   regtype = "ll", bw.sel = "cv.aic" )
+> FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, regtype = "ll", bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_ll_aic )
 $mhat
@@ -627,12 +624,11 @@ $bw
 
 > 
 > # wrong value of argument 'bw.sel'
-> try( FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
-+   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
-+   bw.sel = "wrong" ) )
-Error in sfaFLW(log(front41Data$output), cbind(log(front41Data$capital),  : 
+> try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, bw.sel = "wrong" ) )
+Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
   argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
 > proc.time()
    user  system elapsed 
-  0.940   0.012   0.947 
+  0.948   0.012   0.956 

@@ -18,7 +18,30 @@ flw.ll <- function(lmd=1,e){
   return(-flw.ll)
 }
 
-sfaFLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
+sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
+  regtype = "lc", bw.sel = "cv.ls" ) {
+
+  # warn if the intercept is suppressed
+  if( attr( terms( formula ), "intercept" ) == 0L ) {
+    warning( "the intercept cannot be suppressed",
+      " in nonparametric regression" )
+  }
+
+  # save the (matched) call  
+  mc <- match.call( expand.dots = FALSE )
+  
+  # obtain the model matrix and the vector of responses
+  m <- match( c( "formula", "data" ), names( mc ), 0L )
+  mf <- mc[ c( 1L, m ) ]
+  mf$drop.unused.levels <- TRUE
+  mf[[ 1L ]] <- as.name( "model.frame" )
+  mf <- eval( mf, parent.frame() )
+  mt <- attr( mf, "terms" )
+  x <- model.matrix( mt, mf )
+  y <- model.response( mf, "numeric" )
+
+  # remove intercept from model matrix
+  x <- x[ , colnames( x ) != "(Intercept)", drop = FALSE ]
   
   ## Step 1: Estimate conditional mean and obtain residuals
   
@@ -60,7 +83,7 @@ sfaFLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
   returnObj <- list()
   returnObj$mhat <- fitted( model ) + mu 
   returnObj$mprime <- gradients(model)
-  returnObj$e <- resid
+  returnObj$e <- unname( resid )
   returnObj$sigma.sq <- sig.sq
   returnObj$lambda <- lmd
   returnObj$sigma.u <- sigma.u

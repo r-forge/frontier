@@ -39,34 +39,34 @@ printFLW <- function( x ) {
 
 
 # local-constant regression, rule-of-thumb bandwidths
-sfa.flw <- sfaFLW(y=y,x=x,bw.sel="rot")  # ,dis="ntn"
+sfa.flw <- sfaFLW( y ~ x, bw.sel = "rot" )  # ,dis="ntn"
 
 printFLW( sfa.flw )
 
 # local-linear regression, rule-of-thumb bandwidths
-sfa.flw.ll <- sfaFLW( y = y, x = x, regtype = "ll", bw.sel = "rot" )
+sfa.flw.ll <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "rot" )
 
 printFLW( sfa.flw.ll )
 
 # local-constant regression, ls.cv bandwidths
-sfa.flw.ls <- sfaFLW( y = y, x = x )
+sfa.flw.ls <- sfaFLW( y ~ x )
 
 printFLW( sfa.flw.ls )
 
 # local-linear regression, ls.cv bandwidths
-sfa.flw.ll.ls <- sfaFLW( y = y, x = x, regtype = "ll" )
+sfa.flw.ll.ls <- sfaFLW( y ~ x, regtype = "ll" )
 
 printFLW( sfa.flw.ll.ls )
 
 # local-constant regression, aic bandwidths
-sfa.flw.aic <- sfaFLW( y = y, x = x, bw.sel = "cv.aic" )
+sfa.flw.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.aic )
 
 # local-linear regression, aic bandwidths
-sfa.flw.ll.aic <- sfaFLW( y = y, x = x, regtype = "ll", bw.sel = "cv.aic" )
+sfa.flw.ll.aic <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.ll.aic )
 
 # wrong value of argument 'bw.sel'
-try( sfaFLW( y = y, x = x, bw.sel = "unknown" ) )
+try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
