@@ -49,14 +49,21 @@ Loading required package: stats4
 > 
 > y <- 1+log(1+x)+e
 > 
+> # function for printing objects returned by FLW():
+> printFLW <- function( x ) {
++   for( i in 1:length( x ) ) {
++     cat( "$", names( x )[ i ], "\n", sep = "" )
++     print( round( x[[ i ]], 2 ) )
++     cat( "\n" )
++   }
++   invisible( x )
++ }
+> 
+> 
 > # local-constant regression, rule-of-thumb bandwidths
 > sfa.flw <- FLW(y=y,x=x,bw.sel="rot")  # ,dis="ntn"
 > 
-> for( i in 1:length( sfa.flw ) ) {
-+   cat( "$", names( sfa.flw )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw )
 $mhat
   [1] 1.31 1.10 1.14 1.79 1.88 2.10 1.10 1.10 1.16 1.09 1.99 2.07 1.76 1.10 1.10
  [16] 1.10 3.14 1.25 1.73 1.11 1.10 2.05 1.09 2.15 1.10 1.14 1.09 1.09 2.06 1.09
@@ -314,11 +321,7 @@ $bw
 > # local-linear regression, rule-of-thumb bandwidths
 > sfa.flw.ll <- FLW( y = y, x = x, regtype = "ll", bw.sel = "rot" )
 > 
-> for( i in 1:length( sfa.flw.ll ) ) {
-+   cat( "$", names( sfa.flw.ll )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw.ll[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw.ll )
 $mhat
   [1] 1.50 0.99 1.14 1.99 2.04 2.28 1.00 0.99 1.21 0.96 2.10 2.12 1.97 0.98 0.99
  [16] 1.00 3.16 1.41 1.94 1.02 1.01 2.06 0.95 2.40 0.98 1.13 0.95 0.95 2.07 0.95
@@ -576,11 +579,7 @@ $bw
 > # local-constant regression, ls.cv bandwidths
 > sfa.flw.ls <- FLW( y = y, x = x )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
-> for( i in 1:length( sfa.flw.ls ) ) {
-+   cat( "$", names( sfa.flw.ls )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw.ls[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw.ls )
 $mhat
   [1] 1.38 1.00 1.09 1.95 2.05 2.36 1.01 1.01 1.15 0.99 2.24 2.39 1.92 1.00 1.00
  [16] 1.01 3.04 1.31 1.90 1.02 1.01 1.72 0.99 2.56 1.00 1.09 0.99 0.99 1.78 0.99
@@ -838,11 +837,7 @@ $bw
 > # local-linear regression, ls.cv bandwidths
 > sfa.flw.ll.ls <- FLW( y = y, x = x, regtype = "ll" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
-> for( i in 1:length( sfa.flw.ll.ls ) ) {
-+   cat( "$", names( sfa.flw.ll.ls )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw.ll.ls[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw.ll.ls )
 $mhat
   [1] 1.44 1.03 1.14 1.81 1.86 2.37 1.04 1.03 1.20 1.01 1.94 2.01 1.79 1.02 1.03
  [16] 1.03 3.02 1.36 1.77 1.05 1.04 2.24 1.00 2.42 1.02 1.14 1.00 1.00 2.19 1.00
@@ -1100,11 +1095,7 @@ $bw
 > # local-constant regression, aic bandwidths
 > sfa.flw.aic <- FLW( y = y, x = x, bw.sel = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
-> for( i in 1:length( sfa.flw.aic ) ) {
-+   cat( "$", names( sfa.flw.aic )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw.aic[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw.aic )
 $mhat
   [1] 1.38 1.02 1.09 1.95 2.05 2.29 1.03 1.02 1.14 1.01 2.23 2.35 1.92 1.02 1.02
  [16] 1.03 3.07 1.30 1.89 1.03 1.03 1.79 1.01 2.48 1.02 1.09 1.01 1.01 1.84 1.01
@@ -1362,11 +1353,7 @@ $bw
 > # local-linear regression, aic bandwidths
 > sfa.flw.ll.aic <- FLW( y = y, x = x, regtype = "ll", bw.sel = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
-> for( i in 1:length( sfa.flw.ll.aic ) ) {
-+   cat( "$", names( sfa.flw.ll.aic )[ i ], "\n", sep = "" )
-+   print( round( sfa.flw.ll.aic[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( sfa.flw.ll.aic )
 $mhat
   [1] 1.41 1.06 1.15 1.76 1.81 2.39 1.06 1.06 1.20 1.04 1.89 1.97 1.74 1.05 1.06
  [16] 1.06 2.98 1.34 1.72 1.07 1.07 2.23 1.03 2.44 1.05 1.15 1.03 1.03 2.17 1.03
@@ -1628,4 +1615,4 @@ Error in FLW(y = y, x = x, bw.sel = "unknown") :
 > 
 > proc.time()
    user  system elapsed 
-  0.988   0.008   0.993 
+  0.948   0.044   0.992 

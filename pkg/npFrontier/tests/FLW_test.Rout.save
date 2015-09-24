@@ -27,16 +27,23 @@ Loading required package: stats4
 > # load data
 > data( front41Data, package = "frontier" )
 > 
+> # function for printing objects returned by FLW():
+> printFLW <- function( x ) {
++   for( i in 1:length( x ) ) {
++     cat( "$", names( x )[ i ], "\n", sep = "" )
++     print( round( x[[ i ]], 2 ) )
++     cat( "\n" )
++   }
++   invisible( x )
++ }
+> 
+> 
 > # semiparametric Cobb-Douglas production frontiers
 > # local-constant regression, ls.cv bandwidths
 > FLW_Result <- FLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
-> for( i in 1:length( FLW_Result ) ) {
-+   cat( "$", names( FLW_Result )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result )
 $mhat
  [1] 2.79 3.14 3.40 2.79 2.84 3.00 2.11 3.29 2.81 2.96 1.55 3.22 3.02 2.59 2.75
 [16] 2.98 3.27 3.05 3.02 3.21 3.27 2.92 3.37 2.13 2.13 3.41 3.25 3.05 2.52 2.36
@@ -134,11 +141,7 @@ $bw
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -                   > 
-> for( i in 1:length( FLW_Result_ll ) ) {
-+   cat( "$", names( FLW_Result_ll )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result_ll[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result_ll )
 $mhat
  [1] 3.04 3.30 3.42 2.91 2.90 2.96 2.52 3.42 2.78 2.90 1.90 3.08 3.42 2.79 2.47
 [16] 3.02 3.29 3.14 3.09 3.12 3.21 2.67 3.27 2.32 2.57 3.32 3.43 3.05 2.39 2.54
@@ -236,11 +239,7 @@ $bw
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   bw.sel = "rot"  )
 > 
-> for( i in 1:length( FLW_Result_rot ) ) {
-+   cat( "$", names( FLW_Result_rot )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result_rot[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result_rot )
 $mhat
  [1] 2.95 3.21 3.25 3.00 2.89 2.94 2.27 3.25 2.98 2.92 1.84 3.12 3.22 2.86 2.38
 [16] 3.09 3.15 3.14 3.12 3.13 3.16 2.93 3.18 2.30 2.30 3.21 3.24 3.10 2.72 2.55
@@ -338,11 +337,7 @@ $bw
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll", bw.sel = "rot"  )
 > 
-> for( i in 1:length( FLW_Result_ll_rot ) ) {
-+   cat( "$", names( FLW_Result_ll_rot )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result_ll_rot[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result_ll_rot )
 $mhat
  [1] 2.88 3.30 3.42 2.91 2.80 2.97 2.16 3.39 2.88 2.90 1.67 3.10 3.32 2.77 2.41
 [16] 3.06 3.18 3.16 3.12 3.12 3.25 2.80 3.31 2.20 2.26 3.36 3.38 3.06 2.51 2.40
@@ -440,11 +435,7 @@ $bw
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
-> for( i in 1:length( FLW_Result_aic ) ) {
-+   cat( "$", names( FLW_Result_aic )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result_aic[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result_aic )
 $mhat
  [1] 2.94 3.23 3.28 2.96 2.87 3.04 2.35 3.27 2.95 3.03 1.74 3.12 3.24 2.84 2.54
 [16] 3.13 3.16 3.18 3.16 3.13 3.22 2.89 3.24 2.38 2.42 3.26 3.26 3.08 2.73 2.70
@@ -542,11 +533,7 @@ $bw
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll", bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |                   > 
-> for( i in 1:length( FLW_Result_ll_aic ) ) {
-+   cat( "$", names( FLW_Result_ll_aic )[ i ], "\n", sep = "" )
-+   print( round( FLW_Result_ll_aic[[ i ]], 2 ) )
-+   cat( "\n" )
-+ }
+> printFLW( FLW_Result_ll_aic )
 $mhat
  [1] 3.06 3.33 3.43 2.92 2.92 3.01 2.53 3.43 2.78 2.94 2.12 3.11 3.42 2.81 2.43
 [16] 3.06 3.30 3.17 3.12 3.14 3.25 2.66 3.31 2.20 2.58 3.36 3.43 3.08 2.36 2.49
@@ -648,4 +635,4 @@ Error in FLW(log(front41Data$output), cbind(log(front41Data$capital),  :
 > 
 > proc.time()
    user  system elapsed 
-  0.908   0.032   0.934 
+  0.912   0.036   0.936 

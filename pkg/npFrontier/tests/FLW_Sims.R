@@ -27,59 +27,46 @@ x <- rchisq(n,1)
 
 y <- 1+log(1+x)+e
 
+# function for printing objects returned by FLW():
+printFLW <- function( x ) {
+  for( i in 1:length( x ) ) {
+    cat( "$", names( x )[ i ], "\n", sep = "" )
+    print( round( x[[ i ]], 2 ) )
+    cat( "\n" )
+  }
+  invisible( x )
+}
+
+
 # local-constant regression, rule-of-thumb bandwidths
 sfa.flw <- FLW(y=y,x=x,bw.sel="rot")  # ,dis="ntn"
 
-for( i in 1:length( sfa.flw ) ) {
-  cat( "$", names( sfa.flw )[ i ], "\n", sep = "" )
-  print( round( sfa.flw[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw )
 
 # local-linear regression, rule-of-thumb bandwidths
 sfa.flw.ll <- FLW( y = y, x = x, regtype = "ll", bw.sel = "rot" )
 
-for( i in 1:length( sfa.flw.ll ) ) {
-  cat( "$", names( sfa.flw.ll )[ i ], "\n", sep = "" )
-  print( round( sfa.flw.ll[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw.ll )
 
 # local-constant regression, ls.cv bandwidths
 sfa.flw.ls <- FLW( y = y, x = x )
 
-for( i in 1:length( sfa.flw.ls ) ) {
-  cat( "$", names( sfa.flw.ls )[ i ], "\n", sep = "" )
-  print( round( sfa.flw.ls[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw.ls )
 
 # local-linear regression, ls.cv bandwidths
 sfa.flw.ll.ls <- FLW( y = y, x = x, regtype = "ll" )
 
-for( i in 1:length( sfa.flw.ll.ls ) ) {
-  cat( "$", names( sfa.flw.ll.ls )[ i ], "\n", sep = "" )
-  print( round( sfa.flw.ll.ls[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw.ll.ls )
 
 # local-constant regression, aic bandwidths
 sfa.flw.aic <- FLW( y = y, x = x, bw.sel = "cv.aic" )
 
-for( i in 1:length( sfa.flw.aic ) ) {
-  cat( "$", names( sfa.flw.aic )[ i ], "\n", sep = "" )
-  print( round( sfa.flw.aic[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw.aic )
 
 # local-linear regression, aic bandwidths
 sfa.flw.ll.aic <- FLW( y = y, x = x, regtype = "ll", bw.sel = "cv.aic" )
 
-for( i in 1:length( sfa.flw.ll.aic ) ) {
-  cat( "$", names( sfa.flw.ll.aic )[ i ], "\n", sep = "" )
-  print( round( sfa.flw.ll.aic[[ i ]], 2 ) )
-  cat( "\n" )
-}
+printFLW( sfa.flw.ll.aic )
 
 # wrong value of argument 'bw.sel'
 try( FLW( y = y, x = x, bw.sel = "unknown" ) )
