@@ -1,4 +1,4 @@
-export( "FLW" )
+export( "sfaFLW" )
 importFrom( "bbmle", "mle2" )
 importFrom( "bbmle", "coef" )
 importFrom( "np", "gradients" )

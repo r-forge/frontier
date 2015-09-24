@@ -15,7 +15,7 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
-> ## Code to test function FLW()
+> ## Code to test function sfaFLW()
 > 
 > library( "npFrontier" )
 Loading required package: np
@@ -27,7 +27,7 @@ Loading required package: stats4
 > # load data
 > data( front41Data, package = "frontier" )
 > 
-> # function for printing objects returned by FLW():
+> # function for printing objects returned by sfaFLW():
 > printFLW <- function( x ) {
 +   for( i in 1:length( x ) ) {
 +     cat( "$", names( x )[ i ], "\n", sep = "" )
@@ -40,7 +40,7 @@ Loading required package: stats4
 > 
 > # semiparametric Cobb-Douglas production frontiers
 > # local-constant regression, ls.cv bandwidths
-> FLW_Result <- FLW( log( front41Data$output ), 
+> FLW_Result <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result )
@@ -137,7 +137,7 @@ $bw
 
 > 
 > # local-linear regression, ls.cv bandwidths
-> FLW_Result_ll <- FLW( log( front41Data$output ), 
+> FLW_Result_ll <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -                   > 
@@ -235,7 +235,7 @@ $bw
 
 > 
 > # local-constant regression, rule-of-thumb bandwidths
-> FLW_Result_rot <- FLW( log( front41Data$output ), 
+> FLW_Result_rot <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   bw.sel = "rot"  )
 > 
@@ -333,7 +333,7 @@ $bw
 
 > 
 > # local-linear regression with rule-of-thumb bandwidths
-> FLW_Result_ll_rot <- FLW( log( front41Data$output ), 
+> FLW_Result_ll_rot <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll", bw.sel = "rot"  )
 > 
@@ -431,7 +431,7 @@ $bw
 
 > 
 > # local-constant regression, ls.cv bandwidths
-> FLW_Result_aic <- FLW( log( front41Data$output ), 
+> FLW_Result_aic <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
@@ -529,7 +529,7 @@ $bw
 
 > 
 > # local-linear regression, ls.cv bandwidths
-> FLW_Result_ll_aic <- FLW( log( front41Data$output ), 
+> FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   regtype = "ll", bw.sel = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |                   > 
@@ -627,12 +627,12 @@ $bw
 
 > 
 > # wrong value of argument 'bw.sel'
-> try( FLW_Result_ll_aic <- FLW( log( front41Data$output ), 
+> try( FLW_Result_ll_aic <- sfaFLW( log( front41Data$output ), 
 +   cbind( log( front41Data$capital ), log( front41Data$labour ) ),
 +   bw.sel = "wrong" ) )
-Error in FLW(log(front41Data$output), cbind(log(front41Data$capital),  : 
+Error in sfaFLW(log(front41Data$output), cbind(log(front41Data$capital),  : 
   argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
 > proc.time()
    user  system elapsed 
-  0.912   0.036   0.936 
+  0.940   0.012   0.947 

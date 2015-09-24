@@ -18,7 +18,7 @@ flw.ll <- function(lmd=1,e){
   return(-flw.ll)
 }
 
-FLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
+sfaFLW <- function(y,x,regtype="lc",bw.sel="cv.ls"){
   
   ## Step 1: Estimate conditional mean and obtain residuals
   

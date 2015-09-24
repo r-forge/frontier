@@ -1,5 +1,5 @@
-\name{FLW}
-\alias{FLW}
+\name{sfaFLW}
+\alias{sfaFLW}
 \title{Semiparameric SFA of Fan, Lee, and Weersink (1996)}
 
 \description{
@@ -8,7 +8,7 @@
 }
 
 \usage{
-FLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
+sfaFLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
 }
 
 \arguments{
@@ -38,7 +38,7 @@ FLW( y, x, regtype = "lc", bw.sel = "cv.ls" )
   data( front41Data, package = "frontier" )
 
   # semiparametric local-constant Cobb-Douglas production frontier
-  FLW_Result <- FLW( log( front41Data$output ), 
+  FLW_Result <- sfaFLW( log( front41Data$output ), 
     cbind( log( front41Data$capital ), log( front41Data$labour ) ) )
   FLW_Result
 }

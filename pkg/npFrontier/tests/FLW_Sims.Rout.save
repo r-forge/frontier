@@ -49,7 +49,7 @@ Loading required package: stats4
 > 
 > y <- 1+log(1+x)+e
 > 
-> # function for printing objects returned by FLW():
+> # function for printing objects returned by sfaFLW():
 > printFLW <- function( x ) {
 +   for( i in 1:length( x ) ) {
 +     cat( "$", names( x )[ i ], "\n", sep = "" )
@@ -61,7 +61,7 @@ Loading required package: stats4
 > 
 > 
 > # local-constant regression, rule-of-thumb bandwidths
-> sfa.flw <- FLW(y=y,x=x,bw.sel="rot")  # ,dis="ntn"
+> sfa.flw <- sfaFLW(y=y,x=x,bw.sel="rot")  # ,dis="ntn"
 > 
 > printFLW( sfa.flw )
 $mhat
@@ -319,7 +319,7 @@ $bw
 
 > 
 > # local-linear regression, rule-of-thumb bandwidths
-> sfa.flw.ll <- FLW( y = y, x = x, regtype = "ll", bw.sel = "rot" )
+> sfa.flw.ll <- sfaFLW( y = y, x = x, regtype = "ll", bw.sel = "rot" )
 > 
 > printFLW( sfa.flw.ll )
 $mhat
@@ -577,7 +577,7 @@ $bw
 
 > 
 > # local-constant regression, ls.cv bandwidths
-> sfa.flw.ls <- FLW( y = y, x = x )
+> sfa.flw.ls <- sfaFLW( y = y, x = x )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ls )
 $mhat
@@ -835,7 +835,7 @@ $bw
 
 > 
 > # local-linear regression, ls.cv bandwidths
-> sfa.flw.ll.ls <- FLW( y = y, x = x, regtype = "ll" )
+> sfa.flw.ll.ls <- sfaFLW( y = y, x = x, regtype = "ll" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.ls )
 $mhat
@@ -1093,7 +1093,7 @@ $bw
 
 > 
 > # local-constant regression, aic bandwidths
-> sfa.flw.aic <- FLW( y = y, x = x, bw.sel = "cv.aic" )
+> sfa.flw.aic <- sfaFLW( y = y, x = x, bw.sel = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.aic )
 $mhat
@@ -1351,7 +1351,7 @@ $bw
 
 > 
 > # local-linear regression, aic bandwidths
-> sfa.flw.ll.aic <- FLW( y = y, x = x, regtype = "ll", bw.sel = "cv.aic" )
+> sfa.flw.ll.aic <- sfaFLW( y = y, x = x, regtype = "ll", bw.sel = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.aic )
 $mhat
@@ -1609,10 +1609,10 @@ $bw
 
 > 
 > # wrong value of argument 'bw.sel'
-> try( FLW( y = y, x = x, bw.sel = "unknown" ) )
-Error in FLW(y = y, x = x, bw.sel = "unknown") : 
+> try( sfaFLW( y = y, x = x, bw.sel = "unknown" ) )
+Error in sfaFLW(y = y, x = x, bw.sel = "unknown") : 
   argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
 > proc.time()
    user  system elapsed 
-  0.948   0.044   0.992 
+  0.996   0.040   1.034 
