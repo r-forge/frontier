@@ -81,6 +81,7 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
   mu <- sqrt(sig.sq)*sc
 
   returnObj <- list()
+  returnObj$mu <- mu 
   returnObj$mhat <- fitted( model ) + mu 
   returnObj$mprime <- gradients(model)
   returnObj$e <- unname( resid )

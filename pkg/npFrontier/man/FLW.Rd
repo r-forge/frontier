@@ -27,6 +27,9 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
 \value{
   \code{sfaFLW} returns a list of class \code{sfaFLW}
     containing following elements:
+  \item{mu}{numeric scalar containing the bias correction
+    \eqn{\mu = \sigma \sqrt{ ( 2 \lambda^2 / \pi ) / ( 1 + \lambda^2 ) }},
+    obtained in the maximum likelihood estimation (second step).}
   \item{mhat}{numeric vector containing the fitted frontier values,
     i.e. the fitted values from the nonparametric regression (first step)
     plus the bias correction \eqn{\mu}
