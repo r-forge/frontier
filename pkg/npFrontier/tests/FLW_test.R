@@ -53,6 +53,12 @@ FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
 
 printFLW( FLW_Result_ll_aic )
 
+# no intercept
+FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
+  data = front41Data, bw.sel = "rot"  )
+
+all.equal( FLW_Result_rot, FLW_Result_rot2 )
+
 # wrong value of argument 'bw.sel'
 try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "wrong" ) )

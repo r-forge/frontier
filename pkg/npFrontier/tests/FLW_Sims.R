@@ -68,5 +68,10 @@ sfa.flw.ll.aic <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.ll.aic )
 
+# no intercept
+sfa.flw.ll2 <- sfaFLW( y ~ x - 1, regtype = "ll", bw.sel = "rot" )
+
+all.equal( sfa.flw.ll, sfa.flw.ll2 )
+
 # wrong value of argument 'bw.sel'
 try( sfaFLW( y ~ x, bw.sel = "unknown" ) )

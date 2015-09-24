@@ -623,6 +623,16 @@ $bw
 [1]       1.82 1448053.51
 
 > 
+> # no intercept
+> FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
++   data = front41Data, bw.sel = "rot"  )
+Warning message:
+In sfaFLW(log(output) ~ log(capital) + log(labour) - 1, data = front41Data,  :
+  the intercept cannot be suppressed in nonparametric regression
+> 
+> all.equal( FLW_Result_rot, FLW_Result_rot2 )
+[1] TRUE
+> 
 > # wrong value of argument 'bw.sel'
 > try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
 +   data = front41Data, bw.sel = "wrong" ) )
@@ -631,4 +641,4 @@ Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  :
 > 
 > proc.time()
    user  system elapsed 
-  0.948   0.012   0.956 
+   1.06    0.02    1.08 

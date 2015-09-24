@@ -1610,6 +1610,15 @@ $bw
 [1] 1.89
 
 > 
+> # no intercept
+> sfa.flw.ll2 <- sfaFLW( y ~ x - 1, regtype = "ll", bw.sel = "rot" )
+Warning message:
+In sfaFLW(y ~ x - 1, regtype = "ll", bw.sel = "rot") :
+  the intercept cannot be suppressed in nonparametric regression
+> 
+> all.equal( sfa.flw.ll, sfa.flw.ll2 )
+[1] TRUE
+> 
 > # wrong value of argument 'bw.sel'
 > try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
 Error in sfaFLW(y ~ x, bw.sel = "unknown") : 
@@ -1617,4 +1626,4 @@ Error in sfaFLW(y ~ x, bw.sel = "unknown") :
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.016   1.092 
+  1.100   0.024   1.132 
