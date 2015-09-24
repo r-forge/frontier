@@ -90,5 +90,7 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
   returnObj$sigma.v <- sigma.v
   returnObj$bw <- bw$bw
   
+  class( returnObj ) <- "sfaFLW" 
+  
   return( returnObj )
 }

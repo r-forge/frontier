@@ -25,7 +25,7 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
 }
 
 \value{
-  \code{sfaFLW} returns a list
+  \code{sfaFLW} returns a list of class \code{sfaFLW}
     containing following elements:
   \item{mhat}{numeric vector containing the fitted frontier values,
     i.e. the fitted values from the nonparametric regression (first step)
