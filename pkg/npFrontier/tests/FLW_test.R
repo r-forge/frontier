@@ -22,43 +22,63 @@ FLW_Result <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data )
 
 printFLW( FLW_Result )
+round( residuals( FLW_Result, which = "first" ), 2 )
+round( residuals( FLW_Result ), 2 )
+all.equal( residuals( FLW_Result, which = "final" ),
+  residuals( FLW_Result ) )
 
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, regtype = "ll" )
 
 printFLW( FLW_Result_ll )
+round( residuals( FLW_Result_ll, which = "first" ), 2 )
+round( residuals( FLW_Result_ll ), 2 )
 
 # local-constant regression, rule-of-thumb bandwidths
 FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "rot"  )
 
 printFLW( FLW_Result_rot )
+round( residuals( FLW_Result_rot, which = "first" ), 2 )
+round( residuals( FLW_Result_rot ), 2 )
 
 # local-linear regression with rule-of-thumb bandwidths
 FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, regtype = "ll", bw.sel = "rot"  )
 
 printFLW( FLW_Result_ll_rot )
+round( residuals( FLW_Result_ll_rot, which = "first" ), 2 )
+round( residuals( FLW_Result_ll_rot ), 2 )
 
 # local-constant regression, ls.cv bandwidths
 FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "cv.aic" )
 
 printFLW( FLW_Result_aic )
+round( residuals( FLW_Result_aic, which = "first" ), 2 )
+round( residuals( FLW_Result_aic ), 2 )
 
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, regtype = "ll", bw.sel = "cv.aic" )
 
 printFLW( FLW_Result_ll_aic )
+round( residuals( FLW_Result_ll_aic, which = "first" ), 2 )
+round( residuals( FLW_Result_ll_aic ), 2 )
 
 # no intercept
 FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
   data = front41Data, bw.sel = "rot"  )
 
 all.equal( FLW_Result_rot, FLW_Result_rot2 )
+all.equal( residuals( FLW_Result_rot, which = "first" ),
+  residuals( FLW_Result_rot2, which = "first" ) )
+all.equal( residuals( FLW_Result_rot ), residuals( FLW_Result_rot2 ) )
 
 # wrong value of argument 'bw.sel'
 try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "wrong" ) )
+
+# wrong value of argument 'which'
+try( residuals( FLW_Result_rot, which = "none" ) )

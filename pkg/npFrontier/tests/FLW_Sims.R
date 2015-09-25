@@ -42,36 +42,56 @@ printFLW <- function( x ) {
 sfa.flw <- sfaFLW( y ~ x, bw.sel = "rot" )  # ,dis="ntn"
 
 printFLW( sfa.flw )
+round( residuals( sfa.flw, which = "first" ), 2 )
+round( residuals( sfa.flw ), 2 )
+all.equal( residuals( sfa.flw, which = "final" ),
+  residuals( sfa.flw ) )
 
 # local-linear regression, rule-of-thumb bandwidths
 sfa.flw.ll <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "rot" )
 
 printFLW( sfa.flw.ll )
+round( residuals( sfa.flw.ll, which = "first" ), 2 )
+round( residuals( sfa.flw.ll ), 2 )
 
 # local-constant regression, ls.cv bandwidths
 sfa.flw.ls <- sfaFLW( y ~ x )
 
 printFLW( sfa.flw.ls )
+round( residuals( sfa.flw.ls, which = "first" ), 2 )
+round( residuals( sfa.flw.ls ), 2 )
 
 # local-linear regression, ls.cv bandwidths
 sfa.flw.ll.ls <- sfaFLW( y ~ x, regtype = "ll" )
 
 printFLW( sfa.flw.ll.ls )
+round( residuals( sfa.flw.ll.ls, which = "first" ), 2 )
+round( residuals( sfa.flw.ll.ls ), 2 )
 
 # local-constant regression, aic bandwidths
 sfa.flw.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.aic )
+round( residuals( sfa.flw.aic, which = "first" ), 2 )
+round( residuals( sfa.flw.aic ), 2 )
 
 # local-linear regression, aic bandwidths
 sfa.flw.ll.aic <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.ll.aic )
+round( residuals( sfa.flw.ll.aic, which = "first" ), 2 )
+round( residuals( sfa.flw.ll.aic ), 2 )
 
 # no intercept
 sfa.flw.ll2 <- sfaFLW( y ~ x - 1, regtype = "ll", bw.sel = "rot" )
 
 all.equal( sfa.flw.ll, sfa.flw.ll2 )
+all.equal( residuals( sfa.flw.ll, which = "first" ),
+  residuals( sfa.flw.ll, which = "first" ) )
+all.equal( residuals( sfa.flw.ll ), residuals( sfa.flw.ll ) )
 
 # wrong value of argument 'bw.sel'
 try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
+
+# wrong value of argument 'which'
+try( residuals( sfa.flw, which = "failed" ) )
