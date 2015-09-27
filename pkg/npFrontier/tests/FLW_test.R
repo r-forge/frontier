@@ -32,6 +32,8 @@ round( fitted( FLW_Result ), 2 )
 all.equal( fitted( FLW_Result, which = "frontier" ),
   fitted( FLW_Result ) )
 
+round( gradients( FLW_Result ), 2 )
+
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, npArg = list( regtype = "ll" ) )
@@ -42,6 +44,8 @@ round( residuals( FLW_Result_ll ), 2 )
 
 round( fitted( FLW_Result_ll, which = "first" ), 2 )
 round( fitted( FLW_Result_ll ), 2 )
+
+round( gradients( FLW_Result_ll ), 2 )
 
 # local-constant regression, rule-of-thumb bandwidths
 FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
@@ -54,6 +58,8 @@ round( residuals( FLW_Result_rot ), 2 )
 round( fitted( FLW_Result_rot, which = "first" ), 2 )
 round( fitted( FLW_Result_rot ), 2 )
 
+round( gradients( FLW_Result_rot ), 2 )
+
 # local-linear regression with rule-of-thumb bandwidths
 FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "rot", npArg = list( regtype = "ll" ) )
@@ -64,6 +70,8 @@ round( residuals( FLW_Result_ll_rot ), 2 )
 
 round( fitted( FLW_Result_ll_rot, which = "first" ), 2 )
 round( fitted( FLW_Result_ll_rot ), 2 )
+
+round( gradients( FLW_Result_ll_rot ), 2 )
 
 # local-constant regression, ls.cv bandwidths
 FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
@@ -76,6 +84,8 @@ round( residuals( FLW_Result_aic ), 2 )
 round( fitted( FLW_Result_aic, which = "first" ), 2 )
 round( fitted( FLW_Result_aic ), 2 )
 
+round( gradients( FLW_Result_aic ), 2 )
+
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "cv.aic", npArg = list( regtype = "ll" ) )
@@ -86,6 +96,8 @@ round( residuals( FLW_Result_ll_aic ), 2 )
 
 round( fitted( FLW_Result_ll_aic, which = "first" ), 2 )
 round( fitted( FLW_Result_ll_aic ), 2 )
+
+round( gradients( FLW_Result_ll_aic ), 2 )
 
 # no intercept
 FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
@@ -99,6 +111,8 @@ all.equal( residuals( FLW_Result_rot ), residuals( FLW_Result_rot2 ) )
 all.equal( fitted( FLW_Result_rot, which = "first" ),
   fitted( FLW_Result_rot2, which = "first" ) )
 all.equal( fitted( FLW_Result_rot ), fitted( FLW_Result_rot2 ) )
+
+all.equal( gradients( FLW_Result_rot ), gradients( FLW_Result_rot2 ) )
 
 # wrong value of argument 'bw.sel'
 try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
