@@ -72,6 +72,11 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
   FLW_Result <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
     data = front41Data )
   FLW_Result
+
+  # semiparametric local-linear Cobb-Douglas production frontier
+  FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+    data = front41Data, npArg = list( regtype = "ll" ) )
+  FLW_Result_ll
 }
 
 \keyword{models}
