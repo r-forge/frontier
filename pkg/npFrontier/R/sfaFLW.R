@@ -19,7 +19,7 @@ flw.ll <- function(lmd=1,e){
 }
 
 sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
-  regtype = "lc", bw.sel = "cv.ls" ) {
+  bw.sel = "cv.ls", npArg = list() ) {
 
   # warn if the intercept is suppressed
   if( attr( terms( formula ), "intercept" ) == 0L ) {
@@ -27,6 +27,17 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
       " in nonparametric regression" )
   }
 
+  # check argument 'npArg'
+  if( is.list( npArg ) ) {
+    if( any( names( npArg ) %in%
+        c( "xdat", "ydat", "bwmethod", "bandwidth.compute" ) ) ) {
+      stop( "argument 'npArg' may not be used to specify arguments",
+        " 'xdat', 'ydat', 'bwmethod', and 'bandwidth.compute'" )
+    }
+  } else {
+    stop( "argument 'npArg' must be a list" )
+  }
+  
   # save the (matched) call  
   mc <- match.call( expand.dots = FALSE )
   
@@ -46,9 +57,12 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
   ## Step 1: Estimate conditional mean and obtain residuals
   
   if( bw.sel %in% c( "cv.ls", "cv.aic" ) ) {
-    bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bwmethod=bw.sel)
+    bw <- do.call( npregbw,
+      args = c( list( ydat = y, xdat = x, bwmethod = bw.sel ), npArg ) )
   } else if( bw.sel == "rot" ) {
-    bw <- npregbw(ydat=y,xdat=x,regtype=regtype,bandwidth.compute=FALSE)
+    bw <- do.call( npregbw,
+      args = c( list( ydat = y, xdat = x, bandwidth.compute = FALSE ),
+        npArg ) )
     bw$bw <- 1.06*apply(as.matrix(x),2,sd)*length(y)^(-1/(4+ncol(as.matrix(x))))
   } else {
     stop( "argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'" )

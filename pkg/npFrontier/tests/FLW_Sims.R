@@ -52,7 +52,8 @@ round( fitted( sfa.flw ), 2 )
 all.equal( fitted( sfa.flw, which = "frontier" ), fitted( sfa.flw ) )
 
 # local-linear regression, rule-of-thumb bandwidths
-sfa.flw.ll <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "rot" )
+sfa.flw.ll <- sfaFLW( y ~ x, bw.sel = "rot",
+  npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll )
 round( residuals( sfa.flw.ll, which = "first" ), 2 )
@@ -72,7 +73,7 @@ round( fitted( sfa.flw.ls, which = "first" ), 2 )
 round( fitted( sfa.flw.ls ), 2 )
 
 # local-linear regression, ls.cv bandwidths
-sfa.flw.ll.ls <- sfaFLW( y ~ x, regtype = "ll" )
+sfa.flw.ll.ls <- sfaFLW( y ~ x, npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll.ls )
 round( residuals( sfa.flw.ll.ls, which = "first" ), 2 )
@@ -92,7 +93,8 @@ round( fitted( sfa.flw.aic, which = "first" ), 2 )
 round( fitted( sfa.flw.aic ), 2 )
 
 # local-linear regression, aic bandwidths
-sfa.flw.ll.aic <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "cv.aic" )
+sfa.flw.ll.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic",
+  npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll.aic )
 round( residuals( sfa.flw.ll.aic, which = "first" ), 2 )
@@ -102,7 +104,8 @@ round( fitted( sfa.flw.ll.aic, which = "first" ), 2 )
 round( fitted( sfa.flw.ll.aic ), 2 )
 
 # no intercept
-sfa.flw.ll2 <- sfaFLW( y ~ x - 1, regtype = "ll", bw.sel = "rot" )
+sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bw.sel = "rot",
+  npArg = list( regtype = "ll" ) )
 
 all.equal( sfa.flw.ll, sfa.flw.ll2 )
 all.equal( residuals( sfa.flw.ll, which = "first" ),

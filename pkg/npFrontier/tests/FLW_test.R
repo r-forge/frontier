@@ -34,7 +34,7 @@ all.equal( fitted( FLW_Result, which = "frontier" ),
 
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, regtype = "ll" )
+  data = front41Data, npArg = list( regtype = "ll" ) )
 
 printFLW( FLW_Result_ll )
 round( residuals( FLW_Result_ll, which = "first" ), 2 )
@@ -56,7 +56,7 @@ round( fitted( FLW_Result_rot ), 2 )
 
 # local-linear regression with rule-of-thumb bandwidths
 FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, regtype = "ll", bw.sel = "rot"  )
+  data = front41Data, bw.sel = "rot", npArg = list( regtype = "ll" ) )
 
 printFLW( FLW_Result_ll_rot )
 round( residuals( FLW_Result_ll_rot, which = "first" ), 2 )
@@ -78,7 +78,7 @@ round( fitted( FLW_Result_aic ), 2 )
 
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, regtype = "ll", bw.sel = "cv.aic" )
+  data = front41Data, bw.sel = "cv.aic", npArg = list( regtype = "ll" ) )
 
 printFLW( FLW_Result_ll_aic )
 round( residuals( FLW_Result_ll_aic, which = "first" ), 2 )

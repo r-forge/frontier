@@ -9,19 +9,19 @@
 
 \usage{
 sfaFLW( formula, data = sys.frame( sys.parent() ),
-  regtype = "lc", bw.sel = "cv.ls" )
+  bw.sel = "cv.ls", npArg = list() )
 }
 
 \arguments{
   \item{formula}{a symbolic description of the model to be estimated.}
   \item{data}{optional data frame that contains the data.}
-  \item{regtype}{regression type,
-    passed to \code{\link[np]{npregbw}}.}
   \item{bw.sel}{bandwidth selection method:
     if it is \code{"rot"},
     FLW's rule-of-thumb is applied;
     otherwise, this argument is passed
     further to \code{\link[np]{npregbw}}.}
+  \item{npArg}{list of additional arguments
+    that are passed to \code{\link[np]{npregbw}}.}
 }
 
 \value{

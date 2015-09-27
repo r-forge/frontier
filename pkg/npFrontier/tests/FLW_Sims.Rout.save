@@ -395,7 +395,8 @@ $bw
 [1] TRUE
 > 
 > # local-linear regression, rule-of-thumb bandwidths
-> sfa.flw.ll <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "rot" )
+> sfa.flw.ll <- sfaFLW( y ~ x, bw.sel = "rot",
++   npArg = list( regtype = "ll" ) )
 > 
 > printFLW( sfa.flw.ll )
 $mu
@@ -1052,7 +1053,7 @@ $bw
 [196] 0.99 1.15 2.35 1.89 1.36
 > 
 > # local-linear regression, ls.cv bandwidths
-> sfa.flw.ll.ls <- sfaFLW( y ~ x, regtype = "ll" )
+> sfa.flw.ll.ls <- sfaFLW( y ~ x, npArg = list( regtype = "ll" ) )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.ls )
 $mu
@@ -1708,7 +1709,8 @@ $bw
 [196] 1.01 1.15 2.36 1.88 1.36
 > 
 > # local-linear regression, aic bandwidths
-> sfa.flw.ll.aic <- sfaFLW( y ~ x, regtype = "ll", bw.sel = "cv.aic" )
+> sfa.flw.ll.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic",
++   npArg = list( regtype = "ll" ) )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.aic )
 $mu
@@ -2036,9 +2038,10 @@ $bw
 [196] 1.03 1.20 2.82 1.72 1.39
 > 
 > # no intercept
-> sfa.flw.ll2 <- sfaFLW( y ~ x - 1, regtype = "ll", bw.sel = "rot" )
+> sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bw.sel = "rot",
++   npArg = list( regtype = "ll" ) )
 Warning message:
-In sfaFLW(y ~ x - 1, regtype = "ll", bw.sel = "rot") :
+In sfaFLW(y ~ x - 1, bw.sel = "rot", npArg = list(regtype = "ll")) :
   the intercept cannot be suppressed in nonparametric regression
 > 
 > all.equal( sfa.flw.ll, sfa.flw.ll2 )
@@ -2072,4 +2075,4 @@ Error in fitted.sfaFLW(sfa.flw, which = "not allowed") :
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.032   1.062 
+  1.020   0.060   1.071 
