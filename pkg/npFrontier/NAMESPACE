@@ -1,6 +1,7 @@
 export( "sfaFLW" )
 
 S3method( "fitted", "sfaFLW" )
+S3method( "gradients", "sfaFLW" )
 S3method( "residuals", "sfaFLW" )
 
 importFrom( "bbmle", "mle2" )
