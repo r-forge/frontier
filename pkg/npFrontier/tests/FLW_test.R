@@ -101,8 +101,16 @@ all.equal( fitted( FLW_Result_rot, which = "first" ),
 all.equal( fitted( FLW_Result_rot ), fitted( FLW_Result_rot2 ) )
 
 # wrong value of argument 'bw.sel'
-try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
   data = front41Data, bw.sel = "wrong" ) )
+
+# wrong values of argument 'npArg'
+try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, npArg = "ll" ) )
+try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, npArg = list( bandwidth.compute = FALSE ) ) )
+try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+  data = front41Data, npArg = list( ckertype = "something" ) ) )
 
 # residuals: wrong value of argument 'which'
 try( residuals( FLW_Result_rot, which = "none" ) )

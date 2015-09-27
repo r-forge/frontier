@@ -807,10 +807,24 @@ In sfaFLW(log(output) ~ log(capital) + log(labour) - 1, data = front41Data,  :
 [1] TRUE
 > 
 > # wrong value of argument 'bw.sel'
-> try( FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
+> try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
 +   data = front41Data, bw.sel = "wrong" ) )
 Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
   argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
+> 
+> # wrong values of argument 'npArg'
+> try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, npArg = "ll" ) )
+Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
+  argument 'npArg' must be a list
+> try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, npArg = list( bandwidth.compute = FALSE ) ) )
+Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
+  argument 'npArg' may not be used to specify arguments 'xdat', 'ydat', 'bwmethod', and 'bandwidth.compute'
+> try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
++   data = front41Data, npArg = list( ckertype = "something" ) ) )
+Error in match.arg(ckertype) : 
+  'arg' should be one of "gaussian", "truncated gaussian", "epanechnikov", "uniform"
 > 
 > # residuals: wrong value of argument 'which'
 > try( residuals( FLW_Result_rot, which = "none" ) )
@@ -824,4 +838,4 @@ Error in fitted.sfaFLW(FLW_Result_rot, which = "final") :
 > 
 > proc.time()
    user  system elapsed 
-  0.984   0.032   1.005 
+  0.944   0.044   0.979 

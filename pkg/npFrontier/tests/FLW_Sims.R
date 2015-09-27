@@ -119,6 +119,11 @@ all.equal( fitted( sfa.flw.ll ), fitted( sfa.flw.ll ) )
 # wrong value of argument 'bw.sel'
 try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
 
+# wrong values of argument 'npArg'
+try( sfaFLW( y ~ x, npArg = c( regtype = "ll" ) ) )
+try( sfaFLW( y ~ x, npArg = list( bwmethod = "cv.aic." ) ) )
+try( sfaFLW( y ~ x, npArg = list( regtype = "something" ) ) )
+
 # residuals: wrong value of argument 'which'
 try( residuals( sfa.flw, which = "failed" ) )
 

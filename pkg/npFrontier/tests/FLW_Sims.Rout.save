@@ -2063,6 +2063,16 @@ In sfaFLW(y ~ x - 1, bw.sel = "rot", npArg = list(regtype = "ll")) :
 Error in sfaFLW(y ~ x, bw.sel = "unknown") : 
   argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
+> # wrong values of argument 'npArg'
+> try( sfaFLW( y ~ x, npArg = c( regtype = "ll" ) ) )
+Error in sfaFLW(y ~ x, npArg = c(regtype = "ll")) : 
+  argument 'npArg' must be a list
+> try( sfaFLW( y ~ x, npArg = list( bwmethod = "cv.aic." ) ) )
+Error in sfaFLW(y ~ x, npArg = list(bwmethod = "cv.aic.")) : 
+  argument 'npArg' may not be used to specify arguments 'xdat', 'ydat', 'bwmethod', and 'bandwidth.compute'
+> try( sfaFLW( y ~ x, npArg = list( regtype = "something" ) ) )
+Error in match.arg(regtype) : 'arg' should be one of "lc", "ll"
+> 
 > # residuals: wrong value of argument 'which'
 > try( residuals( sfa.flw, which = "failed" ) )
 Error in residuals.sfaFLW(sfa.flw, which = "failed") : 
@@ -2075,4 +2085,4 @@ Error in fitted.sfaFLW(sfa.flw, which = "not allowed") :
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.060   1.071 
+  1.000   0.032   1.030 
