@@ -34,6 +34,20 @@ printFLW <- function( x ) {
     print( round( x[[ i ]], 2 ) )
     cat( "\n" )
   }
+  
+  cat( "> residuals( x, which = \"first\" )\n" )
+  print( round( residuals( x, which = "first" ), 2 ) )
+  cat( "\n> residuals( x )\n" )
+  print( round( residuals( x ), 2 ) )
+  
+  cat( "\n> fitted( x, which = \"first\" )\n" )
+  print( round( fitted( x, which = "first" ), 2 ) )
+  cat( "\n> fitted( x )\n" )
+  print( round( fitted( x ), 2 ) )
+  
+  cat( "\ngradients( x )\n" )
+  print( round( gradients( x ), 2 ) )
+  
   invisible( x )
 }
 
@@ -42,78 +56,38 @@ printFLW <- function( x ) {
 sfa.flw <- sfaFLW( y ~ x, bw.sel = "rot" )  # ,dis="ntn"
 
 printFLW( sfa.flw )
-round( residuals( sfa.flw, which = "first" ), 2 )
-round( residuals( sfa.flw ), 2 )
+
 all.equal( residuals( sfa.flw, which = "final" ),
   residuals( sfa.flw ) )
 
-round( fitted( sfa.flw, which = "first" ), 2 )
-round( fitted( sfa.flw ), 2 )
 all.equal( fitted( sfa.flw, which = "frontier" ), fitted( sfa.flw ) )
-
-round( gradients( sfa.flw ), 2 )
 
 # local-linear regression, rule-of-thumb bandwidths
 sfa.flw.ll <- sfaFLW( y ~ x, bw.sel = "rot",
   npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll )
-round( residuals( sfa.flw.ll, which = "first" ), 2 )
-round( residuals( sfa.flw.ll ), 2 )
-
-round( fitted( sfa.flw.ll, which = "first" ), 2 )
-round( fitted( sfa.flw.ll ), 2 )
-
-round( gradients( sfa.flw.ll ), 2 )
 
 # local-constant regression, ls.cv bandwidths
 sfa.flw.ls <- sfaFLW( y ~ x )
 
 printFLW( sfa.flw.ls )
-round( residuals( sfa.flw.ls, which = "first" ), 2 )
-round( residuals( sfa.flw.ls ), 2 )
-
-round( fitted( sfa.flw.ls, which = "first" ), 2 )
-round( fitted( sfa.flw.ls ), 2 )
-
-round( gradients( sfa.flw.ls ), 2 )
 
 # local-linear regression, ls.cv bandwidths
 sfa.flw.ll.ls <- sfaFLW( y ~ x, npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll.ls )
-round( residuals( sfa.flw.ll.ls, which = "first" ), 2 )
-round( residuals( sfa.flw.ll.ls ), 2 )
-
-round( fitted( sfa.flw.ll.ls, which = "first" ), 2 )
-round( fitted( sfa.flw.ll.ls ), 2 )
-
-round( gradients( sfa.flw.ll.ls ), 2 )
 
 # local-constant regression, aic bandwidths
 sfa.flw.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic" )
 
 printFLW( sfa.flw.aic )
-round( residuals( sfa.flw.aic, which = "first" ), 2 )
-round( residuals( sfa.flw.aic ), 2 )
-
-round( fitted( sfa.flw.aic, which = "first" ), 2 )
-round( fitted( sfa.flw.aic ), 2 )
-
-round( gradients( sfa.flw.aic ), 2 )
 
 # local-linear regression, aic bandwidths
 sfa.flw.ll.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic",
   npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll.aic )
-round( residuals( sfa.flw.ll.aic, which = "first" ), 2 )
-round( residuals( sfa.flw.ll.aic ), 2 )
-
-round( fitted( sfa.flw.ll.aic, which = "first" ), 2 )
-round( fitted( sfa.flw.ll.aic ), 2 )
-
-round( gradients( sfa.flw.ll.aic ), 2 )
 
 # no intercept
 sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bw.sel = "rot",
