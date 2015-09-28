@@ -439,7 +439,7 @@ gradients( x )
 > 
 > # local-constant regression, rule-of-thumb bandwidths
 > FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-+   data = front41Data, bw.sel = "rot"  )
++   data = front41Data, bwmethod = "rot"  )
 > 
 > printFLW( FLW_Result_rot )
 $mu
@@ -628,7 +628,7 @@ gradients( x )
 > 
 > # local-linear regression with rule-of-thumb bandwidths
 > FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-+   data = front41Data, bw.sel = "rot", npArg = list( regtype = "ll" ) )
++   data = front41Data, bwmethod = "rot", npArg = list( regtype = "ll" ) )
 > 
 > printFLW( FLW_Result_ll_rot )
 $mu
@@ -817,7 +817,7 @@ gradients( x )
 > 
 > # local-constant regression, ls.cv bandwidths
 > FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-+   data = front41Data, bw.sel = "cv.aic" )
++   data = front41Data, bwmethod = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_aic )
 $mu
@@ -1005,7 +1005,7 @@ gradients( x )
 > 
 > # local-linear regression, ls.cv bandwidths
 > FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-+   data = front41Data, bw.sel = "cv.aic", npArg = list( regtype = "ll" ) )
++   data = front41Data, bwmethod = "cv.aic", npArg = list( regtype = "ll" ) )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_ll_aic )
 $mu
@@ -1193,7 +1193,7 @@ gradients( x )
 > 
 > # no intercept
 > FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
-+   data = front41Data, bw.sel = "rot"  )
++   data = front41Data, bwmethod = "rot"  )
 Warning message:
 In sfaFLW(log(output) ~ log(capital) + log(labour) - 1, data = front41Data,  :
   the intercept cannot be suppressed in nonparametric regression
@@ -1215,11 +1215,11 @@ In sfaFLW(log(output) ~ log(capital) + log(labour) - 1, data = front41Data,  :
 > all.equal( gradients( FLW_Result_rot ), gradients( FLW_Result_rot2 ) )
 [1] TRUE
 > 
-> # wrong value of argument 'bw.sel'
+> # wrong value of argument 'bwmethod'
 > try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-+   data = front41Data, bw.sel = "wrong" ) )
++   data = front41Data, bwmethod = "wrong" ) )
 Error in sfaFLW(log(output) ~ log(capital) + log(labour), data = front41Data,  : 
-  argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
+  argument 'bwmethod' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
 > # wrong values of argument 'npArg'
 > try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
@@ -1247,4 +1247,4 @@ Error in fitted.sfaFLW(FLW_Result_rot, which = "final") :
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.040   1.052 
+  0.948   0.024   0.970 

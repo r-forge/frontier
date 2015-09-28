@@ -51,31 +51,31 @@ printFLW( FLW_Result_ll )
 
 # local-constant regression, rule-of-thumb bandwidths
 FLW_Result_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, bw.sel = "rot"  )
+  data = front41Data, bwmethod = "rot"  )
 
 printFLW( FLW_Result_rot )
 
 # local-linear regression with rule-of-thumb bandwidths
 FLW_Result_ll_rot <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, bw.sel = "rot", npArg = list( regtype = "ll" ) )
+  data = front41Data, bwmethod = "rot", npArg = list( regtype = "ll" ) )
 
 printFLW( FLW_Result_ll_rot )
 
 # local-constant regression, ls.cv bandwidths
 FLW_Result_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, bw.sel = "cv.aic" )
+  data = front41Data, bwmethod = "cv.aic" )
 
 printFLW( FLW_Result_aic )
 
 # local-linear regression, ls.cv bandwidths
 FLW_Result_ll_aic <- sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, bw.sel = "cv.aic", npArg = list( regtype = "ll" ) )
+  data = front41Data, bwmethod = "cv.aic", npArg = list( regtype = "ll" ) )
 
 printFLW( FLW_Result_ll_aic )
 
 # no intercept
 FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
-  data = front41Data, bw.sel = "rot"  )
+  data = front41Data, bwmethod = "rot"  )
 
 all.equal( FLW_Result_rot, FLW_Result_rot2 )
 all.equal( residuals( FLW_Result_rot, which = "first" ),
@@ -88,9 +88,9 @@ all.equal( fitted( FLW_Result_rot ), fitted( FLW_Result_rot2 ) )
 
 all.equal( gradients( FLW_Result_rot ), gradients( FLW_Result_rot2 ) )
 
-# wrong value of argument 'bw.sel'
+# wrong value of argument 'bwmethod'
 try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),
-  data = front41Data, bw.sel = "wrong" ) )
+  data = front41Data, bwmethod = "wrong" ) )
 
 # wrong values of argument 'npArg'
 try( sfaFLW( log( output ) ~ log( capital ) + log( labour ),

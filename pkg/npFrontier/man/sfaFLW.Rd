@@ -9,13 +9,13 @@
 
 \usage{
 sfaFLW( formula, data = sys.frame( sys.parent() ),
-  bw.sel = "cv.ls", npArg = list() )
+  bwmethod = "cv.ls", npArg = list() )
 }
 
 \arguments{
   \item{formula}{a symbolic description of the model to be estimated.}
   \item{data}{optional data frame that contains the data.}
-  \item{bw.sel}{bandwidth selection method:
+  \item{bwmethod}{bandwidth selection method:
     if it is \code{"rot"},
     FLW's rule-of-thumb is applied;
     otherwise, this argument is passed

@@ -53,7 +53,7 @@ printFLW <- function( x ) {
 
 
 # local-constant regression, rule-of-thumb bandwidths
-sfa.flw <- sfaFLW( y ~ x, bw.sel = "rot" )  # ,dis="ntn"
+sfa.flw <- sfaFLW( y ~ x, bwmethod = "rot" )  # ,dis="ntn"
 
 printFLW( sfa.flw )
 
@@ -63,7 +63,7 @@ all.equal( residuals( sfa.flw, which = "final" ),
 all.equal( fitted( sfa.flw, which = "frontier" ), fitted( sfa.flw ) )
 
 # local-linear regression, rule-of-thumb bandwidths
-sfa.flw.ll <- sfaFLW( y ~ x, bw.sel = "rot",
+sfa.flw.ll <- sfaFLW( y ~ x, bwmethod = "rot",
   npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll )
@@ -79,18 +79,18 @@ sfa.flw.ll.ls <- sfaFLW( y ~ x, npArg = list( regtype = "ll" ) )
 printFLW( sfa.flw.ll.ls )
 
 # local-constant regression, aic bandwidths
-sfa.flw.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic" )
+sfa.flw.aic <- sfaFLW( y ~ x, bwmethod = "cv.aic" )
 
 printFLW( sfa.flw.aic )
 
 # local-linear regression, aic bandwidths
-sfa.flw.ll.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic",
+sfa.flw.ll.aic <- sfaFLW( y ~ x, bwmethod = "cv.aic",
   npArg = list( regtype = "ll" ) )
 
 printFLW( sfa.flw.ll.aic )
 
 # no intercept
-sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bw.sel = "rot",
+sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bwmethod = "rot",
   npArg = list( regtype = "ll" ) )
 
 all.equal( sfa.flw.ll, sfa.flw.ll2 )
@@ -104,8 +104,8 @@ all.equal( fitted( sfa.flw.ll ), fitted( sfa.flw.ll ) )
 
 all.equal( gradients( sfa.flw.ll ), gradients( sfa.flw.ll ) )
 
-# wrong value of argument 'bw.sel'
-try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
+# wrong value of argument 'bwmethod'
+try( sfaFLW( y ~ x, bwmethod = "unknown" ) )
 
 # wrong values of argument 'npArg'
 try( sfaFLW( y ~ x, npArg = c( regtype = "ll" ) ) )

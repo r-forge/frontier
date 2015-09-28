@@ -75,7 +75,7 @@ Loading required package: stats4
 > 
 > 
 > # local-constant regression, rule-of-thumb bandwidths
-> sfa.flw <- sfaFLW( y ~ x, bw.sel = "rot" )  # ,dis="ntn"
+> sfa.flw <- sfaFLW( y ~ x, bwmethod = "rot" )  # ,dis="ntn"
 > 
 > printFLW( sfa.flw )
 $mu
@@ -616,7 +616,7 @@ gradients( x )
 [1] TRUE
 > 
 > # local-linear regression, rule-of-thumb bandwidths
-> sfa.flw.ll <- sfaFLW( y ~ x, bw.sel = "rot",
+> sfa.flw.ll <- sfaFLW( y ~ x, bwmethod = "rot",
 +   npArg = list( regtype = "ll" ) )
 > 
 > printFLW( sfa.flw.ll )
@@ -2217,7 +2217,7 @@ gradients( x )
 [200,]  0.67
 > 
 > # local-constant regression, aic bandwidths
-> sfa.flw.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic" )
+> sfa.flw.aic <- sfaFLW( y ~ x, bwmethod = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.aic )
 $mu
@@ -2750,7 +2750,7 @@ gradients( x )
 [200,]  0.72
 > 
 > # local-linear regression, aic bandwidths
-> sfa.flw.ll.aic <- sfaFLW( y ~ x, bw.sel = "cv.aic",
+> sfa.flw.ll.aic <- sfaFLW( y ~ x, bwmethod = "cv.aic",
 +   npArg = list( regtype = "ll" ) )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.aic )
@@ -3284,10 +3284,10 @@ gradients( x )
 [200,] 0.59
 > 
 > # no intercept
-> sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bw.sel = "rot",
+> sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bwmethod = "rot",
 +   npArg = list( regtype = "ll" ) )
 Warning message:
-In sfaFLW(y ~ x - 1, bw.sel = "rot", npArg = list(regtype = "ll")) :
+In sfaFLW(y ~ x - 1, bwmethod = "rot", npArg = list(regtype = "ll")) :
   the intercept cannot be suppressed in nonparametric regression
 > 
 > all.equal( sfa.flw.ll, sfa.flw.ll2 )
@@ -3307,10 +3307,10 @@ In sfaFLW(y ~ x - 1, bw.sel = "rot", npArg = list(regtype = "ll")) :
 > all.equal( gradients( sfa.flw.ll ), gradients( sfa.flw.ll ) )
 [1] TRUE
 > 
-> # wrong value of argument 'bw.sel'
-> try( sfaFLW( y ~ x, bw.sel = "unknown" ) )
-Error in sfaFLW(y ~ x, bw.sel = "unknown") : 
-  argument 'bw.sel' must be either 'cv.ls', 'cv.aic', or 'rot'
+> # wrong value of argument 'bwmethod'
+> try( sfaFLW( y ~ x, bwmethod = "unknown" ) )
+Error in sfaFLW(y ~ x, bwmethod = "unknown") : 
+  argument 'bwmethod' must be either 'cv.ls', 'cv.aic', or 'rot'
 > 
 > # wrong values of argument 'npArg'
 > try( sfaFLW( y ~ x, npArg = c( regtype = "ll" ) ) )
@@ -3334,4 +3334,4 @@ Error in fitted.sfaFLW(sfa.flw, which = "not allowed") :
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.048   1.122 
+  1.048   0.020   1.066 
