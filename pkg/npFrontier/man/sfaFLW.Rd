@@ -32,10 +32,6 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
   \item{mu}{numeric scalar containing the bias correction
     \eqn{\mu = \sigma \sqrt{ ( 2 \lambda^2 / \pi ) / ( 1 + \lambda^2 ) }},
     obtained in the maximum likelihood estimation (second step).}
-  \item{mhat}{numeric vector containing the fitted frontier values,
-    i.e. the fitted values from the nonparametric regression (first step)
-    plus the bias correction \eqn{\mu}
-    obtained in the maximum likelihood estimation (second step).}
   \item{mprime}{numeric matrix containing the first derivatives
     (gradients) of the dependent variable
     with respect to the explanatory variables
