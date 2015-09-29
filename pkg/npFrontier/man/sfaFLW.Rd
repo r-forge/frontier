@@ -50,7 +50,12 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
     \emph{Journal of Business and Economic Statistics} 14, 460-468.
 }
 
-\seealso{\code{\link[frontier]{sfa}}.}
+\seealso{
+  \code{\link{residuals.sfaFLW}} for obtaining residuals,
+  \code{\link{fitted.sfaFLW}} for obtaining fitted values,
+  \code{\link{gradients.sfaFLW}} for obtaining gradients, and
+  \code{\link[frontier]{sfa}} for parametric stochastic frontier analysis.
+}
 
 \author{Christopher F. Parmeter}
 

@@ -31,7 +31,8 @@
 
 \author{Arne Henningsen}
 
-\seealso{\code{\link{sfaFLW}}, \code{\link{fitted}}.}
+\seealso{\code{\link{sfaFLW}}, \code{\link{fitted}},
+  \code{\link{residuals.sfaFLW}}, \code{\link{gradients.sfaFLW}}.}
 
 \examples{
   # example included in FRONTIER 4.1 (cross-section data)

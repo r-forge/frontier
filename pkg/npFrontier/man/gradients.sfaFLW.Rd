@@ -29,7 +29,8 @@
 
 \author{Arne Henningsen}
 
-\seealso{\code{\link{sfaFLW}}, \code{\link[np]{gradients}}.}
+\seealso{\code{\link{sfaFLW}}, \code{\link[np]{gradients}},
+  \code{\link{fitted.sfaFLW}}.}
 
 \examples{
   # example included in FRONTIER 4.1 (cross-section data)
