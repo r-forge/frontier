@@ -1,8 +1,8 @@
 fitted.sfaFLW <- function( object, which = "frontier", ... ) {
   if( which == "frontier" ) {
-    fit <- object$mhat
+    fit <- fitted( object$npreg ) + object$mu
   } else if( which == "first" ) {
-    fit <- object$mhat - object$mu
+    fit <- fitted( object$npreg )
   } else {
     stop( "argument 'which' must be either \"first\" or \"frontier\"" )
   }
