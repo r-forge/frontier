@@ -1,5 +1,5 @@
 gradients.sfaFLW <- function( x, ... ) {
-  grad <- x$mprime
+  grad <- gradients( x$npreg )
   
   return( grad )
 }
