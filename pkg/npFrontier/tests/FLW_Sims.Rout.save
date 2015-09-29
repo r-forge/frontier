@@ -53,7 +53,12 @@ Loading required package: stats4
 > printFLW <- function( x ) {
 +   for( i in 1:length( x ) ) {
 +     cat( "$", names( x )[ i ], "\n", sep = "" )
-+     print( round( x[[ i ]], 2 ) )
++     if( names( x )[ i ] == "npreg" ) {
++       x[[ i ]]$bw <- round( x[[ i ]]$bw, 2 )
++       print( x[[ i ]] )
++     } else {
++       print( round( x[[ i ]], 2 ) )
++     }
 +     cat( "\n" )
 +   }
 +   
@@ -78,6 +83,19 @@ Loading required package: stats4
 > sfa.flw <- sfaFLW( y ~ x, bwmethod = "rot" )  # ,dis="ntn"
 > 
 > printFLW( sfa.flw )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                 x
+Bandwidth(s): 0.43
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.91
 
@@ -620,6 +638,19 @@ gradients( x )
 +   npArg = list( regtype = "ll" ) )
 > 
 > printFLW( sfa.flw.ll )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                 x
+Bandwidth(s): 0.43
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.94
 
@@ -1154,6 +1185,19 @@ gradients( x )
 > sfa.flw.ls <- sfaFLW( y ~ x )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ls )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                x
+Bandwidth(s): 0.2
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.9
 
@@ -1687,6 +1731,19 @@ gradients( x )
 > sfa.flw.ll.ls <- sfaFLW( y ~ x, npArg = list( regtype = "ll" ) )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.ls )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                 x
+Bandwidth(s): 1.14
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.93
 
@@ -2220,6 +2277,19 @@ gradients( x )
 > sfa.flw.aic <- sfaFLW( y ~ x, bwmethod = "cv.aic" )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.aic )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                 x
+Bandwidth(s): 0.22
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.91
 
@@ -2754,6 +2824,19 @@ gradients( x )
 +   npArg = list( regtype = "ll" ) )
 Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 |Multistart 1 of 1 /Multistart 1 of 1 |Multistart 1 of 1 |                   > 
 > printFLW( sfa.flw.ll.aic )
+$npreg
+
+Regression Data: 200 training points, in 1 variable(s)
+                 x
+Bandwidth(s): 1.89
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 1
+
+
 $mu
 [1] 0.93
 
@@ -3290,7 +3373,7 @@ Warning message:
 In sfaFLW(y ~ x - 1, bwmethod = "rot", npArg = list(regtype = "ll")) :
   the intercept cannot be suppressed in nonparametric regression
 > 
-> all.equal( sfa.flw.ll, sfa.flw.ll2 )
+> all.equal( sfa.flw.ll[ -1 ], sfa.flw.ll2[ -1 ] )
 [1] TRUE
 > all.equal( residuals( sfa.flw.ll, which = "first" ),
 +   residuals( sfa.flw.ll, which = "first" ) )
@@ -3334,4 +3417,4 @@ Error in fitted.sfaFLW(sfa.flw, which = "not allowed") :
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.020   1.066 
+  1.424   0.060   1.485 

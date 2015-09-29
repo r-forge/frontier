@@ -31,7 +31,12 @@ Loading required package: stats4
 > printFLW <- function( x ) {
 +   for( i in 1:length( x ) ) {
 +     cat( "$", names( x )[ i ], "\n", sep = "" )
-+     print( round( x[[ i ]], 2 ) )
++     if( names( x )[ i ] == "npreg" ) {
++       x[[ i ]]$bw <- round( x[[ i ]]$bw, 2 )
++       print( x[[ i ]] )
++     } else {
++       print( round( x[[ i ]], 2 ) )
++     }
 +     cat( "\n" )
 +   }
 + 
@@ -58,6 +63,19 @@ Loading required package: stats4
 +   data = front41Data )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         0.55        0.08
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.21
 
@@ -254,6 +272,19 @@ gradients( x )
 +   data = front41Data, npArg = list( regtype = "ll" ) )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -                   > 
 > printFLW( FLW_Result_ll )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         3.98        0.69
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.3
 
@@ -442,6 +473,19 @@ gradients( x )
 +   data = front41Data, bwmethod = "rot"  )
 > 
 > printFLW( FLW_Result_rot )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         0.49        0.46
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.24
 
@@ -631,6 +675,19 @@ gradients( x )
 +   data = front41Data, bwmethod = "rot", npArg = list( regtype = "ll" ) )
 > 
 > printFLW( FLW_Result_ll_rot )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         0.49        0.46
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.27
 
@@ -820,6 +877,19 @@ gradients( x )
 +   data = front41Data, bwmethod = "cv.aic" )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 -Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_aic )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         0.75        0.35
+
+Kernel Regression Estimator: Local-Constant
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.25
 
@@ -1008,6 +1078,19 @@ gradients( x )
 +   data = front41Data, bwmethod = "cv.aic", npArg = list( regtype = "ll" ) )
 Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 |Multistart 1 of 2 /Multistart 1 of 2 |Multistart 1 of 2 |Multistart 2 of 2 |Multistart 2 of 2 |Multistart 2 of 2 /Multistart 2 of 2 |Multistart 2 of 2 |                   > 
 > printFLW( FLW_Result_ll_aic )
+$npreg
+
+Regression Data: 60 training points, in 2 variable(s)
+              log(capital) log(labour)
+Bandwidth(s):         1.82     1448054
+
+Kernel Regression Estimator: Local-Linear
+Bandwidth Type: Fixed
+
+Continuous Kernel Type: Second-Order Gaussian
+No. Continuous Explanatory Vars.: 2
+
+
 $mu
 [1] 0.32
 
@@ -1198,7 +1281,7 @@ Warning message:
 In sfaFLW(log(output) ~ log(capital) + log(labour) - 1, data = front41Data,  :
   the intercept cannot be suppressed in nonparametric regression
 > 
-> all.equal( FLW_Result_rot, FLW_Result_rot2 )
+> all.equal( FLW_Result_rot[ -1 ], FLW_Result_rot2[ -1 ] )
 [1] TRUE
 > all.equal( residuals( FLW_Result_rot, which = "first" ),
 +   residuals( FLW_Result_rot2, which = "first" ) )
@@ -1247,4 +1330,4 @@ Error in fitted.sfaFLW(FLW_Result_rot, which = "final") :
 > 
 > proc.time()
    user  system elapsed 
-  0.948   0.024   0.970 
+  1.268   0.036   1.304 

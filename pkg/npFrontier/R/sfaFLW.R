@@ -53,6 +53,9 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
 
   # remove intercept from model matrix
   x <- x[ , colnames( x ) != "(Intercept)", drop = FALSE ]
+
+  # initiate object that will be returned
+  returnObj <- list()
   
   ## Step 1: Estimate conditional mean and obtain residuals
   
@@ -71,10 +74,11 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
   ## Need to allow for users to pass own bandwidths directly
   ## so tht we can also have constrained FLW.
 
-  model <- npreg(bws=bw,tydat=y,txdat=x,residuals=TRUE,gradients=TRUE)
+  returnObj$npreg <- npreg( bws = bw, tydat = y, txdat = x,
+    residuals = TRUE, gradients = TRUE )
   
   ## Extract residuals from model
-  resid <- residuals(model)
+  resid <- residuals( returnObj$npreg )
   
   ## Step 2: Pass resid to flw.ll to obtain estimates of lambda and sigma
   ## if(skewness(resid)>0){resid<- -resid}
@@ -94,10 +98,9 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
   ## Caluclate Bias Correction, see beneath (15) on page 463.
   mu <- sqrt(sig.sq)*sc
 
-  returnObj <- list()
   returnObj$mu <- mu 
-  returnObj$mhat <- fitted( model ) + mu 
-  returnObj$mprime <- gradients(model)
+  returnObj$mhat <- fitted( returnObj$npreg ) + mu 
+  returnObj$mprime <- gradients( returnObj$npreg )
   returnObj$e <- unname( resid )
   returnObj$sigma.sq <- sig.sq
   returnObj$lambda <- lmd

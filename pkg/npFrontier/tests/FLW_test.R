@@ -9,7 +9,12 @@ data( front41Data, package = "frontier" )
 printFLW <- function( x ) {
   for( i in 1:length( x ) ) {
     cat( "$", names( x )[ i ], "\n", sep = "" )
-    print( round( x[[ i ]], 2 ) )
+    if( names( x )[ i ] == "npreg" ) {
+      x[[ i ]]$bw <- round( x[[ i ]]$bw, 2 )
+      print( x[[ i ]] )
+    } else {
+      print( round( x[[ i ]], 2 ) )
+    }
     cat( "\n" )
   }
 
@@ -77,7 +82,7 @@ printFLW( FLW_Result_ll_aic )
 FLW_Result_rot2 <- sfaFLW( log( output ) ~ log( capital ) + log( labour ) - 1,
   data = front41Data, bwmethod = "rot"  )
 
-all.equal( FLW_Result_rot, FLW_Result_rot2 )
+all.equal( FLW_Result_rot[ -1 ], FLW_Result_rot2[ -1 ] )
 all.equal( residuals( FLW_Result_rot, which = "first" ),
   residuals( FLW_Result_rot2, which = "first" ) )
 all.equal( residuals( FLW_Result_rot ), residuals( FLW_Result_rot2 ) )

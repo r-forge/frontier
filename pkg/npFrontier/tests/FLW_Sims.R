@@ -31,7 +31,12 @@ y <- 1+log(1+x)+e
 printFLW <- function( x ) {
   for( i in 1:length( x ) ) {
     cat( "$", names( x )[ i ], "\n", sep = "" )
-    print( round( x[[ i ]], 2 ) )
+    if( names( x )[ i ] == "npreg" ) {
+      x[[ i ]]$bw <- round( x[[ i ]]$bw, 2 )
+      print( x[[ i ]] )
+    } else {
+      print( round( x[[ i ]], 2 ) )
+    }
     cat( "\n" )
   }
   
@@ -93,7 +98,7 @@ printFLW( sfa.flw.ll.aic )
 sfa.flw.ll2 <- sfaFLW( y ~ x - 1, bwmethod = "rot",
   npArg = list( regtype = "ll" ) )
 
-all.equal( sfa.flw.ll, sfa.flw.ll2 )
+all.equal( sfa.flw.ll[ -1 ], sfa.flw.ll2[ -1 ] )
 all.equal( residuals( sfa.flw.ll, which = "first" ),
   residuals( sfa.flw.ll, which = "first" ) )
 all.equal( residuals( sfa.flw.ll ), residuals( sfa.flw.ll ) )

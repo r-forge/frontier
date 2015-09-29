@@ -27,6 +27,8 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
 \value{
   \code{sfaFLW} returns a list of class \code{sfaFLW}
     containing following elements:
+  \item{npreg}{object returned by \code{\link[np]{npreg}}
+    containing the results of the nonparametric regression (first step).}
   \item{mu}{numeric scalar containing the bias correction
     \eqn{\mu = \sigma \sqrt{ ( 2 \lambda^2 / \pi ) / ( 1 + \lambda^2 ) }},
     obtained in the maximum likelihood estimation (second step).}
