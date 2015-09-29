@@ -100,7 +100,6 @@ sfaFLW <- function( formula, data = sys.frame( sys.parent() ),
 
   returnObj$mu <- mu 
   returnObj$mprime <- gradients( returnObj$npreg )
-  returnObj$e <- resid
   returnObj$sigma.sq <- sig.sq
   returnObj$lambda <- lmd
   returnObj$sigma.u <- sigma.u

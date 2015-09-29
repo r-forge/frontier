@@ -36,8 +36,6 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
     (gradients) of the dependent variable
     with respect to the explanatory variables
     obtained in the nonparametric regression (first step). }
-  \item{e}{numeric vector containing the residuals
-    from the nonparametric regression (first step).}
   \item{sigma.sq}{numeric scalar.
     \eqn{\sigma^2 = \sigma_u^2 + \sigma_v^2},
     obtained in the maximum likelihood estimation (second step).}
