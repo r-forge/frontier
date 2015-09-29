@@ -42,8 +42,6 @@ sfaFLW( formula, data = sys.frame( sys.parent() ),
     obtained in the maximum likelihood estimation (second step).}
   \item{sigma.v}{numeric. \eqn{\sigma_v},
     obtained in the maximum likelihood estimation (second step).}
-  \item{bw}{numeric vector of the bandwidths of the explanatory
-    variables used in the nonparametric regression (first step).}
 }
 
 \references{
