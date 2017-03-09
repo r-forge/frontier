@@ -1,6 +1,6 @@
 
-R version 3.1.1 (2014-07-10) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -39087,7 +39087,7 @@ Model 2: Sbb1 + fit^2 + fit^3
 +    riceProdPhil$FMERCODE, sep = "" )
 > riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
 > riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
-serie ones  is constant and has been removed
+series ones is constant and has been removed
 > 
 > ## panel data, error components frontier
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
@@ -43971,6 +43971,8 @@ Warning messages:
   the likelihood value of the ML estimation is less than that obtained using OLS; this indicates that the likelihood maximization did not converge to the global maximum or that there is no inefficiency (you could try again using different starting values)
 2: In sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
+3: In sfa(formula = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) +  :
+  the covariance matrix of the maximum likelihood estimates is not positive semidefinite
 > 
 > ## error components frontier
 > ## with "true" fixed individual effects and time-variant efficiencies
@@ -111781,4 +111783,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 46.913   1.408  48.562 
+ 52.100   2.312  54.434 
