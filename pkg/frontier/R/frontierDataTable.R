@@ -19,8 +19,13 @@ frontierDataTable <- function( data, formula, effFormula, mc, mfe ) {
          " of the exogenous variables (", nrow( xMat ), ")", sep = "" ) )
    }
 
-   # cross section and time period identifier
-   if( "plm.dim" %in% class( data ) ) {
+   # cross section and time period identifier  (based on code from Kevin Tappe)
+   if( inherits( data, "pdata.frame" ) ) {
+      # current panel data format from pkg plm
+      idVec <- as.integer( index( data )[[ 1 ]] )
+      timeVec <- as.integer( index( data )[[ 2 ]] )
+   } else if( inherits( data, "plm.dim" ) ) {
+      # deprecated panel data format from pkg plm
       idVec <- as.integer( data[[ 1 ]] )
       timeVec <- as.integer( data[[ 2 ]] )
    } else {

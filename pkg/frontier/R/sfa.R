@@ -53,7 +53,8 @@ sfa <- function(
    if( !is.logical( timeEffect ) ) {
       stop( "argument 'timeEffect' must be logical" )
    }
-   if( timeEffect && ! "plm.dim" %in% class( data ) ) {
+   if( timeEffect && !( inherits( data, "pdata.frame" ) ||
+         inherits( data, "plm.dim" ) ) ) {
       warning( "argument 'timeEffect' is ignored in case of",
          " cross-sectional data" )
    }
@@ -422,7 +423,7 @@ sfa <- function(
       returnObj$gridParam <- NULL
    }
    # assign row names and column names to residuals
-   if( "plm.dim" %in% class( data ) ) {
+   if( inherits( data, "pdata.frame" ) || inherits( data, "plm.dim" ) ) {
       rownames( returnObj$resid ) <- levels( data[[ 1 ]] )[ firmId ]
       colnames( returnObj$resid ) <- levels( data[[ 2 ]] )[ timeId ]
    } else {
