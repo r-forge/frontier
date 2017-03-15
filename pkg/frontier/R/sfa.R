@@ -424,8 +424,8 @@ sfa <- function(
    }
    # assign row names and column names to residuals
    if( inherits( data, "pdata.frame" ) || inherits( data, "plm.dim" ) ) {
-      rownames( returnObj$resid ) <- levels( data[[ 1 ]] )[ firmId ]
-      colnames( returnObj$resid ) <- levels( data[[ 2 ]] )[ timeId ]
+      rownames( returnObj$resid ) <- levels( index( data )[[ 1 ]] )[ firmId ]
+      colnames( returnObj$resid ) <- levels( index( data )[[ 2 ]] )[ timeId ]
    } else {
       rownames( returnObj$resid ) <- names( validObs )[ validObs ]
       colnames( returnObj$resid ) <- "residuals"
