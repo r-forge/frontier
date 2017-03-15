@@ -1,6 +1,6 @@
 
-R version 3.1.1 (2014-07-10) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -269,7 +269,11 @@ Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10) +  :
 > ## nobs > nn * nt 
 > rd <- riceProdPhil
 > rd <- rbind( rd, rd[ 11, ] )
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
+Warning message:
+In pdata.frame(rd, c("FMERCODE", "YEARDUM"), row.names = FALSE) :
+  duplicate couples (id-time) in resulting pdata.frame
+ to find out which, use e.g. table(index(your_pdataframe), useNA = "ifany")
 > try( sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd ) )
 Error in sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), data = rd) : 
   more than one observation for firm '11' in period '1'
@@ -277,7 +281,7 @@ Error in sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), data = rd) :
 > ## non-positive firm number (works now)
 > rd <- riceProdPhil
 > rd$FMERCODE <- rd$FMERCODE - 2
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b1 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -355,7 +359,7 @@ mean efficiency: 0.8188
 > ## firm number > number of firms (works now)
 > rd <- riceProdPhil
 > rd$FMERCODE[ rd$FMERCODE == 9 ] <- 47
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b2 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b2 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -432,7 +436,7 @@ mean efficiency: 0.8188
 > # now with NA
 > rd <- riceProdPhil
 > rd$PROD[ rd$FMERCODE == 22 ] <- NA
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b2b <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b2b ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -509,7 +513,7 @@ mean efficiency: 0.81653
 > ## non-positive period number (works now)
 > rd <- riceProdPhil
 > rd$YEARDUM <- rd$YEARDUM - 2
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b3 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b3 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -542,7 +546,7 @@ mean efficiency: 0.8188
 > ## period number > number of periods (works now)
 > rd <- riceProdPhil
 > rd$YEARDUM[ rd$YEARDUM == 4 ] <- 10
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b4 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b4 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -574,7 +578,7 @@ mean efficiency: 0.8188
 > # now with NA
 > rd <- riceProdPhil
 > rd$AREA[ rd$YEARDUM == 4 ] <- NA
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b4b <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b4b ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -607,7 +611,7 @@ mean efficiency: 0.81406
 > ## firm without valid observations (works now)
 > rd <- riceProdPhil
 > rd$PROD[ rd$FMERCODE == 12 ] <- NA
-> rd <- plm.data( rd, c( "FMERCODE", "YEARDUM" ) )
+> rd <- pdata.frame( rd, c( "FMERCODE", "YEARDUM" ), row.names = FALSE )
 > b5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd )
 > print( summary( b5 ), digits = 1 )
 Error Components Frontier (see Battese & Coelli 1992)
@@ -684,4 +688,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  1.252   0.062   1.844 
+  3.528   0.088   3.613 

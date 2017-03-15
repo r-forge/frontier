@@ -27,7 +27,7 @@ frontierQuad( yName, xNames, shifterNames = NULL, zNames = NULL,
       if \code{data} is a usual data.frame,
       it is assumed that these are cross-section data;
       if \code{data} is a panel data frame
-      (created with \code{\link[plm]{plm.data}}),
+      (created with \code{\link[plm]{pdata.frame}}),
       it is assumed that these are panel data.}
    \item{lrTests}{logical. If \code{TRUE}, likelihood ratio tests are conducted
       to test the statistical significance of each X variable.}

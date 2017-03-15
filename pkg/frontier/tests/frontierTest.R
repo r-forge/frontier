@@ -1038,7 +1038,9 @@ resettestFrontier( Sbb1 )
 riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
    riceProdPhil$FMERCODE, sep = "" )
 riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
-riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
+riceProdPhilPanel <- pdata.frame( riceProdPhil, c( "farm", "year" ),
+   row.names = FALSE )
+riceProdPhilPanel$ones <- 1
 
 ## panel data, error components frontier
 sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
@@ -1088,7 +1090,7 @@ all.equal( efficiencies( b1, asInData = TRUE, minusU = FALSE ),
 round( residuals( b1 ), 2 )
 round( residuals( b1, asInData = TRUE ), 2 )
 all.equal( fitted( b1, asInData = TRUE ) + residuals( b1, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b1 )
 printAll( b1 )
 
@@ -1138,7 +1140,7 @@ round( fitted( b2, asInData = TRUE ), 2 )
 round( residuals( b2 ), 2 )
 round( residuals( b2, asInData = TRUE ), 2 )
 all.equal( fitted( b2, asInData = TRUE ) + residuals( b2, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b2 )
 printAll( b2 )
 
@@ -1185,7 +1187,7 @@ all.equal( efficiencies( b3, asInData = TRUE, minusU = FALSE ),
 round( residuals( b3 ), 2 )
 round( residuals( b3, asInData = TRUE ), 2 )
 all.equal( fitted( b3, asInData = TRUE ) + residuals( b3, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b3 )
 printAll( b3 )
 
@@ -1233,7 +1235,7 @@ all.equal( efficiencies( b4, asInData = TRUE ),
 round( residuals( b4 ), 2 )
 round( residuals( b4, asInData = TRUE ), 2 )
 all.equal( fitted( b4, asInData = TRUE ) + residuals( b4, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b4 )
 printAll( b4 )
 
@@ -1248,7 +1250,7 @@ round( fitted( ricePanelTrue ), 2 )
 round( fitted( ricePanelTrue, asInData = TRUE ), 2 )
 all.equal( fitted( ricePanelTrue, asInData = TRUE ) + 
       residuals( ricePanelTrue, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( ricePanelTrue )
 
 ## error components frontier
@@ -1261,7 +1263,7 @@ lrtest( sb3, ricePanelTimeTrue )
 lrtest( ricePanelTrue, ricePanelTimeTrue )
 all.equal( fitted( ricePanelTimeTrue, asInData = TRUE ) + 
       residuals( ricePanelTimeTrue, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( ricePanelTimeTrue )
 
 
@@ -1340,7 +1342,7 @@ round( fitted( b5, asInData = TRUE ), 2 )
 round( residuals( b5 ), 2 )
 round( residuals( b5, asInData = TRUE ), 2 )
 all.equal( fitted( b5, asInData = TRUE ) + residuals( b5, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 try( resettestFrontier( b5 ) )
 printAll( b5 )
 
@@ -1388,7 +1390,7 @@ all.equal( efficiencies( b6, asInData = TRUE, margEff = TRUE ),
 round( residuals( b6 ), 2 )
 round( residuals( b6, asInData = TRUE ), 2 )
 all.equal( fitted( b6, asInData = TRUE ) + residuals( b6, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b6 )
 
 ## panel data, error components frontier, truncNorm, timeEffect, starting values
@@ -1436,7 +1438,7 @@ all.equal( efficiencies( b7, minusU = FALSE ),
 all.equal( efficiencies( b7, asInData = TRUE ), 
    efficiencies( sb7i, asInData = TRUE ) )
 all.equal( fitted( b7, asInData = TRUE ) + residuals( b7, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b7 )
 printAll( b7 )
 
@@ -1484,7 +1486,7 @@ all.equal( efficiencies( b8 ), efficiencies( sb8i ) )
 all.equal( efficiencies( b8, asInData = TRUE, minusU = FALSE ), 
    efficiencies( sb8i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( b8, asInData = TRUE ) + residuals( b8, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b8 )
 
 ## panel data, efficiency effects frontier: no Z vars
@@ -1509,7 +1511,7 @@ all.equal( efficiencies( b9 ), efficiencies( sb9i ) )
 all.equal( efficiencies( b9, asInData = TRUE, minusU = FALSE ), 
    efficiencies( sb9i, asInData = TRUE, minusU = FALSE ) )
 all.equal( fitted( b9, asInData = TRUE ) + residuals( b9, asInData = TRUE ),
-   log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
@@ -1555,7 +1557,7 @@ all.equal( efficiencies( d1, asInData = TRUE ),
 round( residuals( d1 ), 2 )
 round( residuals( d1, asInData = TRUE ), 2 )
 all.equal( fitted( d1, asInData = TRUE ) + residuals( d1, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d1 )
 printAll( d1 )
 
@@ -1596,7 +1598,7 @@ round( fitted( d2, asInData = TRUE ), 2 )
 round( residuals( d2 ), 2 )
 round( residuals( d2, asInData = TRUE ), 2 )
 all.equal( fitted( d2, asInData = TRUE ) + residuals( d2, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d2 )
 printAll( d2 )
 
@@ -1636,7 +1638,7 @@ all.equal( efficiencies( d3, asInData = TRUE ),
 round( residuals( d3 ), 2 )
 round( residuals( d3, asInData = TRUE ), 2 )
 all.equal( fitted( d3, asInData = TRUE ) + residuals( d3, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d3 )
 printAll( d3 )
 
@@ -1677,7 +1679,7 @@ all.equal( efficiencies( d4, asInData = TRUE, minusU = FALSE ),
 round( residuals( d4 ), 2 )
 round( residuals( d4, asInData = TRUE ), 2 )
 all.equal( fitted( d4, asInData = TRUE ) + residuals( d4, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d4 )
 printAll( d4 )
 
@@ -1750,7 +1752,7 @@ round( fitted( d5, asInData = TRUE ), 2 )
 round( residuals( d5 ), 2 )
 round( residuals( d5, asInData = TRUE ), 2 )
 all.equal( fitted( d5, asInData = TRUE ) + residuals( d5, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 printAll( d5 )
 
 ## panel rice data, efficiency effects cost frontier, zIntercept
@@ -1790,7 +1792,7 @@ all.equal( efficiencies( d6, asInData = TRUE, margEff = TRUE, minusU = FALSE ),
 round( residuals( d6 ), 2 )
 round( residuals( d6, asInData = TRUE ), 2 )
 all.equal( fitted( d6, asInData = TRUE ) + residuals( d6, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 printAll( d6 )
 
 ## panel rice data, efficiency effects cost frontier: no Z vars
@@ -1816,7 +1818,7 @@ all.equal( efficiencies( d9, minusU = FALSE ),
 all.equal( efficiencies( d9, asInData = TRUE ), 
    efficiencies( sd9i, asInData = TRUE ) )
 all.equal( fitted( d9, asInData = TRUE ) + residuals( d9, asInData = TRUE ),
-   log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
+   c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 
 
 ## unbalanced panel data
@@ -1852,8 +1854,8 @@ round( fitted( b1u, asInData = TRUE ), 2 )
 round( residuals( b1u ), 2 )
 round( residuals( b1u, asInData = TRUE ), 2 )
 all.equal( fitted( b1u, asInData = TRUE ) + residuals( b1u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b1u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b1u, asInData = TRUE ),
    residuals( b1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b1u )
 printAll( b1u )
@@ -1882,8 +1884,8 @@ all.equal( efficiencies( b2u, asInData = TRUE, minusU = FALSE ),
 round( residuals( b2u ), 2 )
 round( residuals( b2u, asInData = TRUE ), 2 )
 all.equal( fitted( b2u, asInData = TRUE ) + residuals( b2u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b2u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b2u, asInData = TRUE ),
    residuals( b2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b2u )
 printAll( b2u )
@@ -1913,8 +1915,8 @@ all.equal( efficiencies( b3u, asInData = TRUE ),
 round( residuals( b3u ), 2 )
 round( residuals( b3u, asInData = TRUE ), 2 )
 all.equal( fitted( b3u, asInData = TRUE ) + residuals( b3u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b3u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b3u, asInData = TRUE ),
    residuals( b3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b3u )
 printAll( b3u )
@@ -1946,8 +1948,8 @@ all.equal( efficiencies( b4u, asInData = TRUE, minusU = FALSE ),
 round( residuals( b4u ), 2 )
 round( residuals( b4u, asInData = TRUE ), 2 )
 all.equal( fitted( b4u, asInData = TRUE ) + residuals( b4u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b4u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b4u, asInData = TRUE ),
    residuals( b4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b4u )
 printAll( b4u )
@@ -1977,8 +1979,8 @@ all.equal( efficiencies( b5u, asInData = TRUE, margEff = TRUE ),
 round( residuals( b5u ), 2 )
 round( residuals( b5u, asInData = TRUE ), 2 )
 all.equal( fitted( b5u, asInData = TRUE ) + residuals( b5u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b5u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b5u, asInData = TRUE ),
    residuals( b5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 try( resettestFrontier( b5u ) )
 printAll( b5u )
@@ -2036,8 +2038,8 @@ round( fitted( b6u, asInData = TRUE ), 2 )
 round( residuals( b6u ), 2 )
 round( residuals( b6u, asInData = TRUE ), 2 )
 all.equal( fitted( b6u, asInData = TRUE ) + residuals( b6u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b6u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b6u, asInData = TRUE ),
    residuals( b6u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b6u )
 
@@ -2068,8 +2070,8 @@ all.equal( efficiencies( d1u, asInData = TRUE, minusU = FALSE ),
 round( residuals( d1u ), 2 )
 round( residuals( d1u, asInData = TRUE ), 2 )
 all.equal( fitted( d1u, asInData = TRUE ) + residuals( d1u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d1u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d1u, asInData = TRUE ),
    residuals( d1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d1u )
 printAll( d1u )
@@ -2099,8 +2101,8 @@ all.equal( efficiencies( d2u, asInData = TRUE ),
 round( residuals( d2u ), 2 )
 round( residuals( d2u, asInData = TRUE ), 2 )
 all.equal( fitted( d2u, asInData = TRUE ) + residuals( d2u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d2u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d2u, asInData = TRUE ),
    residuals( d2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d2u )
 printAll( d2u )
@@ -2131,8 +2133,8 @@ round( fitted( d3u, asInData = TRUE ), 2 )
 round( residuals( d3u ), 2 )
 round( residuals( d3u, asInData = TRUE ), 2 )
 all.equal( fitted( d3u, asInData = TRUE ) + residuals( d3u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d3u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d3u, asInData = TRUE ),
    residuals( d3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d3u )
 printAll( d3u )
@@ -2163,8 +2165,8 @@ all.equal( efficiencies( d4u, asInData = TRUE ),
 round( residuals( d4u ), 2 )
 round( residuals( d4u, asInData = TRUE ), 2 )
 all.equal( fitted( d4u, asInData = TRUE ) + residuals( d4u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d4u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d4u, asInData = TRUE ),
    residuals( d4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( d4u )
 printAll( d4u )
@@ -2199,8 +2201,8 @@ round( fitted( d5u, asInData = TRUE ), 2 )
 round( residuals( d5u ), 2 )
 round( residuals( d5u, asInData = TRUE ), 2 )
 all.equal( fitted( d5u, asInData = TRUE ) + residuals( d5u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d5u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d5u, asInData = TRUE ),
    residuals( d5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 try( resettestFrontier( d5u ) )
 printAll( d5u )
@@ -2230,8 +2232,8 @@ all.equal( efficiencies( d6u, asInData = TRUE, margEff = TRUE ),
 round( residuals( d6u ), 2 )
 round( residuals( d6u, asInData = TRUE ), 2 )
 all.equal( fitted( d6u, asInData = TRUE ) + residuals( d6u, asInData = TRUE ),
-   log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d6u, asInData = TRUE ),
+   c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d6u, asInData = TRUE ),
    residuals( d6u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( d6u )
 
@@ -2268,8 +2270,8 @@ all.equal( efficiencies( b1n, asInData = TRUE, minusU = FALSE ),
 round( residuals( b1n ), 2 )
 round( residuals( b1n, asInData = TRUE ), 2 )
 all.equal( fitted( b1n, asInData = TRUE ) + residuals( b1n, asInData = TRUE ),
-   log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naPanelData$PROD ) - fitted( b1n, asInData = TRUE ),
+   c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naPanelData$PROD ) ) - fitted( b1n, asInData = TRUE ),
    residuals( b1n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b1n )
 printAll( b1n )
@@ -2299,8 +2301,8 @@ all.equal( efficiencies( b4n, asInData = TRUE ),
 round( residuals( b4n ), 2 )
 round( residuals( b4n, asInData = TRUE ), 2 )
 all.equal( fitted( b4n, asInData = TRUE ) + residuals( b4n, asInData = TRUE ),
-   log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naPanelData$PROD ) - fitted( b4n, asInData = TRUE ),
+   c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naPanelData$PROD ) ) - fitted( b4n, asInData = TRUE ),
    residuals( b4n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b4n )
 printAll( b4n )
@@ -2330,8 +2332,8 @@ all.equal( efficiencies( b5n, asInData = TRUE, margEff = TRUE, minusU = FALSE ),
 round( residuals( b5n ), 2 )
 round( residuals( b5n, asInData = TRUE ), 2 )
 all.equal( fitted( b5n, asInData = TRUE ) + residuals( b5n, asInData = TRUE ),
-   log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naPanelData$PROD ) - fitted( b5n, asInData = TRUE ),
+   c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naPanelData$PROD ) ) - fitted( b5n, asInData = TRUE ),
    residuals( b5n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b5n )
 
@@ -2360,8 +2362,8 @@ all.equal( efficiencies( b6n, asInData = TRUE, margEff = TRUE ),
 round( residuals( b6n ), 2 )
 round( residuals( b6n, asInData = TRUE ), 2 )
 all.equal( fitted( b6n, asInData = TRUE ) + residuals( b6n, asInData = TRUE ),
-   log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naPanelData$PROD ) - fitted( b6n, asInData = TRUE ),
+   c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naPanelData$PROD ) ) - fitted( b6n, asInData = TRUE ),
    residuals( b6n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b6n )
 
@@ -2399,8 +2401,8 @@ round( fitted( b1t, asInData = TRUE ), 2 )
 round( residuals( b1t ), 2 )
 round( residuals( b1t, asInData = TRUE ), 2 )
 all.equal( fitted( b1t, asInData = TRUE ) + residuals( b1t, asInData = TRUE ),
-   log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naTimePanelData$PROD ) - fitted( b1t, asInData = TRUE ),
+   c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b1t, asInData = TRUE ),
    residuals( b1t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b1t )
 printAll( b1t )
@@ -2429,8 +2431,8 @@ all.equal( efficiencies( b4t, asInData = TRUE, minusU = FALSE ),
 round( residuals( b4t ), 2 )
 round( residuals( b4t, asInData = TRUE ), 2 )
 all.equal( fitted( b4t, asInData = TRUE ) + residuals( b4t, asInData = TRUE ),
-   log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naTimePanelData$PROD ) - fitted( b4t, asInData = TRUE ),
+   c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b4t, asInData = TRUE ),
    residuals( b4t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b4t )
 printAll( b4t )
@@ -2462,8 +2464,8 @@ round( fitted( b5t, asInData = TRUE ), 2 )
 round( residuals( b5t ), 2 )
 round( residuals( b5t, asInData = TRUE ), 2 )
 all.equal( fitted( b5t, asInData = TRUE ) + residuals( b5t, asInData = TRUE ),
-   log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naTimePanelData$PROD ) - fitted( b5t, asInData = TRUE ),
+   c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b5t, asInData = TRUE ),
    residuals( b5t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b5t )
 
@@ -2492,8 +2494,8 @@ all.equal( efficiencies( b6t, asInData = TRUE, margEff = TRUE, minusU = FALSE ),
 round( residuals( b6t ), 2 )
 round( residuals( b6t, asInData = TRUE ), 2 )
 all.equal( fitted( b6t, asInData = TRUE ) + residuals( b6t, asInData = TRUE ),
-   log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
-all.equal( log( naTimePanelData$PROD ) - fitted( b6t, asInData = TRUE ),
+   c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
+all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b6t, asInData = TRUE ),
    residuals( b6t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 printAll( b6t )
 
@@ -2786,7 +2788,7 @@ all.equal( efficiencies( oip1, asInData = TRUE, minusU = FALSE ),
 round( fitted( oip1 ), 2 )
 round( residuals( oip1 ), 2 )
 all.equal( fitted( oip1, asInData = TRUE ) + residuals( oip1, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip1 )
 
 ## unbalanced panel data, error components frontier, truncNorm
@@ -2821,7 +2823,7 @@ all.equal( efficiencies( oip2, asInData = TRUE, minusU = FALSE ),
 round( fitted( oip2 ), 2 )
 round( residuals( oip2 ), 2 )
 all.equal( fitted( oip2, asInData = TRUE ) + residuals( oip2, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip2 )
 
 ## unbalanced panel data, error components frontier, timeEffect
@@ -2856,7 +2858,7 @@ all.equal( efficiencies( oip3, asInData = TRUE, minusU = FALSE ),
 round( fitted( oip3 ), 2 )
 round( residuals( oip3 ), 2 )
 all.equal( fitted( oip3, asInData = TRUE ) + residuals( oip3, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip3 )
 
 ## unbalanced panel data, error components frontier, truncNorm, timeEffect
@@ -2893,7 +2895,7 @@ all.equal( efficiencies( oip4, asInData = TRUE, minusU = FALSE ),
 round( fitted( oip4 ), 2 )
 round( residuals( oip4 ), 2 )
 all.equal( fitted( oip4, asInData = TRUE ) + residuals( oip4, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip4 )
 
 ## unbalanced panel data, efficiency effects frontier, zIntercept
@@ -2929,7 +2931,7 @@ all.equal( efficiencies( oip5, asInData = TRUE, minusU = FALSE, margEff = TRUE )
 round( fitted( oip5 ), 2 )
 round( residuals( oip5 ), 2 )
 all.equal( fitted( oip5, asInData = TRUE ) + residuals( oip5, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip5 )
 
 ## unbalanced panel data, efficiency effects frontier, zIntercept
@@ -2965,7 +2967,7 @@ all.equal( efficiencies( oip6, asInData = TRUE, minusU = FALSE, margEff = TRUE )
 round( fitted( oip6 ), 2 )
 round( residuals( oip6 ), 2 )
 all.equal( fitted( oip6, asInData = TRUE ) + residuals( oip6, asInData = TRUE ),
-   riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 printAll( oip6 )
 
 
@@ -3100,7 +3102,7 @@ all.equal( efficiencies( nxp1r, asInData = TRUE ),
 round( fitted( nxp1 ), 2 )
 round( residuals( nxp1 ), 2 )
 all.equal( fitted( nxp1, asInData = TRUE ) + residuals( nxp1, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp1r, asInData = TRUE ) + residuals( nxp1r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )
@@ -3133,7 +3135,7 @@ all.equal( efficiencies( nxp2r, asInData = TRUE ),
 round( fitted( nxp2 ), 2 )
 round( residuals( nxp2 ), 2 )
 all.equal( fitted( nxp2, asInData = TRUE ) + residuals( nxp2, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp2r, asInData = TRUE ) + residuals( nxp2r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )
@@ -3166,7 +3168,7 @@ all.equal( efficiencies( nxp3r, asInData = TRUE ),
 round( fitted( nxp3 ), 2 )
 round( residuals( nxp3 ), 2 )
 all.equal( fitted( nxp3, asInData = TRUE ) + residuals( nxp3, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp3r, asInData = TRUE ) + residuals( nxp3r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )
@@ -3200,7 +3202,7 @@ all.equal( efficiencies( nxp4r, asInData = TRUE ),
 round( fitted( nxp4 ), 2 )
 round( residuals( nxp4 ), 2 )
 all.equal( fitted( nxp4, asInData = TRUE ) + residuals( nxp4, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp4r, asInData = TRUE ) + residuals( nxp4r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )
@@ -3236,7 +3238,7 @@ all.equal(
 round( fitted( nxp5 ), 2 )
 round( residuals( nxp5 ), 2 )
 all.equal( fitted( nxp5, asInData = TRUE ) + residuals( nxp5, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp5r, asInData = TRUE ) + residuals( nxp5r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )
@@ -3272,7 +3274,7 @@ all.equal(
 round( fitted( nxp6 ), 2 )
 round( residuals( nxp6 ), 2 )
 all.equal( fitted( nxp6, asInData = TRUE ) + residuals( nxp6, asInData = TRUE ),
-   riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
+   c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( nxp6r, asInData = TRUE ) + residuals( nxp6r, asInData = TRUE ),
    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
    check.attributes = FALSE, tol = 1e-4 )

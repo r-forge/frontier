@@ -1,6 +1,6 @@
 
-R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
-Copyright (C) 2016 The R Foundation for Statistical Computing
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -39086,8 +39086,10 @@ Model 2: Sbb1 + fit^2 + fit^3
 > riceProdPhil$farm <- paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
 +    riceProdPhil$FMERCODE, sep = "" )
 > riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
-> riceProdPhilPanel <- plm.data( riceProdPhil, c( "farm", "year" ) )
-series ones is constant and has been removed
+> riceProdPhilPanel <- pdata.frame( riceProdPhil, c( "farm", "year" ),
++    row.names = FALSE )
+This series is constant and has been removed: ones
+> riceProdPhilPanel$ones <- 1
 > 
 > ## panel data, error components frontier
 > sb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanel,
@@ -39672,7 +39674,7 @@ F_43 -1.09 -1.17 -0.35 -0.46 -0.11  0.20 -0.20  0.21
   129   172   215   258   301   344 
 -0.35 -0.46 -0.11  0.20 -0.20  0.21 
 > all.equal( fitted( b1, asInData = TRUE ) + residuals( b1, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b1 )
 Likelihood ratio test
@@ -40870,7 +40872,7 @@ F_43 -1.08 -1.16 -0.34 -0.45 -0.10  0.22 -0.19  0.22
   129   172   215   258   301   344 
 -0.34 -0.45 -0.10  0.22 -0.19  0.22 
 > all.equal( fitted( b2, asInData = TRUE ) + residuals( b2, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b2 )
 Likelihood ratio test
@@ -41966,7 +41968,7 @@ F_43 -1.10 -1.18 -0.35 -0.48 -0.13  0.20 -0.20  0.20
   129   172   215   258   301   344 
 -0.35 -0.48 -0.13  0.20 -0.20  0.20 
 > all.equal( fitted( b3, asInData = TRUE ) + residuals( b3, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b3 )
 Likelihood ratio test
@@ -43072,7 +43074,7 @@ F_43 -1.09 -1.16 -0.34 -0.47 -0.11  0.22 -0.19  0.22
   129   172   215   258   301   344 
 -0.34 -0.47 -0.11  0.22 -0.19  0.22 
 > all.equal( fitted( b4, asInData = TRUE ) + residuals( b4, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b4 )
 Likelihood ratio test
@@ -43954,7 +43956,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
  0.95  1.32  1.47  1.46  1.18  1.47 
 > all.equal( fitted( ricePanelTrue, asInData = TRUE ) + 
 +       residuals( ricePanelTrue, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( ricePanelTrue )
 Likelihood ratio test
@@ -44087,7 +44089,7 @@ Model 2: ricePanelTimeTrue
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > all.equal( fitted( ricePanelTimeTrue, asInData = TRUE ) + 
 +       residuals( ricePanelTimeTrue, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( ricePanelTimeTrue )
 Likelihood ratio test
@@ -45718,7 +45720,7 @@ F_43 -1.17 -1.26 -0.44 -0.50 -0.17  0.12 -0.25  0.14
   129   172   215   258   301   344 
 -0.44 -0.50 -0.17  0.12 -0.25  0.14 
 > all.equal( fitted( b5, asInData = TRUE ) + residuals( b5, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > try( resettestFrontier( b5 ) )
 Error in resettestFrontier(b5) : 
@@ -47295,7 +47297,7 @@ F_43 -1.15 -1.24 -0.42 -0.48 -0.15  0.14 -0.23  0.16
   129   172   215   258   301   344 
 -0.42 -0.48 -0.15  0.14 -0.23  0.16 
 > all.equal( fitted( b6, asInData = TRUE ) + residuals( b6, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b6 )
 $modelType
@@ -48304,7 +48306,7 @@ F_43 0.64 0.66 0.67 0.69 0.71 0.72 0.74 0.75
 +    efficiencies( sb7i, asInData = TRUE ) )
 [1] TRUE
 > all.equal( fitted( b7, asInData = TRUE ) + residuals( b7, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b7 )
 Likelihood ratio test
@@ -49790,7 +49792,7 @@ margEff
 +    efficiencies( sb8i, asInData = TRUE, minusU = FALSE ) )
 [1] TRUE
 > all.equal( fitted( b8, asInData = TRUE ) + residuals( b8, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b8 )
 $modelType
@@ -50650,7 +50652,7 @@ F_43 0.34 0.31 0.64 0.62 0.80 0.90 0.76 0.91
 +    efficiencies( sb9i, asInData = TRUE, minusU = FALSE ) )
 [1] TRUE
 > all.equal( fitted( b9, asInData = TRUE ) + residuals( b9, asInData = TRUE ),
-+    log( riceProdPhilPanel$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > 
@@ -51103,7 +51105,7 @@ F_43  0.33  0.45  0.23 -0.08  0.14  0.01 -0.26 -0.06
   129   172   215   258   301   344 
  0.23 -0.08  0.14  0.01 -0.26 -0.06 
 > all.equal( fitted( d1, asInData = TRUE ) + residuals( d1, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d1 )
 Likelihood ratio test
@@ -52217,7 +52219,7 @@ F_43  0.41  0.53  0.31  0.01  0.23  0.11 -0.17  0.04
   129   172   215   258   301   344 
  0.31  0.01  0.23  0.11 -0.17  0.04 
 > all.equal( fitted( d2, asInData = TRUE ) + residuals( d2, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d2 )
 Likelihood ratio test
@@ -53235,7 +53237,7 @@ F_43  0.32  0.44  0.23 -0.09  0.13  0.01 -0.26 -0.06
   129   172   215   258   301   344 
  0.23 -0.09  0.13  0.01 -0.26 -0.06 
 > all.equal( fitted( d3, asInData = TRUE ) + residuals( d3, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d3 )
 Likelihood ratio test
@@ -54258,7 +54260,7 @@ F_43  0.40  0.52  0.31  0.00  0.23  0.11 -0.16  0.04
   129   172   215   258   301   344 
  0.31  0.00  0.23  0.11 -0.16  0.04 
 > all.equal( fitted( d4, asInData = TRUE ) + residuals( d4, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d4 )
 Likelihood ratio test
@@ -56446,7 +56448,7 @@ F_43  0.32  0.45  0.18 -0.10  0.07 -0.11 -0.29 -0.16
   129   172   215   258   301   344 
  0.18 -0.10  0.07 -0.11 -0.29 -0.16 
 > all.equal( fitted( d5, asInData = TRUE ) + residuals( d5, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( d5 )
 $modelType
@@ -57937,7 +57939,7 @@ F_43  0.33  0.45  0.18 -0.10  0.08 -0.11 -0.28 -0.15
   129   172   215   258   301   344 
  0.18 -0.10  0.08 -0.11 -0.28 -0.15 
 > all.equal( fitted( d6, asInData = TRUE ) + residuals( d6, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( d6 )
 $modelType
@@ -58801,7 +58803,7 @@ F_43 1.26 1.33 1.19 1.11 1.15 1.11 1.08 1.10
 +    efficiencies( sd9i, asInData = TRUE ) )
 [1] TRUE
 > all.equal( fitted( d9, asInData = TRUE ) + residuals( d9, asInData = TRUE ),
-+    log( riceProdPhilPanel$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanel$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > 
@@ -59170,9 +59172,9 @@ F_43 -1.10 -1.17 -0.35 -0.46 -0.11  0.20 -0.20  0.21
   129   172   215   258   301   344 
 -0.35 -0.46 -0.11  0.20 -0.20  0.21 
 > all.equal( fitted( b1u, asInData = TRUE ) + residuals( b1u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b1u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b1u, asInData = TRUE ),
 +    residuals( b1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b1u )
@@ -60119,9 +60121,9 @@ F_43 -1.08 -1.16 -0.34 -0.45 -0.10  0.22 -0.19  0.22
   129   172   215   258   301   344 
 -0.34 -0.45 -0.10  0.22 -0.19  0.22 
 > all.equal( fitted( b2u, asInData = TRUE ) + residuals( b2u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b2u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b2u, asInData = TRUE ),
 +    residuals( b2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b2u )
@@ -61077,9 +61079,9 @@ F_43 -1.10 -1.18 -0.35 -0.48 -0.13  0.20 -0.20  0.20
   129   172   215   258   301   344 
 -0.35 -0.48 -0.13  0.20 -0.20  0.20 
 > all.equal( fitted( b3u, asInData = TRUE ) + residuals( b3u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b3u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b3u, asInData = TRUE ),
 +    residuals( b3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b3u )
@@ -62160,9 +62162,9 @@ F_43 -1.09 -1.16 -0.34 -0.47 -0.11  0.22 -0.19  0.22
   129   172   215   258   301   344 
 -0.34 -0.47 -0.11  0.22 -0.19  0.22 
 > all.equal( fitted( b4u, asInData = TRUE ) + residuals( b4u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b4u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b4u, asInData = TRUE ),
 +    residuals( b4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b4u )
@@ -63563,9 +63565,9 @@ F_43 -1.18 -1.26 -0.44 -0.50 -0.17  0.12 -0.25  0.14
   129   172   215   258   301   344 
 -0.44 -0.50 -0.17  0.12 -0.25  0.14 
 > all.equal( fitted( b5u, asInData = TRUE ) + residuals( b5u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b5u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b5u, asInData = TRUE ),
 +    residuals( b5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > try( resettestFrontier( b5u ) )
@@ -65656,9 +65658,9 @@ F_43 -1.15 -1.24 -0.42 -0.48 -0.15  0.14 -0.23  0.16
   129   172   215   258   301   344 
 -0.42 -0.48 -0.15  0.14 -0.23  0.16 
 > all.equal( fitted( b6u, asInData = TRUE ) + residuals( b6u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$PROD ) - fitted( b6u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b6u, asInData = TRUE ),
 +    residuals( b6u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b6u )
@@ -66731,9 +66733,9 @@ F_43  0.32  0.44  0.23 -0.08  0.14  0.00 -0.26 -0.06
   129   172   215   258   301   344 
  0.23 -0.08  0.14  0.00 -0.26 -0.06 
 > all.equal( fitted( d1u, asInData = TRUE ) + residuals( d1u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d1u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d1u, asInData = TRUE ),
 +    residuals( d1u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d1u )
@@ -67688,9 +67690,9 @@ F_43  0.40  0.52  0.31  0.00  0.23  0.11 -0.17  0.04
   129   172   215   258   301   344 
  0.31  0.00  0.23  0.11 -0.17  0.04 
 > all.equal( fitted( d2u, asInData = TRUE ) + residuals( d2u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d2u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d2u, asInData = TRUE ),
 +    residuals( d2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d2u )
@@ -68749,9 +68751,9 @@ F_43  0.32  0.44  0.22 -0.09  0.13  0.00 -0.26 -0.07
   129   172   215   258   301   344 
  0.22 -0.09  0.13  0.00 -0.26 -0.07 
 > all.equal( fitted( d3u, asInData = TRUE ) + residuals( d3u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d3u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d3u, asInData = TRUE ),
 +    residuals( d3u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d3u )
@@ -69713,9 +69715,9 @@ F_43  0.40  0.52  0.31  0.01  0.24  0.11 -0.16  0.04
   129   172   215   258   301   344 
  0.31  0.01  0.24  0.11 -0.16  0.04 
 > all.equal( fitted( d4u, asInData = TRUE ) + residuals( d4u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d4u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d4u, asInData = TRUE ),
 +    residuals( d4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d4u )
@@ -71789,9 +71791,9 @@ F_43  0.33  0.45  0.18 -0.10  0.08 -0.11 -0.28 -0.15
   129   172   215   258   301   344 
  0.18 -0.10  0.08 -0.11 -0.28 -0.15 
 > all.equal( fitted( d5u, asInData = TRUE ) + residuals( d5u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d5u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d5u, asInData = TRUE ),
 +    residuals( d5u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > try( resettestFrontier( d5u ) )
@@ -73206,9 +73208,9 @@ F_43  0.33  0.45  0.18 -0.10  0.08 -0.11 -0.28 -0.15
   129   172   215   258   301   344 
  0.18 -0.10  0.08 -0.11 -0.28 -0.15 
 > all.equal( fitted( d6u, asInData = TRUE ) + residuals( d6u, asInData = TRUE ),
-+    log( riceProdPhilPanelUnb$cost ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( riceProdPhilPanelUnb$cost ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 0 in current 4 in target"
-> all.equal( log( riceProdPhilPanelUnb$cost ) - fitted( d6u, asInData = TRUE ),
+> all.equal( c( log( riceProdPhilPanelUnb$cost ) ) - fitted( d6u, asInData = TRUE ),
 +    residuals( d6u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( d6u )
@@ -74165,9 +74167,9 @@ F_43 -1.11 -1.18 -0.36 -0.51 -0.13  0.19 -0.29  0.17
   129   172   215   258   301   344 
 -0.36 -0.51 -0.13  0.19 -0.29  0.17 
 > all.equal( fitted( b1n, asInData = TRUE ) + residuals( b1n, asInData = TRUE ),
-+    log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 9 in current 36 in target"
-> all.equal( log( naPanelData$PROD ) - fitted( b1n, asInData = TRUE ),
+> all.equal( c( log( naPanelData$PROD ) ) - fitted( b1n, asInData = TRUE ),
 +    residuals( b1n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b1n )
@@ -75067,9 +75069,9 @@ F_43 -1.09 -1.16 -0.35 -0.50 -0.12  0.21 -0.25  0.20
   129   172   215   258   301   344 
 -0.35 -0.50 -0.12  0.21 -0.25  0.20 
 > all.equal( fitted( b4n, asInData = TRUE ) + residuals( b4n, asInData = TRUE ),
-+    log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 9 in current 36 in target"
-> all.equal( log( naPanelData$PROD ) - fitted( b4n, asInData = TRUE ),
+> all.equal( c( log( naPanelData$PROD ) ) - fitted( b4n, asInData = TRUE ),
 +    residuals( b4n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b4n )
@@ -76402,9 +76404,9 @@ F_43 -1.16 -1.25 -0.43 -0.51 -0.17  0.13 -0.27  0.14
   129   172   215   258   301   344 
 -0.43 -0.51 -0.17  0.13 -0.27  0.14 
 > all.equal( fitted( b5n, asInData = TRUE ) + residuals( b5n, asInData = TRUE ),
-+    log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 9 in current 44 in target"
-> all.equal( log( naPanelData$PROD ) - fitted( b5n, asInData = TRUE ),
+> all.equal( c( log( naPanelData$PROD ) ) - fitted( b5n, asInData = TRUE ),
 +    residuals( b5n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b5n )
@@ -77729,9 +77731,9 @@ F_43 -1.18 -1.27 -0.45 -0.53 -0.19  0.11 -0.29  0.13
   129   172   215   258   301   344 
 -0.45 -0.53 -0.19  0.11 -0.29  0.13 
 > all.equal( fitted( b6n, asInData = TRUE ) + residuals( b6n, asInData = TRUE ),
-+    log( naPanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 9 in current 44 in target"
-> all.equal( log( naPanelData$PROD ) - fitted( b6n, asInData = TRUE ),
+> all.equal( c( log( naPanelData$PROD ) ) - fitted( b6n, asInData = TRUE ),
 +    residuals( b6n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b6n )
@@ -78735,9 +78737,9 @@ F_43 -1.07 -1.15 -0.40 -0.08 -0.12  0.25
   129   172   215   258   301   344 
    NA -0.40 -0.08    NA -0.12  0.25 
 > all.equal( fitted( b1t, asInData = TRUE ) + residuals( b1t, asInData = TRUE ),
-+    log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 43 in current 88 in target"
-> all.equal( log( naTimePanelData$PROD ) - fitted( b1t, asInData = TRUE ),
+> all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b1t, asInData = TRUE ),
 +    residuals( b1t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b1t )
@@ -79594,9 +79596,9 @@ F_43 -1.07 -1.14 -0.41 -0.08 -0.09  0.25
   129   172   215   258   301   344 
    NA -0.41 -0.08    NA -0.09  0.25 
 > all.equal( fitted( b4t, asInData = TRUE ) + residuals( b4t, asInData = TRUE ),
-+    log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 43 in current 88 in target"
-> all.equal( log( naTimePanelData$PROD ) - fitted( b4t, asInData = TRUE ),
+> all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b4t, asInData = TRUE ),
 +    residuals( b4t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( b4t )
@@ -80999,9 +81001,9 @@ F_43 -1.27 -0.48 -0.17 -0.26  0.14
   129   172   215   258   301   344 
    NA -0.48 -0.17    NA -0.26  0.14 
 > all.equal( fitted( b5t, asInData = TRUE ) + residuals( b5t, asInData = TRUE ),
-+    log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 43 in current 131 in target"
-> all.equal( log( naTimePanelData$PROD ) - fitted( b5t, asInData = TRUE ),
+> all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b5t, asInData = TRUE ),
 +    residuals( b5t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b5t )
@@ -82261,9 +82263,9 @@ F_43 -1.22 -0.43 -0.11 -0.20  0.19
   129   172   215   258   301   344 
    NA -0.43 -0.11    NA -0.20  0.19 
 > all.equal( fitted( b6t, asInData = TRUE ) + residuals( b6t, asInData = TRUE ),
-+    log( naTimePanelData$PROD ), check.attributes = FALSE, tol = 1e-4 )
++    c( log( naTimePanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 43 in current 131 in target"
-> all.equal( log( naTimePanelData$PROD ) - fitted( b6t, asInData = TRUE ),
+> all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b6t, asInData = TRUE ),
 +    residuals( b6t, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( b6t )
@@ -89077,7 +89079,7 @@ F_41 -1.38 -1.18    NA -1.96 -1.27 -1.78 -1.13
 F_42 -0.65 -0.76 -0.78 -1.52 -0.82 -1.19 -0.76
 F_43 -2.22 -2.24 -1.80 -1.07 -0.75 -1.49 -0.75
 > all.equal( fitted( oip1, asInData = TRUE ) + residuals( oip1, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip1 )
 $modelType
@@ -89973,7 +89975,7 @@ F_41 -1.67 -1.47    NA -2.26 -1.57 -2.08 -1.43
 F_42 -0.94 -1.06 -1.07 -1.82 -1.12 -1.49 -1.06
 F_43 -2.51 -2.53 -2.10 -1.37 -1.04 -1.79 -1.05
 > all.equal( fitted( oip2, asInData = TRUE ) + residuals( oip2, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip2 )
 $modelType
@@ -90878,7 +90880,7 @@ F_41 -1.38 -1.18    NA -1.96 -1.27 -1.78 -1.13
 F_42 -0.65 -0.76 -0.78 -1.52 -0.82 -1.19 -0.76
 F_43 -2.22 -2.24 -1.80 -1.07 -0.75 -1.49 -0.75
 > all.equal( fitted( oip3, asInData = TRUE ) + residuals( oip3, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip3 )
 $modelType
@@ -91789,7 +91791,7 @@ F_41 -1.68 -1.48    NA -2.26 -1.57 -2.08 -1.43
 F_42 -0.95 -1.06 -1.08 -1.82 -1.12 -1.49 -1.06
 F_43 -2.51 -2.54 -2.10 -1.37 -1.05 -1.79 -1.05
 > all.equal( fitted( oip4, asInData = TRUE ) + residuals( oip4, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip4 )
 $modelType
@@ -93140,7 +93142,7 @@ F_41 -1.03 -0.83    NA -1.62 -0.93 -1.44 -0.79
 F_42 -0.30 -0.42 -0.43 -1.17 -0.48 -0.85 -0.41
 F_43 -1.87 -1.89 -1.46 -0.73 -0.40 -1.14 -0.41
 > all.equal( fitted( oip5, asInData = TRUE ) + residuals( oip5, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip5 )
 $modelType
@@ -94498,7 +94500,7 @@ F_41 -1.43 -1.23    NA -2.02 -1.33 -1.84 -1.19
 F_42 -0.70 -0.82 -0.83 -1.57 -0.88 -1.25 -0.81
 F_43 -2.27 -2.29 -1.86 -1.13 -0.80 -1.54 -0.81
 > all.equal( fitted( oip6, asInData = TRUE ) + residuals( oip6, asInData = TRUE ),
-+    riceProdPhilPanelUnb$lProdNa, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$lProdNa ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > printAll( oip6 )
 $modelType
@@ -98139,7 +98141,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp1, asInData = TRUE ) + residuals( nxp1, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp1r, asInData = TRUE ) + residuals( nxp1r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -99024,7 +99026,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp2, asInData = TRUE ) + residuals( nxp2, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp2r, asInData = TRUE ) + residuals( nxp2r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -99918,7 +99920,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp3, asInData = TRUE ) + residuals( nxp3, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp3r, asInData = TRUE ) + residuals( nxp3r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -100817,7 +100819,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp4, asInData = TRUE ) + residuals( nxp4, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp4r, asInData = TRUE ) + residuals( nxp4r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -102156,7 +102158,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp5, asInData = TRUE ) + residuals( nxp5, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp5r, asInData = TRUE ) + residuals( nxp5r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -103508,7 +103510,7 @@ F_41 -0.24 -0.04    NA -0.82 -0.13 -0.64  0.01
 F_42  0.50  0.38  0.36 -0.38  0.32 -0.05  0.38
 F_43 -1.07 -1.10 -0.66  0.07  0.39 -0.35  0.39
 > all.equal( fitted( nxp6, asInData = TRUE ) + residuals( nxp6, asInData = TRUE ),
-+    riceProdPhilPanelUnb$ynx, check.attributes = FALSE, tol = 1e-4 )
++    c( riceProdPhilPanelUnb$ynx ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > all.equal( fitted( nxp6r, asInData = TRUE ) + residuals( nxp6r, asInData = TRUE ),
 +    riceProdPhilPanelUnb$ynx[ !is.na( riceProdPhilPanelUnb$ynx ) ], 
@@ -111783,4 +111785,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 52.100   2.312  54.434 
+ 67.260   2.456  69.743 

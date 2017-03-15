@@ -1,6 +1,6 @@
 
-R version 3.1.1 (2014-07-10) -- "Sock it to Me"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -49,7 +49,8 @@ Loading required package: Formula
 +    paste( "F_", ifelse( riceProdPhil$FMERCODE > 9, "", "0" ),
 +    riceProdPhil$FMERCODE, sep = "" )
 > riceProdPhil$year <- riceProdPhil$YEARDUM + 1998
-> riceProdPhil <- plm.data( riceProdPhil, c( "farm", "year" ) )
+> riceProdPhil <- pdata.frame( riceProdPhil, c( "farm", "year" ), 
++    row.names = FALSE )
 > 
 > 
 > ########## cross-section data #############
@@ -148,7 +149,7 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > all.equal( sb5eef[-42], b5eef[-42], tol = 1e-3 )
 [1] TRUE
 > all.equal( b5eef[ -c( 4, 5, 20, 33, 34, 42 ) ], bb5eef[ -c( 4, 5, 20, 33, 34, 42 ) ], 
-+    tol = 1e-3 )
++    check.attributes = FALSE, tol = 1e-3 )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ), tol = 1e-3 )
 [1] TRUE
@@ -200,7 +201,7 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > all.equal( sb6eef[-42], b6eef[-42], tol = 1e-3 )
 [1] TRUE
 > all.equal( b6eef[ -c( 4, 5, 20, 33, 34, 42 ) ], bb6eef[ -c( 4, 5, 20, 33, 34, 42 ) ], 
-+    tol = 1e-3 )
++    check.attributes = FALSE, tol = 1e-3 )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ), tol = 1e-3 )
 [1] TRUE
@@ -221,4 +222,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  3.360   0.065   4.214 
+  8.692   0.056   8.752 
