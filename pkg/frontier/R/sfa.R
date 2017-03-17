@@ -223,7 +223,7 @@ sfa <- function(
          " Please contact the maintainer of the frontier package" )
    }
 
-   returnObj <- .Fortran( "front41",
+   returnObj <- .Fortran( C_front41,
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
       icept = as.integer( 0 ),

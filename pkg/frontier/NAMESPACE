@@ -28,7 +28,7 @@ S3method( "vcov", "front41Output" )
 S3method( "coef", "summary.front41Output" )
 S3method( "print", "summary.front41Output" )
 
-useDynLib( frontier, .registration = TRUE )
+useDynLib( frontier, .registration = TRUE, .fixes = "C_" )
 
 importFrom( "Formula", "as.Formula" )
 importFrom( "moments", "skewness" )
