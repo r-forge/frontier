@@ -276,7 +276,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
    Coelli, T. (1996) A Guide to FRONTIER Version 4.1: A Computer
       Program for Stochastic Frontier Production and Cost Function
       Estimation, CEPA Working Paper 96/08,
-      \url{http://www.uq.edu.au/economics/cepa/frontier.htm},
+      \url{http://www.uq.edu.au/economics/cepa/frontier.php},
       University of New England.
 
    Himmelblau, D.M. (1972), \emph{Applied Non-Linear Programming},
