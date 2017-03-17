@@ -20,6 +20,8 @@ panel structure of (panel) data sets
 * a more informative error message is issued if coefficients estimated by OLS
 are NA
 
+* several internal (not user-visible) enhancements
+
 
             CHANGES IN VERSION 1.1-0  (2013-08-20)
 
