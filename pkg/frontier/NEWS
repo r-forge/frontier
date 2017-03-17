@@ -13,6 +13,10 @@ stochastic frontier models
 * added argument "lrTests" to frontierQuad(): if this argument is TRUE,
 likelihood ratio tests are conducted for each X variable
 
+* made this package compatible with future versions of the 'plm' package, e.g.
+users can now use pdata.frame() (in addition to plm.data()) to specify the
+panel structure of (panel) data sets
+
 * a more informative error message is issued if coefficients estimated by OLS
 are NA
 
