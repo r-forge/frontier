@@ -1,6 +1,6 @@
 
-R version 3.3.3 (2017-03-06) -- "Another Canoe"
-Copyright (C) 2017 The R Foundation for Statistical Computing
+R version 3.5.1 (2018-07-02) -- "Feather Spray"
+Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -128,8 +128,8 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > # Comparisons
 > round( rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
      (Intercept) lAREA lLABOR lNPK sigmaSq gamma     mu
-[1,]       -1.14  0.35   0.33 0.27   15.68     1 -57.21
-[2,]       -1.14  0.35   0.33 0.27    8.29     1 -29.83
+[1,]       -1.14  0.35   0.33 0.27   13.67     1 -49.75
+[2,]       -1.14  0.35   0.33 0.27   14.59     1 -53.29
 > all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ), tol = 1e-3 )
 [1] TRUE
 > 
@@ -211,8 +211,8 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > # Comparisons
 > round( rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
      (Intercept) lAREA lLABOR lNPK sigmaSq gamma     mu
-[1,]       -1.14  0.35   0.33 0.27   15.68     1 -57.21
-[2,]       -1.14  0.35   0.33 0.27    8.29     1 -29.83
+[1,]       -1.14  0.35   0.33 0.27   13.67     1 -49.75
+[2,]       -1.14  0.35   0.33 0.27   14.59     1 -53.29
 > all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ), 
 +    tol = 1e-3 )
 [1] TRUE
@@ -222,4 +222,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  8.692   0.056   8.752 
+  1.978   0.016   1.988 

@@ -1,6 +1,6 @@
 
-R version 3.3.3 (2017-03-06) -- "Another Canoe"
-Copyright (C) 2017 The R Foundation for Statistical Computing
+R version 3.5.1 (2018-07-02) -- "Feather Spray"
+Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -46,7 +46,7 @@ Loading required package: Formula
 > ## non-existing variable
 > try( sfa( log( output ) ~ log( capital7 ) + log( labour ),
 +    data = front41Data ) )
-Error in eval(expr, envir, enclos) : object 'capital7' not found
+Error in eval(predvars, data, env) : object 'capital7' not found
 > 
 > ## nParamTotal > nObs
 > try( sfa( log( output ) ~ log( capital ) + log( labour ),
@@ -288,8 +288,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-log likelihood values and parameters of two successive iterations
-are within the tolerance limit
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -443,8 +443,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-log likelihood values and parameters of two successive iterations
-are within the tolerance limit
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -520,8 +520,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-log likelihood values and parameters of two successive iterations
-are within the tolerance limit
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -688,4 +688,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  3.528   0.088   3.613 
+  0.561   0.028   0.582 
