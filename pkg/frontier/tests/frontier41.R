@@ -1,4 +1,5 @@
 library( frontier )
+suppressWarnings( RNGversion( "3.5.3" ) )
 
 ## *****************************
 ## Testing front41WriteInput
