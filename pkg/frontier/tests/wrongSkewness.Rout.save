@@ -1,6 +1,6 @@
 
-R version 3.5.1 (2018-07-02) -- "Feather Spray"
-Copyright (C) 2018 The R Foundation for Statistical Computing
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -137,18 +137,18 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency increases the endogenous variable (as in a cost function)
 The dependent variable is logged
-Iterative ML estimation terminated after 46 iterations:
+Iterative ML estimation terminated after 50 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
-(Intercept)   -2e+00      3e-01      -6    4e-08 ***
-log(AREA)      3e-01      6e-02       5    9e-08 ***
-log(LABOR)     4e-01      7e-02       6    4e-09 ***
-log(NPK)       3e-01      4e-02       7    7e-13 ***
-sigmaSq        1e-01      8e-03      14   <2e-16 ***
-gamma          1e-05      5e-03       0        1    
+(Intercept)   -2e+00      4e-01      -5    2e-06 ***
+log(AREA)      3e-01      6e-02       5    7e-08 ***
+log(LABOR)     4e-01      6e-02       6    3e-09 ***
+log(NPK)       3e-01      4e-02       7    3e-13 ***
+sigmaSq        1e-01      7e-03      16   <2e-16 ***
+gamma          6e-06      4e-03       0        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: -104.91 
@@ -156,7 +156,7 @@ log likelihood value: -104.91
 cross-sectional data
 total number of observations = 344 
 
-mean efficiency: 1.0009 
+mean efficiency: 1.0006 
 > lrtest( b1 )
 Likelihood ratio test
 
@@ -222,19 +222,19 @@ Warning messages:
 Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 52 iterations:
+Iterative ML estimation terminated after 49 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
-(Intercept)    6e+00      2e-01      26   <2e-16 ***
-log(PROD)      4e-01      3e-02      17   <2e-16 ***
-log(AREA)      5e-01      3e-02      19   <2e-16 ***
+(Intercept)    6e+00      3e-01      22   <2e-16 ***
+log(PROD)      4e-01      3e-02      16   <2e-16 ***
+log(AREA)      5e-01      3e-02      17   <2e-16 ***
 log(LABORP)    4e-01      3e-02      13   <2e-16 ***
-log(NPKP)      6e-02      5e-02       1      0.2    
-sigmaSq        5e-02      4e-03      13   <2e-16 ***
-gamma          6e-05      2e-02       0      1.0    
+log(NPKP)      6e-02      6e-02       1      0.3    
+sigmaSq        5e-02      4e-03      12   <2e-16 ***
+gamma          8e-05      2e-02       0      1.0    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 log likelihood value: 39.025 
@@ -242,7 +242,7 @@ log likelihood value: 39.025
 cross-sectional data
 total number of observations = 344 
 
-mean efficiency: 0.99864 
+mean efficiency: 0.99849 
 > lrtest( d1 )
 Likelihood ratio test
 
@@ -297,4 +297,4 @@ Model 2: Error Components Frontier (ECF)
 > 
 > proc.time()
    user  system elapsed 
-  0.592   0.019   0.604 
+  0.540   0.040   0.573 

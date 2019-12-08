@@ -1,6 +1,6 @@
 
-R version 3.5.1 (2018-07-02) -- "Feather Spray"
-Copyright (C) 2018 The R Foundation for Statistical Computing
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -92,8 +92,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 21 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 Multiplied the initial values 1 time(s) by 0.999 before the search procedure could start
 You could try to use different starting values or try to reduce the step size specified in argument 'searchStep'
 
@@ -357,10 +357,10 @@ $nIter
 [1] 21
 
 $code
-[1] 5
+[1] 1
 
 $nFuncEval
-[1] 295
+[1] 285
 
 $olsStdEr
     a_0     a_1     a_2     a_3    a_t1   b_1_1   b_1_2   b_1_3  b_1_t1   b_2_2 
@@ -471,4 +471,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  0.387   0.032   0.414 
+  0.501   0.034   0.530 

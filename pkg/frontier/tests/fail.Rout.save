@@ -1,6 +1,6 @@
 
-R version 3.5.1 (2018-07-02) -- "Feather Spray"
-Copyright (C) 2018 The R Foundation for Statistical Computing
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -36,7 +36,6 @@ Tim Coelli and Arne Henningsen (2013). frontier: Stochastic Frontier Analysis. R
 If you have questions, suggestions, or comments regarding the 'frontier' package, please use a forum or 'tracker' at frontier's R-Forge site:
 https://r-forge.r-project.org/projects/frontier/
 > library( "plm" )
-Loading required package: Formula
 > options( digits = 5 )
 > 
 > ## example data included in FRONTIER 4.1 (cross-section data)
@@ -443,8 +442,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -688,4 +687,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  0.561   0.028   0.582 
+  0.574   0.036   0.601 
