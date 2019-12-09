@@ -9,10 +9,10 @@
 }
 
 \usage{
-   front41WriteInput( data, crossSectionName, timePeriodName = NULL,
+front41WriteInput( data, crossSectionName, timePeriodName = NULL,
    yName, xNames = NULL, qxNames = NULL, zNames = NULL, quadHalf = TRUE,
    modelType = ifelse( is.null( zNames ), 1, 2 ), functionType = 1,
-   logDepVar = TRUE, mu = FALSE, eta = FALSE,
+   logDepVar = TRUE, mu = FALSE, eta = FALSE, path = ".",
    insFile = "front41.ins", dtaFile = sub( "\\\\.ins$", ".dta", insFile ),
    outFile = sub( "\\\\.ins$", ".out", insFile ), startUpFile = "front41.000",
    iprint = 5, indic = 1, tol = 0.00001, tol2 = 0.001, bignum = 1.0E+16,
@@ -47,6 +47,8 @@
       be included in the estimation.}
    \item{eta}{logical. Should an 'eta' be included in the estimation
       (only in case of an 'Error Components Frontier', i.e. modelType = 1).}
+   \item{path}{path in which the instruction file, the data file,
+      and the start-up file should be written.}
    \item{insFile}{name of the instruction file.}
    \item{dtaFile}{name of the data file.}
    \item{outFile}{name of the output file.}
