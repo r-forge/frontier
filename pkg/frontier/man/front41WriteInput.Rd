@@ -128,11 +128,13 @@ front41WriteInput( data, crossSectionName, timePeriodName = NULL,
    front41Data$logLabour  <- log( front41Data$labour )
 
    front41WriteInput( front41Data, "firm", yName = "logOutput",
-      xNames = c( "logCapital", "logLabour" ), insFile = "coelli.ins" )
+      xNames = c( "logCapital", "logLabour" ), 
+      path = tempdir(), insFile = "coelli.ins" )
 
    \dontrun{
-   system( "front41.bin coelli.ins" )
-   sfa <- front41ReadOutput( "coelli.out" )
+   system( paste0( "cd ", tempdir(), "; front41.bin coelli.ins" ) )
+   sfa <- front41ReadOutput( file.path( tempdir(), "coelli.out" ) )
+   summary( sfa )
    }
 }
 
