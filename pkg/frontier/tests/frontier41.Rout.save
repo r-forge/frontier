@@ -48,7 +48,7 @@ https://r-forge.r-project.org/projects/frontier/
 > front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), path = tempdir() )
 > 
-> print( front41Ins )
+> print( front41Ins[ names( front41Ins ) != "path" ] )
 $data
       [,1] [,2]      [,3]        [,4]       [,5]
  [1,]    1    1 2.5477249  2.24241037 3.55916932
@@ -145,9 +145,6 @@ $mu
 $eta
 [1] "n"
 
-$path
-[1] "/tmp/Rtmpsegrm7"
-
 $insFile
 [1] "front41.ins"
 
@@ -208,8 +205,6 @@ $nXtotal
 $nZvars
 [1] 0
 
-attr(,"class")
-[1] "front41WriteInput"
 > 
 > print( readLines( file.path( tempdir(), "front41.ins" ) ) )
  [1] "1               1=ERROR COMPONENTS MODEL, 2=TE EFFECTS MODEL"        
@@ -320,7 +315,7 @@ attr(,"class")
 > front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
 +    xNames = c( "logCapital", "logLabour" ), path = tempdir() )
 > 
-> print( front41Ins )
+> print( front41Ins[ names( front41Ins ) != "path" ] )
 $data
       [,1] [,2]      [,3]        [,4]       [,5]
  [1,]   11    1 2.5477249  2.24241037 3.55916932
@@ -417,9 +412,6 @@ $mu
 $eta
 [1] "n"
 
-$path
-[1] "/tmp/Rtmpsegrm7"
-
 $insFile
 [1] "front41.ins"
 
@@ -480,8 +472,6 @@ $nXtotal
 $nZvars
 [1] 0
 
-attr(,"class")
-[1] "front41WriteInput"
 > 
 > print( readLines( file.path( tempdir(), "front41.ins" ) ) )
  [1] "1               1=ERROR COMPONENTS MODEL, 2=TE EFFECTS MODEL"        
@@ -978,4 +968,4 @@ $meanEfficiency
 > 
 > proc.time()
    user  system elapsed 
-  0.370   0.038   0.408 
+  0.376   0.024   0.394 

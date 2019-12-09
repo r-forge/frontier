@@ -12,7 +12,7 @@ front41Data$logLabour  <- log( front41Data$labour )
 front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), path = tempdir() )
 
-print( front41Ins )
+print( front41Ins[ names( front41Ins ) != "path" ] )
 
 print( readLines( file.path( tempdir(), "front41.ins" ) ) )
 print( readLines( file.path( tempdir(), "front41.dta" ) ) )
@@ -27,7 +27,7 @@ front41Data$firm <- sample( c( 1:( nrow( front41Data ) + 20 ) ) )[ 1:nrow( front
 front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), path = tempdir() )
 
-print( front41Ins )
+print( front41Ins[ names( front41Ins ) != "path" ] )
 
 print( readLines( file.path( tempdir(), "front41.ins" ) ) )
 print( readLines( file.path( tempdir(), "front41.dta" ) ) )
