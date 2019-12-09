@@ -11,29 +11,44 @@ front41Data$logLabour  <- log( front41Data$labour )
 
 insFile <- file()
 dtaFile  <- file()
+startUpFile  <- file()
 
 front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
-   xNames = c( "logCapital", "logLabour" ), insFile = insFile, dtaFile = dtaFile  )
+   xNames = c( "logCapital", "logLabour" ), insFile = insFile, 
+   dtaFile = dtaFile, startUpFile = startUpFile )
 
 print( front41Ins )
 
 print( readLines( insFile ) )
 print( readLines( dtaFile ) )
-
-# irregular firm (cross section) identifier
-set.seed( 20061705 )
-front41Data$firm <- sample( c( 1:( nrow( front41Data ) + 20 ) ) )[ 1:nrow( front41Data ) ]
-
-front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
-   xNames = c( "logCapital", "logLabour" ), insFile = insFile, dtaFile = dtaFile  )
-
-print( front41Ins )
-
-print( readLines( insFile ) )
-print( readLines( dtaFile ) )
+print( readLines( startUpFile ) )
 
 close( insFile )
 close( dtaFile )
+close( startUpFile )
+
+# irregular firm (cross section) identifier
+set.seed( 20061705 )
+
+insFile <- file()
+dtaFile  <- file()
+startUpFile  <- file()
+
+front41Data$firm <- sample( c( 1:( nrow( front41Data ) + 20 ) ) )[ 1:nrow( front41Data ) ]
+
+front41Ins <- front41WriteInput( front41Data, "firm", yName = "logOutput",
+   xNames = c( "logCapital", "logLabour" ), insFile = insFile, 
+   dtaFile = dtaFile, startUpFile = startUpFile  )
+
+print( front41Ins )
+
+print( readLines( insFile ) )
+print( readLines( dtaFile ) )
+print( readLines( startUpFile ) )
+
+close( insFile )
+close( dtaFile )
+close( startUpFile )
 
 
 ## *****************************
