@@ -631,18 +631,13 @@ c       of the log-likelihood function of the error components model.
       g=b(n2)
       u=dble(0)
       e=dble(0)
+      n3=nb+nz+3
+      n4=nb+nz+3+nmu
       if (nmu.eq.1) then
-        n3=nb+nz+3
         u=b(n3)
-        if (neta.eq.1) then
-          n4=nb+nz+4
-          e=b(n4)
-        endif
-      else
-        if (neta.eq.1) then
-          n4=nb+nz+3
-          e=b(n4)
-        endif
+      endif
+      if (neta.eq.1) then
+        e=b(n4)
       endif
       sc=dble(1)
       if (ipc.eq.2) sc=-dble(1)
