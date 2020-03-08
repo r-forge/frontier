@@ -899,11 +899,12 @@ c       also reads data from a file.
         return
       endif
       allocate(yy(nn,nt),xx(nn,nt,nr),mm(nn),xxd(nr-nmu*(im-1)))
-      do 135 i=1,nn
+      do 145 i=1,nn
         mm(i)=0
         do 135 l=1,nt
           xx(i,l,1)=dble(0)
   135   continue
+  145 continue
       if ((2+nr-nmu*(im-1)).ne.nColData) then
       call intpr( 'internal error: 2 + nr - nmu * (im-1)',-1, 0, 0 )
       call intpr( 'is not equal to argument ''nColData''',-1, 0, 0 )
