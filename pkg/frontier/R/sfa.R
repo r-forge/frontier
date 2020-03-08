@@ -226,7 +226,6 @@ sfa <- function(
    returnObj <- .Fortran( C_front41,
       modelType = as.integer( modelType ),
       ineffDecrease = as.integer( ( !ineffDecrease ) + 1 ),
-      icept = as.integer( 0 ),
       nn = as.integer( nn ),
       nt = as.integer( nt ),
       nob = as.integer( nob ),

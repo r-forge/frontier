@@ -1,6 +1,6 @@
 
       subroutine front41(
-     $  imArg, ipcArg, iceptArg,
+     $  imArg, ipcArg,
      $  nnArg, ntArg, nobArg, nbArg, nmuArg, netaArg,
      $  iprintArg, indicArg, tolArg, tol2Arg, bignumArg,
      $  step1Arg, igrid2Arg, gridnoArg, maxitArg, bmuArg,
