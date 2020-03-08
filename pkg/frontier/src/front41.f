@@ -104,6 +104,7 @@ c       contains the main loop of this iterative program.
       dimension yy(nn,nt),xx(nn,nt,nr),sv(n)
       dimension ob(n),ga(nb),gb(n),x(:),y(n),s(:)
       dimension h(n,n),delx(:),delg(:),gx(:),gy(:)
+      dimension arpr(1)
       allocatable :: x,s,delx,delg,gx,gy
       allocate(x(n),s(n))
       allocate(delx(n),delg(n),gx(n),gy(n))
@@ -132,7 +133,8 @@ c       contains the main loop of this iterative program.
       if (iprint.ne.0) then
         call intpr( 'iteration', -1, iter, 1 )
         call intpr( 'function evaluations', -1, nfunct, 1 )
-        call dblepr( 'log-likelihood value', -1, -fy, 1 )
+        arpr(1)=-fy
+        call dblepr( 'log-likelihood value', -1, arpr, 1 )
         call dblepr( 'parameters', -1, y, n )
       endif
       if (maxit.eq.0) goto 70
@@ -162,8 +164,9 @@ c       contains the main loop of this iterative program.
       if (ipass.eq.1.) then
         if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.mrestart))
      $      then
+          arpr(1)=frestart
           call dblepr( 'restarting with starting values multiplied by',
-     $      -1, frestart, 1 )
+     $      -1, arpr, 1 )
           do 108 i=1,n
             sv(i)=x(i)*frestart
   108     continue
@@ -178,7 +181,8 @@ c       contains the main loop of this iterative program.
         if (printcon.eq.dble(0)) then
           call intpr( 'iteration', -1, iter, 1 )
           call intpr( 'function evaluations', -1, nfunct, 1 )
-          call dblepr( 'log-likelihood value', -1, -fy, 1 )
+          arpr(1)=-fy
+          call dblepr( 'log-likelihood value', -1, arpr, 1 )
           call dblepr( 'parameters', -1, y, n )
         endif
       endif
@@ -201,7 +205,8 @@ c       contains the main loop of this iterative program.
       if (iprint.ne.0) then
         call intpr( 'iteration', -1, iter, 1 )
         call intpr( 'function evaluations', -1, nfunct, 1 )
-        call dblepr( 'log-likelihood value', -1, -fy, 1 )
+        arpr(1)=-fy
+        call dblepr( 'log-likelihood value', -1, arpr, 1 )
         call dblepr( 'parameters', -1, y, n )
       endif
       deallocate(x,s,delx,delg,gx,gy)
