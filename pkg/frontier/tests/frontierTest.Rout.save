@@ -520,6 +520,16 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 2.75 3.42 3.29 3.35 3.57 3.17 3.01 2.64 2.88 3.25 3.41 2.93 3.41 2.92 3.53 3.00 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 3.11 3.18 3.08 3.35 3.61 2.88 3.09 3.31 1.15 3.59 3.34 3.08 
+> all.equal( fitted( a1 ), predict( a1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( a1, asInData = TRUE ), predict( a1 ) )
+[1] TRUE
+> all.equal( fitted( a1 )[ 4:26, , drop = FALSE ],
++    predict( a1, newdata = front41Data[ 4:26, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( a1, asInData = TRUE )[ 8:44 ], 
++    predict( a1, newdata = front41Data[ 8:44, ] ) )
+[1] TRUE
 > round( residuals( a1 ), 2 )
      residuals
 F_1      -0.55
@@ -2003,6 +2013,16 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > all.equal( fitted( a5, asInData = TRUE ) + residuals( a5, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
+> all.equal( fitted( a5 ), predict( a5, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( a5, asInData = TRUE ), predict( a5 ) )
+[1] TRUE
+> all.equal( fitted( a5 )[ 4:26, , drop = FALSE ],
++    predict( a5, newdata = front41Data[ 4:26, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( a5, asInData = TRUE )[ 8:44 ], 
++    predict( a5, newdata = front41Data[ 8:44, ] ) )
+[1] TRUE
 > rta5 <- resettestFrontier( a5 )
 > rta5
 Likelihood ratio test
@@ -3108,6 +3128,16 @@ F_60     -0.40
  0.01 -0.30 -0.15 -0.28  0.08 -0.48  0.00 -0.40 
 > all.equal( fitted( aa1, asInData = TRUE ) + residuals( aa1, asInData = TRUE ),
 +    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( aa1 ), predict( aa1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( aa1, asInData = TRUE ), predict( aa1 ) )
+[1] TRUE
+> all.equal( fitted( aa1 )[ 4:26, , drop = FALSE ],
++    predict( aa1, newdata = front41Data[ 4:26, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( aa1, asInData = TRUE )[ 8:44 ], 
++    predict( aa1, newdata = front41Data[ 8:44, ] ) )
 [1] TRUE
 > try( resettestFrontier( aa1 ) )
 Error in resettestFrontier(aa1) : 
@@ -5513,6 +5543,16 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 2.75 3.43 3.30 3.36 3.59 3.19 3.02 2.66 2.89 3.27 3.42 2.94 3.42 2.93 3.54 3.02 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 3.12 3.20 3.09 3.37 3.62 2.89 3.09 3.32 1.17 3.60 3.36 3.09 
+> all.equal( fitted( San1 ), predict( San1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( San1, asInData = TRUE ), predict( San1 ) )
+[1] TRUE
+> all.equal( fitted( San1 )[ 2:23, , drop = FALSE ],
++    predict( San1, newdata = naData[ 2:26, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( San1, asInData = TRUE )[ 2:24 ], 
++    predict( San1, newdata = naData[ 2:24, ] ) )
+[1] TRUE
 > all.equal( fitted( San1, asInData = TRUE ) + residuals( San1, asInData = TRUE ),
 +    log( naData$output ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 3 in target"
@@ -5832,6 +5872,16 @@ F_33 F_34 F_35 F_36 F_37 F_38 F_39 F_40 F_41 F_42 F_43 F_44 F_45 F_46 F_47 F_48
 2.73 3.40 3.27 3.33 3.55 3.15 3.00 2.62 2.86 3.23 3.39 2.91 3.39 2.90 3.51 2.98 
 F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60 
 3.09 3.16 3.07 3.33 3.59 2.86 3.07 3.29 1.13 3.57 3.32 3.06 
+> all.equal( fitted( Saan1 ), predict( Saan1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( Saan1, asInData = TRUE ), predict( Saan1 ) )
+[1] TRUE
+> all.equal( fitted( Saan1 )[ 2:22, , drop = FALSE ],
++    predict( Saan1, newdata = naData[ 2:26, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( Saan1, asInData = TRUE )[ 2:24 ], 
++    predict( Saan1, newdata = naData[ 2:24, ] ) )
+[1] TRUE
 > all.equal( fitted( Saan1, asInData = TRUE ) + residuals( Saan1, asInData = TRUE ),
 +    log( naData$output ), check.attributes = FALSE, tol = 1e-4 )
 [1] "'is.NA' value mismatch: 1 in current 4 in target"
@@ -6444,6 +6494,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 [1] TRUE
 > all.equal( efficiencies( bb1, asInData = TRUE, minusU = FALSE ), 
 +    efficiencies( sbb1i, asInData = TRUE, minusU = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb1 ), predict( bb1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb1, asInData = TRUE ), predict( bb1 ) )
+[1] TRUE
+> all.equal( fitted( bb1 )[ 4:326, , drop = FALSE ],
++    predict( bb1, newdata = riceProdPhil[ 4:326, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb1, asInData = TRUE )[ 3:324 ], 
++    predict( bb1, newdata = riceProdPhil[ 3:324, ] ) )
 [1] TRUE
 > round( residuals( bb1 ), 2 )
     residuals
@@ -12482,6 +12542,16 @@ margEff
 [1] TRUE
 > all.equal( efficiencies( bb5, asInData = TRUE, minusU = FALSE ), 
 +    efficiencies( sbb5i, asInData = TRUE, minusU = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb5 ), predict( bb5, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb5, asInData = TRUE ), predict( bb5 ) )
+[1] TRUE
+> all.equal( fitted( bb5 )[ 4:326, , drop = FALSE ],
++    predict( bb5, newdata = riceProdPhil[ 4:326, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb5, asInData = TRUE )[ 3:324 ], 
++    predict( bb5, newdata = riceProdPhil[ 3:324, ] ) )
 [1] TRUE
 > round( residuals( bb5 ), 2 )
     residuals
@@ -19632,6 +19702,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 [1] TRUE
 > all.equal( fitted( bb7, asInData = TRUE ) + residuals( bb7, asInData = TRUE ),
 +    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
+[1] TRUE
+> all.equal( fitted( bb7 ), predict( bb7, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb7, asInData = TRUE ), predict( bb7 ) )
+[1] TRUE
+> all.equal( fitted( bb7 )[ 4:326, , drop = FALSE ],
++    predict( bb7, newdata = riceProdPhil[ 4:326, ], asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( bb7, asInData = TRUE )[ 3:324 ], 
++    predict( bb7, newdata = riceProdPhil[ 3:324, ] ) )
 [1] TRUE
 > resettestFrontier( bb7 )
 Likelihood ratio test
@@ -39524,6 +39604,18 @@ F_43       1.39
 > all.equal( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 
 +    efficiencies( sb1i, asInData = TRUE, minusU = FALSE ) )
 [1] TRUE
+> all.equal( fitted( b1 ), predict( b1, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b1, asInData = TRUE ), predict( b1 ) )
+[1] TRUE
+> all.equal( fitted( b1 )[ 2:42, ],
++    predict( b1, newdata = 
++          riceProdPhilPanel[ ! riceProdPhilPanel$FMERCODE %in% c( 1, 43 ), ], 
++       asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b1, asInData = TRUE )[ 3:324 ], 
++    predict( b1, newdata = riceProdPhilPanel[ 3:324, ] ) )
+[1] TRUE
 > round( residuals( b1 ), 2 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 -0.20 -0.33 -0.16 -0.32 -0.33 -0.68 -0.78 -0.05
@@ -42915,6 +43007,18 @@ F_43 0.64 0.66 0.67 0.69 0.71 0.72 0.74 0.75
 > all.equal( efficiencies( b4, asInData = TRUE ), 
 +    efficiencies( sb4i, asInData = TRUE ) )
 [1] TRUE
+> all.equal( fitted( b4 ), predict( b4, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b4, asInData = TRUE ), predict( b4 ) )
+[1] TRUE
+> all.equal( fitted( b4 )[ 2:42, ],
++    predict( b4, newdata = 
++          riceProdPhilPanel[ ! riceProdPhilPanel$FMERCODE %in% c( 1, 43 ), ], 
++       asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b4, asInData = TRUE )[ 3:24 ], 
++    predict( b4, newdata = riceProdPhilPanel[ 3:24, ] ) )
+[1] TRUE
 > round( residuals( b4 ), 2 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 -0.19 -0.30 -0.13 -0.28 -0.29 -0.66 -0.75 -0.02
@@ -45558,6 +45662,18 @@ margEff
  1.27  1.28  1.39  1.91  2.00  2.04  1.85  1.70  2.28  2.00  2.10  1.76  1.82 
   129   172   215   258   301   344 
  1.44  1.70  1.90  1.93  1.56  1.90 
+> all.equal( fitted( b5 ), predict( b5, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b5, asInData = TRUE ), predict( b5 ) )
+[1] TRUE
+> all.equal( fitted( b5 )[ 2:42, ],
++    predict( b5, newdata = 
++          riceProdPhilPanel[ ! riceProdPhilPanel$FMERCODE %in% c( 1, 43 ), ], 
++       asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b5, asInData = TRUE )[ 3:324 ], 
++    predict( b5, newdata = riceProdPhilPanel[ 3:324, ] ) )
+[1] TRUE
 > round( residuals( b5 ), 2 )
       1999  2000  2001  2002  2003  2004  2005  2006
 F_01 -0.29 -0.42 -0.27 -0.42 -0.43 -0.76 -0.89 -0.13
@@ -49720,6 +49836,18 @@ margEff
 [1] TRUE
 > all.equal( efficiencies( b8, asInData = TRUE, minusU = FALSE ), 
 +    efficiencies( sb8i, asInData = TRUE, minusU = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b8 ), predict( b8, asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b8, asInData = TRUE ), predict( b8 ) )
+[1] TRUE
+> all.equal( fitted( b8 )[ 2:42, ],
++    predict( b8, newdata = 
++          riceProdPhilPanel[ ! riceProdPhilPanel$FMERCODE %in% c( 1, 43 ), ], 
++       asInData = FALSE ) )
+[1] TRUE
+> all.equal( fitted( b8, asInData = TRUE )[ 3:324 ], 
++    predict( b8, newdata = riceProdPhilPanel[ 3:324, ] ) )
 [1] TRUE
 > all.equal( fitted( b8, asInData = TRUE ) + residuals( b8, asInData = TRUE ),
 +    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
@@ -111565,4 +111693,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 17.260   2.003  19.261 
+ 15.876   2.012  17.885 
