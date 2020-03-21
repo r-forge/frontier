@@ -15,7 +15,7 @@
 }
 
 \arguments{
-   \item{object}{a stochastic frontier model
+   \item{model}{a stochastic frontier model
       estimated with the \pkg{frontier} package 
       (e.g. function \code{\link{sfa}}).}
    \item{progressBar}{logical. Should a progress bar be displayed
