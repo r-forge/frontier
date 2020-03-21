@@ -6,6 +6,8 @@ on R-Forge.
 
             CHANGES IN VERSION 1.1-8  (2020-??-??)
 
+* added a cooks.distance() method
+
 * added a predict() method
 
 * made Fortran code compatible with gfortran 10
