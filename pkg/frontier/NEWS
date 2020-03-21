@@ -4,6 +4,13 @@ Please note that only the most significant changes are reported here.
 A full ChangeLog is available in the log messages of the SVN repository
 on R-Forge.
 
+            CHANGES IN VERSION 1.1-8  (2020-??-??)
+
+* added a predict() method
+
+* made Fortran code compatible with gfortran 10
+
+
             CHANGES IN VERSION 1.1-6  (2019-12-09)
 
 * added argument "path" to front41WriteInput()
