@@ -92,6 +92,7 @@ round( residuals( a1 ), 2 )
 round( residuals( a1, asInData = TRUE ), 2 )
 all.equal( fitted( a1, asInData = TRUE ) + residuals( a1, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+round( cooks.distance( a1, progressBar = FALSE ), 3 )
 rta1 <- resettestFrontier( a1 )
 rta1
 all.equal( rta1, resettestFrontier( Sa1 ), check.attributes = FALSE )
@@ -200,6 +201,7 @@ all.equal( fitted( a5 )[ 4:26, , drop = FALSE ],
    predict( a5, newdata = front41Data[ 4:26, ], asInData = FALSE ) )
 all.equal( fitted( a5, asInData = TRUE )[ 8:44 ], 
    predict( a5, newdata = front41Data[ 8:44, ] ) )
+round( cooks.distance( a5, progressBar = FALSE ), 3 )
 rta5 <- resettestFrontier( a5 )
 rta5
 all.equal( rta5, resettestFrontier( sa5 ), check.attributes = FALSE )
@@ -272,6 +274,7 @@ all.equal( fitted( aa1 )[ 4:26, , drop = FALSE ],
    predict( aa1, newdata = front41Data[ 4:26, ], asInData = FALSE ) )
 all.equal( fitted( aa1, asInData = TRUE )[ 8:44 ], 
    predict( aa1, newdata = front41Data[ 8:44, ] ) )
+# cooks.distance( aa1, progressBar = FALSE )  # very long execution time
 try( resettestFrontier( aa1 ) )
 printAll( aa1 )
 
@@ -362,6 +365,7 @@ all.equal( efficiencies( saa5, asInData = TRUE, margEff = TRUE, minusU = FALSE )
    efficiencies( saa5i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
 all.equal( fitted( aa5, asInData = TRUE ) + residuals( aa5, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
+round( cooks.distance( aa5, progressBar = FALSE ), 3 )
 printAll( aa5 )
 
 ## cross-section data, efficiency effects frontier, no Z vars
@@ -430,6 +434,7 @@ all.equal( fitted( San1, asInData = TRUE ) + residuals( San1, asInData = TRUE ),
    log( naData$output ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( log( naData$output ) - fitted( San1, asInData = TRUE ),
    residuals( San1, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
+round( cooks.distance( San1, progressBar = FALSE ), 3 )
 resettestFrontier( San1 )
 
 ## cross-section data with NAs, efficiency effects frontier
@@ -464,6 +469,7 @@ all.equal( fitted( Saan1, asInData = TRUE ) + residuals( Saan1, asInData = TRUE 
    log( naData$output ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( log( naData$output )- fitted( Saan1, asInData = TRUE ),
    residuals( Saan1, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
+round( cooks.distance( Saan1, progressBar = FALSE ), 3 )
 
 
 ## data set of rice producers in the Philippines
@@ -523,6 +529,7 @@ round( residuals( bb1, asInData = TRUE ), 2 )
 all.equal( fitted( bb1, asInData = TRUE ) + residuals( bb1, asInData = TRUE ),
    log( riceProdPhil$PROD ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( bb1 )
+round( cooks.distance( bb1, progressBar = FALSE ), 3 )
 printAll( bb1 )
 
 ## cross-section rice data, error components frontier, truncNorm
@@ -747,6 +754,7 @@ all.equal( fitted( bb7 )[ 4:326, , drop = FALSE ],
 all.equal( fitted( bb7, asInData = TRUE )[ 3:324 ], 
    predict( bb7, newdata = riceProdPhil[ 3:324, ] ) )
 resettestFrontier( bb7 )
+round( cooks.distance( bb7, progressBar = FALSE ), 3 )
 printAll( bb7 )
 
 ## cross-section rice data, efficiency effects frontier, zIntercept, starting values
@@ -875,6 +883,7 @@ round( residuals( dd1, asInData = TRUE ), 2 )
 all.equal( fitted( dd1, asInData = TRUE ) + residuals( dd1, asInData = TRUE ),
    log( riceProdPhil$cost ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( dd1 )
+round( cooks.distance( dd1, progressBar = FALSE ), 3 )
 printAll( dd1 )
 
 ## cross-section rice data, error components cost frontier, truncNorm
@@ -1148,6 +1157,7 @@ round( residuals( b1, asInData = TRUE ), 2 )
 all.equal( fitted( b1, asInData = TRUE ) + residuals( b1, asInData = TRUE ),
    c( log( riceProdPhilPanel$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b1 )
+round( cooks.distance( b1, progressBar = FALSE ), 3 )
 printAll( b1 )
 
 ## panel data, error components frontier, truncNorm
@@ -2032,6 +2042,7 @@ all.equal( fitted( b4u, asInData = TRUE ) + residuals( b4u, asInData = TRUE ),
 all.equal( c( log( riceProdPhilPanelUnb$PROD ) ) - fitted( b4u, asInData = TRUE ),
    residuals( b4u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 resettestFrontier( b4u )
+round( cooks.distance( b4u, progressBar = FALSE ), 3 )
 printAll( b4u )
 
 ## unbalanced panel data, efficiency effects frontier
@@ -2415,6 +2426,7 @@ all.equal( fitted( b5n, asInData = TRUE ) + residuals( b5n, asInData = TRUE ),
    c( log( naPanelData$PROD ) ), check.attributes = FALSE, tol = 1e-4 )
 all.equal( c( log( naPanelData$PROD ) ) - fitted( b5n, asInData = TRUE ),
    residuals( b5n, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
+round( cooks.distance( b5n, progressBar = FALSE ), 3 )
 printAll( b5n )
 
 ## panel data with NA firms, efficiency effects frontier, zIntercept
