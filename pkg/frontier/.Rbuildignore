@@ -2,4 +2,5 @@
 pkg.Rproj
 ^.*\.Rproj$
 ^\.svn$
+^tests/cooksDistTest.R
 ^tests/.*\.Rout\.save$
