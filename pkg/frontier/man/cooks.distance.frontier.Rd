@@ -1,10 +1,10 @@
 \name{cooks.distance.frontier}
 \alias{cooks.distance.frontier}
 
-\title{Cook's Distance of Stochastic Frontier Models}
+\title{Pseudo-Cook's Distance of Stochastic Frontier Models}
 
 \description{
-   This method returns the Cook's distances
+   This method returns the Pseudo-Cook's distances
    from stochastic frontier models
    estimated with the \pkg{frontier} package 
    (e.g. function \code{\link{sfa}}).
@@ -24,7 +24,7 @@
 }
 
 \value{
-   A vector of the Cook's distances for each observation
+   A vector of the Pseudo-Cook's distances for each observation
    that was used in the estimation that returned argument \code{model}.
 }
 
@@ -41,7 +41,7 @@
       data = front41Data )
    summary( cobbDouglas )
    
-   # Cook's distances
+   # Pseudo-Cook's distances
    cooks.distance( cobbDouglas )
 }
 
