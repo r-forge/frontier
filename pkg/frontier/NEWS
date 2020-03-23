@@ -6,9 +6,9 @@ on R-Forge.
 
             CHANGES IN VERSION 1.1-8  (2020-??-??)
 
-* added a cooks.distance() method
+* added a cooks.distance() method for obtaining Pseudo-Cook's Distances
 
-* added a predict() method
+* added a predict() method for predicting frontier values
 
 * made Fortran code compatible with gfortran 10
 
