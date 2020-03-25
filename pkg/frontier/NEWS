@@ -10,6 +10,10 @@ on R-Forge.
 
 * added a predict() method for predicting frontier values
 
+* added argument "newdata" to the efficiencies() method so that efficiency
+estimates can be calculated for other observations than for those that were
+used in the estimation
+
 * made Fortran code compatible with gfortran 10
 
 
