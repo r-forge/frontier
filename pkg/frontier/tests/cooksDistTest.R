@@ -15,18 +15,25 @@ front41Data$ones       <- 1
 a1 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ) )
 round( cooks.distance( a1, progressBar = FALSE ), 3 )
+round( a1CdEff <- cooks.distance( a1, "efficiencies", progressBar = FALSE ), 3 )
+round( cooks.distance( a1, "efficiencies", minusU = FALSE,
+   progressBar = FALSE ), 3 )
+try( cooks.distance( a1, "efficiencies", asInData = TRUE ) )
+try( cooks.distance( a1, "abc" ) )
 
 ## cross-section data, error components frontier, truncNorm, starting values
 a5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), truncNorm = TRUE,
    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
 round( cooks.distance( a5, progressBar = FALSE ), 3 )
+round( cooks.distance( a5, "efficiencies", progressBar = FALSE ), 3 )
 
 ## cross-section data, efficiency effects frontier, zIntercept, starting values
 aa5 <- frontier( data = front41Data, "logOutput",
    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
 round( cooks.distance( aa5, progressBar = FALSE ), 3 )
+round( cooks.distance( aa5, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## cross-section data with NAs and infinit values
@@ -39,11 +46,13 @@ naData$firmNo[14] <- NA
 ## cross-section data with NAs, error components frontier
 San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
 round( cooks.distance( San1, progressBar = FALSE ), 3 )
+round( cooks.distance( San1, "efficiencies", progressBar = FALSE ), 3 )
 
 ## cross-section data with NAs, efficiency effects frontier
 Saan1 <- sfa( log( output ) ~ log( capital ) + log( labour ) | firmNo - 1,
    data = naData )
 round( cooks.distance( Saan1, progressBar = FALSE ), 3 )
+round( cooks.distance( Saan1, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## data set of rice producers in the Philippines
@@ -58,6 +67,7 @@ riceProdPhil$ones   <- 1
 bb1 <- frontier( data = riceProdPhil,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 round( cooks.distance( bb1, progressBar = FALSE ), 3 )
+round( cooks.distance( bb1, "efficiencies", progressBar = FALSE ), 3 )
 
 ## cross-section rice data, error components frontier, truncNorm, starting values
 bb7 <- frontier( data = riceProdPhil,
@@ -65,6 +75,7 @@ bb7 <- frontier( data = riceProdPhil,
    truncNorm = TRUE,
    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
 round( cooks.distance( bb7, progressBar = FALSE ), 3 )
+round( cooks.distance( bb7, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## Cost Frontier (with land as quasi-fixed input)
@@ -78,6 +89,7 @@ riceProdPhil$lNPKP   <- log( riceProdPhil$NPKP )
 dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
    data = riceProdPhil, ineffDecrease = FALSE )
 round( cooks.distance( dd1, progressBar = FALSE ), 3 )
+round( cooks.distance( dd1, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## panel data
@@ -92,6 +104,7 @@ riceProdPhilPanel$ones <- 1
 b1 <- frontier( data = riceProdPhilPanel,
    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
 round( cooks.distance( b1, progressBar = FALSE ), 3 )
+round( cooks.distance( b1, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## unbalanced panel data
@@ -106,6 +119,7 @@ riceProdPhilPanelUnb[ 222, c( "NPK", "lNPK", "NPKP", "lNPKP" ) ] <- NA
 b4u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb,
    truncNorm = TRUE, timeEffect = TRUE )
 round( cooks.distance( b4u, progressBar = FALSE ), 3 )
+round( cooks.distance( b4u, "efficiencies", progressBar = FALSE ), 3 )
 
 
 ## unbalanced panel data with firms that have NAs in all time periods
@@ -120,3 +134,4 @@ naPanelData[ naPanelData$farm == "F_35", "EDYRS" ] <- NA
 b5n <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
    EDYRS + BANRAT - 1, data = naPanelData )
 round( cooks.distance( b5n, progressBar = FALSE ), 3 )
+round( cooks.distance( b5n, "efficiencies", progressBar = FALSE ), 3 )

@@ -101,6 +101,7 @@ round( residuals( a1, asInData = TRUE ), 2 )
 all.equal( fitted( a1, asInData = TRUE ) + residuals( a1, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 round( cooks.distance( a1, progressBar = FALSE ), 3 )
+round( cooks.distance( a1, "efficiencies", progressBar = FALSE ), 3 )
 rta1 <- resettestFrontier( a1 )
 rta1
 all.equal( rta1, resettestFrontier( Sa1 ), check.attributes = FALSE )
