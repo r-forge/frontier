@@ -80,6 +80,14 @@ printME( efficiencies( a1, asInData = TRUE, minusU = FALSE ) )
 all.equal( efficiencies( a1 ), efficiencies( sa1i ) )
 all.equal( efficiencies( a1, asInData = TRUE, minusU = FALSE ), 
    efficiencies( sa1i, asInData = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( a1, newdata = front41Data[ 5:33, ] ),
+   efficiencies( a1 )[ 5:33, , drop = FALSE ] )
+all.equal( efficiencies( a1, newdata = front41Data[ 5:33, ], asInData = TRUE ),
+   efficiencies( a1, asInData = TRUE )[ 5:33 ] )
+all.equal( efficiencies( a1, newdata = front41Data[ 5:33, ], logDepVar = FALSE ),
+   efficiencies( a1, logDepVar = FALSE )[ 5:33, , drop = FALSE ] )
+all.equal( efficiencies( a1, newdata = front41Data[ 5:33, ], minusU = FALSE ),
+   efficiencies( a1, minusU = FALSE )[ 5:33, , drop = FALSE ] )
 round( fitted( a1 ), 2 )
 round( fitted( a1, asInData = TRUE ), 2 )
 all.equal( fitted( a1 ), predict( a1, asInData = FALSE ) )
@@ -193,6 +201,8 @@ round( efficiencies( a5, asInData = TRUE ), 2 )
 all.equal( efficiencies( a5 ), efficiencies( sa5i ) )
 all.equal( efficiencies( a5, asInData = TRUE, minusU = FALSE ), 
    efficiencies( sa5i, asInData = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( a5, newdata = front41Data[ 2:37, ] ),
+   efficiencies( a5 )[ 2:37, , drop = FALSE ] )
 all.equal( fitted( a5, asInData = TRUE ) + residuals( a5, asInData = TRUE ),
    front41Data$logOutput, check.attributes = FALSE, tol = 1e-4 )
 all.equal( fitted( a5 ), predict( a5, asInData = FALSE ) )
@@ -263,6 +273,18 @@ all.equal( attr( aa1effF, "margEff" )[ , 1, 1 ],
 all.equal( attr( aa1effDF, "margEff" )[ , 1 ],
    c( efficiencies( aa1m, asInData = TRUE, minusU = FALSE ) - aa1effDF ) / 1e-6,
    tol = 1e-4 )
+all.equal( efficiencies( aa1, newdata = front41Data[ 4:44, ] ),
+   efficiencies( aa1 )[ 4:44, , drop = FALSE ] )
+all.equal( efficiencies( aa1, newdata = front41Data[ 4:44, ], asInData = TRUE ),
+   efficiencies( aa1, asInData = TRUE )[ 4:44 ] )
+all.equal( efficiencies( aa1, newdata = front41Data[ 4:44, ], logDepVar = FALSE ),
+   efficiencies( aa1, logDepVar = FALSE )[ 4:44, , drop = FALSE ] )
+all.equal( efficiencies( aa1, newdata = front41Data[ 4:44, ], minusU = FALSE ),
+   efficiencies( aa1, minusU = FALSE )[ 4:44, , drop = FALSE ] )
+aa1effNd <- efficiencies( aa1, newdata = front41Data[ 4:44, ], margEff = TRUE )
+all.equal( aa1effNd, aa1eff[ 4:44, , drop = FALSE ], check.attributes = FALSE )
+all.equal( attr( aa1effNd, "margEff" ), 
+   attr( aa1eff, "margEff" )[ 4:44, , , drop = FALSE ] )
 round( residuals( aa1 ), 2 )
 round( residuals( aa1, asInData = TRUE ), 2 )
 all.equal( fitted( aa1, asInData = TRUE ) + residuals( aa1, asInData = TRUE ),
@@ -419,6 +441,14 @@ all.equal( efficiencies( San1, minusU = FALSE ),
    efficiencies( San1i, minusU = FALSE ) )
 all.equal( efficiencies( San1, asInData = TRUE ), 
    efficiencies( San1i, asInData = TRUE ) )
+all.equal( efficiencies( San1, newdata = naData[ 2:44, ] ),
+   efficiencies( San1 )[ 2:41, , drop = FALSE ] )
+all.equal( efficiencies( San1, newdata = naData[ 2:44, ], asInData = TRUE ),
+   efficiencies( San1, asInData = TRUE )[ 2:44 ] )
+all.equal( efficiencies( San1, newdata = naData[ 2:44, ], logDepVar = FALSE ),
+   efficiencies( San1, logDepVar = FALSE )[ 2:41, , drop = FALSE ] )
+all.equal( efficiencies( San1, newdata = naData[ 2:44, ], minusU = FALSE ),
+   efficiencies( San1, minusU = FALSE )[ 2:41, , drop = FALSE ] )
 round( fitted( San1 ), 2 )
 round( fitted( San1, asInData = TRUE ), 2 )
 all.equal( fitted( San1 ), predict( San1, asInData = FALSE ) )
@@ -447,12 +477,29 @@ all.equal( summary( Saan1, effMinusU = FALSE )[-41],
    summary( Saan1i, effMinusU = FALSE )[-41], 
    check.attributes = FALSE )
 nobs( Saan1 )
-printME( efficiencies( Saan1, margEff = TRUE ) )
-printME( efficiencies( Saan1, asInData = TRUE, margEff = TRUE ) )
+printME( Saan1eff <- efficiencies( Saan1, margEff = TRUE ) )
+printME( Saan1effAid <- efficiencies( Saan1, asInData = TRUE, margEff = TRUE ) )
 all.equal( efficiencies( Saan1, margEff = TRUE ), 
    efficiencies( Saan1i, margEff = TRUE ) )
 all.equal( efficiencies( Saan1, asInData = TRUE, margEff = TRUE, minusU = FALSE ), 
    efficiencies( Saan1i, asInData = TRUE, margEff = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( Saan1, newdata = naData[ 2:44, ] ),
+   efficiencies( Saan1 )[ 2:40, , drop = FALSE ] )
+all.equal( efficiencies( Saan1, newdata = naData[ 2:44, ], asInData = TRUE ),
+   efficiencies( Saan1, asInData = TRUE )[ 2:44 ] )
+all.equal( efficiencies( Saan1, newdata = naData[ 2:44, ], logDepVar = FALSE ),
+   efficiencies( Saan1, logDepVar = FALSE )[ 2:40, , drop = FALSE ] )
+all.equal( efficiencies( Saan1, newdata = naData[ 2:44, ], minusU = FALSE ),
+   efficiencies( Saan1, minusU = FALSE )[ 2:40, , drop = FALSE ] )
+Saan1effNd <- efficiencies( Saan1, newdata = naData[ 2:44, ], margEff = TRUE )
+all.equal( Saan1effNd, Saan1eff[ 2:40, , drop = FALSE ], check.attributes = FALSE )
+all.equal( attr( Saan1effNd, "margEff" ), 
+   attr( Saan1eff, "margEff" )[ 2:40, , , drop = FALSE ] )
+Saan1effAidNd <- efficiencies( Saan1, newdata = naData[ 2:44, ], 
+   asInData = TRUE, margEff = TRUE )
+all.equal( Saan1effAidNd, Saan1effAid[ 2:44 ], check.attributes = FALSE )
+all.equal( attr( Saan1effAidNd, "margEff" ), 
+   attr( Saan1effAid, "margEff" )[ 2:44, , drop = FALSE ] )
 round( fitted( Saan1 ), 2 )
 round( fitted( Saan1, asInData = TRUE ), 2 )
 all.equal( fitted( Saan1 ), predict( Saan1, asInData = FALSE ) )
@@ -1136,6 +1183,15 @@ round( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 2 )
 all.equal( efficiencies( b1 ), efficiencies( sb1i ) )
 all.equal( efficiencies( b1, asInData = TRUE, minusU = FALSE ), 
    efficiencies( sb1i, asInData = TRUE, minusU = FALSE ) )
+all.equal( efficiencies( b1, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ] ),
+   efficiencies( b1 )[ 4:22, , drop = FALSE ] )
+all.equal( efficiencies( b1, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   asInData = TRUE ),
+   efficiencies( b1, asInData = TRUE )[ (3*8+1):(22*8) ] )
+all.equal( efficiencies( b1, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], logDepVar = FALSE ),
+   efficiencies( b1, logDepVar = FALSE )[ 4:22, , drop = FALSE ] )
+all.equal( efficiencies( b1, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], minusU = FALSE ),
+   efficiencies( b1, minusU = FALSE )[ 4:22, , drop = FALSE ] )
 all.equal( fitted( b1 ), predict( b1, asInData = FALSE ) )
 all.equal( fitted( b1, asInData = TRUE ), predict( b1 ) )
 all.equal( fitted( b1 )[ 2:42, ],
@@ -1387,6 +1443,28 @@ all.equal( attr( b5effF, "margEff" )[ , , 1 ],
 all.equal( attr( b5effDF, "margEff" )[ , 1 ],
    c( efficiencies( b5m1, asInData = TRUE, minusU = FALSE ) - b5effDF ) / 1e-6,
    tol = 1e-4 )
+
+all.equal( efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ] ),
+   efficiencies( b5 )[ 4:22, , drop = FALSE ] )
+all.equal( efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   asInData = TRUE ),
+   efficiencies( b5, asInData = TRUE )[ (3*8+1):(22*8) ] )
+all.equal( efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   logDepVar = FALSE ),
+   efficiencies( b5, logDepVar = FALSE )[ 4:22, , drop = FALSE ] )
+all.equal( efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   minusU = FALSE ),
+   efficiencies( b5, minusU = FALSE )[ 4:22, , drop = FALSE ] )
+b5effNd <- efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   margEff = TRUE )
+all.equal( b5effNd, b5eff[ 4:22, , drop = FALSE ], check.attributes = FALSE )
+all.equal( attr( b5effNd, "margEff" ), 
+   attr( b5eff, "margEff" )[ 4:22, , , drop = FALSE ] )
+b5effAidNd <- efficiencies( b5, newdata = riceProdPhilPanel[ (3*8+1):(22*8), ], 
+   asInData = TRUE, margEff = TRUE )
+all.equal( b5effAidNd, b5effD[ (3*8+1):(22*8) ], check.attributes = FALSE )
+all.equal( attr( b5effAidNd, "margEff" ), 
+   attr( b5effD, "margEff" )[ (3*8+1):(22*8), , drop = FALSE ] )
 b5m2 <- b5
 b5m2$dataTable[ , "BANRAT" ] <- b5m2$dataTable[ , "BANRAT" ] + 1e-6
 all.equal( attr( b5eff, "margEff" )[ , , 2 ], 
