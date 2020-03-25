@@ -1,8 +1,26 @@
 # efficiencies of frontier models
 efficiencies.frontier <- function( object, asInData = FALSE,
    logDepVar = TRUE, minusU = farrell, farrell = TRUE, 
-   margEff = FALSE, ... ) {
+   margEff = FALSE, newdata = NULL, ... ) {
 
+   if( !is.null( newdata ) ) {
+      if( !is.data.frame( newdata ) ) {
+         stop( "argument 'newdata' must be of class data.frame")
+      }
+      estCall <- object$call
+      estFunc <- as.character( estCall[[ 1 ]] )
+      estArg <- as.list( estCall )[ -1 ]
+      estArg$data <- newdata
+      
+      estArg$maxit <- 0
+      estArg$startVal <- object$mleParam
+      estNew <- suppressWarnings( do.call( estFunc, estArg ) )
+      eff <- efficiencies( estNew, asInData = asInData,
+         logDepVar = logDepVar, minusU = minusU, farrell = farrell, 
+         margEff = margEff, ... )
+      return( eff )
+   }
+   
    resid <- residuals( object )
    fitted <- - resid
    for( i in 1:nrow( object$dataTable ) ) {
