@@ -7,17 +7,23 @@
    This method returns the Pseudo-Cook's distances
    from stochastic frontier models
    estimated with the \pkg{frontier} package 
-   (e.g. function \code{\link{sfa}}).
+   (e.g., function \code{\link{sfa}}).
 }
 
 \usage{
-\method{cooks.distance}{frontier}( model, progressBar = TRUE, \dots )
+\method{cooks.distance}{frontier}( model, target = "predict",
+   progressBar = TRUE, \dots )
 }
 
 \arguments{
    \item{model}{a stochastic frontier model
       estimated with the \pkg{frontier} package 
       (e.g. function \code{\link{sfa}}).}
+   \item{target}{character string; 
+      if \code{"predict"}, the returned values indicate 
+      the influence of individual observations on the predicted values;
+      if \code{"efficiencies"}, the returned values indicate 
+      the influence of individual observations on the efficiency estimates.}
    \item{progressBar}{logical. Should a progress bar be displayed
       while the Cook's distances are obtained?}
    \item{\dots}{currently ignored.}
@@ -25,7 +31,7 @@
 
 \value{
    A vector of the Pseudo-Cook's distances for each observation
-   that was used in the estimation that returned argument \code{model}.
+   that was used in the estimation that is provided as argument \code{model}.
 }
 
 \author{Arne Henningsen}
@@ -41,8 +47,11 @@
       data = front41Data )
    summary( cobbDouglas )
    
-   # Pseudo-Cook's distances
+   # Pseudo-Cook's distances for predicted values
    cooks.distance( cobbDouglas )
+
+   # Pseudo-Cook's distances for efficiency estimates
+   cooks.distance( cobbDouglas, "efficiencies" )
 }
 
 \keyword{methods}

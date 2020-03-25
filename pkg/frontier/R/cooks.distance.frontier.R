@@ -1,4 +1,5 @@
-cooks.distance.frontier <- function( model, progressBar = TRUE, ... ) {
+cooks.distance.frontier <- function( model, target = "predict",
+  progressBar = TRUE, ... ) {
   
   estCall <- model$call
   estFunc <- as.character( estCall[[ 1 ]] )
@@ -6,8 +7,17 @@ cooks.distance.frontier <- function( model, progressBar = TRUE, ... ) {
   
   # data set used for the estimation
   estData <- eval( estCall$data )
-  fitVal <- fitted( model, asInData = TRUE )
-  residVal <- residuals( model, asInData = TRUE )
+  if( target == "predict" ) {
+    fitVal <- fitted( model, asInData = TRUE )
+    residVal <- residuals( model, asInData = TRUE )
+  } else if( target == "efficiencies" ) {
+    if( "asInData" %in% names( list( ... ) ) ) {
+      stop( "argument 'asInData' cannot be used as additional argument" )
+    }
+    effVal <- efficiencies( model, asInData = TRUE, ... )
+  } else {
+    stop( "argument 'target' must be either 'predict' or 'efficiencies'" )
+  }
   
   # make some checks
   reportMessage <- paste( 
@@ -18,34 +28,53 @@ cooks.distance.frontier <- function( model, progressBar = TRUE, ... ) {
       " the number of elements of 'validObs'. ",
       reportMessage )
   }
-  if( length( fitVal ) != length( model$validObs ) ) {
-    stop( "internal error: the number of elements of 'fitVal' is not equal to",
-      " the number of elements of 'validObs'. ",
-      reportMessage )
+  if( target == "predict" ) {
+    if( length( fitVal ) != length( model$validObs ) ) {
+      stop( "internal error: the number of elements of 'fitVal' is not equal to",
+        " the number of elements of 'validObs'. ",
+        reportMessage )
+    }
+    if( length( residVal ) != length( model$validObs ) ) {
+      stop( "internal error: the number of elements of 'residVal' is not equal to",
+        " the number of elements of 'validObs'. ",
+        reportMessage )
+    }
+    if( any( is.na( fitVal[ model$validObs ] ) ) ) {
+      stop( "internal error: there are NA values in 'fitVal[ validObs ]'. ",
+        reportMessage )
+    }
+    if( any( is.na( residVal[ model$validObs ] ) ) ) {
+      stop( "internal error: there are NA values in 'residVal[ validObs ]'. ",
+        reportMessage )
+    }
+  } else if( target == "efficiencies" ) {
+    if( length( effVal ) != length( model$validObs ) ) {
+      stop( "internal error: the number of elements of 'effVal' is not equal to",
+        " the number of elements of 'validObs'. ",
+        reportMessage )
+    }
+    if( any( is.na( effVal[ model$validObs ] ) ) ) {
+      stop( "internal error: there are NA values in 'effVal[ validObs ]'. ",
+        reportMessage )
+    }
   }
-  if( length( residVal ) != length( model$validObs ) ) {
-    stop( "internal error: the number of elements of 'residVal' is not equal to",
-      " the number of elements of 'validObs'. ",
-      reportMessage )
+
+  if( target == "predict" ) {
+    # variance of the error term
+    sigma2 <- sum( ( residVal[ model$validObs ] - 
+        mean( residVal[ model$validObs ] ) )^2 ) /
+      ( sum( model$validObs ) - model$nb )
+  } else if( target == "efficiencies" ) {
+    # variance of the efficiency scores
+    sigma2Eff <- sum( ( effVal[ model$validObs ] - 
+        mean( effVal[ model$validObs ] ) )^2 ) /
+      ( sum( model$validObs ) - model$nb )
   }
-  if( any( is.na( fitVal[ model$validObs ] ) ) ) {
-    stop( "internal error: there are NA values in 'fitVal[ validObs ]'. ",
-      reportMessage )
-  }
-  if( any( is.na( residVal[ model$validObs ] ) ) ) {
-    stop( "internal error: there are NA values in 'residVal[ validObs ]'. ",
-      reportMessage )
-  }
-  
-  # variance of the error term
-  sigma2 <- sum( ( residVal[ model$validObs ] - 
-      mean( residVal[ model$validObs ] ) )^2 ) /
-    ( sum( model$validObs ) - model$nb )
   
   # do not print output at iteration when re-estimating the SFA models
   estArg$printIter <- 0
   
-  # vector for Cook's distances
+  # vector for pseudo-Cook's distances
   cooksDist <- rep( NA, sum( model$validObs ) )
   
   # create progress bar
@@ -58,12 +87,22 @@ cooks.distance.frontier <- function( model, progressBar = TRUE, ... ) {
     estArg$data <- estData[ -which( model$validObs )[i], ]
     estNew <- suppressWarnings( do.call( estFunc, estArg ) )
   
-    # obtain predicted values for all observations
-    predVal <- predict( estNew, newdata = estData )
-    
-    # calculate Cook's distance
-    cooksDist[i] <- sum( ( (fitVal - predVal )[ model$validObs ] )^2 ) /
-      ( model$nb * sigma2 )
+    if( target == "predict" ) {
+      # obtain predicted values for all observations
+      predVal <- predict( estNew, newdata = estData )
+      
+      # calculate pseudo-Cook's distance for the predict values
+      cooksDist[i] <- sum( ( (fitVal - predVal )[ model$validObs ] )^2 ) /
+        ( model$nb * sigma2 )
+    } else if( target == "efficiencies" ) {
+      # obtain efficiency estimates for all observations
+      effValNew <- efficiencies( estNew, newdata = estData, asInData = TRUE, 
+        ... )
+      
+      # calculate pseudo-Cook's distance for the efficiency estimates
+      cooksDist[i] <- sum( ( ( effVal - effValNew )[ model$validObs ] )^2 ) /
+        ( model$nb * sigma2Eff )
+    }
     
     # update progress bar
     if( progressBar ) {
