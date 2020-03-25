@@ -18,7 +18,8 @@ round( cooks.distance( a1, progressBar = FALSE ), 3 )
 round( a1CdEff <- cooks.distance( a1, "efficiencies", progressBar = FALSE ), 3 )
 round( cooks.distance( a1, "efficiencies", minusU = FALSE,
    progressBar = FALSE ), 3 )
-try( cooks.distance( a1, "efficiencies", asInData = TRUE ) )
+all.equal( a1CdEff,
+   cooks.distance( a1, "efficiencies", asInData = TRUE, progressBar = FALSE ) )
 try( cooks.distance( a1, "abc" ) )
 
 ## cross-section data, error components frontier, truncNorm, starting values

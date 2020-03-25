@@ -1,5 +1,5 @@
 cooks.distance.frontier <- function( model, target = "predict",
-  progressBar = TRUE, ... ) {
+  asInData = FALSE, progressBar = TRUE, ... ) {
   
   estCall <- model$call
   estFunc <- as.character( estCall[[ 1 ]] )
@@ -11,9 +11,6 @@ cooks.distance.frontier <- function( model, target = "predict",
     fitVal <- fitted( model, asInData = TRUE )
     residVal <- residuals( model, asInData = TRUE )
   } else if( target == "efficiencies" ) {
-    if( "asInData" %in% names( list( ... ) ) ) {
-      stop( "argument 'asInData' cannot be used as additional argument" )
-    }
     effVal <- efficiencies( model, asInData = TRUE, ... )
   } else {
     stop( "argument 'target' must be either 'predict' or 'efficiencies'" )
@@ -114,5 +111,12 @@ cooks.distance.frontier <- function( model, target = "predict",
     close( progBar )
   }
   
-  return( cooksDist )
+  if( asInData ) {
+    result <- rep( NA, length( model$validObs ) )
+    result[ model$validObs ] <- cooksDist
+  } else {
+    result <- cooksDist
+  }
+  
+  return( result )
 }
