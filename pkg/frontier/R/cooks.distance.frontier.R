@@ -68,7 +68,7 @@ cooks.distance.frontier <- function( model, target = "predict",
     # variance of the efficiency scores
     sigma2Eff <- sum( ( effVal[ model$validObs ] - 
         mean( effVal[ model$validObs ] ) )^2 ) /
-      ( sum( model$validObs ) - model$nb )
+      ( sum( model$validObs ) - 1 )
   }
   
   # do not print output at iteration when re-estimating the SFA models
