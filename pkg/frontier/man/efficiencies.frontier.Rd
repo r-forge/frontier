@@ -147,6 +147,10 @@
    efficiencies( rice )
    riceProdPhil$efficiencies <- efficiencies( rice, asInData = TRUE )
 
+   # efficiency of an 'average' farm
+   efficiencies( rice, 
+      newdata = data.frame( t( colMeans( riceProdPhil[ , -c(1,2) ] ) ) ) )
+
    # Error Components Frontier (Battese & Coelli 1992), with time effect
    riceTime <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
       data = riceProdPhil, timeEffect = TRUE )
