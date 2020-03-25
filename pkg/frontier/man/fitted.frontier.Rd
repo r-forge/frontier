@@ -22,7 +22,7 @@
       estimated with the \pkg{frontier} package 
       (e.g. function \code{\link{sfa}}).}
    \item{newdata}{an optional data frame from which the explanatory variables
-      are used to calculated the predicted \dQuote{frontier} values.
+      are used to calculate the predicted \dQuote{frontier} values.
       If this argument is \code{NULL},
       the fitted values are returned.}
    \item{asInData}{logical. If \code{TRUE},
