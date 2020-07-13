@@ -1,5 +1,5 @@
 
-R version 3.6.3 RC (2020-02-21 r77847) -- "Holding the Windsock"
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -67837,13 +67837,15 @@ F_43  0.40  0.52  0.31  0.00  0.23  0.11 -0.17  0.04
 +    residuals( d2u, asInData = TRUE ), check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > resettestFrontier( d2u )
+restarting with starting values multiplied by
+[1] 0.999
 Likelihood ratio test
 
 Model 1: d2u
 Model 2: d2u + fit^2 + fit^3
   #Df LogLik Df Chisq Pr(>Chisq)
 1   8   50.5                    
-2  10   50.5  2     0          1
+2  10   50.7  2  0.35       0.84
 > printAll( d2u )
 $modelType
 [1] 1
@@ -111818,4 +111820,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 16.933   1.848  18.778 
+ 17.010   1.765  18.767 
