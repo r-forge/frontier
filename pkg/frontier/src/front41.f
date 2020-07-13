@@ -162,8 +162,8 @@ c       contains the main loop of this iterative program.
       if (im.eq.2) call der2(y,gy,yy,xx)
       call convrg(ipass,x,y)
       if (ipass.eq.1.) then
-        if ((iter.eq.1).and.((icode.eq.1).or.(icode.eq.5)).and.
-     $      (nrestart.le.mrestart)) then
+        if ((iter.eq.1).and.(icode.eq.5).and.(nrestart.le.mrestart)) 
+     $      then
           arpr(1)=frestart
           call dblepr( 'restarting with starting values multiplied by',
      $      -1, arpr, 1 )
@@ -173,7 +173,9 @@ c       contains the main loop of this iterative program.
           nrestart=nrestart+1
           goto 107
         else
-          goto 70
+          if (iter.gt.1) then
+            goto 70
+          endif
         endif
       endif
       if (iprint.ne.0) then
