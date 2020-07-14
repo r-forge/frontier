@@ -1,5 +1,5 @@
 
-R version 3.6.3 RC (2020-02-21 r77847) -- "Holding the Windsock"
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -226,6 +226,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -468,4 +471,4 @@ class
 > 
 > proc.time()
    user  system elapsed 
-  0.483   0.020   0.497 
+  0.434   0.047   0.475 

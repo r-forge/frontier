@@ -4,6 +4,12 @@ Please note that only the most significant changes are reported here.
 A full ChangeLog is available in the log messages of the SVN repository
 on R-Forge.
 
+            CHANGES IN VERSION 1.1-10  (2020-??-??)
+
+* added argument "minit" to sfa() that indicates the minimum number of 
+iterations
+
+
             CHANGES IN VERSION 1.1-8  (2020-04-15)
 
 * added a cooks.distance() method for obtaining Pseudo-Cook's Distances

@@ -75,14 +75,14 @@ https://r-forge.r-project.org/projects/frontier/
 > ## cross-section data, error components frontier
 > sa1 <- sfa( logOutput ~ logCapital + logLabour, data = front41Data )
 > Sa1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = front41Data )
-> all.equal( Sa1[-41], sa1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sa1[-42], sa1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > a1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ) )
-> all.equal( sa1[-41], a1[-41], tol = 1e-4 )
+> all.equal( sa1[-42], a1[-42], tol = 1e-4 )
 [1] TRUE
 > sa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data )
-> all.equal( sa1i[-41], sa1[-41], 
+> all.equal( sa1i[-42], sa1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a1 )
@@ -281,12 +281,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.74057 
-> all.equal( summary( sa1, extraPar = TRUE )[-41], 
-+    summary( sa1i, extraPar = TRUE )[-41], 
+> all.equal( summary( sa1, extraPar = TRUE )[-42], 
++    summary( sa1i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa1, effMinusU = FALSE )[-41], 
-+    summary( sa1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sa1, effMinusU = FALSE )[-42], 
++    summary( sa1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a1 )
@@ -696,6 +696,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -1044,11 +1047,11 @@ parameters
 [1]  0.47641  0.28259  0.54038  0.54776  0.90815 -1.41060
 > a2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE )
-> all.equal( sa2[-c(7,41)], a2[-c(7,41)], tol = 1e-4 )
+> all.equal( sa2[-c( 7, 42 )], a2[-c( 7, 42 )], tol = 1e-4 )
 [1] TRUE
 > sa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
 +    truncNorm = TRUE )
-> all.equal( sa2i[ -c( 7, 41 ) ], sa2[ -c( 7, 41 ) ], 
+> all.equal( sa2i[ -c( 7, 42 ) ], sa2[ -c( 7, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a2, digits = 1 )
@@ -1223,12 +1226,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78903 
-> all.equal( summary( sa2, extraPar = TRUE )[ -c( 7, 41 ) ], 
-+    summary( sa2i, extraPar = TRUE )[ -c( 7, 41 ) ], 
+> all.equal( summary( sa2, extraPar = TRUE )[ -c( 7, 42 ) ], 
++    summary( sa2i, extraPar = TRUE )[ -c( 7, 42 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa2, effMinusU = FALSE )[ -c( 7, 41 ) ], 
-+    summary( sa2i, effMinusU = FALSE )[ -c( 7, 41 ) ], 
+> all.equal( summary( sa2, effMinusU = FALSE )[ -c( 7, 42 ) ], 
++    summary( sa2i, effMinusU = FALSE )[ -c( 7, 42 ) ], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a2 )
@@ -1465,6 +1468,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -1766,11 +1772,11 @@ class
 > a5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), truncNorm = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5[-41], a5[-41], tol = 1e-4 )
+> all.equal( sa5[-42], a5[-42], tol = 1e-4 )
 [1] TRUE
 > sa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1, data = front41Data,
 +    truncNorm = TRUE, startVal = c( 0.5, 0.3, 0.5, 0.5, 0.9, -1 ) )
-> all.equal( sa5i[-41], sa5[-41], 
+> all.equal( sa5i[-42], sa5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( a5, digits = 1 )
@@ -1940,12 +1946,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.78854 
-> all.equal( summary( sa5, extraPar = TRUE )[-41], 
-+    summary( sa5i, extraPar = TRUE )[-41], 
+> all.equal( summary( sa5, extraPar = TRUE )[-42], 
++    summary( sa5i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sa5, effMinusU = FALSE )[-41], 
-+    summary( sa5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sa5, effMinusU = FALSE )[-42], 
++    summary( sa5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( a5 )
@@ -2105,6 +2111,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -2455,15 +2464,15 @@ log-likelihood value
 [1] -16.382
 parameters
 [1]  0.536808  0.268649  0.539341 -0.010282  0.284557  0.840089
-> all.equal( Saa1[-c(7,41)], saa1[-c(7,41)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Saa1[-c( 7, 42 )], saa1[-c( 7, 42 )], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > aa1 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo" )
-> all.equal( saa1[-41], aa1[-41], tol = 1e-4 )
+> all.equal( saa1[-42], aa1[-42], tol = 1e-4 )
 [1] TRUE
 > saa1i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo - 1, 
 +    data = front41Data )
-> all.equal( saa1i[-41], saa1[-41], 
+> all.equal( saa1i[-42], saa1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa1, digits = 1 )
@@ -2644,12 +2653,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.76241 
-> all.equal( summary( saa1, extraPar = TRUE )[-41], 
-+    summary( saa1i, extraPar = TRUE )[-41], 
+> all.equal( summary( saa1, extraPar = TRUE )[-42], 
++    summary( saa1i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa1, effMinusU = FALSE )[-41], 
-+    summary( saa1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( saa1, effMinusU = FALSE )[-42], 
++    summary( saa1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa1 )
@@ -3230,6 +3239,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -3529,11 +3541,11 @@ class
 +    data = front41Data )
 > aa2 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE )
-> all.equal( saa2[-41], aa2[-41], tol = 1e-4 )
+> all.equal( saa2[-42], aa2[-42], tol = 1e-4 )
 [1] TRUE
 > saa2i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo,
 +    data = front41Data )
-> all.equal( saa2i[-41], saa2[-41], 
+> all.equal( saa2i[-42], saa2[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa2, digits = 2 )
@@ -3709,12 +3721,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa2, extraPar = TRUE )[-41], 
-+    summary( saa2i, extraPar = TRUE )[-41], 
+> all.equal( summary( saa2, extraPar = TRUE )[-42], 
++    summary( saa2i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa2, effMinusU = FALSE )[-41], 
-+    summary( saa2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( saa2, effMinusU = FALSE )[-42], 
++    summary( saa2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa2 )
@@ -4119,6 +4131,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -4430,11 +4445,11 @@ class
 > aa5 <- frontier( data = front41Data, "logOutput",
 +    c( "logCapital", "logLabour" ), zNames = "firmNo", zIntercept = TRUE,
 +    startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5[-41], aa5[-41], tol = 1e-4 )
+> all.equal( saa5[-42], aa5[-42], tol = 1e-4 )
 [1] TRUE
 > saa5i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | firmNo, 
 +    data = front41Data, startVal = c( 0.5, 0.3, 0.5, -0.4, -0.01 , 0.4, 0.9 ) )
-> all.equal( saa5i[-41], saa5[-41], 
+> all.equal( saa5i[-42], saa5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( aa5, digits = 2 )
@@ -4609,12 +4624,12 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.77784 
-> all.equal( summary( saa5, extraPar = TRUE )[-41], 
-+    summary( saa5i, extraPar = TRUE )[-41], 
+> all.equal( summary( saa5, extraPar = TRUE )[-42], 
++    summary( saa5i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( saa5, effMinusU = FALSE )[-41], 
-+    summary( saa5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( saa5, effMinusU = FALSE )[-42], 
++    summary( saa5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( aa5 )
@@ -4874,6 +4889,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -5188,7 +5206,7 @@ class
 +    data = front41Data )
 > saa9i <- sfa( logOutput ~ ones + logCapital + logLabour - 1 | - 1, 
 +    data = front41Data )
-> all.equal( saa9i[-41], aa9[-41], 
+> all.equal( saa9i[-42], aa9[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > round( coef( summary( aa9, extraPar = TRUE ) ), 2 )
@@ -5228,11 +5246,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 0.74057 
-> all.equal( summary( aa9 )[-41], 
-+    summary( saa9i )[-41], check.attributes = FALSE )
+> all.equal( summary( aa9 )[-42], 
++    summary( saa9i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( aa9, effMinusU = FALSE )[-41], 
-+    summary( saa9i, effMinusU = FALSE )[-41], 
+> all.equal( summary( aa9, effMinusU = FALSE )[-42], 
++    summary( saa9i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( aa9 )
@@ -5411,7 +5429,7 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > San1 <- sfa( log( output ) ~ log( capital ) + log( labour ), data = naData )
 > San1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1, 
 +    data = naData )
-> all.equal( San1i[-41], San1[-41], 
+> all.equal( San1i[-42], San1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( San1 ), digits = 1 )
@@ -5437,11 +5455,11 @@ cross-sectional data
 total number of observations = 57 
 
 mean efficiency: 0.73415 
-> all.equal( summary( San1 )[-41], 
-+    summary( San1i )[-41], check.attributes = FALSE )
+> all.equal( summary( San1 )[-42], 
++    summary( San1i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( San1, effMinusU = FALSE )[-41], 
-+    summary( San1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( San1, effMinusU = FALSE )[-42], 
++    summary( San1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( San1 )
@@ -5630,7 +5648,7 @@ Model 2: San1 + fit^2 + fit^3
 +    data = naData )
 > Saan1i <- sfa( log( output ) ~ ones + log( capital ) + log( labour ) - 1 | 
 +       firmNo - 1, data = naData )
-> all.equal( Saan1i[-41], Saan1[-41], 
+> all.equal( Saan1i[-42], Saan1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( summary( Saan1 ), digits = 1 )
@@ -5657,11 +5675,11 @@ cross-sectional data
 total number of observations = 56 
 
 mean efficiency: 0.75779 
-> all.equal( summary( Saan1 )[-41], 
-+    summary( Saan1i )[-41], check.attributes = FALSE )
+> all.equal( summary( Saan1 )[-42], 
++    summary( Saan1i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( Saan1, effMinusU = FALSE )[-41], 
-+    summary( Saan1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( Saan1, effMinusU = FALSE )[-42], 
++    summary( Saan1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( Saan1 )
@@ -5984,14 +6002,14 @@ F_49 F_50 F_51 F_52 F_53 F_54 F_55 F_56 F_57 F_58 F_59 F_60
 > sbb1 <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhil )
 > Sbb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhil )
-> all.equal( Sbb1[-41], sbb1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sbb1[-42], sbb1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > bb1 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb1[-41], bb1[-41], tol = 1e-4 )
+> all.equal( sbb1[-42], bb1[-42], tol = 1e-4 )
 [1] TRUE
 > sbb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil )
-> all.equal( sbb1i[-41], sbb1[-41], 
+> all.equal( sbb1i[-42], sbb1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb1, digits = 1 )
@@ -6163,12 +6181,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72298 
-> all.equal( summary( sbb1, extraPar = TRUE )[-41], 
-+    summary( sbb1i, extraPar = TRUE )[-41], 
+> all.equal( summary( sbb1, extraPar = TRUE )[-42], 
++    summary( sbb1i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb1, effMinusU = FALSE )[-41], 
-+    summary( sbb1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb1, effMinusU = FALSE )[-42], 
++    summary( sbb1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb1 )
@@ -7041,6 +7059,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -8274,11 +8295,11 @@ class
 > bb2 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sbb2[-41], bb2[-41], tol = 1e-4 )
+> all.equal( sbb2[-42], bb2[-42], tol = 1e-4 )
 [1] TRUE
 > sbb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil,
 +    truncNorm = TRUE )
-> all.equal( sbb2i[-41], sbb2[-41], 
+> all.equal( sbb2i[-42], sbb2[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb2, digits = 1 )
@@ -8486,12 +8507,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.76998 
-> all.equal( summary( sbb2, extraPar = TRUE )[-41], 
-+    summary( sbb2i, extraPar = TRUE )[-41], 
+> all.equal( summary( sbb2, extraPar = TRUE )[-42], 
++    summary( sbb2i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb2, effMinusU = FALSE )[-41], 
-+    summary( sbb2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb2, effMinusU = FALSE )[-42], 
++    summary( sbb2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb2 )
@@ -9747,6 +9768,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -10981,16 +11005,16 @@ class
 +    data = riceProdPhil )
 > Sbb5 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ) |
 +    EDYRS + BANRAT - 1, data = riceProdPhil )
-> all.equal( Sbb5[-41], sbb5[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sbb5[-42], sbb5[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > bb5 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sbb5[-41], bb5[-41], tol = 1e-4 )
+> all.equal( sbb5[-42], bb5[-42], tol = 1e-4 )
 [1] TRUE
 > sbb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhil )
-> all.equal( sbb5i[-41], sbb5[-41], 
+> all.equal( sbb5i[-42], sbb5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb5, digits = 1 )
@@ -11168,12 +11192,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.77076 
-> all.equal( summary( sbb5, extraPar = TRUE )[-41], 
-+    summary( sbb5i, extraPar = TRUE )[-41], 
+> all.equal( summary( sbb5, extraPar = TRUE )[-42], 
++    summary( sbb5i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb5, effMinusU = FALSE )[-41], 
-+    summary( sbb5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb5, effMinusU = FALSE )[-42], 
++    summary( sbb5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb5 )
@@ -13085,6 +13109,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -14321,11 +14348,11 @@ class
 > bb6 <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sbb6[-41], bb6[-41], tol = 1e-4 )
+> all.equal( sbb6[-42], bb6[-42], tol = 1e-4 )
 [1] TRUE
 > sbb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhil )
-> all.equal( sbb6i[-41], sbb6[-41], 
+> all.equal( sbb6i[-42], sbb6[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb6, digits = 1 )
@@ -14566,12 +14593,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.78493 
-> all.equal( summary( sbb6, extraPar = TRUE )[-41], 
-+    summary( sbb6i, extraPar = TRUE )[-41],
+> all.equal( summary( sbb6, extraPar = TRUE )[-42], 
++    summary( sbb6i, extraPar = TRUE )[-42],
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb6, effMinusU = FALSE )[-41], 
-+    summary( sbb6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb6, effMinusU = FALSE )[-42], 
++    summary( sbb6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb6 )
@@ -17936,6 +17963,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -19184,11 +19214,11 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7[-41], bb7[-41], tol = 1e-4 )
+> all.equal( sbb7[-42], bb7[-42], tol = 1e-4 )
 [1] TRUE
 > sbb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, data = riceProdPhil, 
 +    truncNorm = TRUE, startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.9, -0.01 ) )
-> all.equal( sbb7i[-41], sbb7[-41], 
+> all.equal( sbb7i[-42], sbb7[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb7, digits = 1 )
@@ -19368,12 +19398,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.76766 
-> all.equal( summary( sbb7, extraPar = TRUE )[-41], 
-+    summary( sbb7i, extraPar = TRUE )[-41], 
+> all.equal( summary( sbb7, extraPar = TRUE )[-42], 
++    summary( sbb7i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb7, effMinusU = FALSE )[-41], 
-+    summary( sbb7i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb7, effMinusU = FALSE )[-42], 
++    summary( sbb7i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb7 )
@@ -19845,6 +19875,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -21086,12 +21119,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8[-41], bb8[-41], tol = 1e-4 )
+> all.equal( sbb8[-42], bb8[-42], tol = 1e-4 )
 [1] TRUE
 > sbb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhil, 
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.2, -0.01, -0.3, 0.3, 0.8 ) )
-> all.equal( sbb8i[-41], sbb8[-41], 
+> all.equal( sbb8i[-42], sbb8[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( bb8, digits = 1 )
@@ -21302,12 +21335,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.78493 
-> all.equal( summary( sbb8, extraPar = TRUE )[-41], 
-+    summary( sbb8i, extraPar = TRUE )[-41], 
+> all.equal( summary( sbb8, extraPar = TRUE )[-42], 
++    summary( sbb8i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sbb8, effMinusU = FALSE )[-41], 
-+    summary( sbb8i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sbb8, effMinusU = FALSE )[-42], 
++    summary( sbb8i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( bb8 )
@@ -22806,6 +22839,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -24055,7 +24091,7 @@ class
 +    data = riceProdPhil )
 > sbb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
 +    data = riceProdPhil )
-> all.equal( sbb9i[-41], bb9[-41], 
+> all.equal( sbb9i[-42], bb9[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > round( coef( summary( bb9, extraPar = TRUE ) ), 2 )
@@ -24097,11 +24133,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.72298 
-> all.equal( summary( bb9 )[-41], 
-+    summary( sbb9i )[-41], check.attributes = FALSE )
+> all.equal( summary( bb9 )[-42], 
++    summary( sbb9i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( bb9, effMinusU = FALSE )[-41], 
-+    summary( sbb9i, effMinusU = FALSE )[-41], 
+> all.equal( summary( bb9, effMinusU = FALSE )[-42], 
++    summary( sbb9i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( bb9 )
@@ -24540,15 +24576,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 +    ineffDecrease = FALSE )
 > Sdd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( Sdd1[-41], sdd1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sdd1[-42], sdd1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > dd1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1[-41], dd1[-41], tol = 1e-4 )
+> all.equal( sdd1[-42], dd1[-42], tol = 1e-4 )
 [1] TRUE
 > sdd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd1i[-41], sdd1[-41], 
+> all.equal( sdd1i[-42], sdd1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd1, digits = 1 )
@@ -24759,11 +24795,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.86317 
-> all.equal( summary( sdd1, extraPar = TRUE )[-41], 
-+    summary( sdd1i, extraPar = TRUE )[-41], check.attributes = FALSE )
+> all.equal( summary( sdd1, extraPar = TRUE )[-42], 
++    summary( sdd1i, extraPar = TRUE )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd1, effMinusU = FALSE )[-41], 
-+    summary( sdd1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sdd1, effMinusU = FALSE )[-42], 
++    summary( sdd1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd1 )
@@ -26020,6 +26056,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -27256,11 +27295,11 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > dd2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2[-41], dd2[-41], tol = 1e-4 )
+> all.equal( sdd2[-42], dd2[-42], tol = 1e-4 )
 [1] TRUE
 > sdd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sdd2i[-41], sdd2[-41], 
+> all.equal( sdd2i[-42], sdd2[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd2, digits = 1 )
@@ -27453,12 +27492,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.88937 
-> all.equal( summary( sdd2, extraPar = TRUE )[-41], 
-+    summary( sdd2i, extraPar = TRUE )[-41], 
+> all.equal( summary( sdd2, extraPar = TRUE )[-42], 
++    summary( sdd2i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd2, effMinusU = FALSE )[-41], 
-+    summary( sdd2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sdd2, effMinusU = FALSE )[-42], 
++    summary( sdd2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd2 )
@@ -28323,6 +28362,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -29567,7 +29609,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sdd5[-41], sdd5[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sdd5[-42], sdd5[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > dd5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhil,
@@ -29575,14 +29617,14 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd5[-41], dd5[-41], tol = 1e-4 )
+> all.equal( sdd5[-42], dd5[-42], tol = 1e-4 )
 [1] TRUE
 > sdd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
 +       EDYRS + BANRAT - 1, data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd5i[-41], sdd5[-41], 
+> all.equal( sdd5i[-42], sdd5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd5, digits = 1 )
@@ -29807,12 +29849,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.92084 
-> all.equal( summary( sdd5, extraPar = TRUE )[-41], 
-+    summary( sdd5i, extraPar = TRUE )[-41], 
+> all.equal( summary( sdd5, extraPar = TRUE )[-42], 
++    summary( sdd5i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd5, effMinusU = FALSE )[-41], 
-+    summary( sdd5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sdd5, effMinusU = FALSE )[-42], 
++    summary( sdd5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd5 )
@@ -33177,6 +33219,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -34433,14 +34478,14 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd6[-41], dd6[-41], tol = 1e-4 )
+> all.equal( sdd6[-42], dd6[-42], tol = 1e-4 )
 [1] TRUE
 > sdd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 |
 +       EDYRS + BANRAT, data = riceProdPhil, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sdd6i[-41], sdd6[-41], 
+> all.equal( sdd6i[-42], sdd6[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( dd6, digits = 1 )
@@ -34666,12 +34711,12 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 0.9173 
-> all.equal( summary( sdd6, extraPar = TRUE )[-41], 
-+    summary( sdd6i, extraPar = TRUE )[-41], 
+> all.equal( summary( sdd6, extraPar = TRUE )[-42], 
++    summary( sdd6i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( sdd6, effMinusU = FALSE )[-41], 
-+    summary( sdd6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( sdd6, effMinusU = FALSE )[-42], 
++    summary( sdd6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( dd6 )
@@ -36571,6 +36616,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -37822,7 +37870,7 @@ class
 +    log( NPKP ) | - 1, data = riceProdPhil, ineffDecrease = FALSE )
 > sdd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
 +    data = riceProdPhil, ineffDecrease = FALSE )
-> all.equal( sdd9i[-41], dd9[-41], 
+> all.equal( sdd9i[-42], dd9[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > round( coef( summary( dd9, extraPar = TRUE ) ), 2 )
@@ -37866,11 +37914,11 @@ cross-sectional data
 total number of observations = 344 
 
 mean efficiency: 1.1745 
-> all.equal( summary( dd9 )[-41], 
-+    summary( sdd9i )[-41], check.attributes = FALSE )
+> all.equal( summary( dd9 )[-42], 
++    summary( sdd9i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( dd9, effMinusU = FALSE )[-41], 
-+    summary( sdd9i, effMinusU = FALSE )[-41], 
+> all.equal( summary( dd9, effMinusU = FALSE )[-42], 
++    summary( sdd9i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( dd9 )
@@ -39266,15 +39314,15 @@ parameters
 [1] -0.83217  0.45390  0.28892  0.22754  0.15538  0.46431
 > Sb1 <- sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ),
 +    data = riceProdPhilPanel )
-> all.equal( Sb1[-c(7,41)], sb1[-c(7,41)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sb1[-c( 7, 42 )], sb1[-c( 7, 42 )], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > b1 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sb1[-c(7,41)], b1[-c(7,41)], tol = 1e-4 )
+> all.equal( sb1[-c( 7, 42 )], b1[-c( 7, 42 )], tol = 1e-4 )
 [1] TRUE
 > sb1i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb1i[ -c( 7, 41 ) ], sb1[ -c( 7, 41 ) ], 
+> all.equal( sb1i[ -c( 7, 42 ) ], sb1[ -c( 7, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1, digits = 1 )
@@ -39483,12 +39531,12 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.8188 
-> all.equal( summary( b1, extraPar = TRUE )[-41], 
-+    summary( sb1i, extraPar = TRUE )[-41],
+> all.equal( summary( b1, extraPar = TRUE )[-42], 
++    summary( sb1i, extraPar = TRUE )[-42],
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1, effMinusU = FALSE )[-41], 
-+    summary( sb1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b1, effMinusU = FALSE )[-42], 
++    summary( sb1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b1 )
@@ -39864,6 +39912,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -40495,11 +40546,11 @@ class
 > b2 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE )
-> all.equal( sb2[-41], b2[-41], tol = 1e-4 )
+> all.equal( sb2[-42], b2[-42], tol = 1e-4 )
 [1] TRUE
 > sb2i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE )
-> all.equal( sb2i[-41], sb2[-41], 
+> all.equal( sb2i[-42], sb2[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b2, digits = 1 )
@@ -40692,12 +40743,12 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 0.83128 
-> all.equal( summary( b2, extraPar = TRUE )[-41], 
-+    summary( sb2i, extraPar = TRUE )[-41], 
+> all.equal( summary( b2, extraPar = TRUE )[-42], 
++    summary( sb2i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b2, effMinusU = FALSE )[-41], 
-+    summary( sb2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b2, effMinusU = FALSE )[-42], 
++    summary( sb2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b2 )
@@ -41059,6 +41110,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -41693,11 +41747,11 @@ class
 > b3 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    timeEffect = TRUE )
-> all.equal( sb3[-41], b3[-41], tol = 1e-4 )
+> all.equal( sb3[-42], b3[-42], tol = 1e-4 )
 [1] TRUE
 > sb3i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, timeEffect = TRUE )
-> all.equal( sb3i[-41], sb3[-41], 
+> all.equal( sb3i[-42], sb3[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b3, digits = 1 )
@@ -41886,12 +41940,12 @@ mean efficiency of each year
 0.78484 0.79503 0.80484 0.81427 0.82332 0.83202 0.84035 0.84833 
 
 mean efficiency: 0.81787 
-> all.equal( summary( b3, extraPar = TRUE )[-41], 
-+    summary( sb3i, extraPar = TRUE )[-41], 
+> all.equal( summary( b3, extraPar = TRUE )[-42], 
++    summary( sb3i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b3, effMinusU = FALSE )[-41], 
-+    summary( sb3i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b3, effMinusU = FALSE )[-42], 
++    summary( sb3i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b3 )
@@ -42154,6 +42208,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -42788,11 +42845,11 @@ class
 > b4 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4[-41], b4[-41], tol = 1e-4 )
+> all.equal( sb4[-42], b4[-42], tol = 1e-4 )
 [1] TRUE
 > sb4i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sb4i[-41], sb4[-41], 
+> all.equal( sb4i[-42], sb4[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4, digits = 1 )
@@ -42988,12 +43045,12 @@ mean efficiency of each year
 0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
 
 mean efficiency: 0.83349 
-> all.equal( summary( b4, extraPar = TRUE )[-41], 
-+    summary( sb4i, extraPar = TRUE )[-41], 
+> all.equal( summary( b4, extraPar = TRUE )[-42], 
++    summary( sb4i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4, effMinusU = FALSE )[-41], 
-+    summary( sb4i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b4, effMinusU = FALSE )[-42], 
++    summary( sb4i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b4 )
@@ -43269,6 +43326,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -44302,16 +44362,16 @@ log-likelihood value
 parameters
 [1] -1.008580  0.384099  0.318983  0.260355 -0.058069 -1.405673  0.597476
 [8]  0.944931
-> all.equal( Sb5[-c(7,41)], sb5[-c(7,41)], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sb5[-c( 7, 42 )], sb5[-c( 7, 42 )], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > b5 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ) )
-> all.equal( sb5[-41], b5[-41], tol = 1e-4 )
+> all.equal( sb5[-42], b5[-42], tol = 1e-4 )
 [1] TRUE
 > sb5i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb5i[-41], sb5[-41], 
+> all.equal( sb5i[-42], sb5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5, digits = 1 )
@@ -44540,12 +44600,12 @@ mean efficiency of each year
 0.74782 0.73499 0.81753 0.79751 0.74817 0.79462 0.68791 0.83753 
 
 mean efficiency: 0.77076 
-> all.equal( summary( b5, extraPar = TRUE )[-41], 
-+    summary( sb5i, extraPar = TRUE )[-41], 
+> all.equal( summary( b5, extraPar = TRUE )[-42], 
++    summary( sb5i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5, effMinusU = FALSE )[-41], 
-+    summary( sb5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b5, effMinusU = FALSE )[-42], 
++    summary( sb5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b5 )
@@ -45948,6 +46008,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -46582,11 +46645,11 @@ class
 > b6 <- frontier( data = riceProdPhilPanel,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE )
-> all.equal( sb6[-41], b6[-41], tol = 1e-4 )
+> all.equal( sb6[-42], b6[-42], tol = 1e-4 )
 [1] TRUE
 > sb6i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT,
 +    data = riceProdPhilPanel )
-> all.equal( sb6i[-41], sb6[-41], 
+> all.equal( sb6i[-42], sb6[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6, digits = 1 )
@@ -46818,12 +46881,12 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b6, extraPar = TRUE )[-41], 
-+    summary( sb6i, extraPar = TRUE )[-41], 
+> all.equal( summary( b6, extraPar = TRUE )[-42], 
++    summary( sb6i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6, effMinusU = FALSE )[-41], 
-+    summary( sb6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b6, effMinusU = FALSE )[-42], 
++    summary( sb6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b6 )
@@ -47519,6 +47582,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -48167,12 +48233,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7[-41], b7[-41], tol = 1e-4 )
+> all.equal( sb7[-42], b7[-42], tol = 1e-4 )
 [1] TRUE
 > sb7i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanel, truncNorm = TRUE, timeEffect = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, 0.2, 0.5, -0.3, 0.1 ) )
-> all.equal( sb7i[-41], sb7[-41], 
+> all.equal( sb7i[-42], sb7[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b7, digits = 1 )
@@ -48365,12 +48431,12 @@ mean efficiency of each year
 0.80004 0.81044 0.82041 0.82996 0.83908 0.84780 0.85612 0.86405 
 
 mean efficiency: 0.83349 
-> all.equal( summary( b7, extraPar = TRUE )[-41], 
-+    summary( sb7i, extraPar = TRUE )[-41], 
+> all.equal( summary( b7, extraPar = TRUE )[-42], 
++    summary( sb7i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b7, effMinusU = FALSE )[-41], 
-+    summary( sb7i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b7, effMinusU = FALSE )[-42], 
++    summary( sb7i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b7 )
@@ -48534,6 +48600,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -49174,12 +49243,12 @@ class
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = c( "EDYRS", "BANRAT" ), zIntercept = TRUE,
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8[-41], b8[-41], tol = 1e-4 )
+> all.equal( sb8[-42], b8[-42], tol = 1e-4 )
 [1] TRUE
 > sb8i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhilPanel, 
 +    startVal = c( -1, 0.3, 0.3, 0.3, -0.3, -0.01, -0.4, 0.2, 0.8 ) )
-> all.equal( sb8i[-41], sb8[-41], 
+> all.equal( sb8i[-42], sb8[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b8, digits = 1 )
@@ -49408,12 +49477,12 @@ mean efficiency of each year
 0.76194 0.75058 0.83115 0.81188 0.76415 0.80812 0.70497 0.84663 
 
 mean efficiency: 0.78493 
-> all.equal( summary( b8, extraPar = TRUE )[-41], 
-+    summary( sb8i, extraPar = TRUE )[-41], 
+> all.equal( summary( b8, extraPar = TRUE )[-42], 
++    summary( sb8i, extraPar = TRUE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b8, effMinusU = FALSE )[-41], 
-+    summary( sb8i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b8, effMinusU = FALSE )[-42], 
++    summary( sb8i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( b8 )
@@ -50019,6 +50088,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -50668,7 +50740,7 @@ class
 +    data = riceProdPhilPanel )
 > sb9i <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | - 1, 
 +    data = riceProdPhilPanel )
-> all.equal( sb9i[-41], b9[-41], 
+> all.equal( sb9i[-42], b9[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > round( coef( summary( b9, extraPar = TRUE ) ), 2 )
@@ -50717,11 +50789,11 @@ mean efficiency of each year
 0.70242 0.68633 0.77094 0.74934 0.69611 0.74420 0.63266 0.80183 
 
 mean efficiency: 0.72298 
-> all.equal( summary( b9 )[-41], 
-+    summary( sb9i )[-41], check.attributes = FALSE )
+> all.equal( summary( b9 )[-42], 
++    summary( sb9i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b9, effMinusU = FALSE )[-41], 
-+    summary( sb9i, effMinusU = FALSE )[-41], 
+> all.equal( summary( b9, effMinusU = FALSE )[-42], 
++    summary( sb9i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b9 )
@@ -50842,15 +50914,15 @@ F_43 0.34 0.31 0.64 0.62 0.80 0.90 0.76 0.91
 +    ineffDecrease = FALSE )
 > Sd1 <- sfa( log( cost ) ~ log( PROD ) + log( AREA ) + log( LABORP ) +
 +    log( NPKP ), data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( Sd1[-41], sd1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sd1[-42], sd1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > d1 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1[-41], d1[-41], tol = 1e-4 )
+> all.equal( sd1[-42], d1[-42], tol = 1e-4 )
 [1] TRUE
 > sd1i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd1i[-41], sd1[-41], 
+> all.equal( sd1i[-42], sd1[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d1, digits = 1 )
@@ -50981,11 +51053,11 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.176 
-> all.equal( summary( d1 )[-41], 
-+    summary( sd1i )[-41], check.attributes = FALSE )
+> all.equal( summary( d1 )[-42], 
++    summary( sd1i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d1, effMinusU = FALSE )[-41], 
-+    summary( sd1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d1, effMinusU = FALSE )[-42], 
++    summary( sd1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d1 )
@@ -51337,6 +51409,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -51972,11 +52047,11 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2[-41], d2[-41], tol = 1e-4 )
+> all.equal( sd2[-42], d2[-42], tol = 1e-4 )
 [1] TRUE
 > sd2i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( sd2i[-41], sd2[-41], 
+> all.equal( sd2i[-42], sd2[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d2, digits = 1 )
@@ -52083,11 +52158,11 @@ total number of observations = 344
 thus there are 0 observations not in the panel
 
 mean efficiency: 1.2917 
-> all.equal( summary( d2 )[-41], 
-+    summary( sd2i )[-41], check.attributes = FALSE )
+> all.equal( summary( d2 )[-42], 
++    summary( sd2i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d2, effMinusU = FALSE )[-41], 
-+    summary( sd2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d2, effMinusU = FALSE )[-42], 
++    summary( sd2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d2 )
@@ -52448,6 +52523,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -53085,11 +53163,11 @@ class
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3[-41], d3[-41], tol = 1e-4 )
+> all.equal( sd3[-42], d3[-42], tol = 1e-4 )
 [1] TRUE
 > sd3i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( sd3i[-41], sd3[-41], 
+> all.equal( sd3i[-42], sd3[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d3, digits = 1 )
@@ -53197,11 +53275,11 @@ mean efficiency of each year
 1.1520 1.1578 1.1638 1.1700 1.1765 1.1833 1.1904 1.1978 
 
 mean efficiency: 1.174 
-> all.equal( summary( d3 )[-41], 
-+    summary( sd3i )[-41], check.attributes = FALSE )
+> all.equal( summary( d3 )[-42], 
++    summary( sd3i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d3, effMinusU = FALSE )[-41], 
-+    summary( sd3i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d3, effMinusU = FALSE )[-42], 
++    summary( sd3i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d3 )
@@ -53463,6 +53541,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -54101,12 +54182,12 @@ class
 > d4 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, truncNorm = TRUE,
 +    timeEffect = TRUE )
-> all.equal( sd4[-41], d4[-41], tol = 1e-4 )
+> all.equal( sd4[-42], d4[-42], tol = 1e-4 )
 [1] TRUE
 > sd4i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( sd4i[-41], sd4[-41], 
+> all.equal( sd4i[-42], sd4[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d4, digits = 1 )
@@ -54218,11 +54299,11 @@ mean efficiency of each year
 1.2609 1.2692 1.2777 1.2865 1.2957 1.3052 1.3150 1.3252 
 
 mean efficiency: 1.2919 
-> all.equal( summary( d4 )[-41], 
-+    summary( sd4i )[-41], check.attributes = FALSE )
+> all.equal( summary( d4 )[-42], 
++    summary( sd4i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d4, effMinusU = FALSE )[-41], 
-+    summary( sd4i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d4, effMinusU = FALSE )[-42], 
++    summary( sd4i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d4 )
@@ -54483,6 +54564,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -55128,7 +55212,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( Sd5[-41], sd5[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( Sd5[-42], sd5[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > d5 <- frontier( "lCost", xNames = c( "lPROD", "lAREA", "lLABORP", "lNPKP" ),
 +    zNames = c( "EDYRS", "BANRAT" ), data = riceProdPhilPanel,
@@ -55136,14 +55220,14 @@ In sfa(log(cost) ~ log(PROD) + log(AREA) + log(LABORP) + log(NPKP) |  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd5[-41], d5[-41], tol = 1e-4 )
+> all.equal( sd5[-42], d5[-42], tol = 1e-4 )
 [1] TRUE
 > sd5i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
 +       EDYRS + BANRAT - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd5i[-41], sd5[-41], 
+> all.equal( sd5i[-42], sd5[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d5, digits = 1 )
@@ -55299,11 +55383,11 @@ mean efficiency of each year
 1.0924 1.0994 1.0794 1.0964 1.1000 1.0981 1.1167 1.0918 
 
 mean efficiency: 1.0968 
-> all.equal( summary( d5 )[-41], 
-+    summary( sd5i )[-41], check.attributes = FALSE )
+> all.equal( summary( d5 )[-42], 
++    summary( sd5i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d5, effMinusU = FALSE )[-41], 
-+    summary( sd5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d5, effMinusU = FALSE )[-42], 
++    summary( sd5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d5 )
@@ -56661,6 +56745,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -57315,14 +57402,14 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd6[-41], d6[-41], tol = 1e-4 )
+> all.equal( sd6[-42], d6[-42], tol = 1e-4 )
 [1] TRUE
 > sd6i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | 
 +       EDYRS + BANRAT, data = riceProdPhilPanel, ineffDecrease = FALSE )
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sd6i[-41], sd6[-41], 
+> all.equal( sd6i[-42], sd6[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d6, digits = 1 )
@@ -57449,11 +57536,11 @@ mean efficiency of each year
 1.0963 1.1038 1.0825 1.1015 1.1051 1.1017 1.1234 1.0962 
 
 mean efficiency: 1.1013 
-> all.equal( summary( d6 )[-41], 
-+    summary( sd6i )[-41], check.attributes = FALSE )
+> all.equal( summary( d6 )[-42], 
++    summary( sd6i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d6, effMinusU = FALSE )[-41], 
-+    summary( sd6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d6, effMinusU = FALSE )[-42], 
++    summary( sd6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( d6 )
@@ -58149,6 +58236,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -58798,7 +58888,7 @@ class
 +    log( NPKP ) | - 1, data = riceProdPhilPanel, ineffDecrease = FALSE )
 > sd9i <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | - 1, 
 +    data = riceProdPhilPanel, ineffDecrease = FALSE )
-> all.equal( sd9i[-41], d9[-41], 
+> all.equal( sd9i[-42], d9[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > round( coef( summary( d9, extraPar = TRUE ) ), 2 )
@@ -58849,11 +58939,11 @@ mean efficiency of each year
 1.1629 1.1710 1.1493 1.1904 1.1884 1.1499 1.2125 1.1717 
 
 mean efficiency: 1.1745 
-> all.equal( summary( d9 )[-41], 
-+    summary( sd9i )[-41], check.attributes = FALSE )
+> all.equal( summary( d9 )[-42], 
++    summary( sd9i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d9, effMinusU = FALSE )[-41], 
-+    summary( sd9i, effMinusU = FALSE )[-41], 
+> all.equal( summary( d9, effMinusU = FALSE )[-42], 
++    summary( sd9i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d9 )
@@ -58981,7 +59071,7 @@ F_43 1.26 1.33 1.19 1.11 1.15 1.11 1.08 1.10
 > b1u <- sfa( lPROD ~ lAREA + lLABOR + lNPK, data = riceProdPhilPanelUnb )
 > b1ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b1ui[-41], b1u[-41], 
+> all.equal( b1ui[-42], b1u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1u, digits = 1 )
@@ -59019,11 +59109,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.81812 
-> all.equal( summary( b1u )[-41], 
-+    summary( b1ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b1u )[-42], 
++    summary( b1ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1u, effMinusU = FALSE )[-41], 
-+    summary( b1ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b1u, effMinusU = FALSE )[-42], 
++    summary( b1ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1u )
@@ -59389,6 +59479,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -60024,7 +60117,7 @@ class
 +    truncNorm = TRUE )
 > b2ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, truncNorm = TRUE )
-> all.equal( b2ui[-41], b2u[-41], 
+> all.equal( b2ui[-42], b2u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b2u, digits = 1 )
@@ -60065,11 +60158,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.82987 
-> all.equal( summary( b2u )[-41], 
-+    summary( b2ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b2u )[-42], 
++    summary( b2ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b2u, effMinusU = FALSE )[-41], 
-+    summary( b2ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b2u, effMinusU = FALSE )[-42], 
++    summary( b2ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b2u )
@@ -60335,6 +60428,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -60974,7 +61070,7 @@ class
 +    timeEffect = TRUE )
 > b3ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, timeEffect = TRUE )
-> all.equal( b3ui[-41], b3u[-41], 
+> all.equal( b3ui[-42], b3u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b3u, digits = 1 )
@@ -61019,11 +61115,11 @@ mean efficiency of each year
 0.78424 0.79438 0.80623 0.81352 0.82445 0.82847 0.83888 0.84747 
 
 mean efficiency: 0.81712 
-> all.equal( summary( b3u )[-41], 
-+    summary( b3ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b3u )[-42], 
++    summary( b3ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b3u, effMinusU = FALSE )[-41], 
-+    summary( b3ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b3u, effMinusU = FALSE )[-42], 
++    summary( b3ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b3u )
@@ -61292,6 +61388,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -61931,7 +62030,7 @@ class
 +    truncNorm = TRUE, timeEffect = TRUE )
 > b4ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1, 
 +    data = riceProdPhilPanelUnb, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ui[-41], b4u[-41], 
+> all.equal( b4ui[-42], b4u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4u, digits = 1 )
@@ -62010,11 +62109,11 @@ mean efficiency of each year
 1.3072 1.2838 1.2597 1.2430 1.2228 1.2126 1.1952 1.1801 
 
 mean efficiency: 1.2382 
-> all.equal( summary( b4u )[-41], 
-+    summary( b4ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b4u )[-42], 
++    summary( b4ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4u, effMinusU = FALSE )[-41], 
-+    summary( b4ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b4u, effMinusU = FALSE )[-42], 
++    summary( b4ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4u )
@@ -62372,6 +62471,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -63012,7 +63114,7 @@ class
 +    data = riceProdPhilPanelUnb )
 > b5ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT - 1, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b5ui[-41], b5u[-41], 
+> all.equal( b5ui[-42], b5u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5u, digits = 1 )
@@ -63058,11 +63160,11 @@ mean efficiency of each year
 0.74687 0.73404 0.81640 0.79651 0.74731 0.79221 0.68164 0.83650 
 
 mean efficiency: 0.76905 
-> all.equal( summary( b5u )[-41], 
-+    summary( b5ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b5u )[-42], 
++    summary( b5ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5u, effMinusU = FALSE )[-41], 
-+    summary( b5ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b5u, effMinusU = FALSE )[-42], 
++    summary( b5ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5u )
@@ -63766,6 +63868,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -64405,7 +64510,7 @@ class
 +    data = riceProdPhilPanelUnb )
 > b6ui <- sfa( lPROD ~ ones + lAREA + lLABOR + lNPK - 1 | EDYRS + BANRAT, 
 +    data = riceProdPhilPanelUnb )
-> all.equal( b6ui[-41], b6u[-41], 
+> all.equal( b6ui[-42], b6u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6u, digits = 1 )
@@ -64486,11 +64591,11 @@ mean efficiency of each year
 1.4417 1.4618 1.2421 1.2861 1.3932 1.3098 1.5551 1.3378 
 
 mean efficiency: 1.3785 
-> all.equal( summary( b6u )[-41], 
-+    summary( b6ui )[-41], check.attributes = FALSE )
+> all.equal( summary( b6u )[-42], 
++    summary( b6ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6u, effMinusU = FALSE )[-41], 
-+    summary( b6ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( b6u, effMinusU = FALSE )[-42], 
++    summary( b6ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6u )
@@ -65853,6 +65958,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -66503,7 +66611,7 @@ class
 +    ineffDecrease = FALSE )
 > d1ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE )
-> all.equal( d1ui[-41], d1u[-41], 
+> all.equal( d1ui[-42], d1u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d1u, digits = 1 )
@@ -66572,11 +66680,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.172 
-> all.equal( summary( d1u )[-41], 
-+    summary( d1ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d1u )[-42], 
++    summary( d1ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d1u, effMinusU = FALSE )[-41], 
-+    summary( d1ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d1u, effMinusU = FALSE )[-42], 
++    summary( d1ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d1u )
@@ -66932,6 +67040,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -67573,7 +67684,7 @@ class
 +    ineffDecrease = FALSE, truncNorm = TRUE )
 > d2ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, truncNorm = TRUE )
-> all.equal( d2ui[-41], d2u[-41], 
+> all.equal( d2ui[-42], d2u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d2u, digits = 1 )
@@ -67615,11 +67726,11 @@ total number of observations = 340
 thus there are 4 observations not in the panel
 
 mean efficiency: 1.2895 
-> all.equal( summary( d2u )[-41], 
-+    summary( d2ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d2u )[-42], 
++    summary( d2ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d2u, effMinusU = FALSE )[-41], 
-+    summary( d2ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d2u, effMinusU = FALSE )[-42], 
++    summary( d2ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d2u )
@@ -67886,6 +67997,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -68528,7 +68642,7 @@ class
 +    ineffDecrease = FALSE, timeEffect = TRUE )
 > d3ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, timeEffect = TRUE )
-> all.equal( d3ui[-41], d3u[-41], 
+> all.equal( d3ui[-42], d3u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d3u, digits = 1 )
@@ -68574,11 +68688,11 @@ mean efficiency of each year
 1.1459 1.1521 1.1565 1.1652 1.1701 1.1748 1.1900 1.1955 
 
 mean efficiency: 1.1687 
-> all.equal( summary( d3u )[-41], 
-+    summary( d3ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d3u )[-42], 
++    summary( d3ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d3u, effMinusU = FALSE )[-41], 
-+    summary( d3ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d3u, effMinusU = FALSE )[-42], 
++    summary( d3ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d3u )
@@ -68944,6 +69058,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -69587,7 +69704,7 @@ class
 > d4ui <- sfa( lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1, 
 +    data = riceProdPhilPanelUnb, ineffDecrease = FALSE, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( d4ui[-41], d4u[-41], 
+> all.equal( d4ui[-42], d4u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d4u, digits = 1 )
@@ -69634,11 +69751,11 @@ mean efficiency of each year
 1.2621 1.2701 1.2758 1.2870 1.2931 1.3002 1.3173 1.3243 
 
 mean efficiency: 1.2912 
-> all.equal( summary( d4u )[-41], 
-+    summary( d4ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d4u )[-42], 
++    summary( d4ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d4u, effMinusU = FALSE )[-41], 
-+    summary( d4ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d4u, effMinusU = FALSE )[-42], 
++    summary( d4ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d4u )
@@ -69905,6 +70022,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -70554,7 +70674,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT -  :
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( d5ui[-41], d5u[-41], 
+> all.equal( d5ui[-42], d5u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d5u, minusU = FALSE )
@@ -70635,11 +70755,11 @@ mean efficiency of each year
 1.0941 1.1013 1.0808 1.0984 1.1020 1.0999 1.1211 1.0936 
 
 mean efficiency: 1.0989 
-> all.equal( summary( d5u )[-41], 
-+    summary( d5ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d5u )[-42], 
++    summary( d5ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d5u, effMinusU = FALSE )[-41], 
-+    summary( d5ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d5u, effMinusU = FALSE )[-42], 
++    summary( d5ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d5u )
@@ -71974,6 +72094,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -72632,7 +72755,7 @@ In sfa(lCost ~ lPROD + lAREA + lLABORP + lNPKP | EDYRS + BANRAT,  :
 Warning message:
 In sfa(lCost ~ ones + lPROD + lAREA + lLABORP + lNPKP - 1 | EDYRS +  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( d6ui[-41], d6u[-41], 
+> all.equal( d6ui[-42], d6u[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( d6u, digits = 1 )
@@ -72680,11 +72803,11 @@ mean efficiency of each year
 1.0943 1.1016 1.0810 1.0988 1.1023 1.1000 1.1216 1.0940 
 
 mean efficiency: 1.0992 
-> all.equal( summary( d6u )[-41], 
-+    summary( d6ui )[-41], check.attributes = FALSE )
+> all.equal( summary( d6u )[-42], 
++    summary( d6ui )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( d6u, effMinusU = FALSE )[-41], 
-+    summary( d6ui, effMinusU = FALSE )[-41], 
+> all.equal( summary( d6u, effMinusU = FALSE )[-42], 
++    summary( d6ui, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( d6u )
@@ -73385,6 +73508,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -74048,7 +74174,7 @@ class
 +    data = naPanelData )
 > b1ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naPanelData )
-> all.equal( b1ni[-41], b1n[-41], 
+> all.equal( b1ni[-42], b1n[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1n, digits = 1 )
@@ -74086,11 +74212,11 @@ total number of observations = 308
 thus there are 4 observations not in the panel
 
 mean efficiency: 0.8139 
-> all.equal( summary( b1n )[-41], 
-+    summary( b1ni )[-41], check.attributes = FALSE )
+> all.equal( summary( b1n )[-42], 
++    summary( b1ni )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1n, effMinusU = FALSE )[-41], 
-+    summary( b1ni, effMinusU = FALSE )[-41], 
+> all.equal( summary( b1n, effMinusU = FALSE )[-42], 
++    summary( b1ni, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1n )
@@ -74348,6 +74474,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -74938,7 +75067,7 @@ class
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
 > b4ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naPanelData, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ni[-41], b4n[-41], 
+> all.equal( b4ni[-42], b4n[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4n, digits = 1 )
@@ -74984,11 +75113,11 @@ mean efficiency of each year
 0.79352 0.80790 0.82353 0.83432 0.84813 0.85502 0.86772 0.87828 
 
 mean efficiency: 0.83842 
-> all.equal( summary( b4n )[-41], 
-+    summary( b4ni )[-41], check.attributes = FALSE )
+> all.equal( summary( b4n )[-42], 
++    summary( b4ni )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4n, effMinusU = FALSE )[-41], 
-+    summary( b4ni, effMinusU = FALSE )[-41], 
+> all.equal( summary( b4n, effMinusU = FALSE )[-42], 
++    summary( b4ni, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4n )
@@ -75247,6 +75376,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -75841,7 +75973,7 @@ class
 +    EDYRS + BANRAT - 1, data = naPanelData )
 > b5ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +    EDYRS + BANRAT - 1, data = naPanelData )
-> all.equal( b5ni[-41], b5n[-41], 
+> all.equal( b5ni[-42], b5n[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5n, digits = 1 )
@@ -75887,11 +76019,11 @@ mean efficiency of each year
 0.76006 0.74574 0.82030 0.81909 0.75188 0.79792 0.68468 0.85626 
 
 mean efficiency: 0.7797 
-> all.equal( summary( b5n )[-41], 
-+    summary( b5ni )[-41], check.attributes = FALSE )
+> all.equal( summary( b5n )[-42], 
++    summary( b5ni )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5n, effMinusU = FALSE )[-41], 
-+    summary( b5ni, effMinusU = FALSE )[-41], 
+> all.equal( summary( b5n, effMinusU = FALSE )[-42], 
++    summary( b5ni, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5n )
@@ -76572,6 +76704,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -77164,7 +77299,7 @@ class
 +    EDYRS + BANRAT, data = naPanelData )
 > b6ni <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +       EDYRS + BANRAT, data = naPanelData )
-> all.equal( b6ni[-41], b6n[-41], 
+> all.equal( b6ni[-42], b6n[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6n, digits = 1 )
@@ -77211,11 +77346,11 @@ mean efficiency of each year
 0.74848 0.73263 0.80769 0.80634 0.73822 0.78589 0.66982 0.84733 
 
 mean efficiency: 0.76727 
-> all.equal( summary( b6n )[-41], 
-+    summary( b6ni )[-41], check.attributes = FALSE )
+> all.equal( summary( b6n )[-42], 
++    summary( b6ni )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6n, effMinusU = FALSE )[-41], 
-+    summary( b6ni, effMinusU = FALSE )[-41], 
+> all.equal( summary( b6n, effMinusU = FALSE )[-42], 
++    summary( b6ni, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6n )
@@ -77896,6 +78031,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -78497,7 +78635,7 @@ class
 +    data = naTimePanelData )
 > b1ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naTimePanelData )
-> all.equal( b1ti[-41], b1t[-41], 
+> all.equal( b1ti[-42], b1t[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b1t, digits = 1 )
@@ -78535,11 +78673,11 @@ total number of observations = 256
 thus there are 2 observations not in the panel
 
 mean efficiency: 0.82036 
-> all.equal( summary( b1t )[-41], 
-+    summary( b1ti )[-41], check.attributes = FALSE )
+> all.equal( summary( b1t )[-42], 
++    summary( b1ti )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b1t, effMinusU = FALSE )[-41], 
-+    summary( b1ti, effMinusU = FALSE )[-41], 
+> all.equal( summary( b1t, effMinusU = FALSE )[-42], 
++    summary( b1ti, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b1t )
@@ -78908,6 +79046,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -79446,7 +79587,7 @@ class
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
 > b4ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1,
 +    data = naTimePanelData, truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( b4ti[-41], b4t[-41], 
+> all.equal( b4ti[-42], b4t[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b4t, digits = 1 )
@@ -79492,11 +79633,11 @@ mean efficiency of each year
 0.79312 0.81064 0.82696 0.84265 0.85529 0.86912 
 
 mean efficiency: 0.83284 
-> all.equal( summary( b4t )[-41], 
-+    summary( b4ti )[-41], check.attributes = FALSE )
+> all.equal( summary( b4t )[-42], 
++    summary( b4ti )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b4t, effMinusU = FALSE )[-41], 
-+    summary( b4ti, effMinusU = FALSE )[-41], 
+> all.equal( summary( b4t, effMinusU = FALSE )[-42], 
++    summary( b4ti, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b4t )
@@ -79764,6 +79905,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -80306,7 +80450,7 @@ class
 +    EDYRS + BANRAT - 1, data = naTimePanelData )
 > b5ti <- sfa( log( PROD ) ~ ones + log( AREA ) + log( LABOR ) + log( NPK ) - 1 |
 +       EDYRS + BANRAT - 1, data = naTimePanelData )
-> all.equal( b5ti[-41], b5t[-41], 
+> all.equal( b5ti[-42], b5t[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b5t, digits = 1 )
@@ -80352,11 +80496,11 @@ mean efficiency of each year
 0.72477 0.78678 0.73764 0.66888 0.82361 
 
 mean efficiency: 0.74876 
-> all.equal( summary( b5t )[-41], 
-+    summary( b5ti )[-41], check.attributes = FALSE )
+> all.equal( summary( b5t )[-42], 
++    summary( b5ti )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b5t, effMinusU = FALSE )[-41], 
-+    summary( b5ti, effMinusU = FALSE )[-41], 
+> all.equal( summary( b5t, effMinusU = FALSE )[-42], 
++    summary( b5ti, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b5t )
@@ -81157,6 +81301,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -81664,7 +81811,7 @@ In sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK) | EDYRS + BANRAT,  :
 Warning message:
 In sfa(log(PROD) ~ ones + log(AREA) + log(LABOR) + log(NPK) - 1 |  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( b6ti[-41], b6t[-41], 
+> all.equal( b6ti[-42], b6t[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( b6t, digits = 1 )
@@ -81711,11 +81858,11 @@ mean efficiency of each year
 0.76570 0.82310 0.77971 0.71667 0.84793 
 
 mean efficiency: 0.78698 
-> all.equal( summary( b6t )[-41], 
-+    summary( b6ti )[-41], check.attributes = FALSE )
+> all.equal( summary( b6t )[-42], 
++    summary( b6ti )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( b6t, effMinusU = FALSE )[-41], 
-+    summary( b6ti, effMinusU = FALSE )[-41], 
+> all.equal( summary( b6t, effMinusU = FALSE )[-42], 
++    summary( b6ti, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > nobs( b6t )
@@ -82415,6 +82562,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -83563,6 +83713,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -84359,6 +84512,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -85638,6 +85794,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -86018,7 +86177,7 @@ class
 > ## cross-section data, error components frontier
 > oi1 <- sfa( logOutput ~ 1, data = front41Data )
 > oi1i <- sfa( logOutput ~ ones - 1, data = front41Data )
-> all.equal( oi1[-41], oi1i[-41], 
+> all.equal( oi1[-42], oi1i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi1 )
@@ -86104,11 +86263,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.4995 
-> all.equal( summary( oi1 )[-41], 
-+    summary( oi1i )[-41], check.attributes = FALSE )
+> all.equal( summary( oi1 )[-42], 
++    summary( oi1i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi1, effMinusU = FALSE )[-41], 
-+    summary( oi1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oi1, effMinusU = FALSE )[-42], 
++    summary( oi1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi1 )
@@ -86366,6 +86525,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -86660,7 +86822,7 @@ class
 > ## cross-section data, error components frontier, truncNorm
 > oi2 <- sfa( logOutput ~ 1, data = front41Data, truncNorm = TRUE )
 > oi2i <- sfa( logOutput ~ ones - 1, data = front41Data, truncNorm = TRUE )
-> all.equal( oi2[-41], oi2i[-41], 
+> all.equal( oi2[-42], oi2i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi2 )
@@ -86748,11 +86910,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.1147 
-> all.equal( summary( oi2 )[-41], 
-+    summary( oi2i )[-41], check.attributes = FALSE )
+> all.equal( summary( oi2 )[-42], 
++    summary( oi2i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi2, effMinusU = FALSE )[-41], 
-+    summary( oi2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oi2, effMinusU = FALSE )[-42], 
++    summary( oi2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi2 )
@@ -87010,6 +87172,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -87305,7 +87470,7 @@ class
 > ## cross-section data, efficiency effects frontier
 > oi5 <- sfa( logOutput ~ 1 | firmNo - 1, data = front41Data )
 > oi5i <- sfa( logOutput ~ ones - 1 | firmNo - 1, data = front41Data )
-> all.equal( oi5[-41], oi5i[-41], 
+> all.equal( oi5[-42], oi5i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi5 )
@@ -87393,11 +87558,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.3524 
-> all.equal( summary( oi5 )[-41], 
-+    summary( oi5i )[-41], check.attributes = FALSE )
+> all.equal( summary( oi5 )[-42], 
++    summary( oi5i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi5, effMinusU = FALSE )[-41], 
-+    summary( oi5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oi5, effMinusU = FALSE )[-42], 
++    summary( oi5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi5 )
@@ -87784,6 +87949,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -88084,7 +88252,7 @@ In sfa(logOutput ~ 1 | firmNo, data = front41Data) :
 Warning message:
 In sfa(logOutput ~ ones - 1 | firmNo, data = front41Data) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( oi6[-41], oi6i[-41], 
+> all.equal( oi6[-42], oi6i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oi6 )
@@ -88176,11 +88344,11 @@ cross-sectional data
 total number of observations = 60 
 
 mean efficiency: 2.0383 
-> all.equal( summary( oi6 )[-41], 
-+    summary( oi6i )[-41], check.attributes = FALSE )
+> all.equal( summary( oi6 )[-42], 
++    summary( oi6i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oi6, effMinusU = FALSE )[-41], 
-+    summary( oi6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oi6, effMinusU = FALSE )[-42], 
++    summary( oi6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oi6 )
@@ -88567,6 +88735,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -88870,7 +89041,7 @@ class
 > ## unbalanced panel data, error components frontier
 > oip1 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb )
 > oip1i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb )
-> all.equal( oip1[-41], oip1i[-41], 
+> all.equal( oip1[-42], oip1i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip1 )
@@ -88960,11 +89131,11 @@ total number of observations = 277
 thus there are 17 observations not in the panel
 
 mean efficiency: 4.9385 
-> all.equal( summary( oip1 )[-41], 
-+    summary( oip1i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip1 )[-42], 
++    summary( oip1i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip1, effMinusU = FALSE )[-41], 
-+    summary( oip1i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip1, effMinusU = FALSE )[-42], 
++    summary( oip1i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip1 )
@@ -89204,6 +89375,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -89759,7 +89933,7 @@ class
 > ## unbalanced panel data, error components frontier, truncNorm
 > oip2 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
 > oip2i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, truncNorm = TRUE )
-> all.equal( oip2[-41], oip2i[-41], 
+> all.equal( oip2[-42], oip2i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip2 )
@@ -89853,11 +90027,11 @@ total number of observations = 277
 thus there are 17 observations not in the panel
 
 mean efficiency: 6.6111 
-> all.equal( summary( oip2 )[-41], 
-+    summary( oip2i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip2 )[-42], 
++    summary( oip2i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip2, effMinusU = FALSE )[-41], 
-+    summary( oip2i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip2, effMinusU = FALSE )[-42], 
++    summary( oip2i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip2 )
@@ -90097,6 +90271,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -90653,7 +90830,7 @@ class
 > ## unbalanced panel data, error components frontier, timeEffect
 > oip3 <- sfa( lProdNa ~ 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
 > oip3i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, timeEffect = TRUE )
-> all.equal( oip3[-41], oip3i[-41], 
+> all.equal( oip3[-42], oip3i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip3 )
@@ -90755,11 +90932,11 @@ mean efficiency of each year
 5.1953 4.9249 5.1743 4.8402 4.6315 4.5168 4.6945 
 
 mean efficiency: 4.8501 
-> all.equal( summary( oip3 )[-41], 
-+    summary( oip3i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip3 )[-42], 
++    summary( oip3i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip3, effMinusU = FALSE )[-41], 
-+    summary( oip3i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip3, effMinusU = FALSE )[-42], 
++    summary( oip3i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip3 )
@@ -90999,6 +91176,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -91557,7 +91737,7 @@ class
 +    truncNorm = TRUE, timeEffect = TRUE )
 > oip4i <- sfa( lProdNa ~ ones - 1, data = riceProdPhilPanelUnb, 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( oip4[-41], oip4i[-41], 
+> all.equal( oip4[-42], oip4i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip4 )
@@ -91663,11 +91843,11 @@ mean efficiency of each year
 6.9845 6.6200 6.9435 6.4992 6.2214 6.0663 6.2973 
 
 mean efficiency: 6.5137 
-> all.equal( summary( oip4 )[-41], 
-+    summary( oip4i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip4 )[-42], 
++    summary( oip4i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip4, effMinusU = FALSE )[-41], 
-+    summary( oip4i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip4, effMinusU = FALSE )[-42], 
++    summary( oip4i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip4 )
@@ -91907,6 +92087,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -92465,7 +92648,7 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > oip5 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
 > oip5i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
-> all.equal( oip5[-41], oip5i[-41], 
+> all.equal( oip5[-42], oip5i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip5 )
@@ -92571,11 +92754,11 @@ mean efficiency of each year
 3.6368 3.5061 3.3206 3.4304 2.8889 3.4668 4.3997 
 
 mean efficiency: 3.5221 
-> all.equal( summary( oip5 )[-41], 
-+    summary( oip5i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip5 )[-42], 
++    summary( oip5i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip5, effMinusU = FALSE )[-41], 
-+    summary( oip5i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip5, effMinusU = FALSE )[-42], 
++    summary( oip5i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip5 )
@@ -93256,6 +93439,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -93812,7 +93998,7 @@ class
 > ## unbalanced panel data, efficiency effects frontier, zIntercept
 > oip6 <- sfa( lProdNa ~ 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
 > oip6i <- sfa( lProdNa ~ ones - 1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb )
-> all.equal( oip6[-41], oip6i[-41], 
+> all.equal( oip6[-42], oip6i[-42], 
 +    check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > print( oip6 )
@@ -93926,11 +94112,11 @@ mean efficiency of each year
 5.7514 5.5390 5.1782 5.4379 4.4645 5.5195 7.1931 
 
 mean efficiency: 5.5853 
-> all.equal( summary( oip6 )[-41], 
-+    summary( oip6i )[-41], check.attributes = FALSE )
+> all.equal( summary( oip6 )[-42], 
++    summary( oip6i )[-42], check.attributes = FALSE )
 [1] TRUE
-> all.equal( summary( oip6, effMinusU = FALSE )[-41], 
-+    summary( oip6i, effMinusU = FALSE )[-41], 
+> all.equal( summary( oip6, effMinusU = FALSE )[-42], 
++    summary( oip6i, effMinusU = FALSE )[-42], 
 +    check.attributes = FALSE )
 [1] TRUE
 > lrtest( oip6 )
@@ -94610,6 +94796,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -95502,6 +95691,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -96116,6 +96308,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -96863,6 +97058,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -97618,6 +97816,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -97917,7 +98118,7 @@ class
 > nxp1 <- sfa( ynx ~ -1, data = riceProdPhilPanelUnb )
 > nxp1r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
-> all.equal( nxp1[ -c(41, 42) ], nxp1r[ -c(41, 42) ] )
+> all.equal( nxp1[ -c( 42, 43 ) ], nxp1r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp1 )
 
@@ -98240,6 +98441,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -98795,7 +98999,7 @@ class
 > nxp2r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    truncNorm = TRUE )
-> all.equal( nxp2[ -c(41, 42) ], nxp2r[ -c(41, 42) ] )
+> all.equal( nxp2[ -c( 42, 43 ) ], nxp2r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp2 )
 
@@ -99122,6 +99326,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -99678,7 +99885,7 @@ class
 > nxp3r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    timeEffect = TRUE )
-> all.equal( nxp3[ -c(41, 42) ], nxp3r[ -c(41, 42) ] )
+> all.equal( nxp3[ -c( 42, 43 ) ], nxp3r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp3 )
 
@@ -100013,6 +100220,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -100570,7 +100780,7 @@ class
 > nxp4r <- sfa( ynx ~ -1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ], 
 +    truncNorm = TRUE, timeEffect = TRUE )
-> all.equal( nxp4[ -c(41, 42) ], nxp4r[ -c(41, 42) ] )
+> all.equal( nxp4[ -c( 42, 43 ) ], nxp4r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp4 )
 
@@ -100909,6 +101119,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -101466,7 +101679,7 @@ class
 > nxp5 <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1, data = riceProdPhilPanelUnb )
 > nxp5r <- sfa( ynx ~ -1 | EDYRS + BANRAT - 1,
 +    data = riceProdPhilPanelUnb[ !is.na( riceProdPhilPanelUnb$ynx ), ] )
-> all.equal( nxp5[ -c(41, 42) ], nxp5r[ -c(41, 42) ] )
+> all.equal( nxp5[ -c( 42, 43 ) ], nxp5r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp5 )
 
@@ -102246,6 +102459,9 @@ $gridSize
 $maxit
 [1] 1000
 
+$minit
+[1] 5
+
 $muBound
 [1] 2
 
@@ -102807,7 +103023,7 @@ In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb) :
 Warning message:
 In sfa(ynx ~ -1 | EDYRS + BANRAT, data = riceProdPhilPanelUnb[!is.na(riceProdPhilPanelUnb$ynx),  :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( nxp6[ -c(41, 42) ], nxp6r[ -c(41, 42) ] )
+> all.equal( nxp6[ -c( 42, 43 ) ], nxp6r[ -c( 42, 43 ) ] )
 [1] TRUE
 > print( nxp6 )
 
@@ -103594,6 +103810,9 @@ $gridSize
 
 $maxit
 [1] 1000
+
+$minit
+[1] 5
 
 $muBound
 [1] 2
@@ -111184,19 +111403,19 @@ F_43 1.02 1.03 1.01 1.01 1.01 1.01 1.01 1.01
 > 
 > ## cross-section data, error components frontier
 > a1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) )
-> all.equal( a1a[-41], a1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( a1a[-42], a1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( a1a )
 [1] 60
 > 
 > ## cross-section data, efficiency effects frontier
 > aa1a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 - 1 )
-> all.equal( aa1a[-41], aa1[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( aa1a[-42], aa1[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > ## cross-section data, efficiency effects frontier, zIntercept
 > aa2a <- sfa( log( y ) ~ log( x1 ) + log( x2 ) | z1 )
-> all.equal( aa2a[-41], aa2[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( aa2a[-42], aa2[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > 
 > 
@@ -111215,7 +111434,7 @@ sfa(formula = logOutput ~ 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)      sigmaSq        gamma  
         3.4          0.9          0.9  
-> all.equal( sa10[-41], a10[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( sa10[-42], a10[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa10 )
 [1] 60
@@ -111230,7 +111449,7 @@ sfa(formula = logOutput ~ logLabour, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour      sigmaSq        gamma  
         1.1          0.5          0.4          0.9  
-> all.equal( sa11[-41], a11[-41], check.attributes = FALSE, tol = 1e-4 )
+> all.equal( sa11[-42], a11[-42], check.attributes = FALSE, tol = 1e-4 )
 [1] TRUE
 > nobs( sa11 )
 [1] 60
@@ -111247,7 +111466,7 @@ sfa(formula = logOutput ~ 1 | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)     Z_firmNo      sigmaSq        gamma  
        3.32        -0.01         1.09         0.94  
-> all.equal( saa10[-41], aa10[-41], tol = 1e-4 )
+> all.equal( saa10[-42], aa10[-42], tol = 1e-4 )
 [1] TRUE
 > nobs( saa10 )
 [1] 60
@@ -111263,7 +111482,7 @@ sfa(formula = logOutput ~ logLabour | firmNo - 1, data = front41Data)
 Maximum likelihood estimates
 (Intercept)    logLabour     Z_firmNo      sigmaSq        gamma  
        1.02         0.53        -0.03         0.65         0.93  
-> all.equal( saa11[-41], aa11[-41], tol = 1e-4 )
+> all.equal( saa11[-42], aa11[-42], tol = 1e-4 )
 [1] TRUE
 > nobs( saa11 )
 [1] 60
@@ -111818,4 +112037,4 @@ Model 2: translog
 > 
 > proc.time()
    user  system elapsed 
- 17.920   1.936  19.872 
+ 16.128   1.781  17.904 

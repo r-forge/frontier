@@ -1,5 +1,5 @@
 
-R version 3.6.3 RC (2020-02-21 r77847) -- "Holding the Windsock"
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -60,7 +60,7 @@ https://r-forge.r-project.org/projects/frontier/
 +    data = as.data.frame( riceProdPhil ) )
 > bb5ecf <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ) )
-> all.equal( sbb5ecf[-41], bb5ecf[-41], tol = 1e-3 )
+> all.equal( sbb5ecf[-42], bb5ecf[-42], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -69,7 +69,7 @@ https://r-forge.r-project.org/projects/frontier/
 > bb5eef <- frontier( data = as.data.frame( riceProdPhil ),
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sbb5eef[-41], bb5eef[-41], tol = 1e-3 )
+> all.equal( sbb5eef[-42], bb5eef[-42], tol = 1e-3 )
 [1] TRUE
 > tmp <- efficiencies( sbb5eef, margEff = TRUE )
 Warning message:
@@ -102,7 +102,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6ecf[-41], bb6ecf[-41], tol = 1e-3 )
+> all.equal( sbb6ecf[-42], bb6ecf[-42], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -117,7 +117,7 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = as.data.frame(riceProdPhil)) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sbb6eef[-41], bb6eef[-41], tol = 1e-3 )
+> all.equal( sbb6eef[-42], bb6eef[-42], tol = 1e-3 )
 [1] TRUE
 > tmp <- efficiencies( sbb6eef, margEff = TRUE )
 Warning message:
@@ -145,9 +145,9 @@ In efficiencies.frontier(sbb6eef, margEff = TRUE) :
 > b5eef <- frontier( data = riceProdPhil,
 +    yName = "lPROD", xNames = c( "lAREA", "lLABOR", "lNPK" ),
 +    zNames = NA )
-> all.equal( sb5eef[-41], b5eef[-41], tol = 1e-3 )
+> all.equal( sb5eef[-42], b5eef[-42], tol = 1e-3 )
 [1] TRUE
-> all.equal( b5eef[ -c( 3, 4, 19, 32, 33, 41 ) ], bb5eef[ -c( 3, 4, 19, 32, 33, 41 ) ], 
+> all.equal( b5eef[ -c( 3, 4, 20, 33, 34, 42 ) ], bb5eef[ -c( 3, 4, 20, 33, 34, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-3 )
 [1] TRUE
 > all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ), tol = 1e-3 )
@@ -180,9 +180,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK, data = as.data.frame(riceProdPhil),  :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6ecf[-41], b6ecf[-41], tol = 1e-3 )
+> all.equal( sb6ecf[-42], b6ecf[-42], tol = 1e-3 )
 [1] TRUE
-> all.equal( b6ecf[-41], bb6ecf[-41], tol = 1e-3 )
+> all.equal( b6ecf[-42], bb6ecf[-42], tol = 1e-3 )
 [1] TRUE
 > 
 > # Efficiency Effects Frontier (EEF)
@@ -197,9 +197,9 @@ In sfa(lPROD ~ lAREA + lLABOR + lNPK | 1, data = riceProdPhil) :
 Warning message:
 In sfa(formula = sfaFormula, data = data, ...) :
   the parameter 'gamma' is close to the boundary of the parameter space [0,1]: this can cause convergence problems and can negatively affect the validity and reliability of statistical tests and might be caused by model misspecification
-> all.equal( sb6eef[-41], b6eef[-41], tol = 1e-3 )
+> all.equal( sb6eef[-42], b6eef[-42], tol = 1e-3 )
 [1] TRUE
-> all.equal( b6eef[ -c( 3, 4, 19, 32, 33, 41 ) ], bb6eef[ -c( 3, 4, 19, 32, 33, 41 ) ], 
+> all.equal( b6eef[ -c( 3, 4, 20, 33, 34, 42 ) ], bb6eef[ -c( 3, 4, 20, 33, 34, 42 ) ], 
 +    check.attributes = FALSE, tol = 1e-3 )
 [1] TRUE
 > all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ), tol = 1e-3 )
@@ -221,4 +221,4 @@ In sfa(formula = sfaFormula, data = data, ...) :
 > 
 > proc.time()
    user  system elapsed 
-  1.446   0.028   1.468 
+  1.595   0.015   1.604 

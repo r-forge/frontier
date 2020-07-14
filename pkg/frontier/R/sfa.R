@@ -6,6 +6,7 @@ sfa <- function(
       startVal = NULL,
       tol = 0.00001,
       maxit = 1000,
+      minit = min( 5, maxit ),
       muBound = 2,
       bignum = 1.0E+16,
       searchStep = 0.00001,
@@ -127,6 +128,17 @@ sfa <- function(
       stop( "argument 'maxit' must not be negative" )
    }
    maxit <- as.integer( maxit )
+   # minit
+   if( !is.numeric( minit ) || length( minit ) != 1 ) {
+      stop( "argument 'minit' must be a single numeric scalar" )
+   } else if( minit != round( minit ) ) {
+      stop( "argument 'minit' must be an integer" )
+   } else if( minit < 0 ) {
+      stop( "argument 'minit' must not be negative" )
+   } else if( minit > maxit ) {
+      stop( "argument 'minit' must not be greater than argument 'maxit'" )
+   }
+   minit <- as.integer( minit )
    # restartMax
    if( !is.numeric( restartMax ) || length( restartMax ) != 1 ) {
       stop( "argument 'restartMax' must be a single numeric scalar" )
@@ -251,6 +263,7 @@ sfa <- function(
       gridDouble = as.integer( gridDouble ),
       gridSize = as.double( gridSize ),
       maxit = as.integer( maxit ),
+      minit = as.integer( minit ),
       muBound = as.double( muBound ),
       restartMax = as.integer( restartMax ),
       restartFactor = as.double( restartFactor ),

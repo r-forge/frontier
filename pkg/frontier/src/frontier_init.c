@@ -10,15 +10,15 @@
 extern void F77_NAME(front41)( int *imArg, int *ipcArg,
    int *nnArg, int *ntArg, int *nobArg, int *nbArg, int *nmuArg, int *netaArg,
    int *iprintArg, int *indicArg, double *tolArg, double *tol2Arg, double *bignumArg,
-   double *step1Arg, int *igrid2Arg, double *gridnoArg, int *maxitArg, double *bmuArg,
-   int *mrestartArg, double *frestartArg, int *nrestartArg,
+   double *step1Arg, int *igrid2Arg, double *gridnoArg, int *maxitArg, int *minitArg, 
+   double *bmuArg, int *mrestartArg, double *frestartArg, int *nrestartArg,
    int *nStartVal, double *startVal, int *nRowData, int *nColData, double *dataTable,
    int *nParamTotal, double *ob, double *ga, double *gb,
    double *startLogl, double *y, double *h, double *fmleLogl,
    int *nIter, int *icodeArg, int *nfunctArg );
 
 static const R_FortranMethodDef FortranEntries[] = {
-    {"front41", (DL_FUNC) &F77_NAME(front41), 37},
+    {"front41", (DL_FUNC) &F77_NAME(front41), 38},
     {NULL, NULL, 0}
 };
 

@@ -19,7 +19,8 @@
 sfa( formula, data = sys.frame( sys.parent() ),
    ineffDecrease = TRUE, truncNorm = FALSE,
    timeEffect = FALSE, startVal = NULL,
-   tol = 0.00001, maxit = 1000, muBound = 2, bignum = 1.0E+16,
+   tol = 0.00001, maxit = 1000, minit = min( 5, maxit ), 
+   muBound = 2, bignum = 1.0E+16,
    searchStep = 0.00001, searchTol = 0.001, searchScale = NA,
    gridSize = 0.1, gridDouble = TRUE,
    restartMax = 10, restartFactor = 0.999, printIter = 0 )
@@ -62,6 +63,7 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       estimation.}
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
+   \item{minit}{numeric. Minimum number of iterations.}
    \item{muBound}{numeric. Bounds on the parameter \eqn{\mu}{mu}
       (see \sQuote{details} section).}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}
