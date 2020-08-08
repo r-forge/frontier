@@ -113,7 +113,7 @@
    If argument \code{asInData} is \code{FALSE},
    this attribute is a 3-dimensional array,
    where the first dimension represents the individual firm,
-   the second deminsion represents the time period,
+   the second dimension represents the time period,
    and the third dimension represents the \eqn{z} variables.
    In contrast, if argument \code{asInData} is \code{TRUE},
    this attribute is a matrix,
