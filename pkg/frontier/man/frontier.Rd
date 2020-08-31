@@ -63,7 +63,10 @@ frontier( yName, xNames = NULL, zNames = NULL, data,
       estimation.}
    \item{tol}{numeric. Convergence tolerance (proportional).}
    \item{maxit}{numeric. Maximum number of iterations permitted.}
-   \item{minit}{numeric. Minimum number of iterations.}
+   \item{minit}{numeric. Minimum number of iterations 
+      (ignored if the search procedure cannot find parameter values 
+      that give a higher log-likelihood value 
+      than the current parameter values).}
    \item{muBound}{numeric. Bounds on the parameter \eqn{\mu}{mu}
       (see \sQuote{details} section).}
    \item{bignum}{numeric. Used to set bounds on densities and distributions.}

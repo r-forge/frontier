@@ -176,7 +176,7 @@ c       contains the main loop of this iterative program.
           nrestart=nrestart+1
           goto 107
         else
-          if (iter.ge.minit) then
+          if ((iter.ge.minit).or.(icode.eq.5)) then
             goto 70
           endif
         endif

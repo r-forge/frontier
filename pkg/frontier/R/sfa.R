@@ -405,9 +405,9 @@ sfa <- function(
          " please try again using different starting values and/or",
          " increase the maximum number of iterations" )
    }
-   if( returnObj$nIter == minit && maxit > minit ) {
-      warning( "the number of iterations is equal to the minimum number",
-         " of iterations set by argument 'minit';",
+   if( returnObj$nIter <= minit && maxit > minit ) {
+      warning( "the number of iterations is smaller than or equal to",
+         " the minimum number of iterations set by argument 'minit';",
          " please carefully check whether the estimation converged",
          " to the global maximum of the log-likelihood value,",
          " e.g., by re-estimating the model with different starting values" )
