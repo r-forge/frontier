@@ -312,6 +312,10 @@ sfa <- function(
             " is not equal to argument 'nColData'.",
             " Please contact the maintainer of the 'frontier' package",
             " (arne.henningsen@gmail.com)" )
+   } else if( returnObj$code == 110 ) {
+      stop( "the iteration failed because the function value",
+         " in the internal search procedure is NaN.",
+         " You could try to specify different starting values." )
    } else if( returnObj$code > 100 ) {
       stop( "unknown error.",
          " Please contact the maintainer of the 'frontier' package",
@@ -507,7 +511,7 @@ sfa <- function(
    returnObj$call <- match.call()
    returnObj$validObs <- validObs
 
-   if( maxit > 0 ) {
+   if( maxit > 0 && !is.na( returnObj$mleParam[ "gamma" ] ) ) {
       if( ( returnObj$mleParam[ "gamma" ] < 0.01 || 
             returnObj$mleParam[ "gamma" ] > 0.99 ) ) {
          warning( "the parameter 'gamma' is close to the boundary",

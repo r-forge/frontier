@@ -353,8 +353,7 @@ c       determines the step length (t) using a unidimensional search.
       if (im.eq.1) call fun1(y,f,yy,xx)
       if (im.eq.2) call fun2(y,f,yy,xx)
       if (f.ne.f) then
-        call intpr( 'function value in search procedure is NaN',
-     $    -1, 0, 0 )
+        icode=110
         return
       endif
       k=k+1
