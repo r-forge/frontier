@@ -82,23 +82,29 @@ cooks.distance.frontier <- function( model, target = "predict",
   for( i in 1:length( cooksDist ) ) {
     # re-estimate the SFA model without the i-th valid observation
     estArg$data <- estData[ -which( model$validObs )[i], ]
-    estNew <- suppressWarnings( do.call( estFunc, estArg ) )
+    estNew <- try( suppressWarnings( do.call( estFunc, estArg ) ),
+      silent = TRUE )
   
-    if( target == "predict" ) {
-      # obtain predicted values for all observations
-      predVal <- predict( estNew, newdata = estData )
-      
-      # calculate pseudo-Cook's distance for the predict values
-      cooksDist[i] <- sum( ( (fitVal - predVal )[ model$validObs ] )^2 ) /
-        ( model$nb * sigma2 )
-    } else if( target == "efficiencies" ) {
-      # obtain efficiency estimates for all observations
-      effValNew <- efficiencies( estNew, newdata = estData, asInData = TRUE, 
-        ... )
-      
-      # calculate pseudo-Cook's distance for the efficiency estimates
-      cooksDist[i] <- sum( ( ( effVal - effValNew )[ model$validObs ] )^2 ) /
-        ( model$nb * sigma2Eff )
+    if( inherits( estNew, "try-error" ) ) {
+      warning( "Error in the estimation without firm number ", i, ":\n",
+        estNew )
+    } else {
+      if( target == "predict" ) {
+        # obtain predicted values for all observations
+        predVal <- predict( estNew, newdata = estData )
+        
+        # calculate pseudo-Cook's distance for the predict values
+        cooksDist[i] <- sum( ( (fitVal - predVal )[ model$validObs ] )^2 ) /
+          ( model$nb * sigma2 )
+      } else if( target == "efficiencies" ) {
+        # obtain efficiency estimates for all observations
+        effValNew <- efficiencies( estNew, newdata = estData, asInData = TRUE, 
+          ... )
+        
+        # calculate pseudo-Cook's distance for the efficiency estimates
+        cooksDist[i] <- sum( ( ( effVal - effValNew )[ model$validObs ] )^2 ) /
+          ( model$nb * sigma2Eff )
+      }
     }
     
     # update progress bar
