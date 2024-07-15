@@ -1,7 +1,7 @@
 
-R version 3.6.1 (2019-07-05) -- "Action of the Toes"
-Copyright (C) 2019 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
+R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -272,7 +272,7 @@ Error in sfa(log(output) ~ log(capital) + log(labour) + log(capital10) +  :
 Warning message:
 In pdata.frame(rd, c("FMERCODE", "YEARDUM"), row.names = FALSE) :
   duplicate couples (id-time) in resulting pdata.frame
- to find out which, use e.g. table(index(your_pdataframe), useNA = "ifany")
+ to find out which, use, e.g., table(index(your_pdataframe), useNA = "ifany")
 > try( sfa( log( PROD ) ~ log( AREA ) + log( LABOR ) + log( NPK ), data = rd ) )
 Error in sfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK), data = rd) : 
   more than one observation for firm '11' in period '1'
@@ -287,8 +287,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -519,8 +519,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-cannot find a parameter vector that results in a log-likelihood value
-larger than the log-likelihood value obtained in the previous step
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -617,8 +617,8 @@ Error Components Frontier (see Battese & Coelli 1992)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
 Iterative ML estimation terminated after 11 iterations:
-log likelihood values and parameters of two successive iterations
-are within the tolerance limit
+cannot find a parameter vector that results in a log-likelihood value
+larger than the log-likelihood value obtained in the previous step
 
 final maximum likelihood estimates
             Estimate Std. Error z value Pr(>|z|)    
@@ -687,4 +687,4 @@ mean efficiency: 0.82647
 > 
 > proc.time()
    user  system elapsed 
-  0.574   0.036   0.601 
+  0.744   0.057   0.802 
