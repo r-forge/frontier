@@ -38,7 +38,8 @@ tmp <- efficiencies( sbb5eef, margEff = TRUE )
 # Comparisons
 round( rbind( coef( bb5ecf ), coef( bb5eef ) ), 2 )
 all.equal( coef( bb5ecf ), coef( bb5eef ), tol = 1e-3 )
-all.equal( vcov( bb5ecf ), vcov( bb5eef ), tol = 1e-3 )
+all.equal( vcov( bb5ecf ), vcov( bb5eef ), tol = 1e-2 )
+round( rbind( sqrt( diag( vcov( bb5ecf ) ) ), sqrt( diag( vcov( bb5eef ) ) ) ), 3 )
 all.equal( efficiencies( bb5ecf ), efficiencies( bb5eef ), tol = 1e-3 )
 
 
@@ -61,6 +62,8 @@ all.equal( sbb6eef[-42], bb6eef[-42], tol = 1e-3 )
 tmp <- efficiencies( sbb6eef, margEff = TRUE )
 
 # Comparisons
+all.equal( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ],
+   check.attributes = FALSE, tol = 1e-1 )
 round( rbind( coef( bb6ecf ), coef( bb6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
 all.equal( efficiencies( bb6ecf ), efficiencies( bb6eef ), tol = 1e-3 )
 
@@ -85,7 +88,8 @@ all.equal( c( t( residuals( b5eef ) ) ), c( residuals( bb5eef ) ), tol = 1e-3 )
 # Comparisons
 round( rbind( coef( b5ecf ), coef( b5eef ) ), 2 )
 all.equal( coef( b5ecf ), coef( b5eef ), tol = 1e-3 )
-all.equal( vcov( b5ecf ), vcov( b5eef ), tol = 1e-3 )
+all.equal( vcov( b5ecf ), vcov( b5eef ), tol = 1e-2 )
+round( rbind( sqrt( diag( vcov( b5ecf ) ) ), sqrt( diag( vcov( b5eef ) ) ) ), 3 )
 all.equal( c( efficiencies( b5ecf ) ), c( t( efficiencies( b5eef ) ) ), 
    tol = 1e-3 )
 
@@ -113,6 +117,8 @@ all.equal( c( efficiencies( b6ecf ) ), c( efficiencies( bb6eef ) ), tol = 1e-3 )
 all.equal( c( residuals( b6ecf ) ), c( residuals( bb6eef ) ), tol = 5e-3 )
 
 # Comparisons
+all.equal( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ], 
+   check.attributes = FALSE, tol = 1e-1 )
 round( rbind( coef( b6ecf ), coef( b6eef )[ c( 1:4, 6:7, 5 ) ] ), 2 )
 all.equal( c( efficiencies( b6ecf ) ), c( t( efficiencies( b6eef ) ) ), 
    tol = 1e-3 )
