@@ -2660,7 +2660,7 @@ all.equal( c( log( naTimePanelData$PROD ) ) - fitted( b6t, asInData = TRUE ),
 printAll( b6t )
 
 
-## translog frontiers
+## translog frontiers, cross-sectional data
 ## cross-section data, error components frontier, translog
 translog <- frontierQuad( data = front41Data, yName = "logOutput",
    xNames = c( "logCapital", "logLabour" ), lrTests = TRUE )
@@ -2762,6 +2762,110 @@ round( attributes( translogZvarEla )$variance, 2 )
 round( attributes( translogZvarEla )$stdDev, 2 )
 try( resettestFrontier( translogZvar ) )
 printAll( translogZvar )
+
+## translog frontiers, panel data
+## panel data, error components frontier, translog
+translogPanel <- frontierQuad( yName = "lPROD",
+   xNames = c( "lAREA", "lLABOR", "lNPK" ),
+   data = riceProdPhilPanel, lrTests = TRUE )
+print( translogPanel, digits = 1 )
+coef( translogPanel, which = "start" )
+round( coef( translogPanel, which = "ols" ), 2 )
+round( coef( translogPanel, which = "grid" ), 2 )
+round( coef( translogPanel ), 2 )
+round( coef( summary( translogPanel ), which = "ols" ), 2 )
+round( coef( summary( translogPanel ) ), 2 )
+round( vcov( translogPanel ), 2 )
+print( logLik( translogPanel, which = "ols" ), digits = 4 )
+print( logLik( translogPanel ), digits = 4 )
+nobs( translogPanel )
+print( summary( translogPanel ), digits = 1 )
+print( summary( translogPanel, effMinusU = FALSE ), digits = 1 )
+lrtest( translogPanel )
+round( efficiencies( translogPanel ), 2 )
+round( efficiencies( translogPanel, asInData = TRUE ), 2 )
+round( efficiencies( translogPanel, minusU = FALSE ), 2 )
+round( efficiencies( translogPanel, asInData = TRUE, minusU = FALSE ), 2 )
+round( fitted( translogPanel ), 2 )
+round( fitted( translogPanel, asInData = TRUE ), 2 )
+round( residuals( translogPanel ), 2 )
+round( residuals( translogPanel, asInData = TRUE ), 2 )
+all.equal( fitted( translogPanel, asInData = TRUE ) + 
+      residuals( translogPanel, asInData = TRUE ),
+   c( riceProdPhilPanel$lPROD ), check.attributes = FALSE, tol = 1e-4 )
+translogPanelEla <- elas( translogPanel )
+round( translogPanelEla, 2 )
+round( attributes( translogPanelEla )$variance, 2 )
+round( attributes( translogPanelEla )$stdDev, 2 )
+resettestFrontier( translogPanel )
+printAll( translogPanel )
+
+## panel data, error components frontier, translog, shifter
+translogPanelShift <- frontierQuad( yName = "lPROD",
+   xNames = c( "lAREA", "lLABOR", "lNPK" ), shifterNames = "BANRAT",
+   data = riceProdPhilPanel, lrTests = TRUE )
+print( translogPanelShift, digits = 1 )
+coef( translogPanelShift, which = "start" )
+round( coef( translogPanelShift, which = "ols" ), 2 )
+round( coef( translogPanelShift, which = "grid" ), 2 )
+round( coef( translogPanelShift ), 2 )
+round( coef( summary( translogPanelShift ), which = "ols" ), 2 )
+round( coef( summary( translogPanelShift ) ), 2 )
+round( vcov( translogPanelShift ), 2 )
+print( logLik( translogPanelShift, which = "ols" ), digits = 4 )
+print( logLik( translogPanelShift ), digits = 4 )
+nobs( translogPanelShift )
+print( summary( translogPanelShift ), digits = 1 )
+lrtest( translogPanelShift )
+round( efficiencies( translogPanelShift ), 2 )
+round( efficiencies( translogPanelShift, asInData = TRUE ), 2 )
+round( residuals( translogPanelShift ), 2 )
+round( residuals( translogPanelShift, asInData = TRUE ), 2 )
+all.equal( fitted( translogPanelShift, asInData = TRUE ) + 
+      residuals( translogPanelShift, asInData = TRUE ),
+   c( riceProdPhilPanel$lPROD ), check.attributes = FALSE, tol = 1e-4 )
+translogPanelShiftEla <- elas( translogPanelShift )
+round( translogPanelShiftEla, 2 )
+round( attributes( translogPanelShiftEla )$variance, 2 )
+round( attributes( translogPanelShiftEla )$stdDev, 2 )
+resettestFrontier( translogPanelShift )
+printAll( translogPanelShift )
+
+## panel data, efficiency effects frontier, translog
+translogPanelZvar <- frontierQuad( yName = "lPROD",
+   xNames = c( "lAREA", "lLABOR", "lNPK" ), zNames = "BANRAT",
+   data = riceProdPhilPanel, lrTests = TRUE )
+print( translogPanelZvar, digits = 1 )
+coef( translogPanelZvar, which = "start" )
+round( coef( translogPanelZvar, which = "ols" ), 2 )
+round( coef( translogPanelZvar, which = "grid" ), 2 )
+round( coef( translogPanelZvar ), 2 )
+round( coef( summary( translogPanelZvar ), which = "ols" ), 2 )
+round( coef( summary( translogPanelZvar ) ), 2 )
+round( vcov( translogPanelZvar ), 2 )
+print( logLik( translogPanelZvar, which = "ols" ), digits = 4 )
+print( logLik( translogPanelZvar ), digits = 4 )
+nobs( translogPanelZvar )
+print( summary( translogPanelZvar ), digits = 1 )
+print( summary( translogPanelZvar, effMinusU = FALSE ), digits = 1 )
+lrtest( translogPanelZvar )
+printME( efficiencies( translogPanelZvar, margEff = TRUE ) )
+printME( efficiencies( translogPanelZvar, asInData = TRUE, margEff = TRUE ) )
+printME( efficiencies( translogPanelZvar, minusU = FALSE, margEff = TRUE ) )
+printME( efficiencies( translogPanelZvar, asInData = TRUE, minusU = FALSE, margEff = TRUE ) )
+round( fitted( translogPanelZvar ), 2 )
+round( fitted( translogPanelZvar, asInData = TRUE ), 2 )
+round( residuals( translogPanelZvar ), 2 )
+round( residuals( translogPanelZvar, asInData = TRUE ), 2 )
+all.equal( fitted( translogPanelZvar, asInData = TRUE ) + 
+      residuals( translogPanelZvar, asInData = TRUE ),
+   c( riceProdPhilPanel$lPROD ), check.attributes = FALSE, tol = 1e-4 )
+translogPanelZvarEla <- elas( translogPanelZvar )
+round( translogPanelZvarEla, 2 )
+round( attributes( translogPanelZvarEla )$variance, 2 )
+round( attributes( translogPanelZvarEla )$stdDev, 2 )
+try( resettestFrontier( translogPanelZvar ) )
+printAll( translogPanelZvar )
 
 
 #######  only an intercept as explanatory variable  #######
@@ -4038,7 +4142,7 @@ print( logLik( d6, newParam = coef( d6 ) ), digits = 4 )
 print( logLik( sd6, newParam = coef( sd6 ) ), digits = 4 )
 
 
-## translog frontiers
+## translog frontiers, cross-sectional data
 ## cross-section data, error components frontier, translog
 print( logLik( translog ), digits = 4 )
 print( logLik( translog, newParam = coef( translog ) ), digits = 4 )
@@ -4050,6 +4154,21 @@ print( logLik( translogShift, newParam = coef( translogShift ) ), digits = 4 )
 ## cross-section data, efficiency effects frontier, translog
 print( logLik( translogZvar ), digits = 4 )
 print( logLik( translogZvar, newParam = coef( translogZvar ) ), digits = 4 )
+
+
+## translog frontiers, panel data
+## panel data, error components frontier, translog
+print( logLik( translogPanel ), digits = 4 )
+print( logLik( translogPanel, newParam = coef( translogPanel ) ), digits = 4 )
+
+## panel data, error components frontier, translog, shifter
+print( logLik( translogPanelShift ), digits = 4 )
+print( logLik( translogPanelShift, newParam = coef( translogPanelShift ) ), 
+   digits = 4 )
+
+## panel data, efficiency effects frontier, translog
+print( logLik( translogPanelZvar ), digits = 4 )
+print( logLik( translogPanelZvar, newParam = coef( translogPanelZvar ) ), digits = 4 )
 
 
 ##############################################
@@ -4107,3 +4226,4 @@ lrtest( d6, d5, d9, d6 )
 
 ## translog
 lrtest( translogShift, translog )
+lrtest( translogPanelShift, translogPanel )
