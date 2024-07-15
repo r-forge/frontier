@@ -12,8 +12,8 @@ frontierQuad <- function(
 
    if( inherits( data, "pdata.frame" ) ) {
       # current panel data format from pkg plm
-      dataQuad <- index( data )
-      dataQuad$y <- data[[ yName ]]
+      dataQuad <- data[ , yName, drop = FALSE ]
+      names( dataQuad )[1] <- "y"
    } else if( inherits( data, "plm.dim" ) ) {
       # deprecated panel data format from pkg plm
       dataQuad <- data[, 1:2]
